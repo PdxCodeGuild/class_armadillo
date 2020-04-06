@@ -106,8 +106,12 @@ right(30)
 setposition(12,-40)
 
 #ground
+
+
 penup()
-setposition(150,-240)
+setposition(100,-240)
 pendown()
-setposition(-150,-240)
+setposition(-100, -240)
+
+
 done()
