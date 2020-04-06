@@ -4,7 +4,7 @@
 
 - Matthew Cooper: matthew@pdxcodeguild.com
 - Keegan Good: keegood8@gmail.com 
-- Jon Yates
+- Jon Yates: carlock1609@gmail.com
 
 - Abagayle Shane: shaneabagayle@gmail.com
 - Adam Meier: meieradamn@gmail.com
