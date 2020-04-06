@@ -48,17 +48,26 @@ right(30)
 forward(50)
 
 #make him a face
+
 penup()
 goto(-20,120)
+
+fillcolor('blue')
+begin_fill()
 pendown()
 circle (7)
+end_fill()
 penup()
 goto(15,120)
+begin_fill()
 pendown()
 circle(7)
+end_fill()
+
 
 penup()
 goto(20,100)
+color('red')
 pendown()
 goto(0, 95)
 
