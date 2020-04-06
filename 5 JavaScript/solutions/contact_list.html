@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <style>
+            #container {
+                width:600px;
+            }
+            #container table {
+                width:100%;
+            }
+            #container table th {
+                text-align:left;
+                background-color:cornflowerblue;
+                color:white;
+            }
+
+            #container table tr:nth-child(odd) {
+                background-color:#bad0f7;
+            }
+        </style>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <div id="container">
+            <input id="input_name" type="text" placeholder="name"/>
+            <input id="input_age" type="number" placeholder="age"/>
+            <input id="input_fav_tv" type="text" placeholder="favorite tv show"/>
+            <button id="bt_add">add</button>
+
+            <table>
+                <tbody id="contact_table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Favorite TV Show</th>
+                        <th></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script>
+
+            // get the elemens out of the dom
+            let input_name = document.querySelector('#input_name')
+            let input_age = document.querySelector('#input_age')
+            let input_fav_tv = document.querySelector('#input_fav_tv')
+            let bt_add = document.querySelector('#bt_add')
+            let contact_table = document.querySelector('#contact_table')
+
+
+
+
+            bt_add.onclick = function() {
+
+                // get the values out of the input fields at the top
+                let name = input_name.value
+                let age = input_age.value
+                let fav_tv = input_fav_tv.value
+
+
+                // create a new row for our table
+                let tr = document.createElement('tr')
+
+                let td_name = document.createElement('td')
+                td_name.innerText = name
+
+                let td_age = document.createElement('td')
+                td_age.innerText = age
+
+                let td_fav_tv = document.createElement('td')
+                td_fav_tv.innerText = fav_tv
+
+                let td_bts = document.createElement('td')
+                let remove_bt = document.createElement('button')
+                remove_bt.innerText = 'X'
+                remove_bt.style.color = 'red'
+                remove_bt.classList.add('bt')
+                remove_bt.onclick = function() {
+                    if (confirm('Are you sure?')) {
+                        contact_table.removeChild(this.parentElement.parentElement)
+                        //contact_table.removeChild(tr) // or this
+                    }
+                }
+
+                let edit_bt = document.createElement('button')
+                edit_bt.innerText = '✎'
+                edit_bt.style.color = 'blue'
+                edit_bt.classList.add('bt')
+                edit_bt.onclick = function() {
+
+
+                    let bts = document.querySelectorAll('.bt')
+                    for (let i=0; i<bts.length; ++i) {
+                        bts[i].setAttribute('disabled', 'disabled')
+                    }
+
+
+
+                    // go through tds in tr, get values
+                    // create a new tr, hide this one
+
+                    let old_tr = this.parentElement.parentElement
+
+                    let name = old_tr.children[0].innerText
+                    let age = old_tr.children[1].innerText
+                    let fav_tv = old_tr.children[2].innerText
+
+                    old_tr.style.display = 'none'
+
+                    // create new row with input fields
+                    let new_tr = document.createElement('tr')
+
+                    let td_name_edit = document.createElement('td')
+                    let input_name_edit = document.createElement('input')
+                    input_name_edit.setAttribute('type', 'text')
+                    input_name_edit.value = name
+                    td_name_edit.appendChild(input_name_edit)
+
+                    let td_age_edit = document.createElement('td')
+                    let input_age_edit = document.createElement('input')
+                    input_age_edit.setAttribute('type', 'number')
+                    input_age_edit.value = age
+                    td_age_edit.appendChild(input_age_edit)
+
+                    let td_fav_tv_edit = document.createElement('td')
+                    let input_fav_tv_edit = document.createElement('input')
+                    input_fav_tv_edit.setAttribute('type', 'text')
+                    input_fav_tv_edit.value = fav_tv
+                    td_fav_tv_edit.appendChild(input_fav_tv_edit)
+
+                    // add buttons to tr to cancel/save
+                    let td_bts = document.createElement('td')
+                    let bt_cancel = document.createElement('button')
+                    bt_cancel.innerText = 'X'
+                    bt_cancel.style.color = 'red'
+                    bt_cancel.setAttribute('title', 'cancel')
+                    bt_cancel.onclick = function() {
+                        old_tr.style.display = ''
+                        contact_table.removeChild(new_tr)
+                        for (let i=0; i<bts.length; ++i) {
+                            bts[i].removeAttribute('disabled')
+                        }
+                    }
+                    td_bts.appendChild(bt_cancel)
+
+                    let bt_save = document.createElement('button')
+                    bt_save.innerText = '✓'
+                    bt_save.style.color = 'green'
+                    bt_save.setAttribute('title', 'save')
+                    bt_save.onclick = function() {
+
+                        // move values from the new tr's input fields to the old tr's tds
+                        let name = input_name_edit.value
+                        let age = input_age_edit.value
+                        let fav_tv = input_fav_tv_edit.value
+
+                        old_tr.children[0].innerText = name
+                        old_tr.children[1].innerText = age
+                        old_tr.children[2].innerText = fav_tv
+
+                        // make old tr visible
+                        // remove new tr
+                        old_tr.style.display = ''
+                        contact_table.removeChild(new_tr)
+
+                        for (let i=0; i<bts.length; ++i) {
+                            bts[i].removeAttribute('disabled')
+                        }
+                    }
+
+                    td_bts.appendChild(bt_save)
+
+
+                    new_tr.appendChild(td_name_edit)
+                    new_tr.appendChild(td_age_edit)
+                    new_tr.appendChild(td_fav_tv_edit)
+                    new_tr.appendChild(td_bts)
+
+                    contact_table.insertBefore(new_tr, old_tr)
+                }
+
+
+                td_bts.appendChild(remove_bt)
+                td_bts.appendChild(edit_bt)
+
+                tr.appendChild(td_name)
+                tr.appendChild(td_age)
+                tr.appendChild(td_fav_tv)
+                tr.appendChild(td_bts)
+
+                contact_table.appendChild(tr)
+            }
+
+            // add values to table for testing
+            input_name.value = 'deraj'
+            input_fav_tv.value = 'Qi'
+            for (let i=0; i<10; ++i) {
+                input_age.value = i
+                bt_add.onclick()
+            }
+
+
+        </script>
+    </body>
+</html>

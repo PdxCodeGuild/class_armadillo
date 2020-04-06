@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <style>
+            canvas {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <img id="blueflower" style="display:none" src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="940" height="650"/>
+        <canvas id="cnv" width="500" height="500"></canvas>
+        <script>
+
+            let block = {
+                x: 0,
+                y: 0,
+                vx: Math.random()*10,
+                vy: Math.random()*10
+            }
+
+
+
+            let cnv = document.getElementById('cnv');
+            let ctx = cnv.getContext('2d');
+
+            // draw a rectangle
+            ctx.fillStyle = 'green';
+            ctx.fillRect(10, 10, 100, 100);
+
+            // draw some text
+            ctx.fillStyle = 'red'
+            ctx.font = "30px Arial";
+            ctx.fillText("Hello World", 10, 50);
+
+
+            let blueflower = document.querySelector('#blueflower')
+            ctx.drawImage(blueflower, 0, 0, 100, 100)
+
+
+
+            // canvas click event listener
+            cnv.onclick = function(e) {
+                let rect = cnv.getBoundingClientRect()
+
+                // subtract off the top left corner of the element
+                // get get coordinates relative to the element
+                // and not relative to the page
+                let mx = e.clientX - rect.left
+                let my = e.clientY - rect.top
+                alert(mx + ', ' + my)
+            }
+
+        </script>
+    </body>
+</html>

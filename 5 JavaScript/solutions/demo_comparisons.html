@@ -1,0 +1,65 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="mydiv"></div>
+        <script>
+            // python - and, or
+            // javascript shortcircuited - && ||
+            // javascript non-shortcircuited - & |
+            // non-shortcircuited is for using them as arithmetic operators
+
+
+            // true && true -> true
+            // true && false -> false
+            // false && true -> false
+            // false && false -> false
+
+
+            // x = new Class()
+            // //...
+            // if (x != null && x.checkCondition()) {
+            //
+            // }
+            //
+            // i = 5
+            // if (i < nums.length && nums[i] != 0) {
+            //
+            // }
+            //
+            //
+            // let x = -1
+            // if (x > 0 && x < 10) {
+            //     console.log('x is within range')
+            // }
+
+
+            document.querySelector('#mydiv').innerHTML = 'hello world!'
+
+
+
+            requestanimationFrame = requestanimationFrame |
+                                        mozRequestAnimationFrame |
+                                        chromeAnimationFrame
+
+
+
+            // jQuery version
+            $('li').html(function(index, oldHtml) {
+              return oldHtml + '!!!';
+            });
+
+            // vanilla js version
+            let lis = document.querySelectorAll('li')
+            for (let i=0; i<lis.length; ++i) {
+                lis[i].innerHtml += '!!!'
+            }
+
+
+
+
+
+        </script>
+    </body>
+</html>

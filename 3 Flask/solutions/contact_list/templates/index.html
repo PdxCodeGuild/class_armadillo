@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style type="text/css">
+
+      .maindiv {
+        display: flex;
+        flex-direction: column;
+        align-items:stretch;
+        min-height: 100vh;
+
+        max-width:800px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 20px 0;
+      }
+
+      main {
+        flex: 1 0 auto;
+        padding:20px;
+      }
+      form button {
+        width:100%;
+      }
+      .form_div {
+        margin:60px 0;
+      }
+    </style>
+  </head>
+  <body class="blue">
+    <div class="maindiv">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Logo</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">JavaScript</a></li>
+          </ul>
+        </div>
+      </nav>
+      <main class="white">
+        <h1>Contacts</h1>
+
+        <div class="row form_div">
+          <form class="col s12" action="" method="POST">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="contact_name" type="text" class="validate" name="contact_name" required>
+                <label for="contact_name">Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="contact_age" type="number" class="validate" name="contact_age" required>
+                <label for="contact_age">Age</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="contact_email" type="email" class="validate" name="contact_email" required>
+                <label for="contact_email">Email</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="contact_fav_color" type="text" class="validate" name="contact_fav_color" required>
+                <label for="contact_fav_color">Favorite Color</label>
+              </div>
+            </div>
+            <button type="submit" class="btn">submit</button>
+          </form>
+        </div>
+        <table>
+          <tr>
+            {% for header in headers %}
+            <th>{{header}}</th>
+            {% endfor %}
+          </tr>
+          {% for contact in contacts %}
+          <tr>
+            {% for value in contact.values() %}
+            <td>{{value}}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+      </main>
+      <footer class="page-footer">
+        <div class="footer-copyright">
+          <div class="container">
+          © 2020 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

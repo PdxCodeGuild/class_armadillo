@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <li v-for="quote in quotes">
+                    {{quote.body}} - {{quote.author}}
+                </li>
+            </ul>
+        </div>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    quotes: []
+                },
+                methods: {
+                    getQuotes: function() {
+                        let url = 'https://favqs.com/api/quotes'
+                        let app = this
+                        axios.get(url, {
+                            headers: {
+                                'Authorization': 'Token token="' + 'ee8e044f7ec107a6b96a8f7ff93a89f5' + '"'
+                            }
+                        })
+                        .then(function (response) {
+                            let data = response.data
+                            app.quotes = [] // this is not the app inside a callback!!!
+                            for (let i=0; i<data.quotes.length; ++i) {
+                                app.quotes.push({
+                                    body: data.quotes[i].body,
+                                    author: data.quotes[i].author
+                                })
+                            }
+                        })
+                    }
+                },
+                created: function() {
+                    this.getQuotes()
+                }
+            })
+        </script>
+    </body>
+</html>

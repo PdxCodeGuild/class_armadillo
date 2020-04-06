@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Favorite Color</th>
+      </tr>
+      {% for contact in contacts %}
+      <tr>
+        <td>{{contact['name']}}</td>
+        <td>{{contact['age']}}</td>
+        <td>{{contact['email']}}</td>
+        <td>{{contact['fav_color']}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

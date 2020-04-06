@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action="/example7/" method="post">
+      <input type="number" name="temperature"/>
+      <button type="submit">submit</button>
+    </form>
+    {% if response %}
+    <p>The temperature is {{temperature}} and that is {{response}}</p>
+    {% endif %}
+  </body>
+</html>

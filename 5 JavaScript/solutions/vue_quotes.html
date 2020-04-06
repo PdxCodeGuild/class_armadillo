@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-model="filter_text"/>
+            <select v-model="filter_type">
+                <option value="quote">quote</option>
+                <option value="author">author</option>
+                <option value="tag">tag</option>
+            </select>
+            <button v-on:click="getQuoteButton">Get Quotes</button>
+
+            <ul>
+                <li v-for="quote in quotes">
+                    {{quote.body}} - {{quote.author}}
+                </li>
+            </ul>
+            <button v-on:click="previousPage" v-if="page > 1"><</button>
+            {{ page }}
+            <button v-on:click="nextPage" v-if="last_page == false">></button>
+        </div>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    filter_text: '',
+                    filter_type: 'quote',
+                    quotes: [],
+                    page: 1,
+                    last_page: true
+                },
+                methods: {
+                    getQuoteButton: function() {
+                        this.page = 1
+                        this.getQuotes()
+                    },
+                    getQuotes: function() {
+                        if (this.filter_text == '') {
+                            return
+                        }
+                        let url = 'https://favqs.com/api/quotes/'
+                        console.log(url)
+                        let app = this
+
+                        let quotes = null
+
+                        axios.get(url, {
+                            headers: {
+                                'Authorization': 'Token token="' + 'API KEY HERE' + '"'
+                            },
+                            params: {
+                                filter: this.filter_text,
+                                type: this.filter_type,
+                                page: this.page
+                            }
+                        })
+                        .then(function (response) {
+                            let data = response.data
+                            quotes = data.quotes
+                            processData()
+                            console.log(response.data)
+                            app.quotes = [] // this is not the app inside a callback!!!
+                            for (let i = 0; i < data.quotes.length; ++i) {
+                                app.quotes.push({
+                                    body: data.quotes[i].body,
+                                    author: data.quotes[i].author
+                                })
+                            }
+                            app.last_page = data.last_page
+                        })
+                    },
+                    previousPage: function() {
+                        this.page--
+                        this.getQuotes()
+                    },
+                    nextPage: function() {
+                        this.page++
+                        this.getQuotes()
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

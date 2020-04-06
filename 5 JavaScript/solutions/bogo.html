@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <style>
+            #outerdiv {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                margin:auto auto;
+                width:50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="outerdiv">
+        </div>
+        <script>
+
+
+            class SortableNumber {
+                constructor(parent) {
+
+                    let rand = Math.random()
+
+                    this.v = Math.floor(5 + rand * 35)
+                    this.div = document.createElement('div')
+                    this.div.style.width = '20px'
+                    this.div.style.height = this.v + 'px'
+
+                    // let r = randint(0, 255)
+                    // let g = randint(0, 255)
+                    // let b = randint(0, 255)
+                    // this.div.style.backgroundColor = `rgb(${r},${g},${b})`
+
+
+                    let h = Math.floor(rand*360)
+                    this.div.style.backgroundColor = 'hsl(' + h + ',100%,50%)'
+
+
+                    this.div.style.margin = '4px'
+                }
+            }
+
+            function randint(a, b) {
+                return a + Math.floor(Math.random() * (b - a))
+            }
+
+            function swap(arr, i, j) {
+                let t = arr[i]
+                arr[i] = arr[j]
+                arr[j] = t
+            }
+
+
+            function reorderChildren(nums, outerdiv) {
+                while (outerdiv.firstChild) {
+                    outerdiv.removeChild(outerdiv.firstChild);
+                }
+                let i = randint(0, nums.length)
+                let j = 0
+                //do {
+                j = randint(0, nums.length)
+                //} while (i == j)
+                swap(nums, i, j)
+                for (let i = 0; i < nums.length; ++i) {
+                    outerdiv.appendChild(nums[i].div)
+                }
+            }
+
+
+            function isSorted(nums) {
+                for (let i = 0; i < nums.length - 1; i++) {
+                    if (nums[i].v > nums[i + 1].v) {
+                        return false
+                    }
+                }
+                return true
+            }
+
+
+            function logNums(nums) {
+                let s = ''
+                for (let i = 0; i < nums.length; i++) {
+                    s += nums[i].v + ' '
+                }
+                console.log(s)
+            }
+
+
+            let outerdiv = document.querySelector('#outerdiv')
+
+            let nums = []
+            for (let i = 0; i < 4; ++i) {
+                let sn = new SortableNumber(outerdiv)
+                nums.push(sn)
+                outerdiv.appendChild(sn.div)
+            }
+
+
+            let interval = setInterval(function () {
+                reorderChildren(nums, outerdiv)
+                if (isSorted(nums)) {
+                    clearInterval(interval)
+                    alert('sorted!')
+                }
+            }, 50);
+        </script>
+    </body>
+</html>

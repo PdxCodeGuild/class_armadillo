@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="secrets.js"></script>
+    </head>
+    <body>
+
+
+        <div>
+            <select id="cat_ddl">
+            </select>
+            <button id="cat_bt">gimme a cat</button>
+        </div>
+        <img id="cat_img" width="400"/>
+        <script>
+            let cat_ddl = document.querySelector('#cat_ddl')
+            let cat_bt = document.querySelector('#cat_bt')
+            let cat_img = document.querySelector('#cat_img')
+
+            let url_breeds = 'https://api.thecatapi.com/v1/breeds'
+            axios.get(url_breeds)
+            .then(function (response) {
+                let data = response.data
+                for (let i=0; i<data.length; ++i) {
+                    let id = data[i].id
+                    let name = data[i].name
+
+                    let option = document.createElement('option')
+                    option.setAttribute('value', id)
+                    option.innerText = name
+                    cat_ddl.appendChild(option)
+
+                }
+            })
+
+
+            cat_bt.onclick = function() {
+                let selected_cat_id = cat_ddl.options[cat_ddl.selectedIndex].value
+                let url = 'https://api.thecatapi.com/v1/images/search?breed_id=' + selected_cat_id
+                console.log(url)
+                axios.get(url, {
+                    headers: {
+                        'x-api-key': api_key
+                    }
+                })
+                .then(function (response) {
+                    let data = response.data
+                    let url = data[0].url
+                    console.log(url)
+                    cat_img.setAttribute('src', url)
+                })
+            }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style type="text/css">
+      main {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Todo</h1>
+
+      <form action="/savetodo/" method="post">
+        <div class="row">
+          <div class="input-field col s5">
+            <input type="text" name="todo_text" id="todo_text"/>
+            <label for="todo_text">Text</label>
+          </div>
+          <div class="input-field col s5">
+            <select name="todo_priority" id="todo_priority">
+              <option value="high">high</option>
+              <option value="medium">medium</option>
+              <option value="low">low</option>
+            </select>
+            <label for="todo_priority">Priority</label>
+          </div>
+          <div class="input-field col s2">
+            <button type="submit" class="btn">submit</button>
+          </div>
+        </div>
+
+
+
+      </form>
+
+      <table>
+        <tr>
+          <th>Todo</th>
+          <th>Priority</th>
+        </tr>
+        {% for todo in todos %}
+        <tr>
+          <td>{{todo['text']}}</td>
+          <td>{{todo['priority']}}</td>
+          <td>
+            <form action="/deletetodo/" method="post">
+              <input type="hidden" name="todo_index" value="{{loop.index0}}"/>
+              <button class="btn right red">delete</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </main>
+
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, {});
+      });
+    </script>
+  </body>
+</html>

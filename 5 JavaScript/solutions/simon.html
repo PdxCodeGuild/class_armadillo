@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.5.5/Tone.min.js" type="text/javascript"></script>
+        <style>
+            button {
+                transition: all ease 0.2s;
+                border: none;
+                margin: 4px;
+            }
+            #simon {
+                display:grid;
+                grid-template-rows: auto auto;
+                grid-template-columns: auto auto;
+                width:500px;
+                height:500px;
+                margin: auto auto;
+            }
+            #level_span {
+                text-align:center;
+                width:100px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="level_span"></div>
+        <div id="simon">
+            <button id="bt_green"></button>
+            <button id="bt_red"></button>
+            <button id="bt_yellow"></button>
+            <button id="bt_blue"></button>
+        </div>
+        <script>
+            var synth = new Tone.Synth().toMaster()
+
+            let level_span = document.querySelector('#level_span')
+
+            let bt_green = document.querySelector('#bt_green')
+            let bt_red = document.querySelector('#bt_red')
+            let bt_yellow = document.querySelector('#bt_yellow')
+            let bt_blue = document.querySelector('#bt_blue')
+
+            let buttons = [bt_green, bt_red, bt_yellow, bt_blue]
+            let colors = ['green', 'red', 'yellow', 'blue']
+            let notes = ['G4', 'E4', 'C4', 'G3']
+
+
+            let sequence = []
+            let sequence_index = 0
+
+            // let sequence = [0, 1, 2, 3, 2, 3, 2, 1, 0]
+            // let sequence_index = 0
+            // let interval = setInterval(function() {
+            //     trigger_button(sequence[sequence_index])
+            //     sequence_index++
+            //     if (sequence_index === sequence.length) {
+            //         clearInterval(interval)
+            //     }
+            // }, 500)
+
+
+
+            const mode_computer = 'computer'
+            const mode_human = 'human'
+            let mode = mode_computer
+
+            for (let i=0; i<buttons.length; ++i) {
+                buttons[i].dataset.index = i
+                buttons[i].style.backgroundColor = colors[i]
+                buttons[i].onclick = function() {
+                    if (mode === mode_human) {
+                        let button_index = this.dataset.index
+                        trigger_button(button_index)
+                        console.log('expected ' + button_index +', got ' + sequence[sequence_index])
+                        if (button_index != sequence[sequence_index]) { // human hit the wrong button, reset
+                            sequence = []
+                            mode = mode_computer
+                            synth.triggerAttackRelease('A6', '16n')
+                            setTimeout(computer_turn, 500)
+                        } else { // human hit the right button
+                            sequence_index++
+                            if (sequence_index == sequence.length) {
+                                // setTimeout(function() {
+                                //     for (let i=0; i<buttons.length; ++i) {
+                                //         trigger_button(i)
+                                //     }
+                                //     synth.triggerAttackRelease('A6', '16n')
+                                // }, 250)
+
+
+                                mode = mode_computer
+                                setTimeout(computer_turn, 500)
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            function trigger_button(index) {
+                synth.triggerAttackRelease(notes[index], '8n')
+                let bt = buttons[index]
+                bt.style.transform = 'translateY(2px)'
+                bt.style.backgroundColor = (colors[index] !== 'red')? 'light' + colors[index]: 'LightCoral'
+                setTimeout(function() {
+                    bt.style.transform = ''
+                    bt.style.backgroundColor = colors[index]
+                }, 100)
+            }
+
+
+            function computer_turn() {
+                let bt_index = Math.floor(Math.random() * buttons.length)
+                sequence.push(bt_index)
+                level_span.innerText = 'Level ' + sequence.length
+                console.log(sequence)
+                sequence_index = 0
+                let interval = setInterval(function() {
+                    trigger_button(sequence[sequence_index])
+                    sequence_index++
+                    if (sequence_index === sequence.length) {
+                        clearInterval(interval)
+                        mode = mode_human
+                        sequence_index = 0
+                    }
+                }, 200 + 300/sequence.length)
+            }
+
+            computer_turn()
+
+
+        </script>
+    </body>
+</html>

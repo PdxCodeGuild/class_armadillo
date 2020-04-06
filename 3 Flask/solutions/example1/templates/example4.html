@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+      .mytemp {
+        color:green;
+      }
+    </style>
+  </head>
+  <body>
+    <p>The temperature is {{temperature}} which is
+      {% if temperature < 60 %}
+        <span style="color:blue">cold</span>
+      {% elif temperature < 80 %}
+        <span style="color:orange">warm</span>
+      {% else %}
+        <span style="color:red">hot</span>
+      {% endif %}
+    </p>
+  </body>
+</html>

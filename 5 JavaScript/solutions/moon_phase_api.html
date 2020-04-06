@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="secrets.js"></script>
+    </head>
+    <body>
+        <pre id="output"></pre>
+        <script>
+
+
+            let output = document.querySelector('#output')
+
+
+
+            function format_lat_long(latitude, longitude) {
+                let r = '';
+                if (latitude < 0) {
+                    r += (-latitude)+'S';
+                } else{
+                    r += latitude+'N';
+                }
+                r += ',';
+                if (longitude < 0) {
+                    r += (-longitude)+'W';
+                } else{
+                    r += longitude+'E';
+                }
+                return r;
+            }
+
+
+
+            let url_ip = 'https://api.ipify.org/?format=json'
+            axios.get(url_ip)
+            .then(function(response) {
+                let ip_address = response.data.ip
+                let url_location = `http://api.ipstack.com/${ip_address}?access_key=${ipstack_key}&format=2`
+                //let url_location = `http://api.ipstack.com/check?access_key=${ipstack_key}`
+                axios.get(url_location)
+                .then(function(response) {
+                    //console.log(response.data)
+                    let latitude = response.data.latitude
+                    let longitude = response.data.longitude
+                    let url_timezone = `http://api.timezonedb.com/v2.1/get-time-zone?format=json&by=position&lat=${latitude}&lng=${longitude}&key=${timezonedb_key}`
+                    axios.get(url_timezone)
+                    .then(function(response) {
+
+                        let timezone = response.data.gmtOffset / 60 / 60
+
+                        let date = new Date()
+                        let month = date.getMonth()+1
+                        let day = date.getDate()
+                        let year = date.getFullYear()
+
+                        let latlng = format_lat_long(latitude, longitude)
+
+                        let phases_url = `https://api.usno.navy.mil/rstt/oneday?date=${month}/${day}/${year}&coords=${latlng}&tz=${timezone}`
+                        console.log(phases_url)
+                        axios.get(phases_url)
+                        .then(function (response) {
+                            console.log(response.data)
+                            let data = response.data
+                            let current_phase = data.curphase
+                            let fracillum = data.fracillum
+                            let moon_rise = data.moondata[0].time
+                            let moon_set = data.moondata[2].time
+                            let sun_rise = data.sundata[1].time
+                            let sun_set = data.sundata[3].time
+                            output.innerText = 'Latitude: ' + latitude + '\n'
+                                                + 'Longitude: ' + longitude + '\n'
+                                                + 'Current Phase: ' + current_phase + '\n'
+                                                + 'Fracillum: ' + fracillum + '\n'
+                                                + 'Moon Rise: ' + moon_rise + '\n'
+                                                + 'Moon Set: ' + moon_set + '\n'
+                                                + 'Sun Rise: ' + sun_rise + '\n'
+                                                + 'Sun Set: ' + sun_set + '\n'
+
+
+                        })
+                    })
+                })
+            })
+
+
+            // let url = 'https://api.usno.navy.mil/rstt/oneday?date=12/1/2016&coords=41.89N,12.48E&tz=1'
+            // axios.get(url)
+            // .then(function (response) {
+            //     console.log(response.data)
+            // })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Random Password Generator</h1>
+    <form action="/multiview_password_generator/" method="post">
+      <input type="hidden" name="form_type" value="random_password"/>
+      <input type="number" name="password_length" placeholder="password length"/>
+      <button type="submit">submit</button>
+    </form>
+    {% if password_result %}
+    <p>{{password_result}}</p>
+    {% endif %}
+    <h1>Rot 13</h1>
+    <form action="/multiview_rot13/" method="post">
+      <input type="hidden" name="form_type" value="rot13"/>
+      <input type="text" name="input_text" placeholder="text to encrypt"/>
+      <input type="number" name="rot_amount" placeholder="rotation amount"/>
+      <button type="submit">submit</button>
+    </form>
+    {% if rot13_result %}
+    <p>{{rot13_result}}</p>
+    {% endif %}
+  </body>
+</html>

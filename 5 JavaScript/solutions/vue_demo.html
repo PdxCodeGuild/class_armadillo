@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            .finished_class {
+                text-decoration: line-through;
+                color:grey;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-model="input_text"/>
+            <button v-on:click="addTodo">click</button>
+            <button v-on:click="finishAll">finish all</button>
+            <button v-on:click="clearAll">clear all</button>
+            <table>
+                <tr v-for="(todo, index) in todos">
+                    <td>{{index+1}})</td>
+                    <td v-bind:class="{ finished_class: todo.finished }">{{ todo.text }}</td>
+                    <td><button v-on:click="finishTodo(index)">
+                        <span v-if="todo.finished">⭯</span>
+                        <span v-else>✓</span>
+                    </button>
+                    <button v-on:click="clearTodo(index)">X</button>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    input_text: '',
+                    todos: [
+                        {
+                            text: 'Learn JavaScript',
+                            finished: false
+                        },
+                        {
+                            text: 'Learn Vue',
+                            finished: false
+                        },
+                        {
+                            text: 'Build something awesome',
+                            finished: false
+                        }
+                    ]
+                },
+                methods: {
+                    addTodo: function() {
+                        if (this.input_text != '') {
+                            this.todos.push({
+                                text: this.input_text,
+                                finished: false
+                            })
+                            this.input_text = ''
+                        }
+
+                    },
+                    finishTodo: function(index) {
+                        this.todos[index].finished = !this.todos[index].finished
+                        if (this.todos[index].finished) {
+                            let todo = this.todos.splice(index, 1)[0]
+                            this.todos.push(todo)
+                        }
+                    },
+                    clearTodo: function(index) {
+                        this.todos.splice(index, 1)
+                    },
+                    finishAll: function() {
+                        for (let i=0; i<this.todos.length; ++i) {
+                            this.todos[i].finished = true
+                        }
+                    },
+                    clearAll: function() {
+                        this.todos = []
+                    }
+                }
+            })
+
+        </script>
+    </body>
+</html>
