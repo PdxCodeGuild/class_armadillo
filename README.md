@@ -1,10 +1,13 @@
 # Python-Fullstack
 
 
+### Instructor & TA's
 
 - Matthew Cooper: matthew@pdxcodeguild.com
 - Keegan Good: keegood8@gmail.com 
 - Jon Yates: carlock1609@gmail.com
+
+### Students
 
 - Abagayle Shane: shaneabagayle@gmail.com
 - Adam Meier: meieradamn@gmail.com
