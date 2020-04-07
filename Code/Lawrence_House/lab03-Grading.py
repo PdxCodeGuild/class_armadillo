@@ -26,6 +26,8 @@ if num % 10 > 4 and num > 59:
     str2 = ("+")
 if num == 100:
     str2 = ("+")
+else:
+    str2 = ("")
 
 #    String concatenation
 
