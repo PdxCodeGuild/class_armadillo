@@ -50,3 +50,25 @@ else:
       print("Thank you for playing!")  
 
 
+#adjectives = input('Enter two adjectives)
+#adjectives = adjectives.split(,)
+#adjective1= adjectives[0]
+#adjective2 = adjectives[1]
+
+#or
+#adjective1, adjective2 = input('Enter two adjectives separated by comma: ').split(',)
+#)
+#fruit1, fruit2 = ['apples' , 'bananas']
+
+
+'''
+random:
+random.shuffle(adjectives)
+adjective1, adjective2 = adjectives
+
+or 
+
+adjectives = input('Enter four adjectives: ').split (',')
+
+adjective1 = random.choice(adjectives)
+adjective2 = random.choice(adjectives)
