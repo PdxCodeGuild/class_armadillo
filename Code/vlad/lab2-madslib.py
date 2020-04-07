@@ -1,15 +1,17 @@
-# Instructions
-# Search the interwebs for an example Mad Lib
-# Ask the user for each word you'll put in your Mad Lib
-# Use string concatenation to put each word into the Mad Lib
+#Lab: 2 Mads Lib
+keep_running = 'yes'
+while keep_running == 'yes':
+    champ = input("How many titles have lebron james won: ")
+    feel = input("Enter how Jordan should feel: ")
+    sport = input("Enter what nba team does lebron james play for: ")
+    madlib = f"""
+        LeBron won  {champ} titles.  I think Michael Jordan should feel {feel} 
+        if LeBron continue to win NBA titles and become the champion in the next seasons, 
+        LeBron will pass MJ and become the ultimate GOAT without any argument!
+        And what about Shaq? he should feel {feel} about LeBron success? 
+        After all, LeBron is clearly the NBA King (not the tiger king :) 
+        Bron is the best Player in the {sport}
+    """
+    print(madlib)
 
-champ = input("How many title LeBron won: ")
-feel = input("enter how Jordan should feel: ")
-sport = input("Enter the name of the sport LeBron James currently play: ")
-
-madlib = f"""
-LeBron won  {champ} titles.  I think Michael Jordan should {feel} if LeBron will continue to pass him and breaking his record.
-
-And what about Shaq? he should feel {feel} that LeBron success? After all, LeBron is clearly best current Player in the {sport}
-"""
-print(madlib)
+    keep_running = input('Would you like to try it again? yes/no: ')
