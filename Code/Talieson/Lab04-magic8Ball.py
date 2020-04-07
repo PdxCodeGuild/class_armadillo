@@ -2,7 +2,7 @@ import random
 
 # Run is used to determine if a new game is to be played.
 run = True
-# Determines if the Magic 8 ball has alraedy introduced himself or not. 
+# Determines if the Magic 8 ball has alraedy introduced himself or not.
 intro = False
 
 # Main game loop, gives his original intro if he hasn't yet
