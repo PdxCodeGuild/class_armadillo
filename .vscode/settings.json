@@ -1,4 +1,9 @@
 {
     "python.linting.pylintEnabled": false,
+<<<<<<< HEAD
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.enabled": true
+=======
     "python.linting.pycodestyleEnabled": true
+>>>>>>> f9026434f1f947add6fb712fe3fc8cc8b671e247
 }
