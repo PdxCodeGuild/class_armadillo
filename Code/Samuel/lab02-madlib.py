@@ -51,6 +51,7 @@ while game_working == "Yes":
         print(f"Our own planet, which we call {first_name}, circles around our {random.choice(adjective)} sun {number} times every year. There are eight other planets in our solar system.")
         print(f"They are named {another_first_name[0]}, {another_first_name[1]}, {another_first_name[2]}, {another_first_name[3]}, {another_first_name[4]}, {another_first_name[5]}, Jupiter, and Mars.")
         print(f"Scientists who study these planets are called {random.choice(plural_noun)}.")
+        # Resets print words so that it can inquire if the player wants to print the story again after printing.
         print_words = ""
         # Checks to see if the user wants to print the story again, causing some words to change due to random.choice(), "Yes" continues the loop, "No" exits the loop.
         while print_words != "Yes" and print_words != "No":
