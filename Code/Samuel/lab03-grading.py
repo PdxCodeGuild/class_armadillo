@@ -6,6 +6,7 @@
 # Imports the random module
 import random
 
+
 # Gets the input from the user.
 def get_user_input():
     user_input = "empty"
@@ -18,9 +19,11 @@ def get_user_input():
     # Returns the input as an integer instead of a string.
     return int(user_input)
 
+
 # Returns if the integer given is within the specified range.
 def within_range(int1):
     return True if int1 < 0 or int1 > 100 else False
+
 
 # Returns the letter grade string based on the integer given.
 def print_letter_grade(int1):
@@ -34,6 +37,7 @@ def print_letter_grade(int1):
         return "D"
     else:
         return "F"
+
 
 # Returns the modifier string based on the integer given.
 def get_plus_or_minus(int1):
@@ -56,6 +60,7 @@ def get_plus_or_minus(int1):
     else:
         return ""
 
+
 # Prints the grade message based on the input.
 def print_grade_message(int1):
 
@@ -74,8 +79,14 @@ def print_grade_message(int1):
     else:
         print("You got a better score than your Rival!")
 
-# Gets the input from the user and assigns it to a variable.
-grade = get_user_input()
 
-# Prints the message based on the input from the user.
-print_grade_message(grade)
+grading = "Yes"
+
+while grading == "Yes":
+    # Gets the input from the user and assigns it to a variable.
+    grade = get_user_input()
+
+    # Prints the message based on the input from the user.
+    print_grade_message(grade)
+    while grading != "Yes" and grading != "No":
+        grading = input("Would you like to enter another grade? (Yes/No) ")
