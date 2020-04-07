@@ -3,10 +3,10 @@ print('\nWELCOME TO MADLIBS...where your words complete the story! \n')
 
 holiday = input('What is your favorite holiday? ')
 noun = input('In which room/building are you currently? ')
-thing = input('''Look up! What's the first object you see? ''')
+thing = input('Look up! What\'s the first object you see? ')
 body_part1 = input('What is your favorite body part? ')
 verb1 = input('What do you do like to do when happy (verb)? ')
-verb2 = input('''What do you do whenever you're sad (verb)? ''')
+verb2 = input('What do you do whenever you\'re sad (verb)? ')
 body_part2 = input('What is your LEAST favorite body part? ')
 
 cont = input('Would you like to see your story? ')
