@@ -2,29 +2,27 @@ run = True
 
 while run:
     run = False
-    numGrade = input("Enter the number grade to have it convereted to a letter grade:")
-    if not numGrade.isnumeric():
-        print("please enter a number")
+    grade = input("Enter a number grade to converet it to a letter grade:")
+    if not grade.isnumeric():
+        print("That's not a number! Please enter a number.")
         run = True
 
     else:
-        numGrade = int(numGrade)
-        secondDigit = numGrade % 10 
+        grade = int(grade)
+        secondDigit = grade % 10
         leadingMark = ''
-        if secondDigit >= 7 and numGrade > 59:
+        if secondDigit >= 7 and grade > 59:
             leadingMark = '+'
-        elif secondDigit <= 2 and numGrade > 59:
+        elif secondDigit <= 2 and grade > 59:
             leadingMark = '-'
 
-        if numGrade >= 90:
+        if grade >= 90:
             print('Good job! You got an A' + leadingMark + '!')
-        elif 90 > numGrade >= 80:
+        elif 90 > grade >= 80:
             print('Good work. You got a B' + leadingMark + '.')
-        elif 80 > numGrade >= 70:
+        elif 80 > grade >= 70:
             print('Hey, it gets the degree. You got a C' + leadingMark + '.')
-        elif 70 > numGrade >= 60:
-            print('You should review the matierial again, you got a D'  + leadingMark + '.')
+        elif 70 > grade >= 60:
+            print('Please review the lessons, you got a D' + leadingMark + '.')
         else:
             print('I\'ll see you in summerschool. You got an F.')
-        
-
