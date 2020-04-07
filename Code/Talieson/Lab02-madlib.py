@@ -7,18 +7,17 @@ checkIn = False
 
 # Main play loop
 while run:
-    
     # Check if they want a random game.
     randomGame = input("Do you want to play a random game? (if so, input yes. If yes, you won't be able to pick the words)")
 
-    # If the game has been set to a random game, use a random option from the lists.
+    # If the game has been set to random, use a random option from these lists.
     if randomGame == 'yes':
 
         randBodyPart = ('nose', 'leg', 'kneecap', 'eye', 'wrists', 'eyebrow', 'fingernails')
         randLargeThing = ('Eifel Tower', 'Sun', 'Madagascar', 'Zues, God of STORMS!', 'The Blue Guy from the Watchmen')
         randItemAdj = ('exceptional', 'shiny', '+3 flaming', 'glowing', 'simple')
         randItem = ('frisbee', 'fishguts', 'masks', 'knight', 'drumkit')
-        randCreationProcess  = ('brewing', 'molding', 'knitting', 'carving')
+        randCreationProcess = ('brewing', 'molding', 'knitting', 'carving')
         randItems = ('quarters', 'locks', 'buckets', 'squirels', 'globes')
         randTool = ('hoe', 'axe', 'basket', 'lightsaber')
         randComplicatedSubject = ('Quantum Mechanics', 'Engineering', 'The Art of the Deal', 'Interpretive Dance')
@@ -37,7 +36,7 @@ while run:
     else:
         answers = input("enter the following things, seperated by a space: A bodypart (G rated please), a very large proper noun, an adjective that describes an object, any item at all, a method of creating something, objects(plural), a tool, an advanced field of study, and any adjective.")
 
-        # Take the input from answers and split it into a list of multiple strings
+        # Take the input from answers and split into a list of multiple strings
         answersKey = shlex.split(answers)
 
         bodypart = answersKey[0]
@@ -46,7 +45,7 @@ while run:
         item = answersKey[3]
         creationProcess = answersKey[4]
         items = answersKey[5]
-        tool =answersKey[6]
+        tool = answersKey[6]
         complicatedSubject = answersKey[7]
         adjective = answersKey[8]
 
@@ -58,13 +57,12 @@ while run:
     # Loop to check for a second game.
     while checkIn:
         checkIn = False
-        again=str(input("That was SO silly! Do you want to play again? (type yes or no)"))
+        again = str(input("That was SO silly! Do you want to play again? (type yes or no)"))
         if again == "no":
-            print ("Thanks for playing!")
+            print("Thanks for playing!")
             break
         elif again == "yes":
             run = True
         else:
             print("I'm sorry, that's not a valid response.")
             checkIn = True
-    
