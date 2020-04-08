@@ -16,22 +16,22 @@ punctuation = string.punctuation
 user_uppercase = int(input("\nHow many upper case letters? "))
 user_lowercase = int(input("How many lower case letters? "))
 user_numbers = int(input("How many numbers? "))
-user_punct = int(input("How many punctuation characters? "))
+user_punct = int(input("How many special characters? "))
 
 time.sleep(0.5)
 
 word = ""
 
-for x in range(user_uppercase):
+for n in range(user_uppercase):
     word += random.choice(upper)
 
-for x in range(user_lowercase):
+for n in range(user_lowercase):
     word += random.choice(lower)
 
-for x in range(user_numbers):
+for n in range(user_numbers):
     word += random.choice(digits)
 
-for x in range(user_punct):
+for n in range(user_punct):
     word += random.choice(punctuation)
   
 # random.shuffle can't accept string arguments, must convert to list
@@ -69,4 +69,21 @@ the 'sting builder pattern'
 
 Version 2
 Allow the user to enter the value of n, remember to convert its type, as input returns a string.
+
+Lab 6: Password Generator
+Let's generate a password of length n using a while loop and random.choice, this will be a string of random characters.
+
+Hint: random.choice can be used to pick a character out of a string, as well as an element out of a list.
+
+Concepts Covered
+input, print
+looping
+random.choice
+the 'sting builder pattern'
+Version 2
+Allow the user to enter the value of n, remember to convert its type, as input returns a string.
+
+Version 3 (optional)
+Ask the user for how many lowercase letters, uppercase letters, numbers, and special characters 
+they'd like in their password. Generate a password accordingly.
 '''
