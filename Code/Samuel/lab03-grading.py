@@ -88,5 +88,6 @@ while grading == "Yes":
 
     # Prints the message based on the input from the user.
     print_grade_message(grade)
+    # Checks to see if the user wants to check another grade.
     while grading != "Yes" and grading != "No":
         grading = input("Would you like to enter another grade? (Yes/No) ")

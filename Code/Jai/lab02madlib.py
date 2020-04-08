@@ -1,5 +1,3 @@
-
-
 keep_running = 'yes' 
 while keep_running = 'yes':
     
