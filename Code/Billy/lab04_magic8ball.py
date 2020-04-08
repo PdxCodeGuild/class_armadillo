@@ -7,12 +7,12 @@ print('\n' + '*'*80)
 print('Welcome to the Magic 8-Ball...where your fortune awaits!')
 print('*'*80)
 
-time.sleep(1.5)
+time.sleep(2)
 
 while True:
     question = input('\n' + 'ASK MAGIC 8-BALL A QUESTION AND THEN BE AMAZED BY ITS REPLY: ')
     random_answer = random.choice(answers)
-    time.sleep(2)
+    time.sleep(1.5)
     print('\n' + random_answer + '\n')
     time.sleep(1.5)
     next_question = input('Would you like to ask another question? (yes/no) ').lower().strip()
