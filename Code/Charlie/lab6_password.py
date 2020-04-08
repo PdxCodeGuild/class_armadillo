@@ -1,13 +1,8 @@
 import random
 import string
-# lower = string.ascii_lowercase
-# upper = string.ascii_uppercase
-# letters = string.ascii_letters
-# digits = string.digits
-# punctuation = string.punctuation
 
-
-b = input("How Many Letters: ")
+# ask user how many letters he wants in his password
+b = input("How many letters do you want in your password?: ")
 
 
 # using (.isdigit) to make sure input is a number  
@@ -20,7 +15,7 @@ while not b.isdigit():
 else:
     b = int(b)
 
-c = input("How many punctuation: ")
+c = input("How many special characters?: ")
 
 
 # using (.isdigit) to make sure input is a number  
@@ -38,6 +33,7 @@ password = " "
 alphabet = string.ascii_letters + string.digits + string.punctuation
 
 letters = string.ascii_letters
+
 for i in range(b):
     password += random.choice(letters)
 
