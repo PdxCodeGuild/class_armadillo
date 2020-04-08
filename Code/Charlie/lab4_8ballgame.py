@@ -2,10 +2,13 @@ import random
 
 print("Welcome to 8-ball")
 
+# user name
 name = input("Enter name:")
 
+# lets user ask a question
 question1 = input("Ask a Question: ")
 
+#  possible answers for question
 answer = ["It is certain",
  "It may be so",
  "Without a doubt",
@@ -26,9 +29,10 @@ answer = ["It is certain",
  "Don't think so",
  "Very doubtful"]
 
-
+# assigned num to question1
 num = (question1)
-  
+
+
 while num.isdigit():
     num = input("You must enter a valid question: ")
     
@@ -46,6 +50,7 @@ while True:
             for i in range(1):
                 print(num)
                 continue
-    else:
+    elif question not in ["yes", "yeah", "sure", "ya"]:
+
         print("Thanks for playing goodbye!!")
         break

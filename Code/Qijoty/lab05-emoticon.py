@@ -25,22 +25,33 @@ if emotion == "happy":
 elif emotion == "sad":
     print(':-[[[')
 elif emotion == "angry":
-    print('>:{\{\{')
+    print('>:{{{')
 else:
     print(random.choice(eyes) + random.choice(nose) + random.choice(mouth))
 
-while True:
-    another == input("would you like another emoticon? ").lower()
-if another == "yes":
-    print(random.choice(eyes) + random.choice(nose) + random.choice(mouth))
-'''
-for emoticon in range(5):
+    while True:
+        user_input = input("would you like another emoticon? ").lower()
+        if user_input == "yes":
+            print(random.choice(eyes) + random.choice(nose) + random.choice(mouth))
+        else:
+            print('okie dokie, byeee')
+            break
+
+
+    '''
+    for emoticon in range(5):
+        face = random.choice(eyes) + random.choice(nose) + random.choice(mouth)
+        print(face)
+   
+
+
     face = random.choice(eyes) + random.choice(nose) + random.choice(mouth)
     print(face)
-'''
 
-    else:
-        another == "no":
-     break
-face = random.choice(eyes) + random.choice(nose) + random.choice(mouth)
-print(face)
+#lower convert to lowercase
+#strip removes whitespace from beginning and end
+response = input('would you like to continue?').lower().strip()
+#response = True if response -- 'yes' else False
+response = response == 'yes'
+print(response)
+'''
