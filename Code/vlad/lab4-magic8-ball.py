@@ -1,7 +1,7 @@
 #Lab 4: Magic 8-Ball
 
 """ Instructions
-Print a welcome screen to the user.
+Print a welcome screen to the user!.
 
 Use the random module's random.choice() to choose a prediction.
 
@@ -38,6 +38,6 @@ while True:
     if play_again == "yes":
         continue
     elif play_again == "no":
-        print("Have a nice day! Bye")
+        print("Have a nice day Bye!")
         break
 
