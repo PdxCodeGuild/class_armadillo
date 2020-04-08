@@ -4,7 +4,7 @@
 "hello" #string literal
 5 #int literal
 False #bool literal
-'''
+
 
 
 is hungry = True #has to be capitilized
@@ -41,7 +41,7 @@ if 'apples' in ['apples', 'bananas', 'pears']
 #can be used to check in an element is in a list
 #or if a string is in a string
 
-'''
+
 if
 if-else condition
 if-elif 
@@ -84,7 +84,7 @@ print(grade % 10) #ones digit
 
 
 exit()
-'''
+
 pip install colorama
 
 
@@ -131,5 +131,15 @@ fruits = ['apples', 'bananas', 'pear']
 print(fruits[0]) #apples
     print(fruits)[i]
     fruits[i] += '!'
+'''
+import random
+import string
 
+alphabet = string.ascii_lowercase + string.ascii_uppercase + string.punctuation + string.digits
+print(alphabet)
+
+for i in range(10):
+    print(random.choice(alphabet))
+
+    
 
