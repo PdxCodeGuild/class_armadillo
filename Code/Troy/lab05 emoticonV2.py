@@ -18,7 +18,7 @@ import time
 import colorama
 
 
-#emoticon = ['=^p', ';-)', ':-{', '']
+#emoticon = eyes + nose + mouth
 
 eyes = [';', ':', '=']
 eyes = random.choice(eyes)
@@ -32,10 +32,10 @@ mouth = [')', 'O', '}', '/', 'p']
 mouth = random.choice(mouth)
 print(mouth, end='')
 
-# i = 0
-# while i < 5:
-#     eyes = random.choice(eyes)
-#     nose = random.choice(nose)
-#     mouth = random.choice(mouth)
-#     print (eyes, nose, mouth, end='')
-#     i += 1
+i = 0
+while i < 5:
+    eyes = random.choice(eyes)
+    nose = random.choice(nose)
+    mouth = random.choice(mouth)
+    print (eyes, nose, mouth, end='')
+    i += 1

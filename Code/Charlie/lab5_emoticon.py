@@ -1,6 +1,6 @@
 import random
 
-num = input("Whats your mood today?: ")
+
 
 
 
