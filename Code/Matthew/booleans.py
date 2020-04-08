@@ -1,5 +1,12 @@
 
 
+#  grade = 87
+print(grade // 10) # tens digit
+print(grade % 10) # ones digit
+
+exit()
+
+
 
 # "hello" # string literal
 # 5 # int literal
@@ -48,3 +55,12 @@ def min(a, b):
 
 
 print(min(5, 2))  # 2
+
+
+
+
+
+
+
+
+
