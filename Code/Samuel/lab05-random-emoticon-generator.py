@@ -1,7 +1,7 @@
-# Programming 101
+# PDX Code Guild Fullstack Course
+# Lab 05 Random Emoticon Generator
 # Samuel Purdy
-# Unit 3 Lab 5
-# Emoticons
+# 4/8/2020
 
 # Imports Random Module.
 import random
