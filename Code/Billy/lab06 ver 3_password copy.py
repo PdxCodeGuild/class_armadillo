@@ -22,16 +22,16 @@ time.sleep(0.5)
 
 word = ""
 
-for x in range(user_uppercase):
+for n in range(user_uppercase):
     word += random.choice(upper)
 
-for x in range(user_lowercase):
+for n in range(user_lowercase):
     word += random.choice(lower)
 
-for x in range(user_numbers):
+for n in range(user_numbers):
     word += random.choice(digits)
 
-for x in range(user_punct):
+for n in range(user_punct):
     word += random.choice(punctuation)
   
 # random.shuffle can't accept string arguments, must convert to list
