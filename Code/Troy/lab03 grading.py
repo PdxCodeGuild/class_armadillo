@@ -9,12 +9,12 @@
 60-69: D
 0-59: F'''
 
-num = input("Enter a number: ")
+num = input("Enter a number grade: ")
 
 num = int(num)
 
 if num >= 90 and num <= 100:
-    print("A, great job.")
+    print("A, great job. You get a gold star!")
 elif num >= 80 and num <= 89:
     print("B, good job, but could be better.")
 elif num >= 70 and num <= 79:

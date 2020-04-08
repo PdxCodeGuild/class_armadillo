@@ -2,17 +2,7 @@
 
 import random
 
-# fruits = ['apples', 'bananas', 'pears']
-# fruit = random.choice(fruits)
-# print(fruit)
 
-# print(fruits)
-# # fruits = random.shuffle(fruits) # if a function does not return anything you'll get None
-# random.shuffle(fruits)
-# print(fruits)
-
-# random_number = random.randint(0, 100)
-# print(random_number)
 
 
 person = input('Enter a person: ')

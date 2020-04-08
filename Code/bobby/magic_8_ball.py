@@ -12,6 +12,7 @@ responses = ["YES!!", "Not Sure", "Outlook is Good\n",
  , "I have better things to do than answer a dumb question like that\n"
  , "NO!!", "Only if you FREE me from this computer"]
 
+
 print("Welcome to the Magic 8 Ball\n")
 time.sleep(2)
 print("I am very busy and tired... What do you want???  ")

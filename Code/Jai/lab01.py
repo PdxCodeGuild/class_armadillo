@@ -17,7 +17,7 @@ forward(30)
 
 penup()
 forward(15)
-
+v
 goto(b,c)
 left(-45)
 pendown()
