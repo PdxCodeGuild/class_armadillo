@@ -1,3 +1,5 @@
+
+#booleans
 '''
 "hello" #string literal
 5 #int literal
@@ -84,3 +86,50 @@ print(grade % 10) #ones digit
 exit()
 '''
 pip install colorama
+
+
+sdffrom colorama import fore
+
+import time #time module
+#time.sleep will pause the loop
+print(Fore.GREEN + 'look its green')
+
+#loops
+message = 'hello welcome to my program'
+i=0
+while i < len(message)
+    print(message[i], end='')
+    time.sleep(0.2)
+    i +=1
+     #1 number - upper bound
+    #0 to 99 (100 times)
+    for in range(100)
+    print(i)
+
+    #for 2 numbers - lower bound and upper bound
+    #1 to 100 (100 times)
+    for in in range ( 1, 101):
+        print(i)
+
+#3 numbers lower bound, upper bound, and increment
+#1 to 100 ever 2 numbers (50 times)
+for in in range(1, 101, 2):
+    print(i)
+        
+ fruits = ['apples', 'bananas', 'pears', ]
+ for fruit in fruits:
+      print(fruit)
+
+                #very different
+                in 'apples' in fruits:
+                    pass
+for char in 'hello world':
+    print(char)
+    #prints each character on a separate line
+
+fruits = ['apples', 'bananas', 'pear']
+print(fruits[0]) #apples
+    print(fruits)[i]
+    fruits[i] += '!'
+
+

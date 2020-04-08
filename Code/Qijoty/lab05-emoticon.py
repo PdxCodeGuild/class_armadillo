@@ -45,3 +45,10 @@ while i < 1:
 
     face = random.choice(eyes) + random.choice(nose) + random.choice(mouth)
     print(face)
+
+#lower convert to lowercase
+#strip removes whitespace from beginning and end
+response = input('would you like to continue?').lower().strip()
+#response = True if response -- 'yes' else False
+response = response == 'yes']
+print(response)
