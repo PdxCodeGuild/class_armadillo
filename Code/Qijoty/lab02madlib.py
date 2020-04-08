@@ -39,13 +39,14 @@ while i < 1:
     print(f"And then I started too.")
 
     affirmative = ['yes', 'y', 'sure', 'okay']
-    user_choice = input("Do you want to continue?")
 
+    user_choice = input("Do you want to continue?")    
     while user_choice.lower() in affirmative:
         print("TOIGHT, lets mAdLiB!!!")
+        break
     else:
         print("Thank you for playing!")
-        break
+
 
 '''
 while True:
