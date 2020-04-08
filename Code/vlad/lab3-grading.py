@@ -38,6 +38,14 @@ while check_grading == True:
 
 
 
+#while True: 
+    #grade = input('enter your number grade: ')
+    #is grade.isnumeric():
+      #grade = int(grade)
+        #break
+        #print('that is not a valid number')
+#ones_digit = grade % 10
+#tens_digit
 # grade = input('enter your grade: ')
 # if not grade.isnumeric():
 #   print('is numeric')

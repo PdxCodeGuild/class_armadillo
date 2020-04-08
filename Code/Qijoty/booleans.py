@@ -82,3 +82,5 @@ print(grade % 10) #ones digit
 
 
 exit()
+'''
+pip install colorama
