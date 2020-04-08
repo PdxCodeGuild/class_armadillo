@@ -2,17 +2,17 @@ import random
 
 # :-) ;-* 8-O 8-D >:-( :-< :-> :^) =-O =-( x-D :-} :-]
 
-eyes = [":", ";", "8", "x", "B", ">:", "="]
-eye = random.choice(eyes)
+eyes_list = [":", ";", "8", "x", "B", ">:", "="]
+noses_list = ["-", "o", "^"]
+mouths_list = [")", "(", "[", "]", "{", "}", "P", "b", "X", "O", "*", "D", ">", "<", "@", "#", "$", "/", "||", ]
 
-noses = ["-", "o", "^"]
-nose = random.choice(noses)
-
-mouths = [")", "(", "[", "]", "{", "}", "P", "b", "X", "O", "*", "D", ">", "<", "@", "#", "$", "/", "||", ]
-mouth = random.choice(mouths)
 
 
 i = 0
-while i < 4:
-    print(eye, nose, mouth)
+while i < 5:
+    eyes =  random.choice (eyes_list)
+    noses = random.choice (noses_list)
+    mouths  = random.choice (mouths_list)
+    
+    print(eyes + noses + mouths)
     i +=1
