@@ -7,9 +7,9 @@ password = ""
 
 print("Welcome to Password Generator \n")
 time.sleep(1)
-user = input(f"How Many Charecters Would You Like: {1,10}): ")
+user = input(f"How Many Charecters Would You Like: {1, 20}: ")
 
-for letter in range (0,10):
+for letter in range (0,20):
     password += random.choice(letters)
     
 print(password)
