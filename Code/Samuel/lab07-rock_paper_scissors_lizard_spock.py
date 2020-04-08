@@ -1,7 +1,7 @@
-# Programming 101
+# PDX Code Guild Fullstack Course
+# Lab 07 Rock Paper Scissors Lizard Spock
 # Samuel Purdy
-# Unit 3 Lab 6
-# Emoticons
+# 4/8/2020
 
 # Imports Random Module.
 import random
