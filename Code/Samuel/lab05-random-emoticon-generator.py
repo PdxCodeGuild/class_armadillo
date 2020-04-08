@@ -38,7 +38,7 @@ def print_random_faces_input(int1):
 # int2 : lowest integer in the range to check against.
 # int3 : highest integer in the range to check against.
 def within_range(int1, int2, int3):
-    return True if int1 < int2 or int1 > int3 else False
+    return False if int1 < int2 or int1 > int3 else True
 
 
 # Checks whether or not the integer given is positive or not.
@@ -65,7 +65,7 @@ def print_specific_face():
 
     # Checks whether the number is numeric or within the specified range, and
     # asking continuously until given a proper input to exit the loop.
-    while not emoticon_input.isnumeric() or within_range(int(emoticon_input), 0, 4):
+    while not emoticon_input.isnumeric() or not within_range(int(emoticon_input), 0, 4):
         emoticon_input = input("Please select a number based on what eyes you want (0-4): ")
 
     # Sets user_emoticon to the choice of eyes
@@ -87,7 +87,7 @@ def print_specific_face():
 
     # Checks whether the number is numeric or within the specified range, and
     # asking continuously until given a proper input to exit the loop.
-    while not emoticon_input.isnumeric() or within_range(int(emoticon_input), 0, 3):
+    while not emoticon_input.isnumeric() or not within_range(int(emoticon_input), 0, 3):
         emoticon_input = input("Please select a number based on what nose you want (0-3): ")
 
     # Appends user_emoticon with the choice of nose.
@@ -110,7 +110,7 @@ def print_specific_face():
 
     # Checks whether the input is numeric or within the specified range, and
     # asking continuously until given a proper input to exit the loop.
-    while not emoticon_input.isnumeric() or within_range(int(emoticon_input), 0, 4):
+    while not emoticon_input.isnumeric() or not within_range(int(emoticon_input), 0, 4):
         emoticon_input = input("Please select a number based on what mouth you want (0-4): ")
 
     # Appends user_emoticon with the choice of mouth.
