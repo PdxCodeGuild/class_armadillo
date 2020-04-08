@@ -9,7 +9,7 @@ number = int(number)
 length = input('Password length? - ')
 length = int(length)
 
-for p in range(number):
+for p in range(number): 
     password = ''
     for c in range(length):
         password = random.choice(alphabet)
