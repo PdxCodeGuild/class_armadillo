@@ -1,5 +1,11 @@
 
 
+
+for i in range(10):
+    print('x', end='')
+
+quit()
+
 import random
 
 eyes_list = [':', ';', '=']
@@ -23,7 +29,6 @@ while i < num_emoticons:
     emoticon = eyes + nose + mouth
     print(emoticon)
     i += 1
-
 
 
 
