@@ -39,4 +39,6 @@ for i in range(0, 100):
 
 time.sleep(10)
 
-# testing 1, 2, 3
+# testing 1, 2, 3, 4
+#403 error I had on both ordinateurs
+#https://www.youtube.com/watch?v=KnuaVfi5MFU
