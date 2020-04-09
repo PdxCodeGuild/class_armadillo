@@ -40,16 +40,17 @@ def check_if_float(str1):
 # While user_input is not a valid input, it will keep looping until a
 # valid input is given.
 while not check_if_float(user_input) or float(user_input) < 0:
-    user_input = input("Please enter in an amount of money you wish to get change for: (e.g. 210.25)")
-
+    user_input = input("Please enter in an amount of money you wish to get change for: (e.g. 210.25 or 40) $")
 # multiplies the input by 100 for easier calculations
-user_input = float(user_input) * 100
+user_input = round((float(user_input) * 100),2)
 
 # If the user_input has a remainder after being divided by coins[0][1], it
 # will process code inside the statement.
 # It will do it for Quarters, then Dimes, then Nickels and Pennies.
 # As long as there is a remainder, it will go deeper into the nested if
 # statement.
+print(int(user_input))
+
 if(user_input % coins[0][1]):
     number_of_quarters = user_input // coins[0][1]
     current_remainder = user_input % coins[0][1]
@@ -69,7 +70,7 @@ else:
     number_of_quarters = user_input // coins[0][1]
 
 # Prints the amount given by the user, and how the change works into it.
-print(f"Here is the change for {user_input/100}")
+print(f"Here is the change for ${user_input/100}")
 print(f"Number of {coins[0][0]} = {int(number_of_quarters)}")
 print(f"Number of {coins[1][0]} = {int(number_of_dimes)}")
 print(f"Number of {coins[2][0]} = {int(number_of_nickels)}")
