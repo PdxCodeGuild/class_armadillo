@@ -137,33 +137,33 @@ def game_loop():
             if result == 0:
                 print("You selected %s." % user)
                 draw_art(user_input)
-                time.sleep(.5)
+                time.sleep(.8)
 
                 print("Your opponent selected %s" % computer_input)
                 draw_art(computer_input)
-                time.sleep(.5)
+                time.sleep(.8)
                 draws += 1
-                print("We're evenly matched! Best of 3?")
+                print("We're evenly matched! Lets go again!")
 
             elif result == 1 or result == 2:
                 print("You selected %s." % user)
                 draw_art(user_input)
-                time.sleep(.5)
+                time.sleep(.8)
 
                 print("Your opponent selected %s" % computer_input)
                 draw_art(computer_input)
-                time.sleep(.5)
+                time.sleep(.8)
                 wins += 1
                 print("You WIN")
 
             elif result == 3 or result == 4:
                 print("You selected %s." % user)
                 draw_art(user_input)
-                time.sleep(.5)
+                time.sleep(.8)
 
                 print("Your opponent selected %s" % computer_input)
                 draw_art(computer_input)
-                time.sleep(.5)
+                time.sleep(.8)
                 loses += 1
                 print("You've been bested!")
 
