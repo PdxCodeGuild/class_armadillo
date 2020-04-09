@@ -49,8 +49,6 @@ user_input = round((float(user_input) * 100),2)
 # It will do it for Quarters, then Dimes, then Nickels and Pennies.
 # As long as there is a remainder, it will go deeper into the nested if
 # statement.
-print(int(user_input))
-
 if(user_input % coins[0][1]):
     number_of_quarters = user_input // coins[0][1]
     current_remainder = user_input % coins[0][1]
