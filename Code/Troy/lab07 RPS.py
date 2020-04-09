@@ -23,7 +23,7 @@ choice = ["rock", "paper", "scissors"]
 print("Want to throw hands?")
 
 while True:
-    print("Wanna run it again? ")  
+    #print("Wanna run it again? ")  
     user_move = input("Enter 'y' for yes and 'n' for no: ")
 
     if user_move == 'y':
@@ -55,4 +55,4 @@ while True:
         print("Boom! You lose Sucka!  Scissors cut paper.")
     elif user_move == "paper" and computer == "paper":
         print("Crapsticks! It is a tie!")
-
+    
