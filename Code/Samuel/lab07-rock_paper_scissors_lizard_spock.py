@@ -5,9 +5,28 @@
 
 # Imports Random Module.
 import random
+import string
 
 # Moveset: R = Rock, P = Paper, S = Scissors.
 possible_moves = ["R", "P", "S", "L", "K"]
+
+# Predifined wins and losses
+wins = {
+    "R": ["D", "L", "W", "W", "L"],
+    "P": ["W", "D", "L", "L", "W"],
+    "S": ["L", "W", "D", "W", "L"],
+    "L": ["L", "W", "L", "D", "W"],
+    "K": ["W", "L", "W", "L", "D"]
+}
+
+# Used to print the correct moves base on what character string is used.
+moves_printed = {
+    "R": "Rock",
+    "P": "Paper",
+    "S": "Scissors",
+    "L": "Lizard",
+    "K": "Spock"
+}
 
 # Defining variables.
 user_input = "Y"
@@ -16,6 +35,7 @@ user_move = "Y"
 
 def check_valid_move(str1):
     for move in possible_moves:
+        # print(str1)
         if str1 == move:
             return True
     return False
@@ -33,71 +53,32 @@ while user_input == "Y":
     print("K = Spock")
 
     # Checks to make sure the user uses the correct moves.
-    while not check_valid_move(user_move.upper):
+    while not check_valid_move(user_move):
         user_move = input("Choose one: ")
+        user_move = user_move.upper()
 
     # Prints User move and computer move
-    print(f"You chose {user_move.upper}")
+    print(f"You chose {moves_printed[user_move]}")
 
     # Generates a random move for the computer to use.
-    computer_move = random.choice(possible_moves)
+    computer_move = random.randint(0, 4)
 
     # Prints the computers move
-    print(f"The computer chose {computer_move}")
+    print(f"The computer chose {moves_printed[possible_moves[computer_move]]}")
 
-    # Checks to see who won or if it's a draw.
-    if user_move.upper == computer_move:
+    # Checks to see what combination victory is made based on the computer
+    # move and the user move, then prints the correct victory message.
+    if wins[user_move][computer_move] == "D":
         print("It's a draw!")
-    # Checks user Rock cases
-    elif user_move.upper == "R" and computer_move == "P":
-        print("Computer wins!")
-    elif user_move.upper == "R" and computer_move == "S":
-        print("User wins!")
-    elif user_move.upper == "R" and computer_move == "K":
-        print("Computer wins!")
-    elif user_move.upper == "R" and computer_move == "L":
-        print("User wins!")
-    # Checks user Paper cases
-    elif user_move.upper == "P" and computer_move == "R":
-        print("User wins!")
-    elif user_move.upper == "P" and computer_move == "S":
-        print("Computer wins!")
-    elif user_move.upper == "P" and computer_move == "K":
-        print("User wins!")
-    elif user_move.upper == "P" and computer_move == "L":
-        print("Computer wins!")
-    # Checks user Scissors cases
-    elif user_move.upper == "S" and computer_move == "R":
-        print("Computer wins!")
-    elif user_move.upper == "S" and computer_move == "P":
-        print("User wins!")
-    elif user_move.upper == "S" and computer_move == "K":
-        print("Computer wins!")
-    elif user_move.upper == "S" and computer_move == "L":
-        print("User wins!")
-    # Checks user Lizard cases
-    elif user_move.upper == "L" and computer_move == "R":
-        print("Computer wins!")
-    elif user_move.upper == "L" and computer_move == "P":
-        print("User wins!")
-    elif user_move.upper == "L" and computer_move == "S":
-        print("Computer wins!")
-    elif user_move.upper == "L" and computer_move == "K":
-        print("User wins!")
-    # Checks user Spock cases
-    elif user_move.upper == "K" and computer_move == "R":
-        print("User wins!")
-    elif user_move.upper == "K" and computer_move == "P":
-        print("Computer wins!")
-    elif user_move.upper == "K" and computer_move == "S":
-        print("User wins!")
-    elif user_move.upper == "K" and computer_move == "L":
-        print("Computer wins!")
+    elif wins[user_move][computer_move] == "W":
+        print("You win!")
+    else:
+        print("The computer wins!")
 
     # Resets inputs incase the player wishes to play again.
     user_move = "Y"
     user_input = "S"
 
     # Asks the user if they want to play again.
-    while user_input.upper != "Y" and user_input.upper != "N":
+    while user_input.upper() != "Y" and user_input.upper() != "N":
         user_input = input("Play again? (Y/N) ")
