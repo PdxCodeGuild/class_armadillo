@@ -3,11 +3,14 @@
 
 # this is what number you want to switch to a letter grade
 num = input("Enter a number for a grade: ")
+
 # using (.isdigit) to make sure input is a number  
 while not num.isdigit():
+
     # if input is not a number 
     num = input("You must enter a number: ")
- # if input is a number 
+ 
+ # input is a number 
 else:
     num = int(num)
 

@@ -1,24 +1,20 @@
 import random 
 
 print("\n\n-----Random Face Gen-----\n")
-face_input = input("press any button to generate a face: ")
+face_input = input("press any button to generate a face: ").lower().strip()
 
 def make_a_face():
 
     loop = True
 
     while True:
-        eye = [':', ';', '=', 'O',]
+        eye = [':', '8', ';', '=', 'O',]
 
-        nose = [">", "-"]
+        nose = [">", "-", ' ']
 
-        mouth = ['D', ')', '(', '|', 'p',]
+        mouth = ['D', ')', '(', '|', 'p', '}', 'I']
 
-        random_eye = random.choice(eye)
-        random_nose = random.choice(nose)
-        random_mouth = random.choice(mouth)
-
-        random_face = random_eye + random_nose + random_mouth
+        random_face = random.choice(eye) + random.choice(nose) + random.choice(mouth)
 
         print(f'\n{random_face}\n')
 
