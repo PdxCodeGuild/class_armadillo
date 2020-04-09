@@ -14,5 +14,5 @@ password = ''
 for i in range(num):     
     password += random.choice(alphabet)
 
-    print(password, end = '')
+    print(password)
 
