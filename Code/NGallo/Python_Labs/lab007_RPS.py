@@ -6,27 +6,46 @@ import random
 
 print("\n\n----- Rock, Paper and Scissors -----\n")
 
-# user_character = input("Pick your weapon r (rock), p (paper), s (scissors): ")
-
-
 keep_it_going = True
 
 def RPS():
 
-    emojis = {'r' : "\u26AB", 'p': "\u267B", 's': "\u2700"}
-    print(emojis)
+    emojis = {'r' : "\u26AB ", 'p': "\u267B ", 's': "\u2700 ", 'q': 'q'}
+        
     rock_paper_scissors = ['r','p', 's']
 
-    computer_character = random.choice(rock_paper_scissors)
-    print(computer_character)
-
     while True:
-        user_character = input("Pick your weapon r (rock), p (paper), s (scissors): ")
-        if user_character == computer_character:
-            print(f"You tied! {user_character} and {computer_character} are the same")
-        elif user_character == r and computer_character == s:
-            print("You won!")
+        user_character = input("Pick your weapon \u26AB  (r), \u267B  (p), \u2700  (s): ").lower().strip()
+        print("\n")
+        computer_character = random.choice(rock_paper_scissors)
 
+        if user_character in rock_paper_scissors:
+
+            user_character_emoji = emojis[user_character]
+
+            computer_character_emoji = emojis[computer_character]
+
+            if user_character == computer_character:
+                print(f"You tied! {user_character_emoji} and {computer_character_emoji} are the same\n")
+            elif user_character == 'r' and computer_character == 's':
+                print(f"You won! {user_character_emoji} beats {computer_character_emoji}\n")
+            elif user_character == 's' and computer_character == 'p':
+                print(f"You won! {user_character_emoji} beats {computer_character_emoji}\n")
+            elif user_character == 'p' and computer_character == 'r':
+                print(f"You won! {user_character_emoji} beats {computer_character_emoji}\n")
+            elif user_character == 'r' and computer_character == 'p':
+                print(f"You lost. {user_character_emoji} is beat by {computer_character_emoji}\n")
+            elif user_character == 's' and computer_character == 'r':
+                print(f"You lost. {user_character_emoji} is beat by {computer_character_emoji}\n")
+            elif user_character == 'p' and computer_character == 's':
+                print(f"You lost. {user_character_emoji} is beat by {computer_character_emoji}\n")
+        
+        elif user_character == 'q':
+            print("Goodbye!")
+            exit()
+
+        else:
+            print("invalid character try again or press (q) to quit\n")
 
 RPS()
 

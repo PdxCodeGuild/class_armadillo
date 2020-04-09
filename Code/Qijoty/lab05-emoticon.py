@@ -30,8 +30,8 @@ else:
     print(random.choice(eyes) + random.choice(nose) + random.choice(mouth))
 
     while True:
-        user_input = input("would you like another emoticon? ").lower()
-        if user_input == "yes":
+        user_input = input("Does that fit your emotion? ").lower()
+        if user_input == "no":
             print(random.choice(eyes) + random.choice(nose) + random.choice(mouth))
         else:
             print('okie dokie, byeee')
