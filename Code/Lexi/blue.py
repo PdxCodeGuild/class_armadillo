@@ -38,3 +38,7 @@ for i in range(0, 100):
 	mycircle(a, b, c) # feed a random color to the function
 
 time.sleep(10)
+
+# testing 1, 2, 3, 4
+#403 error I had on both ordinateurs
+#https://www.youtube.com/watch?v=KnuaVfi5MFU
