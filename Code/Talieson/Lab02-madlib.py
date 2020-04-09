@@ -9,11 +9,11 @@ checkIn = False
 while run:
 
     # Check if they want a random game.
-    randomGame = input("Do you want to play a random game? (if so, input yes. "
-                       "If yes, you won't be able to pick the words)")
+    randomGame = input("Do you want to play a random game? (if so, input Y. "
+                       "If Y, you won't be able to pick the words)")
 
     # If the game has been set to random, use a random option from the lists.
-    if randomGame == 'yes':
+    if randomGame == 'Y':
 
         randBodyPart = ('nose', 'leg', 'kneecap', 'eye', 'wrists', 'eyebrow',
                         'fingernails')
