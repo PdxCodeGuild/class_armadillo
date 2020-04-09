@@ -28,4 +28,3 @@ for coin in coins:
 print('$' + input_amount + ' is ...')
 for i in range(len(coin_counts)):
     print('\t' + coins[i][0] + ': ' + str(coin_counts[i]))
-

@@ -2,49 +2,59 @@
 
 run = True
 currency_check = True
+symbol = ""
 
 while run:
     while run and currency_check:
-        # Take the amount from the user
-        currency = input('''Available currency types are: Dollars, Pesos, Euros
-                            Please select the currency you want to use. ''')
+        # Take the type of currency from the user
+        currency = input('''
+                            Please select the currency you want to use
+                            Available currencies: Dollars, Pesos, Euros. ''')
+
+        # decide which currency library we're using
         if currency == "Dollars":
             currency_check = False
+            symbol = "$"
             coins = [
                 ("quarters", 25, 0),
                 ("dimes", 10, 0),
                 ("nickels", 5, 0),
                 ("pennys", 1, 0)
             ]
-
         elif currency == "Pesos":
             currency_check = False
+            symbol = "Mex$"
             coins = [
-                ("", 1000, 0),
-                ("", 500, 0),
-                ("", 200, 0),
-                ("", 100, 0),
-                ("", 50, 0),
-                ("", 20, 0),
-                ("", 10, 0)
+                ("10 peso coin", 1000, 0),
+                ("5 peso coin", 500, 0),
+                ("2 peso coin", 200, 0),
+                ("1 peso coin", 100, 0),
+                ("50 centavos coin", 50, 0),
+                ("20 centavos coin", 20, 0),
+                ("10 centavos coin", 10, 0)
             ]
-
         elif currency == "Euros":
             currency_check = False
+            symbol = "€"
             coins = [
-                ("", 200, 0),
-                ("", 100, 0),
-                ("", 50, 0),
-                ("", 20, 0),
-                ("", 10, 0),
-                ("", 5, 0),
-                ("", 2, 0),
-                ("", 1, 0)
+                ("2 Euro coin", 200, 0),
+                ("1 Euro coin", 100, 0),
+                ("50 cent coin", 50, 0),
+                ("20 cent coin", 20, 0),
+                ("10 cent coin", 10, 0),
+                ("5 cent coin", 5, 0),
+                ("2 cent coin", 2, 0),
+                ("1 cent coin", 1, 0)
             ]
         else:
             print("please enter a valid currency type. ")
 
-    currency_amount = float(input(f"Enter the {currency} amount: $"))
+    # Take the amount of the currency now that we know the type
+    currency_amount = float(input(f"Enter the {currency} amount: {symbol}"))
+
+    # store the input amount so we don't make changes for final output
+    input_amount = currency_amount
+
     # Turn the amount into cents
     currency_amount = (currency_amount * 100)
 
@@ -54,24 +64,15 @@ while run:
     coin_quantity = [coin[2] for coin in coins]
 
     # divide the change amount by each coin, and return the quanity as an int.
-    coin_quantity[0] = currency_amount // coin_values[0]
-    currency_amount = currency_amount - coin_quantity[0] * coin_values[0]
-    coin_quantity[0] = int(coin_quantity[0])
-    coin_quantity[1] = currency_amount // coin_values[1]
-    currency_amount = currency_amount - coin_quantity[1] * coin_values[1]
-    coin_quantity[1] = int(coin_quantity[1])
-    coin_quantity[2] = currency_amount // coin_values[2]
-    currency_amount = currency_amount - coin_quantity[2] * coin_values[2]
-    coin_quantity[2] = int(coin_quantity[2])
-    coin_quantity[3] = currency_amount
-    coin_quantity[3] = int(coin_quantity[3])
+    for i in range(len(coins)):
+        coin_quantity[i] = currency_amount // coin_values[i]
+        currency_amount = currency_amount - coin_quantity[i] * coin_values[i]
+        coin_quantity[i] = int(coin_quantity[i])
 
     # Then we'll finally print how many of each coin we've got.
-    print(f''' Your change is:
-            {coin_quantity[0]} {coin_names[0]},
-            {coin_quantity[1]} {coin_names[1]},
-            {coin_quantity[2]} {coin_names[2]},
-            and {coin_quantity[3]} {coin_names[3]}.''')
+    print(f'{symbol}{input_amount} is ...')
+    for i in range(len(coins)):
+        print('\t' + coin_names[i] + ': ' + str(coin_quantity[i]))
 
     run = False
 
@@ -80,6 +81,7 @@ while run:
         go_again = input("Do you have more conversion to do? (Y/N) ")
         if go_again == "Y":
             run = True
+            currency_check = True
             break
         if go_again == "N":
             exit()
