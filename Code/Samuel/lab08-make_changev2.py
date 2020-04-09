@@ -61,6 +61,8 @@ if(user_input % coins[0][1]):
         if(current_remainder % coins[2][1]):
             number_of_nickels = current_remainder // coins[2][1]
             number_of_pennies = current_remainder % coins[2][1]
+        else:
+            number_of_nickels = current_remainder // coins[2][1]
     else:
         number_of_dimes = current_remainder // coins[1][1]
 else:
