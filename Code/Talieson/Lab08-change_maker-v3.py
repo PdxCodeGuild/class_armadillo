@@ -1,8 +1,11 @@
+# Version 3 of change_maker adds the currency to a list of tuples
+# this version is built to allow for future expansion to addition currency
+
 run = True
 
 while run:
     # Take the amount from the user
-    change_amount = float(input("Enter the dollar amount ($__.__?) "))
+    change_amount = float(input("Enter the dollar amount:  $"))
     # Turn the amount into cents
     change_amount = (change_amount * 100)
 
