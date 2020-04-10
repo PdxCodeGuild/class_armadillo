@@ -12,12 +12,12 @@ time.sleep(1)
 conv_rate = {"ft": .3048, "mi": 1609.34, "m": 1, "km": 1000, "yd": .9144, "in": .0254}
 
 while True:
-    user_dist = input("\n\nPlease enter distance: ")
-    user_dist = int(user_dist)
+    user_dist = int(input("\n\nPlease enter distance: "))
+    # user_dist = int(user_dist)
 
     time.sleep(0.5)
 
-    user_unit_orig = input("Please enter units to CONVERT (ft, mi, m, km, yd, in): ")
+    user_unit_orig = input("Please enter units to CONVERT (ft, mi, m, km, yd, in): ").lower()
     does_unit_orig_exist = conv_rate.get(user_unit_orig, False)
 
     if does_unit_orig_exist:
@@ -29,7 +29,7 @@ while True:
 
     time.sleep(0.5)
 
-    user_unit_desired = input("Please enter units DESIRED (ft, mi, m, km, yd, in): ")
+    user_unit_desired = input("Please enter units DESIRED (ft, mi, m, km, yd, in): ").lower()
     does_unit_desired_exist = conv_rate.get(user_unit_desired, False)
 
     if does_unit_desired_exist:
