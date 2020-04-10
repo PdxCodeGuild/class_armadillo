@@ -1,11 +1,34 @@
 import shlex
 
+
+# Does the math. Everything becomes a meter then becomes final unit.
+def meter_conversion(distance_amount,
+                     conversion_method_value,
+                     final_converstion_method_value):
+    meter_distance = distance_amount * float(conversion_method_value)
+    final_distance = meter_distance * float(final_converstion_method_value)
+    rounded_final_distance = round(final_distance, 2)
+    print(f"That is a total of {rounded_final_distance} {final_unit}.")
+
+
+# Takes the input and makes it into a float
+def get_float(get_distance_amount):
+    while True:
+        distance_amount = input(get_distance_amount)
+        try:
+            distance_amount = float(distance_amount)
+            return distance_amount
+        except ValueError:
+            print("That is not a valid response.")
+
+
 run = True
 check_units = True
 
 # Main run loop.
 while run:
     # touples containing (name, * meter to make, and * to make a meter)
+    # replace this with a dictionary that only uses 1 value
     units = [
         ("in", 0.0254, 39.3701),
         ("ft", 0.3048, 3.2808),
@@ -75,26 +98,12 @@ Available unit: in, ft, yd, mi, mt, km. ''').strip().lower()
             print("please enter a valid response")
 
     # Takes input, makes it a float.
-    distance_amount = float(input("Enter the distance in selected unit: "))
-    meter_distance = 0
-
-    # Ensures we have a number we can convert.
-    while distance_amount is float or int:
-        break
-    else:
-        print('please enter a number.')
-
-    # This function does the math. Everything becomes a meter then final type.
-    def meter_conversion(distance_amount, conversion_method_value):
-
-        meter_distance = distance_amount * conversion_method_value
-
-        final_distance = meter_distance * final_converstion_method_value
-
-        print(f"That is a total of {final_distance} {final_unit}.")
+    distance_amount = get_float("Enter the distance in selected unit: ")
 
     # Run the function
-    meter_conversion(distance_amount, conversion_method_value)
+    meter_conversion(distance_amount,
+                     conversion_method_value,
+                     final_converstion_method_value)
 
     # We're done - stop the loop.
     run = False
