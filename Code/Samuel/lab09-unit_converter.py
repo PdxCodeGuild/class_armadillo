@@ -5,16 +5,16 @@
 
 # Dictionary of unit types, their conversion to meters, and converting a meter into that unit.
 unit_conversions = {
-    "Feet": [0.3048, 3.2808],
-    "Miles": [1609.34, 0.0006],
+    "Feet": [0.3048],
+    "Miles": [1609.34],
     "Meters": [1,1],
-    "Kilometers": [1000, 0.001],
-    "Yards": [0.9144, 1.0936],
-    "Inches": [0.0254, 39.3701]
+    "Kilometers": [1000],
+    "Yards": [0.9144],
+    "Inches": [0.0254]
 }
 
 # Initilizing variables
-valid_input = False
+valid_input = 0
 user_input = "u"
 input_units = "u"
 output_units = "u"
@@ -52,4 +52,4 @@ if input_units == output_units:
     print(f"{user_input} {input_units} is {user_input} {output_units}")
 else:
     # Does math based on turning the users input into meters, then back into the desired output unit.
-    print(f"{user_input} {input_units} is {round((float((unit_conversions[input_units][0] * int(user_input)) * unit_conversions[output_units][1])), 2)} {output_units}")
+    print(f"{user_input} {input_units} is {round((float((unit_conversions[input_units][0] * int(user_input))/ unit_conversions[output_units][0])), 2)} {output_units}")
