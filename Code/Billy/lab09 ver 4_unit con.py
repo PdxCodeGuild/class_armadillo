@@ -10,37 +10,40 @@ while i < len(welcome_msg):
 time.sleep(1)
 
 conv_rate = {"ft": .3048, "mi": 1609.34, "m": 1, "km": 1000, "yd": .9144, "in": .0254}
-    
-user_dist = input("\n\nPlease enter distance: ")
-user_dist = int(user_dist)
+while True:
+    user_dist = input("\n\nPlease enter distance: ")
+    user_dist = int(user_dist)
 
-time.sleep(0.5)
+    time.sleep(0.5)
 
-user_unit_orig = input("Please enter units to CONVERT (ft, mi, m, km, yd, in): ")
-does_unit_orig_exist = conv_rate.get(user_unit_orig, False)
+    user_unit_orig = input("Please enter units to CONVERT (ft, mi, m, km, yd, in): ")
+    does_unit_orig_exist = conv_rate.get(user_unit_orig, False)
 
-if does_unit_orig_exist:
-    distance_meters = user_dist * (conv_rate.get(f"{user_unit_orig}"))
+    if does_unit_orig_exist:
+        distance_meters = user_dist * (conv_rate.get(f"{user_unit_orig}"))
     # print(f"\n{user_dist} {user_unit} equals {total} m\n")
-else:
-    print(f"\nSorry! Unit '{user_unit_orig}' is not applicable!\n")
-    exit()
+    else:
+        print(f"\nSorry! Unit '{user_unit_orig}' is not applicable!\n")
+        exit()
 
-time.sleep(0.5)
+    time.sleep(0.5)
 
-user_unit_desired = input("Please enter units DESIRED (ft, mi, m, km, yd, in): ")
-does_unit_desired_exist = conv_rate.get(user_unit_desired, False)
+    user_unit_desired = input("Please enter units DESIRED (ft, mi, m, km, yd, in): ")
+    does_unit_desired_exist = conv_rate.get(user_unit_desired, False)
 
-if does_unit_desired_exist:
-    distance_new = distance_meters / (conv_rate.get(f"{user_unit_desired}"))
-    time.sleep(1)
-    print(f"\n{user_dist} {user_unit_orig} equals {distance_new} {user_unit_desired}\n")
-    time.sleep(1)
-else:
-    print(f"\nSorry! Unit '{user_unit_desired}' is not applicable!\n")
-
-
-
+    if does_unit_desired_exist:
+        distance_new = distance_meters / (conv_rate.get(f"{user_unit_desired}"))
+        time.sleep(1)
+        print(f"\n{user_dist} {user_unit_orig} equals {distance_new} {user_unit_desired}\n")
+        time.sleep(1)
+        question = input("Would you like to convert another value? (yes/no): ").lower()
+        if question != "yes":
+            time.sleep(0.5)
+            print("\nSee you later!\n")
+            exit()
+    else:
+        print(f"\nSorry! Unit '{user_unit_desired}' is not applicable!\n")
+        exit()
 
 
 
