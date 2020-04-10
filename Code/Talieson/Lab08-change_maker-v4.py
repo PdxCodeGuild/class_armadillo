@@ -8,8 +8,8 @@ while run:
     while run and currency_check:
         # Take the type of currency from the user
         currency = input('''
-                            Please select the currency you want to use
-                            Available currencies: Dollars, Pesos, Euros. ''')
+Please select the currency you want to use
+Available currencies: Dollars, Pesos, Euros, and Yen. ''')
 
         # decide which currency library we're using
         if currency == "Dollars":
@@ -35,7 +35,7 @@ while run:
             ]
         elif currency == "Euros":
             currency_check = False
-            symbol = "€"
+            symbol = u"\u20AC"
             coins = [
                 ("2 Euro coin", 200, 0),
                 ("1 Euro coin", 100, 0),
@@ -45,6 +45,17 @@ while run:
                 ("5 cent coin", 5, 0),
                 ("2 cent coin", 2, 0),
                 ("1 cent coin", 1, 0)
+            ]
+        elif currency == "Yen":
+            currency_check = False
+            symbol = "¥"
+            coins = [
+                ("500 Yen coin", 50000, 0),
+                ("100 Yen coin", 10000, 0),
+                ("50 Yen coin", 5000, 0),
+                ("10 Yen coin", 1000, 0),
+                ("5 Yen coin", 500, 0),
+                ("1 Yen coin", 100, 0)
             ]
         else:
             print("please enter a valid currency type. ")
