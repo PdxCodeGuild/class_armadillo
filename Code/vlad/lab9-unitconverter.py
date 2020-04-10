@@ -23,8 +23,8 @@ units = {
 }
 
 
-num = int(input("Enter a number to convert into meters: "))
-c_unit = input("Enter the unit to convert from: ")
+num = int(input("Please enter a number to convert into meters: "))
+c_unit = input("Would you please enter the unit to convert from: ")
 
 
 product = num * units[c_unit]
