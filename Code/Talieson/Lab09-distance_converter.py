@@ -1,8 +1,12 @@
 run = True
 
+# Main run loop
 while run:
+    # Take input of feet and convert to a float
     distance_amount = float(input("Enter the distance in feet: "))
+    # Multiply amount into yards
     distance_amount = (distance_amount * 0.3048)
+    # Return answers
     print("That is a total of " + str(distance_amount) + " meters.")
 
     run = False
