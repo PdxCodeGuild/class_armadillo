@@ -33,7 +33,7 @@ while True:
 
     while comp_choice == choice:
         comp_choice = random.randint(1, 3)
-  
+
     if comp_choice == 1:
         comp_choice_name = 'Rock'
     elif comp_choice == 2:
@@ -46,7 +46,7 @@ while True:
     print(choice_name + " V/s " + comp_choice_name)
 
     if((choice == 1 and comp_choice == 2) or
-      (choice == 2 and comp_choice ==1 )):
+      (choice == 2 and comp_choice == 1)):
         print("****PAPER WINS**** \n", end = "")
         result = "Paper"
 
