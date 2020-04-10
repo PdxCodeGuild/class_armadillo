@@ -58,7 +58,7 @@ distance_meters = distance_miles * 1609.34
 distance_miles = distance_meters / 1609.34
 print(distance_miles)
 '''
-print("-----Unit Coverter-----")
+print("\n\n-----Unit Coverter-----\n")
 
 dict_of_distances = {'in':0.0254, 'ft':0.3048, 'ya':0.9144, 'm':1, 'mi':1609.34, 'k':1000}
 
