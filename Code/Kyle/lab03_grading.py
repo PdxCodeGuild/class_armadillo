@@ -11,13 +11,19 @@
 
 check_grade = True  
 while check_grade:
-    numeric_grade = int(input('Please enter in a grade: '))
+    grade = (input('Please enter in a grade: '))
+    if grade.isnumeric():
+        numeric_grade = int(grade)
+    else:
+        print("I'm sorry but I don't recognize your entry. Please use non-negative, whole numeric scores only.")
+        continue
     if numeric_grade > 100:
         print(f"{numeric_grade}! That's very good. Almost...too...good. ")
-        print("Let's try that again - you can't score better than 100. " )
+        print("Let's try that again - you can't score better than 100. ")
         continue
-    elif numeric_grade <0:
-        print(f"{numeric_grade}...I'm not sure how you scored a negative answer. Let's try again, with a positive score this time. ")
+    elif numeric_grade < 0:
+        print(f"{numeric_grade}...I'm not sure how you scored a negative answer.") 
+        print("Let's try again, with a positive score this time. ")
         continue
     else:
         ones_digit = numeric_grade % 10
@@ -53,4 +59,3 @@ while check_grade:
             break
         else:
             print("That's not a valid answer. Please try again.")
-
