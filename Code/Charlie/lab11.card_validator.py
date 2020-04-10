@@ -1,3 +1,6 @@
+
+
+
 def validate_credit_card(card):
      # convert the input string into a list of ints.
      card = list(card)
@@ -30,5 +33,7 @@ def validate_credit_card(card):
      else:
          return False
 
+
 is_valid = validate_credit_card('4556737586899855')
-print(is_valid)  
+print(is_valid)
+
