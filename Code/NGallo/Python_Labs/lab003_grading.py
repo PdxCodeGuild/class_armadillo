@@ -6,7 +6,7 @@ def grading_scale():
     
     checking_grade = True
 
-    print("------Grading Scale------")
+    print("\n------Grading Scale------\n")
     
     while checking_grade == True:
         user_grade = input("Enter a number to find your grade out: ")
@@ -18,18 +18,28 @@ def grading_scale():
             
         user_grade = int(user_grade)
 
-        if user_grade >= 101:
+        if user_grade >= 110:
+            print("Alright, you may have cheated")
+        elif user_grade >= 101:
             print("You're a genius!!")
+        elif user_grade >= 95:
+            print("You scored an A+!")
         elif user_grade >= 90:
-            print("You scored an A!")
+            print("You scored an A-!")
+        elif user_grade >= 85:
+            print("You scored a B+!")
         elif user_grade >= 80:
-            print("You scored a B!")
+            print("You scored a B-!")
+        elif user_grade >= 75:
+            print("You scored an C+.")
         elif user_grade >= 70:
-            print("You scored an C.")
+            print("You scored an C-.")
+        elif user_grade >= 65:
+            print("You scored a D+.")
         elif user_grade >= 60:
-            print("You scored a D.")
+            print("You scored a D-.")
         elif user_grade <= 59:
-            print("You unfortunately failed this assignment. =[ ")      
+            print("You unfortunately failed this assignment. =[ ")   
         else:
             print("please try entering a valid number from 0 to 100.")
         
