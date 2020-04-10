@@ -22,11 +22,22 @@ paper vs rock
 elif user == "paper" and computer == "rock":
     print("User wins! Yeay!")
 paper vs paper (tie)
-
+elif user == "paper" and computer == "paper"
+    print("Everyone is a winner!")
 paper vs scissors
+elif user == "paper" vs computer == "scissors"
+    print("The computer is very excellent")
 scissors vs rock
+elif user == "scissors" vs computer == "rock"
+    print("Computer is awesome!")
 scissors vs paper
+elif user =="scissors" vs compuber == "paper"
+    print("User wins! Yippee")
 scissors vs scissors (tie)
+elif user == "scissors" vs computer == "scissors"
+    print("Another tie")
+
+
 
 
 Version 2 (optional)
