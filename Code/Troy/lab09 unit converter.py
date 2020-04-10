@@ -27,7 +27,7 @@ user_distance = int(user_distance)
 total = user_distance * distance['meters']
 
 # the output of the equation
-print(f'The grand total is...{total}')
+print(f'The grand total is...{total} meters!')
 
 
 '''Version 2 - 4'''
@@ -48,4 +48,4 @@ distance_conversions = {'inches': 0.0254,
 
 total = user_distance * (distance_conversions[user_input]  /distance_conversions[user_output])
 
-print(f"The grand total is...{total}")
+print(f"That is equal to...{total}.")
