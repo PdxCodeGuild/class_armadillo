@@ -13,7 +13,6 @@ conv_rate = {"ft": .3048, "mi": 1609.34, "m": 1, "km": 1000, "yd": .9144, "in": 
 
 while True:
     user_dist = int(input("\n\nPlease enter distance: "))
-    # user_dist = int(user_dist)
 
     time.sleep(0.5)
 
@@ -22,7 +21,7 @@ while True:
 
     if does_unit_orig_exist:
         distance_meters = user_dist * (conv_rate.get(f"{user_unit_orig}"))
-    # print(f"\n{user_dist} {user_unit} equals {total} m\n")
+    
     else:
         print(f"\nSorry! Unit '{user_unit_orig}' is not applicable!\n")
         exit()
