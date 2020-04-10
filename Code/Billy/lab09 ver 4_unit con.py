@@ -21,7 +21,6 @@ while True:
 
     if does_unit_orig_exist:
         distance_meters = user_dist * (conv_rate.get(f"{user_unit_orig}"))
-    
     else:
         print(f"\nSorry! Unit '{user_unit_orig}' is not applicable!\n")
         exit()
@@ -33,9 +32,12 @@ while True:
 
     if does_unit_desired_exist:
         distance_new = distance_meters / (conv_rate.get(f"{user_unit_desired}"))
+
         time.sleep(1)
+
         print(f"\n{user_dist} {user_unit_orig} equals {distance_new} {user_unit_desired}\n")
         time.sleep(1)
+
         question = input("Would you like to convert another value? (yes/no): ").lower()
         if question != "yes":
             time.sleep(0.5)
@@ -44,6 +46,9 @@ while True:
     else:
         print(f"\nSorry! Unit '{user_unit_desired}' is not applicable!\n")
         exit()
+
+
+
 
 
 
