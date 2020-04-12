@@ -23,12 +23,6 @@ def get_user_input():
     # Returns the input as an integer instead of a string.
     return int(user_input)
 
-
-# Returns if the integer given is within the specified range.
-def within_range(int1):
-    return True if int1 < 0 or int1 > 100 else False
-
-
 # Returns the letter grade string based on the integer given.
 def print_letter_grade(int1):
     if int1 >= 90:
