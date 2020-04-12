@@ -6,14 +6,18 @@
 # Imports the random module
 import random
 
+# Custom Module used to verify inputs when using input().
+import verify
+
+correct_inputs = ["Yes", "No"]
 
 # Gets the input from the user.
 def get_user_input():
-    user_input = "empty"
+    user_input = None
 
     # Checks to see if the integer is within the desired range or if it is a string. 
     # If any of these inputs are not correct, it will continue to ask the question until a correct input is given.
-    while not user_input.isnumeric() or within_range(int(user_input)):
+    while not verify.valid_input(user_input, against_range = True, range_low = 0, range_high = 100):
         user_input = input("What score did you get on your test? (Respond in whole number from 0-100) ")
 
     # Returns the input as an integer instead of a string.
@@ -88,6 +92,7 @@ while grading == "Yes":
 
     # Prints the message based on the input from the user.
     print_grade_message(grade)
+    grading = None
     # Checks to see if the user wants to check another grade.
-    while grading != "Yes" and grading != "No":
+    while not verify.valid_input(grading, correct_inputs, against_list = True, against_string = True):
         grading = input("Would you like to enter another grade? (Yes/No) ")
