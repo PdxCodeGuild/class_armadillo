@@ -1,15 +1,4 @@
-# Take 3 playing cards from the user
-
-# assign a point value to each card; assume aces are worth 1
-
-# * Less than 17, advise to "Hit"
-# Greater than or equal to 17, but less than 21, advise to "Stay"
-# Exactly 21, advise "Blackjack!"
-# Over 21, advise "Already Busted"
-
-# print out current total and the advice
-
-
+# Basic input validation
 def validate_units(input_units):
     unit_lists = [
         ["A", "a", "Ace", "ACE", "ace"],
@@ -32,7 +21,7 @@ def validate_units(input_units):
     print("I'm sorry that's not a valid response. ")
     return None
 
-
+# Library of card values to turn strings into blackjack value
 card_values = {
     "A": [1], "K": [10], "Q": [10], "J": [10], "10": [10], "9": [9],
     "8": [8], "7": [7], "6": [6], "5": [5], "4": [4], "3": [3], "2": [2],
@@ -40,6 +29,7 @@ card_values = {
 
 run = True
 
+# Set card equal to user input, ensure it's valid, then return an int
 while run:
     player_first_card = input("What is your first card?")
     player_first_card = validate_units(player_first_card)
@@ -51,8 +41,10 @@ while run:
     player_third_card = validate_units(player_third_card)
     player_third_card = card_values[player_third_card][0]
 
+# Take the cards totals
     card_value = player_first_card + player_second_card + player_third_card
 
+# Fill the advice string with the appropriate move
     advice = ""
 
     if card_value < 17:
@@ -64,4 +56,5 @@ while run:
     elif card_value > 21:
         advice = "It's too late for me, you've already Busted.."
 
+# Return the advice
     print(f"You have {card_value}, I suggest you {advice}")
