@@ -51,17 +51,17 @@ while run:
     player_third_card = validate_units(player_third_card)
     player_third_card = card_values[player_third_card][0]
 
-    card_values_sum = player_first_card + player_second_card + player_third_card
+    card_value = player_first_card + player_second_card + player_third_card
 
     advice = ""
 
-    if card_values_sum < 17:
+    if card_value < 17:
         advice = "Hit!"
-    elif card_values_sum >= 17 and card_values_sum < 21:
+    elif card_value >= 17 and card_value < 21:
         advice = "Stay, play it cool."
-    elif card_values_sum == 21:
+    elif card_value == 21:
         advice = "Black! You're amazing!"
-    elif card_values_sum > 21:
+    elif card_value > 21:
         advice = "It's too late for me, you've already Busted.."
 
-    print(f"You have {card_values_sum}, I suggest you {advice}")
+    print(f"You have {card_value}, I suggest you {advice}")
