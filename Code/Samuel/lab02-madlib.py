@@ -10,6 +10,11 @@
 # Importing the random module for use
 import random
 
+# Custom Module used to verify inputs when using input().
+import verify
+# Inputs for verify.valid_input() to check against.
+valid_inputs = ["Yes", "No"]
+
 # Game rules to make sure the user wants to continue to play the game. Set to "Yes" by default to run through the game once.
 game_working = "Yes"
 print_words = "Yes"
@@ -29,17 +34,17 @@ another_first_name = ""
 while game_working == "Yes":
 
     # Gets the inputs from the player, then spliting the string accordingly depending on which inputs were asked.
-    adjective = input("Please enter in 4 adjectives separated by commas: ")
+    adjective = input("Please enter in 4 adjectives separated by commas: ").strip()
     adjective = adjective.split(",")
     noun = input("Please enter in a noun: ")
-    plural_noun = input("Please enter in 3 plural nouns separated by commas: ")
+    plural_noun = input("Please enter in 3 plural nouns separated by commas: ").strip()
     plural_noun = plural_noun.split(",")
     adverb = input("Please enter in an adverb: ")
     verb_ending_in_ing = input("Please enter in a verb ending in \"ing\":")
     silly_word_plural = input("Please enter in a plural silly word: (Silly words can be not real words.) ")
     first_name = input("Please enter in a first name: ")
     number = input("Please enter in a number: ")
-    another_first_name = input("Please enter in 6 different first names, each separated by commas: ")
+    another_first_name = input("Please enter in 6 different first names, each separated by commas: ").strip()
     another_first_name = another_first_name.split(",")
 
     # While print_words == "Yes", continue looping to print the story. print_words is initialized to "Yes"
@@ -52,17 +57,17 @@ while game_working == "Yes":
         print(f"They are named {another_first_name[0]}, {another_first_name[1]}, {another_first_name[2]}, {another_first_name[3]}, {another_first_name[4]}, {another_first_name[5]}, Jupiter, and Mars.")
         print(f"Scientists who study these planets are called {random.choice(plural_noun)}.")
         # Resets print words so that it can inquire if the player wants to print the story again after printing.
-        print_words = ""
+        print_words = None
         # Checks to see if the user wants to print the story again, causing some words to change due to random.choice(), "Yes" continues the loop, "No" exits the loop.
-        while print_words != "Yes" and print_words != "No":
+        while not verify.valid_input(print_words, valid_inputs, against_string= True, against_list= True):
             print_words = input("Would you like to read the story again? (Yes/No) ")
     
     # Resets game rules in order to check to see if the player wants to play again. print_words switched back to "Yes" so that it would print the words again if the user desired.
     print_words = "Yes"
-    game_working = ""
+    game_working = None
 
     # Checks to see if the user wants to play the game again, "Yes" continues the loop, "No" exits the loop.
-    while game_working != "Yes" and game_working != "No":
+    while not verify.valid_input(game_working, valid_inputs, against_string= True, against_list= True):
         game_working = input("Would you like to make another story? (Yes/No) ")
 
 # If there is any other way you would prefer me to do comments, please let me know, I want to make sure these are sufficient and helpful.
