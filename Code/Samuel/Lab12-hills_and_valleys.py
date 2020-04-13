@@ -71,7 +71,7 @@ def fill_lakes(tuples, land):
 # Prints the land using a dictionary of land, and a list of numbers.
 def print_land(land_input, data_input):
     x = 0
-    y = 9
+    y = max(data_input)-1
     # While y is greater than -1, loop
     while y > -1:
         # While x is less than the number of values in data_input, loop.
@@ -105,7 +105,7 @@ def make_dict(list_input):
         return_dict.setdefault(x, [])
         i = 0
         # While i < 10, loop
-        while i < 10:
+        while i < max(list_input):
             # If i is less than the value of list_input[x], append the list at return_dict[x]with "X", otherwise, append with " ".
             if i < list_input[x]:
                 return_dict[x].append("X")
