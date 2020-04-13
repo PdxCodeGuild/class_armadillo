@@ -5,9 +5,9 @@ number_of_aces = -1
 
 # Ace possibilties. Doesn't count double 11s because those go over immerdiatly
 aces_possible = {
-    0:[1,11],
-    1:[2,12],
-    2:[3,13]
+    0: [1,11],
+    1: [2,12],
+    2: [3,13]
 }
 
 # Returns a list containing the score number and the number of aces used based on the card given.
