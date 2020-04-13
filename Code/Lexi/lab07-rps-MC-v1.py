@@ -19,28 +19,30 @@ while True: # get vvalid user input
     if human_choice in rps:
         break
     print('please enter a valid option')
-else:
-    print('this will run if you dont break')
+
 
 # human_choice = None #got to set this
 # while human_choice not in rps:
 #     human_choice = input('Rock, paper or scissors? ').lower().strip()
 
+print('human chose ' + human_choice)
+print('computer chose ' + comp_choice)
 
-    if human_choice == comp_choice:
-        print('tie')
-    elif human_choice == 'rock' and comp_choice == 'paper':
-        print('computer wins')
-        comp_score += 1
-    elif human_choice == 'rock' and comp_choice == 'scissors':
-        print('homo sapien wins')
-        human_score += 1
-    elif human_choice == 'rock' and comp_choice == 'rock':
-        print('TIE')
-    elif human_choice == 'scissors' and comp_choice == 'paper':
-        print('computer wins')
-    elif human_choice == 'scissors' and comp_choice == 'scissors':
-        print('tie')
-    elif human_choice == 'scissors' and comp_choice == 'rock':
-        print('PC wins')
-        comp_score += 1
+
+if human_choice == comp_choice:
+    print('tie')
+elif human_choice == 'rock' and comp_choice == 'paper':
+    print('computer wins')
+    comp_score += 1
+elif human_choice == 'rock' and comp_choice == 'scissors':
+    print('homo sapien wins')
+    human_score += 1
+
+elif human_choice == 'scissors' and comp_choice == 'paper':
+    print('computer wins')
+    comp_score += 1
+
+elif human_choice == 'scissors' and comp_choice == 'rock':
+    print('PC wins')
+    comp_score += 1
+#rockprint()
