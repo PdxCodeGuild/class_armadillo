@@ -7,8 +7,13 @@
 import random
 import string
 
+# Custom Module used to verify inputs when using input().
+import verify
+
 # Moveset: R = Rock, P = Paper, S = Scissors.
 possible_moves = ["R", "P", "S", "L", "K"]
+
+correct_inputs = ["Yes", "No"]
 
 # Predifined wins and losses
 wins = {
@@ -29,20 +34,19 @@ moves_printed = {
 }
 
 # Defining variables.
-user_input = "Y"
-user_move = "Y"
+user_input = "Yes"
+user_move = None
 
 
 def check_valid_move(str1):
     for move in possible_moves:
-        # print(str1)
         if str1 == move:
             return True
     return False
 
 
 # Keeps playing the game if the user wants to.
-while user_input == "Y":
+while user_input == "Yes":
     # Prints the choices.
     print("--------------------------------------")
     print("Rock Paper Scissors Lizard Spock Game!")
@@ -53,7 +57,8 @@ while user_input == "Y":
     print("K = Spock")
 
     # Checks to make sure the user uses the correct moves.
-    while not check_valid_move(user_move):
+    # verify.valid_input(user_move, possible_moves, against_string = True, against_list = True)
+    while not verify.valid_input(user_move, possible_moves, against_string = True, against_list = True):
         user_move = input("Choose one: ")
         user_move = user_move.upper()
 
@@ -76,9 +81,9 @@ while user_input == "Y":
         print("The computer wins!")
 
     # Resets inputs incase the player wishes to play again.
-    user_move = "Y"
-    user_input = "S"
+    user_move = None
+    user_input = None
 
     # Asks the user if they want to play again.
-    while user_input.upper() != "Y" and user_input.upper() != "N":
-        user_input = input("Play again? (Y/N) ")
+    while not verify.valid_input(user_input, correct_inputs, against_string = True, against_list = True):
+        user_input = input("Play again? (Yes/No) ")

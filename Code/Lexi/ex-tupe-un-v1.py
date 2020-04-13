@@ -13,3 +13,6 @@ z = (10,100)
 #function unpacked them
 
 print(result(*z))
+
+#https://stackoverflow.com/questions/1455602/printing-tuple-with-string-formatting-in-python
+#Note that the % syntax is obsolete. Use str.format, which is simpler and more readable:
