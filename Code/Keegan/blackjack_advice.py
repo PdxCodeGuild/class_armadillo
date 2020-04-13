@@ -39,7 +39,9 @@ hand_total = card_values[first_card] + card_values[second_card]
 while True:
     if hand_total < 17:
         print(f"{hand_total} - Hit!")
-    elif hand_total >= 17 and hand_total < 21:   # another way to write: 17 <= hand_total < 21 
+    elif hand_total >= 17 and hand_total < 21:  # another way to write: 17 <= hand_total < 21, 
+                                                # though hand_total >= 17 is redundant in this case,
+                                                # as it is handled in the if statement hand_total < 17
         print(f"{hand_total} - Stay!")
     elif hand_total == 21:
         print(f"{hand_total} - Blackjack!")
