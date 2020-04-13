@@ -59,7 +59,7 @@ b_unit = input("Please enter the unit to convert to")
 
 product = num * units[c_unit]
 product2 = product / units[b_unit]
-result = f'{num} {c_unit} is equal to {product2} {b_unit}  '
+result = f'{num} {c_unit} is equal to {product2} {b_unit} '
 print(result)
 
 

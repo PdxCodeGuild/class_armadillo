@@ -7,7 +7,7 @@
 unit_conversions = {
     "Feet": [0.3048],
     "Miles": [1609.34],
-    "Meters": [1,1],
+    "Meters": [1],
     "Kilometers": [1000],
     "Yards": [0.9144],
     "Inches": [0.0254]
@@ -25,11 +25,11 @@ for units in unit_conversions:
     print(units)
 
 # Asks the user for the input, while checking to see if the user input is a proper input.
-while user_input.isnumeric() != True or int(user_input) < 1:
+while not user_input.isnumeric() or int(user_input) < 1:
     user_input = input("What is the distance? ")
 
 # Checks to see if the user had input the correct type of units.
-while valid_input != True:
+while not valid_input:
      input_units = input("What are the input units? ")
      for units in unit_conversions:
          if units == input_units:
@@ -40,7 +40,7 @@ while valid_input != True:
 valid_input = False
 
 # Checks to see if the user had input the correct type of units.
-while valid_input != True:
+while not valid_input:
      output_units = input("What are the Output units? ")
      for units in unit_conversions:
          if units == output_units:
