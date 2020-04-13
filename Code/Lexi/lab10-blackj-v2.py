@@ -1,4 +1,5 @@
 #Version 2 install plugin 'Bracket Pair Colorizer'
+# alt + tab is how you switch screens on WINDOWS
 card_values = {
     "A": [1, 11],
     "2": [2, 2],
@@ -40,7 +41,8 @@ elif sum_1 == 21:
 else:
     print(f'{sum_1} "Already Busted" ')
 
-#to rename vars en masse
+#to rename vars en masse, hit CTRL + D WINDOWS
+# CMD + D on MAC
 
 if sum_2 < 17:
     print(f'{sum_2} "Hit" ')
