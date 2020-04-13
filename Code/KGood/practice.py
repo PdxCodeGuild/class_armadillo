@@ -19,3 +19,12 @@ def count_letter(letter, word):
 
 # print(count_letter("i", "pneumonoultramicroscopicsilicovolcanoconiosis"))
 # print(count_letter("l", "hello"))
+
+def print_powers_2(n):
+    print(', '.join([str(2 ** i) for i in range(n)]))
+
+
+
+def count_hi(text):
+    text.find()
+    return 
