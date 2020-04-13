@@ -9,7 +9,7 @@ units = {
     "km": 1000}
     
 print("Welcome to the Unit Conveter \n")
-time.sleep(2)
+time.sleep(1)
 print("Please enter the distance, \n", 
 "Then Unit of Disatance, \n", 
 "Then Press Enter \ Return\n")
@@ -23,7 +23,6 @@ print(
 "km\n")
 
 distance = int(input("Enter your distance/length: "))
-unit = input("Enter the unit to convert from in, ft, yd, mi, m, km: ")
+unit = input("Enter the unit to convert from: in, ft, yd, mi, m, km: ")
 result = distance * units[unit]
-
-print(f"There is {result} meters in {distance} {unit}(s)")
+print(f"There is {result} meter(s) in {distance} {unit}(s)")
