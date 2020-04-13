@@ -3,7 +3,7 @@
 
 def validate_cc(card):
     card = int(input("Please input a credit card number"))
-    check_digit = card.pop(len(card))
+    #check_digit = card.pop(len(card)
 
 
 # Convert the input string into a list of ints
@@ -11,12 +11,16 @@ def validate_cc(card):
 
 # Slice off the last digit. That is the check digit.
 
-check_digit[stringlength::-1]
+    check_digit = card.pop(-1)
 
 # Reverse the digits.
+    card.reverse() # reverse() list method reverses list in place
+    
+    print(f"Before reverse: {card = }")
 
 
 # Double every other element in the reversed list.
+    check_digit[stringlength::-1]
 
 
 # Subtract nine from numbers over nine.
