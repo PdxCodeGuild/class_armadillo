@@ -1,4 +1,4 @@
-#Lab 10: Blackjack Advice
+#Lab 10: Blackjack Advice!
 
 
 # Building deck using STRINGS as keys, so we can us user_input as the key to access the card values. deck[user_input]
