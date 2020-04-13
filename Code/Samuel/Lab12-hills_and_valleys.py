@@ -8,8 +8,11 @@ land_test = dict()
 # Returns a list containing the indexes of the peaks in the list given.
 def peaks(data_input):
     list_of_peaks = []
+    # For each value in data_input, loop
     for i in range(len(data_input)):
+        # If i is not equal to the beginning and the end of the list, continue
         if i != 0 and i != len(data_input)-1:
+            # If the value at data_input[i] is greater than the values at data_input[i+1] and data_input[i-1], append list_of_valleys with the current index.
             if data_input[i] > data_input[i+1] and data_input[i] > data_input[i-1]:
                 list_of_peaks.append(i)
     return list_of_peaks
@@ -17,8 +20,11 @@ def peaks(data_input):
 # Returns a list containing the indexes of the valleys in the list given.
 def valleys(data_input):
     list_of_valleys = []
+    # For each value in data_input, loop
     for i in range(len(data_input)):
+        # If i is not equal to the beginning and the end of the list, continue
         if i != 0 and i != len(data_input)-1:
+            # If the value at data_input[i] is lesser than the values at data_input[i+1] and data_input[i-1], append list_of_valleys with the current index.
             if data_input[i] < data_input[i+1] and data_input[i] < data_input[i-1]:
                 list_of_valleys.append(i)
     return list_of_valleys
