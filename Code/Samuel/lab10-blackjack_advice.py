@@ -1,9 +1,14 @@
+# PDX Code Guild Fullstack Course
+# Lab 10 Blackjack Advice
+# Samuel Purdy
+# 4/13/2020
+
 import string
 
 # Counts the number of aces in a hand
 number_of_aces = -1
 
-# Ace possibilties. Doesn't count double 11s because those go over immerdiatly
+# Ace possibilties. Doesn't count double 11s because those go over immediatly
 aces_possible = {
     0: [1,11],
     1: [2,12],
