@@ -1,4 +1,7 @@
 #Version 2 install plugin 'Bracket Pair Colorizer'
+# alt + tab is how you switch screens on WINDOWS
+#to remove 2nd column values, click Ctrl + D, highlight colons,
+# then hit Shift + Ctrl + End to select all values after the colon and delete
 card_values = {
     "A": [1, 11],
     "2": [2, 2],
@@ -40,7 +43,8 @@ elif sum_1 == 21:
 else:
     print(f'{sum_1} "Already Busted" ')
 
-#to rename vars en masse
+#to rename vars en masse, hit CTRL + D WINDOWS
+# CMD + D on MAC
 
 if sum_2 < 17:
     print(f'{sum_2} "Hit" ')

@@ -43,10 +43,6 @@ Using the `data` list above, draw the image of `X`'s above.
 
 ## Version 3 (optional)
 
-Make a function that takes in the dataset and a list of peaks, and returns a list of tuples representing lakes. Each tuple should have a starting x coordinate, an ending x coordinate, and a height. The height is relative to the base of the graph.
-
-## Version 4 (optional)
-
 Imagine pouring water into onto these hills. The water would wash off the left and right sides, but would accumulate in the valleys. Below the water is represented by `O`'s. Given `data`, calculate the amount of water that would be collected.
 
 ```
