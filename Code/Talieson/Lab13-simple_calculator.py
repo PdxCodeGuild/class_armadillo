@@ -1,3 +1,4 @@
+from calculator_math import *
 
 # intro message.
 print("#="*55)
@@ -15,13 +16,15 @@ while run:
     second_number = float(second_number)
     # check which operator is needed and use the applicable arrithmatic.
     if operator == "+":
-        result = first_number + second_number
+        result = addition(first_number, second_number)
     elif operator == "-":
-        result = first_number - second_number
+        result = subtraction(first_number, second_number)
     elif operator == "*":
-        result = first_number * second_number
+        result = multiplication(first_number, second_number)
     elif operator == "/":
-        result = first_number / second_number
+        result = division(first_number, second_number)
+    else:
+        print("Please enter a valid response.")
 
     # return the result.
     print(f"{first_number} {operator} {second_number} = {result}")
