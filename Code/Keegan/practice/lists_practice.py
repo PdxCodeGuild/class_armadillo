@@ -1,8 +1,14 @@
 import random
 #from random import randint  # if we just want randint
 
+# April 14, 2020
 
+## Problem 1 ####
 def random_element(some_list):
+    '''
+    Write a function using random.randint to generate an index, 
+    use that index to pick a random element of a list and return it.
+    '''
     index = random.randint(0, len(some_list) - 1)  # select random index
     return some_list[index]  # return value at that index
 
@@ -10,9 +16,13 @@ def random_element(some_list):
 # fruits_list = ['apples', 'bananas', 'pears', 'mango', 'grapefruit', 'peaches']
 # print(random_element(fruits_list))
 
-
+### Problem 2 ###
 def get_numbers():
-
+    '''
+    Write a REPL which asks users for a list of numbers, 
+    which they enter, until they say 'done'. 
+    Then print out the list.
+    '''
     numbers = []
 
     user_input = ''  #  str() can be used to define a blank string instead of ''
@@ -29,9 +39,12 @@ def get_numbers():
 # print(get_numbers())
 
 
-
+### Problem 3 ###
 def even_evens(nums):
-
+    '''
+    Write a function that takes a list of numbers.
+    Returns True if there is an even number of even numbers.
+    '''
     even_number_counter = 0  # counter variable for counting even numbers
 
     # check each number to see if it is even
@@ -57,8 +70,11 @@ list2 = [5, 5, 2]
 # print(even_evens(list1))  # True
 # print(even_evens(list2))  # False
 
-# with while loop
+### Problem 4 ###
 def print_every_other_with_while(nums):
+    '''
+    Print out every other element of a list using a while loop.
+    '''
     #  split a list at every other element nums[0:-1:2] => list_name[first_index : last_index : step]  
     index = 0
     while index < len(nums):
@@ -72,4 +88,7 @@ def print_every_other_with_while(nums):
 
 # print_every_other_with_while([0, 1, 2, 3, 4, 5, 6, 7, 8])    
 # def print_every_other_with_for(nums):
+    # '''
+    # Print out every other element of a list using a for loop.
+    # '''
 #     pass
