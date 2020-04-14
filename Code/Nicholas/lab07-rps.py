@@ -3,7 +3,7 @@ import random
 play_again = True
 while play_again:
     #gets user input, then generates computer's output 
-    user = input('Choose rock, paper, or scissors: ').lower() #allows user to enter any input without being case sensitive
+    user = input('Choose rock, paper, or scissors: ').lower()  #allows user to enter any input without being case sensitive
     choices = ['rock' , 'paper', 'scissors']
     computer = random.choice(choices)
 
@@ -13,10 +13,10 @@ while play_again:
     if user == computer:
         print(f'Computer chose {computer}! That is a tie!')
     # rock vs paper
-    elif user == 'rock' and computer =='paper':
+    elif user == 'rock' and computer == 'paper':
         print('Computer Wins!')   
     # rock vs scissors
-    elif user == 'rock' and computer =='scissors':
+    elif user == 'rock' and computer == 'scissors':
         print('You Win!')
     # paper vs rock
     elif user == 'paper' and computer == 'rock':
@@ -31,7 +31,7 @@ while play_again:
     elif user == 'scissors' and user == 'paper':
         print('You Win!')
     else:
-        print('That is not a valid entry')#generates if anything but rock, paper, or scissors entered    
+        print('That is not a valid entry')  #generates if anything but rock, paper, or scissors entered    
 
     another_round = input("Wanna play again? Y/N ").upper()
     if another_round == "N":
