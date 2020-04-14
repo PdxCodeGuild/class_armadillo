@@ -2,8 +2,8 @@ from calculator_math import *
 
 # intro message.
 print("#="*45)
-print(''' Welcome to Calcutron - enter a an operator and a number seperated by a space to 
-recieve an answer. Currently exceptable operators are +, -, *, and /. ''')
+print(''' Welcome to Calcutron - enter a an operator and a number seperated by
+a space to recieve an answer. Currently exceptable operators are +, -, *, and /. ''')
 print("#="*45)
 
 # start main run loop.
@@ -14,7 +14,7 @@ while run:
     if not running_value:
         # take the inital input that will become our running total.
         running_value = float(input("what is the starting value? "))
-    
+
     # take the operator and the operating value
     operator, second_number = input("enter operation: ").split(" ")
     second_number = float(second_number)
