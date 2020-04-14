@@ -3,14 +3,27 @@ import time
 
 #variable setting
 
+
+conversions = {
+    "1 ft: .3048 m",
+    "1 m: 1",
+    "mi: 1609.34",
+    "km: 1000",
+    "yd: 09144",
+    "in: 0254"
+}
+
+
 user = input("Can you convert 6 ft into meters for me? y/n ") 
 
 
+unit1 = input ("Which unit would you like to convert from: ")
+unit2 = input ("Which unit would you like to convert to: ")
+num = input ("Enter your value: " )
 
+if unit1 == "cm" and unit2 == "m":
+    ans = float(num)/
 
-unit1 = raw_input ("Which unit would you like to convert from: ")
-unit2 = raw_input ("Which unit would you like to convert to: ")
-num1 = raw_input ("Enter your value: " )
 
 
 
