@@ -8,8 +8,8 @@
 
 
 # a and b are called parameters
-def add(a, b):
-    return a + b
+# def add(a, b):
+#     return a + b
 # print(add(5, 2))
 # print(add(8, 1))
 
@@ -66,7 +66,70 @@ def opposite(a, b):
 # print(opposite(-1, -1)) # False
 
 
-'_'.join(['a', 'b', 'c']) # a_b_c
+# '_'.join(['a', 'b', 'c']) # a_b_c
+
+
+
+# Problem 3
+
+# iterables: string, list, range, reversed(), tuple, set, dictionary
+# print(list(reversed([1, 2, 3])))
+# print(sorted([3, 1, 2]))
+# print(list(range(1, 10)))
+
+
+def near_100(num):
+    return num >= 90 and num <= 110
+
+    # less good version
+    # if num in range(90, 111):
+    #     return True
+    # else:
+    #     return False
+# print(near_100(89)) # False
+# print(near_100(99)) # True
+# print(near_100(105)) # True
+
+
+def maximum_of_three(a, b, c):
+
+    # nums = [a, b, c]
+    # nums.sort()
+    # return nums[-1]
+
+    # nums = sorted([a, b, c])
+    # return nums[-1]
+
+    # return max(a, b c)
+    
+    if a >= b and a >= c:
+        return a
+    elif b >= a and b >= c:
+        return b
+    else:
+        return c
+
+
+# print(maximum_of_three(5,6,6)) # 6
+# print(maximum_of_three(5,6,2)) # 6
+# print(maximum_of_three(-4,3,10)) # 10
+# print(maximum_of_three(20,3,10)) # 20
+
+
+
+def print_powers_2():
+  #for x in range(0, 21):
+  #  print(2 ** x)
+  i = 0
+  while i < 21:
+    print(2 ** i)
+    i += 1
+
+
+# print_powers_2() # 1, 2, 4, 8, 16, 32, ...
+
+
+
 
 def double_letters(word):
     new_list = []
@@ -128,6 +191,38 @@ def latest_letter(word):
 # print(latest_letter('antidisestablishmentarianism')) # t
 
 
+
+# index = 'hello world world world'.find('world')
+# print(index)
+# index = 'hello world world world'.find('world', index+1)
+# print(index)
+# index = 'hello world world world'.find('world', 13)
+# print(index)
+# index = 'hello world world world'.find('world', 19)
+# print(index)
+
+
+
+
+
+
+def count_hi(text):
+  # return text.count('hi')
+#   for char in text:
+#     print(char)
+#   for i in range(len(text)-1):
+#     print(text[i], text[i+1])
+
+print(count_hi('hihi')) # 2
+# print(count_hi('hihellohi')) # 2
+# print(count_hi('abc123hi456')) # 1
+
+
+
+
+
+
+
 def count_letter(letter, word):
     letter_count = 0
     # new_list = list(word)
@@ -139,7 +234,7 @@ def count_letter(letter, word):
             letter_count += 1
         # print(char)
     return letter_count
-print(count_letter('i', 'antidisestablishmentterianism')) # 5
-print(count_letter('p', 'pneumonoultramicroscopicsilicovolcanoconiosis')) # 2
+# print(count_letter('i', 'antidisestablishmentterianism')) # 5
+# print(count_letter('p', 'pneumonoultramicroscopicsilicovolcanoconiosis')) # 2
 
 
