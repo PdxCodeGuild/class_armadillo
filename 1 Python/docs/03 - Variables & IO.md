@@ -15,7 +15,7 @@ The easiest way to enter data in your problem is through 'literals', which are c
 
 ## Mutability
 
-Certain datatypes in Python are **immutable** meaning their values **cannot** be changed. Immutable types include ints, floats, strings, and tuples. This is why string methods like `lower`, `replace` and `strip` return **copies** of the string rather than the original. 
+Certain datatypes in Python are **immutable** meaning their values **cannot** be changed. Immutable types include ints, floats, strings, and tuples. This is why string methods like `lower`, `replace` and `strip` return **copies** of the given string.
 
 
 ```python
@@ -45,7 +45,8 @@ print('world')
 >>> hello
 >>> world
 ```
-You can specify a different terminating character, if you don't want it to print a new-line.
+
+By default, print will have a newline at the end, if you wish to 
 
 ```python
 print('hello', end=' ')
@@ -53,7 +54,8 @@ print('world')
 >>> hello world
 ```
 
-If you pass multiple arguments (separated by commas), it'll print them on a single line.
+If you pass multiple arguments (separated by commas), it'll print them each on a single line with spaces in between. 
+
 ```python
 print("Total score for", name, "is", score)
 ```
