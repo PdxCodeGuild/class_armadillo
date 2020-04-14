@@ -1,5 +1,7 @@
 # Version 1
 
+# Value dictionary
+
 card_values = {
     "ace": 1,
     "2": 2,
@@ -16,11 +18,15 @@ card_values = {
     "K": 10,
 }
 
+# Player card inputs
+
 card_1 = input("What's your first card? ")
 card_2 = input("What's your second card? ")
 card_3 = input("What's your third card? ")
 
 sum = (card_values[card_1]) + (card_values[card_2]) + (card_values[card_3])
+
+# Blackjack advice
 
 if sum < 17:
     print("Hit")
