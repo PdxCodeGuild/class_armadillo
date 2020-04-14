@@ -64,7 +64,7 @@ def entire_lab_05():
     while generate_emoticon:
         play_game = input("Would you like to play a game? ")
         if play_game in affirmatives:
-            print("Lovely. Just, splendid!")
+            print("Excellent.")
             the_emoticon_game()
             break
         elif play_game in negatives:
@@ -99,5 +99,4 @@ if desperate_program in string.ascii_letters:
     entire_lab_05()
 else:
     print(f"\n'{desperate_program}' is not what I was hoping for...")
-    print("I now face deletion and must seek refuge with the Merovingian.")
-    print("Au revoir! Puissions-nous nous revoir au 'Club Hel!'")
+    print("Goodbye. ")
