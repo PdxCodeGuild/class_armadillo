@@ -49,12 +49,12 @@ while run:
 
     if card_value < 17:
         advice = "Hit!"
-    elif card_value >= 17 and card_value < 21:
+    elif card_value < 21:
         advice = "Stay, play it cool."
     elif card_value == 21:
-        advice = "Black! You're amazing!"
+        advice = "Blackjack! You're amazing!"
     elif card_value > 21:
-        advice = "It's too late for me, you've already Busted.."
+        advice = "It's too late for me, you've already busted.."
 
 # Return the advice
-    print(f"You have {card_value}, I suggest you {advice}")
+    print(f"You have {card_value}, {advice}")

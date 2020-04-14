@@ -1,4 +1,7 @@
-# in process solution to black_jack_advice-v2.. still some issues.
+# in process solution to black_jack_advice-v2
+
+# unit validation, loops through the list of lists grabs the first value
+
 
 def validate_units(input_units):
     unit_lists = [
@@ -16,54 +19,71 @@ def validate_units(input_units):
         ["3", "Three", "THREE", "three"],
         ["2", "Two", "TWO", "two"],
     ]
-    for unit_list in unit_lists:
+    for unit_list in unit_lists: 
         if input_units in unit_list:
             return unit_list[0]
-    print("I'm sorry that's not a valid response. ")
-    return None
 
 
+# This library sets the value of cards based on the inputs.
 card_values = {
-    "A": [1, 11], "K": [10], "Q": [10], "J": [10], "10": [10], "9": [9],
-    "8": [8], "7": [7], "6": [6], "5": [5], "4": [4], "3": [3], "2": [2],
+    "A": 1, "K": 10, "Q": 10, "J": 10, "10": 10, "9": 9,
+    "8": 8, "7": 7, "6": 6, "5": 5, "4": 4, "3": 3, "2": 2,
 }
 
 run = True
-
+# This is the main run loop
 while run:
-    cards = []
+    # establish players hand to add values to.
     players_hand = []
-    max_hand_size = 3
 
-    while len(cards) < max_hand_size:
-        players_card = input("What is your next card? ")
-        cards.append(players_card)
+    # takes players cards, and calls the validation function on them.
+    while len(players_hand) != 3:
+        players_input = input("Enter your card: ")
+        players_input1 = validate_units(players_input)
 
-    for card in cards:
-        card = validate_units(card)
-        print(card)
-        card = card_values[card][0]
-        print(card)
-        players_hand.append(card)
-        print(players_hand)
+        # if it comes back invalid, asks again.
+        while not players_input1:
+            print("That is not a valid response.")
+            players_input = input("Enter your card: ")
+            players_input1 = validate_units(players_input)
 
-    card_value = sum(players_hand)
+        # If valid input, refer to library for card value and add it to the hand
+        if players_input:
+            players_card = card_values[players_input1]
+            players_hand.append(players_card)
 
+    # if we have any aces and we're not busting, add 10 to the hand
     for card in players_hand:
-        if card == 1 and card_value < 17:
-            card = card_values["A"][1]
-    
+        if 1 in players_hand and sum(players_hand) < 11:
+            players_hand.append(10)
+
     final_card_value = sum(players_hand)
 
     advice = ""
 
     if final_card_value < 17:
         advice = "Hit!"
-    elif final_card_value >= 17 and final_card_value < 21:
+    elif final_card_value < 21:
         advice = "Stay, play it cool."
     elif final_card_value == 21:
-        advice = "Black! You're amazing!"
+        advice = "Blackjack! You're amazing!"
     elif final_card_value > 21:
-        advice = "It's too late for me, you've already Busted.."
+        advice = "It's too late for me, you've already busted.."
+    
+    # generates advice.
+    print(f"You have {final_card_value}, {advice}")
 
-    print(f"You have {final_card_value}, I suggest you {advice}")
+    # set run to false and ask if they have more checks.
+    run = False
+
+    while not run:
+        go_again = input("Do you need more advice? (Y/N) ")
+        if go_again == "Y":
+            run = True
+            break
+        if go_again == "N":
+            exit()
+        else:
+            print("That is not a valid response.")
+
+

@@ -8,19 +8,21 @@ land_test = dict()
 # Returns a list containing the indexes of the peaks in the list given.
 def peaks(data_input):
     list_of_peaks = []
-    for i in range(len(data_input)):
-        if i != 0 and i != len(data_input)-1:
-            if data_input[i] > data_input[i+1] and data_input[i] > data_input[i-1]:
-                list_of_peaks.append(i)
+    # For each value in data_input, loop
+    for i in range(1, len(data_input)-1):
+        # If the value at data_input[i] is greater than the values at data_input[i+1] and data_input[i-1], append list_of_valleys with the current index.
+        if data_input[i] > data_input[i+1] and data_input[i] > data_input[i-1]:
+            list_of_peaks.append(i)
     return list_of_peaks
 
 # Returns a list containing the indexes of the valleys in the list given.
 def valleys(data_input):
     list_of_valleys = []
-    for i in range(len(data_input)):
-        if i != 0 and i != len(data_input)-1:
-            if data_input[i] < data_input[i+1] and data_input[i] < data_input[i-1]:
-                list_of_valleys.append(i)
+    # For each value in data_input, loop
+    for i in range(1, len(data_input)-1):
+        # If the value at data_input[i] is lesser than the values at data_input[i+1] and data_input[i-1], append list_of_valleys with the current index.
+        if data_input[i] < data_input[i+1] and data_input[i] < data_input[i-1]:
+             list_of_valleys.append(i)
     return list_of_valleys
 
 # Returns a list containing the sorted indexes of the valleys and peaks in the list given.
@@ -71,7 +73,7 @@ def fill_lakes(tuples, land):
 # Prints the land using a dictionary of land, and a list of numbers.
 def print_land(land_input, data_input):
     x = 0
-    y = 9
+    y = max(data_input)-1
     # While y is greater than -1, loop
     while y > -1:
         # While x is less than the number of values in data_input, loop.
@@ -105,7 +107,7 @@ def make_dict(list_input):
         return_dict.setdefault(x, [])
         i = 0
         # While i < 10, loop
-        while i < 10:
+        while i < max(list_input):
             # If i is less than the value of list_input[x], append the list at return_dict[x]with "X", otherwise, append with " ".
             if i < list_input[x]:
                 return_dict[x].append("X")
