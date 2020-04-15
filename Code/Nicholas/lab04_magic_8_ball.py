@@ -1,3 +1,5 @@
+#this lab generates a random weather condition, then loops back so user can generate another output
+
 import random
 #list of possible weather conditions
 weather = ['thunderstorms', 'tornado watch', 'hot and humid', 'rainy', 'blizzard', 'windy', 'sunny and 65', 'wintery mix', 'cold and dry', 'sweater weather']
@@ -10,7 +12,7 @@ while alt_weather:
 #random weather condition outputs here
     print("Tomorrow the weather will be:")
     print(random.choice(weather))
-#entering done breaks loop 
+#entering 'done' breaks loop 
     other_weather = input("Not satified with my prediction? Ask again or say 'done' if satisfied: ").lower()
     if other_weather == 'done':
         print('Have a great day!')

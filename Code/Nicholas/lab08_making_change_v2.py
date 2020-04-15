@@ -1,5 +1,7 @@
-dollar_amount = input('Enter a dollar amount to convert into coin denominations: $ ')  #get in put from user
-amount = int(float(dollar_amount) * 100)
+#this lab breaks down coin denominations from a given dollar and cent amount.
+
+dollar_amount = input('Enter a dollar amount to convert into coin denominations: $ ')  #gets input from user
+amount = int(float(dollar_amount) * 100)  #converts dollar amount integer into a float
 
 quarters = amount // 25  #floor divides into quarters first then proceeds through rest of coins
 amount -= quarters * 25  #subtracts the amount of quarters from total amount

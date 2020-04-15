@@ -1,3 +1,4 @@
+#  This lab manipulates a string of ints to verify is a cc number is valid:
 
 # 4 5 5 6 7 3 7 5 8 6 8 9 9 8 5 5
 # 4 5 5 6 7 3 7 5 8 6 8 9 9 8 5

@@ -1,3 +1,4 @@
+#this lab generates 5 random emoticons but usings random choice and lists
 
 import random
 import time
