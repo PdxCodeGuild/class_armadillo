@@ -7,7 +7,9 @@ def validate_cc(card):
 
 
 # Convert the input string into a list of ints
-
+    card = list(card)
+    for i in range (len(card)):
+        card[i] = int(card[i])
 
 # Slice off the last digit. That is the check digit.
 
@@ -20,20 +22,32 @@ def validate_cc(card):
 
 
 # Double every other element in the reversed list.
-    check_digit[stringlength::-1]
+    for i in range(0, len(card), 2):
+        card[i] *= 2
 
 
 # Subtract nine from numbers over nine.
-
+    for i in range(len(card)):
+        if card[i] > 9:
+            card[i] -= 9
+        print(card) 
 
 # Sum all values.
 
+    card_sum =0
+    for i in range(len(card)):
+        card_sum += card[i]
 
 # Take the second digit of that sum.
 
+    card_sum %= 10
+    print(card_sum)
 
 # If that matches the check digit, the whole card number is valid.
-
+    if card_sum == check_digit:
+        return True
+    else:
+        return False
 
 # For example, the worked out steps would be:
 
