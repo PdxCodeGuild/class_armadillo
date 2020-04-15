@@ -1,9 +1,10 @@
-from calculator_math import *
+from calculator_math import addition, subtraction, division, multiplication
 
 # intro message.
 print("#="*45)
-print(''' Welcome to Calcutron - enter a an operator and a number seperated by
-a space to recieve an answer. Currently exceptable operators are +, -, *, and /. ''')
+print(''' Welcome to Calcutron - enter a an operator and a number
+seperated by a space to recieve an answer.
+Currently exceptable operators are +, -, *, and /. ''')
 print("#="*45)
 
 # start main run loop.
