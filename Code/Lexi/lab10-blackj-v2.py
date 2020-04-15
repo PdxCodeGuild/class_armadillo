@@ -1,5 +1,9 @@
+#mob coding with Matt's group
+
 #Version 2 install plugin 'Bracket Pair Colorizer'
 # alt + tab is how you switch screens on WINDOWS
+#to remove 2nd column values, click Ctrl + D, highlight colons,
+# then hit Shift + Ctrl + End to select all values after the colon and delete
 card_values = {
     "A": [1, 11],
     "2": [2, 2],

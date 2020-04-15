@@ -1,3 +1,9 @@
+# These are the string practice examples we did in class
+# I tried to do them all using list comprehension or 
+# the shortest solution possible
+
+#  4/10/2020
+
 def double_letters(word):
     '''
     Double every character in a string and return the result
