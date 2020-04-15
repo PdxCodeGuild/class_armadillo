@@ -9,7 +9,7 @@ change = [              #tuple
 ]
 coin_count = []     #empty list
 for coin in change:
-    coin_counts = amount // change[1]
+    coin_counts = amount // change[1] #same as change[0][1]
     amount -= coin_counts / change[1]
     coin_count.append(coin_counts)
 
