@@ -18,8 +18,8 @@ while guesses <= 10:
     guesses += 1
 
 
-VERSION 2
-Allow the user to make an unlimited number of guesses using a while True and break. Keep track of how many guesses the user has made, and tell them at the end.
+# VERSION 2
+# Allow the user to make an unlimited number of guesses using a while True and break. Keep track of how many guesses the user has made, and tell them at the end.
 import random
 
 computer_num = random.randint(1,10)
@@ -41,7 +41,7 @@ while True:
 
 import random
 
-computer_num = random.randint(1,11)
+computer_num = random.randint(1,10)
 
 guesses = 0
 
