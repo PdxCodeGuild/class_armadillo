@@ -2,23 +2,38 @@
 # Lab 20: Contact List
 
 
-Let's build a program to manage a list of contacts, using a CSV "comma-separated values" file. Create a text file, paste the following content, and save it as "contacts.csv".
+Let's build a program to manage a list of contacts, using a JSON file. Create a text file in the same folder as your lab, paste the following content, and save it as "contacts.json".
 
+```json
+{
+    "contacts": [{
+        "name": "Joe",
+        "age": 34,
+        "email": "joe@email.com",
+        "favorite color": "blue"
+    },{
+        "name": "Jane",
+        "age": 43,
+        "email": "jane@email.com",
+        "favorite color": "green"
+    },{
+        "name": "Jill",
+        "age": 65,
+        "email": "jill@email.com",
+        "favorite color": "orange"
+    }]
+}
 ```
-name,age,email,favorite color
-joe,34,joe@gmail.com,blue
-jane,43,jane@gmail.com,green
-jill,65,jill@gmail.com,orange
-```
-
-
-Using Python open the CSV, convert the lines of text into a **list of dictionaries**, one dictionary for each user. The text in the header represents the **keys**, the text in the other lines represent the **values**.
-
 
 
 
 
 ```python
+import json
+
+def load_data():
+    with open('contacts.json', 'r') as file:
+        contacts=  json.
 with open('contacts.csv', 'r') as file:
     lines = file.read().split('\n')
     print(lines)
