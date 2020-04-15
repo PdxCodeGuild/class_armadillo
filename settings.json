@@ -1,7 +1,0 @@
-{
-    "python.linting.pycodestyleEnabled": true,
-    "python.linting.enabled": true,
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\git-bash.exe",
-    "terminal.integrated.shell.linux": ""
-  
-}
