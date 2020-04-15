@@ -19,7 +19,7 @@ def validate_units(input_units):
         ["3", "Three", "THREE", "three"],
         ["2", "Two", "TWO", "two"],
     ]
-    for unit_list in unit_lists: 
+    for unit_list in unit_lists:
         if input_units in unit_list:
             return unit_list[0]
 
@@ -47,7 +47,7 @@ while run:
             players_input = input("Enter your card: ")
             players_input1 = validate_units(players_input)
 
-        # If valid input, refer to library for card value and add it to the hand
+        # If valid input, refer to library for card value and add it to hand
         if players_input:
             players_card = card_values[players_input1]
             players_hand.append(players_card)
@@ -69,7 +69,7 @@ while run:
         advice = "Blackjack! You're amazing!"
     elif final_card_value > 21:
         advice = "It's too late for me, you've already busted.."
-    
+
     # generates advice.
     print(f"You have {final_card_value}, {advice}")
 
@@ -85,5 +85,3 @@ while run:
             exit()
         else:
             print("That is not a valid response.")
-
-

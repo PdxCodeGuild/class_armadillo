@@ -5,7 +5,7 @@ def add(a, b):
   return a + b
 c = add
 print(c(5, 2))
-
+# organizing it
 
 exit()
 
