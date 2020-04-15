@@ -1,22 +1,4 @@
-from calculator_math import *
-
-# values = []
-# operators = []
-
-# user_input = input("enter your expression: ").split(" ")
-
-# for i in user_input:
-#     if i == "+" or i == "-" or i == "*" or i == "/":
-#         user_input.remove(i)
-#         operators.append(i)
-#     if i.isnumeric():
-#         i = int(i)
-#         values.append(i)
-
-# print(values)
-# print(type(values[0]))
-# print(operators)
-
+from calculator_math import addition, subtraction, division, multiplication
 
 expression = input("enter your expression: ").split(" ")
 for i in range(0, len(expression), 2):

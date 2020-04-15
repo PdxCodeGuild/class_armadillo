@@ -1,16 +1,57 @@
-question = int(input("How many feet do you want to print out? : "))
-units = input("What unit is it? select 'feet', 'mi', or 'km' : ")
-dic = {
-    "feet" : .3048,
-    "mi"   : 1609.4,
-    "km"    : 1000,
-    
-    }
+# referenced Matt's code
 
-print(f'{question} dic[0]')
 
-'''
-Lab 9: Unit Converter
+def unit_conversion(input_units):
+    unit_lists = [
+        ["feet", 'feet'],
+        ["mi", 'miles', 'mile'],
+        ["m", 'meters', 'meter'],
+        ["km", 'kilometers', 'kilometer'],
+        ["yd", 'yards', 'yard']
+        ["in", 'inches', 'inch']
+        ["nm", 'nanometers'],
+        ]
+
+    for unit_list in unit_lists:
+        if input_units in unit_list:
+            return unit_list[0]
+    return None
+
+conversions = {
+    'ft' : 0.3048,
+    'mi' : 1609.34,
+    'm' : 1.0,
+    'km' : 1000.0,
+    'yd' : 0.9144,
+    'in' : 0.0254,
+}
+
+distance_units = input('What is the distance and units? : ')
+input_distance, input_units, _, output_units = distance_units.split(' ')
+# the above line sets them all above to commit to that method split()
+input_distance = float(input_distance)
+input_units = unit_conversion(input_units)
+output_units = unit_conversion(output_units)
+
+if input_units is None or output_units is None: #line 18
+    print('invalid units')
+    quit()
+    # exit() is an alias for quit (or vice-versa).
+    # They exist together simply to make Python more user-friendly
+    # https://stackoverflow.com/questions/19747371/python-exit-commands-why-so-many-and-when-should-each-be-used
+
+    #The functions* quit(), exit(), and sys.exit() 
+    # function in the same way: they raise the 
+    # SystemExit exception. So there is no real
+    #  difference, except that sys.exit() is
+    #  always available but exit() and quit()
+    #  are only available if the site module 
+    # is imported.
+
+# question = int(input("How many feet do you want to print out? : "))
+# units = input("What unit is it? select 'feet', 'mi', or 'km' : ")
+
+'''Lab 9: Unit Converter
 This lab will involve writing a program that allows the user to convert a number between units.
 
 Version 1
