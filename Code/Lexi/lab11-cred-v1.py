@@ -1,8 +1,11 @@
 # Lab 11: Credit Card Validation
 # Let's write a function which returns whether a string containing a credit card number is valid as a boolean. The steps are as follows:
 
+#disclaimer: USED TALIESON'S CODE AS REF
 def validate_cc(card):
-    card = int(input("Please input a credit card number"))
+    #card = long(input("Please input a credit card number"))
+    # card = long(input("Please input a credit card number"))
+    #NameError: name 'long' is not defined
     #check_digit = card.pop(len(card)
 
 
@@ -49,13 +52,24 @@ def validate_cc(card):
     else:
         return False
 
-# For example, the worked out steps would be:
+is_valid = validate_cc('5371016189687383')
+print(validate_cc)
 
-# 4 5 5 6 7 3 7 5 8 6 8 9 9 8 5 5
-# 4 5 5 6 7 3 7 5 8 6 8 9 9 8 5
-# 5 8 9 9 8 6 8 5 7 3 7 6 5 5 4
-# 10 8 18 9 16 6 16 5 14 3 14 6 10 5 8
-# 1 8 9 9 7 6 7 5 5 3 5 6 1 5 8
-# 85
-# 5
-# Valid!
+'''   RESULTAT:
+Before reverse: card = [8, 3, 7, 8, 6, 9, 8, 1, 6, 1, 0, 1, 7, 3, 5]
+[7, 3, 14, 8, 12, 9, 16, 1, 12, 1, 0, 1, 14, 3, 10]
+[7, 3, 14, 8, 12, 9, 16, 1, 12, 1, 0, 1, 14, 3, 10]
+[7, 3, 5, 8, 12, 9, 16, 1, 12, 1, 0, 1, 14, 3, 10]
+[7, 3, 5, 8, 12, 9, 16, 1, 12, 1, 0, 1, 14, 3, 10]
+[7, 3, 5, 8, 3, 9, 16, 1, 12, 1, 0, 1, 14, 3, 10]
+[7, 3, 5, 8, 3, 9, 16, 1, 12, 1, 0, 1, 14, 3, 10]
+[7, 3, 5, 8, 3, 9, 7, 1, 12, 1, 0, 1, 14, 3, 10]
+[7, 3, 5, 8, 3, 9, 7, 1, 12, 1, 0, 1, 14, 3, 10]
+[7, 3, 5, 8, 3, 9, 7, 1, 3, 1, 0, 1, 14, 3, 10]
+[7, 3, 5, 8, 3, 9, 7, 1, 3, 1, 0, 1, 14, 3, 10]
+[7, 3, 5, 8, 3, 9, 7, 1, 3, 1, 0, 1, 14, 3, 10]
+[7, 3, 5, 8, 3, 9, 7, 1, 3, 1, 0, 1, 14, 3, 10]
+[7, 3, 5, 8, 3, 9, 7, 1, 3, 1, 0, 1, 5, 3, 10]
+[7, 3, 5, 8, 3, 9, 7, 1, 3, 1, 0, 1, 5, 3, 10]
+[7, 3, 5, 8, 3, 9, 7, 1, 3, 1, 0, 1, 5, 3, 1]
+7'''
