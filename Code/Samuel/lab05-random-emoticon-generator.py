@@ -6,11 +6,15 @@
 # Imports Random Module.
 import random
 
+# Custom Module used to verify inputs when using input().
+import verify
+
+correct_inputs = ["Yes", "No"]
+
 # Set Face details.
 eyes = [":", ";", "8", "="]
 noses = ["^", "O", "*"]
 mouths = [")", "(", "[", "]"]
-user_input = "S"
 
 
 # Returns a face string with randomly selected features.
@@ -51,7 +55,7 @@ def within_positive(int1):
 def print_specific_face():
 
     # Pre-specified inputs
-    emoticon_input = ""
+    emoticon_input = None
     user_emoticon = ""
 
     # Prints the Eyes menu
@@ -65,7 +69,8 @@ def print_specific_face():
 
     # Checks whether the number is numeric or within the specified range, and
     # asking continuously until given a proper input to exit the loop.
-    while not emoticon_input.isnumeric() or not within_range(int(emoticon_input), 0, 4):
+    # Ranges are -1 and 5 to inclujde 0 and 4 within the check
+    while not verify.valid_input(emoticon_input, against_range = True, range_low = -1, range_high = 5):
         emoticon_input = input("Please select a number based on what eyes you want (0-4): ")
 
     # Sets user_emoticon to the choice of eyes
@@ -83,11 +88,12 @@ def print_specific_face():
     print("3 - Random Nose")
 
     # Resets emoticon_input to continue checking inputs.
-    emoticon_input = 'S'
+    emoticon_input = None
 
     # Checks whether the number is numeric or within the specified range, and
     # asking continuously until given a proper input to exit the loop.
-    while not emoticon_input.isnumeric() or not within_range(int(emoticon_input), 0, 3):
+    # Ranges are -1 and 4 to inclujde 0 and 3 within the check
+    while not verify.valid_input(emoticon_input, against_range = True, range_low = -1, range_high = 4):
         emoticon_input = input("Please select a number based on what nose you want (0-3): ")
 
     # Appends user_emoticon with the choice of nose.
@@ -106,11 +112,12 @@ def print_specific_face():
     print("4 - Random Mouth")
 
     # Resets emoticon_input to continue checking inputs.
-    emoticon_input = "S"
+    emoticon_input = None
 
     # Checks whether the input is numeric or within the specified range, and
     # asking continuously until given a proper input to exit the loop.
-    while not emoticon_input.isnumeric() or not within_range(int(emoticon_input), 0, 4):
+    # Ranges are -1 and 5 to inclujde 0 and 4 within the check
+    while not verify.valid_input(emoticon_input, against_range = True, range_low = -1, range_high = 5):
         emoticon_input = input("Please select a number based on what mouth you want (0-4): ")
 
     # Appends user_emoticon with the choice of mouth.
@@ -122,45 +129,45 @@ def print_specific_face():
     # Prints the emoticon
     print(user_emoticon)
 
-
+user_input = None
 # Prints the opening message
 print_random_face_message()
 
 # Checks whether the input is numeric and if the input is a positive integer,
 # while asking continuously until given a proper input to exit the loop.
-while not user_input.isnumeric() or not within_positive(int(user_input)):
-    user_input = input("How many faces would you like to print? ")
+while not verify.valid_input(user_input, is_positive = True):
+    user_input = str(round(float(input("How many faces would you like to print? "))))
 
 # Prints the number of specified faces the user wished to see.
 print_random_faces_input(int(user_input))
-
+user_input = None
 # Checks if the input is "Y" or "N" in order to continue. Both responses will
 # exit the loop.
-while user_input != "Y" and user_input != "N":
-    user_input = input("Do you want another emoticon face? (Y/N) ")
+while not verify.valid_input(user_input, correct_inputs, against_list = True, against_string = True):
+    user_input = input("Do you want another emoticon face? (Yes/No) ")
 
     # If the user input is "Y", it will print a random face.
-    if user_input == "Y":
+    if user_input == "Yes":
         print(return_random_face())
 
 # Resets the user input for further checks
-user_input = ""
+user_input = None
 
 # Checks if the input is "Y" or "N" in order to continue. Both responses will
 # exit the loop.
-while user_input != "Y" and user_input != "N":
-    user_input = input("Would you like to create your own face? (Y/N) ")
+while not verify.valid_input(user_input, correct_inputs, against_list = True, against_string = True):
+    user_input = input("Would you like to create your own face? (Yes/No) ")
 
 # While the users input is "Y", It will continue asking the user to make
 # specific faces.
-while user_input == "Y":
+while user_input == "Yes":
 
     # If user_input is "Y", it will start print_specific_face().
-    if user_input == "Y":
+    if user_input == "Yes":
         print_specific_face()
-    user_input = ""
+    user_input = None
 
     # Checks if the input is "Y" or "N" in order to continue. Both responses
     # will exit the loop.
-    while user_input != "Y" and user_input != "N":
-        user_input = input("Would you like to create another face? (Y/N) ")
+    while not verify.valid_input(user_input, correct_inputs, against_list = True, against_string = True):
+        user_input = input("Would you like to create another face? (Yes/No) ")
