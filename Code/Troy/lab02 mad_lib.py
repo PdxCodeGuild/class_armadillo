@@ -1,3 +1,13 @@
+'''Write a simple program that prompts the user for several inputs then prints a Mad Lib as the 
+result.
+
+Instructions
+Search the interwebs for an example Mad Lib
+Ask the user for each word you'll put in your Mad Lib
+Use string concatenation to put each word into the Mad Lib'''
+
+# mad lib that was utilized for the lab.
+
 '''A vacation is when you take a trip to some __________________ place 
  your __________________ family. Usually you go to some place 
 that is near a/an __________________ or up on a/an __________________. 
@@ -17,8 +27,10 @@ __________________ and because they have to work__________________
 hours every day all year making enough __________________ to pay 
 for the vacation.'''
 
+# allows a delay to be placed withing the code.
+import time
 
-
+# assigns the user answer when prompted. 
 adjective = input ('enter adjective: ')
 adjective2 = input ('enter adjective2: ')
 noun = input ('enter noun: ')
@@ -39,6 +51,10 @@ adjective3 = input ('enter adjective3: ')
 number = input ('enter number: ')
 nouns4 = input ('enter nouns4: ')
 
+# provides a delay from the last entered answer to the mad lib for dramatic effect.
+time.sleep(1)
+
+# the mad lib in a 'f' string to allow the input to be placed where needed.
 print (f''''A vacation is when you take a trip to some {adjective} place 
 your {adjective2} family. Usually you go to some place 
 that is near a/an {noun} or up on a/an {noun2}. 
