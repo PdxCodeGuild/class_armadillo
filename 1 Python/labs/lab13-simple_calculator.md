@@ -18,7 +18,7 @@ Let's write a simple REPL (read evaluate print loop) calculator that can handle 
 
 ## Version 2
 
-Allow the user to enter a running menu
+Allow the user to have a running value, each command will perform an operation on that number.
 
 ```
 > what is the starting number? 34
