@@ -101,7 +101,9 @@ def print_every_other_with_while(nums):
 
 # same as above but with a for loop
 def print_every_other_with_for(nums):
-
+    '''
+    Print out every other element of a list using a for loop.
+    '''
     new_list = []  # create an empty list to hold our new values
     for i in range(0, len(nums), 2):  # loop through every other index of our original list, using range(start, stop, step=2)
         new_list.append(nums[i]) # append the value at every other index to our new list
@@ -118,6 +120,9 @@ def print_every_other_with_for(nums):
 # Problem 5
 
 def reverse(nums):
+    '''
+    Write a function that returns the reverse of a list.
+    '''
     #return nums[::-1] # fancy split notation
     # nums.reverse() # fance list method to reverse a list in place 
     # return nums
@@ -134,6 +139,10 @@ def reverse(nums):
 # Problem 6
 
 def extract_less_than_ten(nums):
+    '''
+    Write a function to move all the elements of a list 
+    with value less than 10 to a new list and return it.
+    '''
 
     less_than_ten = [] # empty list for storing new values
 
@@ -154,6 +163,9 @@ def extract_less_than_ten(nums):
 # Problem 7
 
 def common_elements(nums1, nums2):
+    '''
+    Write a function to find all common elements between two lists.
+    '''
     # return set(nums1).intersection(nums2)  # fancy way using sets, though doesn't work with multiple recurring values in the lists
 
     # find the smaller of the two lists
@@ -161,7 +173,7 @@ def common_elements(nums1, nums2):
         short_list = nums1
     else:
         short_list = nums2 
-        
+
     # check each value of the smaller list to see if it was in the larger
 
     # if it is, add to new list
