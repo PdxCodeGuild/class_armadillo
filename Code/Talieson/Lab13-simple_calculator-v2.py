@@ -1,4 +1,4 @@
-from calculator_math import *
+from calculator_math import addition, subtraction, division, multiplication
 
 # intro message.
 print("#="*45)

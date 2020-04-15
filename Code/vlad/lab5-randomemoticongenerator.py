@@ -1,4 +1,4 @@
-#Lab 5: Random Emoticon Generator
+#Lab 5: Random Emoticon Generator Version 1, Version 2, and Version 3 
 
 
 # Define a list of eyes

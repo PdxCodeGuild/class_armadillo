@@ -1,0 +1,30 @@
+# My Mad Lib Lab
+
+# List of input strings to enter into the mad lib. Will ask the user to enter the info before running the story
+adj = input("enter an animale: ")
+adj2 = input("enter an adjective: ")
+adj3 = input("enter an adjective: ")
+adj4 = input("enter an adjective: ")
+noun = input("enter a noun: ")
+noun2 = input("enter a noun: ")
+noun3 = input("enter a noun: ")
+verb = input("enter a verb, past tense: ")
+verb2 = input("enter a verb: ")
+verb3 = input("enter a verb: ")
+adv = input("enter an adverb: ")
+adv2 = input("enter an adveb: ")
+
+# Prints the story with the user inputted information to creat a one of a kind story.
+print("Today I went to the zoo. I saw a(n)")
+print(f"{adj} (adjective)")
+print(f"{noun} (Noun) jumping up and down in its tree.")
+print(f"He {verb} (verb,past tense ) {adv} (adverb)")
+print(f"through the large tunnel that led to its {adj2} (adjective")
+print(f"{noun2} (noun) I got some peanuts and passed")
+print(f"them through the cage to a gigantic gray {noun3} (noun)")
+print("towering above my head. Feeding that animal made")
+print(f"me hungry. I went to get a {adj3} (adjective) scoop")
+print("of ice cream. It filled my stomach. Afterwards I had to")
+print(f"{verb2} (verb) {adv2} (adverb) to catch our bus.")
+print(f"When I got home I {verb3} (verb, past tense) my")
+print(F"mom for a {adj4} (adjective) day at the zoo.")

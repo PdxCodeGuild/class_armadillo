@@ -17,7 +17,7 @@ is the string you got from input. Below is some sample input/output.
 """
 
 
-# Version 1 and Version 2
+# Version 1
 
 def cont_calculating(): 
     
@@ -33,9 +33,7 @@ while True:
     num2 = float(input('Enter second number: '))
 
     if mode == '+':
-            
-        answer = print(f'Answer is: {num1 + num2}')
-        # return answer
+            print(f'Answer is: {num1 + num2}')
     elif mode == '-':
         print(f'Answer is: {num1 - num2}')
     elif mode == '*':
@@ -46,49 +44,8 @@ while True:
         print('Entered an invalid operation symbol! ( +, -, *, / ) :)')
     if not cont_calculating():
         break
-    while True:
-        print('Welcome to the world best carculator!: ')        
-        mode = input('Enter one of the following math operation symbols: ( +, -, *, or / ): ')
-        num1 = float(answer)
-        num2 = float(input('Enter second number: '))
-
-        if mode == '+':
-                
-            answer = print(f'Answer is: {num1 + num2}')
-        elif mode == '-':
-            print(f'Answer is: {num1 - num2}')
-        elif mode == '*':
-                print(f'Answer is: {num1 * num2}')
-        elif mode == '/':
-                print(f'Answer is: {num1 / num2}')
-        else:
-            print('Entered an invalid operation symbol! ( +, -, *, / ) :)')
-        if not cont_calculating():
-            break
-
-
-"""
-make  first while loop a function and then after
-run that function return the answer that is given so it will look something like the example below:
-
-def calc():
-    while True:
-        oper = input("")
-        ans1 = input("")
-        ans2 = input("")
-        
-        then have all your if statements 
-        
-        
-    return the answer from the if statements
     
-then write a new while loop below outside your fuction 
-def running(answer):
-    answer = float(answer)
-    while true:
-        and all the same stuff as before but for input 1 put it equal to answer
-        ans = answer
-"""
+
 
 # Version 2
 
