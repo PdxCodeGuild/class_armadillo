@@ -7,4 +7,5 @@
 * Kyle
 * Lexi
 * Nick G.
+* Russell 
 * Troy  
