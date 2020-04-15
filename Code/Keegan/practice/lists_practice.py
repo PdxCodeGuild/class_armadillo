@@ -165,7 +165,6 @@ def extract_less_than_ten(nums):
 def common_elements(nums1, nums2):
     '''
     Write a function to find all common elements between two lists.
-    
     '''
     # return set(nums1).intersection(nums2)  # fancy way using sets, though doesn't work with multiple recurring values in the lists
 
