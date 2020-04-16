@@ -45,6 +45,11 @@ def valleys(data):
     output = []
     for i in range(1, len(data)-1): #end of the data)
         if data[i] < data[i-1] and data[i] < data[i+1]:
+            #if FALSE and TRUE: TRUE - MELANIE tiktok phone
+            #if FALSE or TRUE: AVERY - BTS and laptop
+            # this is known as boolean algebra
+
+            #give us the boolean values
             output.append(i)
     return output    #functions should always return - or else it's not a function
 
