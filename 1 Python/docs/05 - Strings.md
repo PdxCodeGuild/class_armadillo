@@ -1,16 +1,34 @@
 
 # Strings
 
-Strings represent text in Python. Strings in Python are encoded in Unicode, which means their reach extends far beyond ASCII. You can use Chinese characters, Arabic characters, and more. For more information about unicode support, look [here](https://docs.python.org/3.6/howto/unicode.html).
+Strings represent text in Python. Strings in Python are encoded in Unicode, which means their reach extends far beyond ASCII. You can use Chinese characters, Arabic characters, and more.
+
+## String Literals
 
 To define a string literal, you can enclose text in either single-quotes or double-quotes, but you should stay consistent. You can use single-quotes inside a string enclosed in double-quotes and vice-versa.
 
 ```python
-s = 'hello world!'
-print(s)
+'this is a string declaration'
 ```
+> this is a string declaration
+```python
+'șʈȓЇиǵʂ ářƏ ūŋĭçóďę abcABC123!@#'
+```
+> șʈȓЇиǵʂ ářƏ ūŋĭçóďę abcABC123!@#
+```python
+"we can also use double quotes"
+```
+> we can also use double quotes
+```python
+'using single-quotes "allows" you to use double-quotes inside'
+```
+> using single-quotes "allows" you to use double-quotes inside
+```python
+"and 'vice versa' with double-quotes"
+```
+> and 'vice versa' with double-quotes
 
-### Escape Sequences
+## Escape Sequences
 
 Escape sequences allow us to define special characters within strings.
 
@@ -21,7 +39,12 @@ Escape sequences allow us to define special characters within strings.
 - `\\` represents a backslash
 - `\xhhhh` represents a unicode character with id 'hhhh', e.g. `\u0394`
 
-### Raw Strings
+```python
+s1 = 'we can use \'single quotes\' in a single-quoted string'
+s2 = "we can use \"double quotes\" in a double-quoted string"
+```
+
+## Raw Strings
 
 Prefixing a string with 'r' will ignore any escape sequences and interpret the string **literally**.
 
@@ -30,7 +53,7 @@ s = r'this is a raw string \n\t\\'
 print(s) # this is a raw string \n\t\\
 ```
 
-## Character Codes
+## Ascii Codes
 
 There are two built-in functions for switching back and forth between ASCII character codes: `chr` and `ord`. You can find more information about these in the official docs for [chr](https://docs.python.org/3.6/library/functions.html#chr) and [ord](https://docs.python.org/3.6/library/functions.html#ord). You can view the ASCII table [here](https://en.wikipedia.org/wiki/ASCII#Character_set)
 
@@ -78,68 +101,41 @@ print(d)
 ```
 
 
-### Formatting
+## f-strings
 
-Often string concatenation with large strings or many variables becomes overwhelming. You can see some examples [here](https://pyformat.info/).
-
-**c-style formatting**
-```python
-'%s %s' % ('one', 'two')
-'%d %d' % (1, 2)
-
-mylist = [1,2,3]
-print("A list: %s" % mylist)
-```
-
-You can also format strings with the `format` function.
-
-```python
-'{} {}'.format('one', 'two')
-'{} {}'.format(1, 2)
-```
-
-**f-strings** are prefixed with an `f`, one can then use curly braces `{}` and write variable names.
+We can use **f-strings** to quickly format text with variables, `f-strings` are prefixed with an `f`, and contain curly braces `{}` and write variable names.
 
 
 ```python
->>> a = 'one'
->>> b = 2
->>> print(f'a is {a} and b is {2}')
-a is one and b is two
+a = 'one'
+b = 2
+print(f'a is {a} and b is {2}')
 ```
+> a is one and b is two
 
-### Conditionals
 
-You can also use `if`, `for`, and `in` with strings!
+
+## Conditionals
+
+```python
+if 'h' in 'hello world!':
+  print('success!')
+```
+> success!
+
+## Looping
 
 ```python
 my_string = 'Hey!'
-some_char = 'e'
-if some_char in my_string:
-  print(my_string)
-  
-# iterate over the characters
-for character in my_string:
-    print(character)
-
->>> Hey!
->>> H
->>> e
->>> y
->>> !
+if char in my_string:
+  print(char)
 ```
+> H
+> e
+> y
+> !
 
-### Docstrings
+## Docstrings
 
 Docstrings are a special kind of multi-line string that's used for generating documentation. You can read more [here](Docstrings.md)
-
-
-
-
-
-
-
-
-
-
 
