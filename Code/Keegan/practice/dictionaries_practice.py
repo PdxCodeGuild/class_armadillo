@@ -80,54 +80,135 @@ combined = {'apple':1.2, 'banana':3.3, 'pear':2.1}
 
 # Problem 3
 
+# def unify(dictionary):
+
+#     unified_dictionary = {}
+
+#     # loop through each key in original dictionary
+#     for key in dictionary.keys():
+        
+#         # grab the first letter of the current key
+#         first_letter_of_key = key[0]
+
+#         # if the first letter of the key is not already in the new dictionary, add it
+#         if first_letter_of_key not in unified_dictionary.keys():
+
+#             # create a new key that is the first letter of the original key
+#             # and assign the original value to it.
+#             unified_dictionary[first_letter_of_key] = dictionary[key]
+        
+#         # if the new key already exists in the new dictionary
+#         else:
+
+#             # add the value at the original key to the new dictionary at the new key
+#             unified_dictionary[first_letter_of_key] += dictionary[key]
+
+#     # for value in unified_dictionary.values():
+
+      
 def unify(dictionary):
+    '''
+    Average numbers whose keys start with the same letter. 
+    Output a dictionary containing those letters as keys and the averages.
+    '''
+    # will hold the sum of the values for each letter key
+    unified = {}
 
-    unified_dictionary = {}
+    # will hold the total of occurances of each letter key  
+    key_counts = {}
+    
+    # loop through each item in the dictionary,
+    # unpacking the (key,value) tuple for each item
+    for key, value in dictionary.items():
 
-    # loop through each key in original dictionary
-    for key in dictionary.keys():
+        # if the first letter of each key is not in the unified dict
+        if key[0] not in unified:
+            
+            # add the key to the unified dict and set its initial value
+            # to the value to the current value of the original dict
+            unified[key[0]] = value
+
+            # do the same with the counts dict,
+            # except the start value will be 1 because
+            # this is the first occurance of that key
+            key_counts[key[0]] = 1
         
-        # grab the first letter of the current key
-        first_letter_of_key = key[0]
-
-        # if the first letter of the key is not already in the new dictionary, add it
-        if first_letter_of_key not in unified_dictionary.keys():
-
-            # create a new key that is the first letter of the original key
-            # and assign the original value to it.
-            unified_dictionary[first_letter_of_key] = dictionary[key]
-        
-        # if the new key already exists in the new dictionary
+        # if they current key is already in each dict
         else:
+            # add the value to the value at the current key in the unified dict
+            unified[key[0]] += value
+            # increment the count for the current key
+            key_counts[key[0]] += 1
 
-            # add the value at the original key to the new dictionary at the new key
-            unified_dictionary[first_letter_of_key] += dictionary[key]
+    # print(f"{unified = }")
+    # print(f"{key_counts = }")
 
-    # for value in unified_dictionary.values():
+    # loop through all the keys in the unified dict    
+    for key in unified:
+
+        # divide the total at each key by the number of occurances of that key
+        # floor division gives an integer amount. Regular division gives floats
+        unified[key] //= key_counts[key]  
         
-
-
-    print(unified_dictionary)
-        
+    # return the newly unified dictionary
+    return unified
 
 my_dictionary = {'a1':5, 'a2':2, 'a3':3, 'b1':10, 'b2':1, 'b3':1, 'c1':4, 'c2':5, 'c3':6}
 
-# unify(my_dictionary)
+#  A different dictionary with more keys:
+#  my_dictionary = {
+#     'a1':5, 'a2':2, 'a3':3, 'a4': 55, 'a5':3, 
+#     'b1':10, 'b2':1, 'b3':1, 'b4':45, 
+#     'c1':4, 'c2':5, 'c3':6, 'c4':88
+# }
+
+print(unify(my_dictionary))
+
+# ----------- #
+# uncommented version of the above solution:
+
+# def unify(dictionary):
+#     '''
+#     Average numbers whose keys start with the same letter. 
+#     Output a dictionary containing those letters as keys and the averages.
+#     '''    
+#     unified = {}
+#     counts = {}  
+
+#     for key, value in dictionary.items():
+
+#         if key[0] not in unified:
+#             unified[key[0]] = value
+#             counts[key[0]] = 1   
+
+#         else:
+#             unified[key[0]] += value
+#             counts[key[0]] += 1  
+
+#     print(f"{unified = }")
+#     print(f"{counts = }")
+
+#     for key in unified:
+#         unified[key] //= counts[key] 
+
+#     return unified  
+
+
 
 # ---------- #
 
 # MISC
 
-employees = {
-    '001': {
-        'first_name': 'Keegan',
-        'last_name': 'Good',
-        'address': '123 Faux Ave'
-    },
-    '002': 'Jon',
-    '003': 'Matthew',
-}
+# employees = {
+#     '001': {
+#         'first_name': 'Keegan',
+#         'last_name': 'Good',
+#         'address': '123 Faux Ave'
+#     },
+#     '002': 'Jon',
+#     '003': 'Matthew',
+# }
 
 # employee = employees['001']
 
-print(employees['001']['address'])
+# print(employees['001']['address'])
