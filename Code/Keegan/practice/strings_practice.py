@@ -27,5 +27,8 @@ def count_letter(letter, word):
 # print(count_letter("l", "hello"))
 
 def print_powers_2(n):
+    '''
+    Print the powers of 2 where n is the exponent
+    '''
     print(', '.join([str(2 ** i) for i in range(n)]))
 

@@ -11,7 +11,7 @@ while run:
 Please select the currency you want to use
 Available currencies: Dollars, Pesos, Euros, and Yen. ''')
 
-        # decide which currency library we're using
+        # decide which currency library we're using based on input
         if currency == "Dollars":
             currency_check = False
             symbol = "$"
@@ -35,7 +35,7 @@ Available currencies: Dollars, Pesos, Euros, and Yen. ''')
             ]
         elif currency == "Euros":
             currency_check = False
-            symbol = u"\u20AC"
+            symbol = u"€"
             coins = [
                 ("2 Euro coin", 200, 0),
                 ("1 Euro coin", 100, 0),
