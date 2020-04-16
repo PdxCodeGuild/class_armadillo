@@ -13,7 +13,7 @@ Write a program that prompts the user for a string, and encodes it with ROT13. F
 
 Allow the user to input the amount of rotation used in the encryption. (ROTN)
 
-## Version 3
+## Version 3 (optional)
 
 Add support for capital letters, numbers, and special characters. These can be handled in two different ways:
 

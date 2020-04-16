@@ -6,6 +6,7 @@ def peaks(data):
   output = []
   for i in range(1, len(data)-1):
     if data[i] > data[i-1] and data[i] > data[i+1]:
+          
       output.append(i)
 
   # for i in range(len(data)):
