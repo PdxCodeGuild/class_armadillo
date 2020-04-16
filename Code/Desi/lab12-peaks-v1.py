@@ -11,12 +11,12 @@ def peaks(data):
         print(data[i])
         print(data[i+1])
         print(f'Index is {i} AND Data is {data[i]}')
-        if data[i] >= data[i-1] and data[i] >= data[i+1]:
+        if data[i] > data[i-1] and data[i] > data[i+1]:
             output.append(i)
     return output    #functions should always return - or else it's not a function
 
-
 print(peaks(data))
+
 
 # Index is 1 AND Data is 2
 # Index is 2 AND Data is 3
@@ -41,7 +41,14 @@ print(peaks(data))
 # Index is 21 AND Data is 8
 # Index is 22 AND Data is 7
 
-# def valleys
+def valleys(data):
+    output = []
+    for i in range(1, len(data)-1): #end of the data)
+        if data[i] < data[i-1] and data[i] < data[i+1]:
+            output.append(i)
+    return output    #functions should always return - or else it's not a function
+
+print(valleys(data))
 #     # show us the lowest points in the data
 
 # def peaks_and_valleys
