@@ -1,5 +1,7 @@
 from calculator_math import addition, subtraction, division, multiplication
 
+# simple calculator allows you to do very basic mathmatics. 
+
 # intro message.
 print("#="*40)
 print('''Welcome to Calcutron - enter a 2 numbers and an operator seperated

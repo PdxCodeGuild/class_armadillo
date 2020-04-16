@@ -1,4 +1,6 @@
 
+#this lab allows user to conduct simple calculation using add, subtract, multiply, and divide and then lets them perform more operations with a running total
+
 value_running = float(input("What is your first number? "))  #takes first input
 while True:  #loops back to here for more input to create running calculation
     operation_running = input("What operation would like to perform? Or type 'done' to exit: ") #takes second input
