@@ -1,6 +1,6 @@
+# Unit converter takes 1 distance unit and returns the value in another.
 # Version 2 added ability to pick unit to convert from.
 # Version 3 added inches and yards.
-
 
 run = True
 check_units = True
