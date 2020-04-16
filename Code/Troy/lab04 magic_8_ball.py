@@ -43,6 +43,7 @@ if user_choice == 'y':
  # generates a random answer from the answers list and prints it.    
     answer = random.choice(answers)
     print(answer)  
-
+# ends the game based on user answer.
 else:
     print("Get outta here...who needs ya!")
+
