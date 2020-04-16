@@ -13,40 +13,61 @@
 # | j| k| l| m|
 
 
-def rot13(input_message, n):
+# The actual ROT function.
+def rot(input_message, n):
+    # we'll iterate through this alphabet to identify the character we need
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    out_message = []
+
+    # This blank list is where we append the characters to form final message
+    output_message = []
+    # iterate through the input_message
     for letter in input_message:
+        # if it's a space, just put it into the message
         if letter == ' ':
-            out_message.append(letter)
+            output_message.append(letter)
         else:
+            # if it's a letter, grab the index of where it is in alphabet
             character_index = alphabet.find(letter)
+            # if it's below the ROT value, add the value, append that letter
             if character_index < n:
-                out_message.append(alphabet[character_index + n])
+                output_message.append(alphabet[character_index + n])
+            # else, modulus by len(alphabet) and append letter at that index
             else:
-                out_message.append(alphabet[(character_index + n) % 26])
-    return ''.join(out_message)
+                output_message.append(alphabet[(character_index + n) % 26])
+    # combine the output list to a string and return it.
+    return ''.join(output_message)
 
 
+def number_check(string):
+    return any(letter.isdigit() for letter in string)
+
+
+# global variables
 run = True
 invalid = True
 
+# Main run loop
 while run:
+    # input validation using the number_check function.
     while invalid:
-        rotation = int(input("How many rotations do you want? "))
+        rotation = input("How many rotations do you want? ")
         user_input = input(f'''
-    Enter a letter to receive
+    Enter a string of letters to receive
     its ROT {rotation} equivalent:
 
 ''')
-        if user_input:
-            print(user_input)
+# Only want numbers for the rotation, and only letters for user input
+        if not number_check(user_input) and number_check(rotation):
+            # know rotation is only numbers, make it an int
+            rotation = int(rotation)
+            # we've got good inputs, get out of this loop
             invalid = False
         else:
-            print("Please enter only letters.")
+            print("Please enter a valid response.")
+    # call the main ROT function.
+    print(rot(user_input, rotation))
 
-    print(rot13(user_input, rotation))
-
+    # Check if user needs more ROT.
     run = False
     while not run:
         checkin = input("Do you have more ROT to do? (Y/N) ")
