@@ -1,3 +1,5 @@
+#this lab provides user black jack advice based on the sum of 3 cards
+
 card_values = {  #dictionary of card values
     "A": 1,
     "2": 2,
@@ -18,11 +20,11 @@ card1 = input("What is the value of your first card? ").upper()  #takes user car
 card2 = input("What is the value of your second card? ").upper()
 card3 = input("What is the value of your third card? ").upper()
 
-sum = (card_values[card1] + card_values[card2] + card_values[card3])  #converts input value to numberica value from dict, sums cards up
+sum = (card_values[card1] + card_values[card2] + card_values[card3])  #converts input value to numerical value from dict, sums cards up
 print(sum)
-
+#conditions: 
 if sum < 17:
-    print("hit")
+    print("hit")  
 elif sum < 21:
     print("stay")    
 elif sum == 21:

@@ -1,3 +1,5 @@
+#this lab is a rock, paper, scissors game.  it uses random choice to generate computer's output.
+
 import random
 #loops back here
 play_again = True
@@ -20,7 +22,7 @@ while play_again:
         print('You Win!')
     # paper vs rock
     elif user == 'paper' and computer == 'rock':
-        print('You Win!')
+        print('You Win!')                                     # these if/elif statements delineate every possible outcome
     # paper vs scissors
     elif user == 'paper' and computer == 'scissors':
         print('Computer Wins!')
@@ -33,7 +35,7 @@ while play_again:
     else:
         print('That is not a valid entry')  #generates if anything but rock, paper, or scissors entered    
 
-    another_round = input("Wanna play again? Y/N ").upper()
+    another_round = input("Wanna play again? Y/N ").upper()  #allows user to play again, loops back to start if 'yes'
     if another_round == "N":
         print("See ya later!")
         break        

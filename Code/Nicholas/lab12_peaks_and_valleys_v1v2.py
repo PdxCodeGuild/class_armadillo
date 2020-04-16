@@ -1,14 +1,14 @@
-
+#this lab defines 3 functions based on peaks, valleys, and peaks and valleys within a list of numbers
 
 def peaks(data):  #defining peaks in function
-    peaks_list = []
+    peaks_list = []  #creates empty list
     for i in range(1, len(data)-1):  #establishes which indexes we will run through 
         if data[i] > data[i-1] and data[i] > data[i+1]:  #get peak values' index with if statement
             peaks_list.append(i) #adds peak indexes to list
     return peaks_list          
   
 def valleys(data):  #defining valleys in function
-    valley_list = []
+    valley_list = []  #creates empty list
     for i in range(1, len(data)-1):
         if data[i] < data[i-1] and data[i] < data[i+1]:
             valley_list.append(i)
