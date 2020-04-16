@@ -1,8 +1,8 @@
-# in process solution to black_jack_advice-v2
+# Black Jack Advice allows you to input 3 cards and outputs advice on how
+# to play that hand.
+
 
 # unit validation, loops through the list of lists grabs the first value
-
-
 def validate_units(input_units):
     unit_lists = [
         ["A", "a", "Ace", "ACE", "ace"],
