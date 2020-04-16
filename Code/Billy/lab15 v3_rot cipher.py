@@ -1,5 +1,5 @@
 # ascii method
-def rot13(text, num): # includes rotation input, negative number for reverse
+def rotn(text, num): # includes rotation input, negative number for reverse
     output = '' # makes empty output list
     for x in text: # iterates through input one character(chr)(char) at a time
         ascii_code = ord(x) # changes chr to ascii
@@ -21,7 +21,7 @@ def rot13(text, num): # includes rotation input, negative number for reverse
     return output
 
 
-print(rot13('Hello2!', 14)) # Vszzc6/
+print(rotn('Hello2!', 14)) # Vszzc6/
 # print(rot13('Vszzc6/', -14)) # Hello2! --tests function
 
 
