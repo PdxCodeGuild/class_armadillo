@@ -1,5 +1,9 @@
 from calculator_math import addition, subtraction, division, multiplication
 
+# simple calculator allows you to do very basic mathmatics.
+# Version 2 changes the input to a single line.
+# Version 3 allows the user to input multiple operators in a line.
+
 expression = input("enter your expression: ").split(" ")
 for i in range(0, len(expression), 2):
     expression[i] = float(expression[i])
