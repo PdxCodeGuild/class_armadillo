@@ -73,6 +73,9 @@ def guess_counter():
     
 
 # function runs the guessing game
+# can't get it to return the iterated 'total_count' value 'back up' from
+# the guess_counter() function into mind_reader()
+# total_guesses never incriments up from 0, max_guesses never changes
 def mind_reader():
     computer_number = random.randint(num1, num2)
     while True:
@@ -94,6 +97,9 @@ def mind_reader():
                 print("Well done - you guessed correctly!")
                 break
 
+# function without the program telling the user how many guesses are left
+# successfully uses the validate_inputs function - values returned to 
+# while loop below 'computer_number'
 def mind_reader_no_guess():
     computer_number = random.randint(num1, num2)
     while True:
