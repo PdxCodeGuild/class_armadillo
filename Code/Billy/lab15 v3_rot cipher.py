@@ -22,7 +22,7 @@ def rotn(text, num): # includes rotation input, negative number for reverse
 
 
 print(rotn('Hello2!', 14)) # Vszzc6/
-# print(rot13('Vszzc6/', -14)) # Hello2! --tests function
+# print(rotn('Vszzc6/', -14)) # Hello2! --tests function
 
 
 
