@@ -96,6 +96,7 @@ def print_every_other_with_while(nums):
 # print_every_other_with_while([0, 1, 2, 3, 4, 5, 6, 7, 8]) 
 # num_list = [random.randint(1,100) for i in range(1,10)]  # list comprehension for creating a list with 10 random integers between 1 and 10
 # print_every_other_with_while(num_list)
+
 # -------------------------- #
 # April 15, 2020
 
@@ -183,3 +184,111 @@ nums1 = [1, 2, 3, 2]
 nums2 = [2, 3, 4, 3]
 
 print(common_elements(nums1, nums2))
+
+# -------------------------- #
+# April 16, 2020
+
+# Problem 12
+
+# [n+1] = n + [n-1]
+def fibonacci(n):
+    '''
+    Returns the first n Fibonacci Numbers
+    '''
+    fib = []
+
+    for i in range(0, n):
+        if i < 2:
+            fib.append(1)
+        else:
+            next = fib[i - 1] + fib[i - 2]
+            fib.append(next)
+    return fib
+    
+# print(fibonacci(8))
+
+def fibonacci_recursive(n, fib = []):
+    '''
+    Recursively generate n Fibonacci numbers
+    '''
+   
+    index = len(fib) - 1   # current index is the last index in the list
+
+    if len(fib) < 2:       # the first two values in the fib sequence are 1
+        fib.append(1)
+    else:
+        # every other value is the sum of the previous two
+        fib.append(fib[index] + fib[index - 1])  
+    
+    # if our list is n items long, return the list
+    if len(fib) == n:
+        return fib
+
+    # otherwise, call fib_rec() again with n and the new list
+    return fibonacci_recursive(n, fib)
+
+
+# print(fibonacci_recursive(8))
+
+
+
+# Problem 13
+
+def minimum(nums):
+    # return min(nums)
+    nums = sorted(nums)  # sort the list
+    return nums[0]
+
+def maximum(nums):
+    # return max(nums)
+    nums = sorted(nums)  # sort the list
+    return nums[-1]
+
+def mean(nums):
+    total = 0
+
+    # for index in range(0, len(nums)):
+    #     total += nums[index]
+    for num in nums:
+        total += num
+    
+    return total / len(nums)
+
+def mode(nums):
+    # dictionary that will store each number and the number of times it occurs
+    num_occurences = {}  
+
+    # loop through all numbers in the list
+    for num in nums:
+
+        # string representation of the current number in the list
+        cur_key = str(num)  
+
+        # if the current num is not a key in the dict
+        if cur_key not in num_occurences:
+            # create the key
+            num_occurences[cur_key] = 1
+        
+        # if the current num IS a key, increment its occurence value
+        else:
+            num_occurences[cur_key] += 1
+    
+    cur_mode = str(nums[0])
+
+    for key in num_occurences:
+        if num_occurences[key] > num_occurences[cur_mode]:
+            cur_mode = key
+
+  # return (key, value)
+    return (int(cur_mode), num_occurences[cur_mode])
+    
+nums = [random.randint(1, 10) for i in range(10)]  # list comprehension generate 10 numbers
+
+# print(f"{nums = }")
+# print(mode(nums))
+# print(f"Average: {mean(nums)}")
+# print(minimum(nums))
+
+
+
+# Problem 14
