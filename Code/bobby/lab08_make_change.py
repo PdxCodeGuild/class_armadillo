@@ -25,16 +25,24 @@
 #     ('penny', 1)
 # ]
 
+
+# Import math used to import the arithmatic modual 
+# in order to perform the math portion of the program
+# Import time modual is to break up the welcome message and the input message... and I really like the Import time modual
 import math
 import time
-
+# Welcome Message
 print("Welcome to Your Automated Cashier ")
 time.sleep(2)
-
+# This is for the user to import the dollar amount they wish to have change made for
 amount = input("Please Enter Dollar amounts to Convert to Change.  $")
+# This takes the amount provided by the user and the float function is to allow the user 
+# to put their amount in dollar and cents form (1.36) instead of having to enter it as a whole number (136). 
+# Then multiplies it by 100 
 amount = int(float(amount)*100)
 
-
+# This portion breaks the user amount down to decibles in order to place the change 
+# into it's assigned position Quarters, Dimes, Nickles or pennies
 quarters = amount // 25
 amount -= quarters * 25
 
@@ -46,7 +54,8 @@ amount -= nickles * 5
 
 pennies = amount // 1
 amount -= pennies * 1
-
+# This section prints out how many Quatres, Dimes, Nickles and Penneies the 
+# user will get back depending on how much they entered at the start
 print("Quarters: " + str(quarters))
 print("Dimes: " + str(dimes))
 print("Nickles: " + str(nickles))
