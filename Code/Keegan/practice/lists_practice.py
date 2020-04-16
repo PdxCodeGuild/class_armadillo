@@ -235,20 +235,21 @@ def fibonacci_recursive(n, fib = []):
 # Problem 13
 
 def minimum(nums):
-    # return min(nums)
+    # return min(nums)   # one line solution using Python's min()
     nums = sorted(nums)  # sort the list
     return nums[0]
 
 def maximum(nums):
-    # return max(nums)
+    # return max(nums)   # one line solution using Python's max()
     nums = sorted(nums)  # sort the list
     return nums[-1]
 
 def mean(nums):
     total = 0
 
-    # for index in range(0, len(nums)):
+    # for index in range(0, len(nums)):   # another way to write our loop
     #     total += nums[index]
+
     for num in nums:
         total += num
     
