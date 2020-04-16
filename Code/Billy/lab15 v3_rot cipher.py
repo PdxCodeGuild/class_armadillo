@@ -13,16 +13,13 @@ def rotn(text, num): # includes rotation input, negative number for reverse
             ascii_code -= 65
             output += chr((ascii_code + num)%26 + 65)
         elif 48 <= ascii_code <= 57: # numbers
-            ascii_code -= 48
-            output += chr((ascii_code + num)%10 + 48)
+            output += chr(ascii_code) # no rotation required for numbers
         elif 32 <= ascii_code <= 47: # space, special char group 1 (ascii special char groups are separated into 4 groups)
-            ascii_code -= 32
-            output += chr((ascii_code + num)%16 + 32)                 
+            output += chr(ascii_code) # no rotation required for special characters             
     return output
 
-
-print(rotn('Hello2!', 14)) # Vszzc6/
-# print(rotn('Vszzc6/', -14)) # Hello2! --tests function
+print(rotn('Hello2!', 14)) # Vszzc2!
+# print(rotn('Vszzc2!', -14)) # Hello2! --tests function
 
 
 
