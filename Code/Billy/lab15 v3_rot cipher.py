@@ -17,9 +17,8 @@ def rotn(text, num): # includes rotation input, negative number for reverse
             output += chr(ascii_code) # no rotation required for these characters         
     return output
 
-print(rotn('Hello2!\~', 14)) # Vszzc2!\~
-# print(rotn('Vszzc2!\~', -14)) # Hello2!\~ --tests function
-
+print(rotn('Hello2!6^~', 14)) # Vszzc2!^~
+# print(rotn('Vszzc2!^~', -14)) # Hello2!^~ --tests function
 
 
 
