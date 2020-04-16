@@ -19,6 +19,7 @@
 
 # print(fruit_prices['apple'])
 
+# ----------------------------------------------------------------- #
 
 # Problem 1
 
@@ -47,6 +48,9 @@ def combine(list1, list2):
 # prices = [1.2, 3.3, 2.1]
 
 # print(combine(fruits, prices))
+
+# ----------------------------------------------------------------- #
+
 
 # Problem 2
 
@@ -77,35 +81,11 @@ combined = {'apple':1.2, 'banana':3.3, 'pear':2.1}
 
 # print(average_of_values(combined))
 
+# ----------------------------------------------------------------- #
+
 
 # Problem 3
-
-# def unify(dictionary):
-
-#     unified_dictionary = {}
-
-#     # loop through each key in original dictionary
-#     for key in dictionary.keys():
-        
-#         # grab the first letter of the current key
-#         first_letter_of_key = key[0]
-
-#         # if the first letter of the key is not already in the new dictionary, add it
-#         if first_letter_of_key not in unified_dictionary.keys():
-
-#             # create a new key that is the first letter of the original key
-#             # and assign the original value to it.
-#             unified_dictionary[first_letter_of_key] = dictionary[key]
-        
-#         # if the new key already exists in the new dictionary
-#         else:
-
-#             # add the value at the original key to the new dictionary at the new key
-#             unified_dictionary[first_letter_of_key] += dictionary[key]
-
-#     # for value in unified_dictionary.values():
-
-      
+  
 def unify(dictionary):
     '''
     Average numbers whose keys start with the same letter. 
@@ -165,6 +145,7 @@ my_dictionary = {'a1':5, 'a2':2, 'a3':3, 'b1':10, 'b2':1, 'b3':1, 'c1':4, 'c2':5
 print(unify(my_dictionary))
 
 # ----------- #
+# ----------- #
 # uncommented version of the above solution:
 
 # def unify(dictionary):
@@ -193,8 +174,37 @@ print(unify(my_dictionary))
 
 #     return unified  
 
+# ---------- #
+# ---------- #
+# Incomplete solution from live-coding in class:
+
+# def unify(dictionary):
+
+#     unified_dictionary = {}
+
+#     # loop through each key in original dictionary
+#     for key in dictionary.keys():
+        
+#         # grab the first letter of the current key
+#         first_letter_of_key = key[0]
+
+#         # if the first letter of the key is not already in the new dictionary, add it
+#         if first_letter_of_key not in unified_dictionary.keys():
+
+#             # create a new key that is the first letter of the original key
+#             # and assign the original value to it.
+#             unified_dictionary[first_letter_of_key] = dictionary[key]
+        
+#         # if the new key already exists in the new dictionary
+#         else:
+
+#             # add the value at the original key to the new dictionary at the new key
+#             unified_dictionary[first_letter_of_key] += dictionary[key]
+
+#     # for value in unified_dictionary.values():
 
 
+# ---------- #
 # ---------- #
 
 # MISC
