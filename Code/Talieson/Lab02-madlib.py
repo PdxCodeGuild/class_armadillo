@@ -1,15 +1,16 @@
-import shlex
 import random
+
+# This is a madlib generator. It allows the user to get a semi random madlib
+# or enter their own answers.
 
 # Run ensures the game runs and allows for repeat games after it finishes
 run = True
-check_in = False
 
 # Main play loop
 while run:
     # Check if they want a random game.
-    random_game = input('''Do you want to play a random game? (if so, input Y.
-                        If Y, you won't be able to pick the words) ''')
+    random_game = input('''Do you want to play a random game?
+(if so, input Y. If Y, you won't be able to pick the words) ''')
 
     # If the game has been set to random, use a random option from the lists.
     if random_game == 'Y':
@@ -41,18 +42,20 @@ while run:
         complicated_subject = random.choice(random_complicated_subject)
         adjective = random.choice(random_adjective)
 
+    # If the game isn't random, take the input below.
     else:
-        answers = input('''enter the following things, seperated by a ", ": a
-                         bodypart (G rated please), a very large proper noun,
-                         an adjective that describes an object, any item at
-                         all, a method of creating something, objects(plural)
-                        , a tool, an advanced field of study, and any
-                        adjective.''')
+        answers = input('''enter the following things, seperated by a ", ":
+a bodypart (G rated please), a very large proper noun, an adjective that
+describes an object, any item at all, a method of creating something,
+objects(plural), a tool, an advanced field of study, and any adjective.
 
-        # Take the input from answers and split into a list of strings.
-        answer_key = shlex.split(answers)
+''')
+
+        # Split the input stored in answers into a list of strings.
+        answer_key = answers.split(", ")
         bodypart = answer_key[0]
         large_thing = answer_key[1]
+        print(large_thing)
         item_adj = answer_key[2]
         item = answer_key[3]
         creation_process = answer_key[4]
@@ -61,23 +64,22 @@ while run:
         complicated_subject = answer_key[7]
         adjective = answer_key[8]
 
+    # Return the madlib with the answers inserted.
     print(f'''
-    Egyptian men and women wore makeup. It was thought to have healing
-    powers, it helped protect their {bodypart} from (the) {large_thing}
-    They used {item_adj} {item} to help with infections. They were one
-    of the first civilizations to invent writing. They  also used ink
-    to write and paper called papyrus. The Ancient Egyptians were
-    scientists and mathematicians. They had numerous inventions
-    including ways to {creation_process} {items}, medicine, cosmetics
-    the calendar, the {tool} for farming, musical instruments, and even
-    {complicated_subject}. They were truly a(n) {adjective} people.''')
+Egyptian men and women wore makeup. It was thought to have healing
+powers, it helped protect their {bodypart} from (the) {large_thing}.
+They used {item_adj} {item} to help with infections. They were one
+of the first civilizations to invent writing. They  also used ink
+to write and paper called papyrus. The Ancient Egyptians were
+scientists and mathematicians. They had numerous inventions
+including ways to {creation_process} {items}, medicine, cosmetics
+the calendar, the {tool} for farming, musical instruments, and even
+{complicated_subject}. They were truly a(n) {adjective} people.''')
 
     # We're done playing. End this run and ask if they'd like to try again.
     run = False
-    checkIn = True
     # Loop to check for a second game.
-    while checkIn:
-        checkIn = False
+    while not run:
         again = str(input("That was SO silly! play again? (Y/N)"))
         if again == "Y":
             run = True
