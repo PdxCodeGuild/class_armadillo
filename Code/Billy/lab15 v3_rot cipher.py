@@ -1,26 +1,25 @@
-# ascii method
+# ascii method  (www.asciitable.com)
 def rotn(text, num): # includes rotation input, negative number for reverse
     output = '' # makes empty output list
     for x in text: # iterates through input one character(chr)(char) at a time
-        ascii_code = ord(x) # changes chr to ascii
-        # if 32 <= ascii_code <= 126: # ALL char (letters, space, special char)
-        #     ascii_code -= 32 # starts sequence at 0 
-        #     output += chr((ascii_code + num)%102 + 32) # rotates, shifts, changes ascii to chr, adds to ouput variable
+        ascii_code = ord(x) # changes char to ascii
         if 97 <= ascii_code <= 122: # lower case
             ascii_code -= 97 # starts sequence at 0
-            output += chr((ascii_code + num)%26 + 97) # rotates, shifts, changes ascii to chr, adds to ouput variable 
+            output += chr((ascii_code + num)%26 + 97) 
+            # rotates, shifts, changes ascii to chr, adds to ouput variable 
         elif 65 <= ascii_code <= 90: # upper case
             ascii_code -= 65
             output += chr((ascii_code + num)%26 + 65)
-        elif 48 <= ascii_code <= 57: # numbers
-            output += chr(ascii_code) # no rotation required for numbers
-        elif 32 <= ascii_code <= 47: # space, special char group 1 (ascii special char groups are separated into 4 groups)
-            output += chr(ascii_code) # no rotation required for special characters             
+        elif 32 <= ascii_code <= 64 or 91 <= ascii_code <= 96 or 123 <= ascii_code <= 126: 
+            # space, numbers, special char groups (ascii special char are separated into four groups)
+            output += chr(ascii_code) # no rotation required for these characters 
+        else:
+            output += chr(ascii_code)
+            print(f'\n\'{x}\' is an invalid entry...cannot encrypt that character.') # input validation       
     return output
 
-print(rotn('Hello2!', 14)) # Vszzc2!
-# print(rotn('Vszzc2!', -14)) # Hello2! --tests function
-
+print(rotn('Hello2!^~', 14)) # Vszzc2!^~
+# print(rotn('Vszzc2!^~', -14)) # Hello2!^~ --tests function
 
 
 
