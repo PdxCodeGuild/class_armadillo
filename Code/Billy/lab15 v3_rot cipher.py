@@ -1,4 +1,4 @@
-# ascii method (www.asciitable.com)
+# ascii method  (www.asciitable.com)
 def rotn(text, num): # includes rotation input, negative number for reverse
     output = '' # makes empty output list
     for x in text: # iterates through input one character(chr)(char) at a time
