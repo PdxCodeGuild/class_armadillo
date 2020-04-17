@@ -1,5 +1,8 @@
 from calculator_math import addition, subtraction, division, multiplication
 
+# simple calculator allows you to do very basic mathmatics.
+# Version 2 changes the input to a single line and keeps a running value.
+
 # intro message.
 print("#="*45)
 print(''' Welcome to Calcutron - enter a an operator and a number

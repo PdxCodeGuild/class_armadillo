@@ -73,6 +73,7 @@ def merge(nums1, nums2):
     return new_list
 # print(merge([5,2,1], [6,8,2])) # [[5,6],[2,8],[1,2]]
 
+
 # Write a function combine_all that takes a list of lists, and returns a list containing each element from each of the lists.
 def combine_all(nums):
     new_list = []
@@ -86,5 +87,59 @@ def combine_all(nums):
 # Write a function that takes n as a parameter, and returns a list containing the first n Fibonacci Numbers.
 # a series of numbers in which each number ( Fibonacci number ) is the sum of the two preceding numbers. The simplest is the series 1, 1, 2, 3, 5, 8, etc.
 def fibonacci(n):
-    
+    pass
 # print(fibonacci(8)) # [1, 1, 2, 3, 5, 8, 13, 21]
+
+# Problem 13
+# Write functions to find the minimum, maximum, mean, and (optionally) mode of a list of numbers.
+def minimum(nums):
+    # return min(nums)
+    minimum = 0
+    # Iterating over list of nums
+    for num in nums: 
+        # Checking if minimum is == 0, if it is make minimum the new Num.
+        # This fixes bug on line 105, because it would be num < 0.
+        if minimum == 0:
+            minimum = num
+        # Checking if num is < minimum. If so replace minimum with new Num.
+        if num < minimum:
+            minimum = num
+    return minimum
+
+def maxmimum(nums):
+    maximum = 0
+    for num in nums:
+        # We don't need this line of code because we are working with all positive numbers.
+        # if maximum == 0:
+        #     maximum = num
+        if num > maximum:
+            maximum = num
+    return maximum
+
+def mean(nums):
+    total = 0
+
+    for num in nums:
+        total += num
+    
+    return int(total / len(nums))
+
+def mode(nums): # (OPTIONAL)
+    dict1 = {}
+
+    for num in nums:
+        print(f'{num} has {nums.count(num)} in the list') # just debugging/UX
+        if num not in dict1:
+            dict1[num] = 0
+        if num in dict1:
+            dict1[num] += 1
+    # NOT FINISHED NEED TO FIND BIGGEST VALUE
+    return dict1
+
+# list.count(element)
+nums = [2,1,3,2,4,2,1,3,2,4,1]
+
+# print(minimum(nums))
+# print(maxmimum(nums))
+# print(mean(nums))
+# print(mode(nums))

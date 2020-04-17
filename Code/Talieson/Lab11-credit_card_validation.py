@@ -1,3 +1,7 @@
+# Credit card validation iterates through a series of equations to ensure
+# a credit card number is valid.
+
+
 def validate_credit_card(card):
     # Convert the input string into a list of ints
     card = list(card)

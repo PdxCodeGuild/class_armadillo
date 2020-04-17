@@ -1,4 +1,4 @@
-#Lab 7: Rock Paper Scissors
+#Lab 7: Rock Paper Scissors Version 1 and Version 2! 
 
 import random
 

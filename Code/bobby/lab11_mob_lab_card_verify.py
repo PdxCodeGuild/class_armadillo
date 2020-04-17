@@ -1,3 +1,5 @@
+# Mob Lab with Keegan
+
 def validate_credit_card(card):
     #'4556737586899855'
     # Convert the input string into a list of ints YAY
@@ -14,12 +16,11 @@ def validate_credit_card(card):
     # card[index1:how_many:step] <= I like this but could be hard to iterate over every other item
     #  gives the index of each item, not the item at each index
     # for item in card:
-    #     print(f"{item = } index: {card.index(item)}")  
-    # print(f"{len(card) = }") => 15 
+
     new_list = []
     i = 0
     while i < len(card):
-        # print(f"{i % 2 = }") => 0, 1, 0, 1, 0, 1, ...
+    
         # do something when i % 2 = 1 multiply i by 2
         if i % 2 == 0:
             new_list.append(card[i] * 2)
