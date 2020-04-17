@@ -1,4 +1,5 @@
-# v1
+# v1 completed with matt 1452 on 16 APR 2020
+
 # prompts the user for a string, and encodes it with ROT13.
 #sally
 
@@ -33,3 +34,13 @@ print(rot13(user_input))
 #side effects, limits how reusable f(x) is if ousside
 
 # input is shadowed beginning/end i.e. global vs local vars
+
+def rotn(text, n):
+  ...
+print(rotn('hello', 13))
+print(rotn('hello',2))
+print(rotn('jgnnq', -2))
+
+text = input('what is your text?')
+n = int(input('what is the roation amount?'))
+print(rotn(text, n))
