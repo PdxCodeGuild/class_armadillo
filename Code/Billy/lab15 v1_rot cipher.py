@@ -8,7 +8,8 @@ def rot13(text):
             output += chr((ascii_code + 13)%26 + 97) 
             # rotates, shifts, changes ascii to chr, adds to ouput variable
         else:
-            print(f'{x} is an invalid entry...could not encrypt that character.') # input validation  
+            output += chr(ascii_code)
+            print(f'\n\'{x}\' is an invalid entry...cannot encrypt that character.') # input validation  
     return output
 
 print(rot13('hello')) # uryyb

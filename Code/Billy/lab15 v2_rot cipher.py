@@ -8,10 +8,11 @@ def rotn(text, num): # includes rotation input, negative number for reverse
             output += chr((ascii_code + num)%26 + 97) 
             # rotates, shifts, changes ascii to chr, adds to ouput variable
         else:
-            print(f'{x} is an invalid entry...could not encrypt that character.') # input validation    
+            output += chr(ascii_code)
+            print(f'\n\'{x}\' is an invalid entry...cannot encrypt that character.') # input validation     
     return output
 
-print(rotn('hello', 13)) # uryyb
+# print(rotn('hello', 13)) # uryyb
 print(rotn('hello', 14)) # vszzc
 
 
