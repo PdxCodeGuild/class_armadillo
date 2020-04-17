@@ -126,15 +126,19 @@ def mean(nums):
 
 def mode(nums): # (OPTIONAL)
     dict1 = {}
+    highest_mode = 0
 
     for num in nums:
         print(f'{num} has {nums.count(num)} in the list') # just debugging/UX
         if num not in dict1:
-            dict1[num] = 0
-        if num in dict1:
+            dict1[num] = 1
+        else:
             dict1[num] += 1
     # NOT FINISHED NEED TO FIND BIGGEST VALUE
-    return dict1
+    for num in dict1:
+        if dict1[num] > highest_mode:
+            highest_mode = num
+    return 
 
 # list.count(element)
 nums = [2,1,3,2,4,2,1,3,2,4,1]
@@ -143,3 +147,21 @@ nums = [2,1,3,2,4,2,1,3,2,4,1]
 # print(maxmimum(nums))
 # print(mean(nums))
 # print(mode(nums))
+
+
+
+# index = [1,2,3]
+# abc = string.asci
+# rot13 = 
+# user_input = input('Enter in some words')
+# word = ''
+# for letter in user_input:
+#     indexed_letter = abc.index(letter)
+#     word += rot13[indexed_letter]
+# print(word)
+
+# Index	0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20	21	22	23	24	25
+# English	a	b	c	d	e	f	g	h	i	j	k	l	m	n	o	p	q	r	s	t	u	v	w	x	y	z
+# ROT+13	n	o	p	q	r	s	t	u	v	w	x	y	z	a	b	c	d	e	f	g	h	i	j	k	l	m
+
+
