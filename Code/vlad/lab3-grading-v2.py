@@ -1,4 +1,24 @@
-#Lab 3: Grading
+#Lab 3: Grading version 2
+def get_grade(num):
+    if num >= 90:
+        grade = 'A' 
+    elif num >= 80:
+        grade = 'B'
+    elif num >= 70:
+        grade = 'C'
+    elif num >= 60:
+        grade = 'D'
+
+    else:
+        grade = 'F'
+
+    qualifier = ''
+    if num % 10 > 5:
+        qualifier = '+' # to set another string to '+', '-', or ' '
+    else:
+        qualifier = '-'
+    
+    return f'{grade}{qualifier}'
 
 check_grading = True
 while check_grading == True:
@@ -6,22 +26,14 @@ while check_grading == True:
     
 
     num = int(input("Enter a number: "))
+    grade = get_grade(num)
+    print(f'Your grade is {grade}')
 
-    if num >= 90:
-        print(f"{num} you got an A great job!")
-    elif num >= 80:
-        print(f"{num} you got a solid B ")
-    elif num >= 70:
-        print(f"{num} you got an C")
-    elif num >= 60:
-        print(f"{num} you got an D")
-
-    else:
-        print(f"{num} you got an F")
+   
     # check_grading = False
     
     while True:
-        try_again = input('would you like to try again? yes/no')
+        try_again = input('would you like to try again? yes/no: ')
         if try_again == "yes":
             break
         elif try_again == "no":

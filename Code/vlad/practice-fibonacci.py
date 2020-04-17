@@ -1,6 +1,6 @@
-#function practice 
+# Practice Fibonacci and Max , Min and Mean
 
-'''Problem 12
+''"Problem 12
 Write a function that takes n as a parameter, and 
 returns a list containing the first n Fibonacci Numbers.'''
 
@@ -47,28 +47,45 @@ def mean(nums):
 print(mean([2, 1, 3]))   
 © 2020 GitHub, Inc.
 
-# def double_letters(word):
-#     '''
-#     Double every character in a string and return the result
-#     '''
-#     return ''.join([a*2 for a in word])
+def fibonacci(n):
+  nums = [1, 1]
+  for i in range(2, n):
+    nums.append(nums[i-1] + nums[i-2])
+  return nums
 
-# # print(double_letters("hello"))
+print(fibonacci(100))
 
-# def latest_letter(word):
-#     return sorted(word)[-1]
 
-# # print(latest_letter("pneumonoultramicroscopicsilicovolcanoconiosis"))
 
-# def count_letter(letter, word):
-#     '''
-#     Return the number of instances of a letter in a string
-#     '''
-#     return len([char for char in word if char == letter])
+def factorial(n):
+  r = 1
+  for i in range(2, n+1):
+    r *= i
+  return r
 
-# # print(count_letter("i", "pneumonoultramicroscopicsilicovolcanoconiosis"))
-# # print(count_letter("l", "hello"))
+# 4! = 4*3*2*1 = 24
+# 5! = 5*4*3*2*1 = 120
+# 6! = 7*6*5*4*3*2*1 = 720
 
-# def print_powers_2(n):
-#     print(', '.join([str(2 ** i) for i in range(n)]))
+def factorial_recursive(n):
+  print(f'factorial({n})')
+  if n == 1:
+    print('hit base case, returning 1')
+    return 1
+  print(f'calling factorial({n-1})')
+  result = n*factorial_recursive(n-1)
+  print(f'returning {result}')
+  return result
 
+# print(factorial(4))
+# print(factorial(5))
+# print(factorial_recursive(10))
+
+
+def fibonacci_recursive(n):
+  print(f'fibonacci({n})')
+  if n == 0 or n == 1:
+    return 1
+  return fibonacci_recursive(n-1) + fibonacci_recursive(n-2)
+
+print(fibonacci_recursive(10))

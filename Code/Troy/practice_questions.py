@@ -12,7 +12,9 @@ def fibonacci(n):
 
 print(fibonacci(15)) # [1, 1, 2, 3, 5, 8, 13, 21]
 
-'''Write functions to find the minimum, maximum, mean, and (optionally) mode of a list of numbers.
+'''Problem 13
+Write functions to find the minimum, maximum, mean, and (optionally) mode 
+of a list of numbers.
 
 def minimum(nums):
     ...
