@@ -140,7 +140,19 @@ def maxmimum(nums):
 
 
 def mean(nums):
-    ...
+    return sum(nums) / len(nums)
 
-def mode(nums): # (OPTIONAL)
-    ...
+
+def mode(nums):
+    output = {}
+    for num in nums:
+        if num not in output:
+            output[num] = 1
+        else:
+            output[num] += 1
+    print(output)
+    return max(output, key=output.get)
+
+
+numbers = [2, 3, 6, 6, 3, 3]
+print(mode(numbers))
