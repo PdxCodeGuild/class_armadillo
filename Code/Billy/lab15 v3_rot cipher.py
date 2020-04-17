@@ -8,16 +8,19 @@ def rotn(text, num): # includes rotation input, negative number for reverse
         #     output += chr((ascii_code + num)%102 + 32) # rotates, shifts, changes ascii to chr, adds to ouput variable
         if 97 <= ascii_code <= 122: # lower case
             ascii_code -= 97 # starts sequence at 0
-            output += chr((ascii_code + num)%26 + 97) # rotates, shifts, changes ascii to chr, adds to ouput variable 
+            output += chr((ascii_code + num)%26 + 97) 
+            # rotates, shifts, changes ascii to chr, adds to ouput variable 
         elif 65 <= ascii_code <= 90: # upper case
             ascii_code -= 65
             output += chr((ascii_code + num)%26 + 65)
         elif 32 <= ascii_code <= 64 or 91 <= ascii_code <= 96 or 123 <= ascii_code <= 126: 
-            # space, number, special char groups (ascii special char groups are separated into 4 groups)
-            output += chr(ascii_code) # no rotation required for these characters         
+            # space, numbers, special char groups (ascii special char are separated into 4 groups)
+            output += chr(ascii_code) # no rotation required for these characters 
+        else:
+            print(f'{x} is an invalid entry...cannot encrypt that character.') # input validation       
     return output
 
-print(rotn('Hello2!6^~', 14)) # Vszzc2!^~
+print(rotn('Hello2!^~', 14)) # Vszzc2!^~
 # print(rotn('Vszzc2!^~', -14)) # Hello2!^~ --tests function
 
 
