@@ -40,27 +40,57 @@ Escape sequences allow us to define special characters within strings.
 - `\xhhhh` represents a unicode character with id 'hhhh', e.g. `\u0394`
 
 ```python
-s1 = 'we can use \'single quotes\' in a single-quoted string'
-s2 = "we can use \"double quotes\" in a double-quoted string"
+'we can use \'single quotes\' in a single-quoted string'
 ```
+> we can use 'single quotes' in a single-quoted string
+```python
+"we can use \"double quotes\" in a double-quoted string"
+```
+> we can use "double quotes" in a double-quoted string
+```python
+'we can also use a line break\na\ttab\nand a backslash \\\nand this \u0394'
+```
+> we can also use a line break
+> a    tab
+> and a backslash \
+> and this Δ
+
 
 ## Raw Strings
 
 Prefixing a string with 'r' will ignore any escape sequences and interpret the string **literally**.
 
 ```python
-s = r'this is a raw string \n\t\\'
-print(s) # this is a raw string \n\t\\
+r'this is a raw string \n\t\\'
 ```
+> this is a raw string \n\t\\\\
 
 ## Ascii Codes
 
-There are two built-in functions for switching back and forth between ASCII character codes: `chr` and `ord`. You can find more information about these in the official docs for [chr](https://docs.python.org/3.6/library/functions.html#chr) and [ord](https://docs.python.org/3.6/library/functions.html#ord). You can view the ASCII table [here](https://en.wikipedia.org/wiki/ASCII#Character_set)
+There are two built-in functions for switching back and forth between characters and their ascii codes: `chr` and `ord`. You can find more information about these in the official docs for [chr](https://docs.python.org/3.6/library/functions.html#chr) and [ord](https://docs.python.org/3.6/library/functions.html#ord). You can view the ASCII table [here](https://en.wikipedia.org/wiki/ASCII#Character_set)
+
+```python
+ord('a')
+```
+> 97
+```python
+chr(97)
+```
+> a
 
 ## String Operations
 
+### `a + b`
+
 - `+`, `+=` concatenation
+
+
+### `a * b`
+
 - `*`, `*=` repeat a string
+
+
+
 - `len(s)` get the length of a string
 - `s[i]` get the character at index i
 - `s[i:j]` get the sub-string from `i` to `j`
@@ -74,6 +104,9 @@ There are two built-in functions for switching back and forth between ASCII char
 - `s.strip()`removes leading and trailing characters, if given no parameter, it'll strip whitespace
 - `s.split(delimeter)` splits a string into a list, if no parameter is given, it'll split on whitespace
 - `delimeter.join(list)` combines the elements of a list into a single string, separated by the delimeter
+
+
+### `a.count(b)`
 
 Remember that strings are **immutable** meaning their values cannot be changed. Each of these operations returns a **new** string. You can find some reasons why strings are immutable [here](https://stackoverflow.com/questions/22397861/why-is-string-immutable-in-java). Sometimes people new to programming will make a mistake such as...
 
@@ -103,19 +136,19 @@ print(d)
 
 ## f-strings
 
-We can use **f-strings** to quickly format text with variables, `f-strings` are prefixed with an `f`, and contain curly braces `{}` and write variable names.
+We can use **f-strings** to quickly format text with variables, `f-strings` are prefixed with an `f`, and contain curly braces `{}` to include variables or even expressions.
 
 
 ```python
 a = 'one'
 b = 2
-print(f'a is {a} and b is {2}')
+print(f'a is {a} and b is {b}')
+print(f'1+1={1+1})
 ```
-> a is one and b is two
+> a is one and b is 2
+> 1+1=2
 
-
-
-## Conditionals
+## `in`
 
 ```python
 if 'h' in 'hello world!':
@@ -123,11 +156,11 @@ if 'h' in 'hello world!':
 ```
 > success!
 
-## Looping
+## `for char in text:`
 
 ```python
-my_string = 'Hey!'
-if char in my_string:
+text = 'Hey!'
+if char in text:
   print(char)
 ```
 > H
