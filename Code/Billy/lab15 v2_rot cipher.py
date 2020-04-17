@@ -2,7 +2,7 @@
 def rotn(text, num): # includes rotation input, negative number for reverse
     output = '' # makes empty output list
     for x in text: # iterates through input one character(chr)(char) at a time
-        ascii_code = ord(x)
+        ascii_code = ord(x) # changes char to ascii
         if 97 <= ascii_code <= 122: # lower case
             ascii_code -= 97 # starts sequence at 0
             output += chr((ascii_code + num)%26 + 97) 
