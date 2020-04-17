@@ -1,10 +1,13 @@
-from colorama import Fore
 import random
 import time
 
+# This python file creates a list of random emoticons.
+
 run = True
 count = 0
-
+Checkin = False
+# This main run loop validates input and checks for Vertical or Horizontal
+# emoticons.
 while run:
     prompt = input("Do you want to know how you're feeling today? (Y/N) ")
     if prompt == "Y":
@@ -12,45 +15,51 @@ while run:
         if vert == "H":
             print("I'll give you 5 options to pick from!")
             time.sleep(1)
-            run = False
             break
         elif vert == "V":
             print("I'll give you 5 options to pick from!")
             time.sleep(1)
-            run = False
             break
         else:
             prompt = False
-            print("I'm sorry that's not a valid resposne.")
+            print("I'm sorry that's not a valid response.")
     elif prompt == "N":
         print("Then why did you even come here?")
         exit()
     else:
         print("I'm sorry that's not a valid response.")
 
-while prompt == "Y" and count < 5 and vert == "H":
-    rand_eyes = (":", "=", "8", ";", "|", "B")
-    rand_nose = ("^", "-", "o", "")
-    rand_mouth = ("D", ")", "(", "[", "]", "P", "S")
-    eyes = random.choice(rand_eyes)
-    nose = random.choice(rand_nose)
-    mouth = random.choice(rand_mouth)
+# These next 2 whiles check which type of face to make, and generate 5
+# 1 at a time while iterating a counter up.
+while count < 5:
+    if vert == "H":
+        rand_eyes = (":", "=", "8", ";", "|", "B")
+        rand_nose = ("^", "-", "o", "")
+        rand_mouth = ("D", ")", "(", "[", "]", "P", "S")
+        eyes = random.choice(rand_eyes)
+        nose = random.choice(rand_nose)
+        mouth = random.choice(rand_mouth)
+        print(f"{eyes}{nose}{mouth}")
 
-    print(f"{eyes}{nose}{mouth}")
+    if vert == "V":
+        rand_eyes = ("^", "@", "*", "-", "u", ">")
+        rand_mouth = ("_", ".", "~", "-",)
+        eyes = random.choice(rand_eyes)
+        mouth = random.choice(rand_mouth)
+
+        print(f"({eyes}{mouth}{eyes})")
     count += 1
 
-while prompt == "Y" and count < 5 and vert == "V":
-    rand_eyes = ("^", "@", "*", "-", "u", ">")
-    rand_mouth = ("_", ".", "~", "-",)
-    eyes = random.choice(rand_eyes)
-    mouth = random.choice(rand_mouth)
-
-    print(f"({eyes}{mouth}{eyes})")
-    count += 1
-
-if count >= 5 and not run:
-    response = input('would you like to continue? (Y/N)')
-    response = response == 'Y'
-if response:
-    count = 0
-    run = True
+# When the counter reaches 5, check if they want 5 more.
+    if count >= 5:
+        run = False
+        while not run:
+            response = input("would you like to make some more? (Y/N) ")
+            if response == "Y":
+                count = 0
+                run = True
+            elif response == "N":
+                print("have a great day! =D")
+                exit()
+            else:
+                print("I'm sorry that's not a valid response.")

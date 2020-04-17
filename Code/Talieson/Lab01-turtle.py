@@ -1,45 +1,46 @@
-from turtle import *
+from turtle import (penup, goto, pendown, circle, right, left, forward, color,
+                    fillcolor, end_fill, begin_fill, done)
 
-#draw head
+# draw head
 penup()
-goto(0,80)
+goto(0, 80)
 pendown()
 circle(40)
 
-#draw neck
+# draw neck
 right(90)
 forward(30)
 
-#draw arms
+# draw arms
 right(45)
 forward(40)
 left(45)
 forward(40)
 
 penup()
-goto(0,50)
+goto(0, 50)
 pendown()
 left(45)
 forward(40)
 left(45)
 forward(40)
 
-#onto the rest of the body!
+# onto the rest of the body!
 
 penup()
-goto(0,50)
+goto(0, 50)
 pendown()
 right(90)
 forward(50)
 
-#legs
+# legs
 right(30)
 forward(50)
 left(30)
 forward(50)
 
 penup()
-goto(0,50)
+goto(0, 50)
 pendown()
 forward(50)
 left(30)
@@ -47,32 +48,32 @@ forward(50)
 right(30)
 forward(50)
 
-#make him a face
+# make him a face
 
 penup()
-goto(-20,120)
+goto(-20, 120)
 
 fillcolor('blue')
 begin_fill()
 pendown()
-circle (7)
+circle(7)
 end_fill()
 penup()
-goto(15,120)
+goto(15, 120)
 begin_fill()
 pendown()
 circle(7)
 end_fill()
 
 penup()
-goto(20,100)
+goto(20, 100)
 color('red')
 pendown()
 goto(0, 95)
 
-#lets give this rad dude a skateboard!
+# lets give this rad dude a skateboard!
 penup()
-goto(60,-85)
+goto(60, -85)
 pendown()
 right(80)
 forward(40)
@@ -83,13 +84,13 @@ forward(40)
 
 penup()
 color('black')
-goto(20,-92)
+goto(20, -92)
 begin_fill()
 pendown()
 circle(10)
 end_fill()
 penup()
-goto(-30,-94)
+goto(-30, -94)
 begin_fill()
 pendown()
 circle(10)

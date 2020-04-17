@@ -4,6 +4,7 @@ from colorama import Back, Fore, Style
 
 
 # This function identifies which ascii images to display and prints
+# it checks for numbers from the computer output, or tex for the player input
 def draw_art(image):
     if image == 'rock' or image == 0:
         print(Fore.RED + Back.BLACK + r'''
@@ -114,6 +115,7 @@ def number_2_name(number):
         return 'scissors'
 
 
+# This function kicks off the game and validates inputs
 def game_loop():
     # main game loop starting with answer validation
     run = True
@@ -125,9 +127,9 @@ def game_loop():
         user = input("Select rock, paper, scissors, lizard, spock: ")
 
         if user not in valid_inputs:
-            print('Please enter valid response.')
+            print("Please enter valid response.")
 
-# Compare results, and tell player result and increase correct score
+# Compare results, tell player result, and increase correct score
         else:
             user_input = name_2_number(user)
             computer = random.randint(0, 4)
@@ -173,13 +175,13 @@ def game_loop():
         while not run:
             print(f"You're currently {wins}-{loses}-{draws}")
             replay = input("Play again?(Y/N): ")
-            if replay == 'Y':
+            if replay == "Y":
                 run = True
                 break
-            elif replay == 'N':
+            elif replay == "N":
                 exit()
             else:
-                print("please enter a valid response")
+                print("please enter a valid response.")
 
 
 game_loop()

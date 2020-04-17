@@ -1,4 +1,5 @@
 import random
+# This is the all powerful 8 ball. Ask it a yes or no question, get an answer.
 
 # Run is used to determine if a new game is to be played.
 run = True
@@ -9,10 +10,14 @@ intro = False
 while True:
     if not intro:
         print("Who dares disturb the Magic 8 balls slumber!?")
-        question = input("Ask your question mortal.. If you dare! ")
+        question = input('''Ask your question mortal.. If you dare!
+
+        ''')
 # If he's introduced himself, he isn't going to again, his time is valuable
     else:
-        question = input("Fine! What is your next question? ")
+        question = input('''Fine! What is your next question?
+
+        ''')
 
     answers = ("It is certain, the tea leaves couldn't be clearer.",
                "Of course! I just knew that off the top of my head.",
@@ -41,7 +46,9 @@ while True:
             intro = True
             break
         elif replay == 'N':
-            print("Your fate is in your hands now mortal...")
+            print('''Your fate is in your hands now mortal...
+
+            ''')
             exit()
         else:
             print("Do not play games with fate!")

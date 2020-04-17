@@ -1,4 +1,4 @@
-#Lab 4: Magic 8-Ball
+#Lab 4: Magic 8-Ball Version 1 and Version 2!
 
 """ Instructions
 Print a welcome screen to the user!.

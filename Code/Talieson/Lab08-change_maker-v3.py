@@ -9,7 +9,7 @@ while run:
     # Turn the amount into cents
     change_amount = (change_amount * 100)
 
-    # This is the default currency, no other types implemented yet.
+    # Establish coin name, value, and current quantity.
     coins = [
                 ("quarters", 25, 0),
                 ("dimes", 10, 0),
