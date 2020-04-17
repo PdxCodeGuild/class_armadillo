@@ -15,7 +15,7 @@
 
 
 # The actual ROT function.
-def rot(input_message, n):
+def rot(input_message, n=13):
     # we'll iterate through this alphabet to identify the character we need
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
     upper_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
