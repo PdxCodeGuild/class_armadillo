@@ -43,7 +43,7 @@ print(rot_alphabet[index])
 # http://www.asciitable.com/
 print(ord('a')) # 97
 print(ord('b')) # 98
-
+print(chr(97)) # a
 
 
 # option 4
