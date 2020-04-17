@@ -1,9 +1,9 @@
-#review_conditionals.py
+#! review_conditionals.py
 
-# == != < <= > >= ==================================
+# == != < <= > >= ==================================+++
 
 temperature = 67
-is_hot = temperature > 80 # comparison operators yield booleans!
+is_hot = temperature > 80 # comparison operators yield booleans!!!
 print(is_hot)
 
 if temperature > 80:
