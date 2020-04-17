@@ -1,4 +1,4 @@
-- [0 General](0 General)
+- [0 General](./0 General)
   - [Class Structure.md](0 General/Class Structure.md)
     - [Class Structure](0 General/Class Structure.md#class_structure)
     - [Objectives](0 General/Class Structure.md#objectives)
