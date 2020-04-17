@@ -1,54 +1,46 @@
-# v1
+# v1 completed with matt 1452 on 16 APR 2020
 
-def rot13(text):
-  ...
+# prompts the user for a string, and encodes it with ROT13.
+#sally
 
-print(rot13('hello')) # uryyb
+def rot13(text): # define the function
+  alphabet = 'abcdefghijklmnopqrstuvwxyz' # original_list
+  rot_alphabet = alphabet[13:] + alphabet[:13] #changed_list
+  for i in range(len(text)):
+        #iterate through 'sally'
+    print(i, end = ' ')
+        #create index for alphabet AND rot_alphabet
+    index = alphabet.index(text[i])
+    #take the index and convert that
+    print(text[i],index)
 
-# v2
+  return text
+  
+
+user_input = input("What is the string? : ")
+# INTENDED RESULTprint(rot13('hello')) # uryyb
+print(rot13(user_input))
+
+#for char in range NOT feasible
+# use for char in text
+# || for i in range(#)
+
+# we want to make f(x) self-contained - we only want to operate 
+# on parameters given, not on ones ousside the f(x)
+
+# lines 19 and 21 should remain ousside b/c they shouldn't be
+# used within the f(x)
+
+#side effects, limits how reusable f(x) is if ousside
+
+# input is shadowed beginning/end i.e. global vs local vars
 
 def rotn(text, n):
   ...
+print(rotn('hello', 13))
+print(rotn('hello',2))
+print(rotn('jgnnq', -2))
 
-print(rotn('hello', 13)) # uryyb
-
-
-# option 1
-# use .find to look up the index of a character in the alphabet
-# use that same index to look up the corresponding character in the rotated alphabet
-# add the rotated character to the output
-char = 'j'
-#           0123456789
-alphabet = 'abcdefghijklmnopqrstuvwxyz'
-#           nopqrstuvwxyzabcdefghijklm
-rot_alphabet = alphabet[13:] + alphabet[:13]
-print(rot_alphabet)
-index = alphabet.index(char)
-print(index)
-print(rot_alphabet[index])
-
-# option 2
-# use .find to look up the index of a character in the alphabet
-# add 13 to the index, and mod it so it wraps back around
-# e.g. the index of 'r' is 18
-# (18 + 13)%26 == 5
-
-
-# option 3
-# use ord to find the ascii code of a character
-# subtract 97 so the sequence starts at 0
-# http://www.asciitable.com/
-print(ord('a')) # 97
-print(ord('b')) # 98
-
-
-
-# option 4
-# hard-code a dictionary, use it to look up the rotated character
-{'a': 'n', 'b': 'o', 'c': 'p'}
-
-
-# option 5
-# generate a dictionary?
-
-
+text = input('what is your text?')
+n = int(input('what is the roation amount?'))
+print(rotn(text, n))
