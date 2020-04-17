@@ -2,7 +2,7 @@
 def rotn(text, num): # includes rotation input, negative number for reverse
     output = '' # makes empty output list
     for x in text: # iterates through input one character(chr)(char) at a time
-        ascii_code = ord(x) # changes chr to ascii
+        ascii_code = ord(x) # changes char to ascii
         # if 32 <= ascii_code <= 126: # ALL char (letters, space, special char)
         #     ascii_code -= 32 # starts sequence at 0 
         #     output += chr((ascii_code + num)%102 + 32) # rotates, shifts, changes ascii to chr, adds to ouput variable
@@ -14,7 +14,7 @@ def rotn(text, num): # includes rotation input, negative number for reverse
             ascii_code -= 65
             output += chr((ascii_code + num)%26 + 65)
         elif 32 <= ascii_code <= 64 or 91 <= ascii_code <= 96 or 123 <= ascii_code <= 126: 
-            # space, numbers, special char groups (ascii special char are separated into 4 groups)
+            # space, numbers, special char groups (ascii special char are separated into four groups)
             output += chr(ascii_code) # no rotation required for these characters 
         else:
             print(f'{x} is an invalid entry...cannot encrypt that character.') # input validation       
