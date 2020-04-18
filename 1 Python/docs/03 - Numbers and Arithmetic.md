@@ -40,13 +40,26 @@ The `math` module has many other specialized math functions you can utilize, a f
 
 ## Arithmetic Operators
 
-- `+` addition
+- `+`, `+=` addition
 - `-` subtraction
 - `*` multiplication
 - `/` division
 - `//` floor division, results in an `int`
 - `%` modulus, a%b is the remainder of a/b
 - `**` exponentiation
+
+
+### Addition: `a + b`
+
+### Subtraction: `a - b`
+
+### Multiplication: `a * b`
+
+### Division: `a / b`
+
+### Floor Division: `a // b`
+
+### Modulus: `a % b`
 
 Modulus is the 'remainder function' for example, 5%2 is 1, 6%2 is 0, 23%5 is 3, etc. It's also useful for containing the range of a variable.
 
@@ -55,15 +68,15 @@ i = 0
 while i < 100:
     print(i%3)
     i = i + 1
->>> 0
->>> 1
->>> 2
->>> 0
->>> 1
->>> 2
->>> 0
-etc
 ```
+> 0
+> 1
+> 2
+> 0
+> 1
+> 2
+> 0
+> ...
 
 
 For each of the arithmetic operators, there are short-hand versions, which compute a result and store it as the original variable: `x += 2` is equivalent to `x = x + 2`.

@@ -37,10 +37,6 @@ venv\Scripts\activate
 ```
 
 
-## Modifying Packages
-
-Once a virtualenv has been activated, all [Pip commands](/notes/py-pip.md) modify the packages in that virtualenv. You don't need to worry about running `pip3` once activated.
-
 ## Running Python
 
 Once a virtualenv has been activated, you can use `python` to run Python code. It will have access to all the installed packages in the virtualenv. You don't need to worry about running `python3` once activated.
@@ -61,6 +57,3 @@ To exit your virtualenv, **deactivate** it. It is available only inside of the v
 deactivate
 ```
 
-## Virtualenvs and PyCharm
-
-When you make a new virtualenv, you can add it as the **selected interpreter** of a PyCharm project. Go to `Settings -> Project -> Project Interpreter` then select the drop-down menu and `Select All`. You can then click the plus `+` button to add a new interpreter, select the `venv/bin/python` file. You can read more about virtualenv and PyCharm [here](https://www.jetbrains.com/help/pycharm-edu/creating-virtual-environment.html).

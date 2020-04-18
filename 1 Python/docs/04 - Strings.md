@@ -80,35 +80,82 @@ chr(97)
 
 ## String Operations
 
-### `a + b`
 
-- `+`, `+=` concatenation
+Remember that strings are **immutable** meaning their values cannot be changed. Each of these operations returns a **new** string. You can find some reasons why strings are immutable [here](https://stackoverflow.com/questions/22397861/why-is-string-immutable-in-java).
+
+### Concatenation: `a + b`, `a += b`
+
+```python
+'hello' + ' ' + 'world'
+```
+> hello world
+```python
+s = 'hello'
+s += ' world'
+print(s)
+```
+> hello world
 
 
-### `a * b`
 
-- `*`, `*=` repeat a string
+### Multiplication: `a * b`, `a *= b`
 
+```python
+'hello! ' * 4
+```
+> hello! hello! hello! hello! 
 
+### Length: len(a)
 
 - `len(s)` get the length of a string
+
+
+### Access: `a[i]`
+
 - `s[i]` get the character at index i
+
+### Slicing: `a[i:j]`, `a[i:j:k]`
+
 - `s[i:j]` get the sub-string from `i` to `j`
 - `s[i:j:k]` get every `k`th character from `i` to `j`
+
+## Find: `a.find(b)`
+
 - `s.find(a)` returns the index of a the first occurance of `a`
+
+### Converting Case: `a.upper()`, `a.lower()`
+
 - `s.upper()` convert to upper case
 - `s.lower()` convert to lower case
+
+
+
+### `startswith` and `endswith`
+
 - `s.startswith(a)` returns true if the string starts with `a`
 - `s.endswith(a)` returns true if the string ends with `a`
+
+
+### `a.replace(b, c)`
+
 - `s.replace(a, b)` replaces occurances of string `a` with string `b`
+
+### `a.strip()`
+
 - `s.strip()`removes leading and trailing characters, if given no parameter, it'll strip whitespace
+
+### Split: `a.split(b)`
+
+
 - `s.split(delimeter)` splits a string into a list, if no parameter is given, it'll split on whitespace
+
+### Delimeter: `a.join(b)`
+
 - `delimeter.join(list)` combines the elements of a list into a single string, separated by the delimeter
 
 
-### `a.count(b)`
+### Count: `a.count(b)`
 
-Remember that strings are **immutable** meaning their values cannot be changed. Each of these operations returns a **new** string. You can find some reasons why strings are immutable [here](https://stackoverflow.com/questions/22397861/why-is-string-immutable-in-java). Sometimes people new to programming will make a mistake such as...
 
 ```python
 s = ' Hello! '

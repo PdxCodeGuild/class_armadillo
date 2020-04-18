@@ -86,3 +86,11 @@ dict(names_and_fav_colors)  #> {'Alice': 'red', 'David': 'green'}
 dict(product_to_price.items()) == product_to_price  #> True
 ```
 
+## Dict Comprehensions
+
+Dict comprehensions also look similar to list comprehensions, but with curly braces and colons.
+
+```py
+names_to_ages = {'Amanda': 90, 'David': 50}
+{name: age / 2 for name, age in names_to_ages.items()}  #> {'Amanda': 45, 'David': 25}
+```

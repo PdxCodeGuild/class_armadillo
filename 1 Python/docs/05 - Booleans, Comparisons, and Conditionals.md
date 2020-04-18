@@ -3,39 +3,55 @@
 
 ## Booleans
 
-Booleans are one of the built-in types, and represent either `True` or `False`. There are three boolean operators: `not`, `and` and `or`.
+Booleans are one of the built-in types, and represent either `True` or `False`.
 
-- `a and b` is true if `a` is true and `b` is true
-- `a or b` is true if `a` is true or `b` is true
-- `not a` will be the opposite of a
+There are three boolean operators: `not`, `and` and `or`.
 
-| a | b | a and b | a or b | not a |
-|--- |--- |--- |--- |--- |
-| false | false | false | false | true |
-| false | true | false | true | true |
-| true | false | false | true | false |
-| true | true | true | true | false |
+## And: `and`
 
-
-
-### De Morgan's laws
-
-De Morgan's laws are two rules for distributing a `not` over an `and` and an `or`. You can verify these rules by writing out the truth tables for these expressions.
+`a and b` is true if `a` is true and `b` is true
 
 ```python
-A = True
-B = False
-
-not (A and B) == (not A) or (not B)
-not (A or B) == (not A) and (not B)
-
-print(not (A and B)) # True
-print((not A) or (not B)) # True
-print(not (A or B)) # False
-print((not A) and (not B))# False
+False and False
+True and False
+False and True
+True and True
 ```
+> False
+> False
+> False
+> True
 
-### Short-Circuited Evaluation
+
+## Or: `or`
+
+`a or b` is true if `a` is true or `b` is true
+
+```python
+False or False
+True or False
+False or True
+True or True
+```
+> False
+> True
+> True
+> True
+
+
+## Not: `not`
+
+`not a` will be the opposite of a
+
+```python
+not True
+not False
+```
+> False
+> True
+
+
+## Short-Circuited Evaluation
 
 Python (and Javascript which will be covered later) make short-circuited evaluations with `or` and `and`. This means that for an `or` if the first argument happens to be true then it will just continue the code instead of checking the second argument. Vice-versa, for an `and` if the first argument is false the comparison will short circuit and continue the code instead of checking the other argument. This is because `True or False` wil always be `True`, and `False and True` will always be `False`. Note that written the other way, `False or True`, the first argument will return `False` but because there is an or it will need to check to see if the second argument is `True` or not before being able to evaluate whether the whole statement is `True` or `False`. The same holds true for `True and False`.
 
@@ -60,12 +76,12 @@ Comparisons will resolve to a `True` or `False` value.
 - `>=` greater-than-or-equal-to
 
 
-### Shorthand: a < b < c
+## Shorthand: a < b < c
 
 If you're comparing whether a value is between two other values, you can also write it without an `and`: `x > 5 and x < 10` can also be written as `5 < x < 10`. It can not be written as `x < 5 and > 0`, Python won't know what to do with that statement and will give you a `Syntax Error`.
 
 
-### Shorthand: a == b == c
+## Shorthand: a == b == c
 
 Python also allows comparing multiple values at once. Realize though that `5==5==5` is not the same thing as `(5==5)==5`. This is because in the first case it makes the comparison between the first `5==5` and the second `5==5` which both return `True` making the overall statement true. In the second case it makes the `(5==5)` comparison, which returns `True` and then compares that `True` to `5`, which returns `False` since `5` does not equal `True`.
 
@@ -86,7 +102,7 @@ There are other special comparison operators:
 - `in`, `not in`
 - `is`, `is not`
 
-`in` operators can be used to see if a value is in a list or not:
+The `in` operator can be used to see if a element is in a list or not:
 
 ```python
 my_list = [1,2,3,4,5]
@@ -115,7 +131,7 @@ print(my_list1 is my_list2) # False
 print(my_list1 == my_list2) # True
 ```
 
-## Conditionals
+## Conditionals: `if` `elif` `else`
 
 Conditionals allow you to have different collections of code execute if a condition is true or false. These include `if`, `elif`, and `else`. You can chain these in several ways. You must start with an `if`, followed by zero or more `elif`s, followed by zero or one `else`.
 
@@ -183,22 +199,23 @@ else:
 
 ### Truthy and Falsey
 
-Python will also check to see if a statement is `Truthy` or `Falsey`. This is generally name used to see if a statement is empty or not. However `True` or `False` is never written and instead the check is simply made against the variable itself. You can read more about truthy and falsey [here](https://stackoverflow.com/questions/39983695/what-is-truthy-and-falsy-in-python-how-is-it-different-from-true-and-false).
+Python will also check to see if a statement is "truthy" or "falsey". This is generally name used to see if a statement is empty or not. However `True` or `False` is never written and instead the check is simply made against the variable itself. You can read more about truthy and falsey [here](https://stackoverflow.com/questions/39983695/what-is-truthy-and-falsy-in-python-how-is-it-different-from-true-and-false).
 
 ```python
-x = []
-y = [1,2,3]
-i = ""
-j = "qwerty"
-
-if x:
-    print(x)
-if y:
-    print(y) # [1,2,3]
-if i:
-    print(i)
-if j:
-    print(j) # qwerty
+values = [0, 1, '', 'hi', [], ['hi'], {}, {'a':1}]
+for value in values:
+    print(value, 'is', end=' ')
+    if value:
+        print('truthy')
+    else:
+        print('falsey')
 ```
+> 0 is falsey
+> 1 is truthy
+> is falsey
+> hi is truthy
+> [] is falsey
+> ['hi'] is truthy
+> {} is falsey
+> {'a':1} is truthy
 
-Note that the console will not bother to print lines for 'x' or for 'i'. This is because they are empty, or `Falsey` as opposed to the other variables which have inner values and are `Truthy`.
