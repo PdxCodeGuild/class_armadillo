@@ -58,3 +58,11 @@ Check out the [standard library docs for sets](https://docs.python.org/3/library
 >>> even_nums = {x * 2 for x in range(4)}
 {0, 2, 4}
 ```
+
+## Set Comprehensions
+
+Set comprehensions can be written much like list comprehensions. Remember that sets can only contain unique elements, so any duplicates will be removed.
+
+```python
+{x // 10 for x in range(100)}
+```

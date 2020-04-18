@@ -26,6 +26,12 @@
 
 # types ====================================================
 
+
+# datatypes: None, int, float, string, list, tuple, dictionary, range
+# iterables: string, list, tuple, dictionary, range
+
+
+
 # None - placeholder, the absence of a value
 
 x = None

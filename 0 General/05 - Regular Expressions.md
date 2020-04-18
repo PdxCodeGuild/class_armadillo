@@ -20,8 +20,6 @@ Regular expressions or 'regex' are a way to match patterns in strings. They can 
 - `\s` matches any whitespace character (space, \t, or \n)
 - `\w` matches any word character (A-Z, a-z, 0-9, and _)
 
-
-
 ## Character Match
 
 Most characters match themselves.
@@ -29,50 +27,37 @@ Most characters match themselves.
 ```re
 david s
 ```
-
 > **david s**
->
 > David s
->
 > hello **david s**
->
 > hello **david s** today
 
-## Special Characters
 
-There are some special characters that don't match themselves.
+## Line Match: `^`, `$`
 
-* Carrot `^` matches the beginning of a line
-* Dollar sign `$` matches the end of a line
-* Dot `.` matches any character
+- Carrot `^` matches the beginning of a line
+- Dollar sign `$` matches the end of a line
 
 ```re
 ^fire
 ```
-
 > **fire** hydrant
->
 > no fire here
 
 ```re
 fire$
 ```
-
 > wood **fire**
->
 > fire wood
 
 ```re
 davi. s
 ```
-
 > **david s**
->
 > **davix s**
->
 > davidd s
 
-## Repeats
+## Repeats: `?`, `*`, `+`
 
 There are some special characters that mark how many times the previous character should repeat.
 
@@ -80,34 +65,26 @@ There are some special characters that mark how many times the previous characte
 * `*` means zero or more times
 * `+` means at least one time
 
-```re
-hot?dogs?
-```
 
-> **hodog**
->
-> **hotdogs**
->
-> **hotdog**
+```re
+rhu?ba?rb
+```
+> **rhbrb**
+> **rhubrb**
+> **rhubarb**
 
 ```re
 sna+cks
 ```
-
 > **snacks**
->
 > sncks
->
 > **snaaaaaacks**
 
 ```re
 sna*cks
 ```
-
 > **snacks**
->
 > **sncks**
->
 > **snaaaaaacks**
 
 ## Escapes
@@ -117,15 +94,14 @@ If you want to use any special characters literally, use backslash `\` in front 
 ```re
 Hello\.
 ```
-
 > **Hello.**
->
 > Hellox
 
 ## Character Classes
 
 Groups of characters that are used in the same sorts of ways are called **classes**.
 
+- `.` matches any any character
 - `\d` matches digits
 - `\s` matches white space (space, tab, newline)
 - `\w` matches "word" characters (letters, numbers, and underscore)
@@ -135,11 +111,8 @@ Each group still only matches one character, but repeat characters can be used o
 ```re
 \d+\s\w+
 ```
-
 > **12 a5**
->
 > 1f ap
->
 > **12\ta**
 
 ## Character Sets
@@ -149,17 +122,12 @@ If you want to be more discerning than a whole character class, you can use a **
 ```re
 [bp]anana
 ```
-
 > **banana**
->
 > **panana**
->
 > pbanana
-
 ```re
 snack[sx]*
 ```
-
 > **snacksxsssx**
 
 You can specify **ranges** of characters with dash `-`, so dash must be escaped in a character set. A super common range is all letters `[a-zA-Z]` since `\w` also includes digits.
@@ -167,9 +135,7 @@ You can specify **ranges** of characters with dash `-`, so dash must be escaped 
 ```re
 My Name Is: [a-zA-Z]+
 ```
-
 > **My Name Is: David**
->
 > My Name Is: C4t
 
 ## Captures
@@ -181,26 +147,21 @@ More useful than that, is when the regular expression library matches text, it w
 ```re
 (hot+)+dogs
 ```
-
 > **hotdogs**
->
 > **hothotthotttdogs**
 
 ```re
 (\d\d\d)-(\d\d\d)-(\d\d\d\d)
 ```
-
 > **123-456-7890**
 
 ### Named Captures
 
-Instead of just remembering the text that matched each capture by the order it appears in the whole regular expression, you can also use a **named capture**.
-It is still a sub-match specified in parentheses `()`, but with `?P<NAME>` first inside.
+Instead of just remembering the text that matched each capture by the order it appears in the whole regular expression, you can also use a **named capture**. It is still a sub-match specified in parentheses `()`, but with `?P<NAME>` first inside.
 
 ```re
 (?P<first_name>.+) (?P<last_name>.+)
 ```
-
 > **bob dole**
 
 

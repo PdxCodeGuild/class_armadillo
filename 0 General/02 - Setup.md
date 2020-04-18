@@ -13,6 +13,8 @@ This document contains an overview for the software setup for the course. Please
   - [2 Install Git and make a [GitHub](https://github.com/) account](#2-install-git-and-make-a-github-account)
   - [3 Install an Editor](#3-install-an-editor)
     - [Visual Studio Code](#visual-studio-code)
+      - [Shortcuts](#shortcuts)
+      - [Recommended Extensions](#recommended-extensions)
     - [Atom](#atom)
   - [4 Install Slack](#4-install-slack)
   - [5 Pick a Browser](#5-pick-a-browser)
@@ -79,7 +81,12 @@ GitHub is a hosting service for Git repositories. Our class will have a reposito
 
 ### [Visual Studio Code](https://code.visualstudio.com/)
 
-Check out the [editing guide](https://code.visualstudio.com/docs/editor/codebasics), [shortcut cheat sheet](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf), and [this list](https://medium.com/better-programming/20-vs-code-shortcuts-for-fast-coding-cheatsheet-10b0e72fd5d). There's also a guide to [Python](https://code.visualstudio.com/docs/python/python-tutorial) and [Django](https://code.visualstudio.com/docs/python/tutorial-django).
+- [editing guide](https://code.visualstudio.com/docs/editor/codebasics)
+- [shortcut cheat sheet](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf), and [this list](https://medium.com/better-programming/20-vs-code-shortcuts-for-fast-coding-cheatsheet-10b0e72fd5d)
+- [Guide to Python](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Guide to Django](https://code.visualstudio.com/docs/python/tutorial-django).
+
+#### Shortcuts
 
 - `ctrl + /` toggle comment
 - `tab` indent a block of text, `shift + tab` to unindent
@@ -88,6 +95,10 @@ Check out the [editing guide](https://code.visualstudio.com/docs/editor/codebasi
 
 - You can change the color scheme easily `File -> Preferences -> Color Theme`
 - If you don't like the suggestions popping up when you type, you can turn them off `File -> Preferences -> Settings -> Text Editor -> Suggestions -> Suggest on Trigger Characters`. You can still open suggestions manually with `ctrl + space`.
+
+#### Recommended Extensions
+
+- [Markdown All-in-One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
 
 
 ### [Atom](https://atom.io/)
