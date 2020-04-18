@@ -48,6 +48,12 @@ print(word)
 # index = alphabet.index(char)
 # print(index)
 # print(rot_alphabet[index])
+
+# def rot13_v1(text):
+#   alphabet = 'abcdefghijklmnopqrstuvwxyz'
+#   rot_alphabet = alphabet[13:] + alphabet[:13]
+#   rot_alphabet = 'nopqrstuvwxyzabcdefghijklm'
+
 # ​
 # # option 2
 # # use .find to look up the index of a character in the alphabet
