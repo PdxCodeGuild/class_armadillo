@@ -91,13 +91,9 @@ If you pass 3 numbers, the first is the lower-bound, the second is the upper-bou
 Thus passing 1 parameter to range is equivalent to having the lower bound at 0, and the increment at 1.
 
 ```python
-# equivalent to below
+ # these two are equivalent
 for i in range(10):
-    pass
-    
-# equivalent to above
 for i in range(0, 10, 1):
-    pass
 ```
 
 
@@ -124,7 +120,7 @@ for fruit in fruits:
 
 We can also iterate over the indices by using a `range`.
 ```python
-# iterate over the indices
+ # iterate over the indices
 fruits = ['apples', 'bananas', 'pears', 'cherries', 'pineapple']
 for i in range(len(fruits)):
     print(fruits[i])

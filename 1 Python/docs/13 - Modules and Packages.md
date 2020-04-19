@@ -7,16 +7,14 @@
 A module is one of the major organizational structures of a Python program. It allows you to encapsulate a collection of variables, function, and classes together to be re-used by other code. A module is defined by a file with the extension `py`.
 
 
-#### module_example1.py
-
+module_example1.py
 ```python
 x = 10
 def add(a, b):
     return a + b
 ```
 
-#### module_example2.py
-
+module_example2.py
 ```python
 import module_example1
 print(module_example1.x) # 10
@@ -28,7 +26,7 @@ print(module_example1.add(5, 2)) # 7
 
 Writing the whole file name every time you'd like to use a function from it can be tedious though, so we can use `from` to make our lives easier.
 
-#### functions.py
+functions.py
 ```python
 def add(x, y):
     return x + y
@@ -38,7 +36,7 @@ def subtract(x, y):
     return x - y
 ```
 
-#### test.py
+test.py
 ```python
 from functions import add, subtract
 
@@ -51,7 +49,7 @@ print(subtract(5,4))
 
 We can use the `as` keyword to shorten it even further:
 
-#### test.py
+test.py
 ```python
 from functions import add as a, subtract as s
 
@@ -74,8 +72,7 @@ x = __import__('X')
 When a module is run directly or imported, a variable `__name__` is passed into it. If the module is run directly, `__name__` wil lbe `'__main__'`, otherwise it will be the module name itself. This allows you to execute code only when a module is run directly, and not when it's imported into another file.
 
 
-#### module_example1.py
-
+module_example1.py
 ```python
 x = 10
 
@@ -89,8 +86,7 @@ if __name__ == '__main__':
     print(f'5 + 2 = {x}')
 ```
 
-#### module_example2.py
-
+module_example2.py
 ```python
 import module_example1
 print(module_example1.x) # 10

@@ -166,8 +166,6 @@ doubled_odds = [n * 2 for n in numbers if n % 2 == 1]
 
 ## Tuples
 
-# Tuples
-
 **Tuples** are like lists, but immutable. Their literals are surrounded by parentheses `()`. For more info, check out the [official docs](https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range).
 
 Single item tuples need a trailing comma to distinguish them from grouping parentheses. Empty tuples are created using `tuple()`.
@@ -204,9 +202,9 @@ contact_info[0] = '456 Water Ave'  # Throws TypeError
 Also, realize there are four different ways to use parentheses now:
 
 1. Order of operations
-1. Line continuations
-1. Function calls
-1. Tuple literals
+2. Line continuations
+3. Function calls
+4. Tuple literals
 
 ```python
 x = (4 + 3) * 6

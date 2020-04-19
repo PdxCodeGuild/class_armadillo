@@ -1,7 +1,7 @@
 
+# General Resources
 
-
-#### Diagramming Tools
+## Diagramming Tools
 
 - [Google Drawings](https://docs.google.com/drawings/)
 - [Pencil Project](https://pencil.evolus.vn/)

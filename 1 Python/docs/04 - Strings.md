@@ -119,7 +119,7 @@ print(s)
 - `s[i:j]` get the sub-string from `i` to `j`
 - `s[i:j:k]` get every `k`th character from `i` to `j`
 
-## Find: `a.find(b)`
+### Find: `a.find(b)`
 
 - `s.find(a)` returns the index of a the first occurance of `a`
 

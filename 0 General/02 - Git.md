@@ -247,7 +247,7 @@ Contribute to an existing repository
 git clone <url>
 cd repo
 git branch -b my-branch
-# make changes, for example, edit `file1.md` and `file2.md` using the text editor
+// make changes, for example, edit `file1.md` and `file2.md` using the text editor
 git add file1.md file2.md
 git commit -m "added file1 and file2"
 git push --set-upstream origin my-branch
@@ -260,7 +260,7 @@ git clone <url>
 cd repo
 git pull
 git checkout feature-a
-# make changes, for example, edit `file1.md` using the text editor
+// make changes, for example, edit `file1.md` using the text editor
 git add file1.md
 git commit -m "edit file1"
 git push

@@ -127,7 +127,7 @@ If you want to catch multiple exceptions, use a tuple, or use multiple blocks.
 ```python
 import random
 
-# using a tuple
+ # using a tuple
 try:
     if random.randint(0, 1) == 0:
         raise KeyError('index error')
@@ -138,7 +138,7 @@ except (KeyError, IndexError) as e:
     print(type(e) == KeyError)
     print(type(e) == IndexError)
 
-# using multiple except blocks
+ # using multiple except blocks
 try:
     if random.randint(0, 1) == 0:
         raise IndexError('index error')
@@ -150,8 +150,6 @@ except IndexError as e:
     print(e)
 ```
 
-### Catching All Exceptions
-
 You can also leave the type of exception absent, which will catch all exceptions.
 
 ```python
@@ -161,7 +159,7 @@ except: # catch anything!
     # handle error
 ```
 
-### Else and Finally
+## Else and Finally
 
 An optional else block may be added to the end of a try-catch block as well. The else block is executed if no exception is thrown.
 

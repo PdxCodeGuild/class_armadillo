@@ -1,7 +1,8 @@
-# Using Functions
+# Functions
 
 Functions are isolated pieces of code that take input, perform some operation, and return a result. Functions we've used so far include `input()`, `print()`, `len()`, etc. Python provides many built-in functions for you to use. For all the built-in functions, check the [official docs](https://docs.python.org/3/library/functions.html)
 
+## Built-In Functions
 
 - I/O
     - input() prompts the user for input on the terminal
@@ -27,46 +28,8 @@ Functions are isolated pieces of code that take input, perform some operation, a
     - sorted() sorts a list
     - reversed() reverses a list
 
-## Parameters and Return-Values
 
-Parameters are the values passed to a function, enclosed inside the parantheses. Some functions take no parameters, some like `min` and `print` take an arbitrary number of parameters. Functions may also take **named parameters**. For example, the `print` function can take a named parameter `end`. When not specified, `end` will default to `\n`. This is useful if you want to print multiple things on the same line.
-
-```python
-print('hello ', end='')
-print('there')
->>> hello there
-```
-
-Functions may or may not return anything. If they don't return anything, any variables they're assigned to will be `None`.
-
-```python
-x = print('hello!')
-print(x)
->>> None
-```
-By default if you put multiple arguments into a print statement they will print with a space between them:
-
-```python
-print('hey', 'there')
->>> hey there
-```
-This can be changed by adding the separator argument `sep`.
-```python
-print('hey', 'there', sep='-')
->>>hey-there
-```
-
-
-## Implicit Return - None
-
-If a function does not return anything, it implicitly returns `None`
-
-```python
-x = print()
-```
-
-
-# Defining Functions
+## Defining Functions
 
 We can define our own functions using the `def` keyword. This allows us to execute sections of code repeatedly.
 
@@ -106,9 +69,7 @@ Thus far, we’ve been passing arguments to functions **by position.** The value
 ```python
 def subtract(a, b):
   return a - b
-
-subtract(5, 8)  #> -3
-# a = 5; b = 8
+subtract(5, 8)  #> -3 (a=5, b=8)
 ```
 
 ### Optional Arguments
@@ -118,12 +79,8 @@ Most positional arguments are like the above, **required arguments.** But it’s
 ```python
 def subtract(a, b=1):
   return a - b
-
-subtract(5)  #> 4
-# a = 5; b = 1
-
-subtract(5, 8)  #> -3
-# a = 5; b = 8
+subtract(5)  #> 4 (a=5, b=1)
+subtract(5, 8) # -3 (a=5, b=8)
 ```
 
 ### Passing by Keyword
@@ -133,17 +90,9 @@ Optional arguments may also be passed **by keyword** _in any order,_ as long as 
 ```python
 def subtract(a, b=1, c=0):
   return a - b - c
-
-subtract(5, b=8)  #> -3
-# a = 5; b = 8; c = 0
-
-<!-- thank you Kat -->
-
-subtract(5, c=9)  #> -5
-# a = 5; b = 1; c = 9
-
-subtract(5, c=9, b=8)  #> -12
-# a = 5; b = 8; c = 9
+subtract(5, b=8) # -3 (a = 5, b = 8, c = 0)
+subtract(5, c=9) # -5 (a=5, b=1, c=9)
+subtract(5, c=9, b=8) # -12 (a=5, b=8, c=9)
 ```
 
 ### \*args & \*\*kwargs
@@ -177,7 +126,8 @@ Within the function above, `*args` is defined as a tuple of the positional argum
 
 ## Returning
 
-We can also return values from a function, which is often the result of some computation or operation. The code below returns the lesser of two values.
+
+We can also return values from a function, which is often the result of some computation or operation. The code below returns the lesser of two values. Notice we don't need an `else`, once a the interpreter reaches a `return`, it immediately exits a function.
 
 ```python
 def min(a, b):
@@ -186,27 +136,26 @@ def min(a, b):
     return b
 x = min(5, 2)
 print(x)
->>> 2
 ```
+> 2
 
-Notice we don't need an `else`, once a the interpreter reaches a `return`, it immediately exits a function.
+
+### Implicit Return - None
+
+If a function does not return anything, it implicitly returns `None`
 
 ```python
-if condition:
-    return a
-else:
-    return b
-
-#better written as...
-if condition:
-    return a
-return b
+def say_hi():
+    print('hi')
+x = say_hi()
+print(x)
 ```
+> None
+
 
 ### Returning Multiple Values
 
 You can return multiple values using **automatic tuple packing and unpacking**.
-
 
 ```python
 def get_dimensions():
@@ -237,7 +186,7 @@ def fibonacci(n):
 ```
 
 ```python
-# this only works on sorted lists
+ # this only works on sorted lists
 def binary_search_recurse(num, nums, low, high):
     if low >= high:
         return None
