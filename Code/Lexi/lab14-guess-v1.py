@@ -25,6 +25,9 @@ def guessing():
     return output
 print(guessing())
 
+
+# mistakes: not knowing where print and return go, raw vs formatted string
+
 '''MY FIRST VERSION WITH MISTAKES BELOW
 
 You just had some syntax errors if you want to compare them, other than works perfectly!

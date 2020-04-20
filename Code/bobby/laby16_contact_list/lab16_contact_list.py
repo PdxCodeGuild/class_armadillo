@@ -47,10 +47,34 @@ import json
 # Contact Bob has been added!
 # What operation would you like to perform?
 
+def load_contact_list(path):
+    with open(path, "r") as file:
+        text = file.read()
+        contacts = json.loads(text)
+        contacts = contacts["contacts"]
+        return contacts
 
-with open("contact_list.json", 'r') as contact_file:
-    contact = contact_file.read()
+def save_contact_list(path, contacts):
+    contacts = {"contacts" : contacts}
+    with open(path, "w") as file:
+        text = json.dump(contacts, indent=4, sort_keys =True)
 
-print(contact)
-contact = json.load(contact)
-print(contact)
+    file.write(text)
+
+
+path = "contacts.json"
+contacts = load_contact_list(path)
+
+
+
+
+while True:
+    command = input("Whart is your Command? ")
+    if command in ["done", "exit", "quite"]:
+        break
+    elif command == "create":
+        contacts.append({"Name": "John"})
+    else:
+        print("Command Not Recognized")
+
+save_contact_list(path, contacts)
