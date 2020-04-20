@@ -25,21 +25,6 @@ Let's build a program to manage a list of contacts, using a JSON file. Create a 
 }
 ```
 
-```python
-import json
-
-def load_contacts():
-    with open('contacts.json', 'r') as file:
-        text = file.read()
-    contacts = json.loads(text)
-    return contacts
-
-def save_contacts(contacts):
-    with open('contacts.json', 'w') as file:
-        text = json.dumps(contacts)
-        file.write(text)
-```
-
 Once you've processed the file, your list of contacts will look something like this...
 ```python
 contacts = [
