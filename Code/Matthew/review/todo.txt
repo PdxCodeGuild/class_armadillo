@@ -1,0 +1,38 @@
+
+
+
+types
+  None
+  boolean
+  int
+  float
+  string
+
+built-in functions
+  input()
+  print()
+
+  abs()
+  round()
+  min()
+  max()
+  sum()
+
+  id()
+  type()
+
+  ord()
+  chr()
+
+  bool()
+  int()
+  float()
+  str()
+  list()
+  dict()
+
+  len()
+  sorted()
+  reversed()
+
+
