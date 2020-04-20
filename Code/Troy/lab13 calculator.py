@@ -9,10 +9,9 @@ where user_input is the string you got from input. Below is some sample input/ou
 > What is the second number? 12
 > 5 + 12 = 17'''
 
-
+# imports modules.S
 import random
 import math
-import time
 
 def calculator():
 

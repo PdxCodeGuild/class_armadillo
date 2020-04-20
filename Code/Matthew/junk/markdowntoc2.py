@@ -18,6 +18,7 @@ def toc(main_path, relative_path='', depth=0):
       heading = heading[heading.find('# ')+2:] # get the text of the heading
       sub_link = relative_path + '#' + heading.lower().replace(' ', '-') # generate the link to the path
       sub_link = sub_link.replace('\\', '/') # fix \ to /
+      sub_link = sub_link.replace('`', '')
       output.append({ # add the link to the list
         'name': heading,
         'link': sub_link,

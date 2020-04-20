@@ -31,7 +31,7 @@ Example I/O:
 [6, 9, 14, 17]'''
 
 '''Version 1'''
-
+# imports module
 import random
 
 #data for determining peaks and valleys.
