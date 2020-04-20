@@ -25,8 +25,9 @@ What's your second card? J
 What's your third card? A
 21 Blackjack!'''
 
-
-# Define a dictionary of card names and their point values
+# intro to the game.
+print('Let\'s play some Black Jack!')
+# defines card name and values using a dictionary.
 card_values = {
     'A' :1,
     '2' :2,
@@ -43,20 +44,18 @@ card_values = {
     'K' :10,
 }
 
-#  ask the user for the first two card they were dealt
+# ask the user for the first two card they were dealt.
 first_card  = input("What is your first card? ")
 second_card = input("What is your second card? ")
 
-# add those card values together by 
-# using their names as keys in our dictionary
+# adds the first and second cards together for the hand total.
 hand_total = card_values[first_card] + card_values[second_card]
 
-# print(f"{hand_total = }")  # print variable with label in python 3.8
-
+# starts the loop for the game that advises the user how to proceed based on card total.
 while True:
     if hand_total < 17:
         print(f"{hand_total} - Hit!")
-    elif hand_total >= 17 and hand_total < 21:   # another way to write: 17 <= hand_total < 21 
+    elif hand_total >= 17 and hand_total < 21:   
         print(f"{hand_total} - Stay!")
     elif hand_total == 21:
         print(f"{hand_total} - Blackjack!")
@@ -65,18 +64,15 @@ while True:
         print(f"{hand_total} - Busted!")
         break
 
-
-    # ask the user how they would like to do.
+# ask the user how they would like to do.
     user_answer = input("Would you like to hit or stay? ")
     
-    # if they hit, ask them for the value
-    # of their next card, add it to the hand 
-    # total and go to the top of the loop
+# if user hits, gets the next card and adds it to the total; then goes to the top of the loop.
     if user_answer == 'hit':
         next_card  = input("What is your next card? ")
         hand_total += card_values[next_card]
 
-    # if they stay, break the loop
+# if user stays loop is broken.
     elif user_answer == 'stay':
         print("thanks for playing")
         break

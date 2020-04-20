@@ -13,20 +13,20 @@ fruits = ['apple', 'banana', 'pineapple']
 fruit = random.choice(fruits)
 # print(fruit)"""
 
+# imports the modules.
 import random
 import time
 import colorama
 
-#emoticon = ['eyes', 'nose', 'mouth']
-
+# describes the list of eyes for the emoticon and prints them at random.
 eyes = ['>   <', '#   #', '"   "', '*   *']
 eyes = random.choice(eyes)
 print(eyes)
-
+# describes the list of noses for the emoticon and prints them at random.
 nose = ['  - ', '  \ ', '  b ', '  o ']
 nose = random.choice(nose)
 print(nose)
-
+# describes the list of mouths for the emoticon and prints them at random.
 mouth = ['______', '(_______)', 'xxxxxxx', '\_____/']
 mouth = random.choice(mouth)
 print(mouth)
