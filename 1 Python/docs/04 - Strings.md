@@ -136,13 +136,44 @@ print(s[4])
 
 ### Slicing: `a[i:j]`, `a[i:j:k]`
 
-Get the sub-string from `i` to `j`
+Get the sub-string from `i` to `j`.
 
 ```python
+s = 'hello world!'
+print(s[3:9])
 ```
->
+> lo wor
 
-`s[i:j:k]` get every `k`th character from `i` to `j`
+If you leave out the starting index, it's implied to be the start of the string.
+
+```python
+print(s[:9])
+```
+> hello wor
+
+If you leave out the ending index, it's implied to be the end of the string.
+
+```python
+print(s[9:])
+```
+> ld
+
+You may optionally add a third number, the increment. The code below will yield every other character.
+
+```python
+print(s[::2])
+```
+> hlowrd
+
+You can use the increment to reverse a string.
+
+```python
+print(s[::-1])
+```
+> dlrow olleh
+
+
+
 
 ```python
 
