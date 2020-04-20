@@ -1,4 +1,4 @@
-# Lab 18: Count Words
+# Lab 19: Count Words
 
 Let's write a python module to analyze a given text file containing a book for its vocabulary frequency and display the most frequent words to the user in the terminal. Remember there isn't any "perfect" way to identify a word in english (acronymns, mr/ms, contractions, etc), try to find rules that work best.
 

@@ -68,6 +68,7 @@ print(nums[::-2])
 
 ### List Operations
 
+
 - `copy()` creates a copy of the list
 - `append()` appends an element to the end
 - `insert()` inserts the value at the specified index
