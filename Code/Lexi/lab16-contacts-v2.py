@@ -1,9 +1,4 @@
-# Matt helped me with this
-#referred to demo_json.py in Matt's demo folder
-# https://github.com/PdxCodeGuild/class_armadillo/blob/master/1%20Python/docs/08%20-%20Dictionaries.md
-# https://github.com/PdxCodeGuild/class_armadillo/blob/master/0%20General/09%20-%20JSON,%20CSV,%20&%20XML.md#json
-
-
+#Matt's
 
 import json 
 # path = r'C:\Users\flux\programs\class_armadillo\Code\Matthew\contacts.json'
@@ -36,6 +31,12 @@ def retrieve_contacts(contacts):
         print(contacts[i]['favorite color'])
 # not returning anything - that's why it returns 'None'
 
+def print_contact(contact):
+  print(contact['name'])
+  print('  Age:', contact['age'])
+  print('  Email:', contact['email'])
+  print('  Favorite Color: ', contact['favorite color'])
+
 # loading the contacts from the file
 path = 'contacts.json'
 contacts = load_contacts(path)
@@ -56,25 +57,35 @@ while True:
     age = int(input("What is the age? : "))
     email = input("What is the email? : ")
     favorite_color = input("What is the favorite color? : ")
-    contact = {
-        'name' : name,
+    contacts.append ({
+        'name' : name,  # two diff meanings
         'age' : age,
         'email' : email,
         'favorite color' : color,
-    }
-    contacts.append(contact)
+    })
+    # contacts.append(contact)
   elif command == 'retrieve':
     (retrieve_contacts(contacts)) # not returning anything
+    name = input('What is the contact\s name? ')
+    for contact in contacts:
+      # if contact['name'].includes(name):
+      if name.lower() in contact['name'].lower(): #check if what the user entered is in the contact's name
+          print_contact(contact)
   elif command == 'update':
         ...
   elif command == 'delete':
-        ...
+     name = input('What is the contact\s name? ')
+    for contact in contacts:
+      if contact['name'] == name:
+        contacts.remove(contact)
+        break
+      else:
+        print('contact not found')
   elif command == 'list':
     for contact in contacts:
-      print(contact['name'])
-      print('  Age:', contact['age'])
-      print('  Email:', contact['email'])
-      print('  Favorite Color: ', contact['favorite color'])
+      print_contact(contact)
+    save_contacts(path, contacts)
+    
   else:
     print('command not recognized')
 
