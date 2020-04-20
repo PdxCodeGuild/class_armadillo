@@ -9,9 +9,10 @@ def load_contacts():
 
 # Saves the contacts to a faile that is located in the local directory.
 def save_contacts(contacts):
-    with open('contacts.json', 'w') as file:
-        text = json.dumps(contacts)
-        file.write(text)
+    contact_list = {'contacts': contacts} # put the list of contacts in to a dictionary
+    with open('contacts.json', 'w') as file: # open the file
+        text = json.dumps(contact_list, indent=4, sort_keys=True) # convert our list of dictionaries into json
+        file.write(text) # write the json to the file
 
 # Prints the list of contacts
 def print_contacts(contacts):
