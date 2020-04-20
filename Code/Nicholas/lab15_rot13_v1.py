@@ -34,5 +34,5 @@ def rot13(user_word, cipher):  #text and dictionary
         else:
             encryption += letter #otherwise just reproduces user input 'as is'
     return encryption  
-user_word = input('enter a phrase to encrypt: ')  #requests word from user              
-print(rot13(user_word, cipher))  # cycles user input through function
+             
+print(rot13('hello', cipher))  # cycles user input through function
