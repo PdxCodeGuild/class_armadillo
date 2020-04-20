@@ -4,7 +4,7 @@ import json
 def load_contacts():
     with open('contacts.json', 'r') as file:
         text = file.read()
-    contacts = json.loads(text)
+    contacts = json.loads(text)["contacts"]
     return contacts
 
 # Saves the contacts to a faile that is located in the local directory.
@@ -17,24 +17,24 @@ def save_contacts(contacts):
 def print_contacts(contacts):
     print("------------------------------ Contact List ------------------------------")
     print("Name:\t\tAge:\t\tEmail:\t\t\tFavorite Color:\t\t")
-    # For each contact in the contact list of key "contacts," loop.
-    for contact in contacts["contacts"]:
+    # For each contact in the contact list, loop.
+    for contact in contacts:
         print(contact["name"] + "\t\t" + str(contact["age"])+ "\t\t" + contact["email"] + "\t\t" + contact["favorite color"] + "\t\t")
 
 # Deletes a contact in the contacts dictionary based on the string that was used as an input.
 def delete_contact(contacts, contact_to_remove):
-    # For each contact in the contact list of key "contacts," loop.
-    for contact in contacts["contacts"]:
+    # For each contact in the contact list, loop.
+    for contact in contacts:
         if contact["name"] == contact_to_remove:
-            contacts["contacts"].remove(contact)
+            contacts.remove(contact)
             return contacts
 
 # Prints a specific contact based on the string that was used as an input.
 # Returns True if the contact was in the dictionary.
 # Returns False if the contact was not in the dictionary.
 def print_specific_contact(contacts, contact_to_print):
-    # For each contact in the contact list of key "contacts," loop
-    for contact in contacts["contacts"]:
+    # For each contact in the contact list, loop
+    for contact in contacts:
         if contact["name"] == contact_to_print:
             print("-------------------------------- Contact ---------------------------------")
             print("Name:\t\tAge:\t\tEmail:\t\t\tFavorite Color:\t\t")
@@ -47,8 +47,8 @@ def print_specific_contact(contacts, contact_to_print):
 def update_contact(contacts, contact_to_update):
     # Initialized input.
     user_input = "yes"
-    # For each contact in the contact list of key "contacts," loop.
-    for contact in contacts["contacts"]:
+    # For each contact in the contact list, loop.
+    for contact in contacts:
         if contact["name"] == contact_to_update:
             while user_input == "yes":
                 # While the user has not selected a valid option, loop.
@@ -110,7 +110,7 @@ def add_contact(contacts):
         user_input = input("What is the contacts favorite color? ")
         contact["favorite color"] = user_input
     # appends the contact list with the new contact and returns it.
-    contacts["contacts"].append(contact)
+    contacts.append(contact)
     return contacts
 
 # Prints the opening message and a list of options to choose from. 
@@ -208,7 +208,7 @@ save_contacts(contact_list)
 # contact_list = delete_contact(contact_list, "Joe")
 # print_contacts(contact_list)
 # print_specific_contact(contact_list, "Jill")
-# # contact_list = update_contact(contact_list, "Jane")
+# contact_list = update_contact(contact_list, "Jane")
 # print_contacts(contact_list)
 # contact_list = add_contact(contact_list)
 # print_contacts(contact_list)
