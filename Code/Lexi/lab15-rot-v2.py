@@ -4,7 +4,7 @@
 # rotation used in the encryption. (ROTN)
 def rotn(text, n):
 # f(x) with two params
-  ...
+
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
     # what we are working with
     rot_alphabet = alphabet[n:] + alphabet[:n]
@@ -15,11 +15,11 @@ def rotn(text, n):
         # iterate over list
         index = alphabet.index(char)
         # above gets index
-        new_rot += rot_alphabet[index]
+        cipher += rot_alphabet[index]
         #create new var to rotate alphabet
         if char == -1:
-            new_rot += char
-    return new_char
+            rot_alphabet += char
+    return cipher
 
 
 print(rotn('hello', 13)) # uryyb
