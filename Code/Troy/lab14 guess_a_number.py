@@ -19,27 +19,30 @@ try again!
 guess the number: 3
 correct! you guessed 3 times'''
 
-import random  # get that random module
+# imports the module.
+import random  
 
+# defines the game.
 def mind_reader():
     pass
 
-# generate a random integer between 1 and 10
+# generates a random integer between 1 and 10.
 secret = random.randint(1, 10)  
 
 number_of_guesses = 0
+# starts the loop for guesses.
 while number_of_guesses < 10:
-    # print(f"{number_of_guesses = }") # brand new syntax in Python 3.8 to print a label with a variable in an f-string
 
+# prints the guesses remaining in a 'f' string.
     print(f"Guesses remaining: {10 - number_of_guesses}")
 
-    # prompt the user for a guess
+# prompts the user for a guess.
     guess = input("Please enter a number between 1 and 10: ")
 
-    # convert the guess string into an integer
+# converts the guess string into an integer.
     guess = int(guess)
 
-    # test the guess against the secret
+# tests the guess against the secret number.
     if guess > secret:
         print("Too high!")
 
@@ -55,8 +58,9 @@ while number_of_guesses < 10:
             message = f"You're below average!"
         else:
             message = f"You statistically suck, kid!"
-        
-        print(message)    
+ # prints the output message for guesses.       
+        print(message)  
+# prints how guesses it took and breaks loop after teenth guess.
         print(f"You guessed the secret in {number_of_guesses + 1} guess(es)!")
         break
 
