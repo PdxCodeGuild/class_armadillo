@@ -53,10 +53,6 @@ def peaks_and_valleys(data):
 # concatenates them into a new list,
 # and then sorts that list to produce peaks and valleys, in order
 def peaks_and_valleys_sorted(data):
-    peak_finder(data)
-    #print(peak_finder(data))
-    valley_finder(data)
-    #print(valley_finder(data))
     new_highs_and_lows = []
     new_highs_and_lows = peak_finder(data) + valley_finder(data)
     new_highs_and_lows = sorted(new_highs_and_lows)
