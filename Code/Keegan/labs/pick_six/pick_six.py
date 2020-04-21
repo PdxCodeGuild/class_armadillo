@@ -59,7 +59,7 @@ def main():
     winner = pick_6()
 
     # the cost of one ticket
-    ticket_cost = 2
+    ticket_price = 2
 
     # Start your balance at 0
     balance = 0
@@ -76,7 +76,7 @@ def main():
         ticket = pick_6()
 
         # Subtract 2 from your balance (you bought a ticket)
-        balance -= 2
+        balance -= ticket_price
         ticket_count += 1
 
         # Find how many numbers match
@@ -92,7 +92,7 @@ def main():
         # print(f"{matches = }")
         # print(f"{payout  = }")
 
-    expenses = ticket_count * ticket_cost
+    expenses = ticket_count * ticket_price
     balance = earnings - expenses
 
     # probably don't need a function for this
