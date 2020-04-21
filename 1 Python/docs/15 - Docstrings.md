@@ -33,7 +33,7 @@ class MyClass(object):
 **Class** docstrings should describe what the class represents and list all attributes and methods of the class. 
 
 
-### Example
+## Example
 
 ```python
 """
@@ -96,7 +96,7 @@ def add(a, b):
 ```
 
 
-### `help()`, `__doc__` and `pydoc`
+## `help()`, `__doc__` and `pydoc`
 
 Docstrings can be used with the built-in function `help()`. Pass whatever python variable, function, module, class, etc, into `help` to see its docstring. You can read more about the help function in the [official docs](https://docs.python.org/3.6/library/functions.html#help). You can then access the docstring using the object's `__doc__` attribute.
 
@@ -117,7 +117,7 @@ help(os)
 
 For example, try running `python -m pydoc -w os`. You can read more about pydoc in the [official docs](https://docs.python.org/3.6/library/pydoc.html).
 
-### Doctests
+## Doctests
 
 [Doctests](https://docs.python.org/3/library/doctest.html) are a way to embed tests inside the docstring of your module.
 
@@ -160,7 +160,7 @@ if __name__ == "__main__":
 ```
 
 
-### Generating Documentation
+## Generating Documentation
 
 [pdoc](https://pdoc3.github.io/pdoc/) is a very simple documentation generator that can be installed via pip.
 

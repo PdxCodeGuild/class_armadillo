@@ -83,7 +83,7 @@ print(re.split('[.?!]', s))
 import re
 reg_exp = re.compile(r'Hello, (\w+)', re.I)
 match = reg_exp.search('Why hello, Alice.')
-# find the position of the first match
+ # find the position of the first match
 match.start()  # 4
 ```
 

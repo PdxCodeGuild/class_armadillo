@@ -6,9 +6,9 @@ Markdown is a simple way to write formatted text in a plain text document. Markd
 ## Headings
 
 ```markdown
-# Heading 1
-## Heading 2
-### Heading 3
+ # Heading 1
+ ## Heading 2
+ ### Heading 3
 ```
 
 ```html

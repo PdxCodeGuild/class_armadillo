@@ -7,7 +7,7 @@ Booleans are one of the built-in types, and represent either `True` or `False`.
 
 There are three boolean operators: `not`, `and` and `or`.
 
-## And: `and`
+### And: `and`
 
 `a and b` is true if `a` is true and `b` is true
 
@@ -23,7 +23,7 @@ True and True
 > True
 
 
-## Or: `or`
+### Or: `or`
 
 `a or b` is true if `a` is true or `b` is true
 
@@ -39,7 +39,7 @@ True or True
 > True
 
 
-## Not: `not`
+### Not: `not`
 
 `not a` will be the opposite of a
 
@@ -51,18 +51,6 @@ not False
 > True
 
 
-## Short-Circuited Evaluation
-
-Python (and Javascript which will be covered later) make short-circuited evaluations with `or` and `and`. This means that for an `or` if the first argument happens to be true then it will just continue the code instead of checking the second argument. Vice-versa, for an `and` if the first argument is false the comparison will short circuit and continue the code instead of checking the other argument. This is because `True or False` wil always be `True`, and `False and True` will always be `False`. Note that written the other way, `False or True`, the first argument will return `False` but because there is an or it will need to check to see if the second argument is `True` or not before being able to evaluate whether the whole statement is `True` or `False`. The same holds true for `True and False`.
-
-This is useful if you want to check if something exists before trying to access some data on it. Here, `len(nums)` would raise an exception if `nums` was `None` and we didn't have short-circuited evaluation.
-
-```python
-def has_elements(nums):
-    return nums is not None and len(nums) > 0
-print(has_elements(None)) # False
-print(has_elements([])) # False
-```
 
 ## Comparisons
 
@@ -76,12 +64,12 @@ Comparisons will resolve to a `True` or `False` value.
 - `>=` greater-than-or-equal-to
 
 
-## Shorthand: a < b < c
+### Shorthand: a < b < c
 
 If you're comparing whether a value is between two other values, you can also write it without an `and`: `x > 5 and x < 10` can also be written as `5 < x < 10`. It can not be written as `x < 5 and > 0`, Python won't know what to do with that statement and will give you a `Syntax Error`.
 
 
-## Shorthand: a == b == c
+### Shorthand: a == b == c
 
 Python also allows comparing multiple values at once. Realize though that `5==5==5` is not the same thing as `(5==5)==5`. This is because in the first case it makes the comparison between the first `5==5` and the second `5==5` which both return `True` making the overall statement true. In the second case it makes the `(5==5)` comparison, which returns `True` and then compares that `True` to `5`, which returns `False` since `5` does not equal `True`.
 
@@ -152,7 +140,7 @@ if temperature < 60:
 elif temperature >= 60 and temperature < 70:
     print('warm')
 
-# can be re-written as...
+ # can be re-written as...
 
 if temperature < 60:
     print('cold')
@@ -173,6 +161,20 @@ else:
     print("wow it's so hot!")
 ```
 
+### Short-Circuited Evaluation
+
+Python (and Javascript which will be covered later) make short-circuited evaluations with `or` and `and`. This means that for an `or` if the first argument happens to be true then it will just continue the code instead of checking the second argument. Vice-versa, for an `and` if the first argument is false the comparison will short circuit and continue the code instead of checking the other argument. This is because `True or False` wil always be `True`, and `False and True` will always be `False`. Note that written the other way, `False or True`, the first argument will return `False` but because there is an or it will need to check to see if the second argument is `True` or not before being able to evaluate whether the whole statement is `True` or `False`. The same holds true for `True and False`.
+
+This is useful if you want to check if something exists before trying to access some data on it. Here, `len(nums)` would raise an exception if `nums` was `None` and we didn't have short-circuited evaluation.
+
+```python
+def has_elements(nums):
+    return nums is not None and len(nums) > 0
+print(has_elements(None)) # False
+print(has_elements([])) # False
+```
+
+
 ### Shorthand: x if c else y
 
 It's possible to write a conditional on one line, as `x if condition else y`. For example, a `min` function might be written as
@@ -187,15 +189,13 @@ Because you can return boolean values from functions, you can also use a functio
 ```python
 def bigger_than_five(x):
     return x > 5
-
 y = 5
 if bigger_than_five(y):
     print("its bigger")
 else:
     print("not bigger")
-    
->>> not bigger
 ```
+> not bigger
 
 ### Truthy and Falsey
 

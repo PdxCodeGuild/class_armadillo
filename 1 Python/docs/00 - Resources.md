@@ -1,7 +1,7 @@
 
 
 
-# Python Resources
+# Resources
 
 
 ## Lists of Resources

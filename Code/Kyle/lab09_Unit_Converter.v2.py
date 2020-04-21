@@ -82,9 +82,17 @@ def convert_from_meters(distance):
         meters_to_kilomters = float(distance) * 1000 # divide by conversion factor and change to float
         meters_to_kilomters = round(meters_to_kilomters, 2) #round decimal to 3 places
 
-## asks the user for units to convert and distance
-## can't get function to return any values
-def ask_for_inputs():
+## calcualtes the inputted data against the conversion factor dictionary
+def calculator():
+        print(f"Your inputted old distance is: {old_distance}")
+        print(f"Your 'convert from' unit is: {convert_from}")
+        print(f"Your 'convert to' is: {convert_to}")
+        old_distance = float(old_distance) * (conversion_factors[convert_from] / conversion_factors[convert_to])
+        new_distance = round(old_distance, 3)
+        print(new_distance)
+
+## Attempt at returning more than one value.
+def input_values():
     while True:
         while True:
             convert_from = input("What unit of measurement are we converting FROM? ")
@@ -108,20 +116,7 @@ def ask_for_inputs():
                 print("That's not a valid distance. Please enter a non-negative distance. ")
             else:
                 break
-        return convert_from
-        return convert_to
-        return float(old_distance)
         break
-
-## calcualtes the inputted data against the conversion factor dictionary
-def calculator():
-        print(f"Your inputted old distance is: {old_distance}")
-        print(f"Your 'convert from' unit is: {convert_from}")
-        print(f"Your 'convert to' is: {convert_to}")
-        old_distance = float(old_distance) * (conversion_factors[convert_from] / conversion_factors[convert_to])
-        new_distance = round(old_distance, 3)
-        print(new_distance)
-
 
 # asks the user if they want to play again.
 def play_again():
@@ -162,48 +157,18 @@ def complete_converter():
                 print("That's not a valid distance. Please enter a non-negative distance. ")
             else:
                 break
-        
-        ## Attempt at solving the key problem in my conversion dictionary.
-        
-        # while True:
-        #     if convert_from in list_of_feet:
-        #         convert_from = 'feet'
-        #     elif convert_to in list_of_feet:
-        #         convert_to = "feet"
-        #         print("test 2")
-        #     elif convert_from in list_of_inches:
-        #         convert_from = "inches"
-        #     elif convert_to in list_of_inches:
-        #         convert_to = "inches"
-        #     elif convert_from in list_of_kilometers:
-        #         convert_from = "kilometers"
-        #     elif convert_to in list_of_kilometers:
-        #         convert_to = "kilometers"
-        #         print('test3')
-        #     elif convert_from in list_of_meters:
-        #         convert_from = "meters"
-        #     elif convert_to in list_of_meters:
-        #         convert_to = "meters"
-        #     elif convert_from in list_of_miles:
-        #         convert_from = "miles"
-        #     elif convert_to in list_of_miles:
-        #         convert_to = "miles"
-        #     elif convert_from in list_of_yards:
-        #         convert_from = "yards"
-        #     elif convert_to in list_of_yards:
-        #         convert_to = "yards"
-        #     break
 
-        print(f"Your inputted old distance is: {old_distance}")
+        print(f"Your old distance is: {old_distance}")
         print(f"Your 'convert from' unit is: {convert_from}")
         print(f"Your 'convert to' is: {convert_to}")
         
         old_distance = float(old_distance) * (conversion_factors[convert_from] / conversion_factors[convert_to])
         new_distance = round(old_distance, 3)
-        print(new_distance)
+        print(f"{old_distance} {convert_from} = {new_distance} {convert_to}")
         break
-
+    play_again()
 
 print("Welcome to the unit converter. I'm a program that coverts inches, feet, yards, meters, kilometers, and miles.")
+
 complete_converter()
 play_again()

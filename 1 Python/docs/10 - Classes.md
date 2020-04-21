@@ -8,7 +8,7 @@ Classes, like functions and modules, are another of the major building-blocks of
 Classes also represent types, like those we've experienced before (`int`, `float`, `string`, `list`, etc). We can call the initializers of our built-in types as well, rather than literals as we've been using them. Creating classes allows us to define custom types.
 
 ```python
-# every object in python has a type
+ # every object in python has a type
 x = 5
 print(type(x)) # 'int'
 y = 'hello'
@@ -21,10 +21,10 @@ print(type(type(y))) # 'type'
 The built-in types also have initializers, which allow us to create instances of the type.
 
 ```python
-# call the initializer of the str class
+ # call the initializer of the str class
 s = str() # equivalent to: s = ''
 
-# call the initializer of the int class
+ # call the initializer of the int class
 i = int() # equivalent to: i = 0
 ```
 
@@ -51,11 +51,11 @@ If you tried to do this with dictionaries, every time you'd want to refer to the
 ```python
 import math
 
-# we could instead use dictionaries instead of classes
-#p1 = {'x': 5, 'y': 2}
-#p1['x']
+ # we could instead use dictionaries instead of classes
+ # p1 = {'x': 5, 'y': 2}
+ # p1['x']
 
-# or just use lists, and write functions to perform operations on those lists
+ # or just use lists, and write functions to perform operations on those lists
 def distance(p1, p2):
     dx = p1[0] - p2[0]
     dy = p1[1] - p2[1]
@@ -94,7 +94,7 @@ p2 = Point(8,4)
 dist = p1.distance(p2) # or p2.distance(p1), either works
 print(dist)
 
-# similar to how we can call methods of the str class
+ # similar to how we can call methods of the str class
 s = 'hello world'
 print(s.split(' '))
 ```

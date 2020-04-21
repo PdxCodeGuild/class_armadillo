@@ -85,6 +85,8 @@ Remember that strings are **immutable** meaning their values cannot be changed. 
 
 ### Concatenation: `a + b`, `a += b`
 
+Combine two strings into one
+
 ```python
 'hello' + ' ' + 'world'
 ```
@@ -100,58 +102,153 @@ print(s)
 
 ### Multiplication: `a * b`, `a *= b`
 
+Repeat a string
+
 ```python
+s = 'hello! '
 'hello! ' * 4
 ```
 > hello! hello! hello! hello! 
 
 ### Length: len(a)
 
-- `len(s)` get the length of a string
+Get the length of a string
+
+```python
+s = 'hello world!'
+len(s)
+```
+> 12
 
 
 ### Access: `a[i]`
 
-- `s[i]` get the character at index i
+Get the character at index `i`, indices start at 0
+
+```python
+ #   012345
+s = 'hello!'
+print(s[0])
+print(s[4])
+```
+> h
+> o
 
 ### Slicing: `a[i:j]`, `a[i:j:k]`
 
-- `s[i:j]` get the sub-string from `i` to `j`
-- `s[i:j:k]` get every `k`th character from `i` to `j`
+Get the sub-string from `i` to `j`.
 
-## Find: `a.find(b)`
+```python
+s = 'hello world!'
+print(s[3:9])
+```
+> lo wor
 
-- `s.find(a)` returns the index of a the first occurance of `a`
+If you leave out the starting index, it's implied to be the start of the string.
+
+```python
+print(s[:9])
+```
+> hello wor
+
+If you leave out the ending index, it's implied to be the end of the string.
+
+```python
+print(s[9:])
+```
+> ld
+
+You may optionally add a third number, the increment. The code below will yield every other character.
+
+```python
+print(s[::2])
+```
+> hlowrd
+
+You can use the increment to reverse a string.
+
+```python
+print(s[::-1])
+```
+> dlrow olleh
+
+
+
+
+```python
+
+```
+> 
+
+### Find: `a.find(b)`
+
+`s.find(a)` returns the index of a the first occurance of `a`
+
+```python
+```
+> 
 
 ### Converting Case: `a.upper()`, `a.lower()`
 
-- `s.upper()` convert to upper case
-- `s.lower()` convert to lower case
+`s.upper()` convert to upper case
+
+```python
+```
+> 
+`s.lower()` convert to lower case
+
+```python
+```
+> 
 
 
 
 ### `startswith` and `endswith`
 
-- `s.startswith(a)` returns true if the string starts with `a`
-- `s.endswith(a)` returns true if the string ends with `a`
+`s.startswith(a)` returns true if the string starts with `a`
+
+```python
+```
+> 
+`s.endswith(a)` returns true if the string ends with `a`
+
+```python
+```
+> 
 
 
 ### `a.replace(b, c)`
 
-- `s.replace(a, b)` replaces occurances of string `a` with string `b`
+`s.replace(a, b)` replaces occurances of string `a` with string `b`
+
+```python
+```
+> 
 
 ### `a.strip()`
 
-- `s.strip()`removes leading and trailing characters, if given no parameter, it'll strip whitespace
+`s.strip()`removes leading and trailing characters, if given no parameter, it'll strip whitespace
+
+```python
+```
+> 
 
 ### Split: `a.split(b)`
 
 
-- `s.split(delimeter)` splits a string into a list, if no parameter is given, it'll split on whitespace
+`s.split(delimeter)` splits a string into a list, if no parameter is given, it'll split on whitespace
+
+```python
+```
+> 
 
 ### Delimeter: `a.join(b)`
 
-- `delimeter.join(list)` combines the elements of a list into a single string, separated by the delimeter
+`delimeter.join(list)` combines the elements of a list into a single string, separated by the delimeter
+
+```python
+```
+> 
 
 
 ### Count: `a.count(b)`

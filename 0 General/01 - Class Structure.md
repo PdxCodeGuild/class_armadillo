@@ -14,11 +14,11 @@
   - [Exercises](#exercises)
     - [Lectures & Demonstrations](#lectures--demonstrations)
     - [Labs](#labs)
-        - [Academic Honesty](#academic-honesty)
     - [Pair, Group, & Mob Programming](#pair-group--mob-programming)
     - [Student Presentations](#student-presentations)
   - [Rough Timeline](#rough-timeline)
   - [Code of Conduct](#code-of-conduct)
+  - [Academic Honesty](#academic-honesty)
 
 
 ## Objectives
@@ -108,11 +108,6 @@ Don't consider an assignment 'finished' until it's been thoroughly tested. Try m
 
 Once you've finished a lab, or a major portion of a lab, commit and push your work. Unless you have a good reason (building's on fire), try to only commit working code.
 
-##### Academic Honesty
-
-Do not look at the solution or other students' solutions until you've finished the lab yourself. You're only inhibiting your own learning by doing so.
-
-You are encouraged to use resources (docs, online, books, each other) to research solutions. If you copy code from the internet or a book, you must understand what it means and how it works. If you're not sure, look up the function in the docs, try running it with a variety of inputs, and try tweaking the syntax, throw in print statements to print the values of variables at different times, etc. You also cannot use a single function which performs the entirety of the solution for you. The early labs are designed to practice string and list operations, using a function that does it all defeats the purpose.
 
 ### Pair, Group, & Mob Programming
 
@@ -146,6 +141,8 @@ In all three presentations, you should first explain the development process and
 - Weeks 12, 13, 14: Capstone
 
 
+
+
 ## Code of Conduct
 
 At PDX Code Guild we seek to create an environment conducive to personal and professional growth. Academic and personal integrity are central to creating such an environment.
@@ -164,3 +161,9 @@ At PDX Code Guild we seek to create an environment conducive to personal and pro
 * Respect the personal property of others and the property of PDX Code Guild.
 * Use the work of others only when appropriate, and give proper credit when other’s work is used.
 * Demonstrate dignity and integrity in all aspects of involvement with PDX Code Guild, including participation in sponsored events, and situations in which we may be seen to represent PDX Code Guild. These activities and situations include, but are not limited to events hosted by PDX Code Guild, events in the greater technology community, conferences and meetings, and your interactions with our partners and with potential employers.
+
+## Academic Honesty
+
+Do not look at the solution or other students' solutions until you've finished the lab yourself. You're only inhibiting your own learning by doing so.
+
+You are encouraged to use resources (docs, online, books, each other) to research solutions. If you copy code from the internet or a book, you must understand what it means and how it works. If you're not sure, look up the function in the docs, try running it with a variety of inputs, and try tweaking the syntax, throw in print statements to print the values of variables at different times, etc. You also cannot use a single function which performs the entirety of the solution for you. The early labs are designed to practice string and list operations, using a function that does it all defeats the purpose.
