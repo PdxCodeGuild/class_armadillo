@@ -36,7 +36,7 @@ def create(contacts):
 def read(contacts):
     user_query = int(input(f"Which contact would you like to view? (0-{len(contacts['contacts'])-1}): "))
 
-    print(f"{contacts['contacts'][user_query]['name']}, {contacts['contacts'][user_query]['age']}, {contacts['contacts'][user_query]['email']}, {contacts['contacts'][user_query]['favorite color']}")
+    print(f"{contacts['contacts'][user_query]['name']} | {contacts['contacts'][user_query]['age']} | {contacts['contacts'][user_query]['email']} | {contacts['contacts'][user_query]['favorite color']}")
 
 # updates specific object
 def update(contacts):
@@ -61,7 +61,7 @@ def destroy(contacts):
 def list_contacts(contacts):
     list_num = 0
     for contact in contacts['contacts']:
-        print(f'{list_num}. {contact}')
+        print(f"{list_num}. - {contact['name']} | {contact['age']} | {contact['email']} | {contact['favorite color']}")
         list_num += 1
 
 # Runs loop
