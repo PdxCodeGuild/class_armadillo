@@ -12,9 +12,12 @@ Let's generate emoticons by assembling a randomly choosing a set of eyes, a nose
 7. Assemble and display the emoticon
 
 """
-
+import time
 import random
 
+from colorama import Fore
+
+colors = [Fore.BLUE, Fore.GREEN, Fore.YELLOW, Fore.RED, Fore.CYAN, Fore.WHITE, Fore.MAGENTA]
 eye_list = ["◕","♡","◡","˘","μ","•","￢","눈","--","~","个","±","×","x","☆","◣","◢","◎","ಠ"]
 #nose_list = ["▽","ω","_"]
 mouth_list = ["‿", "﹏", "‸","-","ロ"]
@@ -25,10 +28,12 @@ print("Welcome to the Random Emoticon Generator!")
 #while_loop
 i = 0
 while i < 4:
+    color = random.choice(colors)
     eyes = random.choice(eye_list)
     mouth = random.choice(mouth_list)
     hands = random.choice(hands_list)
     emoticon = str(f"{hands}({eyes}{mouth}{eyes}){hands}")
-    print(emoticon)
+    print(color + emoticon)
+    time.sleep(1)
     i += 1
 

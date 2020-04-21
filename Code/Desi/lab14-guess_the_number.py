@@ -1,6 +1,7 @@
 import random
 
-#the computer will generate a random int between
+#the computer will generate
+# a random int between
 # 1 and 10. 
 pc_guess = random.randint(1, 11)
 #user will guess number between 1 and 10.

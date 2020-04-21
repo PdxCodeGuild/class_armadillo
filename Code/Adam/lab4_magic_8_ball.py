@@ -20,6 +20,8 @@ Instructions
 """
 import random
 
+#pychalk
+
 #lists
 eight_ball = ["all knowing", "brilliant", "magnificent", "infallable"]
 
