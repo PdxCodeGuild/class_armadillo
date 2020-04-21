@@ -19,22 +19,22 @@
             "name": "Jill"
         },
         {
-            "name": "john"
+            "age": "23",
+            "color": "red",
+            "email": "gmail@gmail.com",
+            "name": "MJ"
         },
         {
-            "name": "john"
+            "age": "43",
+            "color": "green",
+            "email": "jane@email.com",
+            "name": "jane"
         },
         {
-            "name": "Jack",
-            "age": 34,
-            "email": "jackattack@gmail.com",
-            "color": "orange"
-        },
-        {
-            "name": "John",
-            "age": 54,
-            "email": "jon@email.com",
-            "color": "beige"
+            "age": "43",
+            "color": "green",
+            "email": "jane@email.com",
+            "name": "jane"
         }
     ]
 }

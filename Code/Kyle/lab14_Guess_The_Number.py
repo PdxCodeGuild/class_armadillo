@@ -5,10 +5,10 @@ negatives = ['no', 'n', 'nope', 'negative', 'definitely not', 'no way']
 kill_commands = ["quit", "q", "exit", "stop", "esc", "escape"]
 user_guess = ""
 computer_number = ""
-num1 = 10
-num2 = 78
+num1 = 0
+num2 = 10
 total_guesses = 0
-max_guesses = num2 - num1 + 1
+max_guesses = num2 - num1
 
 # codes a few 'quit' options 
 def endgame():
@@ -46,30 +46,6 @@ def validate_input_function():
                 user_guess = (input(f"Choose a number between {num1} and {num2}. "))
     return user_guess
 
-# Counts the total guesses, and how many are remaining in the game.    
-# Can't find a way to get the guess counter to work
-# Need to return an incremended guess count
-# But I'm not passing one from mind_reader into guess_counter
-def guess_counter():
-    
-    if total_guesses == 1:
-        print(f"That's one guess, you have {int(max_guesses) - int(total_guesses)} guesses remaining. Try again. ")
-        total_guesses += 1
-        return total_guesses
-    elif total_guesses < int(max_guesses) - 1:
-        print(f"You've guessed {total_guesses} times, and have {int(max_guesses) - int(total_guesses)} guesses remaining. Try again. ")
-        total_guesses += 1
-        return total_guesses
-    elif total_guesses == int(max_guesses) - 1:
-        print(f"You've guessed {total_guesses} times, and have {int(max_guesses) - int(total_guesses)} guess remaining. ")
-        print("Better make this one count. Try again. ")
-        total_guesses += 1   
-        return total_guesses
-    elif total_guesses == int(max_guesses):
-        print(f"You've guessed {total_guesses} times, out of {max_guesses} possible attempts.")
-        print("You don't deserve to continue. Game Over. ")
-        total_guesses += 1
-        return total_guesses
     
 
 # function runs the guessing game
@@ -80,22 +56,47 @@ def mind_reader():
     computer_number = random.randint(num1, num2)
     while True:
         total_guesses = 0
+        guesses_remaining = max_guesses
         while total_guesses <= max_guesses:
+
             user_guess = validate_input_function()
             user_guess = int(user_guess)
         # Once the user's input has cleared 
-            # total_guesses += 1
+            total_guesses += 1
+            guesses_remaining -= 1
             if user_guess > computer_number:
-                print(f"The computer chose {computer_number}." )
-                print("Too high. Try again. ")
-                guess_counter()
+                if guesses_remaining == 1:
+                    print(f"You've guessed {total_guesses} times, and have {guesses_remaining} guess left. Better make it count.") 
+                elif guesses_remaining == 0:
+                    print(f"You've guessed {total_guesses} times, out of {max_guesses} possible attempts.")
+                    print("You don't deserve to continue. Game Over. ")
+                    break
+                else:  
+                    #print(f"The computer chose {computer_number}." )
+                    print(f"You've guessed {total_guesses}, and have {guesses_remaining} left. ")
+                    print("Too high. Try again. ")
             elif user_guess < computer_number:
-                print(f"The computer chose {computer_number}." )
-                print("Too low. Try again. ")
-                guess_counter()
+                if guesses_remaining == 1:
+                    print(f"You've guessed {total_guesses} times, and have {guesses_remaining} guess left. Better make it count.")
+                elif guesses_remaining == 0:
+                    print(f"You've guessed {total_guesses} times, out of {max_guesses} possible attempts.")
+                    print("You don't deserve to continue. Game Over. ")
+                    break
+                else:
+                    #print(f"The computer chose {computer_number}." )
+                    print(f"You've guessed {total_guesses} times, and have {guesses_remaining} left. ")
+                    print("Too low. Try again. ")
             elif user_guess == computer_number:
-                print("Well done - you guessed correctly!")
+                if total_guesses == 1:
+                    print("Wow! You guessed correctly on the first shot. Go buy a lottery ticket.")
+                    break
+                elif total_guesses < (max_guesses / 2):
+                    print("Well done - you guessed correctly!")
+                    break
+                else:
+                    print("I hoped you'd eventually get it. You guessed correctly. ")
                 break
+        break
 
 # function without the program telling the user how many guesses are left
 # successfully uses the validate_inputs function - values returned to 
@@ -107,10 +108,10 @@ def mind_reader_no_guess():
         user_guess = int(user_guess)
     # Once the user's input has cleared 
         if user_guess > computer_number:
-            print(f"The computer chose {computer_number}." )
+            #print(f"The computer chose {computer_number}." )
             print("Too high. Try again. ")
         elif user_guess < computer_number:
-            print(f"The computer chose {computer_number}." )
+            #print(f"The computer chose {computer_number}." )
             print("Too low. Try again. ")
         elif user_guess == computer_number:
             print("Well done - you guessed correctly!")
@@ -131,10 +132,10 @@ def play_again():
             print("I'm sorry, I don't understand that response. Please try again. ")
 
 
-print(f"Welcome to Lab 14. Your computer is thinking of a number between {num1} and {num2}. What's your guess?")
+print(f"Welcome to Lab 14. Your computer is thinking of a number between {num1} and {num2} (inclusive). What's your guess?")
 
 range_check()
-mind_reader_no_guess()
+mind_reader()
 
 play_again()
 
