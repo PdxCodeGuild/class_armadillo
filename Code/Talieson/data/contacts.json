@@ -29,6 +29,12 @@
             "age": 34,
             "email": "jackattack@gmail.com",
             "color": "orange"
+        },
+        {
+            "name": "John",
+            "age": 54,
+            "email": "jon@email.com",
+            "color": "beige"
         }
     ]
 }

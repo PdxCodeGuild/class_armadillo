@@ -1,4 +1,4 @@
-# Lab 18: Number to Phrase
+# Lab 20: Number to Phrase
 Convert a given number into its English representation. For example: 67 becomes 'sixty-seven'. Handle numbers from 0-99.
 
 Hint: you can use modulus to extract the ones and tens digit.
