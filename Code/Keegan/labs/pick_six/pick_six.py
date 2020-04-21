@@ -101,7 +101,10 @@ def main():
     # print(f'{ticket_count = }')
     # After the loop, print the final balance
     print(f"Your final balance was: ${balance}")
-    print(f"Your habit cost you {roi * 100}% of your investment")
+
+    roi_percent = round(100 + (roi * 100), 2)
+
+    print(f"Your habit cost you {roi_percent}% of your investment")
 
 
 main()
