@@ -53,6 +53,9 @@ def main():
     # Generate a list of 6 random numbers representing the winning ticket
     winner = pick_6()
 
+    # the cost of one ticket
+    ticket_cost = 2
+
     # Start your balance at 0
     balance = 0
     
@@ -83,8 +86,10 @@ def main():
         # print(f"{matches = }")
         # print(f"{payout  = }")
 
-    expenses = ticket_count * 2  
+    expenses = ticket_count * ticket_cost  
     balance = earnings - expenses
+
+    # probably don't need a function for this
     roi = cost_of_habit(balance, expenses)
 
     # print(f'{ticket_count = }')
