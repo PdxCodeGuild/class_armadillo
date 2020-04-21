@@ -1,6 +1,46 @@
 # List Practice
+# Problem 1
+# Get a string from the user, print out another string, doubling ever letter
 
 
+def double_letters(word):
+    for i in word:
+        print(i*2, end="")
+    return ""
+
+
+# print(double_letters("hello"))
+
+# Problem 2
+# Write a function that atakes a string, and returns a list of strings,
+# each missing a different character.
+
+
+def missing_char(word):
+    # create an empty list to hold word copies
+    word_list = []
+
+    # loop through each letter in the word
+    for index in range(1, len(word) + 1):
+        # create a copy of the word minus that letter
+
+        # slice the word into two parts
+        left_part = word[0:index - 1]
+        right_part = word[index:len(word)]
+
+        # combine the two parts
+        new_word = left_part + right_part
+
+        # add each word to the list
+        word_list.append(new_word)
+    return word_list
+
+
+word = "kitten"
+print(missing_char(word))
+
+
+# print(missing_char('kitten'))
 # Problem 5
 # write a function that returns the reverse of a list.
 
@@ -154,5 +194,5 @@ def mode(nums):
     return max(output, key=output.get)
 
 
-numbers = [2, 3, 6, 6, 3, 3]
-print(mode(numbers))
+# numbers = [2, 3, 6, 6, 3, 3]
+# print(mode(numbers))

@@ -1,4 +1,4 @@
-# Lab 19: Compute Automated Readability Index
+# Lab 20: Compute Automated Readability Index
 
 Compute the ARI for a given body of text loaded in from a file. The automated readability index (ARI) is a formula for computing the U.S. grade level for a given block of text. The general formula to compute the ARI is as follows:
 
