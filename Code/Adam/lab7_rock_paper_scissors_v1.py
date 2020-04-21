@@ -56,7 +56,7 @@ print(f'computer:{comp_shoots} / player:{player_shoots}')
 
 time.sleep(1)
 
-if player_shoots == "rock" and comp_shoots == "rock":
+if player_shoots == comp_shoots:
     print("It's a tie. ")
 elif player_shoots == "rock" and comp_shoots == "paper":
     print("Paper wraps rock; you lose! ")
@@ -64,15 +64,18 @@ elif player_shoots == "rock" and comp_shoots == "scissor":
     print("Rock breaks scissors; you win! ")
 elif player_shoots == "paper" and comp_shoots == "rock":
     print("Paper wraps rock; you win!")
-elif player_shoots == "paper" and comp_shoots == "paper":
-    print("It's a tie. ")
 elif player_shoots == "paper" and comp_shoots == "scissor":
     print("Scissor cuts paper; you lose! ")
 elif player_shoots == "scissor" and comp_shoots == "rock":
     print("Rock breaks scissor; you lose! ")
 elif player_shoots == "scissor" and comp_shoots == "paper":
     print("Scissor cuts papr; you win!")
-elif player_shoots == "scissor" and comp_shoots == "scissor":
-    print("It's a tie. ")
 
-#print("You lose! Unless you won; I haven't got that far yet. ")
+
+# # lower - conver to lowercase
+# # strip - removes whitespace form the beginning and end
+# response = input('Would you like to play?').lower().strip()
+# # response = True if response == 'yes' else False
+# response = response == 'yes'
+# if response in ['yes', 'y', 'ok']:
+#     pass

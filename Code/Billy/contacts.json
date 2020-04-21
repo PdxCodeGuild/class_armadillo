@@ -1,9 +1,9 @@
 {
     "contacts": [
         {
-            "age": 34,
-            "email": "joe@email.com",
-            "favorite color": "blue",
+            "age": 35,
+            "email": "joe@gmail.com",
+            "favorite color": "green",
             "name": "Joe"
         },
         {
@@ -13,10 +13,10 @@
             "name": "Jane"
         },
         {
-            "age": 33,
-            "email": "iam@coder.com",
-            "favorite_color": "blue",
-            "name": "charlie"
+            "age": 65,
+            "email": "jill@email.com",
+            "favorite color": "orange",
+            "name": "Jill"
         }
     ]
 }
