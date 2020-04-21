@@ -1,50 +1,52 @@
-Implement a CRUD REPL
-
-# create a record and ask user for attributes to create list for user to enter.
-
-user = input("I'm going to create contact info for you.  Can you provide me with some information please?" )
-
-user = input("Can you provide me with your name, age, email, and favorite color, please? ")
-
-```python
 import json
 
-def load_data():
-    with open('contacts, json', 'r') as file:   contacts= json.
-with open('contacts.csv', 'r') as file:
-    lines = file.read(). split('\n')
-    print(lines)
-```
+#did with Lexi
 
-{
-        "contacts": [{
+def load_contacts(path):
+    with open(path, 'r') as file: # open the file
+        text = file.read() # read the text out of the file
+    contacts = json.loads(text) # convert the text containing json into a dictionary python understands
+    contacts = contacts['contacts'] # extract the list inside the dictionary
+    return contacts
+
+def save_contacts(path, contacts):
+    contacts = {'contacts': contacts} # put the list of contacts in to a dictionary
+    with open(path, 'w') as file: # open the file
+        text = json.dumps(contacts, indent=4, sort_keys=True) # convert our list of python dictionaries back into json
+        file.write(text) # write the json to the file
+
+def retrieve_contacts(contacts):
+    #contacts = {'contacts': contacts}
+    for i in range(0, len(contacts)): #start at 0
+        #if [i] == [j]:
+        print(i, contacts[i]) # printing individual dictionary
+        print(contacts[i]['name']) # using key to get the value of the dictionary
+        print(contacts[i]['age'])
+        print(contacts[i]['email'])
+        print(contacts[i]['favorite color'])
+
+
+contacts = {"contacts": [
+        {
             "name": "joe",
             "age": 34,
             "email": "joe@gmail.com",
-            "favorite color": "blue"},{"name": "jane", "age":"43" ...}
+            "favorite color": "blue"
+        },
+        {
+            "name": "jane", 
+            "age": 43,
+            "email": "jane@email.com",
+            "favorite color": "green",
+        },
+        {
+            "name": "christina"
+            "age": 65,
+            "email": "christina@email.com",
+            "favorite color": "orange"
+        }
+    ]   
+}
+
         
-]
-```
 
-contact = [
-    {"name": "joe", "age": "34", "email": joe@gmail.com", "favorite color": "blue"}, {"name": "jane", "age": "43" ...}
-]
-
-
-
-
-
-{"employees":[
-    { "firstName":"John", "lastName":"Doe" },
-    { "firstName":"Anna", "lastName":"Smith" },
-    { "firstName":"Peter", "lastName":"Jones" }
-]}
-
-
-import json
-person = {'name': 'jane', 'age': 34} # python dictionary
-json_person = json.dumps(person) # convert a dictionary to a string containing json
-person = json.loads(json_person) # convert a string containing json to a dictionary
-let person = {name: 'jane', age: 34} // javascript object
-let json_person = JSON.stringify(person) // convert a javascript object into a string containing json
-person = JSON.parse(json_person) // convert a string containing json into a javascript object
