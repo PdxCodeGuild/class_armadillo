@@ -16,12 +16,6 @@
     - [`a and b`](#a-and-b)
     - [`a or b`](#a-or-b)
   - [Integers and Floats](#integers-and-floats)
-    - [`a + b`](#a--b-6)
-    - [`a - b`](#a---b)
-    - [`a * b`](#a--b-7)
-    - [`a / b`](#a--b-8)
-    - [`a // b`](#a--b-9)
-    - [`a % b`](#a--b-10)
   - [Built-in Functions](#built-in-functions)
     - [I/O](#io)
       - [`input(message)`](#inputmessage)
@@ -79,34 +73,34 @@ import keyword
 keyword.kwlist
 ```
 
-- **and**
-- **as**
-- **assert**
-- **async**
-- **await**
-- **break**
-- **class**
-- **continue** used for loops, skip the rest of the current
-- **def**
-- **del**
-- **elif**
-- **else**
-- **except**
-- **False**
-- **finally*
-- **for**
-- **from**
-- **global**
-- **if**
-- **import**
-- **in**
-- **is**
-- **lambda**
-- **None**
-- **nonlocal**
-- **not**
-- **or**
-- **pass**
+- **and** boolean operator
+- **as** used with imports
+- **assert** used for debugging
+- **async** 
+- **await** 
+- **break** used with loops, exit the current loop
+- **class** blueprints of an object, including data and methods
+- **continue** used for loops, skip the rest of the current iteration and go to the next
+- **def** define a function
+- **del** delete, used with lists and dicts
+- **elif** else-if, part of a conditional
+- **else** part of a conditional
+- **except** part of exception handling
+- **False** boolean literal
+- **finally* part of exception handling
+- **for** define a for-loop
+- **from** used with imports
+- **global** define a global variable
+- **if** part of conditionals
+- **import** used with imports
+- **in** a boolean operator, also part of for-loops
+- **is** a boolean operator, tests for equality
+- **lambda** a short-hand function
+- **None** a boolean literal
+- **nonlocal** ???
+- **not** a boolean operator
+- **or** a boolean operator
+- **pass** 
 - **raise**
 - **return**
 - **True**
@@ -144,17 +138,6 @@ Returns `True` if the two given values are equal, false otherwise.
 
 ## Integers and Floats
 
-### `a + b`
-
-### `a - b`
-
-### `a * b`
-
-### `a / b`
-
-### `a // b`
-
-### `a % b`
 
 Modulus can also be used with floats.
 
