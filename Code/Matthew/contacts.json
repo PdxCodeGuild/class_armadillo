@@ -19,10 +19,22 @@
             "name": "Jill"
         },
         {
-            "name": "john"
+            "age": 78,
+            "email": "james@bond.com",
+            "favorite color": "red",
+            "name": "James Bond"
         },
         {
-            "name": "john"
+            "age": 45,
+            "email": "jenny@gmail.com",
+            "favorite color": "magenta",
+            "name": "Jenny"
+        },
+        {
+            "age": 456,
+            "email": "james@email.com",
+            "favorite color": "beige",
+            "name": "James Dond"
         }
     ]
 }
