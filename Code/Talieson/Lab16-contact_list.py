@@ -33,7 +33,7 @@ run = True
 while run:
     print()
     print('''        Welcome to Contact Manager 5000(tm)!
-        Current operations are: create, retrive, update, delete, and list.
+        Current operations are: create, retrieve, update, delete, and list.
 ''')
     # Take users operation here.
     operation = input("What operation should I perform? ").lower().strip()
@@ -45,16 +45,17 @@ while run:
         email = input("Enter contacts email. ").lower()
         color = input("Enter contacts favorite color. ").lower()
         # Create a dictionary from the variables and add it to contacts.
-        new = {"name": name, "age": age, "email": email, "color": color}
-        contacts.append(new)
+        contacts.append({"name": name,
+                         "age": age,
+                         "email": email,
+                         "color": color})
         # Print sucess message, show the added info, and save to JSON file.
         print("New contact added!")
-        print(new)
         save_contacts(path, contacts)
         # Exit main run loop.
         run = False
     # Check if operation is retrieve. Get name of retieve-ee.
-    elif operation == "retrive":
+    elif operation == "retrieve":
         print(contacts)
         print()
         # start with a false name to enable validation
@@ -63,7 +64,7 @@ while run:
             retrieve_name = input("Whose info would you like? ").strip()
             # iterate through list of contacts and get contact with that name.
             for contact in contacts:
-                if contact["name"] == retrieve_name:
+                if retrieve_name.lower() in contact['name'].lower():
                     print("Here is that info:")
                     print(contact)
                     break
