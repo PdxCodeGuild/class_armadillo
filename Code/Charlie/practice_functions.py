@@ -47,7 +47,7 @@ def get_number():
 print(get_number())
 
 
-def get)_dimention():
+def get_dimention():
     return 500, 200
 
 width, height = get_dimention()
@@ -67,7 +67,7 @@ print(height)
 
 
 
-a = [5,8,2,4]
-max = 0
-for i in a:
-    if i <
+# a = [5,8,2,4]
+# max = 0
+# for i in a:
+#     if i <
