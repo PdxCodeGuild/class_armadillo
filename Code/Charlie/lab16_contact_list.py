@@ -22,15 +22,12 @@ def save_contacts(path, contacts):
         text = json.dumps(contacts, indent=4, sort_keys = True)
         file.write(text)
 
-def retrieve_contacts(contacts):
-    #contacts = {'contacts': contacts}
-    for i in range(0, len(contacts)): #start at 0
-        #if [i] == [j]:
-        print(i, contacts[i]) # printing individual dictionary
-        print(contacts[i]['name']) # using key to get the value of the dictionary
-        print(contacts[i]['age'])
-        print(contacts[i]['email'])
-        print(contacts[i]['favorite color'])
+def print_contact(contact):
+  print(contact['name'])
+  print('  Age:', contact['age'])
+  print('  Email:', contact['email'])
+  print('  Favorite Color: ', contact['favorite color'])
+  
 # loading the contacs from the file
 path = 'contacts.json'
 contacts = load_contacts(path)
