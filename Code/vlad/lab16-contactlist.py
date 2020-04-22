@@ -65,7 +65,7 @@ contacts = load_contacts(path)
 #
 print('Welcome Contact Manager :)!')
 while True:
-    command = input('what is your command? please type one of the following: create or retrieve or update or delete or done, exit, quit: Please Enter:  ')
+    command = input('what is your command? please type one of the following: create or retrieve or update or delete or done, exit, quit - Please type one:  ')
     if command in ['done', 'exit', 'quit']:
         break
     
@@ -121,6 +121,10 @@ while True:
    
     for contact in contacts:
             if name == contact['name']:
+                #contacts.del(contact) 
+                #ask how to use del()  ?
+                #ask why it is promptying for delete after enter the name to delete
+
                 contacts.remove(contact)
                 break
     else:
