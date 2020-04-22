@@ -25,35 +25,19 @@ for character in text:
 words = text.split()
 
 # Empty dictionary for the word counter.
-word_counts = {}
+word_pairs = {}
 
 # iterate through each word in the list of words.
-for i in range(len(words)-1):
-    word = words[i]
-    # if the word isn't in word_counts, add it, else add 1 to count.
-    if word not in word_counts:
-        # create a nested dictionary of the following words
-        word_counts[word] = {}
-        word_counts[word]["occurance"] = 1
-        word_counts[word]["following words"] = {}
+for word in range(len(words)-1):
+    if word_pairs.get(words[word] + " " + words[word+1], False):
+        word_pairs.update({words[word] + " " + words[word+1]: 1})
     else:
-        word_counts[word]["occurance"] += 1
-
-    # if we don't have the word after it the following words nested dictionary
-    # add it. If we already have it it, increase our count by 1.
-    if words[i+1] not in word_counts[word]["following words"]:
-        word_counts[word]["following words"].update({words[i+1]: 1})
-    else:
-        word_counts[word]["following words"][words[i+1]] += 1
-
+        word_pairs[word] += 1
 # create a list of touples from the dictionary.
-
-top_words = list(word_counts[word]["following words"].items())
-print(top_words)
-exit()
+top_word_pairs = list(word_pairs.items())
 # sort the the list of touples based on their value.
-top_words.sort(key=lambda tup: tup[1], reverse=True)
+top_word_pairs.sort(key=lambda tup: tup[1], reverse=True)
 
 # return the top 10 touple pairs in the list of words.
-for i in range(min(10, len(top_words))):
-    print(top_words[i])
+for i in range(min(10, len(top_word_pairs))):
+    print(top_word_pairs[i])
