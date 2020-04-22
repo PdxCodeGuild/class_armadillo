@@ -63,18 +63,18 @@ contacts = load_contacts(path)
 # print(contacts['contacts'][0]['name'])
 
 #
+print('Welcome Contact Manager :)!')
 while True:
-    print('Welcome Contact Manager :)!')
-    command = input('what is your command? ')
+    command = input('what is your command? please type one of the following: create or retrieve or update or delete or done, exit, quit: Please Enter:  ')
     if command in ['done', 'exit', 'quit']:
         break
-    name = input('What is the contact name? ')
-    age = input('What is the contact age? ')
-    email = input('What is the contact email? ')
-    color = input('What is the contact favorite color? ')
-  
     
     if command == 'create':
+        name = input('What is the contact name? ')
+        age = input('What is the contact age? ')
+        email = input('What is the contact email? ')
+        color = input('What is the contact favorite color? ')
+    
         new_contact = {
             
             'name': name,
@@ -88,20 +88,43 @@ while True:
         name = input('What is the contact name to retrieve? ')
         found_it = False
         for contact in contacts:
-            if name in contact:
+            if name == contact['name']:
                 print_contact(contact)
             found_it = True 
         if contact not in contacts:
                 print('Sorry no contact found try different name')
 
     elif command == 'update':
-        ...
-    elif command == 'delete':
-        ...
-    
+        """
+                Update a contact: ask the user for the contact's name, then for which attribute of the user they'd like to update and the value of the attribute they'd like to set.
+        """
+        name = input('What is the contact name to update? ')
+        
 
+        found_it = False
+        for contact in contacts:
+            if name == contact['name']:
+                attribute = input('What would you like to update ')
+                attribute2 = input('update to: ')
+                if attribute in contact:
+                    contact[attribute] = attribute2
+            found_it = True 
+        if contact not in contacts:
+                print('Sorry no contact found try different name')
+
+
+    elif command == 'delete':
+       """ 
+            Delete a contact: ask the user for the contact's name, remove the contact with the given name from the contact list.
+       """
+    name = input('What is the contact name to delete? ')
+   
+    for contact in contacts:
+            if name == contact['name']:
+                contacts.remove(contact)
+                break
     else:
-        print('command not recognized')
+        print('contact name not recognized')
 
 # saving our contacts to the file
 save_contacts(path, contacts)
