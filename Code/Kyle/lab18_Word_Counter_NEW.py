@@ -5,6 +5,8 @@ import string
 not_a_letter = "`~-!@#$%^&*()_+=?:;,.\"”[]}{â€1234567890™"
 dict_words = dict()
 
+not_unique = ("the", "a", "and")
+
 # response  = requests.get('www.gutenberg.org/files/215/215-0.txt')
 
 #text = response.text
@@ -29,6 +31,23 @@ def list_of_words(text):
 
 
 words = list_of_words(text)
-print(words)
+#print(words)
 
+for count in words:
+    if count not in dict_words:
+        dict_words[count] = 1
+    # attempting to remove the common articles and conjunctions
+    # elif count not in dict_words and count == "a":
+        dict_words[count] = 0
+    else:
+        dict_words[count] += 1
+
+result = list(dict_words.items())
+print(result)
+
+# sort the touples into top 10
+result.sort(key=lambda tup: tup[1], reverse=True) 
+for i in range(min(10, len(result))):
+    print(result[i])
+    
 ## specific_word = input("Enter a specific word, and I'll tell you how often it occurs: ")
