@@ -6,8 +6,8 @@ response = requests.get("http://www.gutenberg.org/cache/epub/61870/pg61870.txt")
 text = response.text
 
 # Removes liscencing stuff
-text = text[text.find("pgdp.net")+len("pgdp.net"):text.find("End of the Project")]
-
+text = text[text.find("***")+len("***"):text.find("End of the Project")]
+text = text[text.find("***")+len("***"):]
 print(text)
 
 text = text.lower()
