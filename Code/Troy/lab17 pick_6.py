@@ -1,5 +1,7 @@
 # Lab 17, Pick Six
 # April 21, 2020
+# mob lab
+
 import random
 
 
@@ -59,7 +61,7 @@ def main():
     winner = pick_6()
 
     # the cost of one ticket
-    ticket_price = 2
+    ticket_cost = 2
 
     # Start your balance at 0
     balance = 0
@@ -76,7 +78,7 @@ def main():
         ticket = pick_6()
 
         # Subtract 2 from your balance (you bought a ticket)
-        balance -= ticket_price
+        balance -= 2
         ticket_count += 1
 
         # Find how many numbers match
@@ -92,7 +94,7 @@ def main():
         # print(f"{matches = }")
         # print(f"{payout  = }")
 
-    expenses = ticket_count * ticket_price
+    expenses = ticket_count * ticket_cost
     balance = earnings - expenses
 
     # probably don't need a function for this

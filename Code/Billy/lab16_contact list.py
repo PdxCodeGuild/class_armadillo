@@ -40,6 +40,7 @@ def save_contacts(path, contacts):
         text = json.dumps(contacts, indent=4, sort_keys=True) # convert list of dictionaries into json
         file.write(text) # write the json to the file 
 
+        
              
 # loading the contacts from the file
 path = 'contacts.json'
@@ -67,54 +68,56 @@ while True:
         age = int(input('Enter age: '))
         email = input('Enter e-mail: ')
         color = input ('Enter favorite color: ')
-        contact = {
+        card = { # inserts the above user input into dictionary format
             'name': name,
             'age': age,
             'email': email,
             'favorite color': color,
         }
-        contacts.append(contact)
+        contacts.append(card) # adds the above 'card' variable to the 'contacts' JSON file
     elif command == 'retrieve':
-        name = input('Enter name: ')
+        name = input('Enter name: ') # uses name entry to retrieve the appropriate contact
+        found_contact = False # boolean for input validation
         for card in contacts:
-            if name.lower() in card['name'].lower():
-                print(card)
-        else:
-                print('No contact found.') 
+            if name.lower() in card['name'].lower(): # .lower() makes entry case insensitive
+                print(card['name']) # contact name as listed in JSON plus below JSON info formatted
+                print('    Age:', card['age'], '    e-mail:', card['email'], '    Favorite color:', card['favorite color'])
+                found_contact = True # input validation
+        if not found_contact: # if found_contact = False
+            print('No contact found.') 
     elif command == 'update':
         name = input('Enter name: ')   
         for card in contacts:
-            if name.lower() == card['name'].lower():
-                name = input('Enter updated name: ')
+            if name.lower() == card['name'].lower(): # case insensitive, selects contact if name associated with entered name
+                name = input('Enter updated name: ') # input for overwriting selected contact
                 age = int(input('Enter updated age: '))
                 email = input('Enter updated e-mail: ')
                 color = input ('Enter updated favorite color: ')
-                card['name'] = name
+                card['name'] = name #overwrites current contact info with inputs  
                 card['age'] = age
                 card['email'] = email
                 card['favorite color'] = color
-                break
+                break 
         else: 
             print('No contact found.')
     elif command == 'delete':
         name = input('Enter name: ')
         for card in contacts:
-            if name == card['name']:
-                contacts.remove(card)
+            if name == card['name']: # case sensitive due to the importance of delete function
+                contacts.remove(card) # .remove() deletes contact with input name
                 break
         else:
             print('No contact found.')
     elif command == 'list':
         for card in contacts:
-            print(card['name'])
+            print(card['name']) # contact name as listed in JSON plus below JSON info formatted
             print('    Age:', card['age'], '    e-mail:', card['email'], '    Favorite color:', card['favorite color'])
-    elif command == 'save': #saves on command
-        save_contacts(path, contacts)
+    elif command == 'save': #saves on command 'save'
+        save_contacts(path, contacts) # function defined above
     else:
-        print('Command not recognized.') 
+        print('Command not recognized.') # if invalid command enterd above
 
-# saves changes to the file only after exit
-save_contacts(path, contacts)
+save_contacts(path, contacts) # saves changes to the file only after exit
        
 
 
