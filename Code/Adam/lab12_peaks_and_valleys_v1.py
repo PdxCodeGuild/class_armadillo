@@ -28,7 +28,6 @@ def peaks(data):
     return peak_indices
 
 #return indices of valleys (a valley has larger numbers to its left and right)
-# def valleys()
 def valleys(data):
     valley_indices = []
     for i in range(1, len(data)-1): 

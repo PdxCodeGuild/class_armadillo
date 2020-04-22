@@ -11,5 +11,13 @@ def set_lowercase(strings):
 
 # OR
 
-# WE CAN USE A METHOD .lower()
+# # WE CAN USE A METHOD .lower()
+# password = input("What's your password? ")
+# password.encode()
+# print(password)
 
+txt = "welcome to the jungle"
+print(txt)
+x = txt.split()
+
+print(x)
