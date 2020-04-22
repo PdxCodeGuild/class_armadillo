@@ -19,12 +19,6 @@
             "name": "Jill"
         },
         {
-            "name": "john"
-        },
-        {
-            "name": "john"
-        },
-        {
             "name": "Jack",
             "age": 34,
             "email": "jackattack@gmail.com",
@@ -35,6 +29,12 @@
             "age": 54,
             "email": "jon@email.com",
             "color": "beige"
+        },
+        {
+            "name": "Bevin",
+            "age": "25",
+            "email": "hybridrobot@fakeemail.com",
+            "color": "red"
         }
     ]
 }
