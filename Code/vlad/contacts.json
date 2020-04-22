@@ -31,10 +31,22 @@
             "name": "jane"
         },
         {
-            "age": "43",
-            "color": "green",
-            "email": "jane@email.com",
-            "name": "jane"
+            "age": "95",
+            "color": "yellow",
+            "email": "gmail.com",
+            "name": "vlad"
+        },
+        {
+            "age": "76",
+            "color": "redblue",
+            "email": "mj@gmail.com",
+            "name": "MJ"
+        },
+        {
+            "age": "98",
+            "color": "yellow",
+            "email": "shaq@gmail.com",
+            "name": "shaq"
         }
     ]
 }
