@@ -24,9 +24,9 @@ time.sleep(1)
 #n is the length of the password and the upper bound
 n = int(input('How long would you like the password to be? '))
 
-password = ''
-
 i = 0
+
+password = ''
 
 #while loop
 while i < n:

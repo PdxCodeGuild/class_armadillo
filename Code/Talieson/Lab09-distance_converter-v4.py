@@ -1,3 +1,5 @@
+# Unit converter takes 1 distance unit and returns the value in another.
+# Version 4 allows the user to pick an output unit. Previously just meters.
 
 
 # Does the math. Everything becomes a meter then becomes final unit.

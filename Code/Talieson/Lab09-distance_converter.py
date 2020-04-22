@@ -1,3 +1,5 @@
+# Distance Converter takes a number of feet and generates meters.
+
 run = True
 
 # Main run loop

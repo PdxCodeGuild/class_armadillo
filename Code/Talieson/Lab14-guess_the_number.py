@@ -1,5 +1,8 @@
 import random
 
+# Guess the number is a simple game that allows the user to input guess
+# at a random number generated randomly.
+
 # set goal number
 goal_number = random.randint(1, 11)
 user_attempts = 0
