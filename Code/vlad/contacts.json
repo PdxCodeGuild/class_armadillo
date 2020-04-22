@@ -35,6 +35,18 @@
             "color": "yellow",
             "email": "gmail.com",
             "name": "vlad"
+        },
+        {
+            "age": "76",
+            "color": "redblue",
+            "email": "mj@gmail.com",
+            "name": "MJ"
+        },
+        {
+            "age": "98",
+            "color": "yellow",
+            "email": "shaq@gmail.com",
+            "name": "shaq"
         }
     ]
 }
