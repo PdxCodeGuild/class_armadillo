@@ -3,12 +3,11 @@ from string import ascii_lowercase
 def rot13():
     user_input = str(input("Input a word to encrypt: "))
     user_value = int(input("Enter a number to scramble the word by: "))
-    
+
     list_userinput = []
     # going into ascii list and finding index of the letter
     for letter in user_input:
         list_userinput.append(ascii_lowercase.index(letter))
-    
     # rotates the index in the list
     new_index = [i + user_value for i in list_userinput]
    
