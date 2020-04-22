@@ -29,14 +29,11 @@ old_password = ""
 new_password = ""
 
 
-old_password = input("Enter your password, and I'll encrypt it for you in a super-insecure cypher: ").lower().split()
-
-
-# use .find to look up the index of the character
+old_password = input("Enter your password, and I'll encrypt it for you in a super-insecure cypher: ").lower()
 
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 reverse_alphabet = alphabet[13:] + alphabet[:13]
-print(f'The flipped alphabet is {reverse_alphabet}')
+# print(f'The flipped alphabet is {reverse_alphabet}')
 
 for char in old_password:
     index = alphabet.find(char)
@@ -44,5 +41,3 @@ for char in old_password:
     new_password += reverse_char
 print(new_password)
 
-## solution will correctly flip one character. 
-## when more 2+ characters are enters, will print only "m"
