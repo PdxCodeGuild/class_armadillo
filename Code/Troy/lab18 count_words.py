@@ -22,23 +22,27 @@ import string
 
 # defines the function.
 def count_words():
-# requests the book from the URL.
+    # requests the book from the URL.
     badger_book = requests.get('http://www.gutenberg.org/cache/epub/36830/pg36830.txt')
-# converts the book to text, lower case, and splits the strings.
+    # converts the book to text, lower case, and splits the strings.
     book = badger_book.text.lower().split()
-# creates the dictionary.
+    # strips the book of punctuation.
+    punctuation = '*,.;!&%$?"()[]0123456789#/'
+    for i in range(len(book)):
+        book[i] = book[i].strip(punctuation)
+    # creates the dictionary.
     frequent_words = {}
-# loops over the text finding the words and increases them by increments of 1, adding them to the dictionary.
+    # loops over the text finding the words and increases them by increments of 1, adding them to the dictionary.
     for word in book:
         if word not in frequent_words:
             frequent_words[word] = 1
         else:
             frequent_words[word] += 1
-# returns a list of tuples.
+    # returns a list of tuples.
     words = list(frequent_words.items()) 
-# sorts largest to smallest, based on count.    
+    # sorts largest to smallest, based on count.    
     words.sort(key=lambda tup: tup[1], reverse=True)  
-# prints the top 10 words, or all of them, whichever is smaller.
+    # prints the top 10 words, or all of them, whichever is smaller.
     for i in range(min(10, len(words))): 
         print(words[i])
     return frequent_words
