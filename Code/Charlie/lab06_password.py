@@ -1,6 +1,8 @@
 import random
 import string
 
+# Lab 6: Password Generator
+
 # ask user how many letters he wants in his password
 b = input("How many letters do you want in your password?: ")
 
