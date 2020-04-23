@@ -3,7 +3,7 @@ import json
 path = 'contacts.json'
 with open(path, 'r') as file:
   text = file.read()
-print(text)
+# print(text)
 
 def load_contacts(path):
     with open(path, 'r') as file: # open the file
@@ -23,21 +23,21 @@ def create(path, contacts):
     contact_phone = input("What is the contact phone number? ")
     contact_email = input("What is the contact email? ")
     contact_bday = input("What is the contact birthday? ")
+    
+    # contacts[contacts] = {contact_name + contact_phone + contact_email + contact_bday}
+    print(dictionary_of_contacts)
 
-    created_dictionary = {contact_name + contact_phone + contact_email + contact_bday}
+    return contacts
 
-    return created_dictionary
+def delete(path, contacts):
+    delete_contact = input("Enter the name of the contact you would like to delete: ")
+    for contact in contacts:
+        if contact in contacts: 
+            contacts
 
 # loading the contacts from the file
 path = 'contacts.json'
 contacts = load_contacts(path)
-
-# print(contacts)
-# print(type(contacts))
-
-# print(contacts[0]['name'])
-# print(contacts['contacts'][0]['name'])
-
 
 while True:
   command = input('what is your command? ')
@@ -50,7 +50,7 @@ while True:
   elif command == 'update':
       pass
   elif command == 'delete':
-      pass
+      delete(path, contacts)
   elif command == 'list':
       for contact in contacts:
         print(' age:'. contact['age'])

@@ -6,7 +6,7 @@ Find a book on [Project Gutenberg](http://www.gutenberg.org).
 Download it as a UTF-8 text file.
 
 1. Open the file.
-2. Make everything lowercase, strip punctuation, split into a list of words.
+2. Make everything lowercase,  strip punctuation, split into a list of words.
 3. Your dictionary will have words as `keys` and counts as `values`. If a word isn't in your dictionary yet, add it with a count of 1. If it is, increment its count.
 4. Print the most frequent top 10 out with their counts. You can do that with the code below.
 
@@ -18,7 +18,7 @@ for i in range(min(10, len(words))):  # print the top 10 words, or all of them, 
     print(words[i])
 ```
 
-## Version 2
+## Version 2 (optional)
 
 Count how often each unique pair of words is used, then print the top 10 most common pairs with their counts.
 

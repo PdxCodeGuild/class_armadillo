@@ -1,6 +1,6 @@
 import random
 
-
+# Lab 5: Random Emoticon Generator
 
 
 # variable eyes is = to a list that contains possible eyes

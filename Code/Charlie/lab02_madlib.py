@@ -1,5 +1,10 @@
-print("Welcome to Madlib")
 
+
+# Lab 2: Mad Libs
+
+
+print("Welcome to Madlib")
+# a-d will store whatever the input is 
 a = input("Enter your name: ")
 b = input("Enter favorite sport: ")
 c = input("Favorite team name: ")
