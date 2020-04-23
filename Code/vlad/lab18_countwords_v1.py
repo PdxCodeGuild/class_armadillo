@@ -1,6 +1,10 @@
 #Lab 18: Count Words V1
 # Installed the following on the terminal: pip3 install requests 
 # pip3 only need to be installed once
+#Lab 18: Count Words V2:
+
+# Installed the following on the terminal: pip3 install requests 
+# pip3 only need to be installed once
 
 import requests
 import string
@@ -25,11 +29,11 @@ text = text.lower()
 # print(system)
 
 # translate chars 
-str1 = " .,:;123456789()[]#\@<>$%^&*+-=!/'"
-str2 = "                                  "
+str1 = " .,:?;123456789()[]#\@<>$%^&*+-=!/\"'"
+str2 = "                                    "
 #''/?}{]}[*%$#@!><_-+=`~.',''"'\n\r\'
-print(len(str1))
-print(len(str2))
+# print(len(str1))
+# print(len(str2))
 # replace with 
 #maketrans(str1, str2)
 
@@ -43,10 +47,13 @@ translated = text.translate(table)
 
 #string.split("delimiter")
 def convert(string):
-    list1 = list(string.split(" "))
+    # list1 = list(string.split(" "))
+    list1 = string.split()
     return list1
 # str1 = text
 print(convert(translated))
+
+list_of_words = convert(translated)
 
 # junk_start = text.find('***')
 # print(junk_start)
@@ -56,9 +63,6 @@ print(convert(translated))
 # lines = text.split('\n')
 # print(lines[103:110])
 # print (text.strip( '*' ))
-
-
-
 
 # 3) build up word_counts, a dictionary where the key is the word and the value is the count
 
@@ -78,20 +82,21 @@ new_dict = dict ()
 # nested if statements within the forloop that checks whether that word is already in the dictioanry
 # If it is, add value += 1
 # if the word is not in the dictionary, add word as key, set value to `1`
-for word in convert(translated): 
+for word in list_of_words: 
         # Check if the word is already in dictionary 
         if word in new_dict: 
-            # Increment count of word by 1 
+            # Increment count of word by 1 if the word is already in the dictionary
             new_dict[word] = new_dict[word] + 1
         else: 
-            # Add the word to dictionary with count 1 
+            # Add the word to dictionary with count 1 if the word is not in the dictionary
             new_dict[word] = 1
-  
-# Print the contents of dictionary 
-#for key in list(d.keys()): 
-#    print(key, ":", d[key]) 
 
-# word_dict is a dictionary where the key is the word and the value is the count
+#print(new_dict) 
+#Print the contents of dictionary 
+# for key in list(new_dict.keys()): 
+#    print(key, ":", new_dict[key]) 
+
+#word_dict is a dictionary where the key is the word and the value is the count
 words = list(new_dict.items()) # .items() returns a list of tuples
 print(words)
 words.sort(key=lambda tup: tup[1], reverse=True)  # sort largest to smallest, based on count
