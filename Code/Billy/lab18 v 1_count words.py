@@ -39,7 +39,6 @@ def book_text(book):
     return response.text # returns the text variable (content of the response, in unicode)
 
 
-
 # 2. Get a clean list of words ['the', 'the', 'a', 'that', 'hello', 'that', ..]
 
 def clean_words(text):
@@ -47,6 +46,11 @@ def clean_words(text):
     text = text[text.find('***') + 3:] # slices text up to first '***' in the text, then adds 3 indices to include those '***' in the slice (top junk)
     text = text[text.find('***') + 3:] # slices the few words that are before the second '***' in text, adds the 3 indices for second '***' (top junk)
     text = text[:text.find('***')] # slices everything after the third '***', which is bottom junk
+    
+    # tests for junk removal and word cleanse      
+    # print(text[:200]) # sample of top text
+    # print(text[200:]) # sample of bottom text
+
     # punctuation and number removal
     punct = string.punctuation # string of ascii punctuation
     numbers = string.digits # string of ascii numbers
@@ -55,10 +59,6 @@ def clean_words(text):
     for char in numbers: # removes numbers
         text = text.replace(char, "")
     return text.lower().split() # changes all char to lower case, splits words into list by delimiter: white space (default)
-
-# tests for junk removal and word cleanse      
-# print(text[:200]) # sample of top text
-# print(text[200:]) # sample of bottom text
 
 
 # 3. Build up word_counts (a dictionary where the key is the word and the value is the count)
