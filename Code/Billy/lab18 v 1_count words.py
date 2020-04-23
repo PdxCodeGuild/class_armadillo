@@ -3,9 +3,9 @@ import time
 import string
 from colorama import Fore
 
-welcome_msg = '\nWelcome to LITERARY WORD ACCOUNTANT!'
+welcome_msg = '\nWelcome to LITERARY WORD ACCOUNTANT!' 
 i = 0
-while i < len(welcome_msg):
+while i < len(welcome_msg): # prints welcome message one letter at a time in green color
     print(Fore.GREEN + welcome_msg[i], end='', flush=True)
     time.sleep(0.05)
     i += 1
@@ -19,7 +19,7 @@ time.sleep(1)
 book_number = int(input('\nPlease enter an above numbered selection to see the top occurring words for that book (1, 2, or 3): ')) # input into book_selection() function to select dictionary entry
 length = int(input('How many words would you like to include on the top words list? ')) # input into top_words() function to allow user to select number of words on top words list (top_list)
 
-# book = 'http://www.gutenberg.org/cache/epub/5903/pg5903.txt' # book selection for test purposes
+# book = 'http://www.gutenberg.org/cache/epub/5903/pg5903.txt' # example book selection for test purposes
 
 
 # allows the user to select from a catalog of books
@@ -38,27 +38,16 @@ def book_text(book):
     response = requests.get(book) # makes request to a web page using the book's URL in book variable 
     return response.text # returns the text variable (content of the response, in unicode)
 
-# example text for test purposes:
-# text = '''By the time the book appeared he had left Spain, and, as fate ordered it,
-# for twelve years, the most eventful ones of his life. Giulio, afterwards
-# Cardinal, Acquaviva had been sent at the end of 1568 to Philip II by the
-# Pope on a mission, partly of condolence, partly political, and on his
-# return to Rome, which was somewhat brusquely expedited by the King, he
-# took Cervantes with him as his camarero (chamberlain), the office he
-# himself held in the Pope's household.'''
 
 
 # 2. Get a clean list of words ['the', 'the', 'a', 'that', 'hello', 'that', ..]
 
-# draft notes for adding functionality to remove junk site intro words from text file (TBD):
-# junk_start = text.find('***')
-# print(junk_start)
-# print(text[junk_start:junk_start+100])
-# print(text[800:900])
-# lines = text.split('\n')
-# print(lines[103:110])
-
 def clean_words(text):
+    # junk removal from text file, so that non-literary material (top/bottom text) is not included in word count
+    text = text[text.find('***') + 3:] # slices text up to first '***' in the text, then adds 3 indices to include those '***' in the slice (top junk)
+    text = text[text.find('***') + 3:] # slices the few words that are before the second '***' in text, adds the 3 indices for second '***' (top junk)
+    text = text[:text.find('***')] # slices everything after the third '***', which is bottom junk
+    # punctuation and number removal
     punct = string.punctuation # string of ascii punctuation
     numbers = string.digits # string of ascii numbers
     for char in punct: # iterates through each character in punct variable above to remove punctuation
@@ -66,8 +55,10 @@ def clean_words(text):
     for char in numbers: # removes numbers
         text = text.replace(char, "")
     return text.lower().split() # changes all char to lower case, splits words into list by delimiter: white space (default)
-       
-# print(text) # test purposes
+
+# tests for junk removal and word cleanse      
+# print(text[:200]) # sample of top text
+# print(text[200:]) # sample of bottom text
 
 
 # 3. Build up word_counts (a dictionary where the key is the word and the value is the count)
