@@ -1,4 +1,4 @@
-
+#lab18-count_words by instructor: 
 
 # message = '-> hello world hello hello sunshine'
 # print(message.find('hello')) # 3
@@ -91,4 +91,3 @@ words = list(word_counts.items()) # .items() returns a list of tuples
 words.sort(key=lambda tup: tup[1], reverse=True)  # sort largest to smallest, based on count
 for i in range(min(50, len(words))):  # print the top 10 words, or all of them, whichever is smaller
   print(words[i][0], words[i][1])
-
