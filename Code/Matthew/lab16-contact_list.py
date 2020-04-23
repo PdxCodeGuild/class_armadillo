@@ -24,12 +24,7 @@ with open('contacts.json', 'r') as file:
   text = file.read()
 
 
-# dictionaries
-# keys can be any immutible type - bools, int, float, string, tuples
-# values can be any type
-# fruits = {'apples': 1.0, 'bananas': 2.0, 'cherries': 3.0}
-# print(fruits['apples']) # 1.0
-# fruits['bananas'] = 2.5
+
 
 # # loading json into a python dictionary
 # myjson = '{"name":"joe"}' # string containg json
