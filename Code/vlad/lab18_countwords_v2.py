@@ -1,4 +1,4 @@
-#Lab 18: Count Words V2:
+#Lab 18: Count Words V2!:
 #Version 2
 # Count how often each unique pair of words is used, 
 # then print the top 10 most common pairs with their counts.
