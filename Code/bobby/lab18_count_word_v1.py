@@ -18,20 +18,15 @@ print(clean_list[200:800])
 # clean_list2 = text.split("\n")
 
 #3.) To build a word count dict for the value of a word and count.
-count = {
-    "the": 10,
-    "a": 1,
-    "hello": 1,
-    "that": 2
-
-}
-# .items() returns a list of tuples
-words = list(count.items())
+count = {}
+for word in response:
+    if word not in count:
+        count[word] = 1   
+    else:
+        count[word] += 1
+words = list(count.items())# .items() returns a list of tuples
 print(words)
 
-# Sorts largest to smallest, based on count. 
-words.sort(key=lambda tup: tup[1], reverse = True)
-
-# print the top 10 words, or all of them, whichever is smaller
-for i in range(min(10, len(words))):
+words.sort(key=lambda tup: tup[1], reverse = True)# Sorts largest to smallest, based on count. 
+for i in range(min(10, len(words))):# print the top 10 words, or all of them, whichever is smaller
     print(words[i])
