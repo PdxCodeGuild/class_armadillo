@@ -1,3 +1,7 @@
+# PDX Code Guild Fullstack Course
+# Lab 18 Count Words
+# Samuel Purdy
+# 4/22/2020
 import requests
 import string
 

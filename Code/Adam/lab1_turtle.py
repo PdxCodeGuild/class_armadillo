@@ -24,12 +24,14 @@ Use these functions to draw a stick figure with a head, body, two arms, and two 
 go through the examples below and create your own drawing.
 """
 
-from turtle import *
+import turtle
+
 
 fillcolor('blue')
 begin_fill()
 
-#head
+
+# head
 forward(100)
 left(90)
 forward(100)
@@ -37,6 +39,7 @@ left(90)
 forward(100)
 left(90)
 forward(100)
+
 #torso
 right(90)
 forward(20)
