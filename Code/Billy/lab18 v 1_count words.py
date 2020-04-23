@@ -16,8 +16,8 @@ print(Fore.RESET + '\n\nAvailable books:\n1. "The History of Don Quixote, Vol. I
 
 time.sleep(1)
 
-book_number = int(input('\nPlease enter an above numbered selection to see the top occurring words for that book (1, 2, or 3): ')) # will be used to call below dictionary
-length = int(input('How many words would you like to include on the top words list? ')) # input into 
+book_number = int(input('\nPlease enter an above numbered selection to see the top occurring words for that book (1, 2, or 3): ')) # input into book_selection() function to select dictionary entry
+length = int(input('How many words would you like to include on the top words list? ')) # input into top_words() function to allow user to select number of words on top words list (top_list)
 
 # book = 'http://www.gutenberg.org/cache/epub/5903/pg5903.txt' # book selection for test purposes
 
