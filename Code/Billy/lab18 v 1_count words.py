@@ -3,8 +3,6 @@ import time
 import string
 from colorama import Fore
 
-# print('\nWelcome to LITERARY WORD ACCOUNTANT!')
-
 welcome_msg = '\nWelcome to LITERARY WORD ACCOUNTANT!'
 i = 0
 while i < len(welcome_msg):
@@ -19,7 +17,7 @@ print(Fore.RESET + '\n\nAvailable books:\n1. "The History of Don Quixote, Vol. I
 time.sleep(1)
 
 book_number = int(input('\nPlease enter an above numbered selection to see the top occurring words for that book (1, 2, or 3): ')) # will be used to call below dictionary
-length = int(input('How many words would you like to include on the top words list? '))
+length = int(input('How many words would you like to include on the top words list? ')) # input into 
 
 # book = 'http://www.gutenberg.org/cache/epub/5903/pg5903.txt' # book selection for test purposes
 
@@ -76,27 +74,27 @@ def clean_words(text):
 
 def make_dictionary(clean_text):
     word_counts = {} # dictionary for capturing entries generated below
-    for word in clean_text: # itearates each of the words in cleaned text
+    for word in clean_text: # iterates each of the words in cleaned text
         if word in word_counts: # if word is already in dictionary, it increments count
             word_counts[word] += 1
         else: # if word is not in dictionary yet, it adds it with count of 1
             word_counts[word] = 1  
-    return word_counts # returns dictionary with cleans word and their counts
+    return word_counts # returns dictionary with clean words and their counts
 
 # print(word_counts) # test purposes        
 
 
 # 4. print the most frequent top 10 out with their counts 
 
-def top_ten(word_counts):
-    top_words = [] # list for capturing the tuples generated below
+def top_words(word_counts):
+    top_list = [] # list for capturing the tuples generated below
     words = list(word_counts.items()) # .items() turns the dictionary into a list of tuples
     words.sort(key=lambda tup: tup[1], reverse=True)  # sorts the tuples from largest to smallest, based on count
-    for i in range(min(length, len(words))):  # prints the top 10 words, or all of them, whichever is smaller
-        top_words.append(words[i]) # sends the tuples to the top_words list, as the for loop iterates
-    return top_words # returns completed top_words list when loop is done, contains top ten of sorted tuples
+    for i in range(min(length, len(words))):  # prints the top occurring (# selected by user) words, or all of them, whichever is smaller
+        top_list.append(words[i]) # sends the tuples to the top_list, as the for loop iterates
+    return top_list # returns completed top_list hen loop is done, contains top occurring sorted tuples
     
-    # print(top_words) # test purposes
+    # print(top_list) # test purposes
           
 
 # merges above functions
@@ -105,10 +103,10 @@ def word_accountant():
     text = book_text(book)
     clean_text = clean_words(text)
     word_counts = make_dictionary(clean_text)
-    top_words = top_ten(word_counts)
+    top_list = top_words(word_counts)
     print(f'\nThe top {length} occurring words in your book are:')
     i = 0 # provides counter variable for producing printed number bullets for output
-    for word in top_words: # used to print top_words list vertically
+    for word in top_list: # used to print top_list vertically
         print(str(i+1) + '.', word) # str enables concatenation of integer + string
         i += 1 # increments counter 
     print('\n') # for appearance, skips a line before terminal command prompt that appears when programs end
