@@ -3,8 +3,8 @@ import requests
 
 # 1) get the text from the file, via "with open..." or using requests
 
-response = requests.get('http://www.gutenberg.org/cache/epub/23540/pg23540.txt')
-text = response.text
+#response = requests.get('http://www.gutenberg.org/cache/epub/23540/pg23540.txt')
+#text = response.text
 # print(text)
 
 # lines =  text.split('\r')
@@ -19,40 +19,56 @@ text = response.text
 # string1 = ("It was not so with thoughtful Milly she snuggled down on the piazza beside Julia, and looked on quietly")
 # lower() function to convert  
 #  string to lower_case 
-# print("Original String")
-# print(string1)
-# print("\nConverted String:") 
-# print(string1.lower()) 
+response = requests.get('http://www.gutenberg.org/cache/epub/23540/pg23540.txt')
+# text = response.text
 
-#  =============================================================================================================================
-# 3. strip punctuation
-# string2 = ('It was not so with thoughtful Milly she snuggled down on the piazza beside Julia, and looked on quietly')
-  
-# # strip punctuation
-# string2 = string2.lower()
+# print("Original String")
+# print(text)
+# print("\nConverted String:") 
+# print(text.lower()) 
+
+# #  =============================================================================================================================
+# # 3. strip punctuation
+# response = requests.get('http://www.gutenberg.org/cache/epub/23540/pg23540.txt')
+# text = response.text
+
+
+# string2 = text.lower()
 # x = string2.replace("o", "")
 # print(x)
  
+
+# original
+# string2 = string2.lower()
+# x = string2.replace("o", "")
+# print(x)
 
 # ==========================================================
 
 # 4. split into a list of words
 
-
+response = requests.get('http://www.gutenberg.org/cache/epub/23540/pg23540.txt')
+text = response.text
 
 
 # #Strip punctuation
-# txt = "It was not so with thoughtful Milly she snuggled down on the piazza beside Julia, and looked on quietly"
-# x = txt.split()
-# print(x)
-# txt = ""
-# x = txt.split()
-# print(x)
+
+x = txt.split()
+print(x)
+txt = ""
+x = txt.split()
+print(x)
 
 
 #=================================================================================
 
 # 3A. Your dictionary will have words as `keys` and counts as `values`.
+
+#iterate each word in list of words
+word_counts = {}
+ for keys in x:
+     if keys not in word_counts:
+         word_counts[keys] = 1
 
 
 # book_text = ("Hurrah!" said the leader again, Major Patten, swinging his tall fur
@@ -61,8 +77,13 @@ text = response.text
 
 
 # word_dict is a dictionary where the key is the word and the value is the count
-words = list(word_dict.items()) # .items() 
+# words = list(word_counts.items()) # .items() 
+# print(words)
 
+
+# words.sort(key=lambda tup: tup[1], reverse=True)
+# for i in range(min(10, len(words))):
+    # print(words[i])
 
 # book_text = {
 
@@ -138,8 +159,3 @@ word_counts = {
 
 
 
-words = list(word_counts.items()) # .items() returns a list of tuples
-print(words)
-words.sort(key=lambda tup: tup[1], reverse=True)  # sort largest to smallest, based on count
-for i in range(min(10, len(words))):  # print the top 10 words, or all of them, whichever is smaller
-  print(words[i])
