@@ -203,29 +203,37 @@ print(s[::-1])
 
 
 
-### `startswith` and `endswith`
+### Starts-with and Ends-with: `startswith`, `endswith`
 
-`s.startswith(a)` returns true if the string starts with `a`
+`a.startswith(b)` returns true if `a` starts with `b`
+
+```python
+print('hello world'.startswith('hello'))
+print('hello world'.startswith('world'))
+```
+> True
+> False
+
+
+`a.endswith(b)` returns true if the string ends with `b`
+
+```python
+print('hello world'.endswith('hello'))
+print('hello world'.endswith('world'))
+```
+> False
+> True
+
+
+### Replace `a.replace(b, c)`
+
+`a.replace(b, c)` replaces occurances of string `a` with string `b`
 
 ```python
 ```
 > 
-`s.endswith(a)` returns true if the string ends with `a`
 
-```python
-```
-> 
-
-
-### `a.replace(b, c)`
-
-`s.replace(a, b)` replaces occurances of string `a` with string `b`
-
-```python
-```
-> 
-
-### `a.strip()`
+### Strip `a.strip()`
 
 `s.strip()`removes leading and trailing characters, if given no parameter, it'll strip whitespace
 
