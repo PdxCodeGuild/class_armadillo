@@ -86,7 +86,17 @@ def top_words(word_counts):
     return top_list # returns completed top_list hen loop is done, contains top occurring sorted tuples
     
     # print(top_list) # test purposes
-          
+
+
+# desired print format for output
+def print_list(top_list):
+    print(f'\nThe top {length} occurring words in your book are:')
+    i = 0 # provides counter variable for producing printed number bullets for output
+    for word in top_list: # used to print top_list vertically
+        print(str(i+1) + '.', word) # str enables concatenation of integer + string
+        i += 1 # increments counter 
+    print('\n') # for appearance, skips a line before terminal command prompt that appears when programs end
+     
 
 # merges above functions
 def word_accountant(): 
@@ -95,12 +105,8 @@ def word_accountant():
     clean_text = clean_words(text)
     word_counts = make_dictionary(clean_text)
     top_list = top_words(word_counts)
-    print(f'\nThe top {length} occurring words in your book are:')
-    i = 0 # provides counter variable for producing printed number bullets for output
-    for word in top_list: # used to print top_list vertically
-        print(str(i+1) + '.', word) # str enables concatenation of integer + string
-        i += 1 # increments counter 
-    print('\n') # for appearance, skips a line before terminal command prompt that appears when programs end
+    print_list(top_list)
+    
 
 word_accountant()
 
