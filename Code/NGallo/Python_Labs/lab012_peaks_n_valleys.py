@@ -22,9 +22,9 @@ def peaks_plus_valleys(valley, peaks):
     peaks_plus_valleys.sort()
     return peaks_plus_valleys
 
-def print(peaks_plus_valleys)
+# def print(peaks_plus_valleys)
     
-    return 
+#     return 
 
 print(peaks(data))
 print(valleys(data))

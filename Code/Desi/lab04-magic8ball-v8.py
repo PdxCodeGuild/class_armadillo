@@ -1,4 +1,4 @@
-
+import random
 
 
 welcome_screen = input("Are you feeling lucky?")
