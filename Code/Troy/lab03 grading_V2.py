@@ -1,10 +1,20 @@
+# Lab 03 Grading
+# Troy Fitzgerald
+# 
+
+''' Version 2
+
+Find the specific letter grade (A+, B-, etc). You can check for more specific ranges 
+using if statements, or use modulus % to get the ones-digit to set another string to
+'+', '-', or ' '. Then you can concatenate that string with your grade string.'''
+
 '''Numeric Ranges:
 90-100: A
 80-89: B
 70-79: C
 60-69: D
 0-59: F'''
-
+#
 num = input("Enter a number: ")
 
 num = int(num)
