@@ -3,18 +3,20 @@
 def rotn(text, n):
 
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    rot_alphabet = ''
 
-    text = input('what is your text?')
-    n = int(input('what is the rotation amount? '))
-​    for char in text:
-       pass
+    # create a rot alphabet with slice notation
+    # user input n as first index, then adding the remaining letters before n
+    rot_alphabet = alphabet[n:] + alphabet[:n] 
 
-# ​
-# print(rotn(text, n))
+    rot_word = '' # initiate rot word with blank string
+    for char in text:
+        index = alphabet.find(char) 
+        # index number from alphabet is used to select corresponding letter from rot_alphabet
+        rot_char = rot_alphabet[index] 
+        rot_word += rot_char # for each iteration, the rot character is added to rot word string 
 
-# print(rotn('hello', 13)) # uryyb
-# print(rotn('hello', 2)) # jgnnq
-# print(rotn('jgnnq', -2)) # hello
+    return rot_word
 
-# rot_alphabet = alphabet
+print(rotn('Russell', 12)) 
+print(rotn('hello', 2)) # jgnnq
+print(rotn('jgnnq', -2)) # hello
