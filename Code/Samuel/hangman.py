@@ -18,7 +18,7 @@ def load_words(path):
     for word in text:
         if len(word) > 5:
             words_to_set.append(word)
-    return words_to_set    
+    return words_to_set   
 
 # Returns a valid input from the user based on the letters they have guessed. 
 # It will make sure that the user picks a letter and something that is not 
