@@ -46,12 +46,14 @@ secret = random.choice(word_list)
 # create an empty list to store guesses
 guessed_letters = []
 
-# create an empty list to store our game board
-game_board = []
+# create game board with an underscore
+# represnting each letter in the secret word
+game_board = ['_' for i in range(len(secret))]
 
-# Fill game board with blanks
-for i in range(len(secret)):
-    game_board.append('_')
+# longer way to fill game board with blanks:
+# game_board = []
+# for i in range(len(secret)):
+#     game_board.append('_')
 
 print(f"\n{' '.join(game_board)}")
 while game_on:
@@ -111,9 +113,8 @@ while game_on:
             remaining_guesses = 10
             secret = random.choice(word_list)
             guessed_letters = []
-            game_board = []
-            for i in range(len(secret)):
-                game_board.append('_')
+            
+            game_board = ['_' for i in range(len(secret))]
 
             print(f"\n{' '.join(game_board)}")
             game_on = True
