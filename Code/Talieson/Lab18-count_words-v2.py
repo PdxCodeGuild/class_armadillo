@@ -45,5 +45,5 @@ top_word_pairs = list(word_pairs.items())
 # sort the the list of touples based on their value.
 top_word_pairs.sort(key=lambda tup: tup[1], reverse=True)
 # return the top 10 touple pairs in the list of words.
-for i in range(min(100, len(top_word_pairs))):
+for i in range(min(10, len(top_word_pairs))):
     print(top_word_pairs[i])
