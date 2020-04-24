@@ -1,6 +1,6 @@
 """
 
-Lab 2: Mad Libs
+Lab 2: Mad Libs=====================================================================================
 Write a simple program that prompts the user for several inputs then prints a Mad Lib as the result.
 
 Instructions
