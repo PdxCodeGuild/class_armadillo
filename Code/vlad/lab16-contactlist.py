@@ -65,7 +65,7 @@ contacts = load_contacts(path)
 #
 print('Welcome Contact Manager :)!')
 while True:
-    command = input('what is your command? please type one of the following: create or retrieve or update or delete or done, exit, quit - Please type one:  ')
+    command = input('what is your command? please type one of the following: create or retrieve or update or delete or done, exit, quit:  ')
     if command in ['done', 'exit', 'quit']:
         break
     
@@ -113,22 +113,22 @@ while True:
                 print('Sorry no contact found try different name')
 
 
-    elif command == 'delete':
-       """ 
+    if command == 'delete':
+        """ 
             Delete a contact: ask the user for the contact's name, remove the contact with the given name from the contact list.
-       """
-    name = input('What is the contact name to delete? ')
-   
-    for contact in contacts:
-            if name == contact['name']:
-                #contacts.del(contact) 
-                #ask how to use del()  ?
-                #ask why it is promptying for delete after enter the name to delete
+        """
+        name = input('What is the contact name to delete? ')
+    
+        for contact in contacts:
+                if name == contact['name']:
+                    #contacts.del(contact) 
+                    #ask how to use del()  ?
+                    #ask why it is promptying for delete after enter the name to delete
 
-                contacts.remove(contact)
-                break
-    else:
-        print('contact name not recognized')
+                    contacts.remove(contact)
+                    break
+        else:
+            print('contact name not recognized')
 
 # saving our contacts to the file
 save_contacts(path, contacts)
