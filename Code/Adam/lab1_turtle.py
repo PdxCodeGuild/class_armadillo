@@ -8,15 +8,10 @@ statements. This turtle has a position and a heading. Below are a list of comman
 turtle docs.
 
 -forward(distance) moves the turtle forward the given number of pixels
-
 -left(angle) and right(angle) turns the turtle left or right by the given angle (in degrees)
-
 -color(color_name) sets the pen's color, which can be penup() penup() penup()
-
 -penup() raises the pen, a line won't be drawn when the turtle moves, pendown() lowers the pen again
-
 -setposition(x, y) moves the turtle to the given position
-
 -fillcolor(color_name) sets the fill color, begin_fill() indicates you'd like to begin filling in whatever 
  you draw, end_fill() actually fills the shape in.
 
@@ -26,35 +21,68 @@ go through the examples below and create your own drawing.
 
 from turtle import *
 
-fillcolor('blue')
-begin_fill()
+#preferences
+hideturtle()
+bgcolor(("black")) #background color
+color('white') 
+fillcolor('white')
+pensize(5)
+
+penup() 
+setposition(0, 60) # so the image is centered
+pendown()
 
 #head
-forward(100)
-left(90)
-forward(100)
-left(90)
-forward(100)
-left(90)
-forward(100)
-#torso
+begin_fill()
+circle(40)
+end_fill()
+
+penup()
+goto(0, 50) #start/end location for torso
 right(90)
-forward(20)
+pendown()
+
+#Left shoulder
+begin_fill()
+right(90)
+forward(60)
 left(90)
-forward(200)
+
+#left arm
+forward(140)
+left(90)
+forward(22.5) #left hand
+left(90)
+forward(115)
+right(90) 
+forward(10) #left armpit
+right(90)
+
+#legs
+forward(260) #chest down to foot
+left(90)
+forward(25)
+left(90)
+forward(160) #left leg
+right(90)
+forward(10) #groin
+right(90)
+forward(160)
+left(90)
+forward(25)
+left(90)
+forward(260) #right foot to chest
+
+#right arm
+right(90)
+forward(10) #right armpit
+right(90)
+forward(115)
+left(90)
+forward(22.5) #right hand
 left(90)
 forward(140)
 left(90)
-forward(200)
-left(90)
-forward(110)
-#legs
-left(90)
-forward(400)
-left(90)
-forward(80)
-left(90)
-forward(400)
-
+goto(0, 50) #torso start location
 end_fill()
 done()

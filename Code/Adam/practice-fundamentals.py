@@ -19,10 +19,10 @@ def is_even(num):
 
 def opposite(a, b):
     if (a < 0 and b < 0) or (a > 0 and b > 0):
-        product = False
-    elif (a > 0 and b < 0) or (a < 0 and b > 0):
-        product = True
-    return(product)
+        return False
+    # elif (a > 0 and b < 0) or (a < 0 and b > 0):
+    return True 
+    
 # print(opposite(10, -1)) # True
 # print(opposite(2, 3)) # False
 # print(opposite(-1, -1)) # False
