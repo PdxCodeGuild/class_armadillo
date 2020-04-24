@@ -1,3 +1,8 @@
+# Lab 01 Turtle
+# Troy Fitzgerald
+#
+
+
 '''Turtle is a python module that allows us to move a virtual turtle around the screen using 
 programming statements. This turtle has a position and a heading. Below are a list of commands, 
 you can more in the turtle docs.
@@ -19,7 +24,7 @@ Use these functions to draw a stick figure with a head, body, two arms, and two 
  done, go through the examples below and create your own drawing.'''
  
 
-# imports functions from turtle.'''
+# imports functions from turtle.
 from turtle import *
 
 # sets the parameter to begin to fill the area black.
