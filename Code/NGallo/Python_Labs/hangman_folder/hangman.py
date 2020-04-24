@@ -1,7 +1,8 @@
 import random
+import string
 
-def loads_words():
-    with open ("english.txt","r") as file: # opens file, python "(r)eads" as file
+def loads_words(file_path):
+    with open (file_path, "r") as file: # opens file, python "(r)eads" as file
         words = file.read() # assigns giant string to words
     split_words = words.split('\n') # breaks up giant sting and puts them into a variable called "split words" and it is a list of strings
 
@@ -12,41 +13,84 @@ def loads_words():
     
     return words_more_five #returns an object ["word", "word", "word"] forever
 
-list_words = loads_words() # list_words = function 
+list_words = loads_words("english.txt") # list_words = function 
 
 play_word = random.choice(list_words) # chooses a random word from the list 
 
-play_word = "coding"
-# print(play_word)
-
 underscores = ['_'] * len(play_word) # this will create a list of _ the length of the play_word
-
+# underscores = ' '.join(underscores)
 turns = 0 # while turns less than 10 - this starts us at 0
+max_turns = int(len(play_word) * 1.5)
 guesses = [] # list to append user's letter guess to
 
-while turns <= 10:
+# game loop - loop until we run out of turns
+while turns <= max_turns:
+    
+    # show the user some helpful info, use join to print lists more nicely
+    print(f"you've guessed {turns} times, you have {max_turns - turns} left")
+    print(f"here are the letters you've guessed: {' '.join(guesses)}")
+    print(f"Here is the word to guess: {' '.join(underscores)}") 
 
-    print(f"you've guessed {turns} times.\n")
-    print(f"you have {10 - turns} left\n")
-    print(f"here are the letters you've guessed: {guesses}\n") # print statements for game
-    print(f"Here is the word to guess: {underscores}\n")
+    # get a letter from the user
+    guessed_letter = input("Enter a letter: ").lower()
 
-    turns += 1 # adds a turn to turns outside of loop
-    user_guess = input("Enter a letter: ")
-    guesses.append(user_guess)
-    for i in range(len(play_word)):
-        if play_word[i] == user_guess:
-            underscores = underscores.replace("_", user_guess)
+    # check if the input from the user is actually a letter
+    if guessed_letter not in string.ascii_lowercase:
+        print("I don't get that")
+        continue
+    
+    # check if the user has already guessed that letter
+    if guessed_letter in guesses:
+        print("you already guessed that")
+        continue
+    
+    # add the guessed letter to the list of previous guesses
+    guesses.append(guessed_letter)
 
-print(user_guess)
+    # check if the letter is in the chosen word
+    if guessed_letter in play_word:
+        # if it is, replace the _'s in underscores with that letter
+        for i in range(len(play_word)):
+            if play_word[i] == guessed_letter:
+                underscores[i] = guessed_letter
+    else: # if the letter is not in the chosen word
+        # increment turns
+        turns += 1
+        # check if the user lost, if so exit the loop
+        if turns == max_turns:
+            print(f"You ran out of guesses, the word was {play_word}")
+            break
+        print('the letter not in the word')
+
+    # check if we won (there are no more _ in underscores)
+    if "_" not in underscores:
+        print(f"the word was {play_word}")
+        print("YOU WON!")
+        break
+
+# play_again = input("Would you like to play again? y/n")
+    # if play_again == "y":
+        
+    # else:
+    #     print("Goodbye")
+    #     exit()
+
+
+
+
+    #boolean flag check
+    # found_letter = False
+    # for i in range(len(play_word)):
+    #     if play_word[i] == guessed_letter:
+    #         underscores[i] = guessed_letter
+    #         found_letter = True
+    # if not found_letter:
+    #     print('letter not found')
 
 # underscores = ' '.join(underscores) # this will break the letter out of the list and return a giant string of chars 
-
-
-
-# 0 1 2 3 4 5 6 7
-# d r e a d f u l
-# _ _ _ _ _ _ _ _
+# 0 1 2 3 4 5
+# c o d i n g
+# _ _ _ _ _ _
 # enter a letter: d
 # d _ _ _ d _ _ _
 
