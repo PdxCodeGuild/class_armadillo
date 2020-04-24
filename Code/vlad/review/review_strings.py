@@ -1,3 +1,7 @@
+#review string by instructor: 
+
+# strings ================================
+
 # strings ================================
 
 # s = 'I\'m a string'

@@ -3,6 +3,7 @@
 # prompts the user for a string, and encodes it with ROT13.
 #sally
 
+
 def rot13(text): # define the function
   alphabet = 'abcdefghijklmnopqrstuvwxyz' # original_list
   rot_alphabet = alphabet[13:] + alphabet[:13] #changed_list
