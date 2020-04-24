@@ -32,4 +32,3 @@ while True:
 
     # I tried a few differnt ways to have the end result print out like it did in my previous 
     # version (56.0 + 44.0 = 100) but as of now have been unsuccessful.
-    
