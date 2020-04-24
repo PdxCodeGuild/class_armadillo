@@ -17,41 +17,52 @@ list_words = loads_words("english.txt") # list_words = function
 
 play_word = random.choice(list_words) # chooses a random word from the list 
 
-# play_word = "coding"
-# print(play_word)
-
 underscores = ['_'] * len(play_word) # this will create a list of _ the length of the play_word
 # underscores = ' '.join(underscores)
 turns = 0 # while turns less than 10 - this starts us at 0
 max_turns = int(len(play_word) * 1.5)
 guesses = [] # list to append user's letter guess to
 
+# game loop - loop until we run out of turns
 while turns <= max_turns:
     
+    # show the user some helpful info, use join to print lists more nicely
     print(f"you've guessed {turns} times, you have {max_turns - turns} left")
-    print(f"here are the letters you've guessed: {' '.join(guesses)}") # print statements for game
-    print(f"Here is the word to guess: {' '.join(underscores)}")
+    print(f"here are the letters you've guessed: {' '.join(guesses)}")
+    print(f"Here is the word to guess: {' '.join(underscores)}") 
 
+    # get a letter from the user
     guessed_letter = input("Enter a letter: ").lower()
+
+    # check if the input from the user is actually a letter
     if guessed_letter not in string.ascii_lowercase:
         print("I don't get that")
         continue
     
+    # check if the user has already guessed that letter
     if guessed_letter in guesses:
         print("you already guessed that")
         continue
+    
+    # add the guessed letter to the list of previous guesses
     guesses.append(guessed_letter)
+
+    # check if the letter is in the chosen word
     if guessed_letter in play_word:
+        # if it is, replace the _'s in underscores with that letter
         for i in range(len(play_word)):
             if play_word[i] == guessed_letter:
                 underscores[i] = guessed_letter
-    else:
+    else: # if the letter is not in the chosen word
+        # increment turns
         turns += 1
+        # check if the user lost, if so exit the loop
         if turns == max_turns:
             print(f"You ran out of guesses, the word was {play_word}")
             break
         print('the letter not in the word')
 
+    # check if we won (there are no more _ in underscores)
     if "_" not in underscores:
         print(f"the word was {play_word}")
         print("YOU WON!")
@@ -67,7 +78,7 @@ while turns <= max_turns:
 
 
 
-        #boolean flag check
+    #boolean flag check
     # found_letter = False
     # for i in range(len(play_word)):
     #     if play_word[i] == guessed_letter:
