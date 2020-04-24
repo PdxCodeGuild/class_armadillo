@@ -1,5 +1,5 @@
 import requests # request package
-
+import string
 # 1.)Requesting the URL
 response = requests.get("http://www.gutenberg.org/cache/epub/5200/pg5200.txt")
 
@@ -9,29 +9,27 @@ text = response.text
 
 # 2.) To define a clean list of words within the text
 clean_list = text.split("r")
-print(clean_list[200:800])
+print(clean_list[26 : 2003])
 
-# junk_start = text.find("***")
-# print(junk_start)
-# print(text[junk_start:junk_start+100])
-# print(text[800:900])
-# clean_list2 = text.split("\n")
+for char in text:
+    if char in "1234567890-=!@#$%^&*()_+,./\|":
+        text = text.replace(char, " ")
+text = text.lower()
+
+lines = text.split("\n")
+
+word_list = text.split()
 
 #3.) To build a word count dict for the value of a word and count.
-count = {
-    "the": 10,
-    "a": 1,
-    "hello": 1,
-    "that": 2
-
-}
-# .items() returns a list of tuples
-words = list(count.items())
+count = {}
+for word in word_list:
+    if word not in count:
+        count[word] = 1   
+    else:
+        count[word] += 1
+words = list(count.items())# .items() returns a list of tuples
 print(words)
 
-# Sorts largest to smallest, based on count. 
-words.sort(key=lambda tup: tup[1], reverse = True)
-
-# print the top 10 words, or all of them, whichever is smaller
-for i in range(min(10, len(words))):
+words.sort(key=lambda tup: tup[1], reverse = True)# Sorts largest to smallest, based on count. 
+for i in range(min(10, len(words))):# print the top 10 words, or all of them, whichever is smaller
     print(words[i])

@@ -1,14 +1,28 @@
 import random
 
-print("Welcome to 8-ball")
+# Lab 4: Magic 8-Ball
 
+
+print("=======================")
+print("WELCOME TO MAGIC 8-BALL")
+print("=======================")
+print("")
+print("")
 # user name
-name = input("Enter name:")
+name = input("Please Enter Your Name: ")
+print("")
+print("")
+
 
 # lets user ask a question
-question1 = input("Ask a Question: ")
-
-#  possible answers for question
+def ask_question():
+    question1 = input(f"Hi {name}, Ask A Question: ")
+    # if user input is a numer its invalid 
+    if question1.isdigit():
+        question1 = input("You must enter a valid question: ")
+    else:
+        print(random.choice(answer))
+        
 answer = ["It is certain",
  "It may be so",
  "Without a doubt",
@@ -29,28 +43,20 @@ answer = ["It is certain",
  "Don't think so",
  "Very doubtful"]
 
-# assigned num to question1
-num = (question1)
+ask_question()
 
-# if input is a number it will not be valid
-while num.isdigit():
-    num = input("You must enter a valid question: ")
-    
-else:
-    num = (question1)
+
 
 while True:
-    num = random.choice(answer)
-    for i in range(1):
-        print(num)
     question = input("Would you like to ask again?: ")
-    if question in ["yes", "yeah", "sure", "ya"]:
-            question1 = input("Ask a Question: ")
-            num = random.choice(answer)
-            for i in range(1):
-                print(num)
-                continue
-    elif question not in ["yes", "yeah", "sure", "ya"]:
+    if question in ["yes", "yeah", "sure", "ya", "y"]:
+            question = input("Ask Away: ")
+            print(random.choice(answer))
+            continue
 
+
+    else:
         print("Thanks for playing goodbye!!")
         break
+    
+

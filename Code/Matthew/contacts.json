@@ -1,40 +1,22 @@
 {
     "contacts": [
         {
+            "name": "Joe",
             "age": 34,
             "email": "joe@email.com",
-            "favorite color": "blue",
-            "name": "Joe"
+            "favorite color": "blue"
         },
         {
+            "name": "Jane",
             "age": 43,
             "email": "jane@email.com",
-            "favorite color": "green",
-            "name": "Jane"
+            "favorite color": "green"
         },
         {
+            "name": "Jill",
             "age": 65,
             "email": "jill@email.com",
-            "favorite color": "orange",
-            "name": "Jill"
-        },
-        {
-            "age": 78,
-            "email": "james@bond.com",
-            "favorite color": "red",
-            "name": "James Bond"
-        },
-        {
-            "age": 45,
-            "email": "jenny@gmail.com",
-            "favorite color": "magenta",
-            "name": "Jenny"
-        },
-        {
-            "age": 456,
-            "email": "james@email.com",
-            "favorite color": "beige",
-            "name": "James Dond"
+            "favorite color": "orange"
         }
     ]
 }

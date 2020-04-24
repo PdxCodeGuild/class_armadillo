@@ -1,23 +1,27 @@
-num65 = D
-num76 = C
+# Lab 03
 
-if num65 < num76
-    print ("This is pretty difficult")
-elif num65==D:
-    print ("blah")
+# mistakes caught: undefined variable, if/elif indentation
+# 
+# Have the user enter a number representing the grade (0-100)
+# Convert the number grade to a letter grade
+# 
+letter_grade = int(input("Enter a number representing the grade (0-100): "))
+print(letter_grade)
 
-lol
+# The if..else statement evaluates test expression and 
+# will execute the body of if only when the test condition 
+# is True . If the condition is False , the body of else is 
+# executed. Indentation is used to separate the blocks
 
 
-Grading lab
 
-
-num1 = 90
-num2 = 70
-
-if num1 > num 2:
-    print("This is awesome")
-elif num2 == 70:
-    print("This is true")
-elif num1 ==90:
-    print("This is also true")   
+if letter_grade >= 90 and letter_grade <= 100: 
+    print("A Well done!")
+elif letter_grade >= 80 and letter_grade <= 89: 
+    print("B Good job!")
+elif letter_grade >= 70 and letter_grade <= 79:
+    print("C Not bad")
+elif letter_grade >= 60 and letter_grade <= 69:
+    print("D")
+else:
+    print("F")
