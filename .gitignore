@@ -6,7 +6,16 @@ secrets.py
 local_settings.py
 local_settings.js
 
+
+
+
 .DS_Store
+
+
+
+
+
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
