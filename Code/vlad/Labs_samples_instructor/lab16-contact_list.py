@@ -1,4 +1,4 @@
-
+#lab16-contact_list by the instructor 
 
 import json
 
@@ -110,5 +110,3 @@ while True:
 text = json.dumps({'contacts': contacts}, indent=4)
 with open('contacts.json', 'w') as file:
   file.write(text)
-
-

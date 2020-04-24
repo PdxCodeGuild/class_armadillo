@@ -1,4 +1,10 @@
-'''Let's convert a number grade to a letter grade, using if and elif statements and comparisons.
+# Lab 03 Grading
+# Troy Fitzgerald
+#
+
+
+'''Let's convert a number grade to a letter grade, using if and elif statements and 
+comparisons.
 
 Instructions:
 
@@ -26,6 +32,6 @@ elif num >= 70 and num <= 79:
 elif num >= 60 and num <= 69:
     print("D, try harder.")
 elif num >= 0 and num <= 59:
-    print("Then you get an F.  You failed and may God have mercy on your soul.")
+    print("You get an F.  You have failed and may God have mercy on your soul.")
 
 

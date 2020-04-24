@@ -235,5 +235,174 @@ for letter in letters[1:6]:
 
 
 
+# functions ==========================================================
+
+# functions allow you to re-use code, write them once, call them multiple times
+# functions should be self-contained
+#   not refer to any external variables
+#   they should only operate on the parameters that are given
+#   return instead of print
+#   this helps avoid side-effects, which makes code less predictable
+
+
+def min(a, b):
+  if a < b:
+    return a
+  return b
+
+
+def print_contacts(contacts):
+  for contact in contacts:
+    print(contact)
+contacts = ['joe', 'jim', 'jane', 'jill']
+print_contacts(contacts)
+
+
+# get a list of ints from the user
+def get_nums():
+  numbers = []
+  while True:
+    num = input('enter a number or \'done\': ')
+    if num == 'done':
+      break
+    numbers.append(int(num))
+  return numbers
+
+# print(get_nums())
+# print(get_nums())
+
+
+
+
+
+
+def add(a, b):
+  print(a + b)
+c = add(5, 2)
+print(c)
+
+
+def add(a, b):
+  return a + b
+print(add(5, 2))
+c = add(5, 2)
+c += 1
+with open('myfile.txt', 'w') as file:
+  file.write(str(c))
+
+
+
+
+
+
+# dictionaries =======================================================
+# a collection key-value pairs
+
+# dictionaries
+# keys can be any immutible type - bools, int, float, string, tuples
+# values can be any type
+
+prices = {
+  'apples': 1.0,
+  'bananas': 1.5,
+  'pineapple': 3.0
+}
+# get a value from a dictionary using the key
+print(prices['apples']) # 1.0
+# changing the value of a dictionary using a key
+prices['apples'] = 5
+prices['apples'] += 1
+print(prices['apples']) # 6
+# if a dictionary does not have the key it'll crash
+# print(prices['cherries']) # KeyError: 'cherries'
+# checking if the dictionary has the key
+if 'cherries' in prices: # if prices contains the key 'cherries'  
+  print(prices['cherries'])
+
+# get the value if it's in the dictionary
+# or the specified default if it's not
+price_cherries = prices.get('cherries', 3.5)
+
+
+# using del to remove an element from a list
+letters = ['a', 'b', 'c', 'd']
+del letters[0]
+print(letters) # ['b', 'c', 'd']
+
+# using del to remove a key-value pair from a dictionary
+prices = {'apples': 1.0, 'bananas': 1.5, 'pineapple': 3.0}
+del prices['apples']
+print(prices)
+
+# using pop to remove a key-value pair to a dictionary
+prices = {'apples': 1.0, 'bananas': 1.5, 'pineapple': 3.0}
+print(prices.pop('apples'))
+print(prices)
+# specify a default to return if the key isn't found in the dictionary
+print(prices.pop('apples', 1.0))
+print(prices)
+
+
+
+# iterables
+# range, list, tuple, dict, list_reverseiterator, dict_keys, dict_values, dict_items
+
+# for num in reversed([1, 2, 3]):
+#   print(num) # 3, 2, 1
+
+# x = reversed([1, 2, 3])
+# print(x)
+# print(type(x))
+
+prices = {'apples': 1.0, 'bananas': 1.5, 'pineapple': 3.0}
+print(list(prices.keys())) # ['apples', 'bananas', 'pineapple']
+print(list(prices.values())) # [1.0, 1.5, 3.0]
+print(prices.items()) # [('apples', 1.0), ('bananas', 1.5), ('pineapple', 3.0)]
+
+# iterate over the keys of a dictionary
+for key in prices:
+  print(key, prices[key]) # using the key to access the value
+# iterate over the values directly
+for value in prices.values():
+  print(value)
+# iterate over the keys and values simultaneously
+for key, value in prices.items():
+  print(key, value)
+
+
+
+# find the key for a given value
+# value = 1.5
+# for key in prices:
+#   if prices[key] == value:
+#     print(key)
+
+
+# add all the key-value pairs from the given dictionary
+# equivalent to list.extend()
+prices.update({
+  'cherries': 1.12
+})
+print(prices) # {'apples': 1.0, 'bananas': 1.5, 'pineapple': 3.0, 'cherries': 1.12}
+
+
+
+prices = {'apples': 1.0, 'bananas': 1.5, 'pineapple': 3.0}
+price = prices.setdefault('cherries', 5.0)
+print(price) # 5.0
+print(prices) # {'apples': 1.0, 'bananas': 1.5, 'pineapple': 3.0, 'cherries': 5}
+price = prices.setdefault('bananas', 5.0)
+# if 'bananas' not in prices:
+#   prices['bananas'] = 5.0
+# price = prices['bananas']
+print(price)
+print(prices)
+
+
+
+
+
+
+
 
 
