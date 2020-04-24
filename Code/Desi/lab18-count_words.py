@@ -5,36 +5,39 @@ import requests
 
 response = requests.get('http://www.gutenberg.org/cache/epub/23540/pg23540.txt')
 text = response.text
-print(text)
+# print(text)
 
+# lines =  text.split('\r')
+# paragraph = lines[200:800]
+# print(paragraph)
 
+# ===============================================================================
 
-
-
-# Make everything lowercase.
+# 2. Make everything lowercase.
 # Python3 program to show the 
 # working of lower() function 
-
 # string1 = ("It was not so with thoughtful Milly she snuggled down on the piazza beside Julia, and looked on quietly")
-
-# text = 'It was not so with thoughtful Milly she snuggled down on the piazza beside Julia, and looked on quietly'
-  
-# print("Original String:") 
-# print(text) 
-  
-# # lower() function to convert  
-# # string to lower_case 
+# lower() function to convert  
+#  string to lower_case 
+# print("Original String")
+# print(string1)
 # print("\nConverted String:") 
-# print(text.lower()) 
+# print(string1.lower()) 
 
-
-
-
+#  =============================================================================================================================
+# 3. strip punctuation
+# string2 = ('It was not so with thoughtful Milly she snuggled down on the piazza beside Julia, and looked on quietly')
+  
 # # strip punctuation
-# string1 = string1.lower()
-# x = string1.replace("a", "")
+# string2 = string2.lower()
+# x = string2.replace("o", "")
 # print(x)
  
+
+# ==========================================================
+
+# 4. split into a list of words
+
 
 
 
@@ -47,14 +50,19 @@ print(text)
 # print(x)
 
 
+#=================================================================================
+
+# 3A. Your dictionary will have words as `keys` and counts as `values`.
 
 
-# 3. Your dictionary will have words as `keys` and counts as `values`.
+# book_text = ("Hurrah!" said the leader again, Major Patten, swinging his tall fur
+# cap, which was the pride of the whole company; "hurrah for the boy that
+# risked his life to save a drowning baby!")
 
 
-book_text = ("Hurrah!" said the leader again, Major Patten, swinging his tall fur
-cap, which was the pride of the whole company; "hurrah for the boy that
-risked his life to save a drowning baby!")
+# word_dict is a dictionary where the key is the word and the value is the count
+words = list(word_dict.items()) # .items() 
+
 
 # book_text = {
 
@@ -119,19 +127,19 @@ risked his life to save a drowning baby!")
 
 
 
-# 3) build up word_counts, a dictionary where the key is the word and the value is the count
+#3) build up word_counts, a dictionary where the key is the word and the value is the count
 
-# word_counts = {
-#   'the': 10,
-#   'a': 1,
-#   'hello': 1,
-#   'that': 2
-# }
+word_counts = {
+  'the': 10,
+  'a': 1,
+  'hello': 1,
+  'that': 2
+}
 
 
 
-# words = list(word_counts.items()) # .items() returns a list of tuples
-# print(words)
-# words.sort(key=lambda tup: tup[1], reverse=True)  # sort largest to smallest, based on count
-# for i in range(min(10, len(words))):  # print the top 10 words, or all of them, whichever is smaller
-#   print(words[i])
+words = list(word_counts.items()) # .items() returns a list of tuples
+print(words)
+words.sort(key=lambda tup: tup[1], reverse=True)  # sort largest to smallest, based on count
+for i in range(min(10, len(words))):  # print the top 10 words, or all of them, whichever is smaller
+  print(words[i])
