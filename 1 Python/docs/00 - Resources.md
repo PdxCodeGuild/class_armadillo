@@ -3,6 +3,19 @@
 
 # Resources
 
+## Practice Problems
+
+- [Codecademy - Python](https://www.codecademy.com/learn/learn-python-3)
+- [codewars.com](https://www.codewars.com/?language=python)
+- [CodingBat](https://codingbat.com/python)
+- [Py](https://www.downloadpy.com/): an app for Android and iOS
+- [practicepython.org](http://www.practicepython.org/)
+- [codingbat.com exercises](http://codingbat.com/python)
+- [w3resource.com exercises](http://www.w3resource.com/python-exercises/)
+
+## Courses / Online Books
+
+- [thinkcspy](https://runestone.academy/runestone/books/published/thinkcspy/index.html)
 
 ## Lists of Resources
 
@@ -16,12 +29,11 @@
 
 ## Online Courses
 
-- [Codecademy - Python](https://www.codecademy.com/learn/learn-python)
-- [Google for Education - Python](https://developers.google.com/edu/python/)
+
 - [learnpython.org](https://www.learnpython.org)
 - [tutsplus.com](https://code.tutsplus.com/articles/the-best-way-to-learn-python--net-26288)
 - [Learn Python the Hard Way](https://learnpythonthehardway.org/book/)
-- [codewars.com](https://www.codewars.com/?language=python)
+- [Google for Education - Python (2.7)](https://developers.google.com/edu/python/)
 - [rmotr.com](https://rmotr.com/) (not free)
 - [datacamp.com](https://www.datacamp.com/) (not free)
 
@@ -41,9 +53,6 @@
 
 ## Practice Problems
 
-- [Py](https://www.downloadpy.com/): an app for Android and iOS
-- [practicepython.org](http://www.practicepython.org/)
-- [codingbat.com exercises](http://codingbat.com/python)
-- [w3resource.com exercises](http://www.w3resource.com/python-exercises/)
+
 
 
