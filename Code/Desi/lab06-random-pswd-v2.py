@@ -5,6 +5,7 @@ import string
 import random
 
 
+#Keeps the question going
 while True:
     # this is a yes/no question for user
     user = input("can you help me generate a password with random characters? y/n: ")
