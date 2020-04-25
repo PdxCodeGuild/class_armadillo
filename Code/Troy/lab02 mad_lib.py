@@ -1,3 +1,7 @@
+# Lab 02 Mad Libs
+# Troy Fitzgerald
+#
+
 '''Write a simple program that prompts the user for several inputs then prints a Mad Lib as the 
 result.
 
@@ -27,7 +31,7 @@ __________________ and because they have to work__________________
 hours every day all year making enough __________________ to pay 
 for the vacation.'''
 
-# allows a delay to be placed withing the code.
+# imports module.
 import time
 
 # assigns the user answer when prompted. 
