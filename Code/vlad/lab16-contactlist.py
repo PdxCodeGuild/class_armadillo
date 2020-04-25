@@ -92,7 +92,7 @@ while True:
                 print_contact(contact)
             found_it = True 
         if contact not in contacts:
-                print('Sorry no contact found try different name')
+                print('Sorry no contact found try different name')#this line is not printing?
 
     elif command == 'update':
         """
