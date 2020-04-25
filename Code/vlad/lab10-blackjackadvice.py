@@ -1,7 +1,7 @@
-#Lab 10: Blackjack Advice!
+#Lab 10: Blackjack Advice!!
 
 
-# Building deck using STRINGS as keys, so we can us user_input as the key to access the card values. deck[user_input]
+# Building deck using STRINGS as keys, so we can use the user_input as the key to access the card values. deck[user_input]
 deck = {
     # key: value
     'A': 1,
@@ -17,7 +17,7 @@ deck = {
     'Q': 10,
     'K': 10,
 }
-hand = [] # Initializing empty deck to add to
+hand = [] # Initializing empty deck to add to choices
 for i in range(3): # making a for loop to just loop the content within by setting the range to 3
     user_input = input('What card do you want?: ') # Asking the user for a card and looping
     hand.append(deck[user_input]) # getting the card value, then appending that card to the empty list

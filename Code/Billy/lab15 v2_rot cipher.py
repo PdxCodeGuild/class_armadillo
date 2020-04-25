@@ -1,13 +1,18 @@
-# ascii method
+# ascii method (www.asciitable.com)
 def rotn(text, num): # includes rotation input, negative number for reverse
     output = '' # makes empty output list
     for x in text: # iterates through input one character(chr)(char) at a time
-        ascii_code = ord(x) # changes chr to ascii
-        ascii_code -= 97 #lower case, starts sequence at 0
-        output += chr((ascii_code + num)%26 + 97) # rotates, shifts, changes ascii to chr, adds to ouput variable       
+        ascii_code = ord(x) # changes char to ascii
+        if 97 <= ascii_code <= 122: # lower case
+            ascii_code -= 97 # starts sequence at 0
+            output += chr((ascii_code + num)%26 + 97) 
+            # rotates, shifts, changes ascii to chr, adds to ouput variable
+        else:
+            output += chr(ascii_code)
+            print(f'\n\'{x}\' is an invalid entry...cannot encrypt that character.') # input validation     
     return output
 
-print(rotn('hello', 13)) # uryyb
+# print(rotn('hello', 13)) # uryyb
 print(rotn('hello', 14)) # vszzc
 
 

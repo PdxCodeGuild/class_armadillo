@@ -1,4 +1,5 @@
 #Practice Problems: Lists on April 15, 2020
+# Good set of problems combining list
 
 
 """"
@@ -14,7 +15,8 @@ def reverse(nums):
 # print(reverse([1, 2, 3])) # 3, 2, 1
 
 # Problem 6
-# Write a function to move all the elements of a list with value less than 10 to a new list and return it.
+# Write a function to move all the elements of a list with value less 
+# than 10 to a new list and return it.
 def extract_less_than_ten(nums):
     new_list = []
 
@@ -23,6 +25,7 @@ def extract_less_than_ten(nums):
             new_list.append(num)
     return new_list
 # print(extract_less_than_ten([2, 8, 12, 18])) # [2, 8]
+
 
 # Problem 7
 # Write a function to find all common elements between two lists.

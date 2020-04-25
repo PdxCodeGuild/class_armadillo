@@ -1,4 +1,5 @@
 
+# Lab 3: Grading
 
 
 # this is what number you want to switch to a letter grade

@@ -15,30 +15,32 @@ scissors vs rock
 scissors vs paper
 scissors vs scissors (tie)'''
 
+# imports modules.
 import random
 import time 
 
+# defines choice in a list.
 choice = ["rock", "paper", "scissors"]
 
-print("Want to throw hands?")
-
+# starts loop to play the game.
 while True:
-    #print("Wanna run it again? ")  
+# begins the game.   
+    print("Want to throw hands?")
+      
     user_move = input("Enter 'y' for yes and 'n' for no: ")
-
+# defines choices to play or quit the game.    
     if user_move == 'y':
         user_move = input("Ah snap, here we go...I choose... ")
-
     elif user_move == 'n':
         print("Keep movin fool!")
         quit()
-
+# chooses the computer choice randomly and prints it.
     computer = random.choice(choice)
-
     print(computer)
 
+# defines the scenarios for the game.  
     if user_move == "rock" and computer == "paper":
-        print("Damn, you win!  Paper covers rock.")
+        print("Damn, you win!  Paper covers rock.")        
     elif user_move == "rock" and computer == "scissors":
         print("Boom! You lose Sucka!  Rock smashes scissors.")
     elif user_move == "rock" and computer == "rock":
@@ -55,4 +57,5 @@ while True:
         print("Boom! You lose Sucka!  Scissors cut paper.")
     elif user_move == "paper" and computer == "paper":
         print("Crapsticks! It is a tie!")
-    
+    elif user_move == computer:
+        print("Crapsticks! It is a tie!")
