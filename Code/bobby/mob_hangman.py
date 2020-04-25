@@ -1,7 +1,3 @@
-#Lab: Hangman mob group programming: 
-
-
-
 import random
 """
 Write a function called load_words(path) which reads the text from the file and returns a list of strings which are greater than 5 letters.
@@ -18,7 +14,7 @@ def load_words(path):
             list_of_long_words.append(word) #append it to list_of_long_words
     return list_of_long_words # return a list of strings greater than 5 letters
 
-path = 'english.txt' # path to folder from my python/ directory (may be different for some students)
+path = 'C:/Users/kickass laptop/Documents/GitHub/class_armadillo/Code/bobby/english.txt' # path to folder from my python/ directory (may be different for some students)
 
 hangman_words = load_words(path)
 
