@@ -1,9 +1,9 @@
-import math
-import time
+
+
 
 #variable setting
 
-
+# dictionary with keys and values for unit of measurements
 conversions = {
     "ft": .3048,
     "m": 1,
@@ -15,13 +15,24 @@ conversions = {
 }
 
 
+# asking user to provide a unit
 unit1 = input("Which unit would you like to convert from: ")
+# asking user to provide a unit for which we can convert
 unit2 = input("Which unit would you like to convert to: ")
+
+# asking the user to provide an integer
 num = float(input("Enter your value: " ))
 
+# the integer the user provided multiplied by the value in the dictionary.
 calculations = num * conversions[unit1]
+
+# the product of calculations divided the value in the dictionary.
 calculation2 = calculations/conversions[unit2]
+
+# formatted string
 result = f'{num} {unit1} is equal to {calculations}{unit2}'
+
+
 print("\n")
 print(result)
 
