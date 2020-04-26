@@ -1,3 +1,7 @@
+# Lab 07 Rock, Paper, Scissors
+# Troy Fitzgerald
+
+
 '''Let's play rock-paper-scissors with the computer.
 
 The computer will ask the user for their choice (rock, paper, scissors)
@@ -17,28 +21,27 @@ scissors vs scissors (tie)'''
 
 # imports modules.
 import random
-import time 
+import time
 
 # defines choice in a list.
 choice = ["rock", "paper", "scissors"]
 
 # starts loop to play the game.
 while True:
-# begins the game.   
+    # begins the game.   
     print("Want to throw hands?")
-      
+    # has user enter their response to play.      
     user_move = input("Enter 'y' for yes and 'n' for no: ")
-# defines choices to play or quit the game.    
+    # defines choices to play or quit the game.    
     if user_move == 'y':
         user_move = input("Ah snap, here we go...I choose... ")
     elif user_move == 'n':
         print("Keep movin fool!")
         quit()
-# chooses the computer choice randomly and prints it.
+    # chooses the computer choice randomly and prints it.
     computer = random.choice(choice)
     print(computer)
-
-# defines the scenarios for the game.  
+    # defines the scenarios for the game.  
     if user_move == "rock" and computer == "paper":
         print("Damn, you win!  Paper covers rock.")        
     elif user_move == "rock" and computer == "scissors":
@@ -59,3 +62,5 @@ while True:
         print("Crapsticks! It is a tie!")
     elif user_move == computer:
         print("Crapsticks! It is a tie!")
+    # gives a time lapse before starting the sequence over.
+    time.sleep(2)
