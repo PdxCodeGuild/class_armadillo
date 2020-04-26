@@ -51,7 +51,9 @@ def game_turn(random_word, guesses, already_guessed, user_wins):
     print("You've already guessed:")
     print(already_guessed)
 
+    """We can print inside a function, we can also take inputs."""
     guess = input("Guess a letter: ").lower()
+    """This guess variable will only exist inside this function."""
 
     if guess in already_guessed:
         print(f"You've already guessed {guess}.")
