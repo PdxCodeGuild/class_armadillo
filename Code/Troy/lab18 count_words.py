@@ -1,6 +1,6 @@
 # Lab 18 Count Words
 # Troy Fitzgerald
-# 22 April 2020
+
 
 '''Let's write a python module to analyze a given text file containing a book 
 for its vocabulary frequency and display the most frequent words to the user in 
@@ -35,6 +35,7 @@ def count_words():
     book = badger_book.text.lower().split()
     # strips the book of punctuation.
     punctuation = '*,.;!&%$?"()[]0123456789#/'
+    # loops over the length of the book and strips punctions.
     for i in range(len(book)):
         book[i] = book[i].strip(punctuation)
     # creates the dictionary.

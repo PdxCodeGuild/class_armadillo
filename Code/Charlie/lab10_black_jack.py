@@ -33,6 +33,7 @@ card_3 = input('Whats your third card? ')
 
 
 sum_1 = (cards[card_1][0] + cards[card_2][0] + cards[card_3][0])
+
 sum_2 = (cards[card_1][1] + cards[card_2][1] + cards[card_3][1])
 
 if sum_1 < 17:
