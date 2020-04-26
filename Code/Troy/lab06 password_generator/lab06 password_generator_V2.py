@@ -1,3 +1,6 @@
+# Lab 06 Password Generator
+# Troy Fitzgerald
+
 '''Version 2
 Allow the user to enter the value of n, remember to convert its type to an int, as input returns a string.'''
 
@@ -16,9 +19,11 @@ number = int(number)
 length = input('How long would you like your password to be? - ')
 length = int(length)
 
-# # runs loop over alphabet and chooses random characters based on the input assigned.
+print('\nHere are your password(s): ')
+
+# runs loop over alphabet and chooses random characters based on the input assigned.
 for p in range(number): 
     password = ''
     for c in range(length):
-        password = random.choice(alphabet)
-        print(password, end='')
+        password += random.choice(alphabet)
+    print(password)

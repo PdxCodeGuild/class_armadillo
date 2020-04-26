@@ -1,20 +1,37 @@
 #Lab 15: ROT Cipher Version 1
 
 
+
+
 alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-index =    ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25']
-rot13 =    ['n','o','p','q','r','s','t','u','v','w','x','y','z','a','b','c','d','e','f','g','h','i','j','k','l','m']
+#index =    ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25']
+#rot13 =    ['n','o','p','q','r','s','t','u','v','w','x','y','z','a','b','c','d','e','f','g','h','i','j','k','l','m']
+rot13 = alphabet[13:] + alphabet[:13] # this is call slice  - this line is doing the same thing that line is doing 
+#print(rot13) # ['n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm']
 user_input = input('Enter any word: ')
-word = ''
-print(alphabet.index('c'))
-print(rot13[4])
+word = " " #'uryyb'
+# print(alphabet.index('c'))
+# print(rot13[4])
 for letter in user_input:  
-    index_letter = alphabet.index(letter)
+    index_letter = alphabet.index(letter) # .index function searches the list alphabet for the letter, and returns letters index. .INDEX will return the number 
     word += rot13[index_letter]
     print(index_letter)
     print(rot13[index_letter])
 print(word)
-
+"""
+Enter any word: hello
+7
+u
+4
+r
+11
+y
+11
+y
+14
+b
+uryyb
+"""
 
 # Index	0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20	21	22	23	24	25
 # English	a	b	c	d	e	f	g	h	i	j	k	l	m	n	o	p	q	r	s	t	u	v	w	x	y	z

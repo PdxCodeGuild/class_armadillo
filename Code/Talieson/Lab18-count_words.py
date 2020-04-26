@@ -1,5 +1,8 @@
 import requests
 
+# Lab 18 takes in a raw text version of The Brothers Grimm Fairy Tales
+# and returns a list of the top 10 most common words found inside.
+
 # Request the book from gutenberg.
 response = requests.get("https://www.gutenberg.org/files/2591/2591-0.txt")
 

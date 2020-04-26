@@ -1,3 +1,6 @@
+# Lab 06 Password Generator
+# Troy Fitzgerald
+
 '''Let's generate a password of length n using a while loop and random.choice, 
 this will be a string of random characters.
 
@@ -14,7 +17,6 @@ Allow the user to enter the value of n, remember to convert its type, as input r
 
 # imports the module.
 import random
-import time
 import string
 
 # assigns the functions to alphabet. 
