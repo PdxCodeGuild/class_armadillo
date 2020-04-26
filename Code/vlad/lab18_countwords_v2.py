@@ -51,7 +51,7 @@ def convert(string):
     list1 = string.split()
     return list1
 # str1 = text
-print(convert(translated))
+#print(convert(translated))
 
 list_of_words = convert(translated)
 
@@ -75,7 +75,9 @@ list_of_words = convert(translated)
 # å
 
 # initialize empty dictionary
-new_dict = dict ()
+#new_dict = dict () 
+# new_dict = dict()
+new_dict = {}
 
 # loop over convert(translated) checking each word convert(translated)
 
@@ -89,12 +91,12 @@ new_dict = dict ()
 # then print the top 10 most common pairs with their counts.
 
 for i, word in enumerate(list_of_words): 
-        print(i,word)
+        #print(i,word)
         if i >= len(list_of_words)-1:
             break
             
         next_word = list_of_words[i+1]
-        word_plus_one = f'{word} {next_word}'
+        word_plus_one = f'{word} {next_word}' # we are turning it into a string
         # Check if the word is already in dictionary 
         if word_plus_one in new_dict: 
             # Increment count of word by 1 if the word is already in the dictionary
@@ -102,15 +104,15 @@ for i, word in enumerate(list_of_words):
         else: 
             # Add the word_plus_one to dictionary with count 1 if the word_plus_one is not in the dictionary
             new_dict[word_plus_one] = 1
-print(list_of_words[4467])
-print(new_dict) 
+# print(list_of_words[4467])
+# print(new_dict) 
 #Print the contents of dictionary 
 # for key in list(new_dict.keys()): 
 #    print(key, ":", new_dict[key]) 
 
 # word_dict is a dictionary where the key is the word and the value is the count
 words = list(new_dict.items()) # .items() returns a list of tuples
-print(words)
+#print(words)
 words.sort(key=lambda tup: tup[1], reverse=True)  # sort largest to smallest, based on count
 for i in range(min(10, len(words))):  # print the top 10 words, or all of them, whichever is smaller
     print(words[i])
