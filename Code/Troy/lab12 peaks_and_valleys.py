@@ -1,3 +1,6 @@
+# Lab 12 Peaks and Valleys
+# Troy Fitzgerald
+
 '''Define the following functions:
 
 peaks - Returns the indices of peaks. A peak has a lower number on both the left and the right.
@@ -31,15 +34,17 @@ Example I/O:
 [6, 9, 14, 17]'''
 
 '''Version 1'''
-# imports module
+# imports the module.
 import random
 
-#data for determining peaks and valleys.
+# data in a list for determining peaks and valleys.
 data = [1,2,3,4,5,6,7,6,5,4,5,6,7,8,9,8,7,6,7,8,9]
 
-# defines finding the peak indices.
+# defines the function. 
 def find_peaks(data):
+    # blank list.
     peak = []
+    # for loop for going over the indices for peaks.
     for i in range(1, len(data)-1): 
         left_limit = data[i-1]
         middle_point = data[i]
@@ -50,9 +55,11 @@ def find_peaks(data):
 print(find_peaks(data))
 
 
-# defines finding the valley indices.
+# defines the function.
 def find_valleys(data):
+    # blank list.
     valley = []
+    # for loop for going over the indices for valleys.
     for i in range(1, len(data)-1):
         left_limit = data[i-1]
         middle_point = data[i]
@@ -62,11 +69,11 @@ def find_valleys(data):
     return valley
 print(find_valleys(data))
 
-# defines combining the peaks and valleys indices.
+# defines function for combining the peaks and valleys indices.
 def peaks_and_valleys(peaks, valleys):
     
     print(peaks + valleys)
-    
+# combines function results in a list.    
 peaks_and_valleys(find_peaks(data), find_valleys(data))
 
 

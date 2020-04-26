@@ -1,6 +1,6 @@
 # Lab 13 Simple Calculator
 # Troy Fitzgerald
-#
+
 
 '''Let's write a simple REPL (read evaluate print loop) calculator 
 that can handle addition, subtraction, multiplication, and division. 

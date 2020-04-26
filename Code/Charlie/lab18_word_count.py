@@ -69,7 +69,6 @@ for word in words:
 # 3) build up word_counts, a dictionary where the key is the word and the value is the count
 
 
-
 words = list(word_counts.items())
 words.sort(key=lambda tup: tup[1], reverse=True)
 for i in range(min(10, len(words))):
