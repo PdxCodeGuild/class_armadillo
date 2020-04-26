@@ -1,3 +1,4 @@
+# created myriad functions in order to have practice with the concept
 import requests
 import time
 import string
