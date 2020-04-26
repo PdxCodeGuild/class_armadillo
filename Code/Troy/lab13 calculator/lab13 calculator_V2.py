@@ -1,6 +1,6 @@
 # Lab 13 Simple Calculator
 # Troy Fitzgerald
-# 
+ 
 
 '''Version 2'''
 '''Allow the user to have a running value, each command will 
