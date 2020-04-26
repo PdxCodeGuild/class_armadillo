@@ -29,28 +29,27 @@ Version 3 ==================================================================
 
 """
 
-import time
+import time # time dalays are just my preferance
 
 
 distances = {'feet': 0.3048, 'miles': 1609, 'kilometers': 1000, 'yards': 0.9144, 'inches': 0.0254}
-
+#print(distances) 
 
 print("Let's talk about converting a number between units... ")
 
 time.sleep(1)
-
 while True:
 
-  print("Which unit would you like to convert to meters? ")
+  # V2 - Allow the user to also enter the units; feet, miles, meters, and kilometers
+  print("Which unit would you like to convert to meters? ") 
 
   time.sleep(1)
-
-  units = input(str("Your options are feet, miles, kilometers, yards, or inches. Or enter done to quit "))
+  units = input(str("Your options are feet, miles, kilometers, yards, or inches. Or enter done to quit ")).lower 
 
   time.sleep(1)
-
   print(f"You chose: {units}")
 
+# V2 - Depending on the units, convert the distance into meters. 
   if units == 'feet' or 'ft':
     
     time.sleep(1)
@@ -59,7 +58,7 @@ while True:
     meters = feet*0.3048
 
     time.sleep(1)
-    print(f"{feet} feet is equivalent to {meters} meters")
+    print(f"{feet} feet is equivalent to {meters} meters. ")
     break
 
   elif units == 'miles' or 'mi':
@@ -70,8 +69,7 @@ while True:
     meters = miles*1609.34
 
     time.sleep(1)
-    print(f"{miles} miles are equivalent to {meters} meters")
-    
+    print(f"{miles} miles are equivalent to {meters} meters. ")   
     break
 
   elif units == 'kilometers' or 'km':
@@ -82,8 +80,7 @@ while True:
     meters = kilometers*1000
 
     time.sleep(1)
-    print(f"{kilometers} kilometers are equivalent to {meters} meters")
-
+    print(f"{kilometers} kilometers are equivalent to {meters} meters. ")
     break
 
   elif units == 'yards' or 'yd':
@@ -94,10 +91,10 @@ while True:
     meters = yards/1.0936
 
     time.sleep(1)
-    print(f"{yards} yards are equivalent to {meters} meters")
-
+    print(f"{yards} yards are equivalent to {meters} meters. ")
     break
 
+  # V3 - Add support for yards, and inches. 
   elif units == 'inches':
     
     time.sleep(1)
@@ -106,8 +103,7 @@ while True:
     meters = inches/39.37
 
     time.sleep(1)
-    print(f"{inches} inches are equivalent to {meters} meters")
-
+    print(f"{inches} inches are equivalent to {meters} meters. ")
     break
 
   elif units == 'exit' or 'done':
