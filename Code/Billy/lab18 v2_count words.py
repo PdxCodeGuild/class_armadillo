@@ -84,7 +84,7 @@ def pair_shift(clean_text): # pairing of words begins with second word of text
 
 # 3. Build up word_counts (a dictionary where the key is the word and the value is the count)
 
-def make_dictionary(clean_text):
+def make_dictionary(clean_text): # makes dictionary of single word counts
     word_counts = {} # dictionary for capturing entries generated below
     for word in clean_text: # iterates each of the words in cleaned text
         if word in word_counts: # if word is already in dictionary, it increments count
@@ -93,7 +93,7 @@ def make_dictionary(clean_text):
             word_counts[word] = 1  
     return word_counts # returns dictionary with clean words and their counts
 
-def make_pair_dictionary(paired_text_noshift, paired_text_shift):
+def make_pair_dictionary(paired_text_noshift, paired_text_shift): # combines 2 sets of word pair counts into single dictionary
     word_counts = {} # dictionary for capturing entries generated below
     for pair in paired_text_noshift: # iterates each of the word pairs in the list
         if pair in word_counts: # if pair is already in dictionary, it increments count
@@ -142,6 +142,7 @@ def word_accountant_word():
     top_list = top_words(word_counts)
     print_list(top_list)
 
+
 def word_accountant_pairs(): 
     book = book_selection(book_number)
     text = book_text(book)
@@ -153,7 +154,7 @@ def word_accountant_pairs():
     print_list(top_list)
 
 
-# main program that includes input validation and selections the proper functions as determined by user input
+# main program that includes input validation and selects the proper functions as determined by user input
 while True:
     book_number = input('Please enter your book selection (1, 2, or 3): ') # input into book_selection() function to select dictionary entry    
     if book_number not in '1, 2, 3': # input validation using string
