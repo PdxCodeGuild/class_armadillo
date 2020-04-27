@@ -21,7 +21,7 @@ print(Fore.RESET + f'\n\nAVAILABLE BOOKS:\n1. {books[1]}\n2. {books[2]}\n3. {boo
 
 time.sleep(1)
 
-print('\n\nAVAILABLE FUNCTIONS:\nA. Words\nB. Word Pairs')
+print('\n\nAVAILABLE FUNCTIONS:\nA. Words\nB. Word Pairs\n')
 
 time.sleep(1)
 
@@ -154,10 +154,11 @@ def word_accountant_pairs():
 
 
 while True:
-    book_number = int(input('\nPlease enter your book selection (1, 2, or 3): ')) # input into book_selection() function to select dictionary entry    
-    if book_number not in [1, 2, 3]:
+    book_number = input('Please enter your book selection (1, 2, or 3): ') # input into book_selection() function to select dictionary entry    
+    if book_number not in '1, 2, 3':
         print(Fore.RED + 'Invalid entry!' + Fore.RESET)
     else: 
+        book_number = int(book_number)
         break    
 while True:        
     function = input('Please enter the count function (A or B): ').lower()      
