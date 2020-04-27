@@ -16,7 +16,7 @@ text = response.text
 text = text[text.find("Chapter I. Into the Primitive"):text.find("End of the Project Gutenberg EBook")]
 
 # Clean text to remove UTC Codes, extranious punctuation.
-text = text.replace('â€™', '\'').replace('\x80\x99', '\'').replace('\x80\x9d', '\'')#.replace('-', ' ')
+text = text.replace('â€™', '\'').replace('\x80\x99', '\'').replace('\x80\x9d', '\'').replace('\x80\x9c', '\'')#.replace('-', ' ')
 for letter in not_a_letter:
     text = text.replace(letter, '')
 text = text.replace('  ', ' ').replace('   ', ' ')
