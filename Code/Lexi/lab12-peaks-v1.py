@@ -11,11 +11,11 @@ peaks_n_valleys = []
 # go through each of the above sequences
 for i in range(1, len(data)-1):           #for loop (begin, end)
   if data[i] > data[i-1] and data[i] > data[i+1]:
-    peaks.append
+    peaks.append        # adding to peaks set
   if data[i] < data[i-1] and data[i] < data[i-1]:
-    valleys.append
+    valleys.append      # adding to valley set
 
-# add them into line 9
+# add them into line 9's set
 peaks_n_valleys = peaks + valleys
 
 # Graphical User Interface (something an end user comprehends)
@@ -30,6 +30,7 @@ for i in range(max(data), min(data), -1):
   print()
 
 # need to print out the above for loop in line 22
-print(data)
-print(peaks)
-print(valleys)
+print(f'The data is {data}')
+print(f'The peaks are: {peaks}')
+# only this print statement is working
+print(f'The respective valleys are at: {valleys}')
