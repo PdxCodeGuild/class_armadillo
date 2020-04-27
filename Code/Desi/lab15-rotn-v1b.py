@@ -4,15 +4,15 @@ rotn(text, n)
 
 text = input("What is your text? ")
 
-n = input("what is your rotation amount")
+r = input("what is your rotation amount")
 
-dict1 = " "
-for letter in dict1:
-    index = dict2.find(letter)
-    index += n
+# dict1 = " "
+# for letter in dict1:
+#     index = dict2.find(letter)
+#     index += n
     
-while index >= len(letter)
-    dict1 -= len(dict2)
+# while index >= len(letter)
+#     dict1 -= len(dict2)
 
 
 
@@ -49,4 +49,55 @@ dictionary2 = {0 : 'N', 1 : 'O', 2 : 'P', 3 : 'Q', 4 : 'R', 5 : 'S',
 
 #Allow the user to input the amount of rotation used in the 
 #encryption. (ROTN)
+
+# Function to encrypt the string according to the shift provided
+
+def encrypt(message, shift):
+    cipher = ""
+    for letter in message:
+        # checking for space
+        if(letter != ''):
+            # looks up the dictionary and adds the shift to the index
+            num = (dict1[letter] + shift) % 26
+            #looks up the second dictionary for shifted alphabet and adds them
+            cipher += dict2[num]
+        else:
+           cipher += ''
+
+return encrypt()
+
+
+# function to decrypt string according to shift provided
+
+def decrypt(message, shift):
+    decipher = ''
+    for letter in message:
+        #checks for space
+        if(letter != ''):
+            #looks up dictionary and subracts the shift to the index
+            num = (dict1[letter] -shift +26) % 26
+            #looks up second dictionary for shifted alphabed and adds them
+            decipher += dict2[num]
+        else:
+            #adds space
+            decipher += ''
+
+return decrypt()
+
+
+
+
+
+
+# Lab 15: ROT Cipher
+
+# Write a program that prompts the user for a string, and encodes it with ROT13. For each character,
+#  find the corresponding character, add it to an output string. Notice that there are 26 letters in 
+#  the English language, so encryption is the same as decryption.
+
+
+
+
+
+
 #Version 2
