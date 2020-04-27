@@ -12,7 +12,7 @@ peaks_n_valleys = []
 for i in range(1, len(data)-1):           #for loop (begin, end)
   if data[i] > data[i-1] and data[i] > data[i+1]:
     peaks.append(i)        # adding to peaks set
-  if data[i] < data[i+1] and data[i] < data[i-1]:
+  if data[i] < data[i-1] and data[i] < data[i+1]:         # SAM caught this dumb mistake I did I switched out i-1 with i+1
     valleys.append(i)      # adding to valley set
 
 # add them into line 9's set

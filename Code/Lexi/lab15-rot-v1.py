@@ -13,14 +13,14 @@ def rot13(text): # define the function
         #create index for alphabet AND rot_alphabet
     index = alphabet.index(text[i])
     #take the index and convert that
-    print(text[i],index)
+    print(f'Your string and original index in the unrotated alphabet is:  {text[i],index}')
 
   return text
   
 
 user_input = input("What is the string? : ")
 # INTENDED RESULTprint(rot13('hello')) # uryyb
-print(rot13(user_input))
+print(f'New index of your rotated string is: {rot13(user_input)}')
 
 #for char in range NOT feasible
 # use for char in text
