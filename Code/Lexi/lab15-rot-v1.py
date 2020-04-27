@@ -36,12 +36,8 @@ print(rot13(user_input))
 
 # input is shadowed beginning/end i.e. global vs local vars
 
-def rotn(text, n):
-  ...
-print(rotn('hello', 13))
-print(rotn('hello',2))
-print(rotn('jgnnq', -2))
-
-text = input('what is your text?')
-n = int(input('what is the roation amount?'))
-print(rotn(text, n))
+# BELOW IS EXAMPLE OF HOW TO CALL A FUNCTION IN A PRINT LN
+# def rotn(text, n):
+#   text = input('what is your text?')
+#   n = int(input('what is the roation amount?'))
+# print(rotn(text, n))
