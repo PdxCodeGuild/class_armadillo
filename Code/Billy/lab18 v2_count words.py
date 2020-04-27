@@ -160,7 +160,7 @@ while True:
     if book_number not in '1, 2, 3': # input validation using string
         print(Fore.RED + 'Invalid entry!' + Fore.RESET) # print in red color
     else: 
-        book_number = int(book_number) # coverts string to integer since book_list library keys are integers
+        book_number = int(book_number) # converts string to integer since book_list library keys are integers
         break    
 while True:        
     function = input('Please enter the count function (A or B): ').lower() # will accept lower case entry    
