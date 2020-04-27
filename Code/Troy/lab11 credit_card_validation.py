@@ -1,3 +1,6 @@
+# Lab 11 Credit Card Validator
+# Mob Lab
+
 '''Let's write a function which returns whether a string containing a credit 
 card number is valid as a boolean. The steps are as follows:
 
@@ -64,6 +67,6 @@ def validate_credit_card(card):
         return True
     else:
         return False
-
+# returns a valid credit card.
 is_valid = validate_credit_card('4556737586899855')
 print(is_valid) 

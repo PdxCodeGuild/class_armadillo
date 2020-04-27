@@ -25,7 +25,7 @@ while True:
     
     user_num = float(operated_num_list[1]) #pulled the number out of the operated num list and wrapped it in a float so that it can be readable in my if statement. 
     
-#simple if statement to do the arithmatic and there we have it. a simple calculator..version 2. :)
+    #simple if statement to do the arithmatic and there we have it. a simple calculator..version 2. :)
 
     if operation == '+':
         starting_number = add(user_num, starting_number)

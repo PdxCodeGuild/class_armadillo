@@ -18,7 +18,7 @@ def load_words(path):
             list_of_long_words.append(word) #append it to list_of_long_words
     return list_of_long_words # return a list of strings greater than 5 letters
 
-path = '../../NGallo/Python_Labs/hangman_folder/english.txt' # path to folder from my python/ directory (may be different for some students)
+path = 'english.txt' # path to folder from my python/ directory (may be different for some students)
 
 hangman_words = load_words(path)
 
@@ -80,9 +80,9 @@ while True: # while the user has guesses remaining
     print()
     
     user_answer = input(f"You're out of guesses.\nThe word was {random_word}.\nWould you like to play again? ")
-    if user_answer in ['yes', 'y']:
+    if user_answer in ['yes', 'y', 'YES', 'Y']:
         continue
-    elif user_answer in ['no', 'n']:
+    elif user_answer in ['no', 'n', 'NO', 'N']:
         print('Goodbye.')
         break
     else:
