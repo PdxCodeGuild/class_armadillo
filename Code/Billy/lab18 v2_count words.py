@@ -67,17 +67,17 @@ def clean_words(text):
 
 
 
-def pair_noshift(clean_text):
+def pair_noshift(clean_text): # pairing of words begins with first word of text
     paired_text_noshift = [' '.join(clean_text[i:i + 2]) for i in range(0, len(clean_text), 2)]
-    if len(paired_text_noshift) % 2 == 1:
-        del paired_text_noshift[-1]
+    if len(paired_text_noshift) % 2 == 1: # determines if book has odd number of words (last word in text would not have a pair)
+        del paired_text_noshift[-1] # deletes the last word in text if text has odd number of words
     return paired_text_noshift
 
 
-def pair_shift(clean_text):
-    paired_text_shift =  [' '.join(clean_text[i:i + 2]) for i in range(1, len(clean_text), 2)]
-    if len(paired_text_shift) % 2 == 1:
-        del paired_text_shift[-1]
+def pair_shift(clean_text): # pairing of words begins with second word of text
+    paired_text_shift =  [' '.join(clean_text[i:i + 2]) for i in range(1, len(clean_text), 2)] # adjusted range ignores first word of text
+    if len(paired_text_shift) % 2 == 1: # determines if book has odd number of words (last word in text would not have a pair)
+        del paired_text_shift[-1] # deletes the last word in text if text has odd number of words
     return paired_text_shift    
     
 
@@ -152,31 +152,31 @@ def word_accountant_pairs():
     print_list(top_list)
 
 
-
+# main program that includes input validation and selections the proper functions as determined by user input
 while True:
     book_number = input('Please enter your book selection (1, 2, or 3): ') # input into book_selection() function to select dictionary entry    
-    if book_number not in '1, 2, 3':
-        print(Fore.RED + 'Invalid entry!' + Fore.RESET)
+    if book_number not in '1, 2, 3': # input validation using string
+        print(Fore.RED + 'Invalid entry!' + Fore.RESET) # print in red color
     else: 
-        book_number = int(book_number)
+        book_number = int(book_number) # coverts string to integer since book_list library keys are integers
         break    
 while True:        
-    function = input('Please enter the count function (A or B): ').lower()      
-    if function != 'a' and function != 'b':
+    function = input('Please enter the count function (A or B): ').lower() # will accept lower case entry    
+    if function != 'a' and function != 'b': # input validation
         print(Fore.RED + 'Invalid entry!' + Fore.RESET)
     else: 
         break
 while True:    
     length = input('How many of the top spots would you like to include on your list? ') # input into top_words() function to allow user to select number of words on top words list (top_list)
-    if length.isnumeric() == False:
+    if length.isnumeric() == False: # input validation, checking if string is numeric
         print(Fore.RED + 'Invalid entry!' + Fore.RESET)
     else:
-        length = int(length)
+        length = int(length) # converts to integer here since isnumeric() uses strings
         break
-if function == 'a':
-    word_accountant_word()
+if function == 'a': # picks the proper count function based on user input
+    word_accountant_word() # version 1
 if function == 'b':
-    word_accountant_pairs()
+    word_accountant_pairs() # version 2
 
 
 
