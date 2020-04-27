@@ -1,7 +1,6 @@
 
 import string
-not_a_letter = "`~!@#$%^&*()_+=?:;,.\"”[]}{â€1234567890™"
-dict_words = {}
+not_a_letter = "`~!@#$%^&*()_+=?:;,\"”[]}{â€1234567890\™"
 
 # import the text to be evaluated
 import requests
@@ -13,10 +12,12 @@ text = response.text
 text = text[text.find("Chapter I. Into the Primitive"):text.find("End of the Project Gutenberg EBook")]
 
 # Clean text to remove UTC Codes, extranious punctuation.
-text = text.replace('â€™', '\'').replace('\x80\x99', '\'').replace('\x80\x9d', '\'')#.replace('-', ' ')
+text = text.replace('â€™', '\'')
 for letter in not_a_letter:
     text = text.replace(letter, '')
-text = text.replace('  ', ' ').replace('   ', ' ')
+text = text.replace('  ', ' ').replace('   ', ' ').replace('\\', '')
+text = text.replace("x80x99", '\'').replace('x80x9d', '\'').replace('x80x9c', '\'')#.replace('-', ' ')
+text = text.replace('\x80\x99', '\'').replace('\x80\x9d', '\'').replace('\x80\x9c', '\'')
 text = text.lower().split()
 
 # take text and return a list of all the words.
@@ -49,17 +50,19 @@ def list_of_word_pairs(text):
 word_pairs = list_of_word_pairs(text)
 # print(word_pairs)
 
-# generate a list of word pairs and their frequency
+dict_words = {}
+
+# generate a list of words and their frequency
 for count in word_pairs:
     if count not in dict_words:
         dict_words[count] = 0
     else:
         dict_words[count] += 1
+
 result = list(dict_words.items())
-#print(result)
+print(result)
 
-
-# sort the tuples into top 20
+# sort the tuples into top 30
 result.sort(key=lambda tup: tup[1], reverse=True) 
-for i in range(min(20, len(result))):
+for i in range(min(30, len(result))):
     print(result[i])
