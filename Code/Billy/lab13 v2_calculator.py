@@ -1,20 +1,37 @@
-num1 = float(input('\nWhat is the starting number? '))
+import time
+from colorama import Fore
+
+print('\nWelcome to CALCULATOR!')
+
+time.sleep(1)
+
+while True: # input validation for first number
+    num = input('What is the first number? ') # will be the running number
+    if num.isnumeric() == False: # checks if entered value is a number
+        print(Fore.RED + '\nInvalid input!\n' + Fore.RESET) # if not a number prints invalid msg in red
+    else: 
+        num = float(num) # if value is a number, it gets converted to float here since isnumeric can check strings only
+        break
+
+signs = ['+', '-', '*', '/'] # list of valid operators for input validation
 
 while True:
-    user_op, num2 = input('Which operation (+, -, * or /) and number? ').split(' ')
-    num2 = float(num2)
-
-    if user_op == '+':
-        num1 += num2
-    elif user_op == '-':
-        num1 -= num2
-    elif user_op == '*':
-        num1 *= num2
-    elif user_op == '/':
-        num1 /= num2
+    operation_nextnum = input('What is the operation (+, -, * or /) and next number? (for example, \'+ 4\') ') # requires space
+    operation_nextnum = operation_nextnum.split(' ') # splits the string into list on ' ' delimiter
+    operation = operation_nextnum[0] # +, -, * or /
+    if operation in signs and operation_nextnum[1].isnumeric() == True: #input validation for operation and next number
+        nextnum = float(operation_nextnum[1]) # if operation and next num pass validation, converts next num to float
+        if operation == '+':
+            num += nextnum # running number
+        elif operation == '-':
+            num -= nextnum
+        elif operation == '*':
+            num *= nextnum
+        elif operation == '/':
+            num /= nextnum
     else:
-        print('Invalid!')
-    print(num1)
+        print(Fore.RED + '\nInvalid input!\n' + Fore.RESET)
+    print(num) # running number prints after each operation
         
  
 
