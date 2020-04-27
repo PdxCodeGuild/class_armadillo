@@ -10,9 +10,10 @@ while i < len(welcome_msg): # prints welcome message one letter at a time in gre
     i += 1
 
 # dictionary for book library
-books = {1: '''"The History of Don Quixote, Vol. I" by Miguel de Cervantes''',
-2: '''"The History of Don Quixote, Vol. II" by Miguel de Cervantes''',
-3: '''"The Count of Monte Cristo" by Alexandre Dumas'''
+books = {
+    1: '''"The History of Don Quixote, Vol. I" by Miguel de Cervantes''',
+    2: '''"The History of Don Quixote, Vol. II" by Miguel de Cervantes''',
+    3: '''"The Count of Monte Cristo" by Alexandre Dumas''',
 }
 
 time.sleep(0.5)
