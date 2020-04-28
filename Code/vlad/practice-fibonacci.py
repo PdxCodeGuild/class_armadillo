@@ -1,8 +1,8 @@
 # Practice Fibonacci and Max , Min and Mean
 
-''"Problem 12
+"""Problem 12
 Write a function that takes n as a parameter, and 
-returns a list containing the first n Fibonacci Numbers.'''
+returns a list containing the first n Fibonacci Numbers."""
 
 def fibonacci(n):
     
