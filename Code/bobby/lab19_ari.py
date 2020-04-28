@@ -23,11 +23,6 @@ import math
     # 14     18-22    College
 
 
-# request package
-import requests 
-import string
-
-
 # 1.)Requesting the URL
 response = requests.get("http://www.gutenberg.org/cache/epub/5200/pg5200.txt")
 
