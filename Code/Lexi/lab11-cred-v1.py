@@ -21,7 +21,7 @@ def validate_cc(card):
 # Reverse the digits.
     card.reverse() # reverse() list method reverses list in place
     
-    print(f"Before reverse: {card = }")
+    print(f"Before reverse: {card} = ")
 
 
 # Double every other element in the reversed list.

@@ -1,5 +1,5 @@
 import json
-
+path = r'Code/Desi/data/contacts.json'
 #did with Lexi
 
 def load_contacts(path):
@@ -9,6 +9,7 @@ def load_contacts(path):
     contacts = contacts['contacts'] # extract the list inside the dictionary
     return contacts
 
+#write to json file
 def save_contacts(path, contacts):
     contacts = {'contacts': contacts} # put the list of contacts in to a dictionary
     with open(path, 'w') as file: # open the file
@@ -25,7 +26,16 @@ def retrieve_contacts(contacts):
         print(contacts[i]['email'])
         print(contacts[i]['favorite color'])
 
-
+while True:
+    command = input("What is your command? ") # get the command from user
+    if command == "create":
+        #get the new contact's information from the user
+        name = input("what is the contacts name? ")
+        age = int(input("what is the contacts age? "))
+        email = input("what is the contacts email? ")
+        fav_color = input("What is the contacts favorite color? ")
+        #create a new contact as a dictionary
+        
 contacts = {"contacts": [
         {
             "name": "joe",
@@ -40,7 +50,7 @@ contacts = {"contacts": [
             "favorite color": "green",
         },
         {
-            "name": "christina"
+            "name": "christina",
             "age": 65,
             "email": "christina@email.com",
             "favorite color": "orange"
