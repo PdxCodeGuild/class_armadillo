@@ -35,6 +35,12 @@
             "age": "25",
             "email": "hybridrobot@fakeemail.com",
             "color": "red"
+        },
+        {
+            "name": "Jane",
+            "age": 43,
+            "email": "jane@email.com",
+            "color": "green"
         }
     ]
 }
