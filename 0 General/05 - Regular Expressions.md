@@ -28,8 +28,11 @@ Most characters match themselves.
 david s
 ```
 > **david s**
+> 
 > David s
+> 
 > hello **david s**
+> 
 > hello **david s** today
 
 
@@ -42,19 +45,23 @@ david s
 ^fire
 ```
 > **fire** hydrant
+> 
 > no fire here
 
 ```re
 fire$
 ```
 > wood **fire**
+> 
 > fire wood
 
 ```re
 davi. s
 ```
 > **david s**
+> 
 > **davix s**
+> 
 > davidd s
 
 ## Repeats: `?`, `*`, `+`
@@ -70,21 +77,27 @@ There are some special characters that mark how many times the previous characte
 rhu?ba?rb
 ```
 > **rhbrb**
+> 
 > **rhubrb**
+> 
 > **rhubarb**
 
 ```re
 sna+cks
 ```
 > **snacks**
+> 
 > sncks
+> 
 > **snaaaaaacks**
 
 ```re
 sna*cks
 ```
 > **snacks**
+> 
 > **sncks**
+> 
 > **snaaaaaacks**
 
 ## Escapes
@@ -95,6 +108,7 @@ If you want to use any special characters literally, use backslash `\` in front 
 Hello\.
 ```
 > **Hello.**
+> 
 > Hellox
 
 ## Character Classes
@@ -112,7 +126,9 @@ Each group still only matches one character, but repeat characters can be used o
 \d+\s\w+
 ```
 > **12 a5**
+> 
 > 1f ap
+> 
 > **12\ta**
 
 ## Character Sets
@@ -123,8 +139,11 @@ If you want to be more discerning than a whole character class, you can use a **
 [bp]anana
 ```
 > **banana**
+> 
 > **panana**
+> 
 > pbanana
+
 ```re
 snack[sx]*
 ```
@@ -136,6 +155,7 @@ You can specify **ranges** of characters with dash `-`, so dash must be escaped 
 My Name Is: [a-zA-Z]+
 ```
 > **My Name Is: David**
+> 
 > My Name Is: C4t
 
 ## Captures
@@ -148,6 +168,7 @@ More useful than that, is when the regular expression library matches text, it w
 (hot+)+dogs
 ```
 > **hotdogs**
+> 
 > **hothotthotttdogs**
 
 ```re

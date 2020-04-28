@@ -1,7 +1,7 @@
 
 
 
-# Lab 25 Quote API
+# Lab 20 Quote API
 
 For this lab we'll be using the [Favqs Quotes API](https://favqs.com/api) to first get a random quote, and then allow the user to find quotes by keyword. To accomplish this we'll be using the `requests` and `json` libraries. The example below uses a Chuck Norris joke API.
 
