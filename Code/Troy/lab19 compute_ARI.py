@@ -63,35 +63,39 @@ def compute_ari():
 
     words = find_a_book.text.lower().split()
 
-    punctuation = r',.!@#$%^&*():;'
+    punctuation = r',@#$%^&*():;'
 
     for i in range(len(words)):
         words[i] = words[i].strip(punctuation)
     return words
 
+#'''ARI Formula'''
+# ari = 4.71 * (characters/words) + 0.5 * (words/sentence) -21.43
+
 def word_count(words):
     num_of_words = 0
     for word in words:
-        #words = find_a_book.split()
         num_of_words += 1 
     return num_of_words
 print(word_count(compute_ari()))
 
-#'''ARI Formula'''
-# ari = 4.71 * (characters/words) + 0.5 * (words/sentence) -21.43
 
 def char_count(eaches):
     num_of_chars = 0
-    for char in eaches:
-        num_of_chars + len(word_count(words))
+    for word in eaches:
+        for char in word:
+            num_of_chars += 1 
     return num_of_chars
 print(char_count(compute_ari()))
 
 
 
 
-def sentence_count():
-    sentences = chop_into_words(text)
+def sentence_count(lines):
+    lines = 0
+    for line in lines:
+        
+
     return len(sentences)
 
 
