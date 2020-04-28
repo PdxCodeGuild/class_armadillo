@@ -3,7 +3,7 @@ import string
 
 
 def count_words():
-  # recieves information from web address. 
+  # receives information from web address. 
   response_from_website = requests.get('http://www.gutenberg.org/cache/epub/32950/pg32950.txt')
   book = response_from_website.text.lower()
   list_of_strings = book.split()
