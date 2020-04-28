@@ -1,3 +1,4 @@
+# created myriad functions in order to have practice with the concept
 import requests
 import time
 import string
@@ -78,7 +79,7 @@ def make_dictionary(clean_text):
 # 4. print the most frequent top 10 out with their counts 
 
 def top_words(word_counts):
-    top_list = [] # list for capturing the tuples generated below
+    top_list = [] # list for capturing the tuples that are generated below
     words = list(word_counts.items()) # .items() turns the dictionary into a list of tuples
     words.sort(key=lambda tup: tup[1], reverse=True)  # sorts the tuples from largest to smallest, based on count
     for i in range(min(length, len(words))):  # prints the top occurring (# selected by user) words, or all of them, whichever is smaller

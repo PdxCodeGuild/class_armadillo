@@ -13,35 +13,11 @@ def rot13(text): # define the function
         #create index for alphabet AND rot_alphabet
     index = alphabet.index(text[i])
     #take the index and convert that
-    print(text[i],index)
+    print(f'Your string and original index in the unrotated alphabet is:  {text[i],index}')
 
   return text
   
 
 user_input = input("What is the string? : ")
 # INTENDED RESULTprint(rot13('hello')) # uryyb
-print(rot13(user_input))
-
-#for char in range NOT feasible
-# use for char in text
-# || for i in range(#)
-
-# we want to make f(x) self-contained - we only want to operate 
-# on parameters given, not on ones ousside the f(x)
-
-# lines 19 and 21 should remain ousside b/c they shouldn't be
-# used within the f(x)
-
-#side effects, limits how reusable f(x) is if ousside
-
-# input is shadowed beginning/end i.e. global vs local vars
-
-def rotn(text, n):
-  ...
-print(rotn('hello', 13))
-print(rotn('hello',2))
-print(rotn('jgnnq', -2))
-
-text = input('what is your text?')
-n = int(input('what is the roation amount?'))
-print(rotn(text, n))
+print((rot13(user_input))
