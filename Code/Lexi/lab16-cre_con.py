@@ -5,7 +5,7 @@ import os
 # contact_age = input("Enter age: ")
 # contact_email = input("Enter email: ")
 # contact_gender = input("Enter gender: ")
-/Users/alex/Desktop/class_armadillo/Code/Lexi/lab16-cre_con.py
+# /Users/alex/Desktop/class_armadillo/Code/Lexi/lab16-cre_con.py
 
 person = {
     'name': 'jane', 
@@ -37,9 +37,9 @@ person = JSON.parse(json_person) # convert a string containing json into a javas
     }]
 }
 
-Create a new Python file an import JSON.
-Crate a dictionary in the form of a string to use as JSON.
-Use the JSON module to convert your string into a dictionary.
+# Create a new Python file an import JSON.
+# Crate a dictionary in the form of a string to use as JSON.
+# Use the JSON module to convert your string into a dictionary.
 # Retrieve a contact: ask the user for the contact's name, find the user with the given name, and display their information
 
 # Update a contact: ask the user for the contact's name, then for which attribute of the user they'd like to update and the value of the attribute they'd like to set.
