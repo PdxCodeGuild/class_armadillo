@@ -21,7 +21,7 @@ characters = len(text.replace(' ', '')) # replaces spaces in text string with ''
 
 words = len(text.split()) # splits text string into list of words by white space delimiter (default) and counts words
 
-sentences = len(re.split(r'(?<=[^A-Z].[.?!]) +(?=[A-Z])', text)) # regex (regular expression) to break text string into list of sentences and counts sentences
+sentences = len(re.split(r'(?<=[^A-Z].[.?!]) +(?=[A-Z])', text)) # https://regex101.com/r/Qmpo5I/1 (regular expression) to break text string into list of sentences and counts sentences
 
 ari = math.ceil(4.71*(characters/words) + 0.5*(words/sentences) - 21.43) # rounds up ARI to integer
 if ari > 14: # makes ARI max of 14
