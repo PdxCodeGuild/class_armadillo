@@ -1,4 +1,4 @@
-def add(x, y):
+def add(x, y): # functions for each operation which can be call if loop below
     return x + y
 
 def subtract(x, y):
@@ -10,22 +10,27 @@ def multiply(x, y):
 def divide(x, y):
     return x / y
 
-user_op = input('\nWhich operation (+, -, * or /)? ')
-num1 = float(input('What is the first number? '))
-num2 = float(input('What is the second number? '))
+# user_op = input('\nWhich operation (+, -, * or /)? ').lower()
+# num1 = float(input('What is the first number? ')) # converts input from sting to a decimal number for math
+# num2 = float(input('What is the second number? '))
 
-if user_op == '+':
-    print(num1, '+', num2, '=', add(num1, num2))
-elif user_op == '-':
-    print(num1, '-', num2, '=', subtract(num1, num2))
-elif user_op == '*':
-    print(num1, '*', num2, '=', multiply(num1, num2))
-elif user_op == '/':
-    print(num1, '/', num2, '=', divide(num1, num2))
-else:
-    print('Sorry! Invalid inputs.')
+while True: 
+    user_op = input('\nWhich operation (+, -, * or /) or done? ').lower()
+    if user_op in ['done', 'stop', 'exit']: # opportunity to quit calculator, no input validation
+        print ('Goodbye!')
+        break
+    num1 = float(input('What is the first number? ')) # converts input from sting to a decimal number for math
+    num2 = float(input('What is the second number? '))
+    if user_op == '+':
+        print(num1, '+', num2, '=', add(num1, num2)) # 5 + 3 = 8
+    elif user_op == '-':
+        print(num1, '-', num2, '=', subtract(num1, num2))
+    elif user_op == '*':
+        print(num1, '*', num2, '=', multiply(num1, num2))
+    elif user_op == '/':
+        print(num1, '/', num2, '=', divide(num1, num2))
+       
  
-
 
 
 

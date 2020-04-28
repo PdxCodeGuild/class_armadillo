@@ -1,3 +1,5 @@
+#this lab encodes a given word by using a ciper:
+
 cipher = {'a':'n',    #dictionary that rotates each letter 13 places
           'b':'o', 
           'c':'p', 

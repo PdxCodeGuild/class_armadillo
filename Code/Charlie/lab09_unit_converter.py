@@ -23,24 +23,3 @@ len_amount = user_distance * distance['meters']
 # f sttrring to frint user input and the amout in meters
 print(f'{user_distance} ft is {len_amount} meters')
 
-
-
-
-
-
-# c_unit = input(f"Enter the unit to convert from {list}: ")
-
-# num = num * units[c_unit]
-
-
-
-# print(num + 'c_unit')
-units = {
-    'ft': .3048,
-    'mi': 1609.34,
-    'm': 1,
-    'km': 1000,
-    'yd': .9144,
-    'in': .0254
-}
-list = list(units.keys())

@@ -75,7 +75,8 @@ list_of_words = convert(translated)
 # å
 
 # initialize empty dictionary
-new_dict = dict ()
+# new_dict = dict ()
+new_dict = {}
 
 # loop over convert(translated) checking each word convert(translated)
 

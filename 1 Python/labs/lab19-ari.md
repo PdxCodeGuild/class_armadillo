@@ -48,11 +48,10 @@ ari_scale = {
 ```
 
 The output should look something like the following:
-
-    --------------------------------------------------------
-
-    The ARI for gettysburg-address.txt is 12
-    This corresponds to a 11th Grade level of difficulty
-    that is suitable for an average person 16-17 years old.
-
-    --------------------------------------------------------
+```
+--------------------------------------------------------
+The ARI for gettysburg-address.txt is 12
+This corresponds to a 11th Grade level of difficulty
+that is suitable for an average person 16-17 years old.
+--------------------------------------------------------
+```
