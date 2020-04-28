@@ -1,6 +1,5 @@
 # Lab 01 Turtle
 # Troy Fitzgerald
-#
 
 
 '''Turtle is a python module that allows us to move a virtual turtle around the screen using 

@@ -1,4 +1,8 @@
-#imports modules
+# Lab 08 Make Change
+# Troy Fitzgerald
+
+
+#imports modules.
 import random
 import math
 
@@ -9,6 +13,7 @@ coins = [
     ('nickel', 5),
     ('penny', 1)
 ]
+
 # has user enter the amount of money they have.
 user_amount = input('Enter how much money you have kind person and I will break it down for you. ')
 user_amount = int(float(user_amount)*100)

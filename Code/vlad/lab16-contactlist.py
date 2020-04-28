@@ -87,13 +87,14 @@ while True:
     elif command == 'retrieve':
         name = input('What is the contact name to retrieve? ')
         found_it = False
-        for contact in contacts:
-            if name == contact['name']:
-                print_contact(contact)
-            found_it = True 
-        if contact not in contacts:
+        while not found_it:
+            for contact in contacts:
+                if name == contact['name']:
+                    print_contact(contact)
+                    found_it = True 
+            else: #contact not in contacts:
                 print('Sorry no contact found try different name')#this line is not printing?
-
+                break
     elif command == 'update':
         """
                 Update a contact: ask the user for the contact's name, then for which attribute of the user they'd like to update and the value of the attribute they'd like to set.
@@ -102,16 +103,17 @@ while True:
         
 
         found_it = False
-        for contact in contacts:
-            if name == contact['name']:
-                attribute = input('What would you like to update ')
-                attribute2 = input('update to: ')
-                if attribute in contact:
-                    contact[attribute] = attribute2
-            found_it = True 
-        if contact not in contacts:
-                print('Sorry no contact found try different name')
-
+        while not found_it:
+            for contact in contacts:
+                if name == contact['name']:
+                    attribute = input('What would you like to update ')
+                    attribute2 = input('update to: ')
+                    if attribute in contact:
+                        contact[attribute] = attribute2
+                        found_it = True 
+            else: 
+                print('Sorry no contact found try different name')#this line is not printing?
+                break
 
     if command == 'delete':
         """ 
