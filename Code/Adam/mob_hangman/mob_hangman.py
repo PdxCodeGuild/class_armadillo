@@ -1,11 +1,27 @@
-#Lab: Hangman mob group programming: 
+"""
+Lab: Hangman Game ========================================================================
 
+Let's write a program to play a game of hangman. In the data folder, you'll find 
+english.txt which contains a list of several thousand english words. Write a function 
+load_words(path) which reads the text from this file and return a list of strings which 
+are greater than 5 letters. Randomly pick a word from that list and begin the game. Allow 
+the user 10 tries to guess the letters of the word. Keep track of the letters the user has 
+already guessed.
 
+Show them a list of 'blanks' and ask them for a letter. If they guess a letter which is in 
+the word, show the blanks with the letters filled in. If they guess a letter which is not 
+in the word, tell them and subtract 1 from their remaining guesses. If they guess a letter 
+they've guessed before, tell them and do not subtract 1 from their guesses.
 
+Be kind, if the user can't guess the word in the number of allotted guesses, print the word 
+and ask them if they'd like to play again.
+
+Feel free to customize the user interface, but provide these minimum features. Below is an 
+example run of the program.
+
+"""
 import random
-"""
-Write a function called load_words(path) which reads the text from the file and returns a list of strings which are greater than 5 letters.
-"""
+
 def load_words(path):
 
     with open(path, 'r') as f: # open the file as f
@@ -18,7 +34,7 @@ def load_words(path):
             list_of_long_words.append(word) #append it to list_of_long_words
     return list_of_long_words # return a list of strings greater than 5 letters
 
-path = 'english.txt' # path to folder from my python/ directory (may be different for some students)
+path = "Code\Adam\mob_hangman\english.txt" # path to folder from my python/ directory (may be different for some students)
 
 hangman_words = load_words(path)
 
@@ -80,9 +96,9 @@ while True: # while the user has guesses remaining
     print()
     
     user_answer = input(f"You're out of guesses.\nThe word was {random_word}.\nWould you like to play again? ")
-    if user_answer in ['yes', 'y', 'YES', 'Y']:
+    if user_answer in ['yes', 'y']:
         continue
-    elif user_answer in ['no', 'n', 'NO', 'N']:
+    elif user_answer in ['no', 'n']:
         print('Goodbye.')
         break
     else:
