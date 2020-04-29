@@ -51,25 +51,29 @@ ari_scale = {
     13: {'ages': '17-18', 'grade_level':   '12th Grade'},
     14: {'ages': '18-22', 'grade_level':      'College'}
     }'''
-
+# imports module.
 import requests
 import re
+import random
 
+
+# defines the function.
 def compute_ari():
 
     '''body of text loaded in from a file'''
-
+    # assigns the variable to the object to get the book from the URL.
     find_a_book = requests.get('http://www.gutenberg.org/cache/epub/36830/pg36830.txt')
-
+    # assigns the variables for the below functions.
     text = find_a_book.text
     letters = char_count(text)
     word_1 = word_count(text)
     sentences_1 = sentence_count(text)
 
-    #'''ARI Formula'''
+    # ARI Formula in 'f' string format with a print statment.
     ari = f'4.71 * ({letters}/{word_1}) + 0.5 * ({word_1}/{sentences_1}) -21.43'
+    print('The ARI score from ' + ari + ' is ')
     print(4.71 * (letters/word_1) + 0.5 * (word_1/sentences_1) -21.43)
-    print("The ARI is." + ari)
+     
 
 # def set_sentence_parameter():
 #     find_a_book = requests.get('http://www.gutenberg.org/cache/epub/36830/pg36830.txt')
