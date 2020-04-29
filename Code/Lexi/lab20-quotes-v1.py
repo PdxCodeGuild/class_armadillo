@@ -12,3 +12,6 @@ print(response.text)
 joke = json.loads(response.text)
 
 print(f'The joke is : "{joke["value"]}".')
+
+# RESULT:
+# The joke is : "Chuck Norris can make you evacuate your bowels with a high five.".
