@@ -20,13 +20,27 @@ print(response.text)
 dictionary = json.loads(response.text)
 print(dictionary)
 
+
+
 #RESULT
 # Enter a keyword to search for quotes : {"page":1,"last_page":false,"quotes":[{"id":0,"favorites_count":0,"favorite":false,"dialogue":false,"body":"No quotes found","tags":[]}]}
 # {'page': 1, 'last_page': False, 'quotes': [{'id': 0, 'favorites_count': 0, 'favorite': False, 'dialogue': False, 'body': 'No quotes found', 'tags': []}]}
 
+# must change 'false' to 'False' in the below dictionary - b/c Python cannot
+# read all lowercase boolean values (JSON can)
+data = {"page":1,"last_page":False,"quotes":[{"id":0,"favorites_count":0,"favorite":False,"dialogue":False,"body":"No quotes found","tags":[]}]}
+# accessing the dictionary
+if data['quotes'][0]['body'] == "No quotes found":
+  print("No quote found")
+else:
+  print("else statement")
+
 # print(contacts['contacts'][0]['name']) # Joe
 # print(json.loads(contacts, indent=4, sort_keys=True))
-
+while True:
+  # ask user to select category
+  print('Which category? : ')
+  
 
 # the quotes you get in response, and 
 # print(keyword)

@@ -12,7 +12,7 @@ lines = text[100:130]
 print(lines)
 
 
-def replace_text(text):
+def replace_text(text):lab 19
     for character in text:
         if character in (";", ".", "!", "?", "!", ",",
                          ":", "'", "-", "â", "(", ")"):
@@ -38,9 +38,15 @@ def character_count(text):
     characters = 0
     # if what is left is a letter, iterate our character count
     for character in text:
-        if character,isalpha():
+        # built-in method used for string handling. 
+        # The isalpha() methods returns “True” if all 
+        # characters in the string are alphabets, Otherwise, 
+        # It returns “False”.
+        if character.isalpha(): 
             characters += 1
     return characters
+
+
 
 # use regex to catch all instances of sentences and return
 
