@@ -1,31 +1,39 @@
-import requests
+import requests 
 import re
-import math
+import string
 
-book = 'https://www.gutenberg.org/files/140/140-0.txt' # book selection
+# receives information from web address. 
+guttenburg_book = requests.get('http://www.gutenberg.org/cache/epub/32633/pg32633.txt')
+guttenburg_book = guttenburg_book.text.lower()
+list_of_strings = guttenburg_book.split()
 
-# get the text from the file, via "with open..." or using requests
-response = requests.get(book) # makes request to a web page using the book's URL in book variable 
-text = response.text # returns the text variable (content of the response, in unicode)
-
-# junk removal from text file, so that non-literary material (top/bottom text) is not included in ARI calculation
-text = text[text.find('***') + 3:] # slices text up to first '***' in the text, then adds 3 indices to include those '***' in the slice (top junk)
-text = text[text.find('***') + 3:] # slices the few words that are before the second '***' in text, adds the 3 indices for second '***' (top junk)
-text = text[:text.find('***')] # slices everything after the third '***', which is bottom junk
+def count_words():
     
-# punctuation removal (except ' ? . ( ) , ! " : ; ) 
-for char in '#$%&*+-/<=>@[\\]^_`{|}~': # iterates through each punct character to remove that punctuation from text
-    text = text.replace(char, "") # when a character in punct variable is in text, it replaces it with ""(removal)
+    # takes punctuation out 
+    punctuation = '0123456789.,;!&%$?"()[]#*\/'
+    for i in range(len(list_of_strings)):
+       list_of_strings[i] = list_of_strings[i].strip(punctuation)
+    # finally finds the number of words in the giant string
+    number_of_words = len(list_of_strings)
+    return number_of_words
 
-characters = len(text.replace(' ', '')) # replaces spaces in text string with '' to create long string of only characters and counts characters
 
-words = len(text.split()) # splits text string into list of words by white space delimiter (default) and counts words
+def count_chars(number_of_words):
+    punctuation = '0123456789.,;!&%$?"()[]#*\/'
+    for i in range(len(list_of_strings)):
+       list_of_strings[i] = list_of_strings[i].strip(punctuation)
 
-sentences = len(re.split(r'(?<=[^A-Z].[.?!]) +(?=[A-Z])', text)) # https://regex101.com/r/Qmpo5I/1 (regular expression) to break text string into list of sentences and counts sentences
+    stripped_list = list_of_strings.split()
 
-ari = math.ceil(4.71*(characters/words) + 0.5*(words/sentences) - 21.43) # rounds up ARI to integer
-if ari > 14: # makes ARI max of 14
-    ari = 14
+    return stripped_list
+
+
+number_of_words = count_words()
+number_of_chars = count_chars(number_of_words)
+
+
+print(number_of_words)
+print(number_of_chars)
 
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
@@ -44,25 +52,19 @@ ari_scale = {
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
 
-print(f'''\nThe ARI for {book} is {ari}.
-\nThis corresponds to \'{ari_scale[ari]['grade_level']}\' level of difficulty 
-that is suitable for an average person {ari_scale[ari]['ages']} years old.\n''')
 
-
-
+# print(f"The ARI for is 12\n This corresponds to a 11th Grade level of difficulty\n That is suitable for an average person 16-17 years old.")
 
 '''
-Lab 19: Compute Automated Readability Index (4/28/20) 11.25.38, 11.27.19
-
+Lab 19: Compute Automated Readability Index
 Compute the ARI for a given body of text loaded in from a file. The automated readability index (ARI) is a formula for computing the U.S. grade level for a given block of text. The general formula to compute the ARI is as follows:
 
-![ARI Formula](https://en.wikipedia.org/api/rest_v1/media/math/render/svg/878d1640d23781351133cad73bdf27bdf8bfe2fd)
+ARI Formula
 
-The score is computed by multiplying the number of characters divided by the number of words by 4.71, adding the number of words divided by the number of sentences multiplied by 0.5, and subtracting 21.43. **If the result is a decimal, always round up.** Scores greater than 14 should be presented as having the same age and grade level as scores of 14.
+The score is computed by multiplying the number of characters divided by the number of words by 4.71, adding the number of words divided by the number of sentences multiplied by 0.5, and subtracting 21.43. If the result is a decimal, always round up. Scores greater than 14 should be presented as having the same age and grade level as scores of 14.
 
 Scores correspond to the following ages and grad levels:
 
-```
     Score  Ages     Grade Level
      1       5-6    Kindergarten
      2       6-7    First Grade
@@ -78,11 +80,8 @@ Scores correspond to the following ages and grad levels:
     12     16-17    Eleventh grade
     13     17-18    Twelfth grade
     14     18-22    College
-```
-
 Once you’ve computed the ARI score, you can use the following dictionary to look up the age range and grade level.
 
-```python
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
      2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
@@ -99,14 +98,11 @@ ari_scale = {
     13: {'ages': '17-18', 'grade_level':   '12th Grade'},
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
-```
-
 The output should look something like the following:
-```
+
 --------------------------------------------------------
 The ARI for gettysburg-address.txt is 12
 This corresponds to a 11th Grade level of difficulty
 that is suitable for an average person 16-17 years old.
 --------------------------------------------------------
-```
 '''
