@@ -17,14 +17,11 @@ text = text[:text.find('***')] # slices everything after the third '***', which 
 for char in '#$%&*+-/<=>@[\\]^_`{|}~': # iterates through each punct character to remove that punctuation from text
     text = text.replace(char, "") # when a character in punct variable is in text, it replaces it with ""(removal)
 
-characters = text.replace(' ', '') # replaces spaces in text string with '' to create long string of only characters
-characters = len(characters) # counts characters
+characters = len(text.replace(' ', '')) # replaces spaces in text string with '' to create long string of only characters and counts characters
 
-words = text.split() # splits text string into list of words by white space delimiter (default)
-words = len(words) # counts words in the list
+words = len(text.split()) # splits text string into list of words by white space delimiter (default) and counts words
 
-sentences = re.split(r'(?<=[^A-Z].[.?!]) +(?=[A-Z])', text) # regex (regular expression) to break text string into list of sentences
-sentences = len(sentences) # counts sentences in the list
+sentences = len(re.split(r'(?<=[^A-Z].[.?!]) +(?=[A-Z])', text)) # https://regex101.com/r/Qmpo5I/1 (regular expression) to break text string into list of sentences and counts sentences
 
 ari = math.ceil(4.71*(characters/words) + 0.5*(words/sentences) - 21.43) # rounds up ARI to integer
 if ari > 14: # makes ARI max of 14
@@ -55,7 +52,7 @@ that is suitable for an average person {ari_scale[ari]['ages']} years old.\n''')
 
 
 '''
-Lab 19: Compute Automated Readability Index (4/28/20)
+Lab 19: Compute Automated Readability Index (4/28/20) 11.25.38, 11.27.19
 
 Compute the ARI for a given body of text loaded in from a file. The automated readability index (ARI) is a formula for computing the U.S. grade level for a given block of text. The general formula to compute the ARI is as follows:
 
