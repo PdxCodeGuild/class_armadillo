@@ -21,6 +21,8 @@
 letters = "abcdefghijklmnopqrstuvwxyz"
 numbers = "0123456789"
 specials = "!@#$%^&*()"
+split_alphabet = "abcdefghijklm01234!@#$%nopqrstuvwxyz56789^&*()"
+reverse_split_alphabet = "nopqrstuvwxyz56789^&*()abcdefghijklm01234!@#$%"
 
 user_input = ""
 alphabet = ""
@@ -30,8 +32,12 @@ new_password = ""
 
 
 old_password = input("Enter your password, and I'll encrypt it for you in a super-insecure cypher: ").lower()
+while not old_password.isalpha():
+    print("\nI'm sorry, I don't recognize one or more of your entered characters.")
+    print("Please enter only alphabet characters. ")
+    old_password = input("Enter your password, and I'll encrypt it for you in a super-insecure cypher: ").lower()
 
-alphabet = "abcdefghijklmnopqrstuvwxyz"
+alphabet = letters
 reverse_alphabet = alphabet[13:] + alphabet[:13]
 # print(f'The flipped alphabet is {reverse_alphabet}')
 
@@ -40,4 +46,5 @@ for char in old_password:
     reverse_char = reverse_alphabet[index]
     new_password += reverse_char
 print(new_password)
+
 

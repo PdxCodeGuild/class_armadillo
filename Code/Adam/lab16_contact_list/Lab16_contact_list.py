@@ -63,7 +63,7 @@ def save_contacts(path, contacts):
         file.write(text) # write the json to the file
 
 while True:
-    crudle = str("What would you like to with your contact list? Your options are create, retrieve, update, delete, list, or exit. ").lower
+    crudle = str("What would you like to do with your contact list? Your options are create, retrieve, update, delete, list, or exit. ").lower
     
     if crudle == "create":
         print(f"You entered {crudle}") #create a new dictionary and append contact (a list of dictionaries))
@@ -79,7 +79,7 @@ while True:
     }
     contacts.append(cre_contact)
     # elif crudle == "retrieve":
-    #     print(f"You entered {crudle}")
+    #     print(f"You entered {crudle}") 
     #     ret_contact = 
 
     # elif crudle == "update":

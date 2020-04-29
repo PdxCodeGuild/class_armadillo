@@ -1,7 +1,13 @@
+import requests
+import json
+
+response = requests.get('https://favqs.com/api/qotd') # sends request to favorite quotes website API for JSON
+qod_dict = json.loads(response.text) # turns the JSON into a dictionary
+print(f'''\n{qod_dict['quote']['body']}\n\t--{qod_dict['quote']['author']}\n''') # prints desired entries at stated keys
 
 
-
-# Lab 25 Quote API
+'''
+Lab 20 Quote API (4/29/20)
 
 For this lab we'll be using the [Favqs Quotes API](https://favqs.com/api) to first get a random quote, and then allow the user to find quotes by keyword. To accomplish this we'll be using the `requests` and `json` libraries. The example below uses a Chuck Norris joke API.
 
@@ -17,13 +23,19 @@ print(data['value']) # get a part of the response data out of the dictionary
 ```
 
 
-## Version 1: Get a Random Quote
+Version 1: Get a Random Quote
 
-The URL to get a random quote is [https://favqs.com/api/qotd](https://favqs.com/api/qotd), send a request here, parse the JSON in the response into a python dictionary, and show the quote and the author.
+The URL to get a random quote is [https://favqs.com/api/qotd](https://favqs.com/api/qotd), 
+send a request here, parse the JSON in the response into a python dictionary, and show the quote and the author.
 
-## Version 2: List Quotes by Keyword
 
-The Favqs Quote API also supports getting a list of quotes associated with a given keyword `https://favqs.com/api/quotes?page=<page>&filter=<keyword>`. Prompt the user for a keyword, list the quotes you get in response, and prompt the user to either show the next page or enter a new keyword. You can use string concatenation to build the URL.
+
+Version 2: List Quotes by Keyword
+
+The Favqs Quote API also supports getting a list of quotes associated with a given 
+keyword `https://favqs.com/api/quotes?page=<page>&filter=<keyword>`. 
+Prompt the user for a keyword, list the quotes you get in response, and prompt 
+the user to either show the next page or enter a new keyword. You can use string concatenation to build the URL.
 
 ```
 > enter a keyword to search for quotes: nature
@@ -44,11 +56,10 @@ headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
 response = requests.get(url, headers=headers)
 ```
 
-## Other Quote APIs
+Other Quote APIs
 
 - [Programming Quotes](https://programming-quotes-api.herokuapp.com/)
 - [Quotes Garden](https://pprathameshmore.github.io/QuoteGarden/)
   - get random quote `https://quote-garden.herokuapp.com/quotes/random`
-  - get quotes by keyword `https://quote-garden.herokuapp.com/quotes/search/<keyword/`
-
-
+  - get quotes by keyword `https://quote-garden.herokuapp.com/quotes/search/<keyword/
+  '''
