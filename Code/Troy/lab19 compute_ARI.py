@@ -55,14 +55,11 @@ def compute_ari():
     sentences_1 = sentence_count(text)
     # ARI Formula in 'f' string format with a print statment.
     ari = f'4.71 * ({letters}/{word_1}) + 0.5 * ({word_1}/{sentences_1}) -21.43'
-    ####ari = int(ari + .5) still need to get this to work!
     print('The ARI score from ' + ari + ' is ')
-    print(round(4.71 * (letters/word_1) + 0.5 * (word_1/sentences_1) -21.43))
-
+    ari = math.ceil(4.71 * (letters/word_1) + 0.5 * (word_1/sentences_1) -21.43)
+    print(ari)
     
-    ##### if ari > 14:---- needs to be converted.
-    #####     ari = 14
-
+    
     ari_scale = {
         1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
         2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
@@ -79,6 +76,9 @@ def compute_ari():
         13: {'ages': '17-18', 'grade_level':   '12th Grade'},
         14: {'ages': '18-22', 'grade_level':      'College'}
         }
+
+    print (f"The ARI score is {ari}\n which correlates to a {ari_scale[ari]['grade_level']}\n which is appropriate for ages {ari_scale[ari]['ages']}.")
+
 
 
 # def set_sentence_parameter():
