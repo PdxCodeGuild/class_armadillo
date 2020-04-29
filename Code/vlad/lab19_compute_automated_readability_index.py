@@ -93,8 +93,10 @@ def characters(chars):
 num_of_chars = characters(text)
 print(characters(text))
 
-# Number of Sentences
+# Number of Sentences:
+
 #def sentences(text):
+
 
 
 # chars = text 
