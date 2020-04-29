@@ -23,7 +23,7 @@ sciency_adjectives = ['cybernetic', 'biotic', 'technological', 'cryptological']
 
 import random
 
-initial_query = input("Do you want to play a game?")
+initial_query = input("Do you want to play a game? ")
 
 affirmatives = ['yes', 'y', 'sure', 'okay', 'fine', 'why not?']
 
@@ -33,8 +33,8 @@ if initial_query.lower() in affirmatives:
   sciency_adjectives_query = input("Please enter three 'sciency adjectives,' all separated by commas: ").split(',')
   animals_query = input("Please enter three animals, all separated by commas: ").split(',')
 
-  print(f'{random.choice(data_antonyms_query)} Scientist Job Description: ')
-  print(f'Seeking a{random.choice(adjectives_query)} engineer, able to work on{random.choice(sciency_adjectives_query)} projects with a team of{random.choice(animals_query)}.')
+  print(f'{random.choice(data_antonyms_query).title()} Scientist Job Description: ')
+  print(f'Seeking a {random.choice(adjectives_query)} engineer, able to work on{random.choice(sciency_adjectives_query)} projects with a team of{random.choice(animals_query)}.')
 
 else:
   print(f'{random.choice(data_antonyms)} Scientist Job Description:')
