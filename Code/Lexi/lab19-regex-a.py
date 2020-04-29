@@ -1,4 +1,4 @@
-
+# lab 19 = went to Talieson's
 
 import requests
 
