@@ -48,7 +48,7 @@ The ARI for gettysburg-address.txt is 12
 This corresponds to a 11th Grade level of difficulty
 that is suitable for an average person 16-17 years old.
 """
-
+import string
 import requests
 import re
 
@@ -56,133 +56,92 @@ import re
 
 # text = response.text
 
-def char_word_sentence():
+# number of words
+def word():
     response = requests.get('http://www.gutenberg.org/cache/epub/28437/pg28437.txt')
     text = response.text
+    # with open('Code/vlad/solar_system.txt', 'r') as f:  # f means files
+    #     text = f.read()
     text = text.lower()
-    split_words = ("([\w][\w']*\w)")
-    # split_characters = 0
-    # split_sentences = 0 
+    split_words = ("([\w][\w']*\w)") # expression 
     words = re.findall(split_words, text)
-    # chars = re.findall(split_characters, text)
-    # sentences = re.findall(split_sentences, text)
+    # print(words)
+    num_of_words = len(words)
+    return num_of_words
 
-    print(words)
-    # print(chars)
-    # print(sentences)
+# word()
 
+num_of_words = word()
 
-#return a list of dictionaries
- 
-    for i in range(len(words)):
-        text1 = []
-        text1.append({
-        'words': words[i]
-        #   'chars': chars[i],
-        #    'sentences': sentences[i]
-        })
-    return text1
+print(num_of_words) # 4317
 
-char_word_sentence()
-
-# # get random books from project gutenberg
-# def get_random_books():
-#   response = requests.get('https://www.gutenberg.org/ebooks/search/?sort_order=random')
-#   text = response.text
-#   links_pattern = r'\/ebooks\/(\d+)'
-#   titles_pattern = r'class="title">(.+)<\/span>'
-#   links = re.findall(links_pattern, text)
-#   titles = re.findall(titles_pattern, text)
-#   print(links)
-#   # print(titles)
-
-#   # ['/ebooks/3256', '/ebooks/58647'...] -> ['gutenberg.org/ebooks/3256/', ..]
-#   # links = ['https://www.gutenberg.org/' + link for link in links]
-
-#   # will not work for book urls like http://www.gutenberg.org/cache/epub/21301/pg21301.txt
-#   links = [f'https://www.gutenberg.org/files/{code}/{code}-0.txt' for code in links]
-#   titles = titles[3:] # remove the first 3 results
-  
-#   # zip turns two lists into a list of tuples
-#   # the first element of each tuple is from the first list
-#   # the second element of each tuple is from the second list
-#   # return list(zip(titles, links))
-
-#   # return a list of dictionaries
-#   books = []
-#   for i in range(len(titles)):
-#     books.append({
-#       'title': titles[i],
-#       'link': links[i]
-#     })
-#   return books
-
-# regex split into sentences:
+# def char():
+response = requests.get('http://www.gutenberg.org/cache/epub/28437/pg28437.txt')
+text = response.text
 
 
-# text = """\
-# Mr. Smith bought cheapsite.com for 1.5 million dollars, i.e. he paid a lot for it. Did he mind? Adam Jones Jr. thinks he didn't. In any case, this isn't true... Well, with a probability of .9 it isn't.
-# """
-# sentences = re.split(r' *[\.\?!][\'"\)\]]* *', text)
+# number of characters 
+def characters(chars):
+    return len([char for char in chars if char in string.ascii_letters])  # list comprehension 21540
+    # samething as the list comprehension below: 
+    # letters = []
+    # for char in chars:
+    #     if char in string.ascii_letters:
+    #         letters.append(char)
+    # return len(letters)
 
-# for stuff in sentences:
-#         print(stuff) 
+num_of_chars = characters(text)
+print(characters(text))
 
-#regex split into words:  https://www.geeksforgeeks.org/python-extract-words-from-given-string/
+# Number of Sentences:
 
-"""
-Instead of regex, you can use string-functions:
+#def sentences(text):
 
-to_be_removed = ".,:!" # all characters to be removed
-s = "John's mom went there, but he wasn't there. So she said: 'Where are you!!'"
 
-for c in to_be_removed:
-    s = s.replace(c, '')
-s.split()
 
-"""
-#regex split into characters:
+# chars = text 
+# print(split(chars))
+# junk_start = text1.find('***')
+# print(junk_start)
+# print(text[junk_start:junk_start+100])
+# print(text[800:900])
 
-"""
-st="Ladegårdsvej 8B7100 Vejle"
-reg=r'([0-9]{4})'
-rep=re.split(reg,st)
-print rep
-"""
-#==========================
+
+
+
 
 # initializing string   
-text_string = """
-Know him?
+# text_string = 
 
-!@#$%^^&&*&*()_+? Well you might say I practically grew up with him. He was my hero in
-those days. I thought few wiser or greater men ever lived. In my eyes he
-was greater than Babe Ruth, Lindy, or the President.!!! 
+# """
+# Know him?
 
-Of course, time, and my growing up caused me to bring him into a
-perspective that I felt to be more consonant with his true position in
-his field of endeavor. When he died his friends mourned for fond
-remembrance of things past, but privately many of them felt that he had
-outlived his best days. Now with this glorious vindication, I wonder how
-many of them are still alive to feel the twinge of conscience....
+# !@#$%^^&&*&*()_+? Well you might say I practically grew up with him. He was my hero in
+# those days. I thought few wiser or greater men ever lived. In my eyes he
+# was greater than Babe Ruth, Lindy, or the President.!!! 
 
-Oh, we're delighted of course, but it seems incredible even today to us
-elated oldsters. Although we were always his staunchest admirers, in
-retrospect we can see now that no one believed more than we that he did
-it strictly for the dollar. It is likely there was always a small corps
-of starry-eyed adolescents who found the whole improbable saga entirely
-believable, or at least half believed it might be partly true. The
-attitude of the rest of us ranged from a patronizing disparagement that
-we thought was expected of us, through grudging admiration, to
-out-and-out enthusiasm.
+# Of course, time, and my growing up caused me to bring him into a
+# perspective that I felt to be more consonant with his true position in
+# his field of endeavor. When he died his friends mourned for fond
+# remembrance of things past, but privately many of them felt that he had
+# outlived his best days. Now with this glorious vindication, I wonder how
+# many of them are still alive to feel the twinge of conscience....
 
-Certainly if anybody had taken the trouble to consider it--and why
-should they have?--the landing of the first manned ship on our satellite
-seemed to render him as obsolete as a horde of other lesser and even
-greater lights. At any rate, it was inevitable that the conquest of the
-moon would be merely a stepping-stone to more distant points.
+# Oh, we're delighted of course, but it seems incredible even today to us
+# elated oldsters. Although we were always his staunchest admirers, in
+# retrospect we can see now that no one believed more than we that he did
+# it strictly for the dollar. It is likely there was always a small corps
+# of starry-eyed adolescents who found the whole improbable saga entirely
+# believable, or at least half believed it might be partly true. The
+# attitude of the rest of us ranged from a patronizing disparagement that
+# we thought was expected of us, through grudging admiration, to
+# out-and-out enthusiasm.
 
-"""
+# Certainly if anybody had taken the trouble to consider it--and why
+# should they have?--the landing of the first manned ship on our satellite
+# seemed to render him as obsolete as a horde of other lesser and even
+# greater lights. At any rate, it was inevitable that the conquest of the
+# moon would be merely a stepping-stone to more distant points. """
 
 # to print list of words: 
 # # printing original string 
