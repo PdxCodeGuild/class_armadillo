@@ -1,9 +1,12 @@
+# Lab 18 Word Counter Version 2
+# Kyle Harasimowicz
 
+import requests
 import string
-not_a_letter = "`~!@#$%^&*()_+=?:;,\"”[]}{â€1234567890\™"
+not_a_letter = "`~!@#$%^&*()_+=?:;,\"”[]}{â€1234567890\™"
 
 # import the text to be evaluated
-import requests
+
 response  = requests.get('https://www.gutenberg.org/files/215/215-0.txt')
 text = response.text
 #text = paragraph
@@ -12,7 +15,7 @@ text = response.text
 text = text[text.find("Chapter I. Into the Primitive"):text.find("End of the Project Gutenberg EBook")]
 
 # Clean text to remove UTC Codes, extranious punctuation.
-text = text.replace('â€™', '\'')
+text = text.replace('â€™', '\'').replace('â€', '\"')
 for letter in not_a_letter:
     text = text.replace(letter, '')
 text = text.replace('  ', ' ').replace('   ', ' ').replace('\\', '')
