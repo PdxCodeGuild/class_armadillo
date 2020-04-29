@@ -21,19 +21,19 @@ Allow the user to input the amount of rotation used in the encryption. (ROTN)
 import string
 
 
-# Version 2
+
 def rot_n(text, n):
-    alphabet = "abcdefghijklmnopqrstuvwxyz"
-    rot_alphabet = alphabet[n:] + alphabet[:n]
+    english = string.ascii_lowercase
+    rotn_english = english[n:] + english[:n]
     output = ''
     for char in text:
-        index = alphabet.find(char) # use .find to look up the index of a character in the alphabet
-        rot_char = rot_alphabet[index] # use that same index to look up the corresponding character in the rotated alphabet
-        output += rot_char # add the rotated character to the output
+        index = english.find(char) # use .find to look up the index of a character in the alphabet
+        rotn_char = rotn_english[index] # use that same index to look up the corresponding character in the rotated alphabet
+        output += rotn_char # add the rotated character to the output
     return output
 
 
-print(rot_n('hello', 13)) #for testing
+# print(rot_n('hello', 13)) #for testing
 
 while True:
     encode = input('Would you like to encode a string of text? ')
