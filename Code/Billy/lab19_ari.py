@@ -2,32 +2,29 @@ import requests
 import re
 import math
 
-book = 'https://www.gutenberg.org/files/140/140-0.txt'
+book = 'https://www.gutenberg.org/files/140/140-0.txt' # book selection
 
 # get the text from the file, via "with open..." or using requests
 response = requests.get(book) # makes request to a web page using the book's URL in book variable 
 text = response.text # returns the text variable (content of the response, in unicode)
 
-# junk removal from text file, so that non-literary material (top/bottom text) is not included in word count
+# junk removal from text file, so that non-literary material (top/bottom text) is not included in ARI calculation
 text = text[text.find('***') + 3:] # slices text up to first '***' in the text, then adds 3 indices to include those '***' in the slice (top junk)
 text = text[text.find('***') + 3:] # slices the few words that are before the second '***' in text, adds the 3 indices for second '***' (top junk)
 text = text[:text.find('***')] # slices everything after the third '***', which is bottom junk
     
 # punctuation removal (except ' ? . ( ) , ! " : ; ) 
-for char in '#$%&*+-/<=>@[\\]^_`{|}~': # iterates through each character in punct variable above to remove punctuation
-    text = text.replace(char, "") # when character in punct variable is in text, it replaces it with ""(removal)
+for char in '#$%&*+-/<=>@[\\]^_`{|}~': # iterates through each punct character to remove that punctuation from text
+    text = text.replace(char, "") # when a character in punct variable is in text, it replaces it with ""(removal)
 
-characters = text.replace(' ', '')
-characters = len(characters)
+characters = len(text.replace(' ', '')) # replaces spaces in text string with '' to create long string of only characters and counts characters
 
-words = text.split() # changes all char to lower case, splits words into list by delimiter: white space (default)
-words = len(words)
+words = len(text.split()) # splits text string into list of words by white space delimiter (default) and counts words
 
-sentences = re.split(r'(?<=[^A-Z].[.?!]) +(?=[A-Z])', text)
-sentences = len(sentences)
+sentences = len(re.split(r'(?<=[^A-Z].[.?!]) +(?=[A-Z])', text)) # https://regex101.com/r/Qmpo5I/1 (regular expression) to break text string into list of sentences and counts sentences
 
-ari = math.ceil(4.71*(characters/words) + 0.5*(words/sentences) - 21.43)
-if ari > 14:
+ari = math.ceil(4.71*(characters/words) + 0.5*(words/sentences) - 21.43) # rounds up ARI to integer
+if ari > 14: # makes ARI max of 14
     ari = 14
 
 ari_scale = {
@@ -55,7 +52,7 @@ that is suitable for an average person {ari_scale[ari]['ages']} years old.\n''')
 
 
 '''
-Lab 19: Compute Automated Readability Index (4/28/20)
+Lab 19: Compute Automated Readability Index (4/28/20) 11.25.38, 11.27.19
 
 Compute the ARI for a given body of text loaded in from a file. The automated readability index (ARI) is a formula for computing the U.S. grade level for a given block of text. The general formula to compute the ARI is as follows:
 

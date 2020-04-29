@@ -1,7 +1,11 @@
+# Lab 04 Version 1 and 2
+# Kyle Harasimowicz
+
 # required imports and lists utilized in this program
 magic_8_ball_responses = ["'It is certain.'", "'It is decidedly so'", "'Without a doubt.'", "'Yes, definitely'", "'You may rely on it'", "'As I see it, yes'", "'Most likely'", "'Outlook - good'", "'Yes'", "'Signs point to yes'", "'Reply hazy...try again'", "'Ask again later'", "'Better not tell you now'", "'Cannot predict now'", "'Concentrate and ask again'", "'Don't count on it'", "'My reply is no'", "'My sources say no'", "'Outlook...not so good'", "'Very doubtful'"]
 import random
 import time
+import string
 affirmatives = ['yes', 'y', 'sure', 'okay', 'fine', 'why not?']
 negatives = ['no', 'n', 'nope', 'negative', 'definitely not', 'no way']
 time_int = 0
@@ -35,7 +39,7 @@ ask_the_magic_8_ball_intro()
 # Asks the user if they want to play the game. If yes, runs the program. If not, thanks the user for their time.
 magic_8_ball = True
 
-while True:
+while magic_8_ball:
   play_game = input("Would you like to play this game? ")
   if play_game.lower() in affirmatives:
     ask_the_magic_8_ball()
@@ -45,7 +49,7 @@ while True:
     if incredulous.lower() in affirmatives:
       print("I'm sorry to hear that. Goodbye.")
       magic_8_ball = False
-      continue
+      break
     elif incredulous.lower() in negatives: # double negative. Force the hand!
       print("See!! I knew you'd come around!! ")
       ask_the_magic_8_ball()
@@ -55,15 +59,16 @@ while True:
   else:
     print("I'm sorry, I don't understand that response. Please answer again. ") 
 
-#magic_8_ball = True
-while True:
+
+# Second While Loop, asks the user if they'd like to play again.
+while magic_8_ball:
   play_again = input("Would you like to play again? ")
   if play_again.lower() in affirmatives:
     ask_the_magic_8_ball()
   elif play_again.lower() in negatives:
     print("That is unfortunate, but I appreciate you running this program. Goodbye.")
     magic_8_ball = False
-    #follow_up = False
     break
   else:
     print("I'm sorry, I don't understand that response. Please answer again. ")
+

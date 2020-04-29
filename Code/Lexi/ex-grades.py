@@ -1,4 +1,4 @@
-Lab 3: Grading
+#Lab 3: Grading
 # Let's convert a number grade to a letter grade, using if and elif statements and comparisons.
 
 # Concepts Covered

@@ -47,6 +47,7 @@ while check_grade:
         else:
             print("F")
 
+
     while True:
         affirmatives = ['yes', 'y', 'sure', 'okay', 'fine', 'why not?']
         negatives = ['no', 'n', 'nope', 'negative', 'definitely not', 'no way']
@@ -59,3 +60,4 @@ while check_grade:
             break
         else:
             print("That's not a valid answer. Please try again.")
+            
