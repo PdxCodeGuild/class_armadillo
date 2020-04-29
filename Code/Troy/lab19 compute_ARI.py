@@ -51,48 +51,69 @@ ari_scale = {
     13: {'ages': '17-18', 'grade_level':   '12th Grade'},
     14: {'ages': '18-22', 'grade_level':      'College'}
     }'''
-
+# imports module.
 import requests
 import re
+import random
 
+
+# defines the function.
 def compute_ari():
 
     '''body of text loaded in from a file'''
-
+    # assigns the variable to the object to get the book from the URL.
     find_a_book = requests.get('http://www.gutenberg.org/cache/epub/36830/pg36830.txt')
+    # assigns the variables for the below functions.
+    text = find_a_book.text
+    letters = char_count(text)
+    word_1 = word_count(text)
+    sentences_1 = sentence_count(text)
 
-    words = find_a_book.text.lower().split()
+    # ARI Formula in 'f' string format with a print statment.
+    ari = f'4.71 * ({letters}/{word_1}) + 0.5 * ({word_1}/{sentences_1}) -21.43'
+    print('The ARI score from ' + ari + ' is ')
+    print(4.71 * (letters/word_1) + 0.5 * (word_1/sentences_1) -21.43)
+     
 
-    punctuation = r',.!@#$%^&*():;'
+# def set_sentence_parameter():
+#     find_a_book = requests.get('http://www.gutenberg.org/cache/epub/36830/pg36830.txt')
 
+#     words = find_a_book.text.lower().split('.?!')
+
+#     punctuation = r',@#$%^&*():;'
+
+#     for i in range(len(words)):
+#         words[i] = words[i].strip(punctuation)
+#     return words
+
+
+def sentence_count(text):
+    num_of_sentences = 0
+    for char in text:
+        if char in ['.', '!', '?']:
+            num_of_sentences += 1
+    return num_of_sentences
+#print(sentence_count('hello world.\n I like garbonzo beans!'))        
+
+punctuation = r',@#$%^&*():;'
+
+def word_count(text):
+    words = text.lower().split()
     for i in range(len(words)):
         words[i] = words[i].strip(punctuation)
-    return words
-
-def word_count(words):
-    num_of_words = 0
-    for word in words:
-        #words = find_a_book.split()
-        num_of_words += 1 
+    num_of_words = len(words)
     return num_of_words
-print(word_count(compute_ari()))
+#print(word_count('hello world! \n bonzo llama?'))
 
-#'''ARI Formula'''
-# ari = 4.71 * (characters/words) + 0.5 * (words/sentence) -21.43
 
-def char_count(eaches):
+def char_count(text):
     num_of_chars = 0
-    for char in eaches:
-        num_of_chars + len(word_count(words))
+    for char in text:
+        if char.isalpha():
+            num_of_chars += 1 
     return num_of_chars
-print(char_count(compute_ari()))
+#print(char_count('hello world! \n bonzo llama?'))
 
-
-
-
-def sentence_count():
-    sentences = chop_into_words(text)
-    return len(sentences)
 
 
 compute_ari()
