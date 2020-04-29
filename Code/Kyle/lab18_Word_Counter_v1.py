@@ -10,17 +10,21 @@ dict_words = {}
 import requests
 response  = requests.get('https://www.gutenberg.org/files/215/215-0.txt')
 text = response.text
-#text = paragraph
+
 
 # Clean text to remove all admin information
 text = text[text.find("Chapter I. Into the Primitive"):text.find("End of the Project Gutenberg EBook")]
 
 # Clean text to remove UTC Codes, extranious punctuation.
 text = text.replace('â€™', '\'').replace('\x80\x99', '\'').replace('\x80\x9d', '\'').replace('\x80\x9c', '\'')#.replace('-', ' ')
+text = text.replace('â€', '\"').replace('â€œ', '\"')
 for letter in not_a_letter:
     text = text.replace(letter, '')
 text = text.replace('  ', ' ').replace('   ', ' ')
+
+# Lowercase all words and split text into a list of words
 text = text.lower().split()
+print(text)
 
 # take text and return a list of all the words.
 def list_of_words(text):
@@ -48,7 +52,7 @@ for count in words:
         dict_words[count] += 1
 
 result = list(dict_words.items())
-#print(result)
+print(result)
 
 # sort the tuples into top 10
 result.sort(key=lambda tup: tup[1], reverse=True) 
