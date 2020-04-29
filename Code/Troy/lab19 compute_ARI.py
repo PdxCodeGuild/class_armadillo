@@ -61,42 +61,55 @@ def compute_ari():
 
     find_a_book = requests.get('http://www.gutenberg.org/cache/epub/36830/pg36830.txt')
 
-    words = find_a_book.text.lower().split()
+    text = find_a_book.text
+    letters = char_count(text)
+    word_1 = word_count(text)
+    sentences_1 = sentence_count(text)
 
-    punctuation = r',@#$%^&*():;'
+    #'''ARI Formula'''
+    ari = f'4.71 * ({letters}/{word_1}) + 0.5 * ({word_1}/{sentences_1}) -21.43'
+    print(4.71 * (letters/word_1) + 0.5 * (word_1/sentences_1) -21.43)
+    print("The ARI is." + ari)
 
+# def set_sentence_parameter():
+#     find_a_book = requests.get('http://www.gutenberg.org/cache/epub/36830/pg36830.txt')
+
+#     words = find_a_book.text.lower().split('.?!')
+
+#     punctuation = r',@#$%^&*():;'
+
+#     for i in range(len(words)):
+#         words[i] = words[i].strip(punctuation)
+#     return words
+
+
+def sentence_count(text):
+    num_of_sentences = 0
+    for char in text:
+        if char in ['.', '!', '?']:
+            num_of_sentences += 1
+    return num_of_sentences
+#print(sentence_count('hello world.\n I like garbonzo beans!'))        
+
+punctuation = r',@#$%^&*():;'
+
+def word_count(text):
+    words = text.lower().split()
     for i in range(len(words)):
         words[i] = words[i].strip(punctuation)
-    return words
-
-#'''ARI Formula'''
-# ari = 4.71 * (characters/words) + 0.5 * (words/sentence) -21.43
-
-def word_count(words):
-    num_of_words = 0
-    for word in words:
-        num_of_words += 1 
+    num_of_words = len(words)
     return num_of_words
-print(word_count(compute_ari()))
+#print(word_count('hello world! \n bonzo llama?'))
 
 
-def char_count(eaches):
+def char_count(text):
     num_of_chars = 0
-    for word in eaches:
-        for char in word:
+    for char in text:
+        if char.isalpha():
             num_of_chars += 1 
     return num_of_chars
-print(char_count(compute_ari()))
+#print(char_count('hello world! \n bonzo llama?'))
 
-
-
-
-def sentence_count(lines):
-    lines = 0
-    for line in lines:
-        
-
-    return len(sentences)
 
 
 compute_ari()
