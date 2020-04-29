@@ -1,3 +1,6 @@
+# Lab 07: Rock Paper Scissors v 1-2
+# Kyle Harasimowicz
+
 # Let's play rock-paper-scissors with the computer.
 
 #     The computer will ask the user for their choice (rock, paper, scissors)

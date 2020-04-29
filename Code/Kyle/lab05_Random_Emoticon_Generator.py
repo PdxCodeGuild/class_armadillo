@@ -1,3 +1,6 @@
+# Lab 05 Random Emoticon Generator Version 1 and 2
+# Kyle Harasimowicz
+
 import random
 import time
 import string

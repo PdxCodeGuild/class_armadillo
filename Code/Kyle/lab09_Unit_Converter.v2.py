@@ -14,7 +14,7 @@ list_of_units = ["foot", "feet" , "ft", "'", "mile", "mile", "miles", "mi", "km"
 list_of_feet = ["foot", "feet" , "ft", "'",]
 list_of_miles = ["mile", "mile", "miles", "mi",]
 list_of_yards = ["yards", "yds", "yard", "yd",]
-list_of_inches = ["inches", "inch", '"']  #"in"
+list_of_inches = ["inches", "inch", "in", '"']  
 list_of_meters = ["m", "meters"]
 list_of_kilometers = ["km", "kilometers", "kilometer", "klicks"]
 convert_from = ""
@@ -29,9 +29,7 @@ conversion_factors = {'inches': 0.0254,
                         'kilometers': 1000
 } 
 
-
-
-
+# long form conversion of x to meters
 def convert_to_meters(distance):
     if convert_from in list_of_feet and convert_to in list_of_meters:
         feet_to_meters = float(distance) * 0.3048 #multiply feet by conversion factor and change to float
@@ -57,6 +55,7 @@ def convert_to_meters(distance):
         kilometers_to_meters = float(distance) / 1000 # divide by conversion factor and change to float
         kilometers_to_meters = round(kilometers_to_meters, 2) #round decimal to 3 places
 
+# long form conversion of x from meters
 def convert_from_meters(distance):
     if convert_from in list_of_meters and convert_to in list_of_feet:
         meters_to_feet = float(distance) / 0.3048 #multiply feet by conversion factor and change to float
@@ -82,41 +81,6 @@ def convert_from_meters(distance):
         meters_to_kilomters = float(distance) * 1000 # divide by conversion factor and change to float
         meters_to_kilomters = round(meters_to_kilomters, 2) #round decimal to 3 places
 
-## calcualtes the inputted data against the conversion factor dictionary
-def calculator():
-        print(f"Your inputted old distance is: {old_distance}")
-        print(f"Your 'convert from' unit is: {convert_from}")
-        print(f"Your 'convert to' is: {convert_to}")
-        old_distance = float(old_distance) * (conversion_factors[convert_from] / conversion_factors[convert_to])
-        new_distance = round(old_distance, 3)
-        print(new_distance)
-
-## Attempt at returning more than one value.
-def input_values():
-    while True:
-        while True:
-            convert_from = input("What unit of measurement are we converting FROM? ")
-            if convert_from in list_of_units:
-                break
-            else:
-                print("That's not a valid response, or a unit of measurement I'm capable of converting. ")
-                print("Please enter meters, kilometers, miles, feet, inches, or yards. ")
-                continue        
-        while True:
-            convert_to = input("What unit of measurement are we converting TO? ")
-            if convert_to in list_of_units:
-                break
-            else:
-                print("That's not a valid response, or a unit of measurement I'm capable of converting. ")
-                print("Please enter meters, kilometers, miles, feet, inches, or yards. ")
-                continue   
-        while True:
-            old_distance = input("Enter distance: ")
-            if not old_distance.isnumeric():
-                print("That's not a valid distance. Please enter a non-negative distance. ")
-            else:
-                break
-        break
 
 # asks the user if they want to play again.
 def play_again():
@@ -162,7 +126,7 @@ def complete_converter():
         print(f"Your 'convert from' unit is: {convert_from}")
         print(f"Your 'convert to' is: {convert_to}")
         
-        old_distance = float(old_distance) * (conversion_factors[convert_from] / conversion_factors[convert_to])
+        old_distance = float(old_distance) * ((conversion_factors[convert_from]) / (conversion_factors[convert_to]))
         new_distance = round(old_distance, 3)
         print(f"{old_distance} {convert_from} = {new_distance} {convert_to}")
         break
