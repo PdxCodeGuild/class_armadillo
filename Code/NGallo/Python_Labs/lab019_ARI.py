@@ -3,7 +3,7 @@ import re
 import string
 
 # receives information from web address. 
-guttenburg_book = requests.get('https://www.gutenberg.org/files/6373/6373-0.txt')
+guttenburg_book = requests.get('http://www.gutenberg.org/cache/epub/32633/pg32633.txt')
 guttenburg_book = guttenburg_book.text.lower()
 list_of_strings = guttenburg_book.split()
 
@@ -16,18 +16,24 @@ def count_words():
     # finally finds the number of words in the giant string
     number_of_words = len(list_of_strings)
     return number_of_words
+
+
+def count_chars(number_of_words):
+    punctuation = '0123456789.,;!&%$?"()[]#*\/'
+    for i in range(len(list_of_strings)):
+       list_of_strings[i] = list_of_strings[i].strip(punctuation)
+
+    stripped_list = list_of_strings.split()
+
+    return stripped_list
+
+
 number_of_words = count_words()
+number_of_chars = count_chars(number_of_words)
+
+
 print(number_of_words)
-
-def number_of_chars():
-   
-
-    giant_string = list_of_strings.replace(' ', '')
-    giant_string_length = len(giant_string)
-    print(giant_string)
-    return giant_string_length
-
-number_of_chars()
+print(number_of_chars)
 
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
@@ -46,7 +52,8 @@ ari_scale = {
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
 
-print(f"The ARI for is 12\n This corresponds to a 11th Grade level of difficulty\n That is suitable for an average person 16-17 years old.")
+
+# print(f"The ARI for is 12\n This corresponds to a 11th Grade level of difficulty\n That is suitable for an average person 16-17 years old.")
 
 '''
 Lab 19: Compute Automated Readability Index
