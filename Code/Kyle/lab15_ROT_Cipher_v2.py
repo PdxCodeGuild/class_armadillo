@@ -10,7 +10,13 @@ letters = "abcdefghijklmnopqrstuvwxyz"
 numbers = "0123456789"
 specials = "!@#$%^&*()"
 split_alphabet = "abcdefghijklm01234!@#$%nopqrstuvwxyz56789^&*()"
+
 reverse_split_alphabet = "nopqrstuvwxyz56789^&*()abcdefghijklm01234!@#$%"
+
+split_alphabet_list = []
+for i in split_alphabet:
+    split_alphabet_list.append(i)
+
 
 user_input = ""
 alphabet = ""
@@ -35,37 +41,34 @@ print("In this second version, the user can select the number of rotation, 1-36\
 #     new_password += reverse_char
 # print(new_password)
 
+def validate_input_function():  
+    old_password2 = input("Enter your password, and I'll encrypt it for you in a super-insecure cypher: ").lower()
+    for i in old_password2:
+        while not i in split_alphabet_list:
+            print("\nI'm sorry, I don't recognize one or more of your responses.")
+            print("Please enter only alpha-numeric characters, or the following special characters: ")
+            print("! @ # $ % ^ & * ( )\n")
+            old_password2 = input("Enter your password, and I'll encrypt it for you in a super-insecure cypher: ").lower()
+    return old_password2
 
-old_password2 = input("Enter your password, and I'll encrypt it for you in a super-insecure cypher: ").lower()
-for i in old_password2:
-    while not i in split_alphabet:
-        print("\nI'm sorry, I don't recognize one or more of your responses.")
-        print("Please enter only alpha-numeric characters, or the following special characters: ")
-        print("! @ # $ % ^ & * ( )\n")
-        old_password2 = input("Enter your password, and I'll encrypt it for you in a super-insecure cypher: ").lower()
-
-while True:
+def validate_rotation():
     x = input("Please enter a number to determine specific of low-grade 'cypher-protection': ")
     while not x.isnumeric():
         print("\nI don't understand your response. ")
         print("The non-negative number you select must be between 1 and 36. \n")
-        x = input("Please enter a number to determine specific of low-grade 'cypher-protection': ")
+        x = input("Please enter a number to determine specific of low-grade 'cypher-protection': ")   
+    # while not x.isnumeric() and not int(x) <= 36:
+    #     print("\nYour request is outside the rotation range. ")
+    #     print("The non-negative number you select must be between 1 and 36. \n")
+    #     x = input("Please enter a number to determine specific of low-grade 'cypher-protection': ") 
+    return x
 
-    # Still troubleshooting this second while loop. 
-    # If a user inputs a number on attempt 1, (greater than 36)
-    # but then inputs a non-number on the second attempt
-    # the resulting error is: "TypeError: '<=' not supported between instances of 'str' and 'int'"
-    x = int(x)
-    # while not x <= 36:
-    #     print("\nThe non-negative number you select must be between 1 and 36. \n")
-    #     x = input("Please enter a number to determine specific of low-grade 'cipher-protection': ")
-    break
 
 def rot_v2(old_password2, x):
     new_password2 = ""
     #clean input of spaces
-    old_password2 = old_password2.split()
-    old_password2 = ''.join(old_password2)
+    #old_password2 = old_password2.split()
+    #old_password2 = ''.join(old_password2)
     # check to see if user input passed as argument to function
     print(f'User\'s old password is: {old_password2}')
     #iterate over each character of old password
@@ -75,4 +78,7 @@ def rot_v2(old_password2, x):
     print(F'Internal end of function produces: {new_password2}')
     return new_password2
 
+
+validate_input_function()
+validate_rotation()
 print(rot_v2(old_password2, x))
