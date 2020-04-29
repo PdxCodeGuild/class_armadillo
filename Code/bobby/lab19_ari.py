@@ -23,6 +23,7 @@ import math
     # 14     18-22    College
 
 
+# This is the ARI (Dictionary) scale that the program pulls from later to make the calculation on what level an eBook is
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
      2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
