@@ -56,6 +56,7 @@ import re
 
 # text = response.text
 
+# number of words
 def word():
     response = requests.get('http://www.gutenberg.org/cache/epub/28437/pg28437.txt')
     text = response.text
@@ -79,7 +80,7 @@ response = requests.get('http://www.gutenberg.org/cache/epub/28437/pg28437.txt')
 text = response.text
 
 
-
+# number of characters 
 def characters(chars):
     return len([char for char in chars if char in string.ascii_letters])  # list comprehension 21540
     # samething as the list comprehension below: 
@@ -92,7 +93,8 @@ def characters(chars):
 num_of_chars = characters(text)
 print(characters(text))
 
-def sentences(text):
+# Number of Sentences
+#def sentences(text):
 
 
 # chars = text 
@@ -107,37 +109,37 @@ def sentences(text):
 
 
 # initializing string   
-text_string = """
-Know him?
+# text_string = 
 
-!@#$%^^&&*&*()_+? Well you might say I practically grew up with him. He was my hero in
-those days. I thought few wiser or greater men ever lived. In my eyes he
-was greater than Babe Ruth, Lindy, or the President.!!! 
+# """
+# Know him?
 
-Of course, time, and my growing up caused me to bring him into a
-perspective that I felt to be more consonant with his true position in
-his field of endeavor. When he died his friends mourned for fond
-remembrance of things past, but privately many of them felt that he had
-outlived his best days. Now with this glorious vindication, I wonder how
-many of them are still alive to feel the twinge of conscience....
+# !@#$%^^&&*&*()_+? Well you might say I practically grew up with him. He was my hero in
+# those days. I thought few wiser or greater men ever lived. In my eyes he
+# was greater than Babe Ruth, Lindy, or the President.!!! 
 
-Oh, we're delighted of course, but it seems incredible even today to us
-elated oldsters. Although we were always his staunchest admirers, in
-retrospect we can see now that no one believed more than we that he did
-it strictly for the dollar. It is likely there was always a small corps
-of starry-eyed adolescents who found the whole improbable saga entirely
-believable, or at least half believed it might be partly true. The
-attitude of the rest of us ranged from a patronizing disparagement that
-we thought was expected of us, through grudging admiration, to
-out-and-out enthusiasm.
+# Of course, time, and my growing up caused me to bring him into a
+# perspective that I felt to be more consonant with his true position in
+# his field of endeavor. When he died his friends mourned for fond
+# remembrance of things past, but privately many of them felt that he had
+# outlived his best days. Now with this glorious vindication, I wonder how
+# many of them are still alive to feel the twinge of conscience....
 
-Certainly if anybody had taken the trouble to consider it--and why
-should they have?--the landing of the first manned ship on our satellite
-seemed to render him as obsolete as a horde of other lesser and even
-greater lights. At any rate, it was inevitable that the conquest of the
-moon would be merely a stepping-stone to more distant points.
+# Oh, we're delighted of course, but it seems incredible even today to us
+# elated oldsters. Although we were always his staunchest admirers, in
+# retrospect we can see now that no one believed more than we that he did
+# it strictly for the dollar. It is likely there was always a small corps
+# of starry-eyed adolescents who found the whole improbable saga entirely
+# believable, or at least half believed it might be partly true. The
+# attitude of the rest of us ranged from a patronizing disparagement that
+# we thought was expected of us, through grudging admiration, to
+# out-and-out enthusiasm.
 
-"""
+# Certainly if anybody had taken the trouble to consider it--and why
+# should they have?--the landing of the first manned ship on our satellite
+# seemed to render him as obsolete as a horde of other lesser and even
+# greater lights. At any rate, it was inevitable that the conquest of the
+# moon would be merely a stepping-stone to more distant points. """
 
 # to print list of words: 
 # # printing original string 
