@@ -15,6 +15,19 @@ url = f'https://favqs.com/api/quotes?page=1&filter={keyword}'
 headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
 response = requests.get(url, headers=headers)
 print(response.text)
+
+#converting JSON into a dictionary
+dictionary = json.loads(response.text)
+print(dictionary)
+
+#RESULT
+# Enter a keyword to search for quotes : {"page":1,"last_page":false,"quotes":[{"id":0,"favorites_count":0,"favorite":false,"dialogue":false,"body":"No quotes found","tags":[]}]}
+# {'page': 1, 'last_page': False, 'quotes': [{'id': 0, 'favorites_count': 0, 'favorite': False, 'dialogue': False, 'body': 'No quotes found', 'tags': []}]}
+
+# print(contacts['contacts'][0]['name']) # Joe
+# print(json.loads(contacts, indent=4, sort_keys=True))
+
+
 # the quotes you get in response, and 
 # print(keyword)
 # # prompt the user to either show the 

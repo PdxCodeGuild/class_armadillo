@@ -22,8 +22,10 @@ data = json.loads(response.text) # turn the json into a python dictionary
 #     print("invalid response")
 #     print(a)
 
-random = data['qotd_date']
-
-print(random)
 
 # print(data) # get a part of the response data out of the dictionary
+
+print(data['quote']['author'])
+
+print(data['quote']['body'])
+
