@@ -1,3 +1,6 @@
+# Lab 6: Random Password Generator Version 1-3
+# Kyle Harasimowicz
+
 # Let's generate a password of length n using a while loop and random.choice, 
 # this will be a string of random characters, e.g. a62xB95. 
 # Hint: random.choice can be used to pick a character out of a string, as well as an element out of a list.
