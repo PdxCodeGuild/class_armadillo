@@ -1,4 +1,6 @@
 # Lab 20 Quote API
+# Version 1
+
 
 import requests
 import json
@@ -6,24 +8,32 @@ import json
  
 
 
-a = input("would you like to get a random quote? Enter 'y' for yes or 'n' for no: ")
+def get_quote():
+    url = 'https://favqs.com/api/qotd/'
+    response = requests.get(url) # send the request to the api
+    data = json.loads(response.text) # turn the json into a python dictionary
+    print(data['quote']['author'])
+    print(data['quote']['body'])
 
-url = 'https://favqs.com/api/qotd/'
-response = requests.get(url) # send the request to the api
-# print(response.text) # look at the raw json
-data = json.loads(response.text) # turn the json into a python dictionary
 
-# for 
-# if a == 'y':
-#     print(data)
-# elif a == 'n':
-#     print('goodbye')
-# else:
-#     print("invalid response")
-#     print(a)
+ask = input("would you like to get a random quote? Enter y for yes or n for no: ")
+if ask == 'y':
+    get_quote()
+        
+else:
+    print("goodbye")
+    
+while True:
+    again = input("would you like another quote? Enter y for yes n for no: ")
+    if again == 'n':
+        print("goodbye")
+        break
+    elif again == 'y':
+        get_quote()
+    else:
+        print("invalid response")
+        continue
 
-random = data['qotd_date']
 
-print(random)
 
-# print(data) # get a part of the response data out of the dictionary
+

@@ -1,6 +1,5 @@
 
 
-# used Nicholas Kalinin's code as a reference
 import requests
 
 
@@ -11,8 +10,14 @@ text = response.text
 # print(text) <--this prints out the WHOLE book
 
 # 2) get a clean list of words ['the', 'the', 'a', 'that', 'hello', 'that', ..]
+# splits it into a list
+lines = text.split('\r')
 
-lines = text.split('\n')
+#now a bunch of little strings
+
+# Prints the string by replacing only 3 occurrence of Geeks   
+# print(string.replace("geeks", "GeeksforGeeks", 3))
+lines = lines.replace("\n", "")
 print(lines[200:800])
 
 
