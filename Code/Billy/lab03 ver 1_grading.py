@@ -5,26 +5,17 @@ while True:
         break # ends this loop if input is a number
     print('Invalid...is not numeric.') # enters this print line if above not satisfied due to not being a number then asks to enter number again
 
-sign_grade = num_grade % 10 # takes modulus to evaluate if grade is + or -
-sign = ' ' # establishes sign variable, stays empty if modulus == 5 
-
-if sign_grade > 5: # modulus greater than five indicates + grade
-    sign = '+'
-elif sign_grade < 5: # modulus less than five indicates + grade
-    sign = '-'
-
 if num_grade >= 90: # prints below statement if number value criteria met then ends program 
-    print('Letter grade: A' + sign) # concatenates the sign value string determined above
+    print("Letter grade: A")
 elif num_grade >= 80:
-    print('Letter grade: B' + sign)
+    print("Letter grade: B")
 elif num_grade >= 70:
-    print('Letter grade: C' + sign)
+    print("Letter grade: C")
 elif num_grade >= 60:
-    print('Letter grade: D' + sign)
+    print("Letter grade: D")
 else: 
-    print('Letter grade: F') # no specific sign grade is given for 'F' grades
+    print("Letter grade: F")
 
- 
 
 
 '''
