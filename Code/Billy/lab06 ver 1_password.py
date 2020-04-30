@@ -8,22 +8,22 @@ print('~'*43)
 
 time.sleep(1.5)
 
-letters = string.ascii_letters
-digits = string.digits
-punctuation = string.punctuation
+letters = string.ascii_letters # ascii letters upper and lower case
+digits = string.digits # ascii numbers
+punctuation = string.punctuation #ascii punctuation
 
-all_characters = letters + digits + punctuation
+all_characters = letters + digits + punctuation # 
 
-word = ""
-for x in range(15):
-    word += random.choice(all_characters)
+word = "" # establishes word variable for building password
+for x in range(15): # makes word variable 15 characters long
+    word += random.choice(all_characters) # selects random letter, digit and/or punctuation
  
 # random.shuffle can't accept string arguments, must convert to list
 sel_characters = list(word)     # convert string into a list of characters
 random.shuffle(sel_characters)  # shuffle the list of characters
 password = ''.join(sel_characters)  # convert the list of characters back into a string
   
-print("\nYour new password is:\n")
+print("\nYour new password is:\n") #prints new password one letter at a time
 time.sleep(1)
 password_msg = password + '\n\n'
 i = 0
