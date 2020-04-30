@@ -54,11 +54,7 @@ number_of_chars = count_chars()
 number_of_sentences = number_of_sentences()
 score = find_score(number_of_chars, number_of_sentences, number_of_words)
 
-print(f"there are {number_of_words} words")
-print(f"there are {number_of_chars} characters")
-print(f"there are {number_of_sentences} sentences")
-print(f"this means that the books has an ARI of {score}. This corresponds to a {ari_scale[score]['grade_level']} level of difficulty or is suitable for the average person {ari_scale[score]['ages']} years old.")
-
+print(f"There are {number_of_words} words.\nThere are {number_of_chars} characters.\nThere are {number_of_sentences} sentences.\nThis means that the book has an ARI of {score}.\nThis corresponds to a {ari_scale[score]['grade_level']} level of difficulty or is suitable for the average person {ari_scale[score]['ages']} years old.")
 
 '''
 Lab 19: Compute Automated Readability Index
