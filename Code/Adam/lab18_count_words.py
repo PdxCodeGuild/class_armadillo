@@ -28,7 +28,8 @@ import requests
 # starter code
 response = requests.get('https://www.gutenberg.org/files/215/215-0.txt')
 text = response.text
-# print(text)
+text = text.lower()
+print(text)
 
 
 
@@ -39,7 +40,7 @@ text = response.text
 ebook_start = text.find('***')
 print(ebook_start)
 print(text[ebook_start:ebook_start])
-# print(text[800:900])
+print(text[100:600])
 
 lines = text.split('\n')
 # print(lines[100:200])

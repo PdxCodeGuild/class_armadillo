@@ -13,27 +13,7 @@ divided by the number of words by 4.71, adding the number of
 words divided by the number of sentences multiplied by 0.5, and 
 subtracting 21.43. If the result is a decimal, always round up. 
 Scores greater than 14 should be presented as having the same age 
-and grade level as scores of 14.
-
-Scores correspond to the following ages and grade levels:
-
-    Score  Ages     Grade Level
-     1       5-6    Kindergarten
-     2       6-7    First Grade
-     3       7-8    Second Grade
-     4       8-9    Third Grade
-     5      9-10    Fourth Grade
-     6     10-11    Fifth Grade
-     7     11-12    Sixth Grade
-     8     12-13    Seventh Grade
-     9     13-14    Eighth Grade
-    10     14-15    Ninth Grade
-    11     15-16    Tenth Grade
-    12     16-17    Eleventh grade
-    13     17-18    Twelfth grade
-    14     18-22    College
-Once you’ve computed the ARI score, you can use the following 
-dictionary to look up the age range and grade level.'''
+and grade level as scores of 14.'''
 
 # imports module.
 import requests
@@ -53,16 +33,13 @@ def compute_ari():
     letters = char_count(text)
     word_1 = word_count(text)
     sentences_1 = sentence_count(text)
-    # ARI Formula in 'f' string format with a print statment.
+    # ARI Formula in 'f' string format.
     ari = f'4.71 * ({letters}/{word_1}) + 0.5 * ({word_1}/{sentences_1}) -21.43'
-    ####ari = int(ari + .5) still need to get this to work!
-    print('The ARI score from ' + ari + ' is ')
-    print(round(4.71 * (letters/word_1) + 0.5 * (word_1/sentences_1) -21.43))
-
+    # ARI Formula rounding the results up. 
+    ari = math.ceil(4.71 * (letters/word_1) + 0.5 * (word_1/sentences_1) -21.43)
+    print(ari)
     
-    ##### if ari > 14:---- needs to be converted.
-    #####     ari = 14
-
+    # defines the ARI scale in a dictionary.
     ari_scale = {
         1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
         2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
@@ -79,18 +56,9 @@ def compute_ari():
         13: {'ages': '17-18', 'grade_level':   '12th Grade'},
         14: {'ages': '18-22', 'grade_level':      'College'}
         }
+    # prints the ARI score and pertinent information from the ari_scale dictionary.
+    print (f"The ARI score is {ari}\nwhich correlates to the {ari_scale[ari]['grade_level']} level\nwhich is appropriate for ages {ari_scale[ari]['ages']}.")
 
-
-# def set_sentence_parameter():
-#     find_a_book = requests.get('http://www.gutenberg.org/cache/epub/36830/pg36830.txt')
-
-#     words = find_a_book.text.lower().split('.?!')
-
-#     punctuation = r',@#$%^&*():;'
-
-#     for i in range(len(words)):
-#         words[i] = words[i].strip(punctuation)
-#     return words
 
 # defines the function for counting the sentences.
 def sentence_count(text):
@@ -99,9 +67,9 @@ def sentence_count(text):
         if char in ['.', '!', '?']:
             num_of_sentences += 1
     return num_of_sentences
-## print(sentence_count('hello world.\n I like garbonzo beans!'))        
+      
 
-# strips the punctuation.
+# defines punctuation.
 punctuation = r',@#$%^&*():;'
 
 # defines the function to count the words.
@@ -111,7 +79,6 @@ def word_count(text):
         words[i] = words[i].strip(punctuation)
     num_of_words = len(words)
     return num_of_words
-## print(word_count('hello world! \n bonzo llama?'))
 
 # defines the functions to count the characters.
 def char_count(text):
@@ -120,8 +87,6 @@ def char_count(text):
         if char.isalpha():
             num_of_chars += 1 
     return num_of_chars
-## print(char_count('hello world! \n bonzo llama?'))
-
 
 # calls the function.
 compute_ari()
