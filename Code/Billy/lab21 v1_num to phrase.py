@@ -58,7 +58,7 @@ while True: # loop for selecting unique num, math for pattern number, quit and i
             print('Your number phrase is: ' + Fore.MAGENTA + f'{unique_dict[num]}' + Fore.RESET)
         elif num%10 != 0: # if num is not even tens (=>20), will allow + 'hyphen unique number), returns to top of loop
             print('Your number phrase is: ' + Fore.MAGENTA + f'{pattern_dict[num//10]}-{unique_dict[num%10]}' + Fore.RESET)
-        elif num%10 == 0: # if num is even tens (=>20), will take direct from pattern dict, returns to top of loop
+        else: # only num%10==0 should remain, even tens (=>20), will take direct from pattern dict, returns to top of loop 
             print('Your number phrase is: ' + Fore.MAGENTA + f'{pattern_dict[num//10]}' + Fore.RESET) 
 
 
