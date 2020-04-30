@@ -2,39 +2,6 @@ import requests
 import re
 import string
 
-# receives information from web address. 
-guttenburg_book = requests.get('http://www.gutenberg.org/cache/epub/32633/pg32633.txt')
-guttenburg_book = guttenburg_book.text.lower()
-list_of_strings = guttenburg_book.split()
-
-def count_words():
-    
-    # takes punctuation out 
-    punctuation = '0123456789.,;!&%$?"()[]#*\/'
-    for i in range(len(list_of_strings)):
-       list_of_strings[i] = list_of_strings[i].strip(punctuation)
-    # finally finds the number of words in the giant string
-    number_of_words = len(list_of_strings)
-    return number_of_words
-
-
-def count_chars(number_of_words):
-    punctuation = '0123456789.,;!&%$?"()[]#*\/'
-    for i in range(len(list_of_strings)):
-       list_of_strings[i] = list_of_strings[i].strip(punctuation)
-
-    stripped_list = list_of_strings.split()
-
-    return stripped_list
-
-
-number_of_words = count_words()
-number_of_chars = count_chars(number_of_words)
-
-
-print(number_of_words)
-print(number_of_chars)
-
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
      2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
@@ -51,9 +18,43 @@ ari_scale = {
     13: {'ages': '17-18', 'grade_level':   '12th Grade'},
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
+# receives information from web address. 
+guttenburg_book = requests.get('http://www.gutenberg.org/cache/epub/32633/pg32633.txt')
+guttenburg_book = guttenburg_book.text.lower()
+list_of_strings = guttenburg_book.split()
 
+def count_words():
+    
+    # takes punctuation out 
+    punctuation = '0123456789.,;!&%$?"()[]#*\/'
+    for i in range(len(list_of_strings)):
+       list_of_strings[i] = list_of_strings[i].strip(punctuation)
+    # finally finds the number of words in the giant string
+    number_of_words = len(list_of_strings)
+    return number_of_words
 
-# print(f"The ARI for is 12\n This corresponds to a 11th Grade level of difficulty\n That is suitable for an average person 16-17 years old.")
+def number_of_sentences():
+    list_of_sentences = guttenburg_book.split('.')
+    number_of_sentences = len(list_of_sentences)
+    return number_of_sentences
+
+def count_chars():
+    string_list = ''.join([str(item) for item in list_of_strings ])
+    number_of_chars = len(string_list)
+    return number_of_chars
+
+def find_score(number_of_chars, number_of_sentence, number_of_words):
+
+    score = round((number_of_chars / number_of_words) * 4.71 + (number_of_words / number_of_sentences) *.5 - 21.41)
+
+    return score
+
+number_of_words = count_words()
+number_of_chars = count_chars()
+number_of_sentences = number_of_sentences()
+score = find_score(number_of_chars, number_of_sentences, number_of_words)
+
+print(f"There are {number_of_words} words.\nThere are {number_of_chars} characters.\nThere are {number_of_sentences} sentences.\nThis means that the book has an ARI of {score}.\nThis corresponds to a {ari_scale[score]['grade_level']} level of difficulty or is suitable for the average person {ari_scale[score]['ages']} years old.")
 
 '''
 Lab 19: Compute Automated Readability Index
@@ -61,7 +62,7 @@ Compute the ARI for a given body of text loaded in from a file. The automated re
 
 ARI Formula
 
-The score is computed by multiplying the number of characters divided by the number of words by 4.71, adding the number of words divided by the number of sentences multiplied by 0.5, and subtracting 21.43. If the result is a decimal, always round up. Scores greater than 14 should be presented as having the same age and grade level as scores of 14.
+The score is computed by multiplying the number of characters / the number of words by 4.71, adding the number of words divided by the number of sentences multiplied by 0.5, and subtracting 21.43. If the result is a decimal, always round up. Scores greater than 14 should be presented as having the same age and grade level as scores of 14.
 
 Scores correspond to the following ages and grad levels:
 
