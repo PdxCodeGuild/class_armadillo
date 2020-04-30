@@ -1,8 +1,21 @@
+
+# import requests library to get http requests
+
 import requests
+#import regular expression library to use regex syntax
 import re
 
 
-#get the source code for the google home page
+# referred to:
+# https://regex101.com/r/nRy8cd/1
+# https://docs.python.org/3.6/howto/regex.html#regex-howto
+# https://docs.python.org/3.6/library/re.html#re-syntax
+# https://www.w3schools.com/python/ref_string_split.asp
+# https://github.com/PdxCodeGuild/class_armadillo/blob/master/0%20General/05%20-%20Regular%20Expressions.md
+# https://github.com/PdxCodeGuild/class_armadillo/blob/master/Code/Matthew/demos/demo_regex2.py
+# https://github.com/PdxCodeGuild/class_armadillo/blob/master/Code/Talieson/Lab19-compute_ari.py
+# watched youtube video to figure regex
+# https://www.youtube.com/watch?v=UQQsYXa1EHs
 
 def book():
 response = requests.get("http://www.gutenberg.org/files/120/120-0.txt")
@@ -11,102 +24,54 @@ text = text.split('\n')
 lines = text[100:130]
 print(lines)
 
-
-def replace_text(text):lab 19
+# replace all characters with an empty string
+def replace_text(text):
+    # searching for characters in text
     for character in text:
+        # if character is --- below--- replace with ""
         if character in (";", ".", "!", "?", "!", ",",
                          ":", "'", "-", "â", "(", ")"):
             text = text.replace(character, "")
     return text
 
-# take our text in and return a list of words
+# list of words
 def word_count(text):
-  # we need to call clean text function
+  # cleanup text
   text = text_clean(text)
+ # empty list
   word_list = []
+  # make all the words in the list lowercase and remove spaces
+  # The split() method splits a string into a list. You can
+  #  specify the separator, default separator is any whitespace.
   words = text.lower().split()
-  # iterate over words and add them all to the list
+  # for loop to add words to a list
   for word in words:
       word_list.append(word)
   return len(word_list)
 
 
 # count the characters in the text
-def character_count(text):
+def wordz(text):
     # call our cleaning function
     text = text_clean(text)
     characters = 0
-    # if what is left is a letter, iterate our character count
+    # for loop to find wordz
     for character in text:
         # built-in method used for string handling. 
         # The isalpha() methods returns “True” if all 
         # characters in the string are alphabets, Otherwise, 
         # It returns “False”.
-        if character.isalpha(): 
-            characters += 1
+        if character.isalpha():
+            # count up if the character has letters 
+            characters += 1 #return the count
     return characters
 
 
 
 # use regex to catch all instances of sentences and return
+def sentences(text):
+    # regular expression with raw string followed by capture group
+    # represented by square brackets, ^ signifies beginning with a 
+    # ., ?, ! - this is how we know it's a sentence
+    characters = (r"([^\.\?\!]*)")
 
-
-# use regex to catch all instances of sentences and return
-
-# Lab 19: Compute Automated Readability Index
-# Compute the ARI for a given body of text loaded in from a file. 
-# The automated readability index (ARI) is a formula for computing 
-# the U.S. grade level for a given block of text. The general formula 
-# to compute the ARI is as follows:
-
-# ARI Formula
-
-# The score is computed by multiplying the number of characters 
-# divided by the number of words by 4.71, adding the number of words 
-# divided by the number of sentences multiplied by 0.5, and subtracting 
-# 21.43. If the result is a decimal, always round up. Scores greater 
-# than 14 should be presented as having the same age and grade level 
-# as scores of 14.
-
-# Scores correspond to the following ages and grad levels:
-
-#     Score  Ages     Grade Level
-#      1       5-6    Kindergarten
-#      2       6-7    First Grade
-#      3       7-8    Second Grade
-#      4       8-9    Third Grade
-#      5      9-10    Fourth Grade
-#      6     10-11    Fifth Grade
-#      7     11-12    Sixth Grade
-#      8     12-13    Seventh Grade
-#      9     13-14    Eighth Grade
-#     10     14-15    Ninth Grade
-#     11     15-16    Tenth Grade
-#     12     16-17    Eleventh grade
-#     13     17-18    Twelfth grade
-#     14     18-22    College
-# Once you’ve computed the ARI score, you can use the following dictionary to look up the age range and grade level.
-
-# ari_scale = {
-#      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
-#      2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
-#      3: {'ages':   '7-8', 'grade_level':    '2nd Grade'},
-#      4: {'ages':   '8-9', 'grade_level':    '3rd Grade'},
-#      5: {'ages':  '9-10', 'grade_level':    '4th Grade'},
-#      6: {'ages': '10-11', 'grade_level':    '5th Grade'},
-#      7: {'ages': '11-12', 'grade_level':    '6th Grade'},
-#      8: {'ages': '12-13', 'grade_level':    '7th Grade'},
-#      9: {'ages': '13-14', 'grade_level':    '8th Grade'},
-#     10: {'ages': '14-15', 'grade_level':    '9th Grade'},
-#     11: {'ages': '15-16', 'grade_level':   '10th Grade'},
-#     12: {'ages': '16-17', 'grade_level':   '11th Grade'},
-#     13: {'ages': '17-18', 'grade_level':   '12th Grade'},
-#     14: {'ages': '18-22', 'grade_level':      'College'}
-# }
-# The output should look something like the following:
-
-# --------------------------------------------------------
-# The ARI for gettysburg-address.txt is 12
-# This corresponds to a 11th Grade level of difficulty
-# that is suitable for an average person 16-17 years old.
-# --------------------------------------------------------

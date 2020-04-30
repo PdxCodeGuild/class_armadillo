@@ -1,8 +1,8 @@
-conv_rate = {"ft": .3048}
+conv_rate = {"ft": .3048} # dictionary with conversion rate
     
-user_dist = int(input("\nPlease enter distance in feet(ft): "))
-total = user_dist * conv_rate["ft"]
-print(f"\n{user_dist} ft equals {total} m\n")
+user_dist = int(input("\nPlease enter distance in feet(ft): ")) # user enters feet
+total = user_dist * conv_rate["ft"] # math to convert ft to meters using dict key for conversion rate
+print(f"\n{user_dist} ft equals {total} m\n") # prints results
 
 
 

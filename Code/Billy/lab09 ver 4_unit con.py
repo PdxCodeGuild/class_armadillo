@@ -1,6 +1,6 @@
 import time
 
-welcome_msg = '\nWelcome to unit converter!'
+welcome_msg = '\nWelcome to unit converter!' # prints one letter at time
 i = 0
 while i < len(welcome_msg):
     print(welcome_msg[i], end='', flush=True)
@@ -9,30 +9,30 @@ while i < len(welcome_msg):
 
 time.sleep(1)
 
-conv_rate = {"ft": .3048, "mi": 1609.34, "m": 1, "km": 1000, "yd": .9144, "in": .0254}
+conv_rate = {"ft": .3048, "mi": 1609.34, "m": 1, "km": 1000, "yd": .9144, "in": .0254} # conv rate dictionary
 
-while True:
-    def get_float(message):
-        while True:
-            value = input(message)
-            try:
-                value = float(value)
-                return value
-            except ValueError:
-                print("Sorry! That is an INVALID entry!")
+while True: 
+    # def get_float(message): # input validation example
+    #     while True:
+    #         value = input(message)
+    #         try:
+    #             value = float(value)
+    #             return value
+    #         except ValueError:
+    #             print("Sorry! That is an INVALID entry!")
 
-    user_dist = get_float("\nPlease enter distance: ")
+    # user_dist = get_float("\nPlease enter distance: ")
     
-    # user_dist = int(input("\n\nPlease enter distance: "))
+    user_dist = float(input("\n\nPlease enter distance: "))
 
     time.sleep(0.5)
         
-    user_unit_orig = input("Please enter units to CONVERT (ft, mi, m, km, yd, in): ").lower()
-    does_unit_orig_exist = conv_rate.get(user_unit_orig, False)
+    user_unit_orig = input("Please enter units to CONVERT (ft, mi, m, km, yd, in): ").lower() # user input
+    does_unit_orig_exist = conv_rate.get(user_unit_orig, False) # input validation
 
-    if does_unit_orig_exist:
+    if does_unit_orig_exist: # math if unit exists
         distance_meters = user_dist * (conv_rate.get(f"{user_unit_orig}"))
-    else:
+    else: # error message if unit does not exist
         print(f"Sorry! Unit '{user_unit_orig}' is NOT applicable!\n")
         exit()
 
@@ -41,20 +41,20 @@ while True:
     user_unit_desired = input("Please enter units DESIRED (ft, mi, m, km, yd, in): ").lower()
     does_unit_desired_exist = conv_rate.get(user_unit_desired, False)
 
-    if does_unit_desired_exist:
+    if does_unit_desired_exist: # final math if units desired units valid
         distance_new = distance_meters / (conv_rate.get(f"{user_unit_desired}"))
 
         time.sleep(1)
 
-        print(f"\n{user_dist} {user_unit_orig} equals {distance_new} {user_unit_desired}\n")
+        print(f"\n{user_dist} {user_unit_orig} equals {distance_new} {user_unit_desired}\n") # results
         time.sleep(1)
 
-        question = input("Would you like to convert another value? (yes/no): ").lower()
+        question = input("Would you like to convert another value? (yes/no): ").lower() # input for continue or not
         if question != "yes":
             time.sleep(0.5)
             print("\nSee you later!\n")
             exit()
-    else:
+    else: #if desired units invalid
         print(f"Sorry! Unit '{user_unit_desired}' is NOT applicable!\n")
         exit()
 
