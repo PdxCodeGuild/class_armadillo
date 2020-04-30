@@ -21,8 +21,8 @@ while True:
     continue # returns to top of loop to reenter key
   else: # when quotes were found and exist in dictionary
     print(Fore.YELLOW + f'''\n{len(quote_dict['quotes'])} quotes associated with {key} - page {pg}:\n''' + Fore.RESET) # 25 quotes associated with (keywoard) - page 1:
-    for quotes in quote_dict['quotes']:
-      print(f'''\n"{quotes['body']}"\n\t--{quotes['author']}\n''')
+    for quotes in quote_dict['quotes']: # iterates through each of the group of 25 'quotes' sub-dictionary entries
+      print(f'''\n"{quotes['body']}"\n\t--{quotes['author']}\n''') # prints the 'body' and 'author' key values from each 'quotes' dictionary in quote_dict
 
   while True:
     choice = input(Fore.YELLOW + '''\nEnter 'next page', 'new' or 'exit': ''' + Fore.RESET).lower().strip() # user input for how to proceed after quotes printed
