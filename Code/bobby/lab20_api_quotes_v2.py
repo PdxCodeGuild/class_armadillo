@@ -1,4 +1,4 @@
-import requests# Haveing and issue with my requests not working, keep getting ModuleNotFoundError: no module 'requests'
+import requests
 import json
 import time
 
@@ -7,9 +7,7 @@ print("Welcome Quote Finder\n")
 time.sleep(2)
 
 user = input("Use a keyword to find a quote: ")
-# y = True
-# while True:
-# Pulling from the api link.
+
 page = f"https://favqs.com/api/quotes?page=1&filter={user}"
 authorization= {'Authorization': 'Token token="95251f84fa0c7fc3e4d869ef7ebad17e"'}
 response = requests.get(page, headers=authorization)
