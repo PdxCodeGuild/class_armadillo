@@ -1,3 +1,6 @@
+# Lab 17 automates the results of playing the lottery in
+# a simple 6 random numbers fashion 10,000 times.
+
 import random
 import time
 
