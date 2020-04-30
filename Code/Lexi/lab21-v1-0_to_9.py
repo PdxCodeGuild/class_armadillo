@@ -1,4 +1,10 @@
 import random
+# mistake: put break within the if-else
+# Talieson helped me understand to line it up with the if-else
+# in order to be outside so that once one of the if-else lines were
+# run, then the program would exit the loop - SUCCESS
+# generating a random number
+
 num = random.randint(0, 9)
 dictionary = {
         0 : "zero",
@@ -13,14 +19,14 @@ dictionary = {
         9 : "nine",
 }
 
-# while True loop to take user input
-while True:
-    # ask the user to enter digits
-    user = input("Please enter digit 0 - 9: ")
-    if user in ["done", "quit", "exit"]:
-        break
-    else:
-        print("Not a valid entry.")
+# # while True loop to take user input
+# while True:
+#     # ask the user to enter digits
+#     user = input("Please enter digit 0 - 9: ")
+#     if user in ["done", "quit", "exit"]:
+#         break
+#     else:
+#         print("Not a valid entry.")
 
 
 while True:
@@ -46,3 +52,4 @@ while True:
     print(dictionary[9])
   else:
     exit()
+  break
