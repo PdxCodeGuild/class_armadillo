@@ -1,25 +1,26 @@
 import random
 import time
 
-print('\n' + '~'*44)
-print('Welcome to the \'Rock Paper Scissors\' game...')
+print('\n' + '~'*44) # border
+print('Welcome to the \'Rock Paper Scissors\' game...') 
 print('~'*44)
 
 time.sleep(1)
 
-choices = ["rock", "paper", "scissors"]
+choices = ["rock", "paper", "scissors"] # list of possible choices
 
-user = input("Choose rock, paper or scissors: ")
+user = input("Choose rock, paper or scissors: ") # user choose weapon
 
-computer = random.choice(choices)
-
-time.sleep(1)
-
-print("\nYou: "+ user)
-print("Computer: " + computer + '\n')
+computer = random.choice(choices) # computer randomly chooses weapon from choices list
 
 time.sleep(1)
 
+print("\nYou: "+ user) # printers user's choice
+print("Computer: " + computer + '\n') # prints computer's choice
+
+time.sleep(1)
+
+# compares choices and states the winner
 if user == "rock" and computer == "paper":
     print("You lose!")
 elif user == "rock" and computer == "scissors":
@@ -35,7 +36,7 @@ elif user == "scissors" and computer == "paper":
 elif user == computer:
     print("It's a tie!!!")
 
-print('\n')
+print('\n') # skipped line for appearance
 
 
 '''

@@ -9,7 +9,7 @@ from secrets import authorization
 
 # Gets the data from favQs website using an API. It will return 
 # all the data from a specific webpage if the tag exists. If the 
-# webpage does not exist, it will return false.
+# webpage does not exist, it will return None.
 # tag = the catagory of quotes the user wishes to see.
 # page = the page number the user wishes to see. The default is 1 
 # because thats where we want to start when looking at the quotes.
@@ -23,9 +23,9 @@ def get_data(tag, page = 1):
     if data['quotes'][0]['id'] != 0:
         return data
     # If there were no quotes, it will print the appropriate message, 
-    # then return false.
+    # then return None.
     print("That was not a valid catagory, please try another.")
-    return False
+    return None
 
 # Prints the options available to the user.
 # number = page number.

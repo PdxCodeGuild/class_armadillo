@@ -19,7 +19,7 @@ user_cash = int(user_dollars*100)
 # pennies = user_cash
 # print(f'\nQuarters: {quarters}\nDimes: {dimes}\nNickels: {nickels}\nPennies: {pennies}\n')
 
-# Alternate method 2.
+# Alternate method 2. # converts a dollar amount into change using all coins 
 quarters = user_cash//25
 dimes = (user_cash - (quarters*25))//10
 nickels = (user_cash -((quarters*25) + (dimes*10)))//5
