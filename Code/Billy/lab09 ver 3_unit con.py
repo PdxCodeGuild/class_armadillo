@@ -1,6 +1,6 @@
 import time
 
-welcome_msg = '\nWelcome to unit converter!'
+welcome_msg = '\nWelcome to unit converter!' # print one letter at a time
 i = 0
 while i < len(welcome_msg):
     print(welcome_msg[i], end='', flush=True)
@@ -9,18 +9,18 @@ while i < len(welcome_msg):
 
 time.sleep(1)
 
-conv_rate = {"ft": .3048, "mi": 1609.34, "m": 1, "km": 1000, "yd": .9144, "in": .0254}
+conv_rate = {"ft": .3048, "mi": 1609.34, "m": 1, "km": 1000, "yd": .9144, "in": .0254} # conv rate dictionary
     
-user_dist = input("\n\nPlease enter distance: ")
-user_dist = int(user_dist)
+user_dist = input("\n\nPlease enter distance: ") # user input
+user_dist = int(user_dist) # converts to integer
 
-user_unit = input("Please enter units (ft, mi, m, km, yd, in): ")
-does_unit_exist = conv_rate.get(user_unit, False)
+user_unit = input("Please enter units (ft, mi, m, km, yd, in): ") # user input
+does_unit_exist = conv_rate.get(user_unit, False) # input validation
 
-if does_unit_exist:
+if does_unit_exist: # does math if unit exists, using get function
     total = user_dist * (conv_rate.get(f"{user_unit}"))
     print(f"\n{user_dist} {user_unit} equals {total} m\n")
-else:
+else: # if validation fails
     print(f"\nSorry! Unit '{user_unit}' is not applicable!\n")
 
 
