@@ -66,7 +66,7 @@ while True: # loop for selecting unique num, math for pattern number, quit and i
 
 
 '''
-# Lab 21: Number to Phrase
+# Lab 21: Number to Phrase (4/30/20)
 Convert a given number into its English representation. For example: 67 becomes 'sixty-seven'. Handle numbers from 0-99.
 
 Hint: you can use modulus to extract the ones and tens digit.
