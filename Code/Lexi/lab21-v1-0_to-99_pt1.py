@@ -28,8 +28,10 @@ print(first_part)
 # extract ones digit
 tens_digit = user_input//10
 print(tens_digit)
+
 ones_digit = user_input%10
 print(ones_digit)
+
 
 # IF I TYPE IN 89 - FAIL (SEE BELOW)
 #   first_part = (dictionary[user_input]) KeyError: 89
