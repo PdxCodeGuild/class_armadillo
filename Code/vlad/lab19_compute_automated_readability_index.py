@@ -90,7 +90,7 @@ def characters(chars):
     # return len(letters)
 
 num_of_chars = characters(text)
-print(characters(text))
+print(characters(text)) #21540
 
 # Number of Sentences:
 
@@ -107,7 +107,7 @@ def sentences(text):
     return sentence_count
 
 num_of_sentences = sentences(text)
-print(num_of_sentences)
+print(num_of_sentences) # 304
 
 ari = 4.71*(num_of_chars/num_of_words)+0.5*(num_of_words/num_of_sentences)-21.43
 print(ari) # 9.17123235251088
@@ -131,7 +131,13 @@ ari_scale = {
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
 print(ari_scale[ari]['grade_level'])
-print(f'The ARI for gettysburg-address.txt is {ari}\nThis corresponds to a {ari_scale[ari]['grade_level']} level of difficulty\nthat is suitable for an average person {ari_scale[ari]['age']} years old.')
+print(f'''The ARI for gettysburg-address.txt is {ari} 
+This corresponds to a {ari_scale[ari]['grade_level']} level of difficulty 
+that is suitable for an average person {ari_scale[ari]['ages']} years old.''')
+
+"""The ARI for gettysburg-address.txt is 10 
+This corresponds to a 9th Grade level of difficulty 
+that is suitable for an average person 14-15 years old.  """
 
 
 """
