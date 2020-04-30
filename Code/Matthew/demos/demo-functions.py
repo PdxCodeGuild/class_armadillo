@@ -28,13 +28,12 @@ def say_hello(first_name, last_name):
 # print(nums)
 # print(list(nums))
 
-# want to review how to call a function/return a value
-# PATH: /class_armadillo/Code/Matthew/demos
-# def min(a, b):
-#   if a < b:
-#     return a
-#   else:
-#     return b
+
+def min(a, b):
+  if a < b:
+    return a
+  else:
+    return b
 
 # print(min(5, 2)) # 2
 # c = min(5, 2)
