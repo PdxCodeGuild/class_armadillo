@@ -6,12 +6,12 @@ import requests
 
 response = requests.get('http://www.gutenberg.org/files/46/46-0.txt')
 text = response.text.lower()
-index_stars = text.find('***')
-index_stars = text.find('\n', index_stars)
-text = text[index_stars:]
+stars = text.find('***')
+stars = text.find('\n', stars)
+text = text[stars:]
 
-index_stars = text.rfind('*** END')
-text = text[:index_stars]
+stars = text.rfind('*** END')
+text = text[:stars]
 text = text.replace(',', '-')
 
 for punctuation in ',.':
