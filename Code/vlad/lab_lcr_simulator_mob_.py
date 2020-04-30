@@ -1,4 +1,4 @@
-#Lab LCR Simulator Mob:
+#Lab LCR Simulator Mob!:
 
 """ 
 Lab: LCR Simulator
