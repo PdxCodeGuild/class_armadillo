@@ -82,6 +82,10 @@ def send_word(hundred):
     # together, it adds just the tens place.
     elif ((int(hundred[1])*10) + int(hundred[0])) % 10 == 0:
         tens_place = second_place[int(hundred[1])-1]
+    # Checks to see if the number is in the teens, and sets the 
+    # tens place to the number based on that place.
+    elif hundred[1] == "1" and hundred[0] != "0":
+        tens_place = teens[int(hundred[0])-1]
     # Otherwise, it just adds them both together.
     else:
         tens_place = second_place[int(hundred[1])-1] + first_place[int(hundred[0])]
