@@ -35,7 +35,7 @@ while True:
       pg = 1 # queries for page 1 with same keyword
       time.sleep(2)
       break # breaks and returns to top of program for query
-    elif choice == 'new': # wil query for new keyword and resets page number
+    elif choice == 'new': # will query for new keyword and resets page number
       key = input(Fore.YELLOW + '\nPlease enter a keyword to search for quotes: ' + Fore.RESET).lower().strip()
       pg = 1
       break 
