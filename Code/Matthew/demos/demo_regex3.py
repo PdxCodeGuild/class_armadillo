@@ -13,9 +13,8 @@ def get_random_books():
   titles_pattern = r'class="title">(.+)<\/span>'
   links = re.findall(links_pattern, text)
   titles = re.findall(titles_pattern, text)
-  print(links)
+  print(f'links: {links }')
   # print(titles)
-
   # ['/ebooks/3256', '/ebooks/58647'...] -> ['gutenberg.org/ebooks/3256/', ..]
   # links = ['https://www.gutenberg.org/' + link for link in links]
 
