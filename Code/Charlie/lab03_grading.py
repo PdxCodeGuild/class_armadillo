@@ -18,21 +18,21 @@ else:
 
 
 def check_grade(grade):
-    if (num < 59):
+    if num < 59:
         return "F"
-    elif(59<num<65):
+    elif 59<num<65:
         return "D-"
-    elif(64<num<70):
+    elif 64<num<70:
         return "D+"
-    elif(69<num<75):
+    elif 69<num<75:
         return "C-"
-    elif(74<num<80):
+    elif 74<num<80:
         return "C+"
-    elif(79<num<85):
+    elif 79<num<85:
         return "B-"
-    elif(84<num<90):
+    elif 84<num<90:
         return "B+"
-    elif(89<num<95):
+    elif 89<num<95:
         return "A-"
     else:
         return "A+"
