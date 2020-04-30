@@ -20,6 +20,9 @@ random_nose = random.choice(nose)
 random_mouth = random.choice(mouth)
 print('\n' + random_eyes + random_nose + random_mouth + '\n')
 
+
+
+
 '''
 # Lab 5: Random Emoticon Generator
 
