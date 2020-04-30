@@ -1,6 +1,9 @@
 import string
+import re
 
-filename = 'metamorp.txt'
+
+
+filename = 'Code\Lawrence_House\metamorp.txt'
 file = open(filename, 'rt')
 text = file.read()
 file.close()
@@ -8,24 +11,33 @@ file.close()
 words = text.split()
 
 
+
 punc_table = str.maketrans('', '', string.punctuation)
 stripped = [w.translate(punc_table) for w in words]
-strip_and_lower = [word.lower() for word in stripped]
+words = [word.lower() for word in stripped]
 
-print(len(strip_and_lower))
+print(len(words))
 
-# def word_count(words):
-#     number_of_words = 0
-#     for word in strip_and_lower:
-#         number_of_words += len(strip_and_lower)
-#     return number_of_words
+def char_count(word):
+    number_of_chars = 0
+    for word in words:
+        for char in word:
+            number_of_chars += 1
+    return number_of_chars
+
+letters = char_count(words)
+
+print(letters)
+
+# def letter_count
+# if char in ascii.lower 
 
 # print(word_count(100))
 
 # characters = ()
 
 # def ari
-#     f'(4.71 * ({characters} / words)) + (0.5 * (words / sentences)) - 21.43'
+#     (4.71 * (characters / words)) + (0.5 * (words / sentences)) - 21.43'
 
 
 
