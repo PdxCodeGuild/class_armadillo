@@ -19,12 +19,9 @@ random_eyes = random.choice(eyes) # randomly selects body part from specified li
 random_nose = random.choice(nose)
 random_mouth = random.choice(mouth)
 print('\n' + random_eyes + random_nose + random_mouth + '\n')
-            
-   
-        
-        
+
 '''
-Lab 5: Random Emoticon Generator
+# Lab 5: Random Emoticon Generator
 
 Let's generate emoticons by assembling a randomly choosing a set of eyes, a nose, and a mouth. Examples of emoticons are `:-D` `=^P` and `:\`. You can view a long list on [wikipedia](https://en.wikipedia.org/wiki/List_of_emoticons).
 
