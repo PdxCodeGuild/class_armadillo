@@ -16,9 +16,9 @@ while True:
   response = requests.get(url, headers=headers) # sends request to favqs.com website API for JSON
   quote_dict = json.loads(response.text) # creates dictionary from JSON
   if quote_dict['quotes'][0]['body'] == 'No quotes found': # checks that key to see if any quotes were found
-    print(Fore.YELLOW + '''\nSorry. No quotes found.\n''' + Fore.RESET) # will print if not quotes found
+    print(Fore.YELLOW + '''\nSorry. No quotes found.\n''' + Fore.RESET) # will print if no quotes found
     key = input(Fore.YELLOW + '\nPlease enter a keyword to search for quotes: ' + Fore.RESET).lower().strip() # asks for new input key
-    continue # returns to top of loop to reenter key
+    continue # returns to top of program to reenter key
   else: # when quotes were found and exist in dictionary
     print(Fore.YELLOW + f'''\n{len(quote_dict['quotes'])} quotes associated with {key} - page {pg}:\n''' + Fore.RESET) # 25 quotes associated with (keywoard) - page 1:
     for quotes in quote_dict['quotes']: # iterates through each of the group of 25 'quotes' sub-dictionary entries
