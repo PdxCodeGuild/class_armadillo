@@ -1,6 +1,8 @@
+# Lab 19 takes a text file and returns information regarding it's
+# reading level.
+
 from re import findall
 from math import ceil
-
 
 # define the path and open text file
 text_path = "C:/Users/talie/class_armadillo/code/talieson/data/Ion.txt"

@@ -1,7 +1,9 @@
 import requests
 import json
 from secrets import qotd_head
-
+# Lab 20 version 2 builds on the original by keeping the random
+# functionality but also allows users to enter a term to search
+# with. 
 
 def get_quote():
     # Request JSON info from the quote API, store in response.

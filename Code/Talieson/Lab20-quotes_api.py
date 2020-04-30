@@ -1,3 +1,5 @@
+# Lab20 generates a random quote from faveqs.com
+
 import requests
 import json
 
