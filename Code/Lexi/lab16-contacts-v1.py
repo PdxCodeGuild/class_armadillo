@@ -2,9 +2,6 @@
 #referred to demo_json.py in Matt's demo folder
 # https://github.com/PdxCodeGuild/class_armadillo/blob/master/1%20Python/docs/08%20-%20Dictionaries.md
 # https://github.com/PdxCodeGuild/class_armadillo/blob/master/0%20General/09%20-%20JSON,%20CSV,%20&%20XML.md#json
-
-
-
 import json 
 # path = r'C:\Users\flux\programs\class_armadillo\Code\Matthew\contacts.json'
 # path = 'contacts.json'
