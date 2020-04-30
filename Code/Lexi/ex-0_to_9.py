@@ -3,8 +3,8 @@ import random
 # Talieson helped me understand to line it up with the if-else
 # in order to be outside so that once one of the if-else lines were
 # run, then the program would exit the loop - SUCCESS
-# generating a random number
 
+# generating a random number
 num = random.randint(0, 9)
 dictionary = {
         0 : "zero",
@@ -18,7 +18,7 @@ dictionary = {
         8 : "eight",
         9 : "nine",
 }
-
+# THE BELOW GRAYED OUT PORTION IS IF I WANTED TO TAKE USER INPUT
 # # while True loop to take user input
 # while True:
 #     # ask the user to enter digits
@@ -28,7 +28,7 @@ dictionary = {
 #     else:
 #         print("Not a valid entry.")
 
-
+# a while loop to organize my elifs
 while True:
   if num == 0:
     print(dictionary[0])
@@ -51,5 +51,10 @@ while True:
   elif num == 9:
     print(dictionary[9])
   else:
-    exit()
-  break
+    exit() # exits the loop
+  break # exits the loop
+
+#exit will stop your program no matter where you call it.
+# return will return from a function 
+# (it will stop the specific function only)
+# break will stop the current "while" or "for" loop.
