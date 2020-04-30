@@ -18,26 +18,35 @@ ROT+13:  n o p q r s t u v w x  y  z  a  b  c  d  e  f  g  h  i  j  k  l  m
 import string
 
 
-#Version 1
-def rot13(text):
-    alphabet = "abcdefghijklmnopqrstuvwxyz"
-    rot13_alphabet = alphabet[13:] + alphabet[:13]
-    output = ''
-    for char in text:
-        index = alphabet.find(char) # use .find to look up the index of a character in the alphabet
-        rot_char = rot13_alphabet[index] # use that same index to look up the corresponding character in the rotated alphabet
-        output += rot_char # add the rotated character to the output
-    return output
+char = 'a'
+
+english = string.ascii_lowercase
+# print(english)
+
+rot_13 = english[13:] + english[:13]
+# print(rot_13)
+
+index = english.index(char)
+# print(index)
 
 
-# print(rot13('hello')) #for testing
+# Start by asking the user for a string.
+text_to_encode = input('Please enter text to encode. ')
+text_to_encode = text_to_encode.lower()
+# print(text_to_encode)
+print(rot_13[index])
 
 
-while True:
-    encode = input('Would you like to encode a string of text? ')
-    if encode == 'yes' or 'y':
-        text = input("Please enter the text you'd like encoded. ") # prompt the user for a 'string'
-        print(rot13(text))
-    break
+#2. for each character, find the corresponding character
+# for char in text_to_encode:
+for char in text_to_encode:
+  #3. add it to an output string. (ill add it to a dictionary)
+  output = ' '
+  output += rot_13[index]
 
-  
+print(output)
+
+
+
+
+# End with output of encoded message

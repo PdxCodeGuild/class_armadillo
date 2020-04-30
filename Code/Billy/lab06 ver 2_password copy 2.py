@@ -8,26 +8,27 @@ print('~'*43)
 
 time.sleep(1.5)
 
-letters = string.ascii_letters
+# ascii letters, digits, special characters
+letters = string.ascii_letters 
 digits = string.digits
 punctuation = string.punctuation
 
-all_characters = letters + digits + punctuation
+all_characters = letters + digits + punctuation # combined
 
-user_length = int(input("\nHow long do you want your password? "))
+user_length = int(input("\nHow long do you want your password? ")) # integer for desired length
 
-time.sleep(0.5)
+time.sleep(0.5) # time delay
 
-word = ""
-for x in range(user_length):
-    word += random.choice(all_characters)
+word = "" # empty string for estaablishing word
+for x in range(user_length): # user input for password length
+    word += random.choice(all_characters) # builds word
  
 # random.shuffle can't accept string arguments, must convert to list
 sel_characters = list(word)     # convert string into a list of characters
 random.shuffle(sel_characters)  # shuffle the list of characters
 password = ''.join(sel_characters)  # convert the list of characters back into a string
   
-print("\nYour new password is:\n")
+print("\nYour new password is:\n") # prints one letter at a time
 time.sleep(1)
 password_msg = password + '\n\n'
 i = 0
