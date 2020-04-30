@@ -60,7 +60,29 @@ import json
 # print(json_parse_dict['quote']['body']) # show the quote which is the body and the author from the dictionary
 # print(json_parse_dict ['quote']['author'])
 
+#Prompt the user for a keyword, list the quotes you get in response,
+enter_keyword = input("input the keyword here: ")
 
-url = 'https://favqs.com/api/quotes?page=<page>&filter=<keyword>'
+
+
+#You can use string concatenation to build the URL.
+
+# create a function below def 
+url = f'https://favqs.com/api/quotes?page={show_next_quotes}&filter={enter_keyword}' 
 headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
 response = requests.get(url, headers=headers)
+json_parse_dict = json.loads(response.text)
+# response = response.text
+print(json_parse_dict["quotes"][0]["body"])
+# print(response.text)
+
+
+#and prompt the user to either show the next page or enter a new ke"""yword. 
+show_next_quotes = input("Would you like see next 25 quotes to play again? ").lower()
+    if user not in ["yes", "y", "ye", "yeah", "si", "sure"]:
+        break
+
+
+
+
+
