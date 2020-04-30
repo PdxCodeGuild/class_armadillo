@@ -24,7 +24,7 @@ while True:
     else:
         print("Not a valid entry.")
 
-while True: 
+while True:
     winner = False
 
     while not winner:

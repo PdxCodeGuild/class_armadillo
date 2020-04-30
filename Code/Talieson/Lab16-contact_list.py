@@ -1,3 +1,5 @@
+# Lab 16 is a simple contact list module using JSON to store information
+
 import json
 path = r'Code\Talieson\data\contacts.json'
 
