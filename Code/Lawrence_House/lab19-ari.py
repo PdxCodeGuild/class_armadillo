@@ -16,7 +16,7 @@ punc_table = str.maketrans('', '', string.punctuation)
 stripped = [w.translate(punc_table) for w in words]
 words = [word.lower() for word in stripped]
 
-print(len(words))
+words = len(words)
 
 def char_count(word):
     number_of_chars = 0
@@ -27,7 +27,9 @@ def char_count(word):
 
 letters = char_count(words)
 
-print(letters)
+sentences
+
+
 
 # def letter_count
 # if char in ascii.lower 
