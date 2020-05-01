@@ -106,15 +106,17 @@ def get_numbers():
 #   return a + b + c
 
 
-def add(nums):
+def add():
+  print(nums)
   total = 0
   for num in nums:
     total += num
   return total
 
-# add([1, 2, 3, 4])
-# add((1, 2, 3, 4))
 
+add([1, 2, 3, 4])
+# add((1, 2, 3, 4))
+exit()
 
 # putting * before a parameter allows you to take any number of arguments
 # they're turned into a tuple
@@ -133,11 +135,11 @@ def add(*nums):
 
 
 
-x = 10
-print(x := 20)
-y = (x := 20) + 1
+# x = 10
+# print(x := 20)
+# y = (x := 20) + 1
 
-print(f'{x=}')
+# print(f'{x=}')
 
 
 
