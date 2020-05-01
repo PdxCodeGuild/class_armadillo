@@ -56,9 +56,9 @@ while True: # loop for selecting unique num, math for pattern number, quit and i
         num = int(num) # converts string to integer
         if num < 20: # if num < 20, prints output directly from unique dictionary, returns to top of loop
             print('Your number phrase is: ' + Fore.MAGENTA + f'{unique_dict[num]}' + Fore.RESET)
-        elif num%10 != 0: # if num is not even tens (=>20), will allow + 'hyphen unique number), returns to top of loop
+        elif num%10 != 0: # if num is not whole tens (=>20), will allow + 'hyphen unique number), returns to top of loop
             print('Your number phrase is: ' + Fore.MAGENTA + f'{pattern_dict[num//10]}-{unique_dict[num%10]}' + Fore.RESET)
-        elif num%10 == 0: # if num is even tens (=>20), will take direct from pattern dict, returns to top of loop
+        else: # only num%10==0 should remain, whole tens (=>20), will take direct from pattern dict, returns to top of loop 
             print('Your number phrase is: ' + Fore.MAGENTA + f'{pattern_dict[num//10]}' + Fore.RESET) 
 
 
@@ -66,7 +66,7 @@ while True: # loop for selecting unique num, math for pattern number, quit and i
 
 
 '''
-# Lab 21: Number to Phrase
+# Lab 21: Number to Phrase (4/30/20)
 Convert a given number into its English representation. For example: 67 becomes 'sixty-seven'. Handle numbers from 0-99.
 
 Hint: you can use modulus to extract the ones and tens digit.
