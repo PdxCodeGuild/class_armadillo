@@ -13,10 +13,8 @@ ones_digit = x%10
 
 Hint 2: use the digit as an index for a list of strings.'''
 
-# import the modules.
+# import the module.
 import math
-import string
-import random
 
 # assigns numbers in dictionary for 1-10.
 nums_1 = {
@@ -71,16 +69,12 @@ def nums_to_phrase(nums):
     elif nums < 100:
         tens_digit = nums//10
         ones_digit = nums%10
-        return nums_3[tens_digit] +'-'+ nums_1[ones_digit]
+        return nums_3[tens_digit] + '-' + nums_1[ones_digit]
         print(tens_digit)       
         print(ones_digit)
 
     
 nums = user_question
-print(nums_to_phrase(nums))
+phrase = (nums_to_phrase(nums))
+print(f'Your number in English is {phrase}.')
 
-    
-        
-
-        
-    
