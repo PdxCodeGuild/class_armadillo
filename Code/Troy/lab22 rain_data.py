@@ -32,6 +32,7 @@ datetime.strftime.'''
 # imports the modules.
 import datetime
 import requests
+import re
 
 
 # requests the url.
@@ -44,10 +45,17 @@ hayden_island = requested_data.text
 # calls the data and returns it in text.
 print(hayden_island)
 
+# function to parse the dates.
+def parse_dates():
+date = datetime.datetime.strptime('25-MAR-2016', '%d-%b-%Y')
+print(date.year)   # 2016
+print(date.month)  # 3
+print(date.day)    # 25
+print(date)  # 2016-03-25 00:00:00
+print(date.strftime('%d-%b-%Y'))  # 25-Mar-2016
 
-
-
-
+#regex code
+(\d+-\w+-\d)\s+(\d+)
 
 
 
