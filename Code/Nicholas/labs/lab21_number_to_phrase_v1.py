@@ -1,3 +1,5 @@
+# lab 21 takes a user provided number (ranging 0-99) and converts the number to its English phrase equivalent
+
 #dictionary for numbers 0-19
 number_to_phrase = { 0 : 'zero', #key is number, value is english number
                      1 : 'one', 
@@ -22,7 +24,7 @@ number_to_phrase = { 0 : 'zero', #key is number, value is english number
                     }
 #this condition pulls from dictionary for number under 19.
 user_num = 0
-if user_num <=19:
+if user_num <=19:  
     user_num = int(input('Enter a number to convert it into its English representation: ')) #takes number as integer
     if user_num in number_to_phrase: #if input in dictionary, print phrase
         print(number_to_phrase[user_num])
