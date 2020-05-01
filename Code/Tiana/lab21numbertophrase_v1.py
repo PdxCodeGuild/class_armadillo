@@ -9,7 +9,7 @@ num = int(input("Enter a number to convert: "))
 
 
 #use a if statement if num is in dictionary
-#Use modulus to extract the ones and tens digit.
+#Use modulus to extract the ones and tens digit.  
 tens_digit = num//10
 ones_digit = num%10
 
