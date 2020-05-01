@@ -46,14 +46,14 @@ nums_2 = {
 }
 # assigns numbers in dictionary for higher for numbers by 10.
 nums_3 = {
-    20: 'twenty',
-    30: 'thirty',
-    40: 'forty',
-    50: 'fifty',
-    60: 'sixty',
-    70: 'seventy',
-    80: 'eighty',
-    90: 'ninety'
+    2: 'twenty',
+    3: 'thirty',
+    4: 'forty',
+    5: 'fifty',
+    6: 'sixty',
+    7: 'seventy',
+    8: 'eighty',
+    9: 'ninety'
 } 
 
 # asks the user for a number.
@@ -68,7 +68,13 @@ def nums_to_phrase(nums):
     elif nums < 20:
         return nums_2[nums]
     # if number greater than 20 but less than 100.
-    elif nums 
+    elif nums < 100:
+        tens_digit = nums//10
+        ones_digit = nums%10
+        return nums_3[tens_digit] +'-'+ nums_1[ones_digit]
+        print(tens_digit)       
+        print(ones_digit)
+
     
 nums = user_question
 print(nums_to_phrase(nums))
