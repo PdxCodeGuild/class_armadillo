@@ -1,5 +1,5 @@
 
-# Lab 21: Rain Data
+# Lab 22: Rain Data
 
 
 The 'City of Portland Bureau of Environmental Services' operates and maintains a network of rain gauges around Portland, and publishes their data publicly:  http://or.water.usgs.gov/non-usgs/bes/
