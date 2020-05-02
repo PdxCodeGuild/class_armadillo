@@ -39,21 +39,15 @@ tens = {
 small_num = (ones, tens[question])
 print(small_num)
 
-product_to_price = { 
-        'apple': 1.0, 
-        'pear': 1.5, 
-        'grapes': 0.75
-        
-        }
+# # rounds down to the nearest tens
+# tens_digit = user_input//10
+# # e.g. 100//10 = 10
+# # print(tens_digit)
+# # gives the remainer(ones place)
+# ones_digit = user_input%10
+# print(ones_digit)
 
-# product_to_price['apple']  #> 1.0
-# product_to_price['grapes']  #> 0.75
-# product_to_price['banana']  # Throws KeyError
-# product_to_price[1.0]  # Throws KeyError
 
-# ones dictionary
-
-# tens dictionary
 
 
 
