@@ -18,35 +18,39 @@ ROT+13:  n o p q r s t u v w x  y  z  a  b  c  d  e  f  g  h  i  j  k  l  m
 import string
 
 
-char = 'a'
+char = 0
 
-english = string.ascii_lowercase
+
+english = string.ascii_lowercase 
 # print(english)
 
-rot_13 = english[13:] + english[:13]
+rot_13 = english[13:] + english[:13] 
 # print(rot_13)
 
-index = english.index(char)
-# print(index)
+output = ''
 
 
 # Start by asking the user for a string.
 text_to_encode = input('Please enter text to encode. ')
 text_to_encode = text_to_encode.lower()
 # print(text_to_encode)
-print(rot_13[index])
+# print(rot_13[index])
 
 
-#2. for each character, find the corresponding character
-# for char in text_to_encode:
+#2. for each character, find the corresponding character 
 for char in text_to_encode:
-  #3. add it to an output string. (ill add it to a dictionary)
-  output = ' '
-  output += rot_13[index]
+  index = char.index()
+  print(index)
 
-print(output)
+
+# print(index)
+  #3. add it to an output string. (ill add it to a dictionary)
+
+
+
 
 
 
 
 # End with output of encoded message
+print(output)
