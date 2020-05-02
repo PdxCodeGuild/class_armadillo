@@ -44,7 +44,7 @@ def int_to_string(ones_digit):
     return output
 
 
-# for converting numbers between 10 and 19
+# for converting numbers between 10 and 19 to English representation
 def teen_to_string(ones_digit):
     output = ''
     if ones_digit == 9:
@@ -69,33 +69,34 @@ def teen_to_string(ones_digit):
         output = 'Ten'
     return output
 
+num = input('Enter a number between 0 and 99: ')
+num = int(num)
+# num = 15 # testing
+# print(f'You input: {num}') 
 
-num = 15
-print(f'You input: {num}') 
-
-tens_digit = num//10 # floor division 10 for tens_digit
-ones_digit = num%10  # modulas 10 for ones_digit
+tens_digit = num//10 # the number of times 10 fits into our input
+ones_digit = num%10  # the remainder determines the ones digit
 # print(f'tens_digit: {tens_digit}') # for testing
 # print(f'ones_digit: {ones_digit}')
 
 # for converting tens_digit to english representation
-if 9 <= tens_digit < 10:
-    print(f'Ninety {int_to_string(ones_digit)}')
+if 9 <= tens_digit < 10: 
+    print(f'You input: Ninety {int_to_string(ones_digit)}') 
 elif 8 <= tens_digit < 9:
-    print(f'Eighty {int_to_string(ones_digit)}')
+    print(f'You input: Eighty {int_to_string(ones_digit)}')
 elif 7 <= tens_digit < 8:
-    print(f'Seventy {int_to_string(ones_digit)}')
+    print(f'You input: Seventy {int_to_string(ones_digit)}')
 elif 6 <= tens_digit < 7:
-    print(f'Sixty {int_to_string(ones_digit)}')
+    print(f'You input: Sixty {int_to_string(ones_digit)}')
 elif 5 <= tens_digit < 6:
-    print(f'Fifity {int_to_string(ones_digit)}')
+    print(f'You input: Fifity {int_to_string(ones_digit)}')
 elif 4 <= tens_digit < 5:
-    print(f'Forty {int_to_string(ones_digit)}')
+    print(f'You input: Forty {int_to_string(ones_digit)}')
 elif 3 <= tens_digit < 4:
-    print(f'Thirty {int_to_string(ones_digit)}')
+    print(f'You input: Thirty {int_to_string(ones_digit)}')
 elif 2 <= tens_digit < 3:
-    print(f'Twenty {int_to_string(ones_digit)}')
+    print(f'You input: Twenty {int_to_string(ones_digit)}')
 elif 1 <= tens_digit < 2:
-    print(teen_to_string(ones_digit))
+    print(f'You input: {teen_to_string(ones_digit)}')
 elif tens_digit == 0:
-    print(ones_digit)
+    print(f'You input: {int_to_string(ones_digit)}')
