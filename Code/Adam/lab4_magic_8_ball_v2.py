@@ -36,19 +36,19 @@ prediction = random.choice(predictions) # pick a random prediction from predicti
 
 #welcome_screen
 print(f"\nWelcome to the Magic 8-Ball!\n")
-time.sleep(1)
+time.sleep(.5)
 
 # Version 2 - Allow the user to replay until they enter done
 loop = True
 while loop == True:
-    response = input(f'Do you have a question for the {title}8-Ball?').lower()
-    time.sleep(1)
+    response = input(f'Do you have a question for the {title}8-Ball? ').lower()
+    time.sleep(.5)
     if response == 'yes':
-        question = input('what is your question?') # prompt_user
-        time.sleep(1)
-        print(f'The {title}8-Ball says...{prediction}') # display the result
+        question = input('what is your question? ') # prompt_user
+        time.sleep(.5)
+        print(f'The {title}8-Ball says...{prediction} ') # display the result
 
     elif response == 'no':
-        time.sleep(1)
+        time.sleep(.5)
         print('Goodbye. ')
         loop = False
