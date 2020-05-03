@@ -45,12 +45,16 @@ while True:
   #   print("Thanks for using this code")
   
   number = int(input("Enter a numeric value 0 - 999: "))
+  print(number)
   # floor divide hundreds
   hundreds_place = number // 100
+  print(hundreds_place)
   # floor divide minus first index/hundreds' place to get tens' place
-  tens_place = (number - hundreds*100)// 10
+  tens_place = (number) // 10
+  print(tens_place)
   # use modulo to get ones' place
   ones_place = number % 10
+  print(ones_place)
   # check if we have a remainder in the tens' place
   if tens_place == 1:
     result = f'{hundreds[hundreds_place]} { tens_dict[tens_place][ones_place]}'
