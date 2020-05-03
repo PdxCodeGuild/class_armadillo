@@ -20,7 +20,6 @@ import random
 
 
 # have the user specify the number of: lowercase letters, uppercase letters, numbers, and special characters 
-# keeping the list seperate will make it easier to specify how many we want
 lower_case = list(string.ascii_lowercase)
 random.shuffle(lower_case) # shuffling the lists instead of choosing a random item from it later.
 # print(lower_case)
@@ -47,7 +46,7 @@ i = 0
 for i in range(num_lower): # repeat the loop num_lower times
     random_lower.append(lower_case.pop(i)) # on each loop append rand_lower with a char from lower_case; remove it from lower_case with pop()
     i += 1 
-print(random_lower) # testing
+# print(random_lower) # testing
 
 
 num_upper = input('How many uppercase letters would you like in your password? ')
@@ -57,7 +56,7 @@ i = 0
 for i in range(num_upper):
     random_upper.append(upper_case.pop(i))
     i += 1
-print(random_upper) # testing
+# print(random_upper) # testing
 
 
 num_nums = input('How many numbers would you like in your password? ')
@@ -67,7 +66,7 @@ i = 0
 for i in range(num_nums):
     random_nums.append(numbers.pop(i))
     i += 1
-print(random_nums) # testing
+# print(random_nums) # testing
 
 
 num_spec = input('How many special characters would you like in your password? ')
@@ -77,7 +76,7 @@ i = 0
 for i in range(num_spec):
     random_spec.append(spec_chars.pop(i))
     i += 1
-print(random_spec) # testing
+# print(random_spec) # testing
 
 
 # combine our list of random letters
