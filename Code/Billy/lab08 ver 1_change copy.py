@@ -1,16 +1,16 @@
 import time
 
 
-print('\n' + '~'*22)
+print('\n' + '~'*22) # border
 print('Let\'s make change...')
 print('~'*22)
 
-time.sleep(1)
+time.sleep(1) # time delay
 
-user_cash =  int(input('Please enter your amount: (number of  pennies) '))
+user_cash =  int(input('Please enter your amount: (number of  pennies) ')) # user input
 
-quarters = user_cash//25
-user_cash -= quarters*25
+quarters = user_cash//25 # whole number of quarters
+user_cash -= quarters*25 # substracts whole number of quarters to leave remaining cash for change and progresses thorough rest of coins below
 dimes = user_cash//10
 user_cash -= dimes*10
 nickels = user_cash//5
@@ -23,7 +23,7 @@ pennies = user_cash
 # nickels = (user_cash -((quarters*25) + (dimes*10)))//5
 # pennies = (user_cash - (((quarters*25) + (dimes*10) + (nickels*5))))
 
-print(f'\nQuarters: {quarters}\nDimes: {dimes}\nNickels: {nickels}\nPennies: {pennies}\n')
+print(f'\nQuarters: {quarters}\nDimes: {dimes}\nNickels: {nickels}\nPennies: {pennies}\n') # prints number of each coin
 
 
 

@@ -1,4 +1,4 @@
-#Lab 19: Compute Automated Readability Index:
+#Lab 19: Compute Automated Readability Index!:
 
 """
 Compute the ARI for a given body of text loaded in from a file. The automated readability index (ARI) is a formula for computing the U.S. grade level for a given block of text. The general formula to compute the ARI is as follows:
@@ -51,33 +51,32 @@ that is suitable for an average person 16-17 years old.
 import string
 import requests
 import re
+import math
 
 # response = requests.get('http://www.gutenberg.org/cache/epub/28437/pg28437.txt')
 
 # text = response.text
 
+response = requests.get('http://www.gutenberg.org/cache/epub/28437/pg28437.txt')
+text = response.text
+
 # number of words
-def word():
-    response = requests.get('http://www.gutenberg.org/cache/epub/28437/pg28437.txt')
-    text = response.text
+def word(text):
+    
     # with open('Code/vlad/solar_system.txt', 'r') as f:  # f means files
     #     text = f.read()
     text = text.lower()
     split_words = ("([\w][\w']*\w)") # expression 
-    words = re.findall(split_words, text)
+    words = re.findall(split_words, text) # this make words in a list format
     # print(words)
     num_of_words = len(words)
     return num_of_words
 
 # word()
 
-num_of_words = word()
+num_of_words = word(text)
 
 print(num_of_words) # 4317
-
-# def char():
-response = requests.get('http://www.gutenberg.org/cache/epub/28437/pg28437.txt')
-text = response.text
 
 
 # number of characters 
@@ -86,19 +85,69 @@ def characters(chars):
     # samething as the list comprehension below: 
     # letters = []
     # for char in chars:
-    #     if char in string.ascii_letters:
+    #     if char in string.ascii_letters: #'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     #         letters.append(char)
     # return len(letters)
 
 num_of_chars = characters(text)
-print(characters(text))
+print(characters(text)) #21540
 
 # Number of Sentences:
 
-#def sentences(text):
+
+def sentences(text):
+    sentence_count = 0
+# a sentence will end with one of the this puntuation = .!?
+    for character in text:
+        #print(character)
+        #if character in '!.?':
+        if character == '.' or character == '!' or character == '?':
+            sentence_count += 1
+            # print(character)
+    return sentence_count
+
+num_of_sentences = sentences(text)
+print(num_of_sentences) # 304
+
+ari = 4.71*(num_of_chars/num_of_words)+0.5*(num_of_words/num_of_sentences)-21.43
+print(ari) # 9.17123235251088
+ari = math.ceil(ari)
 
 
+ari_scale = {
+     1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
+     2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
+     3: {'ages':   '7-8', 'grade_level':    '2nd Grade'},
+     4: {'ages':   '8-9', 'grade_level':    '3rd Grade'},
+     5: {'ages':  '9-10', 'grade_level':    '4th Grade'},
+     6: {'ages': '10-11', 'grade_level':    '5th Grade'},
+     7: {'ages': '11-12', 'grade_level':    '6th Grade'},
+     8: {'ages': '12-13', 'grade_level':    '7th Grade'},
+     9: {'ages': '13-14', 'grade_level':    '8th Grade'},
+    10: {'ages': '14-15', 'grade_level':    '9th Grade'},
+    11: {'ages': '15-16', 'grade_level':   '10th Grade'},
+    12: {'ages': '16-17', 'grade_level':   '11th Grade'},
+    13: {'ages': '17-18', 'grade_level':   '12th Grade'},
+    14: {'ages': '18-22', 'grade_level':      'College'}
+}
+print(ari_scale[ari]['grade_level'])
+print(f'''The ARI for gettysburg-address.txt is {ari} 
+This corresponds to a {ari_scale[ari]['grade_level']} level of difficulty 
+that is suitable for an average person {ari_scale[ari]['ages']} years old.''')
 
+"""The ARI for gettysburg-address.txt is 10 
+This corresponds to a 9th Grade level of difficulty 
+that is suitable for an average person 14-15 years old.  """
+
+
+"""
+The output should look something like the following:
+
+--------------------------------------------------------
+The ARI for gettysburg-address.txt is 12
+This corresponds to a 11th Grade level of difficulty
+that is suitable for an average person 16-17 years old.
+"""
 # chars = text 
 # print(split(chars))
 # junk_start = text1.find('***')

@@ -1,21 +1,21 @@
 # data = [1,2,3,4,5,6,7,6,5,4,5,6,7,8,9,8,7,6,7,8,9]
 
-def peaks(data):
-    output_peaks = []
-    for i in range(1, len(data)-1):
-            if data[i-1]<data[i]>data[i+1]:
-                output_peaks.append(i)
-    return output_peaks
+def peaks(data): # function to determine peaks
+    output_peaks = [] # empty list for storing results as for loop interates
+    for i in range(1, len(data)-1): # iterates second index to next to last index
+            if data[i-1]<data[i]>data[i+1]: # determines if values on both sides are lower
+                output_peaks.append(i) # if so, appends list with that index value
+    return output_peaks 
     
 
-def valleys(data):
+def valleys(data): # same as def peaks(), except determines vallet if value higher on both sides
     output_valleys = []
     for i in range(1, len(data)-1):
         if data[i-1]>data[i]<data[i+1]:
             output_valleys.append(i)
     return output_valleys
 
-def peaks_and_valleys(data):
+def peaks_and_valleys(data): # combines above functions into one
     output_peaks_valleys = []
     for i in range(1, len(data)-1):
         if data[i-1]<data[i]>data[i+1] or data[i-1]>data[i]<data[i+1]:
@@ -23,8 +23,8 @@ def peaks_and_valleys(data):
     return output_peaks_valleys
 
 
-data = [1,2,3,4,5,6,7,6,5,4,5,6,7,8,9,8,7,6,7,8,9]
-print(peaks(data))
+data = [1,2,3,4,5,6,7,6,5,4,5,6,7,8,9,8,7,6,7,8,9] # input data
+print(peaks(data)) # calls each function with above data
 print(valleys(data))
 print(peaks_and_valleys(data))
 

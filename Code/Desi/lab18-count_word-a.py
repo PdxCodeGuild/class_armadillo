@@ -20,10 +20,10 @@ print(paragraph)
 # Make everything lowercase,  strip punctuation, split into a 
 # list of words
 # AttributeError: 'list' object has no attribute 'lower'
-# string2 = paragraph.lower(str(paragraph))
-# print(string2)
-# x = string2.replace("o", "")
-# print(x)
+string2 = paragraph.lower(str(paragraph))
+print(string2)
+x = string2.replace("o", "")
+print(x)
  # ==========================================================
 
 # strip punctuation
@@ -50,7 +50,7 @@ print(x)
 # 3A. Your dictionary will have words as `keys` and counts as `values`.
 
 #iterate each word in list of words
-# word_counts = {}
-#  for keys in x:
-#      if keys not in word_counts:
-#          word_counts[keys] = 1
+word_counts = {}
+ for keys in x:
+     if keys not in word_counts:
+         word_counts[keys] = 1
