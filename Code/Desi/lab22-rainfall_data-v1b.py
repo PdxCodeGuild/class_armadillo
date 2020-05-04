@@ -1,12 +1,6 @@
-# lab 22
-from datetime import datetime
+
 import re
-
-if (regex = DD-MMM-YYYY):
-  print()
-
-date = datetime.datetime.strptime('25-MAR-2016', '%d-%b-%Y')
-print(dat)
+from datetime import datetime
 
 text = '''
 Hayden Island Rain Gage - 1740 N. Jantzen Beach Ctr.
@@ -20,9 +14,9 @@ Dates and times are PACIFIC STANDARD TIME.
             Daily  Hourly data -->
    Date     Total    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23
 ------------------------------------------------------------------------------------------------------------------
+01-MAY-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0
 30-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
 29-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-01-MAY-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0
 28-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
 27-APR-2020     3    0   2   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
 26-APR-2020     5    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   2   3   0
@@ -37,7 +31,6 @@ Dates and times are PACIFIC STANDARD TIME.
 17-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
 16-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
 15-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-brought to you by http://or.water.usgs.gov/non-usgs/bes/
 '''
 
 
@@ -51,14 +44,11 @@ data = [{
     'date': (2020, 4, 30),
     'total': 0
 },
-
+...
 {
     'date': (2020, 4, 25),
     'total': 16
 }]
-
-datetime.strptime(data[0])
-
 
 # represent data as a list of tuples with datetime objects
 data = [

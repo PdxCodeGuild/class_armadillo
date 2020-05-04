@@ -1,4 +1,17 @@
 import random
+import inflect
+
+p = inflect.engine()
+words = p.number_to_words(1234)
+print(words)
+
+
+
+
+# references
+# https://pypi.org/project/num2words/
+https://stackoverflow.com/questions/19504350/how-to-convert-numbers-to-words-in-python
+
 
 
 # Handle numbers from 0-99.
