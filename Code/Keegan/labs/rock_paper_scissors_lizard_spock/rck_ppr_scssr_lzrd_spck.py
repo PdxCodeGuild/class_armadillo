@@ -21,7 +21,6 @@ def get_outcome_message(computer_choice, user_choice):
         'scissorslizard': 'Scissors decapitate Lizard!',
         'scissorsspock' : 'Spock smashes Scissors!',
         'lizardspock'   : 'Lizard poisons Spock!',
-
     }
     
     # check each key in messages dict
