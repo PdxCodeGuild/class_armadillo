@@ -88,6 +88,3 @@ enter in uppercase 3 letter appreviation - year. ex: <MAY-2020>
         print('''
         ERROR: Not a valid input!
         ''')
-
-
-# Call our function
