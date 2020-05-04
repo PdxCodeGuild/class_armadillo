@@ -86,6 +86,7 @@ while game_on:
             secret_letter = secret[i]
             if secret_letter == user_guess:
                 game_board[i] = user_guess
+
     print(f"\n{' '.join(game_board)}")
     print(f"Guesses remaining: {remaining_guesses}")
     print(f"Previous guesses: {', '.join(guessed_letters)}")
@@ -113,7 +114,6 @@ while game_on:
             remaining_guesses = 10
             secret = random.choice(word_list)
             guessed_letters = []
-            
             game_board = ['_' for i in range(len(secret))]
 
             print(f"\n{' '.join(game_board)}")
