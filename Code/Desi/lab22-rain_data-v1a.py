@@ -17,8 +17,9 @@ def rain_data(text): # function
 
 dates = rain_data(text) # calls above function
 rain_list = [] # empty list for collecting formatted date tuples from below loop
-for date in dates: # iterates through each tuplet(date)of the 'dates' list
+for date in dates: # iterates through each tuples (date) of the 'dates' list
     rain = (datetime.strptime(date[0], '%d-%b-%Y')), int(date[1]) # transforms date in each tuple to date objects
+    print(rain)
     rain_list.append(rain) # adds date formatted tuples to list
 
 print(rain_list)
