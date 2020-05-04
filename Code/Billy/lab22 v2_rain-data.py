@@ -43,11 +43,9 @@ def get_rain(text):
 
 def get_data(dates):
    rain_data = []
-   x = 0
    for date in dates:
-      rain = (datetime.strptime(dates[x][0], '%d-%b-%Y'), int(dates[x][1])) 
+      rain = (datetime.strptime(date[0], '%d-%b-%Y'), int(date[1])) 
       rain_data.append(rain)
-      x += 1
    return rain_data   
 
 
