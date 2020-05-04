@@ -13,19 +13,18 @@ response = requests.get('https://or.water.usgs.gov/non-usgs/bes/twelfth_and_clay
 text = response.text
 
 
-x = re.findall(r"(\d+\D\w+\D\d+)\s+(\d+)", text)
-rain_data = []
-for dates in x:
-    dates = datetime.strptime(dates[0], '%d-%b-%Y')
-    rain_data.append(dates)
+rain_data = re.findall(r"(\d+\D\w+\D\d+)\s+(\d+)", text)  # use regular expressions to parse out the req'd first two columns
+# print(rain_data)
+for i in range(len(rain_data)):  #iterates over generated list of rain data
+    date = rain_data[i][0]  #assigns first index as date 
+    daily_rain = rain_data[i][1]  #assigns second index as rain
+    date = datetime.strptime(date, '%d-%b-%Y')  # uses datetime.strptime to make each part of date accessible
+    rain_data[i] = (date, daily_rain)  #makes date and daily rain into tuple
+    # print(rain_data[i]) #prints tuples
 
-
-print(rain_data)
-
-
-
-
-
-
-
-
+# def mean(daily_rain):
+#     total = 1
+#     for day in daily_rain:
+#         total += rain_data
+#         return total / len(daily_rain)   
+  
