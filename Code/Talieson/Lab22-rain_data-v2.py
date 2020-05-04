@@ -4,6 +4,7 @@ from re import findall
 import datetime
 import statistics
 import math
+
 # Open our file and store it as text.
 text_path = "C:/Users/talie/class_armadillo/code/talieson/data/rain_data.txt"
 with open(text_path, "r") as file:
