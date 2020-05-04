@@ -2,7 +2,7 @@ from datetime import datetime
 import requests
 import re
 
-
+# for testing
 # text = '''
 # Metro Learning Center Rain Gage - 2033 NW. Glisan St.
 
@@ -33,26 +33,24 @@ import re
 # 16-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
 # '''
 
-response = requests.get('https://or.water.usgs.gov/non-usgs/bes/metro_center.rain')
-text = response.text
+response = requests.get('https://or.water.usgs.gov/non-usgs/bes/metro_center.rain') # gets data from website
+text = response.text # turns into text format
 
-def get_rain(text):
-   dates = re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text)
-   return dates
+def get_rain(text): # parses text to return only the first two columns (date and daily total)
+   dates = re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text) # regular expression for parsing text into first 2 columns
+   return dates # list of tuples 
 
-dates = get_rain(text)
-rain_data = []
-x = 0
-for date in dates:
-   rain = (datetime.strptime(dates[x][0], '%d-%b-%Y'), int(dates[x][1])) 
-   rain_data.append(rain)
-   x += 1
+dates = get_rain(text) # calls above function
+rain_data = [] # empty list for collecting formated date tuples from below loop
+for date in dates: # iterates through each tuple(date) of the 'dates' list
+   rain = (datetime.strptime(date[0], '%d-%b-%Y'), int(date[1])) # transforms date in each tuple to date object and daily total to int
+   rain_data.append(rain) # adds date formattted tuples to list
 
 print(rain_data)
 
 
 '''
-# Lab 22: Rain Data
+# Lab 22: Rain Data (5/1/20)
 
 
 The 'City of Portland Bureau of Environmental Services' operates and maintains a network of rain gauges around Portland, and publishes their data publicly:  http://or.water.usgs.gov/non-usgs/bes/
@@ -73,7 +71,8 @@ MORE...
 
 ## Version 1
 
-Download or use `requests` to get these files. The two columns that are most important are the date and the daily total. The simplest representation of this data is a list of tuples, but you may also use a list of dictionaries, or a list of instances of a custom class.
+Download or use `requests` to get these files. The two columns that are most important are the date and the daily total. 
+The simplest representation of this data is a list of tuples, but you may also use a list of dictionaries, or a list of instances of a custom class.
 
 To parse the dates, use [datetime.strptime](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior). This allows for easy access to the year, month, and day as `int`s. Below I've shown how to parse an example string, resulting in a [datetime](https://docs.python.org/3.6/library/datetime.html#date-objects) object. We can then access the year, month, and day on that datetime as ints. Later, if you want to print the datetime in a more human-readable format, you can use [datetime.strftime](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).
 
