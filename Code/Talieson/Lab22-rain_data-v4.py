@@ -82,7 +82,8 @@ for key, value in rain_data_dictionary.items():
 user_loc = input('''
 Enter the number of location you'd like to view the data for.
     > ''')
-
+if user_loc.isdigit():
+    user_loc = int(user_loc)
 
 dates = find_dates(rain_data_dictionary, user_loc)
 
