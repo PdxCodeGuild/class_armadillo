@@ -36,3 +36,54 @@ Below is some sample input/output:
 
 """
 
+
+# define a function that converts meters to a specified unit
+# divide the distance in meters by the chosen units conversion factor
+def m_to_unit(end_unit, distance): # the parameters will be distance and the end_unit
+    if end_unit in ['feet','ft']:
+        dist_in_ft = distance/0.3048
+        print(f'{dist_in_ft} ft ')
+    elif end_unit in ['miles','mile','mi']:
+        dist_in_mi = distance/1609.34
+        print(f'{dist_in_mi} mi ')
+    elif end_unit in ['meters','meter','m']:
+        dist_in_m = distance/1
+        print(f'{dist_in_m} m ')
+    elif end_unit in ['kilometers','kilometer','km']:
+        dist_in_km = distance/1000
+        print(f'{dist_in_km} km ')
+# convert any unit to meters, then convert the distance in meters to any other unit
+
+
+distance = input('What is the distance? ').strip() # ask for distance; remove any spaces
+distance = float(distance) # convert distance to a float
+print(distance) # for testing
+
+# ask for starting unit; the start_unit
+start_unit = input('What is the starting unit of measurement? ').lower().strip() # make a lowercase and strip spaces
+print(start_unit) # for testing
+
+# ask for unit to convert to to; the end_unit
+end_unit = input(f'What unit of measurement are you converting {distance} {start_unit} to? ')
+print(end_unit) # for testing
+
+# convert the start_unit to meters then convert the distance in meters to any other unit
+if start_unit in ['feet','ft']:
+    dist_in_m = distance*0.3048 # 1 ft is 0.3048 m
+    # print(dist_in_m) # testing
+    m_to_unit(end_unit, dist_in_m)
+
+elif start_unit in ['miles','mile','mi']:
+    dist_in_m = distance*1609.34 # 1 mi is 1609.34 m
+    # print(dist_in_m) # testing
+    m_to_unit(end_unit, dist_in_m)
+
+elif start_unit in ['meters','meter','m']:
+    dist_in_m = distance*1 # 1 m is 1 m
+    # print(dist_in_m) # testing
+    m_to_unit(end_unit, dist_in_m)
+
+elif start_unit in ['kilometers','kilometer','km']:
+    dist_in_m = distance*1000 # 1 km is 1000 m
+    # print(dist_in_m) # testing
+    m_to_unit(end_unit, dist_in_m)
