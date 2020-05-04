@@ -5,22 +5,22 @@
 # Each tip is 0.01 inches of rainfall.
 #  [-, missing data]
 # Dates and times are PACIFIC STANDARD TIME.
-
+from datetime import datetime 
 import re
 import requests
 
 response = requests.get('https://or.water.usgs.gov/non-usgs/bes/twelfth_and_clay.rain')
 text = response.text
 
-x = re.findall(r"\d+\D\w+\D\d+\s+\d+", text)
 
-data = ','.join(x)
-list_data = data.split()
-it = iter(list_data)
-dict_create = dict(zip(it,it))
+x = re.findall(r"(\d+\D\w+\D\d+)\s+(\d+)", text)
+rain_data = []
+for dates in x:
+    dates = datetime.strptime(dates[0], '%d-%b-%Y')
+    rain_data.append(dates)
 
-print(dict_create)
-# print(data)
+
+print(rain_data)
 
 
 
