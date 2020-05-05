@@ -73,6 +73,10 @@ num = input('Enter a number between 0 and 99: ')
 num = int(num)
 # num = 15 # testing
 # print(f'You input: {num}') 
+if num == 0:
+    print('zero')
+    exit()
+pass
 
 tens_digit = num//10 # the number of times 10 fits into our input
 ones_digit = num%10  # the remainder determines the ones digit
