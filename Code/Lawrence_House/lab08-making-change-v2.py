@@ -2,12 +2,28 @@
 
 # User enters a dollar amount
 
-i_amount = float(input("Enter a dollar amount: "))
+amount = float(input("Enter a dollar amount: "))
 
 # Multiplies amount by 100
 
-amount = int(float(i_amount)*100)
+i_amount = int(float(amount)*100)
 
-# Gives total in pennies
+# Conversion to individual coins
 
-print(amount,'pennies in total')
+q_amount = i_amount//25
+i_amount -= q_amount*25
+
+d_amount = i_amount//10
+i_amount -= d_amount*10
+
+n_amount = i_amount//5
+i_amount -= n_amount*5
+
+p_amount = i_amount//1   
+
+# Total amount in different coins
+
+print(q_amount, 'quarters')
+print(d_amount, 'dimes')
+print(n_amount, 'nickels')
+print(p_amount, 'pennies')
