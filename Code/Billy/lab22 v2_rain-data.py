@@ -16,7 +16,7 @@ import math
 #             Daily  Hourly data -->
 #    Date     Total    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23
 # ------------------------------------------------------------------------------------------------------------------
-# 01-MAY-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0
+# 01-MAY-2020    33    0   0   0   0   0   0   0   0   0   0   0   0   0   0
 # 30-APR-2020     6    0   0   0   0   0   0   0   0   1   0   0   2   2   1   0   0   0   0   0   0   0   0   0   0
 # 29-APR-2020     3    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   1   1   0   1   0   0   0   0   0
 # 28-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
@@ -43,8 +43,8 @@ def get_rain(text):
 
 def get_data(dates):
    rain_data = []
-   for date in dates:
-      rain = (datetime.strptime(date[0], '%d-%b-%Y'), int(date[1])) 
+   for date in dates: 
+      rain = (datetime.strptime(date[0], '%d-%b-%Y'), int(date[1]))
       rain_data.append(rain)
    return rain_data   
 
@@ -55,25 +55,44 @@ def get_mean(rain_data):
       total += water[1]
    return total / len(rain_data)
 
+
 def get_variance(rain_data):
    total = 0
    for water in rain_data:
       total += (water[1] - get_mean(rain_data)) ** 2
    return total / len(rain_data)
 
+
 def get_stand_dev(rain_data):
    return math.sqrt(get_variance(rain_data))
 
 
-dates = get_rain(text)
-rain_data = get_data(dates)
-mean = get_mean(rain_data)
-variance = get_variance(rain_data)
-standard_deviation = get_stand_dev(rain_data)
+def get_max_day(rain_data):
+   max_rain_day = ' '                                                                               
+   maximum = max(rain_data, key=lambda x:x[1])
+   for i in range(len(rain_data)):
+      if rain_data[i][1] == maximum[1]:
+         rain_data[i]= ((rain_data[i][0]).strftime('%d-%b-%Y'), rain_data[i][1])
+         max_rain_day += str(rain_data[i])
+         # max_rain_day.append(rain_data[i])
+   return max_rain_day
 
-print(f'Mean: {mean}')
-print(f'Variance: {variance}')
-print(f'Standard deviation: {standard_deviation}')
+
+def rain_numbers():
+   dates = get_rain(text)
+   rain_data = get_data(dates)
+   mean = get_mean(rain_data)
+   variance = get_variance(rain_data)
+   standard_deviation = get_stand_dev(rain_data)
+   max_rain_day = get_max_day(rain_data)
+
+   print(f'Mean: {mean}')
+   print(f'Variance: {variance}')
+   print(f'Standard deviation: {standard_deviation}')
+   print(f'Wettest day:{max_rain_day}')
+
+
+rain_numbers()
 
 
 
