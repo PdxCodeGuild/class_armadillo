@@ -1,10 +1,9 @@
 
 
-
 # Computer Science - Algorithms
 
-
 [Big-O Notation](https://en.wikipedia.org/wiki/Big_O_notation) is a measure of the complexity of an algorithm, specifically how many steps an algorithm takes depending on the size of the input. For example, performing a linear search on a list of `n` elements takes, on average, `n/2` steps, so we say a linear search is `O(n)`. We throw away multiplicative and additive factors to characterize algorithms independently of the hardware it's running on. [Big-O Cheat Sheet](https://www.bigocheatsheet.com/)
+
 
 ## Version 1 - Linear Search
 
@@ -72,76 +71,74 @@ print(index) # 2
 ```
 
 
+## Version 3 - Stack
 
-## Version 3 - Bubble Sort (optional)
+Using the following Node class, let's implement some data structures.
 
-[Bubble sort](https://en.wikipedia.org/wiki/Bubble_sort) is one of the simplest and least efficient sorting algorithms. We repeatedly loop over the list, comparing each number to the one next to it, and swapping them if needed.
+```python
+class Node:
+    def __init__(self, element, next=None):
+        self.element = element
+        self.next = next
 
-```
-procedure bubbleSort(A : list of sortable items)
-    n := length(A)
-    repeat
-        swapped = false
-        for i := 1 to n - 1 inclusive do
-            /* if this pair is out of order */
-            if A[i - 1] > A[i] then
-                /* swap them and remember something changed */
-                swap(A[i - 1], A[i])
-                swapped := true
-            end if
-        end for
-    until not swapped
-end procedure
+    def __str__(self):
+        return f'({self.element}, {self.next is not None})'
 ```
 
-## Version 4 - Insertion Sort (optional)
-
-Implement [insertion sort](https://en.wikipedia.org/wiki/Insertion_sort), which like bubble sort is also `O(n^2)`, but is efficient at placing new values into an already-sorted list.
-
-Psuedocode:
-```
-i ← 1
-while i < length(A)
-    j ← i
-    while j > 0 and A[j-1] > A[j]
-        swap A[j] and A[j-1]
-        j ← j - 1
-    end while
-    i ← i + 1
-end while
-```
+A [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) can be visualized like a stack of plates, and provides two main methods: `push` which adds an element to the top, and `pop` which removes an element from the top and returns it. A stack is a `FILO` "first-in-last-out" data structure.
 
 
-## Version 5 - Quicksort (optional)
+Stub:
+```python
+class Stack:
+  def __init__(self):
+    self.root = None
+  def push(self, element): # insert an element at the start (new root)
+    ...
+  def pop(self): # remove an element from the start (the root becomes the next node)
+    ...
+  def peek(self): # returns the element on the root node or None if there is no root
+    ...
+  def length(self): # return the number of elements
+    ...
+  def __str__(self):
+    ...
 
-[Quicksort](https://en.wikipedia.org/wiki/Quicksort) is one of the most efficient sorting algorithms. It works by swapping elements on either side of a pivot value.
-
-Psuedocode:
-```
-algorithm quicksort(A) is
-    quicksort_recursive(A, 0, length(A) - 1)
-
-algorithm quicksort_recursive(A, lo, hi) is
-    if lo < hi then
-        p := partition(A, lo, hi)
-        quicksort_recursive(A, lo, p)
-        quicksort_recursive(A, p + 1, hi)
-
-algorithm partition(A, lo, hi) is
-    pivot := A[lo + (hi - lo) / 2]
-    i := lo - 1
-    j := hi + 1
-    loop forever
-        do
-            i := i + 1
-        while A[i] < pivot
-        do
-            j := j - 1
-        while A[j] > pivot
-        if i ≥ j then
-            return j
-        swap A[i] with A[j]
+s = Stack()
+s.push(5)
+s.push(6)
+print(s.length()) # 2
+print(s.pop()) # 6
+print(s.pop()) # 5
 ```
 
+## Version 4 - Linked List (optional)
 
+A [linked list](https://en.wikipedia.org/wiki/Linked_list) is like a regular list in Python, and provides methods for adding and removing elements. You may also like to follow [this tutorial](https://stackabuse.com/python-linked-lists/).
 
+Stub:
+```python
+class LinkedList:
+  def __init__(self):
+    self.root = None
+  def append(element): # add the element to the end
+    ...
+  def insert(element, index): # insert the element at the given index
+    ...
+  def remove(element): # remove the first occurrence of the element
+    ...
+  def find(element): # find the first occurrence of the element and return it
+    ...
+  def length(self): # return the length of the list
+    ...
+
+nums = LinkedList()
+nums.append(5)
+nums.append(6)
+nums.insert(7, 0)
+print(nums) # [7, 5, 6]
+print(nums.find(5)) # 1
+nums.remove(5)
+print(nums) # [7, 6]
+print(nums.length()) # 2
+```
