@@ -73,7 +73,7 @@ print(index) # 2
 
 
 
-## Version 3 - Bubble Sort
+## Version 3 - Bubble Sort (optional)
 
 [Bubble sort](https://en.wikipedia.org/wiki/Bubble_sort) is one of the simplest and least efficient sorting algorithms. We repeatedly loop over the list, comparing each number to the one next to it, and swapping them if needed.
 
@@ -94,7 +94,7 @@ procedure bubbleSort(A : list of sortable items)
 end procedure
 ```
 
-## Version 4 - Insertion Sort
+## Version 4 - Insertion Sort (optional)
 
 Implement [insertion sort](https://en.wikipedia.org/wiki/Insertion_sort), which like bubble sort is also `O(n^2)`, but is efficient at placing new values into an already-sorted list.
 
@@ -112,7 +112,7 @@ end while
 ```
 
 
-## Version 5 (optional) - Quicksort
+## Version 5 - Quicksort (optional)
 
 [Quicksort](https://en.wikipedia.org/wiki/Quicksort) is one of the most efficient sorting algorithms. It works by swapping elements on either side of a pivot value.
 
