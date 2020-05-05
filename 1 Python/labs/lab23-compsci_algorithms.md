@@ -1,5 +1,9 @@
 
 
+<<<<<<< HEAD:1 Python/labs/lab23-compsci_algorithms.md
+=======
+# Lab 23 Computer Science - Data Structures & Algorithms
+>>>>>>> 77617754b39c1fef42454ffd5e3a0736890996ed:1 Python/labs/lab23-compsci.md
 
 
 # Lab 23 - Computer Science - Algorithms
