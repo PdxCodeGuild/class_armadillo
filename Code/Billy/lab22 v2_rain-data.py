@@ -90,7 +90,7 @@ def rain_numbers(): # main function, combines above functions
    print(f'Mean: {mean} tips')
    print(f'Variance: {variance}')
    print(f'Standard deviation: {standard_deviation}')
-   print(f'Wettest day:{max_rain_day} tips')
+   print(f'Wettest day:{max_rain_day}')
 
 
 rain_numbers() # calls above function
