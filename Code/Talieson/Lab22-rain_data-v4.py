@@ -34,15 +34,15 @@ def find_dates(rain_data_dictionary, user_loc):
     return dates
 
 
-def rain_by_data(data):
+def rain_by_data(data, title):
     # make our data into a list for the pyplot function
     x = list(data.keys())
     y = list(data.values())
     # call our function to creat the graph
-    gen_graph(x, y)
+    gen_graph(x, y, title)
 
 
-def rain_by_date(data, date):
+def rain_by_date(data, date, title):
     # dictionary with just the values we want
     date_dict = {}
     for key, value in data.items():
@@ -51,14 +51,14 @@ def rain_by_date(data, date):
     x = list(date_dict.keys())
     y = list(date_dict.values())
     # call our function to creat the graph
-    gen_graph(x, y, date)
+    gen_graph(x, y, title, date)
 
 
 # takes x, y from other functions, styles graph
-def gen_graph(x, y, date="Recorded History"):
+def gen_graph(x, y, title, date="Recorded History"):
     plt.xlabel(f"Date in {date}")
     plt.ylabel("Rainfall (in 100ths of an inch)")
-    plt.title(f"Rain fall per day at {location}")
+    plt.title(f"Rain fall per day at {title}")
     plt.plot(x, y, "-bo", markevery=None)
     plt.show()
 
@@ -80,10 +80,12 @@ for rain_file_url in rain_file_urls:
 for key, value in rain_data_dictionary.items():
     print(f"{key} {value[0]}")
 user_loc = input('''
-Enter the number of location you'd like to view the data for.
+Enter the number of the location you'd like to view data for.
     > ''')
 if user_loc.isdigit():
     user_loc = int(user_loc)
+    graph_title = rain_data_dictionary[user_loc][0]
+    print(graph_title)
 
 dates = find_dates(rain_data_dictionary, user_loc)
 
@@ -107,17 +109,17 @@ while True:
         E: Exit.
             > ''')
     if operation == '1':
-        rain_by_data(data)
+        rain_by_data(data, graph_title)
     elif operation == '2':
-        year = input('''
-Enter 4 digit year or uppercase 3 letter appreviation:
+        year = input('''3
+Enter 4 digit year or uppercase 3 letter month appreviation:
     > ''')
-        rain_by_date(data, year)
+        rain_by_date(data, year, graph_title)
     elif operation == '3':
         year_month = input('''
 enter in uppercase 3 letter appreviation - year. ex: <MAY-2020>
     > ''')
-        rain_by_date(data, year_month)
+        rain_by_date(data, year_month, graph_title)
     elif operation == 'E':
         exit()
     else:
