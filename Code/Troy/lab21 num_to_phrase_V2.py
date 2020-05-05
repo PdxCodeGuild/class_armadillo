@@ -47,19 +47,19 @@ nums_3 = {
 } 
 
 nums_4 = {
-    1: 'one hundred',
-    2: 'two hundred',
-    3: 'three hundred',
-    4: 'four hundred',
-    5: 'five hundred',
-    6: 'six hundred',
-    7: 'seven hundred',
-    8: 'eight hundred',
-    9: 'nine hundred'
+    1: 'one-hundred',
+    2: 'two-hundred',
+    3: 'three-hundred',
+    4: 'four-hundred',
+    5: 'five-hundred',
+    6: 'six-hundred',
+    7: 'seven-hundred',
+    8: 'eight-hundred',
+    9: 'nine-hundred'
+}
 
 # asks the user for a number.
 user_question = int(input('What is your number? '))
-
 # defines the function for the user input.
 def nums_to_phrase(nums):
     # if number less than 10.
@@ -77,18 +77,25 @@ def nums_to_phrase(nums):
         print(ones_digit)
 
     elif nums < 999:
-        ones_digit = nums%10
-        tens_digit = nums%100
         hundreds_digit = nums//100
-        return nums_4[hundreds_digit] + '_' + nums_3[tens_digit] + '-' + nums_1[ones_digit]
-    
+        nums -= hundreds_digit *100
+        tens_digit = nums//10
+        ones_digit = nums%10
+        if tens_digit == 1:
+            tens = nums_2[10 + ones_digit]
+            ones = ''
+            tens_and_ones = tens   
+        elif tens_digit <= 9:
+            tens = nums_3[tens_digit]
+            ones = nums_1[ones_digit]
+            tens_and_ones = tens + '-' + ones
+        
+        #print(tens)
+        #print(hundreds_digit)
+        #return nums_4[hundreds_digit] + '-' + nums_3[tens_digit] + '-' + nums_1[ones_digit]
+        return nums_4[hundreds_digit] + '-' + tens_and_ones
     
 nums = user_question
 phrase = (nums_to_phrase(nums))
 print(f'Your number in English is {phrase}.')
 
-    
-        
-
-        
-    
