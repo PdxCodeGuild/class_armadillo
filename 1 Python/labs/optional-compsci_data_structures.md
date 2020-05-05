@@ -1,7 +1,7 @@
 
 
 
-# Lab 24 - Computer Science - Data Structures
+# Lab - Computer Science - Data Structures
 
 Using the following Node class, let's implement some data structures.
 
@@ -46,7 +46,7 @@ print(s.pop()) # 5
 
 
 
-## Version 2 - Linked List
+## Version 2 - Linked List (optional)
 
 A [linked list](https://en.wikipedia.org/wiki/Linked_list) is like a regular list in Python, and provides methods for adding and removing elements. You may also like to follow [this tutorial](https://stackabuse.com/python-linked-lists/).
 
@@ -79,7 +79,7 @@ print(nums.length()) # 2
 
 
 
-## Version 3 (optional) - Doubly Linked List
+## Version 3 - Doubly Linked List (optional)
 
 In a [doubly-linked list](https://en.wikipedia.org/wiki/Doubly_linked_list) each node maintains a reference to both the next and previous node. Implement a class `DoubleyLinkedList` with the same methods as `LinkedList` but with each node having a reference to both the `previous` and `next` nodes.
 
