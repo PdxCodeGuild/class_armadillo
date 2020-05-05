@@ -60,27 +60,43 @@ import json
 # print(json_parse_dict['quote']['body']) # show the quote which is the body and the author from the dictionary
 # print(json_parse_dict ['quote']['author'])
 
-#Prompt the user for a keyword, list the quotes you get in response,
-enter_keyword = input("input the keyword here: ")
-
-
-
 #You can use string concatenation to build the URL.
 
 # create a function below def 
-url = f'https://favqs.com/api/quotes?page={show_next_quotes}&filter={enter_keyword}' 
-headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
-response = requests.get(url, headers=headers)
-json_parse_dict = json.loads(response.text)
-# response = response.text
-print(json_parse_dict["quotes"][0]["body"])
-# print(response.text)
+def generate_quotes(page_num, enter_keyword):
+    url = f'https://favqs.com/api/quotes?page={page_num}&filter={enter_keyword}' # this Url page_num construction the url putting the page_num and enter_keyword creating a string 
+    headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'} # The Authorization
+    response = requests.get(url, headers=headers) # you get the json object 
+    json_parse_dict = json.loads(response.text) # loading the string turn this json into a dictionary 
+    # response = response.text
 
+    # list of dictionary with the quotes and other information like the author and url
+    quotes = json_parse_dict["quotes"]
+    # print(quotes)
+    # create a while loop or for loop to print all 25 quotes for in range..............
+    for quote in quotes:
+        print(quote["body"])
+        # print(quote)
+
+    # print(json_parse_dict["quotes"][0]["body"])
+    # print(response.text)
+
+#global variable 
+page_num = 1
+
+#Prompt the user for a keyword, list the quotes you get in response,
+enter_keyword = input("input the keyword such as (movies, sport, food, places): ")
+
+generate_quotes(page_num, enter_keyword) # calling the function
 
 #and prompt the user to either show the next page or enter a new ke"""yword. 
-show_next_quotes = input("Would you like see next 25 quotes to play again? ").lower()
-    if user not in ["yes", "y", "ye", "yeah", "si", "sure"]:
-        break
+while True:
+    display_next_quotes = input("Would you like display next 25 quotes to play again? ").lower()
+    if display_next_quotes in ["yes", "y", "ye", "yeah", "si", "sure"]:
+        page_num += 1
+        generate_quotes(page_num, enter_keyword) # we call the function again because the user want to play again
+    else:
+        exit()
 
 
 
