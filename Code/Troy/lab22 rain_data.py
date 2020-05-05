@@ -32,24 +32,45 @@ datetime.strftime.'''
 # imports the modules.
 import datetime
 import requests
+import re
+
 
 
 # requests the url.
 url = ('https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain')
 
-# assigns the url to a variable.
-requested_data = requests.get(url)
-# assigns a variable an takes the data and puts it in text format.
-hayden_island = requested_data.text
-# calls the data and returns it in text.
-print(hayden_island)
+def collect_rain_data():
+   # assigns the url to a variable.
+   requested_data = requests.get(url)
+   # assigns a variable an takes the data and puts it in text format.
+   hayden_island = requested_data.text
+   # calls the data and returns it in text.
+   return hayden_island
+  
+
+
+#function to parse the dates.
+def parse_dates():
+   date = datetime.datetime.strptime('25-MAR-2016', '%d-%b-%Y')
+   # print(date.year)   # 2016
+   # print(date.month)  # 3
+   # print(date.day)    # 25
+   # print(date)  # 2016-03-25 00:00:00
+   # print(date.strftime('%d-%b-%Y'))  # 25-Mar-2016
+   return date
+
+def rainfall_data():
+   rainfall = requests.get(url)
+   rainfall_data = re.findall(r'(\d+-\w+-\d)\s+(\d+)', rainfall)
+   #rainfall_data = ['https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain']
+   print(rainfall_data)
 
 
 
-
-
-
-
+# #regex code
+# #(\d+-\w+-\d)\s+(\d+)
+date = parse_dates()
+collect_rain_data()
 
 
 
