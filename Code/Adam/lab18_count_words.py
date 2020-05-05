@@ -18,7 +18,7 @@ for i in range(min(10, len(words))):  # print the top 10 words, or all of them, 
     print(words[i])
 
 """
-
+import string
 import requests
 
 
@@ -28,21 +28,28 @@ import requests
 # starter code
 response = requests.get('https://www.gutenberg.org/files/215/215-0.txt')
 text = response.text
-text = text.lower()
-print(text)
-
 
 
 # 2. Make everything lowercase, strip punctuation, split into a list of words.
+text = text.lower()
+# text = text.split(' ')
+print(text)
+
+for char in text:
+    text.replace('\'s', '')
 
 
 # starter code
 ebook_start = text.find('***')
-print(ebook_start)
-print(text[ebook_start:ebook_start])
-print(text[100:600])
+ebook_end = text.find('end of the project gutenberg ebook of the call of the wild, by jack london')
+# print(ebook_start)
+# print(ebook_end)
+print(text[ebook_start:ebook_end])
+# print(text[:10000])
 
-lines = text.split('\n')
+
+
+# lines = text.split('\n')
 # print(lines[100:200])
 
 # 3. Your dictionary will have words as keys and counts as values. 

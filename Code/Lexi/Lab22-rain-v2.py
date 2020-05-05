@@ -2,6 +2,7 @@
 from datetime import datetime
 import requests
 import re
+import math
 
 #https://www.w3schools.com/python/ref_requests_response.asp
 response = requests.get('https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain')
@@ -37,27 +38,43 @@ def get_mean(rain_data):
 # the mean.
 
 def get_variance(rain_data):
-  average = get_mean(rain_data)
   total = 0
-  for num in rain_data:
-    total += (rain_data - mean) ** 2
+  for height in rain_data:
+    total += (height[1] - get_mean(rain_data)) ** 2
     return total / len(rain_data)
 
-def variance(nums):
-    average = mean(nums)
-    total = 0
-    for num in nums:
-        total += (num - average) ** 2
-    return total / len(nums)
 
 # https://en.wikipedia.org/wiki/Standard_deviation
 def standard_deviation(nums):
-    return math.sqrt(variance(nums))
-
-nums = [random.randint(1, 99) for _ in range(100)]
-print(f'The mean is {mean(nums)}')
-print(f'The variance is {variance(nums)}')
-print(f'The standard deviation is {standard_deviation(nums)}')
+    return math.sqrt(get_variance(rain_data))
 
 
-date = get_rain(text) # calls function
+def get_max_day(rain_data): # finds the tuple(s) with the hightest daily total.
+   max_rain_day = ' ' # collects highest rain days as strings                                                                              
+   maximum = max(rain_data, key=lambda x:x[1]) # selects tuple that has the highest secomd index, returns tuple that containest largest dily total value
+   # max() would usually base it on first index of tuple, lambda key parameter specifies that max() should use index [1] to determine max
+   for i in range(len(rain_data)): # iterates through rain data tuples
+      if rain_data[i][1] == maximum[1]: # if tuple daily total equals max, it will included as max
+         rain_data[i]= ((rain_data[i][0]).strftime('%d-%b-%Y'), rain_data[i][1]) # converts that tuple to readable date format
+         max_rain_day += str(rain_data[i]) # adds highest tuple to max_rain_day
+         # max_rain_day.append(rain_data[i]) # if collected via list instead of string
+   return max_rain_day
+
+
+def rain_numbers(): # main function, combines above functions
+   date = get_rain(text)
+   rain_data = get_data(day)
+   mean = get_mean(rain_data)
+   variance = get_variance(rain_data)
+   standard_deviation = get_stand_dev(rain_data)
+   max_rain_day = get_max_day(rain_data)
+
+   print(f'Mean: {mean} tips')
+   print(f'Variance: {variance}')
+   print(f'Standard deviation: {standard_deviation}')
+   print(f'Wettest day:{max_rain_day}')
+
+
+rain_numbers() # calls above function
+
+

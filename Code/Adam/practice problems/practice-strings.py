@@ -29,33 +29,4 @@ mylist = [1, 2, 3]
     print(strings_list)
     return word
 
-# print(missing_char('kitten')) # ['itten', 'ktten', 'kiten', 'kiten', 'kittn', 'kitte']
 
-# #operations
-# print(5/2) # division (5/2=2.5)
-
-# print(5//2) # floor division drops the remainder
-
-# print(5%2)  # modulus returns just the remainder
-
-# print(len('hello world'))
-
-# s = 'hello world'
-# print(s[6])
-# print(s[3:9])
-# print(s[0])
-
-# print('hello world it\'s a great day'.replace('h', 'hh'))
-
-
-# personal challenge - make 1 min timer..
-import time
-
-def sixty_seconds():
-    second = 60
-    while second >= 1:
-        time.sleep(1)
-        second -= 1
-        print(second)
-sixty_seconds()
-        
