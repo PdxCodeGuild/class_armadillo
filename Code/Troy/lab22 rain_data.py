@@ -30,47 +30,48 @@ datetime.strftime.'''
 
 
 # imports the modules.
-import datetime
+from datetime import datetime
 import requests
 import re
 
 
-
 # requests the url.
 url = ('https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain')
-
-def collect_rain_data():
-   # assigns the url to a variable.
-   requested_data = requests.get(url)
-   # assigns a variable an takes the data and puts it in text format.
-   hayden_island = requested_data.text
-   # calls the data and returns it in text.
-   return hayden_island
+# assigns the url to a variable.
+requested_data = requests.get(url)
+# assigns a variable and takes the data and puts it in text format.
+hayden_island = requested_data.text
+# calls the data and returns it in text.
+# str
+#print(hayden_island)
   
+# gets the dates and total rainfall.
+rainfall_dates = re.findall(r'(\d{2}-\w{3}-\d{4}) +(\d+)', hayden_island)
+print(rainfall_dates)
+# (\d+-\w+-\d)\s+(\d+)
+# (\d{2}-\w{3}-\d{4}) +(\d+)
+for i in range(len(rainfall_dates)):
+   date = rainfall_dates[i][0]
+   daily_rainfall_total = rainfall_dates[i][1]
+   date = datetime.strptime(date, '%d-%b-%Y')
+
+   daily_rainfall_total = int(daily_rainfall_total)*0.01*2.54
 
 
-#function to parse the dates.
-def parse_dates():
-   date = datetime.datetime.strptime('25-MAR-2016', '%d-%b-%Y')
+   hayden_island[i] = {
+      'date': date,
+      'daily_rainfall': daily_rainfall_total
+   }
+   
+# print(hayden_island)
+
+# # #regex code
+# # #(\d+-\w+-\d)\s+(\d+)
+# date = parse_dates()
+
+
    # print(date.year)   # 2016
    # print(date.month)  # 3
    # print(date.day)    # 25
    # print(date)  # 2016-03-25 00:00:00
    # print(date.strftime('%d-%b-%Y'))  # 25-Mar-2016
-   return date
-
-def rainfall_data():
-   rainfall = requests.get(url)
-   rainfall_data = re.findall(r'(\d+-\w+-\d)\s+(\d+)', rainfall)
-   #rainfall_data = ['https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain']
-   print(rainfall_data)
-
-
-
-# #regex code
-# #(\d+-\w+-\d)\s+(\d+)
-date = parse_dates()
-collect_rain_data()
-
-
-
