@@ -102,3 +102,58 @@ while True:
 
 
 
+
+
+
+# """ 
+# >>> quotes = []
+# >>> quotes.append(quote)
+# >>> quotes.append(quote2)
+# >>> quotes
+# [{'author': 'Pete', 'body': 'i like programming'}, {'author': 'vlad', 'body': 'the nba is the best'}]
+# >>> for quote in quotes:
+# ...     print(quote)
+# ...
+# {'author': 'Pete', 'body': 'i like programming'}
+# {'author': 'vlad', 'body': 'the nba is the best'}
+# >>> for quote in quotes:
+# ...     print(quote['body'])
+# ...
+# i like programming
+# the nba is the best
+# >>> quotes
+# [{'author': 'Pete', 'body': 'i like programming'}, {'author': 'vlad', 'body': 'the nba is the best'}]
+# >>> for quote in quotes:
+# ...     print(quote)
+# ...
+# {'author': 'Pete', 'body': 'i like programming'}
+# {'author': 'vlad', 'body': 'the nba is the best'}
+# >>> for quote in quotes:
+# ...     print(quote['body'])
+# ...
+# i like programming
+# the nba is the best
+# >>> quotes.append({'author': 'peta', 'body': 'save the animals'})
+# >>> quotes
+# [{'author': 'Pete', 'body': 'i like programming'}, {'author': 'vlad', 'body': 'the nba is the best'}, {'author': 'peta', 'body': 'save the animals'}]
+# >>> for quote in quotes:
+# ...     print(quotes)
+# ...
+# [{'author': 'Pete', 'body': 'i like programming'}, {'author': 'vlad', 'body': 'the nba is the best'}, {'author': 'peta', 'body': 'save the animals'}]
+# [{'author': 'Pete', 'body': 'i like programming'}, {'author': 'vlad', 'body': 'the nba is the best'}, {'author': 'peta', 'body': 'save the animals'}]
+# [{'author': 'Pete', 'body': 'i like programming'}, {'author': 'vlad', 'body': 'the nba is the best'}, {'author': 'peta', 'body': 'save the animals'}]
+# >>> for quote in quotes:
+# ...     print(quote)
+# ...     print(quote['body'])
+# ...
+# {'author': 'Pete', 'body': 'i like programming'}
+# i like programming
+# {'author': 'vlad', 'body': 'the nba is the best'}
+# the nba is the best
+# {'author': 'petas', 'body': 'save the animals'}
+# save the animals
+# >>>
+# """
+
+
+
