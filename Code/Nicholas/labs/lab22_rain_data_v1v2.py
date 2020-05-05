@@ -21,8 +21,8 @@ text = response.text
 rain_data = re.findall(r"(\d+\D\w+\D\d+)\s+(\d+)", text)  # use regular expressions to parse out the req'd first two columns
 # print(rain_data)
 for i in range(len(rain_data)):  #iterates over generated list of rain data
-    date = rain_data[i][0]  #assigns first index as date 
-    daily_rain = rain_data[i][1]  #assigns second index as rain
+    date = (rain_data[i][0])  #assigns first index as date 
+    daily_rain = rain_data[i][1].replace('-','')  #assigns second index as rain. Replace blank rain data(-) with blank space. 
     date = datetime.strptime(date, '%d-%b-%Y')  # uses datetime.strptime to make each part of date accessible
     rain_data[i] = (date, daily_rain)  #makes date and daily rain into tuple
     # print(rain_data[i]) #prints tuples
@@ -32,7 +32,7 @@ total = 0 # start with zero total
 for i in range(len(daily_rain)): #iterate over daily rain list
     total += int(rain_data[i][1])  #add all daily rain totals(convert list to int)
     mean = total / len(daily_rain)   #divide daily rain totals by total days for mean
-print(f'The mean rainfall is {mean}.')    
+print(f'The mean rainfall is {mean} tips.')    
   
 
   
@@ -45,3 +45,8 @@ print(f'The variance is {variance}.')
 standard_deviation = math.sqrt(variance) #sd = variance squared
 print(f'The standard deviation is {standard_deviation}.')
 
+highest_rain = 0
+for i in range(int(daily_rain)): 
+    if (int(daily_rain)) > highest_rain:
+        highest_rain = int(daily_rain)
+print(f'The day with the most rain was {rain_data[i][0]} with {highest_rain} tips')    
