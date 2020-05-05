@@ -76,6 +76,27 @@ for rain in results:
 print(rain_data_int)
 
 
+
+"""datetime methods """
+# from datetime import datetime
+
+
+# date_str = '25-MAR-2016'
+
+# # turn a string into a datetime object
+# # date = datetime.strptime('25-MAR-2016', '%d-%b-%Y')
+# # date = datetime.strptime('03/25/2016', '%m/%d/%Y')
+
+# date = datetime.strptime(date_str, '%d-%b-%Y')
+# print(date)
+
+# date_tuple = (date.year, date.month, date.day)
+# print(date_tuple)
+
+# # turn the datetime object back into a string
+# print(date.strftime('%d-%b-%Y'))  # 25-Mar-2016
+
+
 # access the properties of that object
 #print(type(rain_data_int[0].year))   # LEArn how to use this print version
 # print(rain_data.month)  # 3
