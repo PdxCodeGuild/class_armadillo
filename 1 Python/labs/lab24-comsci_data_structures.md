@@ -79,12 +79,6 @@ print(nums.length()) # 2
 
 
 
-## Version 3 (optional) - Doubly Linked List
+## Version 3 - Doubly Linked List (optional)
 
 In a [doubly-linked list](https://en.wikipedia.org/wiki/Doubly_linked_list) each node maintains a reference to both the next and previous node. Implement a class `DoubleyLinkedList` with the same methods as `LinkedList` but with each node having a reference to both the `previous` and `next` nodes.
-
-
-
-
-
-
