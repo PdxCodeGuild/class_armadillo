@@ -20,11 +20,13 @@ def make_list_of_numbers(number):
     # then it breaks. While its looping, the string is broken up 
     # into sections of 3 characters and added to the list.
     while True:
+
         # If the length of the string is still greater than 3,
         # it will keep cutting it down until the string is empty.
         if len(number) > 3:
             number_list.append(number[:3])
             number = number[3:]
+
         # If the length is not greater than 3 it will just add the 
         # last of the number to the end of the list then break.
         else:
@@ -35,6 +37,7 @@ def make_list_of_numbers(number):
 # Gets the whole number from the user and returns a reversed number.
 def get_whole_number():
     user_input = " "
+
     # So long as the number is not whole, it will keep asking the 
     # user for a valid input.
     while not user_input.isnumeric():
@@ -68,6 +71,7 @@ def send_word(hundred):
     if len(hundred) == 1:
         return first_place[int(hundred[0])]
     
+
     # Checks to see if the second character is in the teens, 
     # adding the appropriate string the the word.
     if (int(hundred[1])*10) // 10 == 1:
@@ -78,14 +82,17 @@ def send_word(hundred):
     if hundred[1] == "0":
         if hundred[0] != "0":
             tens_place = first_place[int(hundred[0])]
+
     # If there is no remainder of the ones and the tens place 
     # together, it adds just the tens place.
     elif ((int(hundred[1])*10) + int(hundred[0])) % 10 == 0:
         tens_place = second_place[int(hundred[1])-1]
+
     # Checks to see if the number is in the teens, and sets the 
     # tens place to the number based on that place.
     elif hundred[1] == "1" and hundred[0] != "0":
         tens_place = teens[int(hundred[0])-1]
+
     # Otherwise, it just adds them both together.
     else:
         tens_place = second_place[int(hundred[1])-1] + first_place[int(hundred[0])]
@@ -97,7 +104,8 @@ def send_word(hundred):
     
     # Adds whatever phrased number is at the end of the string
     # plus 'hundred' to complete the phrase
-    hundreds_place = first_place[int(hundred[2])] + others[0]
+    if int(hundred[2]) != 0:
+        hundreds_place = first_place[int(hundred[2])] + others[0]
     return hundreds_place + tens_place
 
 # Returns a phrase based on a list of stringed reversed numbers 
@@ -105,12 +113,17 @@ def send_word(hundred):
 # number = list of string reversed numbers.
 def make_word(number):
     made_word = str()
+
     # Loops through the list and adds phrases together
     for i in range(len(number)):
+
         if i != 0:
-            made_word = others[i] + made_word
+            if number[i] != "000":
+                made_word = others[i] + made_word
+                
         if len(number) == 1:
             return send_word(number[0])
+
         # Adds whatever 'other' part to the beginning of the 
         # string to return
         made_word = send_word(number[i]) + made_word
