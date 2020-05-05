@@ -87,15 +87,13 @@ def rain_numbers(): # main function, combines above functions
    standard_deviation = get_stand_dev(rain_data)
    max_rain_day = get_max_day(rain_data)
 
-   print(f'Mean: {mean}')
+   print(f'Mean: {mean} tips')
    print(f'Variance: {variance}')
    print(f'Standard deviation: {standard_deviation}')
-   print(f'Wettest day:{max_rain_day}')
+   print(f'Wettest day:{max_rain_day} tips')
 
 
 rain_numbers() # calls above function
-
-
 
 
 
