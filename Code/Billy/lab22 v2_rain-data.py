@@ -34,51 +34,52 @@ import math
 # 16-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
 # '''
 
-response = requests.get('https://or.water.usgs.gov/non-usgs/bes/metro_center.rain')
-text = response.text
+response = requests.get('https://or.water.usgs.gov/non-usgs/bes/metro_center.rain') # gets data from website
+text = response.text # turns into text format
 
-def get_rain(text):
-   return re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text)
+def get_rain(text): # parses text to return only the first two columns (date and daily total)
+   return re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text) # regular expression for parsing text into first 2 columns, returns dates
    
 
-def get_data(dates):
-   rain_data = []
-   for date in dates: 
-      rain = (datetime.strptime(date[0], '%d-%b-%Y'), int(date[1]))
-      rain_data.append(rain)
-   return rain_data   
+def get_data(dates): # function to obtain date formattted rain data with parsed data as input
+   rain_data = [] # empty list for collecting formated date tuples from below loop
+   for date in dates: # iterates through each tuple(date) of the 'dates' tuple list
+      rain = (datetime.strptime(date[0], '%d-%b-%Y'), int(date[1])) # transforms date in each tuple to date object and daily total to int
+      rain_data.append(rain) # adds date formattted tuples to list
+   return rain_data  # input for calculating mean, variance, standard deviation and max rain day                                                                                           d 
 
 
-def get_mean(rain_data):
-   total = 0
-   for water in rain_data:
-      total += water[1]
-   return total / len(rain_data)
+def get_mean(rain_data): # function that calculates avg of daily totals using date formatted rain_data as input
+   total = 0 # indicates total sum of daily totals 
+   for water in rain_data: # each tuple in the list
+      total += water[1] # its second index position gets added to total sum of daily totals
+   return total / len(rain_data) # math to obtain the mean
 
 
-def get_variance(rain_data):
-   total = 0
-   for water in rain_data:
-      total += (water[1] - get_mean(rain_data)) ** 2
-   return total / len(rain_data)
+def get_variance(rain_data): # function that computes variance, using rain data as input
+   total = 0 # indicates total sum of each iteration 
+   for water in rain_data: # each tuple in list subject to below math
+      total += (water[1] - get_mean(rain_data)) ** 2 # variance math
+   return total / len(rain_data) # final variance math                                                                                                                                                                                           
 
 
-def get_stand_dev(rain_data):
-   return math.sqrt(get_variance(rain_data))
+def get_stand_dev(rain_data): # uses rain_data to indirectly determine standard deviation
+   return math.sqrt(get_variance(rain_data)) # square root of the variance = standard deviationdA
 
 
-def get_max_day(rain_data):
-   max_rain_day = ' '                                                                               
-   maximum = max(rain_data, key=lambda x:x[1])
-   for i in range(len(rain_data)):
-      if rain_data[i][1] == maximum[1]:
-         rain_data[i]= ((rain_data[i][0]).strftime('%d-%b-%Y'), rain_data[i][1])
-         max_rain_day += str(rain_data[i])
-         # max_rain_day.append(rain_data[i])
+def get_max_day(rain_data): # finds the tuple(s) with the hightest daily total.
+   max_rain_day = ' ' # collects highest rain days as strings                                                                              
+   maximum = max(rain_data, key=lambda x:x[1]) # selects tuple that has the highest secomd index, returns tuple that containest largest dily total value
+   # max() would usually base it on first index of tuple, lambda key parameter specifies that max() should use index [1] to determine max
+   for i in range(len(rain_data)): # iterates through rain data tuples
+      if rain_data[i][1] == maximum[1]: # if tuple daily total equals max, it will included as max
+         rain_data[i]= ((rain_data[i][0]).strftime('%d-%b-%Y'), rain_data[i][1]) # converts that tuple to readable date format
+         max_rain_day += str(rain_data[i]) # adds highest tuple to max_rain_day
+         # max_rain_day.append(rain_data[i]) # if collected via list instead of string
    return max_rain_day
 
 
-def rain_numbers():
+def rain_numbers(): # main function, combines above functions
    dates = get_rain(text)
    rain_data = get_data(dates)
    mean = get_mean(rain_data)
@@ -92,7 +93,7 @@ def rain_numbers():
    print(f'Wettest day:{max_rain_day}')
 
 
-rain_numbers()
+rain_numbers() # calls above function
 
 
 
