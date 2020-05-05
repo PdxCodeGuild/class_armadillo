@@ -37,8 +37,8 @@ import math
 response = requests.get('https://or.water.usgs.gov/non-usgs/bes/metro_center.rain') # gets data from website
 text = response.text # turns into text format
 
-def get_rain(text): # parses text to return only the first two columns (date and daily total)
-   return re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text) # regular expression for parsing text into first 2 columns, returns dates
+def get_rain(text): # parses text to return only the first two columns (date and daily total), returns dates
+   return re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text) # regular expression for parsing text into first 2 columns, skips missing data (-)
    
 
 def get_data(dates): # function to obtain date formattted rain data with parsed data as input

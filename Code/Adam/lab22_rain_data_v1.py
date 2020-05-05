@@ -37,7 +37,7 @@ print(date.strftime('%d-%b-%Y'))  # 25-Mar-2016
 
 """
 
-from datetime import datetime
+
 ​
 text = '''
 Hayden Island Rain Gage - 1740 N. Jantzen Beach Ctr.
@@ -69,8 +69,21 @@ Dates and times are PACIFIC STANDARD TIME.
 16-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
 15-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
 '''
+
+
+​import requests
+
+
+from datetime import datetime
 ​
-​
+# use string operations to parse the rain file
+
+response = requests.get('https://or.water.usgs.gov/non-usgs/bes/skyline_school.rain')
+# print(response.text)
+lines = response.text.split('\n')
+lines = lines[11:] # chop off the junk at the start
+for line in lines:
+    print(line.split())
 ​
 ​
 # represent data as a list of dictionaries, with a tuple for the date
@@ -100,10 +113,6 @@ class DailyRain:
         self.total = total
 ​
 Collapse
-
-
-
-
 
 
 
