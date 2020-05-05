@@ -63,4 +63,4 @@ def character_count(text):
 
 # Use regex to identify sentences
 def sentences(text):
-  sentence_syntax = (r'('
+  sentence_syntax = r'([/./!/?]*)'

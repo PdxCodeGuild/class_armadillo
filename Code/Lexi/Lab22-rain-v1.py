@@ -1,70 +1,33 @@
-# lab 22
-
-
-
+# from module import CLASS
 from datetime import datetime
+import requests
+import re
 
-text = '''
-Hayden Island Rain Gage - 1740 N. Jantzen Beach Ctr.
+#https://www.w3schools.com/python/ref_requests_response.asp
+response = requests.get('https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain')
+text = response.text
 
-PROVISIONAL, UNCORRECTED RAW DATA FROM THE CITY OF PORTLAND HYDRA NETWORK.
-Data are the number of tips of the rain gage bucket.
-Each tip is 0.01 inches of rainfall.
- [-, missing data]
-Dates and times are PACIFIC STANDARD TIME.
+def get_rain(text): # create function
+    #https://www.w3schools.com/python/python_regex.asp
+    #https://docs.python.org/3/library/re.html
+    # parantheses are diff capture groups
+    return re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text)
+    # had an 'unbalanced parenthesis error on line 938
+date = get_rain(text) # calls function
+#print(date) # checking if re.findall worked
 
-            Daily  Hourly data -->
-   Date     Total    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23
-------------------------------------------------------------------------------------------------------------------
-01-MAY-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0
-30-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-29-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-28-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-27-APR-2020     3    0   2   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-26-APR-2020     5    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   2   3   0
-25-APR-2020    16    0   0   0   0   0   0   5   8   2   0   0   0   0   0   0   1   0   0   0   0   0   0   0   0
-24-APR-2020     2    0   0   0   0   0   0   0   0   1   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-23-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-22-APR-2020    23    0   0   0   0   2   4   0   3   6   3   0   4   0   0   1   0   0   0   0   0   0   0   0   0
-21-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-20-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-19-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-18-APR-2020    18    0   0   0   0   0   0   0   0   1   1   1   2   0   0   1   1   0   4   6   0   0   0   0   1
-17-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-16-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-15-APR-2020     0    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
-brought to you by http://or.water.usgs.gov/non-usgs/bes/
-'''
+rain_data = []
+for day in date: 
+    #https://www.journaldev.com/23365/python-string-to-datetime-strptime
+    # making an object
+    # %Y	Year with century as a decimal number.
+    rain = datetime.strptime(day[0], '%d-%b-%Y'), int(day[1])
+    # %b	Month as locale’s abbreviated name.
+    rain_data.append(rain) # adds date to empty list we created
 
+print(rain_data)
 
-
-
-# represent data as a list of dictionaries, with a tuple for the date
-data = [{
-    'date': (2020, 5, 1),
-    'total': 0
-},{
-    'date': (2020, 4, 30),
-    'total': 0
-},
-...
-{
-    'date': (2020, 4, 25),
-    'total': 16
-}]
-
-datetime.strptime(data)
-
-
-# represent data as a list of tuples with datetime objects
-data = [
-    (datetime(2020, 5, 1), 0),
-    (datetime(2020, 4, 30), 0)
-]
-
-# represent the data as a list of instances of DailyRain
-class DailyRain:
-    def __init__(self, date, total):
-        self.date = date
-        self.total = total
-
+# create empty list
+# go through all days
+# for day in date:
+#     date.
