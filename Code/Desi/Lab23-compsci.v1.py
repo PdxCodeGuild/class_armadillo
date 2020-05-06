@@ -1,3 +1,8 @@
+# https://www.youtube.com/watch?v=__vX2sjlpXU - Big-O notation in 5 minutes — 
+# big o relies on time and space to calculate complexity
+# O(1) == O(N) < --- this is linear search
+
+
 
 # Implement linear search, which simply loops through the 
 # given list and check if each element is equal to the value
@@ -16,8 +21,6 @@ def linear_search(colors,value):
 #         a value exists in a sequence or not. 
 #         which simply loops through the  given list and 
 colors = ["red", "green", "yellow"]
-for c in colors:
-	print(c)
 index = linear_search(colors, "red")
 # I made a function that searched the list called colors in a 
 # linear search pattern and returned the index of the given value.
