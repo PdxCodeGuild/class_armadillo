@@ -1,32 +1,20 @@
-
-
 import requests
 import re
 from datetime import datetime
 
+# Pulling the data fromt the website.
 response = requests.get('https://or.water.usgs.gov/non-usgs/bes/walmart_ecoroof.rain') # gets data from website
-text = response.text # turns into text format
+# turns into text format
+text = response.text
 
+# Getting the data for each date and the daily total
 pir_rain_gauge = re.findall(r"(\d+-\w+-\d+) \s+ (\d+)", text)
-   
-for i in range(len(pir_rain_gauge)):
-    date = pir_rain_gauge[i][0]
-    daily_tot = pir_rain_gauge [i][1]
-    date = datetime.strptime(date, "%d-%b-%Y")
+# print(pir_rain_gauge)
 
-    daily_tot = int(daily_tot)*0.01*2.54
+date = datetime.strptime("07-APR-2019", "%d-%b-%Y")
 
-pir_rain_gauge[i] = {
-    "date": date,
-    "daily_tot": daily_tot
-}
-
-x = []
-y = []
-
-for row in pir_rain_gauge:
-    if row ['date'].year == 2010 and row ['date'].month == 3:
-        x.append(row['date'])
-        y.append(row['daily_tot'])
-
-
+print(date.year)
+print(date.month)
+print(date.day)
+print(date)
+ 
