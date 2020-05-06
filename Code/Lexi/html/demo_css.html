@@ -18,11 +18,30 @@
       span{
         color: rgba(red, green, blue, alpha)
       }
+      
+       /*class selectors */
+
       .myclass{ /*since div applies to everything, .myclass is more specific*/
         color: chartreuse;
       }
       .ilikepink {
         color:hotpink;
+      }
+
+      /*id selector*/
+
+      #title {
+        font-size: 200px;
+      }
+
+      * {
+        padding: 4px;
+      }
+
+      /*targeting children - going to prison*/
+
+      #fruits > span {
+        color:#0fa0ce;
       }
     </style>
 </head>
@@ -36,5 +55,9 @@
   <h1 class="ilikepink">My Pink Title</h1>
   <!--you can only have ONE id with the same title in quotes-->
   <h2 id="title" class="ilikepink">My Pink Title</h2>
+  <div>
+    <span>apples</span>
+    <span>pear</span>
+  </div>
 </body>
 </html>
