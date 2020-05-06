@@ -21,6 +21,9 @@
       .myclass{ /*since div applies to everything, .myclass is more specific*/
         color: chartreuse;
       }
+      .ilikepink {
+        color:hotpink;
+      }
     </style>
 </head>
 <body>
@@ -29,5 +32,9 @@
   <!--inline style = bad b/c repetition - it's better to write the rule in the style tag OR use external css file-->
   <div style="color:blue;background-color:DarkOliveGreen"></div>
   <a href="http://www.google.com/" class="myclass">Google</a>
+  /*class selectors allow you to apply what elements you want to*/
+  <h1 class="ilikepink">My Pink Title</h1>
+  <!--you can only have ONE id with the same title in quotes-->
+  <h2 id="title" class="ilikepink">My Pink Title</h2>
 </body>
 </html>
