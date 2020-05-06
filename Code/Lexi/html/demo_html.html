@@ -59,9 +59,21 @@
   <span><ins>I am bigger</ins><sub>I am teeny weenie</sub></span>
   <a href= "http://google.com/"> this is a link </a>
   <a href= "http://google.com/" target="_blank"> this is a link with a tab</a>
+  
+  
   <img src = "http://saganipsum.com/img/sagan-viking.jpg" width="100px" height="200px"/>
+  
+  
+  <!--keegan: you can use aria hidden set to true or false to skip screenreader
+  often seen in other frameworks-->
+
+  <span aria-hidden="true">hello</span>
+
+  <!--load image remotely, make it a link-->
   <a href="http://saganipsum.com/">
-    <img src = "http://saganipsum.com/img/sagan-viking.jpg" width="100px" height="200px"/>
+   
+    <!--alt is the text that's displayed if the img doesn't load properly-->
+    <img src = "http://saganipsum.com/img/sagan-viking.jpg" alt="sagan" width="100px" height="200px"/>
   </a>
 
   <img src= "img/Screen Shot 2020-05-06 at 9.45.00 AM.png"
