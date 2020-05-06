@@ -18,6 +18,9 @@
       span{
         color: rgba(red, green, blue, alpha)
       }
+      .myclass{ /*since div applies to everything, .myclass is more specific*/
+        color: chartreuse;
+      }
     </style>
 </head>
 <body>
@@ -25,6 +28,6 @@
   /*it's preferable to do a style tag if your head b/c in-line is too messy*/
   <!--inline style = bad b/c repetition - it's better to write the rule in the style tag OR use external css file-->
   <div style="color:blue;background-color:DarkOliveGreen"></div>
-  
+  <a href="http://www.google.com/" class="myclass">Google</a>
 </body>
 </html>
