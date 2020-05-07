@@ -1,6 +1,7 @@
 body {
-    background-color: darkgrey;
-    font-family: 'Exo 2', sans-serif;
+    background-color: rgba(17, 17, 17, 0.781);
+    font-family: 'Helvetica', sans-serif;
+    color: #D5D4D4;
 }
 
 h1 {
@@ -24,7 +25,6 @@ h2{
     justify-content: center;
     align-items: center;
     margin: auto;
-    width: 50%;
 }
 .tile {
     background: #d9d9d9; 
@@ -32,14 +32,59 @@ h2{
     padding: 0px;
     text-align: center;
 }
-.caption{
+figure{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+figcaption {
+    display: block;
     text-align: center;
     font-style: italic;
+    font-size:xx-small;
+  }
+.img_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border:2px  solid grey;
 }
-.division2 {
-    text-align: left; 
-    margin-top: 0%;
-    margin-bottom: 0%;
-    margin-left: 21%;
-    margin-right: 21%;
+.img_intext{
+    float: right;
+    border-radius: 50%;
+    border:2px  solid grey;
 }
+
+ul.no_bullet {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+    
+li.mili {
+    background: url('Astra_Militarum_Symbol.webp') no-repeat left top;
+    background-size: 25px;
+    height: 20px;
+    padding-left: 30px;
+    padding-top: 1px;
+}
+
+a:link {
+    color: rgb(14, 25, 184);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: rgba(49, 39, 141, 0.726);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
