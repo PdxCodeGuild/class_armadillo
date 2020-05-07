@@ -6,7 +6,7 @@
     <title>My First Web Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
     <style type="text/css">
-    <!--define a var below-->
+    /* define a var below */
     /* special way to define vars in CSS using : */
         /* :root {
             --color1: #226644;
@@ -20,7 +20,7 @@
             background-color: var(--color1);
              background-color: var(--color1);
         } */
-        */ element selector */
+        /* element selector */
         body {
             background-color: #264653;
             color: #E9C46A;
@@ -45,6 +45,7 @@
         h1 {
             margin: 0;
             padding: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
         .article {
             padding: 10px;
@@ -59,7 +60,9 @@
             color: #f4a2f4;
         }
         a:visited {
-            color: #e8d3e8;
+            color: #1c25a3;
+            /* cannot set font FAMILY in pseudo-class */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
         a:hover {
             color: goldenrod;
