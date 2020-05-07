@@ -55,12 +55,12 @@ def get_stand_dev(rain_list):
   
   
 
-
-# dates = get_rain(text) # assigning the variable "dates" to the paramenter "text" for the function "get_rain"
-rain_list = get_data(dates) # see above
-mean = get_mean(rain_list) # see above
-variance = get_variance(rain_list) # see above
-standard_deviation = get_stand_dev(rain_list) # see above
+def rain_info():
+  dates = get_rain(text) # assigning the variable "dates" to the paramenter "text" for the function "get_rain"
+  rain_list = get_data(dates) # see above
+  mean = get_mean(rain_list) # see above
+  variance = get_variance(rain_list) # see above
+  standard_deviation = get_stand_dev(rain_list) # see above
 
 print(f'mean:{mean}')
 print(f'variance: {variance}')
