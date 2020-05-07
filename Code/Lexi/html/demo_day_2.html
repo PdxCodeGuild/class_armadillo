@@ -4,21 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Web Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
     <style type="text/css">
     <!--define a var below-->
-    /* define vars in CSS */
-    :root {
-        --background-color: #226644;
-        --accent-color: #2A9D8F;
-        --color3: #E9C46A;
-    }
+    /* special way to define vars in CSS using : */
+        /* :root {
+            --color1: #226644;
+            --color2: #2A9D8F;
+            --color3: #E9C46A;
+            --color4: #ee7766;
+            --color5: #e76f51;
+
+        }
         body {
-            background-color: var(--background-color);
+            background-color: var(--color1);
+             background-color: var(--color1);
+        } */
+        */ element selector */
+        body {
+            background-color: #264653;
         }
 
+        /* class selector - more targeted about which elements these properties are being applied to */
+        .header {
+            background-color: #2a9d8f;
+
+            /* make the header a flex-box */
+            display: flex;
+            color: #E9C46A;
+            margin: 0;
+            font-family: 'Bubblegum Sans', cursive;
+        }
+        h1 {
+            margin: 0;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
-    
+    <div class ="header">
+        <h1> My First Web Page </h1>
+        <img src="gif/pbj time banana.gif" width="100px"/>
+    </div>
 </body>
 </html>
