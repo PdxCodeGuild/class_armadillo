@@ -8,14 +8,14 @@ import math
 
 def binary_search(nums, value): # # defining index nums.index(value) index is the location it is like the dictionary which we look by using the key
     nums.sort()
-    low = nums[0] # to get the lower value in the index
-    high = nums[-1] # to get the highest value in the index
+    low = nums[0] # to get the lower value in the first index
+    high = nums[-1] # to get the highest value in the last index
     # print(low)
     # print(high)
     mid = int(len(nums) /2) #get
     # print(mid)
     while low <= high: 
-        x = math.floor((low + high) / 2)
+        x = math.floor((low + high) / 2) # this is doing the middle
         if nums[x] < value:
             low = x + 1
         elif nums[x] > value:
@@ -28,7 +28,7 @@ def binary_search(nums, value): # # defining index nums.index(value) index is th
 nums = [5,6,8,7,1,2,3,4]    
 index = binary_search(nums, 3) # need to put the debugger where the function is called s
 print(nums) # [1, 2, 3, 4, 5, 6, 7, 8]
-print(index)
+print(index) # 2 this is the index when I pass 3 into the function call the index at number 3 is index is value 2
 
 
 # Example run:
