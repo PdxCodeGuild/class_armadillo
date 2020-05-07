@@ -1,0 +1,45 @@
+body {
+    background-color: darkgrey;
+    font-family: 'Exo 2', sans-serif;
+}
+
+h1 {
+    font-size: 465%;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+h2{
+    font-size: 165%;
+    text-align: left;
+
+}
+.subtext {
+    font-size: 80%;
+    text-align: center;
+    font-style: italic;
+}
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+}
+.tile {
+    background: #d9d9d9; 
+    margin: 0px; 
+    padding: 0px;
+    text-align: center;
+}
+.caption{
+    text-align: center;
+    font-style: italic;
+}
+.division2 {
+    text-align: left; 
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 21%;
+    margin-right: 21%;
+}
