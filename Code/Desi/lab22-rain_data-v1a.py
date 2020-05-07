@@ -8,21 +8,22 @@ import requests
 response = requests.get('https://or.water.usgs.gov/non-usgs/bes/metro_center.rain') # gets data from website
 text = response.text #turns into text format
 
-def rain_data(text): # function 
+def get_rain(text): # function 
     return re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text) # regular expression we want to find EVERYTHING that fits this criteria
         # \d means digits
         # \w means words
         # \s means space
         # () means capture groups - we are splitting it into these groups
 
-dates = rain_data(text) # calls above function
-rain_list = [] # empty list for collecting formatted date tuples from below loop
-for date in dates: # iterates through each tuples (date) of the 'dates' list
-    rain = (datetime.strptime(date[0], '%d-%b-%Y')), int(date[1]) # transforms date in each tuple to date objects
-    print(rain)
-    rain_list.append(rain) # adds date formatted tuples to list
+def get_data(text): # calls above function
+    rain_data = [] # empty list for collecting formatted date tuples from below loop
+    for date in dates: # iterates through each tuples (date) of the 'dates' list
+        rain = (datetime.strptime(date[0], '%d-%b-%Y')), int(date[1]) # transforms date in each tuple to date objects
+        rain_data.append(rain) # adds date formatted tuples to list
+    return rain_data # (datetime.datetime(2002, 5, 23, 0, 0), 0)]
 
-print(rain_list)
+
+print(rain_data)
 
 
 #             Daily  Hourly data -->
