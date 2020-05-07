@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        .center {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +10,19 @@
           padding: 5px; /* Some padding */
           width: 150px; /* Set a small width */
         }
-        
+        <!-- remove all the browser's built-in css -->
+    <link href="https://unpkg.com/browse/normalize.css@8.0.1/normalize.css" rel="stylesheet" type="text/css"/>
+
+    <!-- get a custom font -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+   <style>
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        </style>
         /* Add a hover effect (blue shadow) */
         img:hover {
           box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
@@ -29,7 +35,6 @@
         </a>
         
         </body>
-        </style>
     <title>Lab 1</title>
 </head>
 <body>
