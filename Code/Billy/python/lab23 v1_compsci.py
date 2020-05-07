@@ -6,12 +6,13 @@ def linear_search(nums, value): # function to search for a particular value in l
             return i # returns that index and function breaks
     return -1000 # if nothing found returns this value 
 
-nums = [1, 2, 3, 4, 5, 6, 7, 8] # input list   
-index = linear_search(nums, 3) # calls function to look for '3' in the list
+nums = [1, 2, 3, 4, 5, 6, 7, 8] # input list 
+value = int(input('\nPlease enter the number for which you\'d like to search: ')) # turns input number to int, no input validation  
+index = linear_search(nums, value) # calls function to look for '3' in the list
 if index != -1000: # print statement if value found
-    print(f'''That value was found at index {index}.''')
+    print(f''''{value}' was found at index {index}.\n''')
 else: # print statement in red if value not found
-    print(Fore.RED + f'Sorry! That value is not in there.' + Fore.RESET)    
+    print(Fore.RED + f'''Sorry! '{value}' is not there.\n''' + Fore.RESET)    
 
 
 
