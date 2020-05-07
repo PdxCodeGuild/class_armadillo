@@ -12,7 +12,7 @@ Include the following:
 ## Part 2
 
 * Center the entire content of the body
-* Add / pick an existing image in one of the sections and float it
+* Add / pick an existing image in one of the sections
 * Modify the padding and margins on your paragraphs to look better
 
 
