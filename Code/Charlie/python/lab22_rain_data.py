@@ -6,9 +6,8 @@ import requests
 from datetime import datetime
 import re
 import math
+import matplotlib.pyplot as plt
 
-
-# date = datetime.datetime.strptime('25-MAR-2016', '%d-%b-%Y')
 
 url = requests.get('https://or.water.usgs.gov/non-usgs/bes/multnomah.rain')
 
@@ -17,7 +16,7 @@ multnomah_rain = url.text
 
 
 
-# Use regular expression to identify the date and total amount of rain fall
+# regular expression to identify the date and total amount of rain fall
 
 def day_in_month(multnomah_rain):
 
@@ -32,19 +31,28 @@ def day_in_month(multnomah_rain):
         # date = datetime.strptime(monthly_date[i], '%d-%b-%Y')
         rain_fall_amount = int(monthly_rain[i])
         # print(date)
-        tuples = (monthly_date[i],rain_fall_amount)
+        output = (monthly_date[i],rain_fall_amount)
         # tuples = listy.append(tuples)
-        total_rain_fall = 0
-        for i in rain_fall_amount:
-            total_rain_fall += rain_fall_amount[i]
-            total_rain_fall/rain_fall_amount = wow
-            print(wow)
-
-        print(tuples)
-        # print(listy)
+        # total_rain_fall = 0
+        # for i in rain_fall_amount:
+        #     total_rain_fall += rain_fall_amount[i]
+        #     wow = total_rain_fall/rain_fall_amount
+            # print(wow)
+        
+                
+        
+        
+        print(output)
     
     # call our function
+    # x_values = []
+    # y_values = []
+    # for row in tuples:
+    #     if row[monthly_[i]].year == 2010 and row[monthly_date[i]].month == 3:
+    #         x_values.append(row['monthly_date'])
+    #         y_values.append(row['rain_fall_amount'])
+    # plt.plot(x_values, y_values)
+    # plt.show()
+
+
 day_in_month(multnomah_rain)
-
-
-
