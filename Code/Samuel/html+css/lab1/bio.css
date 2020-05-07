@@ -1,0 +1,40 @@
+#background {
+    background-color: rgb(0, 58, 145);
+}
+
+#name {
+    color: rgb(255,150,20);
+    font-size: 50px;
+    text-align: center;
+    width: 50%;
+}
+
+#bio {
+    color: rgb(255,255,240);
+}
+
+#quote {
+    color: rgb(255,255,240);
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+}
+
+#table {
+    border: 1px solid rgb(255,255,240);
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+#basic {
+    color: crimson;
+    font-size: 20px;
+}
+
+#blocktext {
+    color: rgb(255,255,240);
+}
+
+#hyperlink {
+    color: rgb(255, 255, 240);
+}
