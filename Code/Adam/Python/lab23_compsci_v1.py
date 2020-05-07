@@ -30,14 +30,14 @@ index = linear_search(nums, 3)
 print(index) # 2
 
 """
+import random
+
+def check_if_equal(nums, num):
+    if num in nums:
+        return print(nums.index(num))
+    print('Index not found. ')
 
 
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-num = 5
-
-def check_if_equal(list, num):
-    if num in list:
-        return print(list.index(num))
-    print('Index not found. ')
-
+num = 6
 check_if_equal(nums, num)
