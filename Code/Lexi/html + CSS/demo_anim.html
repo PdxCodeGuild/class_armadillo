@@ -21,6 +21,7 @@
         cursor: pointer; /* turn cursor into pointer*/
         user-select: none; /*prevents user from clicking it*/
         transition: all 100ms; /* any property change */
+        display: inline-block;
     }
     .btn:hover {
         background-color: darkgreen;
@@ -28,7 +29,8 @@
     }
     .btn:active {
         background-color: black;
-        transform: translateY(10px); /* move button down two pixels when pressed*/
+        transform: rotate(180deg); /* move button down two pixels when pressed*/
+      
     }
     </style>
 </head>
