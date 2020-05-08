@@ -34,7 +34,7 @@ article p {
 }
 
 #blog-image1 {
-background-image: var(--blog-image1);
+background-image: var(--blog-image1); /* tells css you're looking for a variable */
 }
 
 #blog-image2 {
