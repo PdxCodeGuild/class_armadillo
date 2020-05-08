@@ -14,11 +14,12 @@
         background-color: darkblue;
         padding: 10px;
         border: 1px double white;
-        cursor: pointer;
+        cursor: pointer; /* turn cursor into pointer*/
         user-select: none; /*prevents user from clicking it*/
+        transition: background-color 1s;
     }
     .btn:hover {
-        background-color: darkslateblue;
+        background-color: darkgreen;
         color: goldenrod
     }
     .btn:active {
@@ -29,7 +30,8 @@
 <body>
     <main>
     <button>click</button>
-    <span class="btn">click</span>
+    <span class="btn">
+        click</span>
 </body>
 </main>
 </html>
