@@ -1,9 +1,12 @@
-article h2 div {
+
+
+article p {
     padding: 15px;
 }
 
-.article-header {
 
+.article-header {
+    border-bottom: 1px solid #777777;
 }
 
 .article-header h2 {
@@ -13,4 +16,9 @@ article h2 div {
 .blog-image {
     display: flex;
     justify-content: center;
+}
+
+.blog-image > span { /* target child */
+    border: 2px solid #777777;
+    border-radius: %50
 }
