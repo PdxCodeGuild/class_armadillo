@@ -1,4 +1,7 @@
-
+:root {
+    --blog-image1:url(https://www.foodiecrush.com/wp-content/uploads/2017/03/Blackened-Fish-Tacos-Creamy-Avocado-Sauce-foodiecrush.com-012.jpg);
+    --blog-image2:url(https://cdn.clipart.email/ce60ce3bd4d114e8241ba0645d31d83f_taco-cartoon-clipart-cartoon-line-food-transparent-clip-art_900-620.jpeg);
+}
 
 article p {
     padding: 15px;
@@ -18,7 +21,23 @@ article p {
     justify-content: center;
 }
 
-.blog-image > span { /* target child */
+.blog-image > div { /* target child */
+    background-size: cover; /* uses background image */
+    background-repeat: no-repeat; /* happens only once */
+    background-position: center;
     border: 2px solid #777777;
-    border-radius: %50
+    border-radius: 50%;
+    height: 35vh;
+    max-height: 35vw;
+    max-width: 35vh;
+    width: 35vw;
+}
+
+#blog-image1 {
+background-image: var(--blog-image1);
+}
+
+#blog-image2 {
+    background-image: var(--blog-image2);
+
 }
