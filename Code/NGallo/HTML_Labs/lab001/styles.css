@@ -16,18 +16,36 @@ body{
     color: blanchedalmond;
     margin-bottom: 12px;
 }
+#intro{
+    background-color: crimson;
+    color: blanchedalmond;
+    border-radius: 15px;
+}
 #monte_photo{
     border-radius: 15px;
     width: 200px;
 }
+ol {
+    margin-top: 5px;
+    border-radius: 15px;
+    background-color: crimson;
+    color: blanchedalmond;
+    list-style: none;
+}
+#quote{
+    border-radius: 15px;
+    background-color: crimson;
+    color: blanchedalmond;
+}
+#external_link{
+    color: rgb(146, 146, 146);
+    text-decoration: none;
+}
 #footer{
+    border-radius: 15px;
     height: 100%;
     background-color: crimson;
     font-size: 20px;
-}
-#last_link{
-    color: rgb(146, 146, 146);
-    text-decoration: none;
 }
 @media (min-width: 1024px) {
 
@@ -36,16 +54,6 @@ body{
         padding-right: 50px;
         font-size: 20px;
     }
-    /* #information_monte{
-
-        margin-right: 50px;
-    } */
-    #monte{
-        width: 50%;
-        display: flex;
-        flex-direction: row;
-        justify-items: space-around;
-    }
     #header{
         border-radius: 15px;
         background-color: crimson;
@@ -53,6 +61,7 @@ body{
     }
     #monte_photo{
         border-radius: 15px;
+        width: 40%;
     }
     a:hover {
         

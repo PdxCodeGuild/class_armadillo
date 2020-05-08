@@ -1,7 +1,7 @@
 import string
 
 
-text = '''Seht! seit Jahren hält der Hamburger Jugendschriften-Ausschuß im
+text = '''Seht! seit Jahren der Hamburger Jugendschriften-Ausschuß im
 Einverständnis mit den übrigen deutschen Prüfungsausschüssen und mit
 vielen andern Männern und Frauen, die es mit der deutschen Jugend gut
 meinen, Umschau unter den Schätzen, die unsre Dichter ihrem Volke
