@@ -1,0 +1,69 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: black;
+}
+html {
+    font-size: 20px;
+    width: 100vw;
+    height: 100vh;
+}
+body{
+    font-family: "Roboto Mono";
+    background:url(mountains-big-long-range-covered-in-fog.jpg);
+    background-size: cover;
+}
+#container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    margin-top: 10px;
+}
+.rectangle{
+    width: 980px;
+    margin: 10px;
+    height: 50px;
+    margin-top: 30px;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+#logo{
+    float: left;
+    width: 70%;
+    font-size: 1.5rem;
+    text-align: center;
+}
+#clock{
+    float: left;
+    width: 30%;
+    postion: relative;
+    font-size: 1.2rem;
+    text-align: center;
+}
+#nav{
+    float: left;
+    width: 280px;
+    margin: 10px;
+    height: 550px;
+    padding: 5px;
+    text-align: left;
+    display: block;
+    font-size: 1.15rem;
+}
+#nav ul{
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+#nav ul > a > li{
+    padding: 20px;
+    margin-top: 40px;
+}
+
+#nav ul > a > li:hover{
+    font-size: 1.3rem;
+    color: #FF6F00;
+    transition: all 0.2s ease;
+}
