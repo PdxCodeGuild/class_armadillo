@@ -33,21 +33,29 @@ text = response.text
 # 2. Make everything lowercase, strip punctuation, split into a list of words.
 text = text.lower()
 # text = text.split(' ')
-print(text)
+# print(text)
 
-for char in text:
-    text.replace('\'s', '')
-
+text = text.replace('â\x80\x99', '\'')
+text = text.replace('â\x80\x94', ' ')
+text = text.replace('â\x80\x9d', '')
+text = text.replace('â\x80\x9c', '')
+text = text.replace('å\x93', 'e')
+text = text.replace('\'s', '')
+# text = text.replace('')
 
 # starter code
 ebook_start = text.find('***')
 ebook_end = text.find('end of the project gutenberg ebook of the call of the wild, by jack london')
 # print(ebook_start)
 # print(ebook_end)
-print(text[ebook_start:ebook_end])
+text = text[ebook_start:ebook_end]
+for char in ['!','"','#','$','%','-','&',"'",'.','(',')','+',',','/',':',';','<','=','>','?','@','[','\\',']','^','_','`','{','|','}','~']:
+    print(char)
+    text = text.replace(char, ' ')
+text = text.split()
 # print(text[:10000])
 
-
+print(text)
 
 # lines = text.split('\n')
 # print(lines[100:200])
