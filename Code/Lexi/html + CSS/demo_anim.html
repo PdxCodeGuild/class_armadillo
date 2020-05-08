@@ -9,6 +9,7 @@
         text-align:  center;
         padding: 100px;
     }
+    /* we make a span look like a button bootstrap uses <a> for button */
     .btn {
         color: white;
         background-color: darkblue;
@@ -16,7 +17,7 @@
         border: 1px double white;
         cursor: pointer; /* turn cursor into pointer*/
         user-select: none; /*prevents user from clicking it*/
-        transition: background-color 1s;
+        transition: all 200ms; /* any property change */
     }
     .btn:hover {
         background-color: darkgreen;
