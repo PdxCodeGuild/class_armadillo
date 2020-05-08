@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <style>
+        /*no media query = mobile view*/
+        body{
+            background-color: blanchedalmond;
+            font-family: 'Ubuntu', sans-serif;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        header {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        header > img {
+            border-radius: 15px;
+            width: 60px;
+        }
+        nav {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        /* targets the button elements inside the navbar*/
+        nav > a {
+            border-radius: 15px;
+            padding: 10px;
+            border: 1px solid black;
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: none;
+        }
+        a:hover{
+            color: darkgreen;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        #ancient_armadillo{
+            width: 100%;
+            border-radius: 15px;
+        }
+        #youtube_video{
+            width: 100%;
+        }
+        footer{
+            text-align: center;
+        }
+        /*desktop view*/
+        @media only screen and (max-width: 800px) {
+            nav {
+                flex-direction: column;
+            }
+        }
+        /* Media queries allow you to change things at different screen sizes
+
+        /* @media only screen and (min-width: 1333px) {
+            body {
+                background-color: brown;
+            }
+        } */
+
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armadillo Blog</title>
+</head>
+<body>
+    <header><img alt="Cute header armadillo" src="pictures/armadillos_thumb.jfif"><p>Armadillo Blog</p></header>
+    <nav>
+        <a target="blank" href="https://www.google.com/search?q=armadillo&sxsrf=ALeKk02KivIS3ac8dQG3BpClC_Nzgchi7w:1588962060333&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiHpqv58KTpAhUhoFsKHTScAl4Q_AUoAXoECEUQAw&biw=1536&bih=766">Pictures</a>
+        <a>About</a>
+        <a href="contact.html">Contact</a>
+        <a>Donation</a>
+    </nav>
+    
+    <main>
+        
+    </main>
+       
+        <footer><p>Class_Armadillo &copy;2020</p></footer>
+</body>
+</html>

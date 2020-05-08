@@ -33,7 +33,7 @@ import requests
 response = requests.get('https://www.gutenberg.org/files/215/215-0.txt')
 text = response.text
 
-
+print(text)
 # 2) Make everything lowercase, strip punctuation, split into a list of words.
 
 
@@ -44,3 +44,4 @@ text = response.text
 
 # 4) Print the most frequent top 10 out with their counts. You can do that with 
 # the code below.
+
