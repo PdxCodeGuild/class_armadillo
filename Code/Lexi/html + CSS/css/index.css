@@ -3,7 +3,11 @@ article h2 div {
 }
 
 .article-header {
-    justify-content: center;
+
+}
+
+.article-header h2 {
+    margin: 0;
 }
 
 .blog-image {
