@@ -1,0 +1,12 @@
+article h2 div {
+    padding: 15px;
+}
+
+.article-header {
+    justify-content: center;
+}
+
+.blog-image {
+    display: flex;
+    justify-content: center;
+}
