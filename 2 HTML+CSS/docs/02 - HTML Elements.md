@@ -52,6 +52,8 @@ Many of these come with default styling from the browser. However all can be alt
 
 ### Semantic Elements
 
+You can read more about semantic elements [here](https://www.w3schools.com/html/html5_semantic_elements.asp).
+
 | element | description |
 |---  |---    |
 | article | an article |
@@ -301,9 +303,7 @@ You can read more about text formatting elements [here](https://www.w3schools.co
 <p>Text formatting elements are meant to be embedded within text and determine how the text is rendered. They allow you to create <b>bold text</b> and <strong>strong text</strong>, <i>italic</i> and <em>emphasized</em> text, <mark>marked</mark>, <small>small</small>, <del>deleted</del>, <ins>inserted</ins>, <sub>subscript</sub>, <sup>superscript</sup>, and time <time>11:23</time>.</p>
 ```
 
-## Semantic Elements
 
-You can read more about semantic elements [here](https://www.w3schools.com/html/html5_semantic_elements.asp).
 
 
 
