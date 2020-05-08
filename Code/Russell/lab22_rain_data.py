@@ -51,23 +51,13 @@ variance = sum(variance_list) / (len(variance_list) - 1) # Find the sum of the s
 standard_deviation = math.sqrt(variance)# The standard deviation is the square root of the variance. 68.2% of the data falls within 1 standard deviation of the mean.
 
 # Loop over all the records to find the one which had the most rain, print out the date and daily total to the user.
-for key,value in rainfall_dictionary:
-    print(key)
-
-# # access the properties of that object
-# print(date.year)   # 2016
-# print(date.month)  # 3
-# print(date.day)    # 25
-# print(date)  # 2016-03-25 00:00:00
-
-# # turn the datetime object back into a string
-# print(date.strftime('%d-%b-%Y'))  # 25-Mar-2016
+inverse = [(rainfall, date) for date, rainfall in rainfall_dictionary.items()]
+most_rain_date = (max(inverse)[1])
 
 
-# for a, b in x:
-# ...     print "First", a, "then", b
-# First 1 then 2
-# First 3 then 4
-# First 5 then 6
+print(f'The most rain for the Wilson area fell on {most_rain_date} which was {rainfall_dictionary[most_rain_date]} tips')
 
-# .split to remove whitespace
+
+
+
+

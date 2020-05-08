@@ -1,0 +1,28 @@
+body {}
+html {
+    background-image: url(spiral.jpg);
+    background-repeat: repeat;
+}
+h1 {
+    color:rgb(255, 119, 142)
+}
+h1 span {
+    background-color: black;
+}
+a {
+    color:rgb(238, 30, 30)
+}
+hr {
+    color:rgb(238, 30, 30);
+    background-color: black;
+    padding: 1mm
+}
+h2 span {
+    background-color: black;
+}
+h3 {
+    color:rgb(255, 119, 142)
+}
+h3 span {
+    background-color: black;
+}

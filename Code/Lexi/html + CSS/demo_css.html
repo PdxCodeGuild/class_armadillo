@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- remove all the browser's built-in css -->
+  <link href="https://unpkg.com/browse/normalize.css@8.0.1/normalize.css" rel="stylesheet" type="text/css"/>
+
+  <!-- get a custom font -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+   <!-- include an external css file -->
+   <link rel="stylesheet" type="text/css" href="css/external_css_day1.css" />
+  <style type="text/css">
+      div {               /*VS color picker add on*/
+        color: #0fa0ce;  /* a beautiful color*/
+        background-color: black;
+      }
+      span{
+        color: rgb(0,255,0)
+      }
+      span{
+        color: hsl(green)
+      }
+      span{
+        color: rgba(red, green, blue, alpha)
+      }
+      
+       /*class selectors */
+
+      .myclass{ /*since div applies to everything, .myclass is more specific*/
+        color: chartreuse;
+      }
+      .ilikepink {
+        color:hotpink;
+      }
+
+      /*id selector*/
+
+      #title {
+        font-size: 200px;
+      }
+
+      * {
+        padding: 4px;
+      }
+
+      /*targeting children - going to prison*/
+
+      #fruits > span {
+        color:#0fa0ce;
+      }
+    </style>
+</head>
+<body>
+  <div>hello classmates!</div>
+  /*it's preferable to do a style tag if your head b/c in-line is too messy*/
+  <!--inline style = bad b/c repetition - it's better to write the rule in the style tag OR use external css file-->
+  <div style="color:blue;background-color:DarkOliveGreen"></div>
+  <a href="http://www.google.com/" class="myclass">Google</a>
+  /*class selectors allow you to apply what elements you want to*/
+  <h1 class="ilikepink">My Pink Title</h1>
+  <!--you can only have ONE id with the same title in quotes-->
+  <h2 id="title" class="ilikepink">My Pink Title</h2>
+  <div>
+    <span>apples</span>
+    <span>pear</span>
+  </div>
+</body>
+</html>
