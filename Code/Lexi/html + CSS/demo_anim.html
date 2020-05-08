@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    * {
+        transition: all 100ms;
+    }
+    main {
+        text-align:  center;
+        padding: 100px;
+    }
+    /* we make a span look like a button bootstrap uses <a> for button */
+    .btn {
+        color: white;
+        background-color: darkblue;
+        padding: 10px;
+        border: 1px double white;
+        cursor: pointer; /* turn cursor into pointer*/
+        user-select: none; /*prevents user from clicking it*/
+        transition: all 100ms; /* any property change */
+        display: inline-block;
+    }
+    .btn:hover {
+        background-color: darkgreen;
+        color: goldenrod
+    }
+    .btn:active {
+        background-color: black;
+        transform: rotate(180deg); /* move button down two pixels when pressed*/
+      
+    }
+    </style>
+</head>
+<body>
+    <main>
+    <button>click</button>
+    <span class="btn">
+        click</span>
+</body>
+</main>
+</html>
