@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    color: black;
+    color: white;
 }
 html {
     font-size: 20px;
@@ -11,7 +11,7 @@ html {
 }
 body{
     font-family: "Roboto Mono";
-    background:url(mountains-big-long-range-covered-in-fog.jpg);
+    background:black;
     background-size: cover;
 }
 #container{
@@ -34,6 +34,13 @@ body{
     font-size: 1.5rem;
     text-align: center;
 }
+#clock{
+    float: left;
+    width: 30%;
+    position: relative;
+    font-size: 1.2rem;
+    text-align: center;
+}
 #nav{
     float: left;
     width: 280px;
@@ -50,9 +57,6 @@ body{
     flex-direction: column;
     list-style-type: none;
 }
-#nav ul > a {
-    text-decoration: none;
-}
 #nav ul > a > li{
     padding: 20px;
     margin-top: 40px;
@@ -62,15 +66,4 @@ body{
     font-size: 1.3rem;
     color: #FF6F00;
     transition: all 0.2s ease;
-}
-#text{
-    float: left;
-    height: 550px;
-    width: 680px;
-    margin: 10px;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    font-size: 1.3rem;
 }
