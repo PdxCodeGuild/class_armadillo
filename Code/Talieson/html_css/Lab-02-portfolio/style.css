@@ -1,8 +1,8 @@
-*{
+* {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
     color: white;
+    /* border: 1px dotted red; */
 }
 html {
     font-size: 20px;
@@ -10,60 +10,55 @@ html {
     height: 100vh;
 }
 body{
-    font-family: "Roboto Mono";
-    background:black;
+    font-family: 'Open Sans', sans-serif;
+    background: #4CAF50;
     background-size: cover;
 }
-#container{
-    margin-left: auto;
-    margin-right: auto;
-    width: 1000px;
-    margin-top: 10px;
-}
-.rectangle{
-    width: 980px;
-    margin: 10px;
-    height: 50px;
-    margin-top: 30px;
-    padding: 10px;
-    font-size: 1.2rem;
-}
-#logo{
-    float: left;
-    width: 70%;
-    font-size: 1.5rem;
-    text-align: center;
-}
-#clock{
-    float: left;
-    width: 30%;
-    position: relative;
-    font-size: 1.2rem;
-    text-align: center;
-}
-#nav{
-    float: left;
-    width: 280px;
-    margin: 10px;
-    height: 550px;
-    padding: 5px;
-    text-align: left;
-    display: block;
-    font-size: 1.15rem;
-}
-#nav ul{
-    padding:10px;
+/* ----- nav bar ----- */
+.navbar {
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    list-style-type: none;
-}
-#nav ul > a > li{
-    padding: 20px;
-    margin-top: 40px;
+    justify-content: center;
+    background-color: #333;
+    position: fixed; /* Set the navbar to fixed position */
+    width: 100%; /* Full width */
+    opacity: 0.7;
+  }
+  
+  /* Links inside the navbar */
+  .navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 1vw 2vh;
+    margin-left: 5vw;
+    text-decoration: none;
+  }
+  
+  /* Change background on mouse-over */
+  .navbar a:hover {
+    font-size: 1.2rem;
+    background-color: #f2f2f2;
+    transition: all 0.5s ease;
+    color: #333;
+  }
+
+  /*----- background ----- */
+  body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 8s ease infinite;
 }
 
-#nav ul > a > li:hover{
-    font-size: 1.3rem;
-    color: #FF6F00;
-    transition: all 0.2s ease;
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
