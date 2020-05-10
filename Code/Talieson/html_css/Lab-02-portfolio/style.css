@@ -11,11 +11,9 @@ html {
 }
 body{
     font-family: 'Open Sans', sans-serif;
-    background: #4CAF50;
-    background-size: cover;
 }
 /* ----- nav bar ----- */
-.navbar {
+#navbar {
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -23,9 +21,10 @@ body{
     position: fixed;
     width: 100%; 
     opacity: 0.7;
+    transition: top 0.3s;
   }
 
-  .navbar a {
+#navbar a {
     float: left;
     display: block;
     color: #f2f2f2;
@@ -35,7 +34,7 @@ body{
     text-decoration: none;
   }
   
-  .navbar a:hover {
+#navbar a:hover {
     font-size: 1.1rem;
     background-color: #f2f2f2;
     transition: all 0.5s ease;
@@ -43,7 +42,7 @@ body{
   }
 
   /*----- background ----- */
-  body {
+body {
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 8s ease infinite;
@@ -103,7 +102,7 @@ body{
           width: 0;
     }
     to {
-          width: 18em;
+          width: 13em;
     }
 }
 
@@ -125,4 +124,9 @@ body{
     to {
           border-right-color: transparent;
     }
+}
+
+/* ----- About Me ----- */
+.about{
+    height:1000px;
 }
