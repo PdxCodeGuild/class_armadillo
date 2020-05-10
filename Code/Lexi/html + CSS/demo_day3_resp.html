@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            font-size: 2rem;
+            height: 4rem;
+            color: white;
+            background-color: midnightblue;
+
+        }
+        h1 {
+            font-size: 2rem;
+            padding: 10;
+            margin: 0;
+        }
+        article {
+            max-width: 500px; /* will stop expanding at 500px*/
+            margin: 0 auto; /* horizontally center */
+        }
+        @media (max-width: 800px) {
+            header {
+                background-color: purple;
+            }
+            article {
+                padding: 20px;
+            }
+            html {
+                font-size: larger;
+            }
+        }
+        </style>
+    <!-- /* <style>
+        h2 {
+            margin: 100px; /* 1 number - top + bottom + L + R*/
+            margin: 100px 50px; /* 2 nums - top+bottom, left+right */
+            margin: 100px 75px 50px 25px; /* 4 nums top, right bottom left*/
+        }
+    </style>     */ -->
+</head>
+<body>
+    <header>
+        <h1>Title</h1>
+    </header>
+    <article>
+    <h2>Section 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <q>Maecenas ac velit vel erat dignissim volutpat.</q> Cras commodo felis eu augue mattis dapibus. Nullam viverra ligula eu leo dignissim, et mollis nisl porta. Curabitur iaculis eu lorem in condimentum. Curabitur laoreet hendrerit sollicitudin. Duis eget diam eget augue efficitur auctor a ac leo. Ut vitae eleifend ante. Suspendisse dictum consectetur dolor ac porttitor. Donec vel dictum felis, id laoreet lorem. Pellentesque convallis accumsan dolor, vel scelerisque odio dignissim eget. Praesent aliquet ligula cursus magna posuere commodo. Phasellus dui ipsum, rutrum non leo sit amet, accumsan laoreet nisi. Integer consequat felis sem. Nulla dignissim mi id tincidunt porta. Quisque consectetur ipsum ac risus malesuada rutrum. Integer sit amet quam ac eros tincidunt tristique.</p>
+        <h2>Section 2</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+    </article>
+</body>
+</html>
