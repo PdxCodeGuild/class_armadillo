@@ -16,30 +16,25 @@
   document.addEventListener('DOMContentLoaded', function() {     ///collapsible method
     var elems = document.querySelectorAll('.collapsible');
     //options is a blank object
-    var instances = M.Collapsible.init(elems, options);
+    var instances = M.Collapsible.init(elems, {
         accordion: false,
         inDuration: 100,
   });
-
-  // Or with jQuery
-
-  $(document).ready(function(){
-    $('.collapsible').collapsible();
-  });
+});
     </script>
     <title>Document</title>
 </head>
 <ul class="collapsible">
     <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Only the Best</div>
       <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+      <div class="collapsible-header"><i class="material-icons">place</i>What About?</div>
       <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
     </li>
     <li>
-      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+      <div class="collapsible-header"><i class="material-icons">whatshot</i>Can't Go Wrong Here</div>
       <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
     </li>
   </ul>
