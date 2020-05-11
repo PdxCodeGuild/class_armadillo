@@ -173,9 +173,9 @@ body {
     animation: animainfos 0.5s cubic-bezier(0.425, 1.04, 0.47, 1.105) 0.75s forwards;
 }
 .badgescard span {
-    font-size: 1.6em;
+    font-size: 2.4em;
     margin: 0 6px;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 .firstinfo {
     flex-direction: row;
