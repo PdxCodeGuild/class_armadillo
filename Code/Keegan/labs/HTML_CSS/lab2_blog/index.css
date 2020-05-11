@@ -1,0 +1,55 @@
+:root {
+    --blog-image1: url(https://www.foodiecrush.com/wp-content/uploads/2017/03/Blackened-Fish-Tacos-Creamy-Avocado-Sauce-foodiecrush.com-012.jpg);
+    --blog-image2: url(https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fcdn-image.myrecipes.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2Fimage%2Frecipes%2Fck%2F11%2F09%2Ftacos-al-pastor-pineapple-salsa-ck-x.jpg%3Fitok%3DGVUqjCdH);
+
+    --bg-color: #91cea4;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+article p {
+    padding: 15px;
+}
+
+.article-header {
+    border-bottom: 1px solid #777777;
+    
+}
+
+.article-header h2 {
+    margin: 0;
+}
+
+.blog-image {
+    display: flex;
+    justify-content: center;
+}
+
+.blog-image > div {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid #777777;
+    border-radius: 50%;
+    height: 45vh;
+    max-height: 45vw;
+    max-width: 45vh;
+    width: 45vw;
+}
+
+#blog-image1 {
+    background-image: var(--blog-image1);
+}
+
+#blog-image2 {
+    background-image: var(--blog-image2);
+}
+
+@media (min-width: 768px) {
+    #content {
+        display: flex;
+        flex-direction: row;
+    }
+}

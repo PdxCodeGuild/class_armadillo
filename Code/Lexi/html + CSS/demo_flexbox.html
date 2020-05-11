@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        .flex_container1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .flex_container2 > div:nth-child(2) {
+            background-color: green;
+            flex-grow: 2;
+        }
+        .flex_container3 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .flex_container4 > div:nth-child(2) {
+            background-color: blue;
+            flex-grow: 3; /*like fractional proportions*/
+        }
+        .flex_container4 > div:nth-child(3) {
+            background-color:blue;
+            flex-grow:2;
+        }
+        .flex_container5 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly; /* in btw is consistent */
+            flex-wrap:wrap; /*makes it go to a second line*/
+        }
+        .container {
+            margin: 20px;
+            height: 400px;
+        }
+        .container > div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border: 1 px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class = "container flex_container1">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class = "container flex_container2">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class = "container flex_container3">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

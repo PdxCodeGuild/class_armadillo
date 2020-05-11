@@ -1,0 +1,132 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: white;
+    /* border: 1px dotted red; */
+}
+html {
+    font-size: 20px;
+    width: 100vw;
+    height: 100vh;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+/* ----- nav bar ----- */
+#navbar {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    position: fixed;
+    width: 100%; 
+    opacity: 0.7;
+    transition: top 0.3s;
+  }
+
+#navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 1vw 2vh;
+    margin-left: 5vw;
+    text-decoration: none;
+  }
+  
+#navbar a:hover {
+    font-size: 1.1rem;
+    background-color: #f2f2f2;
+    transition: all 0.5s ease;
+    color: #333;
+  }
+
+  /*----- background ----- */
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* ----- hero text and type writer effect ----- */
+.line {
+    width: 24em;
+    top: 50%;
+    margin: auto;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-weight: lighter;
+    text-align: center;
+    letter-spacing: -2px;
+    line-height: 58px;
+}
+
+@media(max-width: 768px) {
+    .header h1 {
+          font-size: 26px;
+    }
+}
+
+.anim-typewriter {
+    animation: typewriter 3s steps(40) 1s 1 normal both,
+    blinkTextCussor 500ms steps(40) infinite normal;
+}
+
+@keyframes typewriter {
+    from {
+          width: 0;
+    }
+    to {
+          width: 13em;
+    }
+}
+
+@media(max-width: 768px) {
+    @keyframes typewriter {
+          from {
+                width: 0;
+          }
+          to {
+                width: 17em;
+          }
+    }
+}
+
+@keyframes blinkTextCussor {
+    from {
+          border-right-color: rgba(255, 255, 255, 0.75);
+    }
+    to {
+          border-right-color: transparent;
+    }
+}
+
+/* ----- About Me ----- */
+.about{
+    height:1000px;
+}
