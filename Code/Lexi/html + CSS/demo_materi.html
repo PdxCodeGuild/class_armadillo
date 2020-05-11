@@ -12,10 +12,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     //adding JS
     <script type="text/javascript">
-
-  document.addEventListener('DOMContentLoaded', function() {
+    //adds Event Listener - you need JS to be there - if says to load things after it's been selected
+  document.addEventListener('DOMContentLoaded', function() {     ///collapsible method
     var elems = document.querySelectorAll('.collapsible');
+    //options is a blank object
     var instances = M.Collapsible.init(elems, options);
+        accordion: false;
   });
 
   // Or with jQuery
