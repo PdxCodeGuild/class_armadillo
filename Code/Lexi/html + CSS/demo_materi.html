@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    //adding JS
+    <script type="text/javascript">
+      //adds Event Listener - you need JS to be there - if says to load things after it's been selected
+      document.addEventListener("DOMContentLoaded", function () {
+        ///collapsible method
+        var elems = document.querySelectorAll(".collapsible");
+        //options is a blank object
+        var instances = M.Collapsible.init(elems, {
+          accordion: false,
+          inDuration: 100,
+        });
+      });
+    </script>
+    <title>Document</title>
+  </head>
+  <!--https://www.youtube.com/watch?v=JJSoEo8JSnc using flexbox-->
+  <div class="container">
+    <div class="box-1">
+  <body>
+  <ul class="collapsible">
+    <li>
+      <div class="collapsible-header">
+        <i class="material-icons">filter_drama</i>Only the Best
+      </div>
+      <div class="collapsible-body">
+        <span>Lorem ipsum dolor sit amet.</span>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header">
+        <i class="material-icons">place</i>What About?
+      </div>
+      <div class="collapsible-body">
+        <span>Lorem ipsum dolor sit amet.</span>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header">
+        <i class="material-icons">whatshot</i>Can't Go Wrong Here
+      </div>
+      <div class="collapsible-body">
+        <span>Lorem ipsum dolor sit amet.</span>
+      </div>
+    </li>
+  </ul>
+</div>
+</div>
+  </body>
+</html>
