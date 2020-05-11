@@ -17,7 +17,7 @@ import requests
 # response = requests.get(url, headers=headers)
 
 # requests the url.
-requested_url = requests.get('https://favqs.com/api/qotd')
+requested_url = requests.get('https://favqs.com/api/quotes?page=1&filter=nature')
 # creates the python dictionary.
 requested_data = json.loads(requested_url.text)
 # prints the dictionary.
@@ -31,6 +31,9 @@ def random_quote_info():
     # keywords the user has to choose from.
     keyword = ['quote', 'next page', 'author']
 
+'''url = 'https://favqs.com/api/quotes?page=1&filter=nature'
+headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
+response = requests.get(url, headers=headers)'''
 
     # defines the function to get the quote.
     def get_quote():
