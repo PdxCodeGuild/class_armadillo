@@ -144,10 +144,10 @@ while True:
     else:
         print('Please enter a 2 digit number for the month month 1-12: ')
     
-
+# to check for multiple years 
 for day in rain_data_dict:
     # print(day.year)
-    if day.year == year and day.month == month: # this is only give a  make it a user input and change the the 2010 a f'' string like this if day.year == f'{year} and day.month == {month}:
+    if day.year == year and day.month == month: # check for all the months and year user enter according to user Input: 
     
     # print(day)
 

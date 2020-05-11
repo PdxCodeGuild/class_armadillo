@@ -1,0 +1,58 @@
+* {
+    /* border: 2px solid black; */
+    font-family: 'Wendy One', sans-serif;
+}
+
+.container {
+    display: flex;
+}
+
+nav {
+    height: 70vh;
+    background-color: #FFEB25; opacity: 0.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+nav > div {
+    margin: 10px;
+    /* text-align: center; */
+}
+header {
+    height: 10vh;
+    text-align: center;
+    background-color: #EB8F26; opacity: 0.7;
+    /* background-color: hsla(267, 50%, 50%, 0.5); */
+    margin-bottom: 2.5vh;
+}
+header > h1 {
+    font-family: 'Modak', cursive;
+    font-size: 5rem;
+    margin-top: 20px
+}
+footer {
+    height: 7vh;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+    align-items: center;
+}
+a {
+    font-size: 2rem;
+}
+body {
+    background-image: url(cheese1.jpg);
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    background-attachment: fixed;
+}
+main {
+    background-color: #FAE7DC; opacity: 0.7;
+    margin-left: 2.5vw;
+    margin-right: ???;
+}
+footer {
+    background-color: #E8BA15; opacity: .7;
+    margin-top: 2.5vh;
+}
