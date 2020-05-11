@@ -35,43 +35,43 @@ import requests
 import re
 
 
-# requests the url.
-url = ('https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain')
-# assigns the url to a variable.
-requested_data = requests.get(url)
-# assigns a variable and takes the data and puts it in text format.
-hayden_island = requested_data.text
-# calls the data and returns it in text.
-# str
-#print(hayden_island)
-  
-# gets the dates and total rainfall.
-rainfall_dates = re.findall(r'(\d{2}-\w{3}-\d{4}) +(\d+)', hayden_island)
-print(rainfall_dates)
-# (\d+-\w+-\d)\s+(\d+)
-# (\d{2}-\w{3}-\d{4}) +(\d+)
-for i in range(len(rainfall_dates)):
-   date = rainfall_dates[i][0]
-   daily_rainfall_total = rainfall_dates[i][1]
-   date = datetime.strptime(date, '%d-%b-%Y')
-
-   daily_rainfall_total = int(daily_rainfall_total)*0.01*2.54
-
-
-   hayden_island[i] = {
-      'date': date,
-      'daily_rainfall': daily_rainfall_total
-   }
+def collecting_rain():
+   # requests the url.
+   url = ('https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain')
+   # assigns the url to a variable.
+   requested_data = requests.get(url)
+   # assigns a variable and takes the data and puts it in text format.
+   hayden_island = requested_data.text
+   # calls the data and returns it in text.
+   # str
+   #print(hayden_island)
    
-# print(hayden_island)
-
-# # #regex code
-# # #(\d+-\w+-\d)\s+(\d+)
-# date = parse_dates()
-
-
+   # gets the dates and total rainfall.
+   rainfall_dates = re.findall(r'(\d{2}-\w{3}-\d{4}) +(\d+)', hayden_island)
+   print(rainfall_dates)
+   # regex codes - 
+   # (\d+-\w+-\d)\s+(\d+)
+   # (\d{2}-\w{3}-\d{4}) +(\d+)
+   for i in range(len(rainfall_dates)):
+      date = rainfall_dates[i][0]
+      daily_rainfall_total = rainfall_dates[i][1]
+      date = datetime.strptime(date, '%d-%b-%Y')
    # print(date.year)   # 2016
    # print(date.month)  # 3
    # print(date.day)    # 25
    # print(date)  # 2016-03-25 00:00:00
    # print(date.strftime('%d-%b-%Y'))  # 25-Mar-2016
+
+      daily_rainfall_total = int(daily_rainfall_total)*0.01*2.54
+
+
+      rainfall_dates[i] = {
+         'date': date,
+         'daily_rainfall': daily_rainfall_total
+      }
+
+   print(rainfall_dates[:10])
+
+collecting_rain()
+
+

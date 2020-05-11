@@ -5,37 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="author" content="harrnish">
     <title>Project Portfolio</title>
 
     <!-- stylesheet -->
     <link rel="stylesheet" href="style.css">
 
     <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i,400,400i,500,500i,700700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-    <div id="container">
-        <div class="rectangle">
-            <div id="logo"> Portfolio</div>
-            <div id="clock"></div>
-            <div style="clear: both;"></div>
-        </div>
-        <div id="nav">
-            <ul>
-                <li><a href="index.html">home.</a></li>
-                <li><a href="index.html">about me.</a></li>
-                <li><a href="index.html">projects.</a></li>
-                <li><a href="index.html">contact.</a></li>
-            </ul>
-        </div>
-        <div id="text"> Here is where my intro text will go.</div>
-        <div style="clear: both;"></div>
-        <div class="rectangle"> Site made by Talieson Solmon &copy; 2020</div>
+    <div id="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Project</a>
+        <a href="contact.html">Contact</a>
     </div>
-    <script src="code.js"></script>
+
+    <div class="hero">
+        <div class="header">
+              <h1 class="line anim-typewriter">Let's write something amazing.</h1>
+        </div>
+  </div>
+
+  <div class="about">
+  </div>
 </body>
 
 </html>
+
+<!-- Background shift -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+</script>
+
+<!-- Hides the navbar on scroll -->
+<script>
+var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-50px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+</script>

@@ -39,20 +39,21 @@ while True:
     function = input('What operation would you like to do? ')
     if function == 'create':
         print('You chose create a contact.')
+        
 
-    elif function == 'retrieve':
-        print('You chose retrieve a contact.')
-    elif function == 'update':
-        print('You chose update a contact.')
-    elif function == 'delete':
-        print('You chose delete a contact.')
-    elif function == 'list':
-        print('You chose list a contact.')
-    elif function == 'exit':
-        print('You chose exit a contact.')
-    else:
-        print('Please enter a valid function.')
-        continue
+    # elif function == 'retrieve':
+    #     print('You chose retrieve a contact.')
+    # elif function == 'update':
+    #     print('You chose update a contact.')
+    # elif function == 'delete':
+    #     print('You chose delete a contact.')
+    # elif function == 'list':
+    #     print('You chose list a contact.')
+    # elif function == 'exit':
+    #     print('You chose exit a contact.')
+    # else:
+    #     print('Please enter a valid function.')
+    #     continue
 
 
     
