@@ -21,6 +21,8 @@ and imitate as much as you can.-->
         rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://baconipsum.com/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
@@ -50,16 +52,51 @@ and imitate as much as you can.-->
             font-size: 20px;
         }
 
+        h6 {
+            text-align: center;
+
+        }
+
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        /* Add a hover effect if you want */
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+        /* Set a specific color for each brand */
+
+        /* Facebook */
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        /* Twitter */
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+         /* instagram */
+         .fa-instagram {
+            background: #FCA311;
+            color: white;
+        }
+
+        .card-header {
+            background-color: #9D0208 !important;
+        }
+
         .carousel {
             max-width: 700px;
             margin: 10px auto;
-        }
-
-        .nav_bar {
-            font-family: "Sans Pro";
-            font-size: px;
-            background-color: #03071E;
-
         }
     </style>
 
@@ -69,7 +106,7 @@ and imitate as much as you can.-->
     <h1>'Q Your Buds</h1>
     <h4>12345 SE 82nd Ave Portland, OR 98111</h4>
     <h4>Tele: (503) 867-5309</h4>
-    <div class="accordion" id="accordionExample">
+    <div class="accordion" id="information">
         <div class="card">
             <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
@@ -80,7 +117,7 @@ and imitate as much as you can.-->
                 </h2>
             </div>
 
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#information">
                 <div class="card-body">
                     Bacon ipsum dolor amet filet mignon shank picanha meatloaf pork chop andouille. Buffalo ham hock
                     turducken short loin landjaeger, pork loin pig. Hamburger tail doner salami, beef tri-tip pork loin
@@ -104,15 +141,9 @@ and imitate as much as you can.-->
                     </button>
                 </h2>
             </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#information">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                    eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                    assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                    labore sustainable VHS.
+                    <img src="images/Menu.png" class="d-block w-100" alt="Mountain">
                 </div>
             </div>
         </div>
@@ -125,7 +156,7 @@ and imitate as much as you can.-->
                     </button>
                 </h2>
             </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#information">
                 <div class="card-body">
                     Spicy jalapeno bacon ipsum dolor amet porchetta turducken shankle meatball. Kielbasa beef ribs ball
                     tip flank. Chislic boudin drumstick, tri-tip spare ribs picanha sausage salami shoulder t-bone
@@ -171,6 +202,10 @@ and imitate as much as you can.-->
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-twitter"></a>
+    <a href="#" class="fa fa-instagram"></a>
+    <h6>&copy 11 May 2020</h6>
 
 
 </body>
