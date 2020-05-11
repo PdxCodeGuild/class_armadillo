@@ -1,0 +1,31 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: rgb(8, 56, 16);
+    color: whitesmoke;
+    transition: all 1.0s;
+}
+
+#carouselExampleFade {
+    max-width:800px;
+    margin: 0 auto;
+
+}
+
+#topofpage {
+    text-align: center;
+}
+
+.sidebar-image{
+    width: 200px;
+    margin: 0 auto;
+}
