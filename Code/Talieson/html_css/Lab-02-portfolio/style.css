@@ -206,7 +206,7 @@ h5 {
 @keyframes animatop {
     0% {
         opacity: 0;
-        bottom: -500px;
+        bottom: -400px;
    }
     100% {
         opacity: 1;
