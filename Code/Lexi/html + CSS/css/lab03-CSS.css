@@ -1,0 +1,12 @@
+body {
+    background-color: aquamarine;
+    font-size: large;
+    color: rgba(rgb(216, 111, 111), rgb(250, 252, 250), rgb(167, 167, 209), alpha)
+}
+h1 {
+    justify-content: center;
+    background-color: rgb(127, 161, 255);
+    font-size: large;
+    color: rgba(rgb(216, 111, 111), rgb(120, 167, 120), rgb(167, 167, 209), alpha);
+    margin-inline-start: 5rem; /* https://developer.mozilla.org/en-US/docs/Web/CSS/margin-inline-start */
+}
