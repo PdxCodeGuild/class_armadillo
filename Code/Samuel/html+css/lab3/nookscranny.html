@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="title">Nook's  Cranny</title>
+        <link rel="icon" href="bells_favicon.png">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="nookscranny.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg" id="navbar-style">
+            <a class="navbar-brand" href="nookscranny.html">
+                <img src="nookscranny.png" alt="Nooks Cranny Symbol" style="width: 150px; height: 50px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="nookscranny.html" id="option-style">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Buy
+                        </a>
+                        <div class="dropdown-menu" id="nav-style" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Clothes</a>
+                            <a class="dropdown-item" href="#">Furniture</a>
+                            <a class="dropdown-item" href="#">Landscape</a>
+                            <a class="dropdown-item" href="#">Tools</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Turnips</a>
+                        </div>
+                    </li>
+                    <li class="nav-item active" >
+                        <a class="nav-link" id="option-style" href="#">Sell</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" id="option-style" href="#" >Stalk Market</a>
+                    </li>
+                    <form class="form-inline" id="search_section">
+                        <input class="form-control mr-sm-2" id="search_bar" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit" id="icon_button">
+                            <img src="icons/search.png" alt="Search" id="search_icon">
+                        </button>
+                    </form>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Account
+                        </a>
+                        <div class="dropdown-menu" id="nav-style" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Wallet</a>
+                            <a class="dropdown-item" href="#">Wishlist</a>
+                        </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" id="option-style" href="#" >Orders</a>
+                    </li>
+                    <div class="cart">
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit" id="icon_button">
+                            <img src="icons/cart.png" alt="Search" id="search_icon">
+                        </button>
+                    </div>
+                </ul>
+                
+            </div>
+            
+        </nav>
+        <div class="jumbotron">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="hugedeals.png" class="d-block w-100" alt="Huge Deals!">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="lotsofmoney.png" class="d-block w-100" alt="Lots of Money!">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="manyfurniture.png" class="d-block w-100" alt="Many Furniture!">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="items">
+            <div class="card" id="item_card">
+                <a href="#">
+                    <img src="items/acid_washed_jacket.png" class="card-img-top" id="card_image" alt="Acid Washed Jacket">
+                </a>
+                <div class="card-body">
+                    <a class="card-title" id="card-title-style" href="#">Acid Washed Jacket</a>
+                    <div class="card_price">
+                        <img src="icons/bells.png" id="bells">
+                        <p class="card-text">1499</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Acid Washed Jacket to your cart.">Add to Cart</a>
+                </div>
+            </div>
+             <div class="card" id="item_card">
+                <a href="#">
+                    <img src="items/acnh_nintendo_switch.png" class="card-img-top" id="card_image" alt="Animal Crossing Nintendo Switch">
+                </a>
+                <div class="card-body">
+                    <a class="card-title" id="card-title-style" href="#">ACNH Nintendo Switch</a>
+                    <div class="card_price">
+                        <img src="icons/bells.png" id="bells">
+                        <p class="card-text">3000</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add ACNH Nintendo Switch to your cart.">Add to Cart</a>
+                </div>
+            </div>
+            <div class="card" id="item_card">
+                <a href="#">
+                    <img src="items/alto_saxophone.png" class="card-img-top" id="card_image" alt="Alto Saxophone">
+                </a>
+                <div class="card-body">
+                    <a class="card-title" id="card-title-style" href="#">Alto Saxophone</a>
+                    <div class="card_price">
+                        <img src="icons/bells.png" id="bells">
+                        <p class="card-text">6000</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Alto Saxophone to your cart.">Add to Cart</a>
+                </div>
+            </div>
+            <div class="card" id="item_card">
+                <a href="#">
+                    <img src="items/apple.png" class="card-img-top" id="card_image" alt="Apple">
+                </a>
+                <div class="card-body">
+                    <a class="card-title" id="card-title-style" href="#">Apple</a>
+                    <div class="card_price">
+                        <img src="icons/bells.png" id="bells">
+                        <p class="card-text">200</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Apple to your cart.">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="items">
+            <div class="card" id="item_card">
+                <a href="#">
+                    <img src="items/axe.png" class="card-img-top" id="card_image" alt="Axe">
+                </a>
+                <div class="card-body">
+                    <a class="card-title" id="card-title-style" href="#">Axe</a>
+                    <div class="card_price">
+                        <img src="icons/bells.png" id="bells">
+                        <p class="card-text">450</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Axe to your cart.">Add to Cart</a>
+                </div>
+            </div>
+            <div class="card" id="item_card">
+                <a href="#">
+                    <img src="items/bamboo_piece.png" class="card-img-top" id="card_image" alt="Bamboo Piece">
+                </a>
+                <div class="card-body">
+                    <a class="card-title" id="card-title-style" href="#">Bamboo Piece</a>
+                    <div class="card_price">
+                        <img src="icons/bells.png" id="bells">
+                        <p class="card-text">350</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Bamboo Piece to your cart.">Add to Cart</a>
+                </div>
+            </div>
+            <div class="card" id="item_card">
+                <a href="#">
+                    <img src="items/blue_roses.png" class="card-img-top" id="card_image" alt="Blue Roses" >
+                </a>
+                <div class="card-body">
+                    <a class="card-title" id="card-title-style" href="#">Blue Roses</a>
+                    <div class="card_price">
+                        <img src="icons/bells.png" id="bells">
+                        <p class="card-text">2000</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Blue Roses to your cart.">Add to Cart</a>
+                </div>
+            </div>
+            <div class="card" id="item_card">
+                <a href="#">
+                    <img src="items/cherry.png" class="card-img-top" id="card_image" alt="Cherry">
+                </a>
+                <div class="card-body">
+                    <a class="card-title" id="card-title-style" href="#">Cherry</a>
+                    <div class="card_price">
+                        <img src="icons/bells.png" id="bells">
+                        <p class="card-text">150</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Cherry to your cart.">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

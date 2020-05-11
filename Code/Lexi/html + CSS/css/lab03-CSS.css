@@ -27,6 +27,10 @@ div {
     background-color: green;
 
   }
+div col.s1{
+    color: azure;
+    justify-content: center;
+}
 #page {
     padding: 10px;
     background-color: white;
