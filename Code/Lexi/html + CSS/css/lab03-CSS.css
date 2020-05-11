@@ -1,5 +1,5 @@
 body {
-    background-color: aquamarine;
+   
     font-size: large;
     color: rgba(rgb(216, 111, 111), rgb(250, 252, 250), rgb(167, 167, 209), alpha)
 }
@@ -10,7 +10,6 @@ h1 {
     color: white;
     margin-inline-start: 5rem; /* https://developer.mozilla.org/en-US/docs/Web/CSS/margin-inline-start */
     margin-inline-start: 20px; 
-    vertical-align: text-bottom;
     
 }
 table {
@@ -18,8 +17,29 @@ table {
     font-size: large;
     color: rgba(rgb(216, 111, 111), rgb(120, 167, 120), rgb(167, 167, 209), alpha);
     justify-content: space-evenly;
-    background-image: url(../img/Screen\ Shot\ 2020-05-06\ at\ 9.45.00\ AM.png);
+    background-image: url(../img/law_books.jpg);
 }
 .container {
     display: flex;
+    background-image: url(../img/law_books.jpg);
+}
+div {
+    background-color: green;
+    opacity: 0.3;
+  }
+#page {
+    padding: 10px;
+    background-color: white;
+    height: 90% !important;
+}
+#page {
+    padding: 10px;
+    background-color: white;
+    height: 90% !important;
+}
+.active {
+    color: red;
+}
+.changed {
+    color: blue;
 }
