@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Rock</title>
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+   
     <style>
+    .flex-container {
+        display: flex;
+    }    
+    .flex-child {
+        flex: 1;
+    }
     h1 {font-family: 'Permanent Marker', cursive;
+        font-size: 75px;
+        text-shadow: 3px 3px black;
     }    
     body {
         background-color: gold;
@@ -25,28 +36,51 @@
         opacity: 0.8;
         color: gold;
         padding: 10px;
-        margin: 10px;
-        border: 2px solid gold;
+        margin: 15px;
+        border: 1px dashed gold;
     }
     hr {
-        border: 2px dotted gold;
+        border: 3px solid gold;
+        margin: 40px;
     }
     a {
         color: red;
+    }
+    q {
+        font-family: 'Lobster', cursive;
+        font-size: 20px;    
+    }
+    h2, p, ul, footer {font-family: 'Montserrat', sans-serif;
+    }
+    ul {
+        list-style-type: square;
+    }
+    img {
+        border-radius: 10%;
+        margin: 10px;
+    }
+    footer {
+        margin: 10px;
     }
     </style>
 </head>
 <body>
     <h1>Dwayne "The Rock" Johnson</h1>
     <hr/>
-    <img src="https://i.pinimg.com/564x/9f/a4/e1/9fa4e10e77ecd29e103f1f3171ebed6e.jpg" alt="The People's Eyebrow" width="250px"></br>
-    <div>
-    <h3>Bio</h3>
-    <p>Dwayne "The Rock" Johnson is an actor, entrepreneur, former football player and retired professional wrestler.  He has starred in several blockbusters flicks including: <em>The Mummy Returns, The Scorpion King, Moana, San Andreas,</em> and the <em>Fast and the Furious</em> franchise.  He also starred in all five seasons of the HBO comedy-drama <em>Ballers</em>  Johnson's wrestling career spanned 16 years with the World Wrestling Federation and World Wrestling Entertainment where he was coveted as the greater professional wrestler of all time.  He is a husband and father of 3, and partakes in political activism and philanthropy.  Johnson's multifaceted career has earned him a spot on the <em><Time></em> 100 Most Influential People in the World list for both 2016 and 2019.
+    
+    
+    <img src="https://img.bleacherreport.net/img/images/photos/003/080/248/02f187f3580e8f7f24c605ff1bfe5a30_crop_north.jpg?h=533&w=800&q=70&crop_x=center&crop_y=top" alt="Football Days" height= "300x">
+    <img src="https://i.insider.com/591f5ce34574a01e008b4669?width=1300&format=jpeg&auto=webp" alt="Recent DJ" height= "300px">
+    <img src="https://media.giphy.com/media/TT7JW4Qm7uaNW/source.gif" alt="Can you smell?" height="300px"><br/>
+    <iframe src="https://open.spotify.com/embed/track/2isXgJwzzSkOpEzyYTbaWU" width="500" height="100" allowtransparency="true" allow="encrypted-media"></iframe><br/>
+    <div class="flex-container">  
+        <div class = "flex-child bio">
+        <h2>Bio</h2>
+        <p>Dwayne "The Rock" Johnson is an actor, entrepreneur, former football player and retired professional wrestler.  He has starred in several blockbusters Hollywood motion pictures including: <em>The Mummy Returns, The Scorpion King, Moana, San Andreas,</em> and the <em>Fast and the Furious</em> franchise.  He also starred in all five seasons of the HBO comedy-drama <em>Ballers</em>.  Johnson's wrestling career spanned 16 years with the World Wrestling Federation and World Wrestling Entertainment where he was coveted as the greatest professional wrestler of all time.  He is a husband, a proud father of 3.  In his free time he partakes in philanthropy and political activism, and has shown interest in running for President in the future.  Johnson's multifaceted career has earned him a spot on the <em>Time</em> 100 Most Influential People in the World list for both 2016 and 2019.
         <a href="https://en.wikipedia.org/wiki/Dwayne_Johnson">Learn more about "The Great One."</a>
-    </div>
-        <div>
-        <h3>Places Dwayne has resided:</h3>
+        </div>
+        <div class="flex-child places">
+        <h2>Places Dwayne has resided:</h2>
         <ul>
             <li>Hayward, CA</li>
             <li>Auckland, NZ</li>
@@ -59,14 +93,16 @@
             <li>Calgary, AB</li>
             <li>Los Angeles, CA</li>
         </ul>
-    </div>    
+        </div>  
+    </div>      
     <div>
-        <h3>Some of the Rock's most inspirational quotes:</h3>
-        <q>Can you smell what The Rock is cooking?!</q></br>
-        <q>Blood, sweat and respect. First two you give, last one you earn.</q></br>
-        <q>The Rock will take you down to Know Your Role Boulevard, which is on the corner of Jabroni Drive, and check you directly into the Smackdown Hotel!</q></br>       
-        <q>Just bring it!</q>
+    <h2>Some of the Rock's most inspiring quotes:</h2>
+    <q>Can you smell what The Rock is cooking?!</q></br>
+    <q>Blood, sweat and respect. First two you give, last one you earn.</q></br>
+    <q>The Rock will take you down to Know Your Role Boulevard, which is on the corner of Jabroni Drive, and check you directly into the Smackdown Hotel!</q></br>       
+    <q>Just bring it!</q>
     </div>
+    <img src="https://i.pinimg.com/564x/9f/a4/e1/9fa4e10e77ecd29e103f1f3171ebed6e.jpg" alt="The People's Eyebrow" height="275px">
     <hr/>
     <footer>Created by Nicholas K </footer>
 </body>

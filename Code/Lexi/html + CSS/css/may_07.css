@@ -7,7 +7,33 @@ body {
 div {
     color: rgb(10, 200, 300);
     background-color: peachpuff;
+    
 }
 span {
     color: rgb(211, 16, 16)
+}
+h1 {
+    color: blue;
+    text-align: center;
+}
+p.dino {
+    font-style: italic;
+    
+    
+}
+a {
+    font-family: cursive;
+    font-weight: 600;
+}
+ iframe{
+    margin-left: auto;
+    margin-right: auto;
+   
+ }
+ .container {
+    display:flex;
+    justify-content: center;
+}
+dl * {
+    font-family: Operator Mono A,Operator Mono B,Source Code Pro,Menlo,Consolas,Monaco,monospace;
 }
