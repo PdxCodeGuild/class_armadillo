@@ -1,0 +1,95 @@
+body{
+    background-color: #e9ecef;
+}
+
+#bells{
+    width: 23px;
+    height: 23px;
+    margin-right: 10px;
+}
+
+#card_image{
+    width: 250px;
+    height: 250px;
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#card-title-style{
+    font-weight: 700;
+    font-size: 20px;
+    color: black;
+}
+
+#icon_button{
+    background-color: #557db8;
+}
+
+#icon_button:hover{
+    background-color: white;
+}
+
+#item_card{
+    width: 300px;
+    height: 400px;
+}
+
+#item_card:hover{
+    background-color: #9facb9;
+}
+
+#navbar-style{
+    background-color: #2f5083;
+    color: white;
+}
+
+#navbarDropdown{
+    color: white;
+}
+
+#navbarDropdown:hover{
+    background-color: white;
+    color: black;
+}
+
+#option-style{
+    color: white;
+}
+
+#option-style:hover{
+    background-color: white;
+    color: black;
+}
+
+#search_bar{
+    width: 1100px;
+}
+
+#search_icon{
+    height: 30px;
+    width: 30px;
+}
+
+#search_section{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.card_price{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.cart{
+    margin-left: 20px;
+}
+
+.items {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 50px;
+}
