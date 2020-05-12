@@ -13,13 +13,16 @@ def index():
         output = ''
         text = request.form["word"]
         for char in text:
-            index = 
+            index = alphabet.find(char)
+            rot = rot_alphabet[index]
+            output += rot
         print(text)
-
+    else:
+        output = ""
     print(request.form)
 
 
 
-    return render_template('index.html')
+    return render_template('index.html', output = output)
 
 

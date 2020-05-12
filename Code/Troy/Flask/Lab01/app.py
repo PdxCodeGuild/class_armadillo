@@ -8,16 +8,17 @@ import random
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    alphabet = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
+    if request.method == "POST":
+        alphabet = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
+        print(request.form["password_length"])
 
-    # print('Please make a password.  It should be 10 characters long. ')
+        output = ""
+        
+        for i in range(10):
+            output += random.choice(alphabet)
 
-    # input('I will make a password using random choices. Press enter to get your password... ')
-
-    # for i in range(10):
-    #     print(random.choice(alphabet), end= '')
 
     print(request.form)
     message = ''
 
-    return render_template('index.html')
+    return render_template('index.html', password="Hello")
