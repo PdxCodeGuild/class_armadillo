@@ -10,36 +10,24 @@
             padding-left: 10px;
             padding-right: 10px;
         }
-        body{
-            background-color: #28a745!important;    
+
+        body {
+            background-color: #28a745 !important;
         }
-        #navbar-toggler-icon{
+
+        #navbar-toggler-icon {
             display: none;
         }
-        #main_div {
-            color: cornsilk;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #28a745;
-        }
-        #barn_photo {
+
+        #tarp_photo {
             border-radius: 15px;
             padding-bottom: 5px;
             margin-top: 55px;
             width: 100%;
         }
-        .social_links_div{
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-        }
-        .social_links {
-            margin: 5px
+        #main_div{
+            color: cornsilk;
+            text-align: center;
         }
         #footer {
             margin-top: 25px;
@@ -55,51 +43,13 @@
             ...
         } */
 
-        @media(min-width: 992px) {
-            
-            .social_links {
-                width: 100px;
-                height: 100px;
-                transition: transform .2s;
-                margin: 0 auto;
-                margin-top: 15px;
-                margin-left: 15px;
-            }
-
-            .social_links:hover {
-                background-color: darkcyan;
-                transform: scale(1.5);
-            }
-
-            #barn_photo {
-            margin-top: 55px;
-            width: 70%;
-             }
-        }
-
-
         @media(min-width: 1200px) {
             body {
                 padding-left: 100px;
                 padding-right: 100px;
             }
-            .social_links {
-                width: 75px;
-                height: 75px;
-                transition: transform .2s;
-                margin: 0 auto;
-                margin-top: 15px;
-                margin-left: 15px;
-            }
-            .navbar-brand:hover{
-                border-radius: 15px;
-                background-color: rgb(86, 153, 92);
-            }
-            .social_links:hover {
-                transform: scale(1.5);
-            }
 
-            #barn_photo {
+            #tarp_photo {
             margin-top: 55px;
             width: 70%;
              }
@@ -108,8 +58,11 @@
                 padding: 20px;
             }
         }
-    </style>
 
+        /* Extra large devices (large desktops, 1200px and up) @media(min - width: 1200px) {
+            ...
+        } */
+    </style>
     <meta charset="UTF-8">
     <meta name="description" content="website for Funky Fresh Farm">
     <meta name="keywords" content="farm, fresh, van buren, ohio, farm fresh">
@@ -128,12 +81,12 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
-    <title>Funky Fresh Farm</title>
+    <title>Funky Fresh Farm - About</title>
 </head>
 
 <body>
 
-    <nav id="navbar" class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
         <a class="navbar-brand" href="index.html">Home</a>
         <a class="navbar-brand" href="news.html">News</a>
         <a class="navbar-brand" href="contact.html">Contact</a>
@@ -141,25 +94,22 @@
         <span id="navbar-toggler-icon"></span>
     </nav>
 
-    <div id="main_div">
+    <div id="heading_image">
+        <img id="tarp_photo" alt="farm tarp photo" src="pictures/tarp.jpg">
+    </div>
 
-        <img id="barn_photo" alt="barn photo header" src="pictures/barn.jpg">
-        <p class="social_links_followUs"> Follow along with us!</p>
-        <div class="social_links_div">
-            <a href="https://www.instagram.com/funkyfreshfarmohio/?hl=en">
-                <img class="social_links" id="link_image" alt="Instagram Link" src="pictures/instagram_logo.jpg"
-                    width="60" height="60">
-            </a>
-            <a href="https://www.facebook.com/funkyfreshfarms/">
-                <img class="social_links" id="link_image" alt="Facebook Link" src="pictures/facebook_logo.webp"
-                    width="60" height="60">
-            </a>
-        </div>
+    <div id=main_div>
+
+        <h1> Who we are</h1>
+        <p>We have a lot of things in the works at the moment. Being our first season it will be a bit of an
+            experimental season, but we will do our best to provide some funky fresh vegetables and fruits. We will
+            be posting more updates as things get moving on the farm.</p>
     </div>
 
     <footer id="footer">
-            <p>&copy; Funky Fresh Farm 2020</p>
+        <p>&copy; Funky Fresh Farm 2020</p>
     </footer>
+
 </body>
 
 </html>
