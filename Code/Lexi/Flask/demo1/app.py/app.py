@@ -13,7 +13,9 @@ def index():    # local home directory is typically 'index'
     #     return html
 
     if request.method == 'POST':
-        print(request.form['input_text'])
+        print(request.form['user_name'])
+        print(request.form['birthday'])
+
 
 
     temperature = 65
