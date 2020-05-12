@@ -1,3 +1,27 @@
+body {
+    background-color: #003049;
+}
+
 header{ 
     text-align: center;
-    }
+    background-color: #FF006E;
+    box-shadow: 0 5px 5px grey;
+    margin-bottom:20px;
+}
+
+.message {
+    background-color:blue;
+    padding:10px;
+    color:white;
+}
+
+.button {
+    position: center;
+    margin: 20px 50px;
+    
+}
+
+.output {
+    text-align: center;
+    font-family: 'Balsamiq Sans', cursive;
+}
