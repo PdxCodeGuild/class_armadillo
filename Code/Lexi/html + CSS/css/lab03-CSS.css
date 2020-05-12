@@ -6,7 +6,7 @@ body {
 h1 {
     justify-content: center;
     background-color: rgb(127, 161, 255);
-    font-size: xx-small;
+    font-size: xx-large;
     color: white;
     margin-inline-start: 5rem; /* https://developer.mozilla.org/en-US/docs/Web/CSS/margin-inline-start */
     margin-inline-start: 20px; 
@@ -21,11 +21,13 @@ table {
 }
 .container {
     display: flex;
-    background-image: url(../img/iron_riot.png);
+    background-image: url(../img/Screen\ Shot\ 2020-05-06\ at\ 9.45.00\ AM.png);
     padding: 2;
+    border-radius: 5;
 }
 div {
-    background-color: green;
+    background-image: url(../img/law_books.jpg);
+    opacity: 0.8;
 
   }
 div col{

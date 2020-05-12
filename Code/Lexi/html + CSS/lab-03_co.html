@@ -4,15 +4,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/lab03-CSS.css" />
-
+    
     <title>Document</title>
     <!-- Compiled and minified CSS -->
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
-
+    <!--ALWAYS PUT MY STYLESHEET LAST - THANKS, TAL for overriding stuff from materialize CSS-->
+    <link rel="stylesheet" href="css/lab03-CSS.css" />
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
@@ -21,8 +21,9 @@
       document.addEventListener("DOMContentLoaded", function () {
         var elems = document.querySelectorAll(".carousel");
         var instances = M.Carousel.init(elems, {
-          accordion: true,
+          accordion: true, //googled 'accordion JS'
           inDuration: 100,
+          home: Image
         });
       });
       // INITIALIZE Dropdown Trigger https://materializecss.com/dropdown.html
@@ -79,7 +80,7 @@
         <div class="col s4">
           <!-- Dropdown Trigger -->
           <a class="dropdown-trigger btn" href="#" data-target="dropdown2"
-            >Areas of Practice</a
+            >Practice</a
           >
 
           <!-- Dropdown Structure -->
@@ -157,7 +158,7 @@
 <figure role="img" aria-labelledby="cow-caption">
   <pre>
   ___________________________
-< I'm an expert in my field. >
+< I'm a subject matter expert in my field. >
   ---------------------------
          \   ^__^ 
           \  (oo)\_______
