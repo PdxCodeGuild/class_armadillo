@@ -22,15 +22,21 @@
         user-select: none; /*prevents user from clicking it*/
         transition: all 100ms; /* any property change */
         display: inline-block;
+        border-radius: 4px;
     }
     .btn:hover {
-        background-color: darkgreen;
-        color: goldenrod
+        background-color: deepskyblue;
+        color: goldenrod;
+        transform: rotate(360deg);
+        transform: translateY(-1px);
+        /* x-offset, y-offset, extent, color */
+        box-shadow: -20px 20px 10px darkgray;
     }
-    .btn:active {
-        background-color: black;
-        transform: rotate(180deg); /* move button down two pixels when pressed*/
-      
+    .btn:active { /* pseudo CLASS not pseudo selector (DNE)*/
+        background-color: pink;
+        transform: translateY(2px); /* move button down two pixels when pressed*/
+        box-shadow: none;
+       
     }
     </style>
 </head>
