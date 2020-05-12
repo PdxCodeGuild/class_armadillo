@@ -8,6 +8,12 @@
 <body>
     <h1>Hello {{name}}</h1>
     <span>The temperature is {{temperature}}</span>
-    {% if %}
+    {% if temperature > 70 %}
+    <span>hot</span>
+    {% elif temperature > 60% }
+    <span>warm</span>
+    {% else %} <!--special TEMPLATE RENDERING syntax-->
+    <span>cold</span>
+    {% endif %} 
 </body>
 </html>
