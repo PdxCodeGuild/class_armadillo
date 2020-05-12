@@ -17,17 +17,18 @@ table {
     font-size: large;
     color: rgba(rgb(216, 111, 111), rgb(120, 167, 120), rgb(167, 167, 209), alpha);
     justify-content: space-evenly;
-    background-image: url(../img/law_books.jpg);
+    
 }
 .container {
     display: flex;
-    background-image: url(../img/law_books.jpg);
+    background-image: url(../img/iron_riot.png);
+    padding: 2;
 }
 div {
     background-color: green;
 
   }
-div col.s1{
+div col{
     color: azure;
     justify-content: center;
 }
@@ -35,11 +36,7 @@ div col.s1{
     padding: 10px;
     background-color: white;
     height: 90% !important;
-}
-#page {
-    padding: 10px;
-    background-color: white;
-    height: 90% !important;
+
 }
 .active {
     color: red;
