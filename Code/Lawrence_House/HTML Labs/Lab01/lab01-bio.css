@@ -2,6 +2,7 @@ body {}
 html {
     background-image: url(spiral.jpg);
     background-repeat: repeat;
+    background-size: cover
 }
 h1 {
     color:rgb(255, 119, 142)
@@ -21,7 +22,8 @@ h2 span {
     background-color: black;
 }
 h3 {
-    color:rgb(255, 119, 142)
+    color:rgb(255, 119, 142);
+    padding: 10px
 }
 h3 span {
     background-color: black;

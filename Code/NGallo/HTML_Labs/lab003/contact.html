@@ -1,89 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <style>
-        /*no media query = mobile view*/
-        body{
-            background-color: blanchedalmond;
-            font-family: 'Ubuntu', sans-serif;
+        html {
+            background-color: #28a745;
+            box-sizing: border-box;
+            font-size: 15px;
             padding-left: 10px;
             padding-right: 10px;
         }
-        header {
-            margin-bottom: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+
+        body {
+            background-color: #28a745 !important;
         }
-        header > img {
-            border-radius: 15px;
-            width: 60px;
+
+        #navbar-toggler-icon {
+            display: none;
         }
-        nav {
-            margin-bottom: 10px;
+
+        #main_div {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
         }
-        /* targets the button elements inside the navbar*/
-        nav > a {
+
+        #family_photo {
             border-radius: 15px;
-            padding: 10px;
-            border: 1px solid black;
-            display: block;
-            margin-bottom: 5px;
-            text-decoration: none;
-        }
-        a:hover{
-            color: darkgreen;
-            cursor: pointer;
-            user-select: none;
+            margin-top: 100px;
+            width: 60%;
         }
 
-        #ancient_armadillo{
-            width: 100%;
+        #map {
             border-radius: 15px;
+            margin-top: 25px;
+            height: 250px;
+            width: 250px;
         }
-        #youtube_video{
-            width: 100%;
-        }
-        footer{
+
+        #footer {
+            margin-top: 25px;
+            color: cornsilk;
             text-align: center;
         }
-        /*desktop view*/
-        @media only screen and (max-width: 800px) {
-            nav {
-                flex-direction: column;
-            }
-        }
-        /* Media queries allow you to change things at different screen sizes
 
-        /* @media only screen and (min-width: 1333px) {
-            body {
-                background-color: brown;
-            }
+        /* Small devices (landscape phones, 576px and up) @media(min - width: 576px) {
+            ...
+        }
+
+        Medium devices (tablets, 768px and up) @media(min - width: 768px) {
+            ...
         } */
 
-    </style>
+        @media(min - width: 992px) {
+            #nav .social_links {
+                transition: transform .2s;
+                margin: 0 auto;
+                margin-top: 15px;
+                margin-left: 15px;
+            }
 
+            .social_links:hover {
+                transform: scale(1.5);
+            }
+        }
+
+        @media(min-width: 1200px) {
+            #map {
+                width: 60%;
+            }
+        }
+    </style>
     <meta charset="UTF-8">
+    <meta name="description" content="website for Funky Fresh Farm">
+    <meta name="keywords" content="farm, fresh, van buren, ohio, farm fresh">
+    <meta name="author" content="Nick Gallo">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Armadillo Blog</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <title>Funky Fresh Farm - Contact</title>
 </head>
+
 <body>
-    <header><img alt="Cute header armadillo" src="pictures/armadillos_thumb.jfif"><p>Armadillo Blog</p></header>
-    <nav>
-        <a target="blank" href="https://www.google.com/search?q=armadillo&sxsrf=ALeKk02KivIS3ac8dQG3BpClC_Nzgchi7w:1588962060333&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiHpqv58KTpAhUhoFsKHTScAl4Q_AUoAXoECEUQAw&biw=1536&bih=766">Pictures</a>
-        <a>About</a>
-        <a href="contact.html">Contact</a>
-        <a>Donation</a>
+
+
+    <nav id="navbar" class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <a class="navbar-brand" href="news.html">News</a>
+        <a class="navbar-brand" href="contact.html">Contact</a>
+        <a class="navbar-brand" href="about.html">About</a>
+        <span id="navbar-toggler-icon"></span>
     </nav>
-    
-    <main>
-        
-    </main>
-       
-        <footer><p>Class_Armadillo &copy;2020</p></footer>
+    <div id="main_div">
+
+        <img id="family_photo" alt="Family farm photo" src="pictures/family.jpg">
+
+        <iframe id="map"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3005.29463181465!2d-83.6336224!3d41.1280937!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883c004bba837b6b%3A0xf4be2873d11c841!2s2686%20Township%20Rd%20229%2C%20Van%20Buren%2C%20OH%2045889!5e0!3m2!1sen!2sus!4v1586762530447!5m2!1sen!2sus"
+            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+    </div>
+    <div class=social_links_div>
+        <p class="social_links_followUs"> Follow along with us!</p>
+        <a href="https://www.instagram.com/funkyfreshfarmohio/?hl=en">
+            <img class="social_links" id="link_image" alt="Instagram Link" src="pictures/instagram_logo.jpg" width="60"
+                height="60">
+        </a>
+        <a href="https://www.facebook.com/funkyfreshfarms/">
+            <img class="social_links" id="link_image" alt="Facebook Link" src="pictures/facebook_logo.webp" width="60"
+                height="60">
+        </a>
+    </div>
+    </div>
+
+    <footer id="footer">
+        <p>&copy; Funky Fresh Farm 2020</p>
+    </footer>
+
+
+    <script src="js/scripts.js"></script>
 </body>
+
 </html>
