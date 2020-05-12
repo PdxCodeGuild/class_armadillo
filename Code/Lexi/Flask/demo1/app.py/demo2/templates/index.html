@@ -11,6 +11,12 @@
     <title>Document</title>
   </head>
   <body>
+
+    <form action="https://requestb.in/1622li71" method="post">
+        <input type="text" name="name" value="jane"/>
+        <button type="submit">submit</button>
+    </form>
+
     <h1>Hello {{name}}</h1>
     <span>The temperature is {{temperature}}</span>
     {% if temperature > 70 %}
@@ -40,11 +46,7 @@
       <input type="radio" />
       <input type="checkbox" />
     </h2>
-</hr>
-<input type="radio" name="gender" value="male"> Male<br>
-<input type="radio" name="gender" value="female"> Female<br>
-<input type="radio" name="gender" value="other"> Other
-</hr>
+
     <select>
         <option value="volvo">Volvo</option>
         <option value="saab">Saab</option>

@@ -1,7 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
-@app.route('/') # decorator
+@app.route('/' methods=['GET', 'POST']) # decorator
 def index():    # local home directory is typically 'index'
     # html = '<html><head></head></body>'
     # html += '<ul>'
@@ -12,8 +12,14 @@ def index():    # local home directory is typically 'index'
     #     print(html)
     #     return html
 
+    if request.method == 'POST':
+        print(request.form['input_text'])
 
-    return render_template('index.html', name='bob')
+
+    temperature = 65
+    nums = [1, 2, 3]
+
+    return render_template('index.html', name='bob', temperature=temperature, nums=nums)
 
 @app.route('/about') # this is called a 'view'
 def about():
