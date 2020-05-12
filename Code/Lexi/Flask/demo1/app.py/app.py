@@ -12,8 +12,8 @@ def index():    # local home directory is typically 'index'
     #     print(html)
     #     return html
 
-name = 'bob'
-return render_template('index.html', name='bob')
+
+    return render_template('index.html', name='bob')
 
 @app.route('/about') # this is called a 'view'
 def about():
