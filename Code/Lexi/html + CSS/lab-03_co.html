@@ -1,0 +1,180 @@
+<!--had a problem with formatter - used https://www.freeformatter.com/html-validator.html with Matt's help-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/lab03-CSS.css" />
+
+    <title>Document</title>
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--INITIALIZE CAROUSEL-->
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".carousel");
+        var instances = M.Carousel.init(elems, {
+          accordion: true,
+          inDuration: 100,
+        });
+      });
+      // INITIALIZE Dropdown Trigger https://materializecss.com/dropdown.html
+      document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".dropdown-trigger");
+        var instances = M.Dropdown.init(elems, {
+          inDuration: 200,
+        });
+      });
+      // INITIALIZE FLOATING ACTION BUTTON
+      document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems, {
+      direction: 'left',
+      hoverEnabled: false
+    }); //COURTESY OF view-source:https://materializecss.com/floating-action-button.html LINE 435
+  });
+    </script>
+  </head>
+  <body>
+    <h1>
+      There Exists a Time in a Person's Life when Only the Best Should Represent
+      you and your case 
+    </h1>
+
+    <!--carousel -->
+    <div class="carousel">
+      <a class="carousel-item"><img src="img/attJane.png" /></a>
+      <a class="carousel-item"><img src="img/courthouse.jpeg" /></a>
+      <a class="carousel-item"><img src="img/law_books.jpg" /></a>
+      <a class="carousel-item"><img src="img/partner.png" /></a>
+      <a class="carousel-item"><img src="img/satis.png" /></a>
+    </div>
+
+    <div class="container">
+      <!-- Page Content goes here -->
+
+      <div class="row">
+        <div class="col s4">
+          <!-- Dropdown Trigger -->
+          <a class="dropdown-trigger btn" href="#" data-target="dropdown1"
+            >Cases</a
+          >
+
+          <!-- Dropdown Structure -->
+          <ul id="dropdown1" class="dropdown-content">
+            <li><a href="https://www.mesothelioma.com/asbestos-exposure/companies/westinghouse-electric-corporation/" target="blank" >Westinghouse v. Doe</a></li>
+            <li><a href="https://www.history.com/topics/black-history/brown-v-board-of-education-of-topeka" target="blank" >Brown v. Board of Education</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a href="https://www.law360.com/articles/830639/investor-class-settles-exelon-pepco-merger-contest" target="blank" >Exelon v. Poorman</a></li>
+          </ul>
+        </div>
+
+        <div class="col s4">
+          <!-- Dropdown Trigger -->
+          <a class="dropdown-trigger btn" href="#" data-target="dropdown2"
+            >Areas of Practice</a
+          >
+
+          <!-- Dropdown Structure -->
+          <ul id="dropdown2" class="dropdown-content">
+            <li><a href="https://www.murthy.com/worker/h1b-visa-status/" target="blank">H1B Visa</a></li>
+            <li><a href="https://www.disabilitysecrets.com/page5-13.html" target="blank" >Social Security Disability</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a href="https://www.usa.gov/unemployment" target="blank" >Employment Law</a></li>
+          </ul>
+        </div>
+        <div class="col s4">
+          <!-- Dropdown Trigger -->
+          <a class="dropdown-trigger btn" href="#" data-target="dropdown3"
+            >Partners</a
+          >
+
+          <!-- Dropdown Structure -->
+          <ul id="dropdown3" class="dropdown-content">
+            <li><a href="#!">Jenny Marle</a></li>
+            <li><a href="#!">Rudiger Snape</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a href="#!">Jeffrey Smart</a></li>
+          </ul>
+        </div>
+        <div class="col s4"></div>
+      </div>
+    </div>
+    <table>
+      <tr>
+        <th>
+          Is Someone you know in need of Legal Services but cash-strapped?
+        </th>
+        <th>See our Financing Options</th>
+      </tr>
+      <tr>
+        <td>Are you in jail and need an attorney now?</td>
+        <td>Call our 24/7 hotline for immediate assistance</td>
+      </tr>
+    </table>
+
+    <hr />
+
+
+    <!--floating button from https://materializecss.com/floating-action-button.html-->
+
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large red">
+        <i class="large material-icons">mode_edit</i>
+      </a>
+      <ul>
+        <li>
+          <a class="btn-floating red"
+            ><i class="material-icons">insert_chart</i></a
+          >
+        </li>
+        <li>
+          <a class="btn-floating yellow darken-1"
+            ><i class="material-icons">format_quote</i></a
+          >
+        </li>
+        <li>
+          <a class="btn-floating green"
+            ><i class="material-icons">publish</i></a
+          >
+        </li>
+        <li>
+          <a class="btn-floating blue"
+            ><i class="material-icons">attach_file</i></a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
+<figure role="img" aria-labelledby="cow-caption">
+  <pre>
+  ___________________________
+< I'm an expert in my field. >
+  ---------------------------
+         \   ^__^ 
+          \  (oo)\_______
+             (__)\       )\/\
+                 ||----w |
+                 ||     ||
+  </pre>
+  <figcaption id="cow-caption">
+    A cow saying, "I'm an expert in my field." The cow is illustrated using preformatted text characters. 
+  </figcaption>
+</figure>
+
+
+
+
+<!--WANT TO INSERT CHATBOT FROM A DIFF FIRM-->
+<script src="https://static.law360news.com/201909/assets/www/chatbot-18a8780ada43a738cf9bf53ffe7caacfe7a30840aa94a56607c3961a82334f5f.js" defer="defer"></script>
+<!-- # Lab 3: Company Home
+
+Pick an industry and create the landing page for a hypothetical company, filling in as much detail as possible. Use one of the CSS Frameworks listed [here](../docs/00%20-%20Resources.md#libraries) and make sure it's responsive. Use this reference [image](sidebar.jpeg), and browse the internet for existing company pages and imitate as much as you can. -->

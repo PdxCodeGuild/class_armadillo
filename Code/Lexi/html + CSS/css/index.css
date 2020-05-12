@@ -1,6 +1,12 @@
 :root {
     --blog-image1:url(https://www.foodiecrush.com/wp-content/uploads/2017/03/Blackened-Fish-Tacos-Creamy-Avocado-Sauce-foodiecrush.com-012.jpg);
     --blog-image2:url(https://cdn.clipart.email/ce60ce3bd4d114e8241ba0645d31d83f_taco-cartoon-clipart-cartoon-line-food-transparent-clip-art_900-620.jpeg);
+
+    --bg-color: #91cea4
+}
+
+body {
+    background-color: var(--bg-color);
 }
 
 article p {
@@ -27,10 +33,10 @@ article p {
     background-position: center;
     border: 2px solid #777777;
     border-radius: 50%;
-    height: 35vh;
-    max-height: 35vw;
-    max-width: 35vh;
-    width: 35vw;
+    height: 45vh;
+    max-height: 45vw;
+    max-width: 45vh;
+    width: 45vw;
 }
 
 #blog-image1 {
@@ -40,4 +46,15 @@ background-image: var(--blog-image1); /* tells css you're looking for a variable
 #blog-image2 {
     background-image: var(--blog-image2);
 
+}
+
+@media (min-width: 768px) {
+    #content {
+        display: flex;
+        flex-direction: row;
+    }
+    aside {
+        background-color: red;
+
+    }
 }
