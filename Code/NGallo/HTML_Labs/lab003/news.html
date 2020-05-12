@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
     <style>
@@ -18,24 +19,9 @@
             display: none;
         }
 
-        #main_div {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #family_photo {
-            border-radius: 15px;
+        #tractor_photo {
             margin-top: 100px;
-            width: 60%;
-        }
-
-        #map {
-            border-radius: 15px;
-            margin-top: 25px;
-            height: 250px;
-            width: 250px;
+            width: 80%;
         }
 
         #footer {
@@ -52,25 +38,13 @@
             ...
         } */
 
-        @media(min - width: 992px) {
-            #nav .social_links {
-                transition: transform .2s;
-                margin: 0 auto;
-                margin-top: 15px;
-                margin-left: 15px;
-            }
+        @media(min - width: 992px) {}
 
-            .social_links:hover {
-                transform: scale(1.5);
-            }
-        }
-
-        @media(min-width: 1200px) {
-            #map {
-                width: 60%;
-            }
-        }
+        /* Extra large devices (large desktops, 1200px and up) @media(min - width: 1200px) {
+            ...
+        } */
     </style>
+
     <meta charset="UTF-8">
     <meta name="description" content="website for Funky Fresh Farm">
     <meta name="keywords" content="farm, fresh, van buren, ohio, farm fresh">
@@ -89,45 +63,30 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
-    <title>Funky Fresh Farm - Contact</title>
+    <title>Funky Fresh Farm - News</title>
 </head>
 
 <body>
 
-
-    <nav id="navbar" class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
         <a class="navbar-brand" href="index.html">Home</a>
         <a class="navbar-brand" href="news.html">News</a>
         <a class="navbar-brand" href="contact.html">Contact</a>
         <a class="navbar-brand" href="about.html">About</a>
         <span id="navbar-toggler-icon"></span>
     </nav>
-    <div id="main_div">
 
-        <img id="family_photo" alt="Family farm photo" src="pictures/family.jpg">
 
-        <iframe id="map"
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3005.29463181465!2d-83.6336224!3d41.1280937!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883c004bba837b6b%3A0xf4be2873d11c841!2s2686%20Township%20Rd%20229%2C%20Van%20Buren%2C%20OH%2045889!5e0!3m2!1sen!2sus!4v1586762530447!5m2!1sen!2sus"
-            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-            tabindex="0"></iframe>
+    <div id="heading_image">
+        <img id="tractor_photo" alt="plowing the field with a tractor photo" src="pictures/tractor.jpg">
     </div>
-    <div class=social_links_div>
-        <p class="social_links_followUs"> Follow along with us!</p>
-        <a href="https://www.instagram.com/funkyfreshfarmohio/?hl=en">
-            <img class="social_links" id="link_image" alt="Instagram Link" src="pictures/instagram_logo.jpg" width="60"
-                height="60">
-        </a>
-        <a href="https://www.facebook.com/funkyfreshfarms/">
-            <img class="social_links" id="link_image" alt="Facebook Link" src="pictures/facebook_logo.webp" width="60"
-                height="60">
-        </a>
+    <div id=main_div>
     </div>
-    </div>
+
 
     <footer id="footer">
         <p>&copy; Funky Fresh Farm 2020</p>
     </footer>
-
 
     <script src="js/scripts.js"></script>
 </body>
