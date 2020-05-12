@@ -1,0 +1,43 @@
+<style>
+link rel="stylesheet" href="/Users/owner/Desktop/Program/class_armadillo/Code/vlad/html+css_folder/css/mystyle.css"            
+            #maindiv {
+                background-color:rgba(0,0,0,0.8);
+                margin: 0 200px;
+                padding:0 20px;
+            }
+            img {
+                display: blue;
+                border: 1px solid white;
+                float:right;
+                margin:16px;
+            }
+            html, body {
+                margin:20;
+                padding:20;
+            }
+            body {
+                color:red;
+                background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR6mwKtvZbtYbK25Ahlhl3DhfyYCJh5Q740eGM5_-CjyZSH3nZ1&usqp=CAU");
+                background-size: 10;
+                font-family:'Roboto', 'Light 300 italic';
+                font-size:24px;
+            }
+            h1 {
+                font-weight:normal;
+                text-align:center;
+                font-size:80px;
+                padding:30px;
+                margin:45px;
+            }
+            a {
+                text-decoration:none;
+                color:white;
+            }
+            a:visited {
+                color:goldenrod;
+            }
+
+            #footer {
+                text-align:center;
+            }
+        </style>
