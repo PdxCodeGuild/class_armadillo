@@ -1,116 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <style>
-        /*no media query = mobile view*/
-        body{
-            background-color: blanchedalmond;
-            font-family: 'Ubuntu', sans-serif;
+        html {
+            background-color: #28a745;
+            box-sizing: border-box;
+            font-size: 15px;
             padding-left: 10px;
             padding-right: 10px;
         }
-        header {
-            border-radius: 15px;
-            margin-top: 25px;
-            padding: 5px;
-            border: .5px solid black;
-            box-shadow: 5px 3px 10px #888888;
-            background-color: darkgrey;
-            margin-bottom: 10px;
+        body{
+            background-color: #28a745!important;    
+        }
+        #navbar-toggler-icon{
+            display: none;
+        }
+        #main_div {
+            color: cornsilk;
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #28a745;
         }
-
-        header img {
+        #barn_photo {
             border-radius: 15px;
-            width: 60px;
-            transition: all 1s;
+            padding-bottom: 5px;
+            margin-top: 55px;
+            width: 100%;
         }
-        header img:hover {
-
-            transform:rotate(180deg);
-        }
-        nav {
-            margin-bottom: 10px;
+        .social_links_div{
             display: flex;
             flex-direction: row;
             justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
         }
-        /* targets the button elements inside the navbar*/
-        nav > a {
-            border-radius: 15px;
-            padding: 10px;
-            border: 1px solid black;
-            display: block;
-            margin-bottom: 5px;
-            text-decoration: none;
+        .social_links {
+            margin: 5px
         }
-        a:hover{
-            color: darkgreen;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        #ancient_armadillo{
-            width: 100%;
-            border-radius: 15px;
-        }
-        #youtube_video{
-            border-radius: 15px;
-            width: 100%;
-        }
-        footer{
+        #footer {
             margin-top: 25px;
-            padding: 5px;
-            background-color: darkgrey;
+            color: cornsilk;
             text-align: center;
-            border-radius: 15px;
-            border: .5px solid black;
-            box-shadow: 1px 2px #888888;
         }
-        /*desktop view*/
-        @media only screen and (max-width: 800px) {
-            nav {
-                flex-direction: column;
-            }
-        }
-        /* Media queries allow you to change things at different screen sizes
 
-        /* @media only screen and (min-width: 1333px) {
-            body {
-                background-color: brown;
-            }
+        /* Small devices (landscape phones, 576px and up) @media(min - width: 576px) {
+            ...
+        }
+
+        Medium devices (tablets, 768px and up) @media(min - width: 768px) {
+            ...
         } */
 
+        @media(min-width: 992px) {
+            
+            .social_links {
+                width: 100px;
+                height: 100px;
+                transition: transform .2s;
+                margin: 0 auto;
+                margin-top: 15px;
+                margin-left: 15px;
+            }
+
+            .social_links:hover {
+                background-color: darkcyan;
+                transform: scale(1.5);
+            }
+
+            #barn_photo {
+            margin-top: 55px;
+            width: 70%;
+             }
+        }
+
+
+        @media(min-width: 1200px) {
+            body {
+                padding-left: 100px;
+                padding-right: 100px;
+            }
+            .social_links {
+                width: 75px;
+                height: 75px;
+                transition: transform .2s;
+                margin: 0 auto;
+                margin-top: 15px;
+                margin-left: 15px;
+            }
+            .navbar-brand:hover{
+                border-radius: 15px;
+                background-color: rgb(86, 153, 92);
+            }
+            .social_links:hover {
+                transform: scale(1.5);
+            }
+
+            #barn_photo {
+            margin-top: 55px;
+            width: 70%;
+             }
+            #footer{
+                margin-top: 10px;
+                padding: 20px;
+            }
+        }
     </style>
 
     <meta charset="UTF-8">
+    <meta name="description" content="website for Funky Fresh Farm">
+    <meta name="keywords" content="farm, fresh, van buren, ohio, farm fresh">
+    <meta name="author" content="Nick Gallo">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Armadillo Blog</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <title>Funky Fresh Farm</title>
 </head>
+
 <body>
-    <header> <a src="index.html"> <img alt="Cute header armadillo" src="pictures/armadillos_thumb.jfif"></a>
-        <p>Armadillo Blog</p></header>
-    <nav>
-        <a target="blank" href="https://www.google.com/search?q=armadillo&sxsrf=ALeKk02KivIS3ac8dQG3BpClC_Nzgchi7w:1588962060333&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiHpqv58KTpAhUhoFsKHTScAl4Q_AUoAXoECEUQAw&biw=1536&bih=766">Pictures</a>
-        <a>About</a>
-        <a href="contact.html">Contact</a>
-        <a>Donation</a>
+
+    <nav id="navbar" class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
+        <a class="navbar-brand" href="index.html">Home</a>
+        <a class="navbar-brand" href="news.html">News</a>
+        <a class="navbar-brand" href="contact.html">Contact</a>
+        <a class="navbar-brand" href="about.html">About</a>
+        <span id="navbar-toggler-icon"></span>
     </nav>
-    
-    <main>
-        <img id="ancient_armadillo" alt="Ancient Armadillo" src="pictures/glyptodont-fossil.jpg">
-        <h1>About Us</h1>
-        <p>Armadillos (meaning "little armoured one" in Spanish) are New World placental mammals in the order Cingulata. The Chlamyphoridae and Dasypodidae are the only surviving families in the order, which is part of the superorder Xenarthra, along with the anteaters and sloths. Nine extinct genera and 21 extant species of armadillo have been described, some of which are distinguished by the number of bands on their armour. All species are native to the Americas, where they inhabit a variety of different environments.</p>
-        <h2>Etymology</h2>
-        <p>Brussel sprouts cow, rabbits a gates a, storage shed fences. Haybine carrots soybeans, owls duck raising or, cheep in plows. Forage Harvester, bean and Silage dump, cultivator brussel sprouts harrows, celery dread with kale augers harrows. Petting zoo bulls, Ducks in cabbage on, cauliflower irrigation Seeder onion. Blue berries pigeons buzz and bean prairie dogs nails at est. Post pounder calf, hay o.
 
-            Duck is, tool shed horse. Bulls at rose garden cucumbers mice sunflower wheat in pig. Blue berries pigeons buzz and bean prairie dogs nails a.</p>
-    </main>
-        <iframe id="youtube_video" width="603" height="339" src="https://www.youtube.com/embed/z0kFT52RX9A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div id="main_div">
 
-        <footer><p>Class_Armadillo &copy;2020</p></footer>
+        <img id="barn_photo" alt="barn photo header" src="pictures/barn.jpg">
+        <p class="social_links_followUs"> Follow along with us!</p>
+        <div class="social_links_div">
+            <a href="https://www.instagram.com/funkyfreshfarmohio/?hl=en">
+                <img class="social_links" id="link_image" alt="Instagram Link" src="pictures/instagram_logo.jpg"
+                    width="60" height="60">
+            </a>
+            <a href="https://www.facebook.com/funkyfreshfarms/">
+                <img class="social_links" id="link_image" alt="Facebook Link" src="pictures/facebook_logo.webp"
+                    width="60" height="60">
+            </a>
+        </div>
+    </div>
+
+    <footer id="footer">
+            <p>&copy; Funky Fresh Farm 2020</p>
+    </footer>
 </body>
+
 </html>
