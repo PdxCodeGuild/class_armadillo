@@ -15,5 +15,11 @@
     {% else %} <!--special TEMPLATE RENDERING syntax-->
     <span>cold</span>
     {% endif %} 
+
+    <ul>
+    {% for num in nums %}
+        <li>{{num}}</li>
+    {% endif %} 
+    </ul>
 </body>
 </html>
