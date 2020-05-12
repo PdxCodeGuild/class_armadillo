@@ -35,6 +35,7 @@ and imitate as much as you can.-->
 
 
     <style type="text/css">
+        /* Assigns the elements to the selector body. */
         body {
             background-color: #9D0208;
             background-image: url("images/Butcher.jpg");
@@ -52,7 +53,7 @@ and imitate as much as you can.-->
             background-size: cover;
             position: relative;
         }*/
-
+        /* Restaraunt name.*/
         h1 {
             font-family: "Black+Han+Sans";
             text-align: center;
@@ -60,17 +61,20 @@ and imitate as much as you can.-->
             margin: 25px 25px;
         }
 
+        /* Address and telephone number.*/
         h4 {
             font-family: "Black+Han+Sans";
             text-align: center;
             font-size: 20px;
         }
 
+        /* Copy right font.*/
         h6 {
             text-align: center;
 
         }
 
+        /* Style font awesome icons. */
         .fa {
             padding: 20px;
             font-size: 30px;
@@ -79,13 +83,12 @@ and imitate as much as you can.-->
             text-decoration: none;
         }
 
-        /* Add a hover effect if you want */
+        /* Adds a hover effect. */
         .fa:hover {
             opacity: 0.7;
         }
 
-        /* Set a specific color for each brand */
-
+        /* Sets a specific color for each brand. */
         /* Facebook */
         .fa-facebook {
             background: #3B5998;
@@ -98,34 +101,50 @@ and imitate as much as you can.-->
             color: white;
         }
 
-        /* instagram */
+        /* Instagram */
         .fa-instagram {
             background: #FCA311;
             color: white;
         }
 
+        /* Sets the collapsing background to the background color instead of white. */
         .card-header {
             background-color: #9D0208 !important;
         }
 
-        button {
-            background-color: black;
-        }
-
+        /* Sets the carousel pics size. */
         .carousel {
             max-width: 700px;
             margin: 10px auto;
+        }
+
+        /* Positions the Google Map icon. */
+        .mapouter {
+            position: absolute;
+            text-align: right;
+            height: 500px;
+            width: 600px;
+            top: 700px;
+            right: 0px;
+            background-blend-mode: lighten;
+        }
+
+        .gmap_canvas {
+            overflow: hidden;
+            background: none !important;
+            height: 500px;
+            width: 600px;
         }
     </style>
 
 </head>
 
 <body>
-    <div class="hero-image">
-        <h1>'Q Your Buds</h1>
-        <h4>12345 SE 82nd Ave Portland, Oregon 98111 | (503)867-5309</h4>
-    </div>
-        <div class="accordion" id="information">
+
+    <h1>'Q Your Buds</h1>
+    <h4>3320 SE Milwaukie Ave Portland, Oregon 97202 | (503)867-5309</h4>
+    <!-- Collapsing accordian for about us, menu, press, events. -->
+    <div class="accordion" id="information">
         <div class="card">
             <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
@@ -135,7 +154,6 @@ and imitate as much as you can.-->
                     </button>
                 </h2>
             </div>
-
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#information">
                 <div class="card-body">
                     Bacon ipsum dolor amet filet mignon shank picanha meatloaf pork chop andouille. Buffalo ham hock
@@ -213,7 +231,7 @@ and imitate as much as you can.-->
             </div>
         </div>
     </div>
-
+    <!-- carousel-->
     <div id="carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -244,6 +262,14 @@ and imitate as much as you can.-->
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <!--Google map -->
+    <div class="mapouter">
+        <div class="gmap_canvas"><iframe width="300" height="400" id="gmap_canvas"
+                src="https://maps.google.com/maps?q=3320%20SE%20Milwaukie%20Ave&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                href="https://www.embedgooglemap.net">maps.google.clm</a></div>
+    </div>
+    <!-- Social media icons -->
     <a href="#" class="fa fa-facebook"></a>
     <a href="#" class="fa fa-twitter"></a>
     <a href="#" class="fa fa-instagram"></a>
