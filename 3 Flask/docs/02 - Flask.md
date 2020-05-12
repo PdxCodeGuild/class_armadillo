@@ -1,7 +1,17 @@
 
-# 1 Flask
+# Flask
 
-## 1.0 Introduction
+- [Flask](#flask)
+  - [Introduction](#introduction)
+  - [Routing](#routing)
+  - [Template Rendering](#template-rendering)
+  - [Static Files](#static-files)
+  - [Forms](#forms)
+  - [Query Parameters](#query-parameters)
+  - [APIs](#apis)
+
+
+## Introduction
 
 Flask is a light-weight web application framework written in Python. It performs essentially the same functions as Django, but whereas Django provides many features for you, Flask is bare-bones, and additional features must be installed or developed yourself. You can install Flask with `pip install flask`. The [official flask quickstart](https://flask.palletsprojects.com/en/1.1.x/quickstart/) provides walkthrough of flask's major features.
 
@@ -28,7 +38,7 @@ To set the environment to "development", which will automatically restart the se
 
 While developing your application, your computer will be bother the client and the server. When you deploy your application, a dedicated machine will have a public IP address and can send and receive requests from anyone on the web.
 
-## 1.1 Routing
+## Routing
 
 
 You can specify multiple different paths
@@ -68,11 +78,11 @@ def show_post(post_id):
 ```
 
 
-## 1.2 Template Rendering
+## Template Rendering
 
 Building HTML with string operations is tedious, so Flask provides a way to use html templates to build data. The templates are html files with special syntax in their own folder which **must** be called `templates`.
 
-#### app.py
+**app.py**
 ```python
 from flask import Flask, render_template
 app = Flask(__name__)
@@ -85,7 +95,7 @@ def index(username):
   return render_template('index.html', name=name, temperature=temperature, nums=nums)
 ```
 
-#### templates/index.html
+**templates/index.html**
 ```html
 <p>Hello {{name}}</p>
 
@@ -100,34 +110,59 @@ def index(username):
 <ul>
   {% for num in nums %}
   <li>{{num}}</li>
+  {% endfor %}
 </ul>
 ```
 
-## 1.3 Static Files
+## Static Files
 
+Static files (css, js, images, etc) must be put in a folder called `static`. You can then render the url for them in the template with the code below. Read more about static files in the [official docs](https://flask.palletsprojects.com/en/1.1.x/tutorial/static/).
 
-## 1.4 Forms
+```html
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+```
+
+## Forms
+
+Forms allow the user to enter information, below is a simple form with a single text input field. The `action` is the path to which your form will be submitted, the `method` is the http method used, the `input` fields allow the user to enter information and the `name` attribute is used to retrieve that data on the back-end.
+
+```html
+<form action="" method="post">
+  <input type="text" name="input_text" placeholder="enter some text"/>
+  <button type="submit">submit</button>
+</form>
+```
 
 By default, routes only respond to GET requests, we can allow them to respond to requests using other methods by passing them to the `route`.
 
-
 ```python
-
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        contact_name = request.form['input_text']
+        print(contact_name)
+    return render_template('index.html')
 ```
 
 
-## 1.5 Query Parameters
+## Query Parameters
 
 
-Query parameters can be received by
+Query parameters can be received in the view using `request.args`
 
+***localhost?name=joe***
+```python
+def index():
+    print(request.args['name']) # joe
+```
 
-## 1.6 APIs
+## APIs
 
 Flask applications are just like regular python programs, and can make use of the `requests` library to send HTTP requests to APIs. It's possible to perform these requests when the user accesses a page, and then using the result of that call to render a template. The following example gets a random quote from the `favqs api` and displays it in an html page.
 
 
-##### random_quote.py
+**random_quote.py**
+
 ```python
 from flask import Flask, render_template
 import requests
@@ -144,7 +179,8 @@ def index():
     return render_template('random_quote.html', quote_author=quote_author, quote_text=quote_text)
 ```
 
-##### templates/random_quote.html
+
+**templates/random_quote.html**
 
 ```html
 <!DOCTYPE html>
