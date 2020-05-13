@@ -12,7 +12,7 @@ def index():
     if request.method == 'POST':
         
         first_distance = request.form['first_distance']
-        first_distance = float(first_distance)
+        first_distance = round(first_distance)
         units = request.form['units']
         end_units = request.form['second_units']
 
@@ -69,7 +69,6 @@ def randompasswordgen():
         i = 0
         keep_it_going = True
         possible_chars = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
-        password_length = input("enter the length of password you want: ")
         password_length = int(user_value)
 
         rando = []
