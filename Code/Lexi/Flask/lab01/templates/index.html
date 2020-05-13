@@ -1,0 +1,43 @@
+<!--LAB 01 FLASK requirement: https://github.com/PdxCodeGuild/class_armadillo/blob/master/3%20Flask/labs/lab01_flask_intro.md-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rot 13 Cipher</title>
+    <!--equivalent of Sam's line 11 for this lab-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='style.css') }}"
+    />
+    <style type="text/css">
+      /*see style.css */
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <img src="{{ url_for('static', filename='rot13 logo.png') }}" />
+    </header>
+
+    
+   
+      <form action="/" method="post">
+        <!--basic version needs one button and one input-->
+        <input type="text" name="rotation" placeholder="Enter the rotation amount " />
+        <!--everytime 'submit' is hit, it calls the function-->
+        <input type="text" name="transform" placeholder="Enter the word: "></br>
+        <button type="submit">submit</button>
+      </form>
+    </div>
+
+    {%if message != ""%}
+      <div class="message"> {{message}}</div>
+        <span>
+          {%endif%}
+        </span>
+          <div>Your cipher is {{result}}</div>
+      
+  </body>
+</html>
