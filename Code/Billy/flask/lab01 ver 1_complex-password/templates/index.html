@@ -12,6 +12,7 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 
+    <!-- prevents enter button from working when filling in fields on form -->
     <script type="text/javascript">
         function stopRKey(evt) {
           var evt = (evt) ? evt : ((event) ? event : null);
@@ -31,11 +32,6 @@
             text-align: center;
             margin-top: 20px;
         }
-
-        /* .button {
-            justify-content: center;
-            margin-left: 10px;
-        } */
 
         .output {
             text-align: center;
@@ -67,13 +63,9 @@
                 <button type="submit" class="btn btn-secondary btn-md btn-block">Generate password!</button> 
             </div>
             <div class="col">
-                <!-- <button type="submit">submit</button> -->
             </div>   
         </div>    
     </form>
-    <!-- <h1>
-        <img src="{{ url_for('static', filename='password_art9.png') }}">
-    </h1>  -->
     <div class="output">{{password}}<div>
 </body>
 </html>
