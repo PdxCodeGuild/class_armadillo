@@ -14,9 +14,9 @@
 
 <body>
     <div class="container">
-        <div class="vertical-center">
+        <div class="center">
             <form action="" method="post">
-                <input type="number" name="password_length" placeholder="enter some text" />
+                <input type="number" name="password_length" placeholder="Enter Number Here" />
                 <button type="submit">submit</button>
             </form>
         </div>
@@ -27,7 +27,7 @@
     {%if password != ""%}
         <div class="output">
             <span>
-                Your password is {{password}}
+                Your password is "  {{password}}  "
             </span>
         </div>
     {%endif%}

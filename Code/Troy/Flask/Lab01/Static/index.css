@@ -25,23 +25,24 @@ header{
     margin: 20px 50px;    
 } */
 .container { 
-height: 200px;
-position: relative;
-border: 3px solid green; 
+    height: 200px;
+    position: relative;
+    border: 3px solid green; 
 }
   
-.vertical-center {
-margin: 0;
-position: absolute;
-top: 50%;
--ms-transform: translateY(-50%);
-transform: translateY(-50%);
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 /* password output */
 .output {
     text-align: center;
     font-family: 'Balsamiq Sans', cursive;
     color: #FB5607;
-    font-size: 500px;
+    font-size: 600%;
     margin: 25px
 }
