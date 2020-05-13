@@ -18,13 +18,13 @@ def password():
         user_number = request.form['number']
         i = 0
         alphabet = string.ascii_letters + string.digits + string.punctuation
-        password = int(user_number)
+        password_num = int(user_number)
 
-        pass_lenght = []
-        while i in range(password):
-            pass_lenght.append(random.choice(alphabet))
+        pass_length = []
+        while i in range(password_num):
+            pass_length.append(random.choice(alphabet))
             i += 1
-            user_input = ''.join(pass_lenght)
+            user_input = ''.join(pass_length)
             output = user_input
 
     else:
