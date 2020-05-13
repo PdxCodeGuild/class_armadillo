@@ -4,8 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
+    <title>Rot 13 Cipher</title>
+    <!--equivalent of Sam's line 11 for this lab-->
     <link
       rel="stylesheet"
       type="text/css"
@@ -15,18 +15,29 @@
       /*see style.css */
     </style>
   </head>
+
   <body>
     <header>
-      <img src="{{ url_for('static', filename='rot13 logo.png') }}"/>
+      <img src="{{ url_for('static', filename='rot13 logo.png') }}" />
     </header>
 
-    <!--SUCCESSFUL RUN-->
-    <!--127.0.0.1 - - [12/May/2020 17:35:04] "POST /test/ HTTP/1.1" 200 --->
-    <form action="/test/" method="post">
-      <!--basic version needs one button and one input-->
-        <input value="" name="box1" placeholder="enter a word"/>
-      <!--everttime 'submit' is hit, it calls the function-->
-    <button type="submit">submit</button>
-    </form>
+    
+   
+      <form action="/" method="post">
+        <!--basic version needs one button and one input-->
+        <input type="text" name="rotation" placeholder="Enter the rotation amount " />
+        <!--everytime 'submit' is hit, it calls the function-->
+        <input type="text" name="transform" placeholder="Enter the word: "></br>
+        <button type="submit">submit</button>
+      </form>
+    </div>
+
+    {%if message != ""%}
+      <div class="message"> {{message}}</div>
+        <span>
+          {%endif%}
+        </span>
+          <div>Your cipher is {{result}}</div>
+      
   </body>
 </html>
