@@ -50,7 +50,7 @@ def units():
     if request.method == 'POST':
         c_unit = request.form['c_unit']
         b_unit  = request.form['b_unit']
-        num = int(request.form['number_convert'])
+        num = int(request.form['num'])
         units = {
             'ft': .3048,
             'm': 1,
@@ -68,6 +68,6 @@ def units():
 
         product = num * units[c_unit]
         product2 = product / units[b_unit]
-        result = f'{num} {c_unit} is equal to {product2} {b_unit} '
+        result = f'{num} {c_unit} is equal to {product2} {b_unit}'
         print(result)
     return render_template('unit_converter.html', result = result) # this is setting my key word argument    

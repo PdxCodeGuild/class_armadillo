@@ -1,10 +1,17 @@
-/* class  */
+/* TO MAKE A COMMENT in CSS COMMAND / 
+To target the input fields and buttons use the class inside the 
+field or button I want to target and give it descriptive names 
+class= 'input_field' and class= 'input_field' */
 
 h1 {
     color:green;
 }
 .input_field { 
-    width: 50%;
+    width: 20%;
+}
+
+.input_button {
+    width: 10%;
 }
 
 header {
