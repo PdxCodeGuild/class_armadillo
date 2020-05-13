@@ -3,6 +3,11 @@ header{
     text-shadow: black;
     background-color: firebrick;
 }
-h1 {
+
+h1{
+    text-align: center;
+    text-shadow: black;
     color: red;
+    background-color: slategrey;
 }
+
