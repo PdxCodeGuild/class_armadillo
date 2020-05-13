@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat&family=Open+Sans&family=Raleway&display=swap" rel="stylesheet"> 
+            
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+    <title>Python labs in Flask!</title>
+</head>
+<body>
+    <div id="main-container" class="row">
+        {% include 'partials/nav.html' %}
+        <div class="col s12">
+            {% block content %}
+            
+            {% endblock %}
+        </div>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>

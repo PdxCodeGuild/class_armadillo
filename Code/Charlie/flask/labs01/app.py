@@ -1,46 +1,38 @@
-from flask import Flask
+from flask import Flask, render_template, request
+import random
+import string
+from string import ascii_lowercase
+
+
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/random', methods=['GET', 'POST'])
+def index():
+    
+    if request.method == 'POST':
+        user_value = request.form['number']
+        i = 0
+        
+        characters = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
+        
+        length_of_password = input("enter the length of password you want: ")
+        length_of_password = int(user_value)
 
+        while not characters.isdigit():
 
-def ask_distance():
-    user_distance = (input("Enter distance :\n "))
-    if not user_distance.isdigit():
-        user_distance = input("You Must Enter A Number: ")
+            output = "You must enter a number: "
+        else:
+            characters = int(characters)
+
+        password = []
+        while i in range(length_of_password):
+            password.append(random.choice(characters))
+            i += 1
+            password_string = ''.join(password)
+            output = password_string
     else:
-        user_distance = int(user_distance)
+        output = ''
+    
 
 
-    units = {
-        'ft': .3048,
-        'mi': 1609.34,
-        'm': 1,
-        'km': 1000,
-        'yd': .9144,    
-        'in': .0254
-    }
-
-    list = units.keys()
-    user_conversion = input(f'What unit would you like to convert from?: {list}\n ')
-
-    c_unit = input(f'Enter the unit to convert to?: {list}\n ')
-
-
-    total = user_distance * (units[user_conversion] / units[c_unit])
-    print(f'{user_distance} {user_conversion} is {total} {c_unit}')
-ask_distance()
-
-while True:
-
-    again = input("Would you like to enter a new distance? Type 'y' for yes or 'n' for no: ")
-
-    if again == 'y':
-        ask_distance()
-        continue
-
-
-    else:
-        print("Goodbye")
-        break
-
+    return render_template('index.html', output=output)
