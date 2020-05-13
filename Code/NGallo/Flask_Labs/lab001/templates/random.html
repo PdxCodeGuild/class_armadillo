@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body{
+            font-family: sans-serif;
+            background-color: blanchedalmond;
+        }
+        header{
+            text-align: center;
+        }
+        #image{
+            width: 50%;
+            border-radius: 15px;
+        }
+        #main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #forms{
+            padding: 10px;
+        }
+        footer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPGen</title>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to the Random Password Generator</h1>
+        <a href="/">Unit Converter</a>
+        <a href="/rot13"> Rot13</a>
+        <a href="/random"> Random Password Generator </a>
+    </header>
+    <div id="main">
+        <img id="image" src="/static/randomimage.jpg">
+        <form id="forms" action="" method="post">
+            <input type="text" placeholder="Enter the length of password you'd like: " name="number" />
+            <button type="submit">submit</button>
+        </form>
+    </div>
+    {{output}}
+    <footer><p>&copy unitedconverters 2020 </p></footer>
+</body>
+
+</html>
