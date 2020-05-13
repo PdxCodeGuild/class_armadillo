@@ -13,12 +13,14 @@
 </head>
 
 <body>
-    <div class="button">
-        <form action="" method="post">
-            <input type="number" name="password_length" placeholder="enter some text" />
-            <button type="submit">submit</button>
-        </form>
-    </div>
+    <div class="container">
+        <div class="vertical-center">
+            <form action="" method="post">
+                <input type="number" name="password_length" placeholder="enter some text" />
+                <button type="submit">submit</button>
+            </form>
+        </div>
+    </div>  
     <header>
         <img src="{{ url_for('static', filename='header_pic.png')}}" />
     </header>
