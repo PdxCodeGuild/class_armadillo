@@ -18,26 +18,30 @@
 
   <body>
     <header>
-      <img src="{{ url_for('static', filename='rot13 logo.png') }}" />
+      <img src="{{ url_for('static', filename='password gen.png') }}" />
     </header>
 
     
    
       <form action="/" method="post">
         <!--basic version needs one button and one input-->
-        <input type="text" name="rotation" placeholder="Enter the rotation amount " />
+        <input type="number" name="password_length" placeholder="Enter how long you want your password to be: " />
         <!--everytime 'submit' is hit, it calls the function-->
-        <input type="text" name="transform" placeholder="Enter the word: "></br>
+        
         <button type="submit">submit</button>
       </form>
     </div>
 
-    {%if message != ""%}
-      <div class="message"> {{message}}</div>
+    {%if password != ""%}
+      <div class="output"> 
+        <span>
+          Your password is: " {{password}} "
+        </span>
+      </div>
         <span>
           {%endif%}
         </span>
-          <div>Your cipher is {{result}}</div>
+          <div> Thank you, Troy, for helping me out on this one! </div>
       
   </body>
 </html>

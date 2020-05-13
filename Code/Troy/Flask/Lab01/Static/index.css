@@ -19,12 +19,39 @@ header{
     color:white;
 }
 
-/* button */
-.button {
+/* button position */
+/* .container .button {
     text-align: center;
-    /* margin: 20px 50px;     */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);  */
 }
 
+#num_select {
+    text-align: center;
+    height: 25px;
+    width: 200px;
+}
+
+#submit_select {
+    text-align: center;
+    height: 30px;
+    width: 60px; 
+}
+
+#upper_select {
+    text-align: center;
+    height: 25px;
+    width: 200px;
+}
+
+#lower_select {
+    text-align: center;
+    height: 25px;
+    width: 200px; 
+}
 /* password output */
 .output {
     text-align: center;
@@ -33,10 +60,16 @@ header{
     font-size: 1.5rem;
     margin: 25px
 }
+/* slot pic positioning */
 .slot {
     text-align: center;
+   
     /* display: block;
     margin-left: auto;
     margin-right: auto; */
+}
+/* slot pic edges */
+#slot1 {
+    border-radius: 50px;
 }
 

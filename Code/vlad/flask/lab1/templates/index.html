@@ -2,18 +2,28 @@
 short cut to create h1 or h2 is type h1 then click tab button
 I -->
 
+<!-- Logo Creator for free: 
+    https://cooltext.com/
+
+cooltext.comcooltext.com
+Cool Text Graphics Generator(opens in new tab)
+Cool Text is a FREE graphics generator for web 
+pages and anywhere else you need an impressive logo without a lot of design work-->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
     <style type="text/css">
-     /* my style here */
+        /* my style here */
     </style>
 
-    <title>Document</title>
+    <title>Front Page</title>
 </head>
+
 <body>
     <!-- <p>Hello {{word}}</p>
     <h1>Hello </h1>
@@ -21,14 +31,17 @@ I -->
     <header>
         <!-- static image file -->
         <img src="{{ url_for('static', filename='rot13_logo.png') }}">
+        <h1>AND</h1>
+        <img src="{{ url_for('static', filename='unit_converter_logo.png') }}">
     </header>
 
-    <H1>WELCOME TO ROT13</H1>
-    <form action="" method="post">
-        <h1><input type="text" name="rotation" placeholder="Enter rotation amount?"/></h1>
-        <br>
-        <input type="text" name="user_input" placeholder="Enter word?"/>
-        <button type="submit">submit</button>
-      </form>
+    <div>
+        <a href="http://localhost:5000/rot13"><h3> Please click Rot13</h3></a>
+    </div>
+    <div>
+        <a href="http://localhost:5000/unit_converter"><h3>Please click Unit Converter</h3></a>
+    </div>
+   
 </body>
+
 </html>
