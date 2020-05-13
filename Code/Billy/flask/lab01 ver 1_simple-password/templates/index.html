@@ -11,6 +11,15 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <script type="text/javascript">
+        function stopRKey(evt) {
+          var evt = (evt) ? evt : ((event) ? event : null);
+          var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+          if ((evt.keyCode == 13) && (node.type=="text"))  {return false;}
+        }   
+        document.onkeypress = stopRKey;   
+    </script>
         
     <style type="text/css">
         header {
@@ -36,12 +45,12 @@
         <!-- static image file -->
         <img src="{{ url_for('static', filename='password_art6.png') }}">
     </header>
-    <form action="/" method="POST">
+    <form autocomplete="off" action="/" method="POST">
         <div class="row align-items-center">   
             <div class="col">
             </div>
             <div class="col">
-                <input type="text" name="length" class="form-control" placeholder="Enter desired password length...">
+                <input autocomplete="off" type="text" name="length" class="form-control" placeholder="Enter desired password length...">
             </div>
             <button type="submit">submit</button>
             <div class="col">
