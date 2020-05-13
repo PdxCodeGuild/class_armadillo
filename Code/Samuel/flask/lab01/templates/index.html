@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}"/>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Home<span class="sr-only">(current)</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="password_generator">Password Generator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rot13">ROT13</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="unit_converter">Unit Converter</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="cards">
+        <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='password_generator.png') }}" class="card-img-top" alt="Password Generator">
+            <div class="card-body">
+                <h5 class="card-title">Password Generator</h5>
+                <p class="card-text">This application makes a password based on the length and a few options.</p>
+                <a href="password_generator" class="btn btn-primary">Go to Application</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='ROT13.png') }}" class="card-img-top" alt="ROT13">
+            <div class="card-body">
+              <h5 class="card-title">ROT13</h5>
+              <p class="card-text">This applications scrambles words based of ROT13.</p>
+              <a href="rot13" class="btn btn-primary">Go to Application</a>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='unit_converter.png') }}" class="card-img-top" alt="Unit Converter">
+            <div class="card-body">
+              <h5 class="card-title">Unit Converter</h5>
+              <p class="card-text">This application can transform measurements from different units into other units.</p>
+              <a href="unit_converter" class="btn btn-primary">Go to Application</a>
+            </div>
+          </div>
+    </div>
+</body>
+</html>
