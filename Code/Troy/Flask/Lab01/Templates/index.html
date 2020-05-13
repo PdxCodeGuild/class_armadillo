@@ -22,11 +22,13 @@
     <header>
         <img src="{{ url_for('static', filename='header_pic.png')}}" />
     </header>
-    <div class="output">
-        <span>
-            Your password is {{password}}
-        </span>
-    </div>
+    {%if password != ""%}
+        <div class="output">
+            <span>
+                Your password is {{password}}
+            </span>
+        </div>
+    {%endif%}
 </body>
 
 </html>
