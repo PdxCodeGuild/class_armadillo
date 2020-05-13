@@ -40,6 +40,7 @@
     position: absolute;
     transition: left .3s ease-out;
     width: 80vw;
+    z-index: 1;
 }
 
 .nav-link {
@@ -78,9 +79,9 @@
     justify-content: center;
 }
 
-@media (min-width: 992px){
+@media screen and (min-width: 992px){
     .navbar {
-        left: 0;
+        left: 0px;
         position: fixed;
         min-width: 200px;
         width: 15vw;

@@ -1,5 +1,6 @@
 @import 'nav.css';
 @import 'rotate_string.css';
+@import 'unit-converter.css';
 
 :root {
     /* nav */
@@ -28,6 +29,14 @@
     --font1: 'Raleway', sans-serif;
     --font2: 'Montserrat', sans-serif;
     --font3: 'Fredoka One', cursive;
+
+    /* unit-converter */
+    --bg2: #291F1E;
+    --section1-bg: #F64740;
+    --section2-bg: #A3333D;
+    --button-bg2: #477998;
+    --button-border2: #291F1E;
+    /* --button-hover-font-color2:  */
 }
 
 body {
@@ -46,7 +55,7 @@ body {
 }
 
 .error {
-    color: red;
+    color: rgb(144, 0, 0);
     font-size: 1.5rem;
     text-align: center;
 }
