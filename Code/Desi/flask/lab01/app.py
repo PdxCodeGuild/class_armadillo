@@ -1,6 +1,8 @@
-from flask import Flask
+from flask import Flask, request, render_template
 app = Flask(__name__)
+import string
+import random
 
-@app.route ('/')
+@app.route ('/', methods=["GET", "POST"])
 def hello_world():
     return 'Hello World!'
