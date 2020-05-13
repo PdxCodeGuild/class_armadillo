@@ -1,5 +1,5 @@
 import string
-
+ 
 def get_rotated(char, char_set, r):
     return char_set[(char_set.index(char) + r) % len(char_set)]
 
