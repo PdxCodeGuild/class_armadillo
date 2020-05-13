@@ -2,46 +2,70 @@
 <html lang="en">
 
 <head>
-    <style>
-        body{
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>password</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style type="text/css">
+        body {
             font-family: sans-serif;
-            background-color: blanchedalmond;
+            background-color: grey;
         }
-        header{
+
+        header {
             text-align: center;
         }
-        
+
+        #links {
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color:slategray;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        a:hover {
+            color: whitesmoke;
+        }
+
+        a:active {
+            color: rgb(47, 110, 130);
+        }
+
         #main {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
         }
-        #forms{
+
+        #forms {
             padding: 10px;
         }
-        footer{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+
+        #output {
+            text-align: center;
+            color:red;
         }
     </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPGen</title>
 </head>
 
 <body>
+    <header>
+        <h1>Password Generator</h1>
+    </header>
     <div id="main">
         <form id="forms" action="" method="post">
-            <input type="text" placeholder="Enter the length of password you'd like: " name="number" />
+            <input type="number" placeholder="Enter password lenght: " name="number" />
             <button type="submit">submit</button>
         </form>
     </div>
-    {{output}}
-
-
+    <div id="output">Your password is: {{output}}</div>
 
 </body>
 
