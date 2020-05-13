@@ -34,7 +34,9 @@ header{
     margin: 25px
 }
 .slot {
-    display: block;
+    text-align: center;
+    /* display: block;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; */
 }
+
