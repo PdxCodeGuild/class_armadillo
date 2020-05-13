@@ -1,5 +1,10 @@
+/* class  */
+
 h1 {
     color:green;
+}
+.input_field { 
+    width: 50%;
 }
 
 header {

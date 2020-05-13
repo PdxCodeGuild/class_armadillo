@@ -13,7 +13,7 @@ I -->
         /* my style here */
     </style>
 
-    <title>Document</title>
+    <title>Unit Converter</title>
 </head>
 
 <body>
@@ -25,12 +25,15 @@ I -->
         <img src="{{ url_for('static', filename='rot13_logo.png') }}">
     </header>
 
-    <div>
-        <a href="http://localhost:5000/rot13"><h3> Please click Rot13</h3></a>
-    </div>
-    <div>
-        <a href="http://localhost:5000/unit_converter"><h3>Please click Unit Converter</h3></a>
-    </div>
+    <H1>WELCOME TO ROT13</H1>
+    <form action="" method="post">
+        <!-- we put it inside a div to make a space in between the text so we do need to use the break br in between -->
+        
+            <h1><input class= 'input_field' type="text" name="num" placeholder="Please enter a number to convert:  " /></h1>
+            <h1><input class= 'input_field' type="text" name="c_unit" placeholder="Would you please enter the unit to convert from: ft, mi, m, yd, in" /></h1>
+            <input class= 'input_field' type="text" name="b_unit" placeholder="Please enter the unit to convert to" />
+            <button type="submit">submit</button>
+    </form>
    
 </body>
 
