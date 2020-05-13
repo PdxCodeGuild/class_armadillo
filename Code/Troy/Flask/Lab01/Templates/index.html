@@ -13,20 +13,26 @@
 </head>
 
 <body>
+    
+    <header>
+        <img src="{{ url_for('static', filename='header_pic.png')}}"/>
+    </header>
     <div class="button">
         <form action="" method="post">
-            <input type="number" name="password_length" placeholder="enter some text" />
+            <input type="number" name="password_length" placeholder="Enter Number Here" />
             <button type="submit">submit</button>
         </form>
     </div>
-    <header>
-        <img src="{{ url_for('static', filename='header_pic.png')}}" />
-    </header>
-    <div class="output">
-        <span>
-            Your password is {{password}}
-        </span>
+    <div class="slot">
+        <img src="{{ url_for('static', filename='slot_pic.png')}}"/>
     </div>
+    {%if password != ""%}
+        <div class="output">
+            <span>
+                Your password is "  {{password}}  "
+            </span>
+        </div>
+    {%endif%}
 </body>
 
 </html>

@@ -1,10 +1,14 @@
+
+
+/* body */
 body {
     background-color: #003049;
+    /* background-color:white; */
 }
-
+/* header */
 header{ 
     text-align: center;
-    background-color: #FF006E;
+    /* background-color: #FF006E; */
     box-shadow: 0 5px 5px grey;
     margin-bottom:20px;
 }
@@ -15,13 +19,22 @@ header{
     color:white;
 }
 
+/* button */
 .button {
     position: center;
-    margin: 20px 50px;
-    
+    margin: 20px 50px;    
 }
 
+/* password output */
 .output {
     text-align: center;
     font-family: 'Balsamiq Sans', cursive;
+    color: #FB5607;
+    font-size: 100px;
+    margin: 25px
+}
+.slot {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
