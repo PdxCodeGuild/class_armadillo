@@ -1,38 +1,33 @@
-from flask import Flask, render_template, request
+
+# john helped with lab
+from flask import Flask, request, render_template
 import random
 import string
-from string import ascii_lowercase
-
 
 app = Flask(__name__)
 
-@app.route('/random', methods=['GET', 'POST'])
+
+@app.route('/', methods=["GET", "POST"])
 def index():
-    
-    if request.method == 'POST':
-        user_value = request.form['number']
+    return render_template('index.html')
+
+
+@app.route('/password', methods=["GET", "POST"])
+def password():
+    if request.method == "POST":
+        user_number = request.form['number']
         i = 0
-        
-        characters = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
-        
-        length_of_password = input("enter the length of password you want: ")
-        length_of_password = int(user_value)
+        alphabet = string.ascii_letters + string.digits + string.punctuation
+        password = int(user_number)
 
-        while not characters.isdigit():
-
-            output = "You must enter a number: "
-        else:
-            characters = int(characters)
-
-        password = []
-        while i in range(length_of_password):
-            password.append(random.choice(characters))
+        pass_lenght = []
+        while i in range(password):
+            pass_lenght.append(random.choice(alphabet))
             i += 1
-            password_string = ''.join(password)
-            output = password_string
+            user_input = ''.join(pass_lenght)
+            output = user_input
+
     else:
         output = ''
     
-
-
     return render_template('index.html', output=output)

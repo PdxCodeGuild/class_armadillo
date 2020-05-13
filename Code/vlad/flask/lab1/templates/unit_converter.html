@@ -1,0 +1,41 @@
+<!-- to create the template for html short cut ! then hit tab 
+short cut to create h1 or h2 is type h1 then click tab button
+I -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <style type="text/css">
+        /* my style here */
+    </style>
+
+    <title>Unit Converter</title>
+</head>
+
+<body>
+    <!-- <p>Hello {{word}}</p>
+    <h1>Hello </h1>
+    <h2> My name is </h2> -->
+    <header>
+        <!-- static image file -->
+        <img src="{{ url_for('static', filename='rot13_logo.png') }}">
+    </header>
+
+    <H1>WELCOME TO ROT13</H1>
+    <form action="" method="post">
+        <!-- we put it inside a div to make a space in between the text so we do need to use the break br in between -->
+        
+            <h1><input class= 'input_field' type="text" name="num" placeholder="Please enter a number to convert:  " /></h1>
+            <h1><input class= 'input_field' type="text" name="c_unit" placeholder="Would you please enter the unit to convert from: ft, mi, m, yd, in" /></h1>
+            <input class= 'input_field' type="text" name="b_unit" placeholder="Please enter the unit to convert to" />
+            <h1><button class= 'input_button' type="submit">submit</button></h1>
+    </form>
+    {{result}} <!--jinja it used to run python code into HTML How to use python jinja 
+                    to be able to see the result on the HTML page once the submit button has been clicked   -->
+</body>
+
+</html>

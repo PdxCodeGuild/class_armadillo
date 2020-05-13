@@ -13,7 +13,7 @@ I -->
         /* my style here */
     </style>
 
-    <title>Document</title>
+    <title>ROT13</title>
 </head>
 
 <body>
@@ -25,13 +25,17 @@ I -->
         <img src="{{ url_for('static', filename='rot13_logo.png') }}">
     </header>
 
-    <div>
-        <a href="http://localhost:5000/rot13"><h3> Please click Rot13</h3></a>
-    </div>
-    <div>
-        <a href="http://localhost:5000/unit_converter"><h3>Please click Unit Converter</h3></a>
-    </div>
-   
+    <H1>WELCOME TO ROT13</H1>
+    <form action="" method="post">
+        <!-- we put it inside a div to make a space in between the text so we do need to use the break br in between -->
+       
+            <h1><input type="text" name="rotation" placeholder="Enter rotation amount?" /></h1>
+
+            <input type="text" name="user_input" placeholder="Enter word?" />
+            <button type="submit">submit</button>
+    </form>
+    {{word}} <!--jinja it used to run python code into HTML How to use python jinja 
+        to be able to see the result on the HTML page once the submit button has been clicked   -->
 </body>
 
 </html>
