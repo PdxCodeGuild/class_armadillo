@@ -9,18 +9,19 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 
+    <!-- prevents enter button from working when filling in fields on form -->
     <script type="text/javascript">
         function stopRKey(evt) {
-          var evt = (evt) ? evt : ((event) ? event : null);
-          var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
-          if ((evt.keyCode == 13) && (node.type=="text"))  {return false;}
-        }   
+            var evt = (evt) ? evt : ((event) ? event : null);
+            var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+            if ((evt.keyCode == 13) && (node.type == "text")) { return false; }
+        }
         document.onkeypress = stopRKey;   
     </script>
-        
+
     <style type="text/css">
         header {
             text-align: center;
@@ -36,30 +37,35 @@
             text-align: center;
             font-size: 50px;
             font-family: 'Roboto', sans-serif;
-            color:rgb(146, 145, 145);
+            color: rgb(146, 145, 145);
         }
     </style>
 </head>
+
 <body>
     <header>
         <!-- static image file -->
         <img src="{{ url_for('static', filename='password_art6.png') }}">
     </header>
+    <!-- form includes input validation (pattern, title) -->
     <form autocomplete="off" action="/" method="POST">
-        <div class="row align-items-center">   
+        <div class="row align-items-center">
             <div class="col">
             </div>
             <div class="col">
-                <input autocomplete="off" type="text" name="length" class="form-control" placeholder="Enter desired password length...">
+                <input autocomplete="off" type="text" name="length" class="form-control"
+                    placeholder="Enter desired password length..." pattern="^[0-9]+$"
+                    title="Invalid. Please input digits only [0-9]..." required />
             </div>
             <button type="submit">submit</button>
             <div class="col">
-            </div>   
-        </div>    
+            </div>
+        </div>
     </form>
     <h1>
         <img src="{{ url_for('static', filename='password_art9.png') }}">
-    </h1> 
+    </h1>
     <div class="output">{{password}}<div>
 </body>
+
 </html>
