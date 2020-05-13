@@ -2,6 +2,7 @@
 # I may need to = export FLASK_ENV=development
 # this will tell me which servers are running = ps -fA | grep python
 # to change the port= export FLASK_RUN_PORT=5500
+# I have the following error when trying to control z in the terminal = OSError: [Errno 48] Address already in use
 
 
 from flask import Flask, render_template, request # I need to enter after the coma render_template to be able 
