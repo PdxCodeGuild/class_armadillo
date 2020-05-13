@@ -1,0 +1,9 @@
+h1 {
+    background-color: pink;
+    color: darkblue;
+    text-align: center;
+}
+body {
+    background: repeating-radial-gradient(#e66465, #9198e5 20%);
+    color: green;
+}

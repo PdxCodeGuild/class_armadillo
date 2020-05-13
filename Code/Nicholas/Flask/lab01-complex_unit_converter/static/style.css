@@ -1,3 +1,21 @@
 body {
-    text-align: center
+    margin: 0 auto;
+    background-color: turquoise;
+    font-family: 'Kanit', sans-serif;
 }
+
+header {
+    margin: 40px;
+}
+
+h1{
+    font-size: 36pt;
+}
+
+h3{
+    font-size: 24pt;
+}
+
+.result{
+    font-size: 24pt;
+}    
