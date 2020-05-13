@@ -3,26 +3,53 @@
 
 <head>
     <style>
-        body{
+        body {
             font-family: sans-serif;
             background-color: blanchedalmond;
         }
-        header{
+
+        header {
             text-align: center;
         }
-        #image{
+
+        #links {
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: rgba(46, 10, 10, 0.171);
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        a:hover {
+            color: whitesmoke;
+        }
+
+        a:active {
+            color: purple;
+        }
+
+        #image {
+            margin-top: 10px;
             border-radius: 15px;
         }
+
         #main {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
         }
-        #forms{
+
+        #forms {
             padding: 10px;
         }
-        footer{
+
+        footer {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -36,10 +63,10 @@
 
 <body>
     <header>
-        <h1>Welcome to the unit converter</h1>
-         <a href="/">Unit Converter</a>
-        <a href="/rot13"> Rot13</a>
-        <a href="/random"> Random Password Generator </a>
+        <h1>Welcome to the Unit Converter</h1>
+        <a id="links" href="/">Unit Converter</a>
+        <a id="links" href="/rot13"> Rot13</a>
+        <a id="links" href="/random"> Random Password Generator </a>
     </header>
     <div id="main">
         <img id="image" src="/static/picture.webp">
@@ -64,8 +91,10 @@
             <button type="submit">submit</button>
         </form>
     </div>
-    {{output}}
-    <footer><p>&copy unitedconverters 2020 </p></footer>
+    <div id="output">{{output}}</div>
+    <footer>
+        <p>&copy United Converters 2020 </p>
+    </footer>
 </body>
 
 </html>
