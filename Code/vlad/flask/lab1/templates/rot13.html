@@ -28,13 +28,14 @@ I -->
     <H1>WELCOME TO ROT13</H1>
     <form action="" method="post">
         <!-- we put it inside a div to make a space in between the text so we do need to use the break br in between -->
-        <div>
+       
             <h1><input type="text" name="rotation" placeholder="Enter rotation amount?" /></h1>
 
             <input type="text" name="user_input" placeholder="Enter word?" />
             <button type="submit">submit</button>
     </form>
-    </div>
+    {{word}} <!--jinja it used to run python code into HTML How to use python jinja 
+        to be able to see the result on the HTML page once the submit button has been clicked   -->
 </body>
 
 </html>
