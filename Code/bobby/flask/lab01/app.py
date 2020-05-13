@@ -4,25 +4,22 @@ import string
 import random
 import time
 
-@app.route('/', methods = ['Get', 'Post'])
+@app.route('/', methods = ['GET', 'POST'])
 def index():
+    password = ""
 
 
-    print(request.form)
-    message = ''
-
-# The for loop is the part of the progeram that takes what the user entered and generates the Random Pass word.
-    # input= password_length = 'How Many Charecters Would You Like?:'
-
-    if request.method == 'Post':
-        letters = string.ascii_letters + string.punctuation + string.digits
-        password_lenght = request.form['How many charecters Would You Like? ']
     
-    else:
-        password = ''
-
-    # for letter in range (0, password_length):
-    #  password += random.choice(letters)
-
-# This is what the generated password
+    if request.method == 'POST':
+        # I am using letters is my string name to pull up the information within the moduals.
+        # Password is my string name used in my for loop to call on the random modual to generate the password
+        letters = string.ascii_letters + string.punctuation + string.digits
+        password = ""
+        # This section is where the program askes the user to input how long they would like their password to be.
+        password_length = int (request.form["password_length"])
+        # The for loop is the part of the progeram that takes what the user entered and generates the Random Pass word.
+        for letter in range(0, password_length):
+            password += random.choice(letters)
+        print(request.form)
+        
     return render_template('index.html', result=password)
