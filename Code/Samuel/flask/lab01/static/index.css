@@ -1,6 +1,16 @@
+h1{
+    text-align: center;
+}
+
 #cards{
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 150px;
     display: flex;
     justify-content: space-evenly;
+}
+
+#content{
+    width: 300px;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
 }
