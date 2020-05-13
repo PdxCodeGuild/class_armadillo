@@ -1,5 +1,6 @@
 body {
     background-color: #003049;
+    /* background-color:white; */
 }
 
 header{ 
@@ -24,4 +25,5 @@ header{
 .output {
     text-align: center;
     font-family: 'Balsamiq Sans', cursive;
+    color: #FB5607;
 }
