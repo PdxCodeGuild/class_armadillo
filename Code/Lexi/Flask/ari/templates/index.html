@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ARI</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}"/>
-    
 </head>
 <body>
     <h1>ARI</h1>
-    <!--4 important parts of a form-->
-    <!--1 - action - the path to which you're submitting the data-->
-    <!--2 - method - the http method to use -->
-    <!--3 input elements with name attributes -->
-    <!--4 - button type="submit"-->
     <div>{{result}}</div>
+    <!-- 4 important parts of a form -->
+    <!-- 1 - action - the path to which you're submitting the data -->
+    <!-- 2 - method - the http method to use -->
+    <!-- 3 - input elements with name attributes -->
+    <!-- 4 - button type="submit" -->
     <form action="/" method="post">
-        <div>
-        <textarea name="input text" rows="20" cols="100" placeholder="enter text here"></textarea>
         <button type="submit">calculate ari</button>
-    </div>
+        <div>
+            <textarea name="input_text" rows="20" cols="100" placeholder="enter text here"></textarea>
+        </div>
+        
     </form>
-    <div>{{message1}}</div>
-    <div>{{message2}}</div>
-
     
 </body>
 </html>
