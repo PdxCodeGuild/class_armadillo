@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="center">
+            <form action="" method="post">
+                <input type="number" name="password_length" placeholder="Enter Number Here" />
+                <button type="submit">submit</button>
+            </form>
+        </div>
+    </div>  
+    <header>
+        <img src="{{ url_for('static', filename='header_pic.png')}}" />
+    </header>
+    {%if password != ""%}
+        <div class="output">
+            <span>
+                Your password is "  {{password}}  "
+            </span>
+        </div>
+    {%endif%}
+</body>
+
+</html>
