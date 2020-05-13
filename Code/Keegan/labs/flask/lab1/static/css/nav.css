@@ -1,0 +1,89 @@
+
+#toggle {
+    align-items: center;
+    background-color: var(--nav-bg);
+    border: 1px solid var(--nav-border);
+    border-radius: 5px;
+    box-shadow: 0 0 2px var(--nav-shadow);
+    display: flex;
+    flex-direction: column;
+    height: 30px;
+    justify-content: center;
+    left: calc(105%);
+    position: relative;
+    top: 5px;
+    width: 30px;
+}
+
+#toggle:hover {
+    cursor: pointer;
+}
+
+#toggle .line {
+    background-color: var(--nav-toggle-line);
+    border-radius: 5px;
+    height: 2px;
+    margin: 2px;
+    width: 80%;
+}
+
+
+.navbar {
+    background-color: var(--nav-bg);
+    border-right: 1px solid var(--nav-border);
+    box-shadow: 1px 0 2px var(--nav-shadow);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    left: -85vw;
+    padding: 15px;
+    position: absolute;
+    transition: left .3s ease-out;
+    width: 80vw;
+    z-index: 1;
+}
+
+.nav-link {
+    background-color: inherit;
+    color: var(--nav-link-color);
+    font-family: var(--font2);
+    padding: 2px;
+    text-decoration: none;
+    transition: font-size .2s ease-out;
+}
+
+.nav-link:hover {
+    font-weight: bolder;
+}
+
+.nav-link::after {
+    content: '';
+    background-image: linear-gradient(90deg, var(--nav-link-grad1), var(--nav-link-grad2));
+    display: block;
+    height: 3px;
+    transition: transform .3s ease-out;
+    transform: scaleX(0);
+    transform-origin: left;
+    width: 100%;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+
+.navbar #nav-links {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media screen and (min-width: 992px){
+    .navbar {
+        left: 0px;
+        position: fixed;
+        min-width: 200px;
+        width: 15vw;
+    }
+}

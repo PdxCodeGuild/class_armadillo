@@ -1,0 +1,78 @@
+#unit-converter {
+    background-color: var(--bg2);
+    font-family: var(--font1);
+    height: 100vh;
+    width: 100%;
+}
+
+#main-section {
+    margin: 0 10px;
+    padding: 10px;
+}
+
+#unit-converter .row{
+    margin: 0;
+}
+
+#unit-converter #section1 {
+    background-color: var(--section1-bg);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#unit-converter #section2 {
+    align-items: center;
+    background-color: var(--section2-bg);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font2);
+    font-size: 1.5rem;
+    padding: 15px;
+}
+
+#section2 span {
+    font-family: var(--font3);
+    font-size: 2rem;
+}
+
+#unit-converter form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+#unit-converter input {    
+    color: var(--font-color1);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#unit-converter form #select-menus {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+}
+
+#unit-converter select {
+    width: 30%;
+    margin: 5px;
+}
+
+#unit-converter form #submit {
+    background-color: var(--button-bg2);
+    border: 1px solid var(--button-border2);
+    border-radius: 5px;
+    color: var(--font-color1);
+    padding: 5px;
+    transition: all .2s ease-out; 
+    width: 60px;
+}
+
+#unit-converter form #submit:hover {
+    background-color: var(--button-border2);
+    border: 1px solid var(--button-bg2);
+}
