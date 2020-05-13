@@ -12,14 +12,14 @@
 }
 
 
-form {
+#rotate-string-content form {
     background-color: var(--div-bg1);
     border-radius: 5px;
     margin: 15px 15px 0 15px;
     padding: 15px;
 }
 
-form fieldset {
+#rotate-string-content form fieldset {
     border: none;
     color: var(--font-color1);
 }
@@ -27,7 +27,7 @@ form fieldset {
 
 /* Hide number input up/down arrows */
 /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
+/* input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
@@ -35,9 +35,9 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
-}
+} */
 
-form #user_string {
+#rotate-string-content form #user_string {
     background-color: var(--accent1);
     border: none;
     border-bottom: 4px solid var(--accent1);
@@ -72,11 +72,11 @@ form #user_string {
     width: 15%;
 }
 
-#submit-container {
+#rotate-string-content #submit-container {
     text-align: center;
 }
 
-form #submit {
+#rotate-string-content form #submit {
     align-self: center;
     background-color: var(--div-bg2);
     border: 2px solid ;
@@ -88,12 +88,12 @@ form #submit {
 
 }
 
-form #submit:hover {
+#rotate-string-content form #submit:hover {
     background-color: var(--font-color3);
     color: var(--button-hover-font-color);
 }
 
-#result {
+#rotate-string-content #result {
     align-items: center;
     background-color: var(--div-bg2);
     border-bottom-left-radius: 5px;
@@ -106,18 +106,18 @@ form #submit:hover {
 
 }
 
-#result > .row .col {
+#rotate-string-content #result > .row .col {
     text-align: center;
 }
 
-#result span {
+#rotate-string-content #result span {
     color: var(--font-color1);
     font-size: 2.5rem;
     padding: 15px;
     word-break: break-all;
 }
 
-#result h2 {
+#rotate-string-content #result h2 {
     color: var(--font-color3);
     font-family: var(--font3);
     word-break: break-all;
