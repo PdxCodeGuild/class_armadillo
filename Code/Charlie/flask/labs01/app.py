@@ -1,5 +1,5 @@
 
-
+# john helped with lab
 from flask import Flask, request, render_template
 import random
 import string
@@ -20,12 +20,12 @@ def password():
         alphabet = string.ascii_letters + string.digits + string.punctuation
         password = int(user_number)
 
-        rando = []
+        pass_lenght = []
         while i in range(password):
-            rando.append(random.choice(alphabet))
+            pass_lenght.append(random.choice(alphabet))
             i += 1
-            rando_string = ''.join(rando)
-            output = rando_string
+            user_input = ''.join(pass_lenght)
+            output = user_input
 
     else:
         output = ''
