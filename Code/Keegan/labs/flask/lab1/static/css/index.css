@@ -1,0 +1,61 @@
+@import 'nav.css';
+@import 'rotate_string.css';
+@import 'unit-converter.css';
+
+:root {
+    /* nav */
+    --nav-bg: rgb(82, 82, 82);
+    --nav-link-color: #E1EFE6;
+    --nav-border: rgb(26, 26, 26);
+    --nav-shadow: rgb(26, 26, 26);
+    --nav-link-grad1: rgb(26, 26, 26);
+    --nav-link-grad2: rgb(82, 82, 82);
+
+    --nav-toggle-line: #E1EFE6;
+
+    /* rotate string */
+    --bg: #00CEFF;
+    --div-bg1:#001242;
+    --div-bg2: #2f437c;
+
+    --accent1:#727272; 
+
+    --button-bg: #2f437c;
+    --button-hover-font-color: #2f437c; 
+
+    --font-color1: #E1EFE6;
+    --font-color3: #EFCB68;
+
+    --font1: 'Raleway', sans-serif;
+    --font2: 'Montserrat', sans-serif;
+    --font3: 'Fredoka One', cursive;
+
+    /* unit-converter */
+    --bg2: #291F1E;
+    --section1-bg: #F64740;
+    --section2-bg: #A3333D;
+    --button-bg2: #477998;
+    --button-border2: #291F1E;
+    /* --button-hover-font-color2:  */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#main-container {
+    display: flex;
+    margin: 0;
+}
+
+#main-container > .col {
+    margin: 0;
+    padding: 0;
+}
+
+.error {
+    color: rgb(144, 0, 0);
+    font-size: 1.5rem;
+    text-align: center;
+}

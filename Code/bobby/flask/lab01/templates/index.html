@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pass Word Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css/') }}"/>
+    <style type="text/css"></style>
+
+</head>
+<body>
+    <h1>
+        <div>
+            Hello World! I am Your...
+        </div>
+    </h1>
+    <header>
+        <div>
+            <img src="{{ url_for('static', filename= 'PWG.png') }}" alt="Password Generator">
+        </div>
+    </header>
+ 
+    <form action="/" method="POST">    
+        <select name="password_length" required>
+                <option value="" disabled selected>Select Length of Password</option>
+                <option value= "5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+        </select> 
+        <button type="submit">submit</button>  
+    </form>
+    <div>{{result}}</div>
+    
+</body>
+</html>
