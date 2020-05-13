@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body{
+            font-family: sans-serif;
+            background-color: blanchedalmond;
+        }
+        header{
+            text-align: center;
+        }
+        
+        #main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #forms{
+            padding: 10px;
+        }
+        footer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPGen</title>
+</head>
+
+<body>
+    <div id="main">
+        <form id="forms" action="" method="post">
+            <input type="text" placeholder="Enter the length of password you'd like: " name="number" />
+            <button type="submit">submit</button>
+        </form>
+    </div>
+    {{output}}
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: blanchedalmond;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        #links {
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: rgba(46, 10, 10, 0.171);
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        a:hover {
+            color: whitesmoke;
+        }
+
+        a:active {
+            color: purple;
+        }
+
+        #image {
+            margin-top: 10px;
+            border-radius: 15px;
+        }
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #forms {
+            padding: 10px;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit converter</title>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to the Unit Converter</h1>
+        <a id="links" href="/">Unit Converter</a>
+        <a id="links" href="/rot13"> Rot13</a>
+        <a id="links" href="/random"> Random Password Generator </a>
+    </header>
+    <div id="main">
+        <img id="image" src="/static/picture.webp">
+        <form id="forms" action="" method="post">
+            <input type="text" placeholder="Enter a distance: " name="first_distance" />
+            <select name="units">
+                <option value="in">Inches</option>
+                <option value="ft">Feet</option>
+                <option value="ya">Yards</option>
+                <option value="m">Meters</option>
+                <option value="mi">Miles</option>
+                <option value="k">Kilometers</option>
+            </select>
+            <select name="second_units">
+                <option value="in">Inches</option>
+                <option value="ft">Feet</option>
+                <option value="ya">Yards</option>
+                <option value="m">Meters</option>
+                <option value="mi">Miles</option>
+                <option value="k">Kilometers</option>
+            </select>
+            <button type="submit">submit</button>
+        </form>
+    </div>
+    <div id="output">{{output}}</div>
+    <footer>
+        <p>&copy United Converters 2020 </p>
+    </footer>
+</body>
+
+</html>

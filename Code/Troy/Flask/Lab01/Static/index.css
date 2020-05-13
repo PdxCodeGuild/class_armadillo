@@ -1,0 +1,42 @@
+
+
+/* body */
+body {
+    background-color: #003049;
+    /* background-color:white; */
+}
+/* header */
+header{ 
+    text-align: center;
+    /* background-color: #FF006E; */
+    box-shadow: 0 5px 5px grey;
+    margin-bottom:20px;
+}
+
+.message {
+    background-color:blue;
+    padding:10px;
+    color:white;
+}
+
+/* button */
+.button {
+    text-align: center;
+    /* margin: 20px 50px;     */
+}
+
+/* password output */
+.output {
+    text-align: center;
+    font-family: 'Balsamiq Sans', cursive;
+    color: #FB5607;
+    font-size: 1.5rem;
+    margin: 25px
+}
+.slot {
+    text-align: center;
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto; */
+}
+
