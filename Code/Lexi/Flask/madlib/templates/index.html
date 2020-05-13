@@ -4,18 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- external css file -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}"/>
     <style type="text/css">
         /* my style here */
     </style>
 </head>
 <body>
-    <img src="{{ url_for('static', filename='cooltext.png') }}">
-    <hr/>
-    <form>
-        <input type="text" name="animal" placeholder="enter an animal" disabled/>
-        <input type="text" name="texture" placeholder="enter a texture"/>
-        <input type="text" name="noun" placeholder="enter a noun"/>
+    {% if message != '' %}
+    <div class="message">{{message}}</div>
+    {% endif %}
+    <header>
+        <!-- static image file -->
+        <img src="{{ url_for('static', filename='cooltext.png') }}">
+    </header>
+    <!-- major parts of a form -->
+    <!-- action - the path we're submitting the form data to -->
+    <!-- method - the http method we're using -->
+    <!-- input elements with name attributes -->
+    <!-- button type="submit" -->
+    <form action="/" method="post">
+        <select name="animal" required>
+            <option value="" disabled selected>Select an animal</option>
+            <!-- <option value="armadillo">Armadillo</option>
+            <option value="sloth">Sloth</option>
+            <option value="baby_elephant">Baby Elephant</option>
+            <option value="honeybadger">Honeybadger</option>
+            <option value="llama">Llama</option> -->
+            {% for animal in animals %}
+            <option value="{{animal}}">{{animal}}</option>
+            {% endfor %}
+        </select>
+        <!-- <input type="text" name="animal" placeholder="enter an animal" value="armadillo"/> -->
+        <input type="text" name="texture" placeholder="enter a texture" required/>
+        <input type="text" name="noun" placeholder="enter a noun" required/>
         <button type="submit">submit</button>
     </form>
     <div>{{result}}</div>
