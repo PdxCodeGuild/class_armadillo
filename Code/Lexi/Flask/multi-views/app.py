@@ -24,11 +24,12 @@ def save_database():
 # 3. user submits the form, which goes to 'submit_form'
 # 4. user responds with a redirect - the same as request/response cycle 1
 
+# by default views can only receive GET requests
 
 @app.route('/')
 def index():
     data = load_database()
-    return render_template('index.html' , value=data['value'], fruits=data['fruits'])
+    return render_template('index.html' , value=data['value'], fav_nums=data['fav_nums'])
 
 
 @app.route('/submit_form', methods=['POST'])
@@ -46,7 +47,17 @@ def submit_form():
     else:
         data['value'] -= 1
 
+        # save the data to a database
         save_database(data)
 
     # redirect brings you to a separate URL
     return redirect('/')
+
+@app.route('/save_number', methods=['POST'])
+def save_number():
+    mynumber = request.form['mynumber']
+    print(mynumber)
+    print(type(mynumber))
+    mynumber = int(mynumber)
+    data = load_database()
+    data['fav_nums'].append(mynumber)

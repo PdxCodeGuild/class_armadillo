@@ -1,4 +1,6 @@
 {
     "value": 5,
-    "fruits": ["apples", "pears", "bananas", "agave"]
+    "fruits": ["apples", "pears", "bananas", "agave"],
+    
+    "fav_nums":[8, 1, 3, 4, 7000, 4]
 }
