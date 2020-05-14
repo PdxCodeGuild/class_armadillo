@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>hello world!</h1>
+    <h2>Temperature</h2>
+    <form action="/temperature/" method="post">
+      <input type="number" name="temperature" placeholder="enter a temperature"/>
+      <button type="submit">submit</button>
+    </form>
+    <h2>Clothing</h2>
+    <form action="/clothing/" method="post">
+      <select name="clothing">
+        <option value="coat">Coat</option>
+        <option value="normal_clothes">Normal Clothes</option>
+        <option value="utilikilt">Utilikilt</option>
+        <option value="morph_suit">Morph Suit</option>
+      </select>
+      <button type="submit">submit</button>
+    </form>
+  </body>
+</html>

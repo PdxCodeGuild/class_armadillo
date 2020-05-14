@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit Converter</title>
 </head>
 <body>
-    <h1>Unit Converter</h1>
-    <h3>Enter a length, select its units and then select the units to convert it to:</h3>
-    <form action="/" method="post">
-        <input type="text" name ="user_input" placeholder="Enter Length" />
-        <select name="start_units">
-            <option value="in">inches</option>
-            <option value="ft">feet</option>
-            <option value="yd">yards</option>
-            <option value="m">meters</option>
-            <option value="mi">miles</option>
-            <option value="km">kilometers</option>
-        </select>
-        <select name="end_units">
-            <option value="in">inches</option>
-            <option value="ft">feet</option>
-            <option value="yd">yards</option>
-            <option value="m">meters</option>
-            <option value="mi">miles</option>
-            <option value="km">kilometers</option>
-        </select>
-        <button type="submit">submit</button>
-    </form>
-    <div>{{result}}</div>
+    <main>
+        <header>
+        <h1>Unit Converter</h1>
+        <h3>Enter a length, select its units and then select the units to convert it to:</h3>
+        </header>
+        <form action="/" method="post">
+            <input type="text" name ="user_input" placeholder="Enter Length" />
+            <select name="start_units">
+                <option value="in">inches</option>
+                <option value="ft">feet</option>
+                <option value="yd">yards</option>
+                <option value="m">meters</option>
+                <option value="mi">miles</option>
+                <option value="km">kilometers</option>
+            </select>
+            <select name="end_units">
+                <option value="in">inches</option>
+                <option value="ft">feet</option>
+                <option value="yd">yards</option>
+                <option value="m">meters</option>
+                <option value="mi">miles</option>
+                <option value="km">kilometers</option>
+            </select>
+            <button type="submit">submit</button>
+        </form></br>
+        <div class="result">{{result}}</div>
+    </main>
 </body>
 </html>

@@ -9,19 +9,6 @@ def index():
     password = '' # empty string for establishing word
     if request.method == 'POST':
 
-        # all_characters = string.ascii_letters + string.digits + string.punctuation 
-
-        # length = int(request.form['length'])
-
-        # for _ in range(length): # user input for password length
-        #     password += random.choice(all_characters) # builds word
-
-        # # random.shuffle can't accept string arguments, must convert to list
-        # password = list(password) # convert string into a list of characters
-        # random.shuffle(password) # shuffle the list of characters
-        # password = ''.join(password) # convert the list of characters back into a string
-
-        # ascii letters, digits, special char
         upper = int(request.form['upper'])
         lower = int(request.form['lower'])
         number = int(request.form['number'])

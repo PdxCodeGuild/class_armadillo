@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}"/>
     {% if title %}
         <title>Flask Blog - {{ title }}</title>
     {% else %}
         <title>Flask Blog</title>
     {% endif %}
   </head>
+  <div>
   <body>
     {% for post in posts %}
         <h1>{{ post.title }}</h1>
@@ -14,4 +16,5 @@
         <p>{{ post.content }}</p>
     {% endfor %}
   </body>
+</div>
 </html>
