@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honey Do List</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <style type="text/css">
+</head>
+<body>
+    <img src="{{ url_for('static', filename='chores.jpg')}}" />
+    <form action="" method="post">
+        <input type="text" name="input_text" placeholder="enter some text"/>
+        <button type="submit">submit</button>
+      </form>   
+</body>
+</html>
