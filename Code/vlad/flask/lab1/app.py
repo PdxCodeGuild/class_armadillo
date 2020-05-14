@@ -1,3 +1,6 @@
+import random  # contain function and choices to randomaze 
+import string  # contain function and choices to randomaze 
+
 # to run flask I need to enter the following in the terminal each time:  python3 -m flask run
 # I may need to = export FLASK_ENV=development
 # this will tell me which servers are running = ps -fA | grep python
@@ -71,3 +74,40 @@ def units():
         result = f'{num} {c_unit} is equal to {product2} {b_unit}'
         print(result)
     return render_template('unit_converter.html', result = result) # this is setting my key word argument    
+
+#Add Random Password Generator and get a logo:
+@app.route('/random_password_generator/',methods=['GET', 'POST'])
+def random_pw():
+    word = ''
+    # print('random thing')
+    # return "hey"
+    if request.method == 'POST':
+        lower = string.ascii_lowercase  # the .dot will go inside the string module
+        upper = string.ascii_uppercase  # the .dot will go inside the string module
+        letters_input = request.form['letters_input']
+        digits_input  = request.form['digits_input']
+        punctuation_input = int(request.form['punctuation_input'])
+
+        letters = string.ascii_letters
+        digits = string.digits
+        punctuations = string.punctuation
+        # letters_input = int(input('How many letters do you want: '))
+        # digits_input = int(input('How many digits do you want: '))
+        # punctuation_input = int(input('How many Punctuation do you want: '))
+        word = []
+
+        for i in range(int(letters_input)):
+            word.append(random.choice(letters))
+        for i in range(int(digits_input)):
+            word.append(random.choice(digits))
+        for i in range(int(punctuation_input)):
+            word.append(random.choice(punctuations))
+
+        #word.shuffle() st
+        random.shuffle(word)
+        print(''.join(word))
+    return render_template('random_password_generator.html', word = word) # this is setting my key word argument
+
+
+
+
