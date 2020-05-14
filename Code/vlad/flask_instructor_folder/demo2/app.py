@@ -1,3 +1,5 @@
+# Demo2 Flask 
+
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
@@ -41,7 +43,7 @@ def index(): # view
     else:
         message = 'no form data'
 
-    return render_template('index.html', title='Demo App', message=message, a=1, b=2)
+    return render_template('index.html', title='Demo App', message=message)
 
 # methods - http methods this view will accept
 # @app.route('/receive_form', methods=['GET', 'POST'])

@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Password Generator</title>
     <!--equivalent of Sam's line 11 for this lab-->
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       type="text/css"
@@ -26,7 +29,18 @@
 
   <body>
     <header>
-      <div class="title area">
+
+      <div class="box">
+        <div>Who</div>
+        <div>Would</div>
+        <div>Like
+            <br>To
+            <br>Make
+            <br>A
+        </div>
+      </div>
+
+      <div class="container">
       <img src="{{ url_for('static', filename='password gen.png') }}" />
     </header>
 
@@ -35,22 +49,44 @@
         <form action="/" method="post">
           <!--basic version needs one button and one input-->
           <input
-          type="number"
-          name="password_length"
-          placeholder="Enter how long you want your password to be: "
-           size="50"/>
+            type="number"
+            name="upper"
+            placeholder="Enter how many uppercase letters: "
+            size="50"
+          />
+
+          <input
+            type="number"
+            name="lower"
+            placeholder="Enter how many lowercase letters you desire: "
+            size="50"
+          />
+
+          <input
+            type="number"
+            name="punct"
+            placeholder="Enter how many punctuation marks you want: "
+            size="50"
+          />
+
+          <input
+            type="number"
+            name="digit"
+            placeholder="Enter how many digits you want: "
+            size="50"
+          />
           <!--everytime 'submit' is hit, it calls the function-->
+          <br>
           <button type="submit">submit</button>
+        
         </form>
       </div>
     </div>
-    
+
     {%if password != ""%}
     <div class="output">
       <span>
-       
-          Your password is: " {{password}} "
-        
+        Your password is: " {{password}} "
       </span>
     </div>
     <span>
@@ -58,8 +94,20 @@
     </span>
     <div>
       <span>
-      Thank you, Troy and Billy, for helping me out on this one!
+        Thank you, Troy and Billy, for helping me out on this one!
       </span>
     </div>
+
+    <h1>A fun thing to incorporate</h1>
+
+    <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+      0 <input type="range" id="a" value="50" />100 +<input
+        type="number"
+        id="b"
+        value="50"
+      />
+      =<output name="x" for="a b"></output>
+    </form>
+  </div>
   </body>
 </html>
