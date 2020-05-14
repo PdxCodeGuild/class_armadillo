@@ -9,7 +9,7 @@
 
 nav {
     height: 70vh;
-    background-color: #FFEB25; opacity: 0.5;
+    background-color: #FFEB2588;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -22,7 +22,7 @@ nav > div {
 header {
     height: 10vh;
     text-align: center;
-    background-color: #EB8F26; opacity: 0.7;
+    background-color: #EB8F2688;
     /* background-color: hsla(267, 50%, 50%, 0.5); */
     margin-bottom: 2.5vh;
 }
