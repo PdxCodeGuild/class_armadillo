@@ -106,6 +106,7 @@ def random_pw():
         #word.shuffle() st
         random.shuffle(word)
         print(''.join(word))
+        word = ''.join(word) # this is like striping brackets from the list. Changing from a list to a single string from list [p57UT-Rc6/] to string p57UT-Rc6/ 
     return render_template('random_password_generator.html', word = word) # this is setting my key word argument
 
 

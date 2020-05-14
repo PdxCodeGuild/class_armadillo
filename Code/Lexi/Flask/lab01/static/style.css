@@ -15,3 +15,7 @@ div {
   text-align: center;
   font-family: 'DM Mono', monospace;
 }
+.container{
+  display: flex;
+}
+

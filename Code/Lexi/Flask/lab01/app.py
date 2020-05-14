@@ -17,6 +17,6 @@ def index():
             output += random.choice(alphabet)
 
     print(request.form)
-    message = ''
+   
 
     return render_template('index.html', password = output)
