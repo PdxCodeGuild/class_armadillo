@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/style.css') }}"/>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <form action="/" method="POST">
+        <label>Card 1</label>
+        <select name="card1">
+            <option value=""></option>
+            <option value=1>A</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+            <option value=9>9</option>
+            <option value=10>10</option>
+            <option value=10>J</option>
+            <option value=10>Q</option>
+            <option value=10>K</option>
+        </select>
+
+        <label>Card 2</label>
+        <select name="card2">
+            <option value=""></option>
+            <option value=1>A</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+            <option value=9>9</option>
+            <option value=10>10</option>
+            <option value=10>J</option>
+            <option value=10>Q</option>
+            <option value=10>K</option>
+        </select>
+
+        <label>Card 3</label>
+        <select name="card3">
+            <option value=""></option>
+            <option value=1>A</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+            <option value=9>9</option>
+            <option value=10>10</option>
+            <option value=10>J</option>
+            <option value=10>Q</option>
+            <option value=10>K</option>
+        </select>
+
+        <button type="submit">Advise Me...</button>
+    </form>
+    <h2> Your Hand is {{ hand }}</h2>
+    
+    {% if hand < 17 %}
+    <p>hit</p>
+    {% elif hand > 21 %}
+    <p>bust</p>
+    {% elif hand == 21 %}
+    <p>blackjack</p>
+    {% else %}
+    <p>stay</p>
+    {% endif %}
+
+</body>
+</html>
