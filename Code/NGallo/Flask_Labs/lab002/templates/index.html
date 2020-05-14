@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackJack Advice</title>
+</head>
+<body>
+    <header><h1>BlackJack Advice</h1></header>
+    
+    <div id="main">
+        <img id="image" src="/static/pictures/blackjack.jpg">
+        <form id="forms" action="/" method="post">
+            
+            <select name="card_choice_one">
+                {%for card in deck %}
+                <option value="{{card}}">{{card}}</option>
+                {%endfor%}
+            </select>
+            <select name="card_choice_two">
+                {%for card in deck %}
+                <option value="{{card}}">{{card}}</option>
+                {%endfor%}
+            </select>
+            <select name="card_choice_three">
+                {%for card in deck %}
+                <option value="{{card}}">{{card}}</option>
+                {%endfor%}
+            </select>
+            <!-- <input type="text" placeholder="Do you want to hit? y/n " name="hit_or_stay" /> -->
+            <button type="submit">submit</button>
+        </form>
+    </div>
+    
+    <footer>&copy Class_A 2020</footer>
+</body>
+</html>
