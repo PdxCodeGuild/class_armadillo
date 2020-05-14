@@ -12,7 +12,7 @@ def index():
     if request.method == 'POST':
         
         first_distance = request.form['first_distance']
-        first_distance = round(first_distance)
+        first_distance = float(first_distance)
         units = request.form['units']
         end_units = request.form['second_units']
 

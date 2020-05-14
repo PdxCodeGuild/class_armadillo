@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>password</title>
+    <title>Generator</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <style type="text/css">
         body {
@@ -20,12 +20,29 @@
             padding: 5px;
             border: 1px solid black;
             border-radius: 5px;
-            background-color:slategray;
+            background-color: slategray;
             margin-bottom: 10px;
-            
+
         }
 
-    
+        a:visited {
+            color: black;
+        }
+
+        a:hover {
+            color: whitesmoke;
+        }
+
+        a:active {
+            color: skyblue;
+        }
+
+        #image {
+            width: 50%;
+            margin-top: 10px;
+            border-radius: 15px;
+        }
+
 
         #main {
             display: flex;
@@ -40,7 +57,7 @@
 
         #output {
             text-align: center;
-            color:red;
+            color: red;
         }
     </style>
 </head>
@@ -48,9 +65,11 @@
 <body>
     <header>
         <h1>Password Generator</h1>
-        <img src="{{url_for('static',filename='flask_lab.jpg')}}"/>
+        <a id="links" href="/rotate"> Rotate</a>
+        <a id="links" href="/passsword"> Password Generator </a>
     </header>
     <div id="main">
+        <img id="image" src="{{url_for('static',filename='flask_lab.jpg')}}" />
         <form id="forms" action="" method="post">
             <input type="number" placeholder="Enter password length: " name="number" />
             <button type="submit">submit</button>

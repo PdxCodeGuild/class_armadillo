@@ -11,6 +11,31 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/rotate', methods=["GET", "POST"])
+def rotate():
+    if request.method == "POST":
+        user_text = str(request.form['text'])
+        alphabet ='abcdefghijklmnopqrstuvwxyz'
+        rotated_alphabet = alphabet[13:] + alphabet[:13]
+        text_length = (user_text)
+
+        length_of_text = ''
+        for char in text_length:
+            index = alphabet.find(char)
+            rotated_char = rotated_alphabet[index]
+            length_of_text += rotated_char
+            output = length_of_text
+    else:
+        output = ''
+
+    
+
+    return render_template('rotate.html', output=output)
+    
+
+
+
+
 
 @app.route('/password', methods=["GET", "POST"])
 def password():
