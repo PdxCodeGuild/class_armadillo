@@ -24,9 +24,9 @@ def blackjack(card1,card2,card3):
         hand_total += deck[card]
 
     print(hand_total)
-        if 1 in hand and sum(hand) < 11: # checking if there is an Ace in the hand, AND THEN checking if the sum is greater than 11, IF SO execute code below
-            hand.append(10) # adding 10 value to hand if code above is True. Adding 10 makes the Ace 11
-    hand_total = sum(hand) # Getting the total of the hand to do comparisons below.
+    if 1 in hand and sum(hand) < 11:
+        hand.append(10) # adding 10 value to hand if code above is True. Adding 10 makes the Ace 11
+        hand_total = sum(hand) # Getting the total of the hand to do comparisons below.
     # I think this is straight foward here.
     #HIT
     if hand_total < 17: 
