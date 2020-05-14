@@ -13,23 +13,33 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="center">
-            <form action="" method="post">
-                <input type="number" name="password_length" placeholder="Enter Number Here" />
-                <button type="submit">submit</button>
-            </form>
-        </div>
-    </div>  
+
     <header>
         <img src="{{ url_for('static', filename='header_pic.png')}}" />
     </header>
-    {%if password != ""%}
-        <div class="output">
-            <span>
-                Your password is "  {{password}}  "
-            </span>
+
+    <div class="container">
+        <div class="button">
+            <form action="" method="post">
+                <input id="num_select" type="number" name="password_length" placeholder="Number of Characters" />
+                <input id="num_select" type="number" name="password_length" placeholder="Uppercase Letter" />
+                <input id="num_select" type="number" name="password_length" placeholder="Lowercase Letter" />
+                <input id="num_select" type="number" name="password_length" placeholder="Numbers" />
+                <input id="num_select" type="number" name="password_length" placeholder="Special Characters" />
+                <button id="submit_select" type="submit">submit</button>
+            </form>
         </div>
+    </div>
+    
+    <div class="slot">
+        <img id="slot1" src="{{ url_for('static', filename='slot.jpg')}}" width="600" height="500" />
+    </div>
+    {%if password != ""%}
+    <div class="output">
+        <span>
+            Your password is " {{password}} "
+        </span>
+    </div>
     {%endif%}
 </body>
 

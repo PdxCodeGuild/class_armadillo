@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 01 Flask</title>
+</head>
+<body>
+    <h1>Welcome to the Unit converter!</h1>
+    <form action="/" method="post">
+        <input id="user_distance" type="text" name="user_distance" placeholder="Enter the Distance"/>
+        <button type="submit">submit</button>
+
+        <input id="user_unit" type="text" name="user_unit" placeholder="Enter the Input Unit" pattern="[a-z]{1,4}" title="has to be a 2-4 letter unit type"/>
+        <button type="submit">submit</button>
+    </form>
+    <h1>Hello</h1>
+
+    {%if result != ""%}
+    <div class="result">
+        <span>The unit in meters is {{result}} </span>
+    </div>
+    <span> 
+        {%endif%}
+    </span>
+</body>
+</html>

@@ -1,0 +1,49 @@
+body{ 
+    margin-top: 50px;
+    background-image: url("https://webat.net/wp-content/uploads/2018/05/cloud-simplecloud.png");
+    text-align: center;
+    font-family: 'Balsamiq Sans', cursive;
+} 
+main{
+    background-color: whitesmoke;
+    margin-left: 400px; 
+    margin-right: 400px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5%;
+    opacity: 0.9;
+}
+h1{
+    font-size: 36pt;
+}
+form{
+    border-style: dashed 3px black;
+}
+
+div{
+    font-size: 26pt;
+    font-weight: bold;
+    margin: 10px;
+}
+
+input{
+    padding: 10px;
+    border: 2px solid black;
+    font-size: 14pt;
+}
+
+select{
+    padding: 10px;
+    border: 2px solid black;
+    font-size: 14pt;
+}
+
+button{
+    padding 10px;
+    font-size: 18pt;
+    border-radius: 2px;
+    transition-duration: 0.5s;
+}
+
+button:hover{background-color: greenyellow}
+
