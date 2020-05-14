@@ -4,13 +4,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rot 13 Cipher</title>
+    <title>Password Generator</title>
     <!--equivalent of Sam's line 11 for this lab-->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       type="text/css"
       href="{{url_for('static', filename='style.css') }}"
     />
+    <!-- Latest compiled and minified JavaScript -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+      integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+      crossorigin="anonymous"
+    ></script>
+
     <style type="text/css">
       /*see style.css */
     </style>
@@ -18,30 +26,40 @@
 
   <body>
     <header>
+      <div class="title area">
       <img src="{{ url_for('static', filename='password gen.png') }}" />
     </header>
 
-    
-   
-      <form action="/" method="post">
-        <!--basic version needs one button and one input-->
-        <input type="number" name="password_length" placeholder="Enter how long you want your password to be: " />
-        <!--everytime 'submit' is hit, it calls the function-->
-        
-        <button type="submit">submit</button>
-      </form>
-    </div>
-
-    {%if password != ""%}
-      <div class="output"> 
-        <span>
-          Your password is: " {{password}} "
-        </span>
+    <div class="container-fluid">
+      <div class="row">
+        <form action="/" method="post">
+          <!--basic version needs one button and one input-->
+          <input
+          type="number"
+          name="password_length"
+          placeholder="Enter how long you want your password to be: "
+           size="50"/>
+          <!--everytime 'submit' is hit, it calls the function-->
+          <button type="submit">submit</button>
+        </form>
       </div>
-        <span>
-          {%endif%}
-        </span>
-          <div> Thank you, Troy, for helping me out on this one! </div>
-      
+    </div>
+    
+    {%if password != ""%}
+    <div class="output">
+      <span>
+       
+          Your password is: " {{password}} "
+        
+      </span>
+    </div>
+    <span>
+      {%endif%}
+    </span>
+    <div>
+      <span>
+      Thank you, Troy and Billy, for helping me out on this one!
+      </span>
+    </div>
   </body>
 </html>

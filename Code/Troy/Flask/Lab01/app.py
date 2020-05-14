@@ -8,11 +8,12 @@ import random
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    output = ""
+    output = []
     if request.method == "POST":
         alphabet = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
         password_length = int(request.form["password_length"])
-
+        uppercase = [ABCDEFGHIJKLMNOPQRSTUVWXYZ]
+        lowercase = [abcdefghijklmnopqrstuvwxyz]
         for i in range(password_length):
             output += random.choice(alphabet)
 
