@@ -1,3 +1,5 @@
+#LAB 01- **random password generator**
+#   - Simple version: the user just enters in the number of characters in the password
 
 from flask import Flask, request, render_template
 app = Flask(__name__)
