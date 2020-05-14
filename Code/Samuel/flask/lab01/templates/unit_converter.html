@@ -33,30 +33,44 @@
             </div>
         </nav>
     </header>
-    <form action="" method="post">
-        <select name="input_units">
-            <option value="Feet">Feet</option>
-            <option value="Miles">Miles</option>
-            <option value="Meters">Meters</option>
-            <option value="Kilometers">Kilometers</option>
-            <option value="Inches">Inches</option>
-            <option value="Yards">Yards</option>
-        </select>
-        <select name="output_units">
-            <option value="Feet">Feet</option>
-            <option value="Miles">Miles</option>
-            <option value="Meters">Meters</option>
-            <option value="Kilometers">Kilometers</option>
-            <option value="Inches">Inches</option>
-            <option value="Yards">Yards</option>
-        </select>
-        <input type="text" name="measurement" value="0"><br>
-        <button type="submit">submit</button>
+    <h1>
+        Unit Converter
+    </h1>
+    <div id="content">
         
-    </form>
+        <form action="" method="post">
+            <div>
+                <a>Input Units</a>
+                <select name="input_units">
+                    <option value="Feet">Feet</option>
+                    <option value="Miles">Miles</option>
+                    <option value="Meters">Meters</option>
+                    <option value="Kilometers">Kilometers</option>
+                    <option value="Inches">Inches</option>
+                    <option value="Yards">Yards</option>
+                </select>
+            </div>
+            <div>
+                <a>Output Units</a>
+                <select name="output_units">
+                    <option value="Feet">Feet</option>
+                    <option value="Miles">Miles</option>
+                    <option value="Meters">Meters</option>
+                    <option value="Kilometers">Kilometers</option>
+                    <option value="Inches">Inches</option>
+                    <option value="Yards">Yards</option>
+                </select>
+            </div>
+            <a>Measurement to convert</a>
+            <input type="text" name="measurement" value="0"><br>
+            <button type="submit">submit</button>
+        </form>
+    </div>
     {% if message != '' %}
     <div class="message">{{message}}</div>
     {% endif %}
+    {% if result != '' %}
     <div>{{measurement}} {{input_units}} is equal to {{result}} {{output_units}}</div>
+    {% endif %}
 </body>
 </html>
