@@ -43,7 +43,6 @@
             border-radius: 15px;
         }
 
-
         #main {
             display: flex;
             flex-direction: column;
@@ -57,25 +56,25 @@
 
         #output {
             text-align: center;
-            color: red;
+
         }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Password Generator</h1>
+        <h1>Rotater</h1>
         <a id="links" href="/rotate"> Rotate</a>
-        <a id="links" href="/passsword"> Password Generator </a>
+        <a id="links" href="/password"> Password Generator </a>
     </header>
     <div id="main">
         <img id="image" src="{{url_for('static',filename='flask_lab.jpg')}}" />
         <form id="forms" action="" method="post">
-            <input type="number" placeholder="Enter password length: " name="number" />
+            <input type="text" placeholder="Enter text to rotate: " name="text" />
             <button type="submit">submit</button>
         </form>
     </div>
-    <div id="output">Your password is: {{output}}</div>
+    <div id="output">Your text is: {{output}}</div>
 
 </body>
 
