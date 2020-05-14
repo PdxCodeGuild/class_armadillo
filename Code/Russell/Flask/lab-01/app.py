@@ -10,27 +10,28 @@ import random
 @app.route('/', methods=['POST', 'GET'])
 def index(): 
     
+    
+    password = ""
     if request.method == 'POST':
         
         password_length = int(request.form['Password Length'])
         letters = string.ascii_letters + string.punctuation + string.digits
         
         
-        password = ""
-        for letter in range(password_length):
+        for _ in range(password_length):
             password += random.choice(letters)
    
     
     
     
-    temp = 0
-    return render_template('index.html', password_length=password_length, letter=letter, password=password, temp=temp )
+   
+    return render_template('index.html', password=password )
     
     
     
  
 
 
-# $env:FLASK_ENV = "development"
 # $env:FLASK_APP = "app.py" 
+# $env:FLASK_ENV = "development"
 # python -m flask run
