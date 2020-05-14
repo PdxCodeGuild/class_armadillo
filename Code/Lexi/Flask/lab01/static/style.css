@@ -1,0 +1,21 @@
+body {
+  background-color: blueviolet;
+}
+input {
+  font-family: 'DM Mono', monospace;
+}
+.container-fluid {
+  text-align: center;
+}
+input[type="number"] {
+  font-size: 24px;
+  
+}
+div {
+  text-align: center;
+  font-family: 'DM Mono', monospace;
+}
+.container{
+  display: flex;
+}
+

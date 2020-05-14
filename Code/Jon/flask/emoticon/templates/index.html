@@ -13,9 +13,18 @@
   <body>
     <h1>Hello, world!</h1>
     <form action="/" method="POST">
-        <input type="text" name="user_input">
+        <input type="number" name="user_input" placeholder="Enter in how many faces you want. (1-10)...">
         <button type="submit">Submit</button>
     </form>
+
+ 
+    {% for face in context.faces %}
+    <h1>{{ face }}</h1>
+    {% else %}
+    <h1>Empty</h1>
+    {% endfor %}
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

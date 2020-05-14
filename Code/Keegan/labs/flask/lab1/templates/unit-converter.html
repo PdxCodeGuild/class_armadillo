@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="unit-converter">
+    <div class="row" id="main-section">
+        <section class="col s10 offset-s1 l8 offset-l3" id="section1">
+            <div class="row">
+                <div class="col s12">
+                    <form action="/unit-converter" method="POST">
+                        <div class="input-field">
+                            <input type="text" name="distance" placeholder="Distance without units">
+                            {% if error %}
+                            <div class="error col s10 offset-s1">
+                                {{ error }}
+                            </div>
+                            {% endif %}
+                        </div>      
+
+                        <div id="select-menus">
+                            <div>Unit in:</div>
+                            <select class="browser-default" name="unit-in" id="unit-in">
+                                {% for unit in context['units'] %}
+                                    <option value="{{ unit }}">{{ unit }}</option>
+                                {% endfor %}
+                            <select>
+
+                            <div>Unit out:</div>
+                            <select class="browser-default" name="unit-out" id="unit-out">
+                                {% for unit in context['units'] %}
+                                    <option value="{{ unit }}">{{ unit }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <input type="submit" id="submit" value="Go">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="col s10 offset-s1 l8 offset-l3" id="section2">
+            {% if context['result'] %}
+                <div class="row">
+                    <div class="col s12">
+                        <span>{{ context['distance'] }}</span> {{ context['unit_in'] }}
+                    </div>
+                </div>
+                <p>is</p>
+                <div class="row">
+                    <div class="col s12">
+                        <span>{{ context['result'] }}</span> {{ context['unit_out'] }}
+                    </div>
+                </div>
+            {% endif %}
+        </section>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, options);
+    });
+</script>
+
+
+{% endblock %}

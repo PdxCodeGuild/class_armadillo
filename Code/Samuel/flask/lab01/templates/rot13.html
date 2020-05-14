@@ -33,11 +33,18 @@
             </div>
         </nav>
     </header>
-    <form action="" method="post">
-        <input type="text" name="rotation">Level of rotation<br>
-        <input type="text" name="transform">Word to Transform<br>
-        <button type="submit">submit</button>
-    </form>
+    <h1>
+        ROT13
+    </h1>
+    <div id="content">
+        <form action="" method="post">
+            <a>Level of Rotation</a>
+            <input type="text" name="rotation" value="0"><br>
+            <a>Word to Transform</a>
+            <input type="text" name="transform"><br>
+            <button type="submit">submit</button>
+        </form>
+    </div>
     {% if message != '' %}
     <div class="message">{{message}}</div>
     {% endif %}

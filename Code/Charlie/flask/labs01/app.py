@@ -1,46 +1,58 @@
-from flask import Flask
+
+# john helped with lab
+from flask import Flask, request, render_template
+import random
+import string
+
 app = Flask(__name__)
 
-@app.route('/')
 
+@app.route('/', methods=["GET", "POST"])
+def index():
+    return render_template('index.html')
 
-def ask_distance():
-    user_distance = (input("Enter distance :\n "))
-    if not user_distance.isdigit():
-        user_distance = input("You Must Enter A Number: ")
+@app.route('/rotate', methods=["GET", "POST"])
+def rotate():
+    if request.method == "POST":
+        user_text = str(request.form['text'])
+        alphabet ='abcdefghijklmnopqrstuvwxyz'
+        rotated_alphabet = alphabet[13:] + alphabet[:13]
+        text_length = (user_text)
+
+        length_of_text = ''
+        for char in text_length:
+            index = alphabet.find(char)
+            rotated_char = rotated_alphabet[index]
+            length_of_text += rotated_char
+            output = length_of_text
     else:
-        user_distance = int(user_distance)
+        output = ''
+
+    
+
+    return render_template('rotate.html', output=output)
+    
 
 
-    units = {
-        'ft': .3048,
-        'mi': 1609.34,
-        'm': 1,
-        'km': 1000,
-        'yd': .9144,    
-        'in': .0254
-    }
-
-    list = units.keys()
-    user_conversion = input(f'What unit would you like to convert from?: {list}\n ')
-
-    c_unit = input(f'Enter the unit to convert to?: {list}\n ')
 
 
-    total = user_distance * (units[user_conversion] / units[c_unit])
-    print(f'{user_distance} {user_conversion} is {total} {c_unit}')
-ask_distance()
 
-while True:
+@app.route('/password', methods=["GET", "POST"])
+def password():
+    if request.method == "POST":
+        user_number = request.form['number']
+        i = 0
+        alphabet = string.ascii_letters + string.digits + string.punctuation
+        password_num = int(user_number)
 
-    again = input("Would you like to enter a new distance? Type 'y' for yes or 'n' for no: ")
-
-    if again == 'y':
-        ask_distance()
-        continue
-
+        pass_length = []
+        while i in range(password_num):
+            pass_length.append(random.choice(alphabet))
+            i += 1
+            user_input = ''.join(pass_length)
+            output = user_input
 
     else:
-        print("Goodbye")
-        break
-
+        output = ''
+    
+    return render_template('index.html', output=output)
