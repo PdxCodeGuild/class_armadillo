@@ -58,6 +58,8 @@ def save_number():
     mynumber = request.form['mynumber']
     print(mynumber)
     print(type(mynumber))
-    mynumber = int(mynumber)
+    mynumber = int(mynumber) # the value from the form is a string by default
     data = load_database()
     data['fav_nums'].append(mynumber)
+    data['fav_nums'].sort()
+    save_database(data)
