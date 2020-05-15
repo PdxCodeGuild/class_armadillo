@@ -71,4 +71,3 @@ def save_number():
     save_database(data)
 
     return redirect('/')
-

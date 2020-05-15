@@ -44,22 +44,15 @@ def index():
     # data['value'] += 1
     # save_database(data)
 
-    # load data from the database
     data = load_database()
     if request.method == 'POST':
-
-        # get form data
-        # print(request.form) # ImmutableMultiDict([('inc_or_dec', 'increment')])
+        print(request.form) # ImmutableMultiDict([('inc_or_dec', 'increment')])
         inc_or_dec = request.form['inc_or_dec']
-        # print(inc_or_dec) # increment
-
-        # modify the data from the database using our form data
+        print(inc_or_dec) # increment
         if inc_or_dec == 'increment':
             data['value'] += 1
         else:
             data['value'] -= 1
-
-        # saving our data back to the database
         save_database(data)
     
     return render_template('index.html', value=data['value'], fruits=data['fruits'])

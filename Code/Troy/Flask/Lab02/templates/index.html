@@ -6,13 +6,24 @@
     <title>Honey Do List</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}" />
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
-    <style type="text/css">
+    <style type="text/css"></style>
+
 </head>
 <body>
-    <img src="{{ url_for('static', filename='chores.jpg')}}" />
-    <form action="" method="post">
+    <h1>'Honey Do List'</h1>
+    <div class="main_pic">
+        <img src="{{ url_for('static', filename='chores.jpg')}}" width="400" height="300" />
+    </div>
+    <form action="/" method="post">
         <input type="text" name="input_text" placeholder="enter some text"/>
         <button type="submit">submit</button>
-      </form>   
+    </form>
+    <ul>
+        {% for chore in honey_do_list %}
+        <li>{{chore['chore']}}</li>
+        {%endfor%}
+    </ul>
+      
 </body>
 </html>
+

@@ -11,14 +11,6 @@
         {
             "text": "wash dishes",
             "priority": "low"
-        },
-        {
-            "text": "jog",
-            "priority": "high"
-        },
-        {
-            "text": "wash the dishes",
-            "priority": "high"
         }
     ]
 }
