@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <form action="/" method="POST">
+        <select name="rps">
+            <option value="rock">rock</option>
+            <option value="paper">paper</option>
+            <option value="scissors">scissors</option>
+        </select>
+        <button>Submit</button>
+    </form>
+    <div>User chose {{ user_rps }}.</div>
+    <div>Computer chose {{ comp_rps }}.</div>
+    <div>{{ result }}</div> 
+</body>
+</html>
