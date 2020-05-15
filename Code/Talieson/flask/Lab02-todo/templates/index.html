@@ -16,15 +16,15 @@
         <h1>
             To-Do List<span id="toggle_form"><i class="fas fa-plus"></i></span>
         </h1>
-        <form class="input_box">
-            <input type="text" name="text" maxlength="32" placeholder="Add new task..." />
+        <form class="input_box" action="/save_task" method="post">
+            <input type="text" name="task" maxlength="32" placeholder="Add new task..." />
             <select multiple id="priority" name="priority">
                 <option value="none">none</option>
                 <option value="low">low</option>
                 <option value="medium">medium</option>
                 <option value="high">high</option>
             </select>
-            <button class="enterBtn" id="enter">ADD</button>
+            <button class="enter_button" type="submit">ADD</button>
         </form>
         <ul>
             {%for task in tasks%}

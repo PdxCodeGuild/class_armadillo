@@ -1,16 +1,1 @@
-{
-    "todos":[
-      {
-        "text": "walk the dog",
-        "priority": "high"
-      },{
-        "text":"butter the cat",
-        "priority":"medium"
-      },{
-        "text":"wash dishes",
-        "priority":"low"
-      }
-    ]
-  }
-
-  
+{"todos": [{"text": "walk the dog", "priority": "high"}, {"text": "butter the cat", "priority": "medium"}, {"text": "wash dishes", "priority": "low"}, {"text": "milk the lizard", "priority": "low"}]}

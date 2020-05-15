@@ -1,11 +1,10 @@
 import json
-from flask import Flask, render_template, request
+from flask import Flask, render_template, redirect, request
 app = Flask(__name__)
 
 @app.route('/')
-def load_database():
-    with open('db.json', 'r') as file:
-        tasks = json.loads(file.read())
+def index():
+    tasks = load_database()
     return render_template("index.html", tasks=tasks["todos"])
 
 # # saving and loading the database
@@ -13,10 +12,10 @@ def load_database():
 #     with open('database.json', 'w') as file:
 #         file.write(json.dumps(data))
 
-# def load_database():
-#     with open('database.json', 'r') as file:
-#         data = json.loads(file.read())
-#     return data
+def load_database():
+     with open('db.json', 'r') as file:
+         data = json.loads(file.read())
+     return data
 
 # opens db.json, reads the text, turns the json into a python dictionary
 
@@ -29,11 +28,14 @@ def save_database(data):
 
 @app.route('/save_task', methods=['POST'])
 def save_task():
-    mynumber = request.form['mynumber']
-    mynumber = int(mynumber) # the value form the form is a string by default
+    print(request.form)
+    task = request.form["task"]
+    priority = request.form["priority"]
     data = load_database()
-    data['fav_nums'].append(mynumber)
-    data['fav_nums'].sort()
+    data['todos'].append({
+        "text": task,
+        "priority": priority,
+        })
     save_database(data)
 
     return redirect('/')

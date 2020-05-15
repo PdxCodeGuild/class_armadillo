@@ -46,9 +46,8 @@ input:focus{
 	background: #fff;
 	border: 2px solid  #89d1e7e7;
 	outline: none;
-	text-decoration: underline;
 }
-.enterBtn {
+.enter_button {
     flex-grow: 1;
     min-width: 15px;
     padding: 2px;
@@ -58,7 +57,7 @@ input:focus{
     font-size: 18px;
     cursor: pointer;
 }
-.enterBtn:focus {
+.enter_button:focus {
     outline: none;
 }
 ul{
