@@ -14,8 +14,8 @@
     <div class="main_pic">
         <img src="{{ url_for('static', filename='chores.jpg')}}" width="400" height="300" />
     </div>
-    <form action="/" method="post">
-        <input type="text" name="input_text" placeholder="enter some text"/>
+    <form action="/save_honey_do_list/" method="post">
+        <input type="text" name="chore" placeholder="enter some text"/>
         <button type="submit">submit</button>
     </form>
     <ul>
