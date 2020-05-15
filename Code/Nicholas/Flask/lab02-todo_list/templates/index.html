@@ -6,7 +6,15 @@
     <title>To Do List</title>
 </head>
 <body>
-    <form action="/" method="post"></form>
-<div>{{todos}}</div>
+    <form action="/" method="post">
+        <input type="text" name ="task" placeholder="Add a task"/>
+        <select name = "priority">
+            <option value="high">High</option>
+            <option value="ft">Medium</option>
+            <option value="yd">Low</option>
+        </select>
+        <button type="submit">Add</button>
+    </form>
+    {{result}}
 </body>
 </html>
