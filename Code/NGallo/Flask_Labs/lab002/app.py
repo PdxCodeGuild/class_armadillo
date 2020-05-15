@@ -13,10 +13,10 @@ def index():
     if request.method == 'POST':
         card_one = request.form['card_choice_one']
         # card_two = request.form['card_choice_two']
-        card_two = 'A'
+        card_two = request.form['card_choice_two']
         card_three = request.form['card_choice_three']
         # print(request.form)
-        advice_blackjack.blackjack(card1,card2,card3)
+        blackjack = advice_blackjack.blackjack(card_one,card_two,card_three)
     else:
-        pass
-    return render_template('index.html',deck = deck)
+        blackjack = ''
+    return render_template('index.html', deck = deck, blackjack = blackjack)
