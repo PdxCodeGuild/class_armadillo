@@ -20,11 +20,24 @@ def save_db(data):
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
-
     data = load_database()
-    if request.method == 'POST':
-        print(data["todos"])
-    return render_template('index.html', data=data)
+    counter = 0
+    chores = []
+    priority = []
+    if request.method == 'GET':
+        for _ in data['todos']:
+            priority.append(data['todos'][counter]['priority'])
+            chores.append(data['todos'][counter]['text'])
+            counter += 1
+        
+        todo_dict = dict(zip(chores,priority))
+        print(todo_dict)
+           
+
+        return render_template('index.html', data=data, priority=priority, chores=chores, todo_dict=todo_dict)
+        
+    # return 'hello world'
+        
 
 
 # $env:FLASK_APP = "app.py" 
