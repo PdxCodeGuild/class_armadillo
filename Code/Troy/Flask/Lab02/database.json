@@ -1,17 +1,23 @@
 {
-    "honey_do_list":[
+    "honey_do_list": [
         {
             "chore": "mow the lawn",
             "priority": "low"
-        },{
+        },
+        {
             "chore": "take out the trash",
             "priority": "high"
-        },{
+        },
+        {
             "chore": "walk the dog",
             "priority": "medium"
-        },{
+        },
+        {
             "chore": "take a shower",
             "priority": "high"
+        },
+        {
+            "chore": "do dishes"
         }
     ]
 }
