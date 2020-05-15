@@ -28,7 +28,7 @@ h1{
 	font-size: 24px;
 	font-weight: 400;
 }
-.inputBox {
+.input_box {
   display: flex;
   width: 100%;
 }
@@ -46,9 +46,8 @@ input:focus{
 	background: #fff;
 	border: 2px solid  #89d1e7e7;
 	outline: none;
-	text-decoration: underline;
 }
-.enterBtn {
+.enter_button {
     flex-grow: 1;
     min-width: 15px;
     padding: 2px;
@@ -58,7 +57,7 @@ input:focus{
     font-size: 18px;
     cursor: pointer;
 }
-.enterBtn:focus {
+.enter_button:focus {
     outline: none;
 }
 ul{
@@ -68,8 +67,8 @@ ul{
 }
 li{
 	background-color: #fff;
-	height: 40px;
-	line-height: 40px;	
+	height: auto;
+	line-height: auto;
 	color: rgb(56, 55, 55);
 }
 
@@ -79,9 +78,9 @@ li:nth-child(2n){
 li:nth-last-child(1){
 	border-radius: 0 0 18px 18px;
 }
-li span{
+li button span{
 	background-color: #e74c3c;
-	height: 40px;
+	height: auto;
 	margin-right: 20px;
 	text-align: center;
 	color: white;
@@ -91,16 +90,10 @@ li span{
     opacity: 0;
 }
 li:hover span{
-	width: 40px;
+	width: 50px;
     opacity: 1.0;
     cursor: pointer;
 }
-.fa-plus{
-	padding-top: 5px;
-	float: right;
-	transform: rotate(45deg);
-}
-.fa-plus-rotate {
-  transform: rotate(-45deg);
-  float: right;
+.fa-trash{
+	size: 2.4em;
 }

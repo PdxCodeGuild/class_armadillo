@@ -2,7 +2,7 @@
 # Troy Fitzgerald
 
 # imports the modules.
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import json
 
 #defines variable app and assigns it from Flask.
@@ -36,15 +36,15 @@ def index():
     # renders the template and runs the html file and accesses the value at the specified objects json key.
     return render_template('index.html', honey_do_list=data['honey_do_list'])    
 
+@app.route('/save_honey_do_list/', methods=['POST'])
 
-    # if request.method == 'POST':
-    #     contact_name = request.form['input_text']
-    #     print(contact_name)
-    # return render_template('index.html')
-    
+def save_honey_do_list():
+    chore = request.form['chore']
+    print(chore)
+    data = load_chores()
+    data['honey_do_list'].append({'chore':chore})
+    # data['honey_do_list'].sort()
+    save_chores(data)
 
-
-# chore = '{"chore": "mow_the_lawn"}'
-# data = json.loads(database) # json string -> python dictionary
-# print(data['chore']) # bob
+    return redirect('/')
 
