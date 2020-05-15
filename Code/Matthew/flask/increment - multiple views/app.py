@@ -28,6 +28,7 @@ def save_database(data):
 
 # request/response cycle 3 - the same as request/response cycle 1
 
+
 # by default views can only receive GET requests
 # @app.route('/', methods=['GET'])
 @app.route('/')
@@ -58,7 +59,6 @@ def submit_form():
     # redirect the user back to the home page
     # return 'you are at the submit form view'
     return redirect('/')
-
 
 
 @app.route('/save_number', methods=['POST'])
