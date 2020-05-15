@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/index.css') }}" />
+    <title>To Do List</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>
+            To-Do List<span id="toggle_form"></span>
+        </h1>
+        <form class="input_box" action="/save_task" method="post">
+            <input type="text" name="task" maxlength="32" placeholder="Add new task..." />
+            <select class="multiselect" multiple id="priority" name="priority">
+                <option value="none">none</option>
+                <option value="low">low</option>
+                <option value="medium">medium</option>
+                <option value="high">high</option>
+            </select>
+            <button class="enter_button" type="submit">ADD</button>
+        </form>
+        <ul>
+            {%for task in tasks%}
+            <li>
+                <form action="/delete_task" method="post">
+                    <input type="hidden" name="task_index" value="{{loop.index-1}}">
+                    <button type="submit"><span><i class="fas fa-trash"></i></span></button>
+                </form>
+                <span>
+                    <b>Task:</b> {{task.text}}
+                    <b>Priority:</b> {{task.priority}}
+                </span>
+            </li>
+            {%endfor%}
+        </ul>
+        </div>
+
+    <!-- Add a task. -->
+    <!-- <form action="/" method="POST">
+        <div class="form-group">
+            <input type="text" name="length" placeholder="enter a number" required>
+        </div>
+        <div class="form-group">
+            <p>Should we include uppercase characters?</p>
+            <input type="radio" name="upper" id="upper" value=yes required> Yes</input><br>
+            <input type="radio" name="upper" id="upper" value=no> No </input><br>
+        </div>
+        <div class="form-group" required>
+            <p>Should we include special characters?</p>
+            <input type="radio" name="special" value=yes required> Yes</input><br>
+            <input type="radio" name="special" value=no> No </input><br>
+        </div>
+        <div class="form-group" required>
+            <p>Should we include numbers?</p>
+            <input type="radio" name="numbers" value=yes required> Yes</input><br>
+            <input type="radio" name="numbers" value=no> No </input><br>
+        </div>
+        <input class="btn btn-primary" type="submit" value="submit">
+    </form> -->
+</body>
+
+</html>
