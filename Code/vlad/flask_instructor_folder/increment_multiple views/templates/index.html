@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment</title>
+</head>
+<body>
+    <h1>Increment or Decrement</h1>
+    <div>{{value}}</div>
+    <form action="/submit_form" method="post">
+        <select name="inc_or_dec">
+            <option value="increment">increment</option>
+            <option value="decrement">decrement</option>
+        </select>
+        <button type="submit">submit</button>
+    </form>
+
+    <h1>Save Your Favorite Number</h1>
+    <form action="/save_number" method="post">
+        <input type="number" name="mynumber"/>
+        <button type="submit">submit</button>
+    </form>
+    <ul>
+        {% for fav_num in fav_nums %}
+        <li>{{fav_num}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,22 @@
+h2 {
+    color:blue;
+}
+.input_field { 
+    width: 30%;
+}
+
+.input_button {
+    width: 10%;
+}
+
+header {
+    text-align:center;
+    background-color:ivory;
+    box-shadow: 0 5px 5px grey;
+    margin-bottom:20px;
+}
+.message {
+    background-color:blue;
+    padding:10px;
+    color:white;
+}

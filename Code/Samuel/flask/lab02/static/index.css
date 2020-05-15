@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+}
+
+#task{
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#content{
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

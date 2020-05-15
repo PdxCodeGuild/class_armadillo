@@ -6,8 +6,80 @@
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Verdana", "Arial", sans-serif;
+    text-align: center;
+}
+
+.intro {
+    padding: 20px;
+    overflow: hidden;
+}
+
+.container {
+    overflow: hidden;
+    color: black;
+    background-color: #00b4bb;
+    border: black solid 10px;
+}
+
+.page {
+    width: 70%;
+    margin: 0 auto;
+}
+
+p {
+    padding: 10px 20px 5px 20px;
+}
+
+.list {
+    text-align: left;
+    padding: 20px;
+
+}
+
+ul{
+    margin-left: 40px;
+    list-style:none;
+}
+    
+li{
+    padding: .3em 0 1em 40px;
+    background-image: url('anchor.jpg') no-repeat;
+}
+    
+
+.image {
+    float: left;
+    width: 200px;
+    height: 240px;
+    margin-right: 20px;
+    margin-bottom: 10px;
   }
 
-  p {
-    padding: 10px;
-  }
+.two {
+    float: right;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+a:link{
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover{
+    color: rgb(0, 81, 255);
+    text-decoration: underline;
+}
+
+a:active {
+    color: red;
+}
+
+a:link:visited {
+    color: purple;
+}
+
+a:visited:hover {
+    color: rgb(255, 94, 0);
+}
+
