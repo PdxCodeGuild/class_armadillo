@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <style type="text/css">
+        /* my style here */
+    </style>
+    <title>Todo List</title>
+</head>
+
+<body>
+{{todo}}
+    <h2>My Todo List</h2>
+    <form  methods="POST">
+        <h3><input class='input_field' type="text" name="user_input"placeholder="Please enter an item be added to the list: " /></h3>
+        <button class='input_button' type="submit">submit</button>
+    </form>
+    <form  methods="GET">
+    <ul>
+        {% for item in todo %}
+        <li><h4><input name="{{todo}}"type='checkbox'>{{item.text}}, {{item.priority}}</li></h4>
+        <!-- <li><h4><input name="{{todo}}"type='checkbox'>{{item.priority}}</li></h4> -->
+        {% endfor %}
+    </ul>
+    </form>
+        <!-- <li><h4><input  type='checkbox'> </li>butter the cat (medium)</h4>
+        <li><h4><input  type='checkbox'> </li>wash dishes (low)g</h4>
+        <li><h4><input  type='checkbox'> </li>pay the bills (high)</h4>
+        <li><h4><input  type='checkbox'> </li>watch last dance episode (high)</h4>
+        <li><h4><input  type='checkbox'> </li>complete lab2 (high)</h4> -->
+   
+
+</body>
+
+</html>
