@@ -4,25 +4,21 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    tasks = load_database()
+    tasks = load_database()  # Call load database to open the file on GET request
     return render_template("index.html", tasks=tasks["todos"])
 
-# # saving and loading the database
-# def save_database(data):
-#     with open('database.json', 'w') as file:
-#         file.write(json.dumps(data))
 
+# opens db.json, turns the python dictionary into json, and saves it to the file
 def load_database():
      with open('db.json', 'r') as file:
          data = json.loads(file.read())
      return data
 
-# opens db.json, reads the text, turns the json into a python dictionary
 
 # opens db.json, turns the python dictionary into json, and saves it to the file
 def save_database(data):
     with open('db.json', 'w') as file: # open the file
-        text = json.dumps(data) # turn the python dictionary into a json string
+        text = json.dumps(data, indent=4) # turn the python dictionary into a json string
         file.write(text)
 
 
@@ -36,6 +32,16 @@ def save_task():
         "text": task,
         "priority": priority,
         })
+    save_database(data)
+
+    return redirect('/')
+
+
+@app.route('/delete_task', methods=['post'])
+def delete_task():
+    task_index = request.form["task_index"]
+    data = load_database()
+    data['todos'].pop(int(task_index))
     save_database(data)
 
     return redirect('/')
