@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}"/>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="password_generator">Password Generator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rot13">ROT13</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="unit_converter">Unit Converter <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <h1>
+        Unit Converter
+    </h1>
+    <div id="content">
+        
+        <form action="" method="post">
+            <div>
+                <a>Input Units</a>
+                <select name="input_units">
+                    <option value="Feet">Feet</option>
+                    <option value="Miles">Miles</option>
+                    <option value="Meters">Meters</option>
+                    <option value="Kilometers">Kilometers</option>
+                    <option value="Inches">Inches</option>
+                    <option value="Yards">Yards</option>
+                </select>
+            </div>
+            <div>
+                <a>Output Units</a>
+                <select name="output_units">
+                    <option value="Feet">Feet</option>
+                    <option value="Miles">Miles</option>
+                    <option value="Meters">Meters</option>
+                    <option value="Kilometers">Kilometers</option>
+                    <option value="Inches">Inches</option>
+                    <option value="Yards">Yards</option>
+                </select>
+            </div>
+            <a>Measurement to convert</a>
+            <input type="text" name="measurement" value="0"><br>
+            <button type="submit">submit</button>
+        </form>
+    </div>
+    {% if message != '' %}
+    <div class="message">{{message}}</div>
+    {% endif %}
+    {% if result != '' %}
+    <div>{{measurement}} {{input_units}} is equal to {{result}} {{output_units}}</div>
+    {% endif %}
+</body>
+</html>

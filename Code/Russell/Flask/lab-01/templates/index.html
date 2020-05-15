@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generate</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+<body>
+    <h1>Password Generator</h1>
+    <h2><img src=https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.vHQmNqHEU9-wiYQTFDjkaAHaFj%26pid%3DApi&f=1></h2>
+    <form action="/" method="post"> 
+        <div>
+            <select name="Password Length">
+                <option value="6">Six Characters</option>
+                <option value="7">Seven Characters</option>
+                <option value="8">Eight Characters</option>
+                <option value="9">Nine Characters</option>
+                <option value="10"> Ten Characters</option>
+            </select>
+            <button type="submit">Generate Password</button>
+        </div>
+    </form>
+        
+    <div>{{password}}</div>
+
+    </body>
+    </html>
+    

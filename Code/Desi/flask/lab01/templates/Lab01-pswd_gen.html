@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='index.css') }}"/>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="vertical-center">
+            <form action="" method="post">
+                <input type="number" name="password_length" placeholder="enter some test" />
+                <button type="submit">submit
+                </button>
+            </form>
+        </div>
+    </div>
+    <img src="{{url_for('static', filename='Desis_Password.png') }}"/>
+    <form action="/" method="post">
+        <input type="text" name="user_name" placeholder="can you help me generate a password with random characters"/>
+        <input type="date" name="birthday" placeholder="I would like you to choose a number between 5 and 35"/>
+    </form>
+    {%if password != ""%}
+        <div class="output">
+            <span>
+                Your new password is {{password}}
+            </span>
+        </div>
+    {%endif%}
+</body>
+</html>

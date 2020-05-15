@@ -1,0 +1,53 @@
+<!-- to create the template for html short cut ! then hit tab 
+short cut to create h1 or h2 is type h1 then click tab button
+I -->
+
+<!-- Logo Creator for free: 
+    https://cooltext.com/
+
+cooltext.comcooltext.com
+Cool Text Graphics Generator(opens in new tab)
+Cool Text is a FREE graphics generator for web 
+pages and anywhere else you need an impressive logo without a lot of design work-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <style type="text/css">
+        /* my style here */
+    </style>
+
+    <title>Front Page</title>
+</head>
+
+<body>
+    <!-- <p>Hello {{word}}</p>
+    <h1>Hello </h1>
+    <h2> My name is </h2> -->
+    <header>
+        <!-- static image file -->
+        <img src="{{ url_for('static', filename='rot13_logo.png') }}">
+        <h1>AND</h1>
+        <img src="{{ url_for('static', filename='unit_converter_logo.png') }}">
+        <h1>AND</h1>
+        <img src="{{ url_for('static', filename='random_password_generator_logo.png') }}">
+
+    </header>
+
+    <div>
+        <a href="http://localhost:5000/rot13"><h3> Please click Rot13</h3></a>
+    </div>
+    <div>
+        <a href="http://localhost:5000/unit_converter"><h3>Please click Unit Converter</h3></a>
+    </div>
+    <div>
+        <a href="http://localhost:5000/random_password_generator"><h3>Please click Random Password Generator</h3></a>
+    </div>
+   
+</body>
+
+</html>
