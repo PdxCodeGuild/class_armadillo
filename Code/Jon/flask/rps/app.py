@@ -31,12 +31,9 @@ def computer_choice():
 @app.route('/', methods=['POST', 'GET'])
 def index():
     data = load_database()
-    print(data)
 
     if request.method == 'POST':
-        print(request.form)
         user_choice = request.form['choice']
-        print(user_choice) # = rock/value
         computer = computer_choice()
 
 
