@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Password Generator</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+    <title>To Do List</title>
 </head>
+
 <body>
+    <h1>To Do List</h1>
+    <div>
+        {{data['todos'][1]['text']}}
+        Priority: {{data['todos'][1]['priority']}}
+    </div>
     
 </body>
 </html>
