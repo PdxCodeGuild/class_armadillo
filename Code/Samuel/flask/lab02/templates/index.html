@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Test</h1>
+    <ul>
+        {% for task in tasks %}
+        <li>{{task}}</li>
+        {% endfor %}
+    </ul>
+    <p>Add Edition Below:</p>
+    <form action="/submit_task" method="POST">
+        <input type="text" name="task">
+        <select name="priority" id="">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+        <button type="submit">submit</button>
+    </form>
+</body>
+</html>
