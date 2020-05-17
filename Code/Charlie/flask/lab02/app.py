@@ -16,14 +16,14 @@ def save_database(data):
         file.write(text)
 
 @app.route("/")
-def index_start():
+def index():
     text = load_database()
     tasks = list()
     for task in (text["todos"]):
         tasks.append(task["text"] + " (" + task["priority"] + ")")
     return render_template("index.html", tasks = tasks)
 
-@app.route("/submit_task", methods=["POST"])
+@app.route("/submit_task_to_do", methods=["POST"])
 def submit_task():
     task = {"text": request.form["task"],
     "priority": request.form["priority"]}
