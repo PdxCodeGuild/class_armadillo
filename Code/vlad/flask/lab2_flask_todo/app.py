@@ -18,14 +18,15 @@ def save_database(data):
         text = json.dumps(data, indent=4) # turn the python dictionary into a json string
         file.write(text)
 
-@app.route('/')
-def index():
+#=======
+@app.route('/') # the view function it default to a GET Method
+def index(): 
     #data = load_database()
     #return render_template('index.html', value=data['value'], fav_nums=data['fav_nums'])
     todo = load_database()
     # value = data['value']
     todo = todo["todos"]# setting the todo equal to the todos
-    print(todo)
+    #print(todo)
     return render_template("index.html", todo=todo)
    
 #============ save to the database +++++++
@@ -37,16 +38,22 @@ def submit_form():
     
     # get the data out of the form
     print(request.form) # ImmutableMultiDict([('inc_or_dec', 'increment')])
-    del_or_add = request.form['del_or_add']
-    print(del_or_add) 
+    user_input = request.form['user_input']
+    priority = request.form['priority']
+    print(todo) 
 
-    # modify the data from the database
-    if del_or_add == 'increment':
-        todo['text'] += 1
-    else:
-        todo['text'] -= 1
+   # todo.append({"text":user_input,"priority":"low"})# 
+    todo["todos"].append({"text":user_input,"priority":priority})
 
-    # save the data to the database
+# todo is the variable with a dictionary with the key todos follow by a list of dictionary with two keys value pairs 
+#todo = {'todos': [{'text': 'walk the dog'}]}
+#  fruits =  {
+#         1: "banana"
+#         2:"mango"
+#         3: "orange"
+#     }
+# fruits[1] # 
+    # # save the data to the database
     save_database(todo)
 
     # redirect the user back to the home page

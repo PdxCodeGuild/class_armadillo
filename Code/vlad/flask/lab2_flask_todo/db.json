@@ -11,6 +11,22 @@
         {
             "text": "wash dishes",
             "priority": "low"
+        },
+        {
+            "text": "cut the grass ",
+            "priority": "low"
+        },
+        {
+            "text": "buy some cloths",
+            "priority": "low"
+        },
+        {
+            "text": "Eat ",
+            "priority": "High"
+        },
+        {
+            "text": "watch",
+            "priority": "car"
         }
     ]
 }
