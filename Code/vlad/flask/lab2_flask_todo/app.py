@@ -3,88 +3,172 @@
 from flask import Flask, render_template, request, redirect
 import json
 
-app = Flask(__name__)
+app = Flask('increment_app')
 
 
-@app.route('/', methods=['GET'])
 # opens db.json, reads the text, turns the json into a python dictionary
 def load_database():
-    todo = {}
     with open('db.json', 'r') as file: # open the file
         text = file.read() # read the text
-    todo = json.loads(text) # turn the json string into a python dictionary
+    return json.loads(text) # turn the json string into a python dictionary
+
+# opens db.json, turns the python dictionary into json, and saves it to the file
+def save_database(data):
+    with open('db.json', 'w') as file: # open the file
+        text = json.dumps(data, indent=4) # turn the python dictionary into a json string
+        file.write(text)
+
+@app.route('/')
+def index():
+    #data = load_database()
+    #return render_template('index.html', value=data['value'], fav_nums=data['fav_nums'])
+    todo = load_database()
+    # value = data['value']
     todo = todo["todos"]# setting the todo equal to the todos
     print(todo)
     return render_template("index.html", todo=todo)
+   
+#============ save to the database +++++++
+
+@app.route('/submit_form', methods=['POST'])
+def submit_form():
+    # load the database
+    todo = load_database()
+    
+    # get the data out of the form
+    print(request.form) # ImmutableMultiDict([('inc_or_dec', 'increment')])
+    del_or_add = request.form['del_or_add']
+    print(del_or_add) 
+
+    # modify the data from the database
+    if del_or_add == 'increment':
+        todo['text'] += 1
+    else:
+        todo['text'] -= 1
+
+    # save the data to the database
+    save_database(todo)
+
+    # redirect the user back to the home page
+    # return 'you are at the submit form view'
+    return redirect('/')
 
 
 
-# @app.route('/', methods=['POST'])
-# # saving and loading the database
-# def save_database(todo):
-#     with open('db.json', 'w') as file:
-#         file.write(json.dumps(todo))
 
 
 
-# demonstrating how to go between json and a python dictionary
-# data = '{"name": "bob"}'
-# todo = json.loads(todo) # json string -> python dictionary
-# print(todo[0]['text']) # bob
-# todo = json.puts(todo) # python dictionary -> json string
-# print(todo)
+#=========== MY CODE =========== 
+
+# @app.route('/', methods=['GET'])
+# # opens db.json, reads the text, turns the json into a python dictionary
+# def load_database():
+#     todo = {}
+#     with open('db.json', 'r') as file: # open the filetext = file.read() # read the text
+        
+#     todo = json.loads(text) # turn the json string into a python dictionary
+#     todo = todo["todos"]# setting the todo equal to the todos
+#     print(todo)
+#     return render_template("index.html", todo=todo)
 
 
-# def save_contacts(path, contacts):
-#     contacts = {'contacts': contacts} # put the list of contacts in to a dictionary
-#     with open(path, 'w') as file: # open the file
-#         text = json.dumps(contacts, indent=4, sort_keys=True) # convert our list of dictionaries into json
-#         file.write(text) # write the json to the file
+# import json
 
 # def load_database():
-#     with open('database.json', 'r') as file:
+#     with open('db.json', 'r') as file:
 #         data = json.loads(file.read())
 #     return data
 
-# opens db.json, turns the python dictionary into json, and saves it to the file
+# def save_database(data):
+#     with open('db.json', 'w') as file:
+#         file.write(json.dumps(data, indent=4, sort_keys=True))
+
+# data = load_database()
+# print(data)
+# print(data['value'])
+# data['value'] += 1
+
+# print(data)
+
+# save_database(data)
+
+
+#================================ SAMPLE FROM INSTRUCTOR ===========
+
+# from flask import Flask, render_template, request, redirect
+# import json
+
+# app = Flask('increment_app')
+
+
+# # opens db.json, reads the text, turns the json into a python dictionary
+# def load_database():
+#     with open('db.json', 'r') as file: # open the file
+#         text = file.read() # read the text
+#     return json.loads(text) # turn the json string into a python dictionary
+
+# # opens db.json, turns the python dictionary into json, and saves it to the file
 # def save_database(data):
 #     with open('db.json', 'w') as file: # open the file
 #         text = json.dumps(data, indent=4) # turn the python dictionary into a json string
 #         file.write(text)
 
 
-# # if we used classes
-# # db = Database()
-# # db.load()
-# # db.save()
 
-# @app.route('/', methods=['GET', 'POST'])
+# # request/response cycle 1
+# # 1. user goes to http://localhost:5000/ and sends a GET request, which goes to the 'index' view
+# # 2. the server responds with the rendered template containing the form
+
+# # request/response cycle 2
+# # 3. the user submits the form, which goes to the 'submit_form'
+# # 4. the server responds with an instruction to redirect to the 'index' view
+
+# # request/response cycle 3 - the same as request/response cycle 1
+
+
+# # by default views can only receive GET requests
+# # @app.route('/', methods=['GET'])
+# @app.route('/')
 # def index():
-
-#     # # json.loads turns a string of json into a dictionary
-#     # data = json.loads('{"name":"joe","age":456}')
-#     # print(data)
-#     # print(data['name']) # joe
-#     # data['name'] = 'jane'
-#     # # json.dumps turns a dictionary into a string of json
-#     # json_string = json.dumps(data)
-#     # print(json_string)
-
-
-#     # data = load_database()
-#     # print(data)
-#     # data['value'] += 1
-#     # save_database(data)
-
+#     #data = load_database()
+#     #return render_template('index.html', value=data['value'], fav_nums=data['fav_nums'])
 #     data = load_database()
-#     if request.method == 'POST':
-#         print(request.form) # ImmutableMultiDict([('inc_or_dec', 'increment')])
-#         inc_or_dec = request.form['inc_or_dec']
-#         print(inc_or_dec) # increment
-#         if inc_or_dec == 'increment':
-#             data['value'] += 1
-#         else:
-#             data['value'] -= 1
-#         save_database(data)
+#     value = data['value']
+#     fav_nums = data['fav_nums']
+#     return render_template('index.html', value=value, fav_nums=fav_nums)
+
+
+# @app.route('/submit_form', methods=['POST'])
+# def submit_form():
+#     # load the database
+#     data = load_database()
     
-#     return render_template('index.html', value=data['value'], fruits=data['fruits'])
+#     # get the data out of the form
+#     print(request.form) # ImmutableMultiDict([('inc_or_dec', 'increment')])
+#     inc_or_dec = request.form['inc_or_dec']
+#     print(inc_or_dec) # increment
+
+#     # modify the data from the database
+#     if inc_or_dec == 'increment':
+#         data['value'] += 1
+#     else:
+#         data['value'] -= 1
+
+#     # save the data to the database
+#     save_database(data)
+
+#     # redirect the user back to the home page
+#     # return 'you are at the submit form view'
+#     return redirect('/')
+
+
+# @app.route('/save_number', methods=['POST'])
+# def save_number():
+#     mynumber = request.form['mynumber']
+#     mynumber = int(mynumber) # the value form the form is a string by default
+#     data = load_database()
+#     data['fav_nums'].append(mynumber)
+#     data['fav_nums'].sort()
+#     save_database(data)
+
+#     return redirect('/')
