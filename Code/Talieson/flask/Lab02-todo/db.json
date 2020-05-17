@@ -1,18 +1,6 @@
 {
     "todos": [
         {
-            "text": "agsdag",
-            "priority": "high"
-        },
-        {
-            "text": "asdgadsgg",
-            "priority": "medium"
-        },
-        {
-            "text": "agds",
-            "priority": "low"
-        },
-        {
             "text": "asdgadsg",
             "priority": "low"
         },
@@ -26,6 +14,10 @@
         },
         {
             "text": "",
+            "priority": "low"
+        },
+        {
+            "text": "gadsgoash",
             "priority": "low"
         }
     ]
