@@ -27,5 +27,5 @@ def index():
         save_database(data) 
         result = data["todos"]
         
-    return render_template('index.html', task=text, priority=priority, result=result)
+    return render_template('index.html', todos=data['todos'])
 

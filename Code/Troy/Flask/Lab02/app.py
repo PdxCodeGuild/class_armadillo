@@ -40,9 +40,11 @@ def index():
 
 def save_honey_do_list():
     chore = request.form['chore']
+    priority = request.form['priority']
     print(chore)
     data = load_chores()
     data['honey_do_list'].append({'chore':chore})
+    data['honey_do_list'].append({'priority':priority})
     # data['honey_do_list'].sort()
     save_chores(data)
 

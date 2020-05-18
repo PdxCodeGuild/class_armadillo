@@ -15,19 +15,41 @@
 # Show the user a page with a form containing a dropdown list with "rock", "paper" and "scissors" and a submit button. When the user selects rock, paper, or scissors and hits submit, show the computer's choice and tell them whether they won or lost. -->
 
 <div class="container mt-5 text-center">
-  <form action="/" method="POST">
-    <select name="choice">
-      <option value="rock">Rock</option>
-      <option value="paper">Paper</option>
-      <option value="scissors">Scissors</option>
-    </select>
-    <button class="btn btn-outline-dark" type='submit'>Shoot!</button>
-  </form>
+  <div class="container shadow-lg mt-5">
+    <form action="/" method="POST">
+      <select name="choice">
+        <option value="Rock">Rock</option>
+        <option value="Paper">Paper</option>
+        <option value="Scissors">Scissors</option>
+      </select>
+      <button class="btn btn-outline-dark" type='submit'>Shoot!</button>
+    </form>
+  
+    <!-- user_score=data['user_score']
+      , computer_score=data['computer_score']
+      , computer_choice=computer_choice()) -->
+      <!-- ties=data['ties'], user_input=user_choice) -->
+      <table class="table"> 
+        <tr>
+          <th scope="col">User Score</th>
+          <th scope="col">User Choice</th>
+          <th scope="col">Ties</th>
+          <th scope="col">Computer Score</th>
+          <th scope="col">Computer Choice</th>
+        </tr>
+        <tr>
+          <td>{{ user_score }}</td>
+          <td>{{ user_input }}</td>
+          <td>{{ ties }}</td>
+          <td>{{ computer_score }}</td>
+          <td>{{ computer_choice }}</td>
+        </tr>
+      </table>
+      <img src="https://www.skillcon.org/wp-content/uploads/2016/12/RPS_Event2-1024x379.jpg" alt="">
 
 
-
+  </div>
 </div>
-
 
 
 

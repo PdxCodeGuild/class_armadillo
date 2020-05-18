@@ -10,7 +10,20 @@ h1 {
 .main_pic {
     text-align: center;
 }
-.dropdown {
+
+/* list and priority input positions  */
+.list {
+    text-align: center;
+}
+/* chores list */
+.chores {
+    text-align: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* .dropdown {
     position: relative;
     display: inline-block;
 }
@@ -27,4 +40,4 @@ h1 {
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
+} */

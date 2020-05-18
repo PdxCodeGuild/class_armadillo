@@ -31,19 +31,23 @@ def computer_choice():
 @app.route('/', methods=['POST', 'GET'])
 def index():
     data = load_database()
-    print(data)
-    
+    user_choice = ''
     if request.method == 'POST':
-        print(request.form)
-        user_choice = request.form['choice']
-        print(user_choice) # = rock/value
-        computer_choice = computer_choice()
-
-        if user_choice == computer_choice:
-            pass
+        user_choice = request.form['choice'] # = value
+        computer = computer_choice()
 
 
-    else:
-        pass
+        if user_choice == computer:
+            data['ties'] += 1
+        elif user_choice == 'Rock' and computer == 'Scissors':
+            data['user_score'] += 1
+        elif user_choice == 'Scissors' and computer == 'Paper':
+            data['user_score'] += 1
+        elif user_choice == 'Paper' and computer == 'Rock':
+            data['user_score'] += 1
+        else:
+            data['computer_score'] += 1
 
-    return render_template('index.html', user_score=data['user_score'], computer_score=data['computer_score'])
+        save_database(data)
+
+    return render_template('index.html', user_score=data['user_score'], computer_score=data['computer_score'], computer_choice=computer_choice(), ties=data['ties'], user_input=user_choice)

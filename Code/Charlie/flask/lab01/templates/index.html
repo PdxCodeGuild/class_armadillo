@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style type="text/css">
+        body {
+            font-family: sans-serif;
+            background-color: grey;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        #links {
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: slategray;
+            margin-bottom: 10px;
+
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        a:hover {
+            color: whitesmoke;
+        }
+
+        a:active {
+            color: skyblue;
+        }
+
+        #image {
+            width: 50%;
+            margin-top: 10px;
+            border-radius: 15px;
+        }
+
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #forms {
+            padding: 10px;
+        }
+
+        #output {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Password Generator</h1>
+        <a id="links" href="/rotate"> Rotate</a>
+        <a id="links" href="/passsword"> Password Generator </a>
+    </header>
+    <div id="main">
+        <img id="image" src="{{url_for('static',filename='flask_lab.jpg')}}" />
+        <form id="forms" action="" method="post">
+            <input type="number" placeholder="Enter password length: " name="number" />
+            <button type="submit">submit</button>
+        </form>
+    </div>
+    <div id="output">Your password is: {{output}}</div>
+
+</body>
+
+</html>

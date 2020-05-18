@@ -1,14 +1,14 @@
 {
-    "Productivity":[
+    "todos":[
       {
-        "educations": "GO TO STUDY HALL", 
+        "task": "walk the dog", 
         "priority": "high"
 
       },{
-        "health":"eat fruit",
+        "task":"eat fruit",
         "priority":"high"
       },{
-        "chores":"iron socks",
+        "task":"iron socks",
         "priority":"low"
       }
     ]
