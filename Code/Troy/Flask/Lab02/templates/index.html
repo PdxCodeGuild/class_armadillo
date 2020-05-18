@@ -16,18 +16,22 @@
     <div class="main_pic">
         <img src="{{ url_for('static', filename='chores.jpg')}}" width="400" height="300" />
     </div>
-    <div id="list">
-        <form action="/save_honey_do_list/" method="post">
-            <input type="text" name="chore" placeholder="enter some text" />
-            <input type="text" name="priority" placeholder="priority" />
-            <button type="submit">submit</button>
-        </form>
+    <div class=button>
+        <div class="list">
+            <form action="/save_honey_do_list/" method="post">
+                <input type="text" name="chore" placeholder="To Do List" />
+                <input type="text" name="priority" placeholder="Priority" />
+                <button type="submit">submit</button>
+            </form>
+        </div>
     </div>
-    <ul>
-        {% for chore in honey_do_list %}
-        <li>{{chore['chore']}}</li>
-        {%endfor%}
-    </ul>
+    <div class="chores">
+        <ul>
+            {% for chore in honey_do_list %}
+            <li>{{chore['chore']}}</li>
+            {%endfor%}
+        </ul>
+    </div>
 
 </body>
 
