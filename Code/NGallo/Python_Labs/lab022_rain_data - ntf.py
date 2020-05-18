@@ -13,8 +13,9 @@ def timedate():
    # print(today)
    # print(today.strftime('%d-%b-%Y'))
    return today.strftime('%d-%b-%Y')
-timedate()
+timedate = timedate()
 
+print(timedate)
 
 # from datetime import datetime
 # ​

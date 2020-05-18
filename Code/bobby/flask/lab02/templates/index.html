@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Things To Do</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css/') }}"/>
+    <style type="text/css"></style>
 </head>
 <body>
+
     <h1>
-        Hello World!
+        Things To Do
     </h1>
     <form action="/" method ="POST">
        <input type = "text" name = "task" placeholder = "Add Task"/>
@@ -21,10 +24,13 @@
     {{result}}
     <div>
         <ul>
-            <li>walk the dog (high)</li>
-            <li>butter the cat (medium)</li>
-            <li>wash dishes (low)</li>
+            <li>Wash Th Dishes (high)</li>
+            <li>Walk The Dog (medium)</li>
+            <li>Wash The Cars (low)</li>
         </ul>
+    </div>
+    <div>
+        <img src="{{ url_for('Code\bobby\flask\lab02\static\scroll.png') }}" alt="scroll">
     </div>
 </body>
 </html>
