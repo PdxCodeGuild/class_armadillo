@@ -16,26 +16,27 @@
     <h2>My Todo List</h2>
     <form action="/submit_form" method="POST">
         <h3><input class='input_field' type="text" name="user_input"placeholder="Please enter an item be added to the list: " /></h3>
-        <h3><input class='input_field' type="text" name="priority"placeholder="Please enter Priority High, Medium or low: " /></h3>
+        <h3><input class='input_field' type="text" name="priority"placeholder="Please enter priority - High, Medium or low: " /></h3>
         <button class='input_button' type="submit">submit</button>
         
        
     </form>
 
-    <form methods="POST">
+    <form action= "/strikethrough" method="POST">
         <h2> My Items</h2>
         <ul>
             {% for item in todo %}
             <div class="form-group ">
-                <label for="inputName" class="col-md-1 control-label">select</label>  
+                <!-- <label for="inputName" class="col-md-1 control-label">select</label>   -->
                 <div class="col-md-5">
                     <div class="checkbox">
                         <input type="checkbox" name="packersOff" value="1"/>
-                         <label class="strikethrough">sssssssss</label>
+                         <label class="strikethrough">{{item.text}}, {{item.priority}}</label>
+                         <button class='input_button' type="submit">submit</button>
                     </div>
                  </div>
             </div>
-            <li><h4><input name="{{todo}}">{{item.text}}, {{item.priority}} <a href="#"></a></li></h4>
+            <!-- <li><h4>{{item.text}}, {{item.priority}}</li></h4> -->
             <!-- <li><h4><input name="{{todo}}"type='checkbox'>{{item.priority}}</li></h4> -->
             {% endfor %}
         </ul>

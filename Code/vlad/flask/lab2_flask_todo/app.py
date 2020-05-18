@@ -60,6 +60,19 @@ def submit_form():
     # return 'you are at the submit form view'
     return redirect('/')
 
+@app.route('/strikethrough', methods=['POST'])
+def strikethrough():
+    # return "Hello"
+    print(request.form)
+
+# load to the database
+# change the HTML  
+# save to the database 
+
+    # save_database(todo)
+
+
+    return redirect('/')
 
 
 

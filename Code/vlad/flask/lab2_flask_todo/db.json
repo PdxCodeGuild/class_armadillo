@@ -2,7 +2,8 @@
     "todos": [
         {
             "text": "walk the dog",
-            "priority": "high"
+            "priority": "high",
+            "completed": true
         },
         {
             "text": "butter the cat",
@@ -47,6 +48,10 @@
         {
             "text": "run",
             "priority": ""
+        },
+        {
+            "text": "snack",
+            "priority": "high"
         }
     ]
 }
