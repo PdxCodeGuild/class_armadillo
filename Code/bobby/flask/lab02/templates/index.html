@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Things To Do</title>
+</head>
+<body>
+    <h1>
+        Hello World!
+    </h1>
+    <form action="/" method ="POST">
+       <input type = "text" name = "task" placeholder = "Add Task"/>
+       <select name="Priority">
+           <option value = "High">High</option>
+           <option value ="Med">Medium</option>
+           <option value = "Low">Low</option>
+       </select>
+       <button type="Submit">Add</button>
+    </form>
+    {{result}}
+    <div>
+        <ul>
+            <li>walk the dog (high)</li>
+            <li>butter the cat (medium)</li>
+            <li>wash dishes (low)</li>
+        </ul>
+    </div>
+</body>
+</html>

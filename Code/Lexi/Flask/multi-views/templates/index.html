@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>May 14</title>
+</head>
+<body>
+    <h1>Increment or decrement</h1>
+    <div>{{value}}</div>
+    <form action="/submit_form" method="post">
+        <select name="selected option">
+            <option value="increment">go up</option>
+            <option value="decrement">go down</option>
+        </select>
+        <button type="submit">Submit</button>
+
+    </form>
+    <ul>
+        {% for fruit in fruits %}
+        <li>{{fruit}}</li>
+        {% endfor %}
+    </ul>
+    <h1>SAVE YOUR FAVORITE NUMBA</h1>
+    <form action ="/save_number" method="post">
+        <input type="text"/>
+        <button type="submit">submit</button>
+    </form>
+    
+</body>
+</html>

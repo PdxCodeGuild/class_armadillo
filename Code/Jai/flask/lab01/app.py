@@ -5,7 +5,7 @@ import string
 
 app = Flask(__name__)
 
-@app.route('/rot13', methods= ['GET', 'POST'])
+@app.route('/', methods= ['GET', 'POST'])
 def index():
     if request.method == 'POST':
         alphabet= string.ascii_lowercase

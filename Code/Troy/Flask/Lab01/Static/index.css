@@ -3,12 +3,10 @@
 /* body */
 body {
     background-color: #003049;
-    /* background-color:white; */
 }
 /* header */
 header{ 
     text-align: center;
-    /* background-color: #FF006E; */
     box-shadow: 0 5px 5px grey;
     margin-bottom:20px;
 }
@@ -19,18 +17,21 @@ header{
     color:white;
 }
 
-/* button position */
-/* .container .button {
+/* button */
+/*button position */
+.container .button {
     text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);  */
+    -ms-transform: translate(-50%, -50%); 
+    border-bottom: none; /* Prevent double borders */
 }
 
 #num_select {
     text-align: center;
+    display: block;
     height: 25px;
     width: 200px;
 }
@@ -41,17 +42,6 @@ header{
     width: 60px; 
 }
 
-#upper_select {
-    text-align: center;
-    height: 25px;
-    width: 200px;
-}
-
-#lower_select {
-    text-align: center;
-    height: 25px;
-    width: 200px; 
-}
 /* password output */
 .output {
     text-align: center;
@@ -63,11 +53,8 @@ header{
 /* slot pic positioning */
 .slot {
     text-align: center;
-   
-    /* display: block;
-    margin-left: auto;
-    margin-right: auto; */
 }
+
 /* slot pic edges */
 #slot1 {
     border-radius: 50px;
