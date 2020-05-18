@@ -1,15 +1,48 @@
 {
-    "Productivity":[
-      {
-        "educations": "GO TO STUDY HALL", 
-        "priority": "high"
-
-      },{
-        "health":"eat fruit",
-        "priority":"high"
-      },{
-        "chores":"iron socks",
-        "priority":"low"
-      }
+    "todos": [
+        {
+            "task": "walk the dog",
+            "priority": "high"
+        },
+        {
+            "task": "eat fruit",
+            "priority": "high"
+        },
+        {
+            "task": "iron socks",
+            "priority": "low"
+        },
+        {
+            "task": "new_task",
+            "priority": "low"
+        },
+        {
+            "task": "eat chips",
+            "priority": "low"
+        },
+        {
+            "task": "task",
+            "priority": "low"
+        },
+        {
+            "task": "walk cat",
+            "priority": "low"
+        },
+        {
+            "task": "task",
+            "priority": "low"
+        },
+        {
+            "task": "finish lab",
+            "priority": "low"
+        },
+        {
+            "task": "task",
+            "priority": "high"
+        },
+        {
+            "task": "finish this",
+            "priority": "high"
+        }
     ]
-  }
+}
