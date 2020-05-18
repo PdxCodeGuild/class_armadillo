@@ -33,18 +33,19 @@ import json
 data = '{"name": "bob"}'
 data = json.loads(data) # json string -> python dictionary
 print(data['name']) # bob
-data = json.puts(data) # python dictionary -> json string
+data = json.dumps(data) # python dictionary -> json string
 print(data)
 
-# saving and loading the database
-def save_database(data):
-    with open('database.json', 'w') as file:
-        file.write(json.dumps(data))
-
+# loads data from db.json, returns a dictionary
 def load_database():
-    with open('database.json', 'r') as file:
+    with open('db.json', 'r') as file:
         data = json.loads(file.read())
     return data
+
+# save data to the db.json
+def save_database(data):
+    with open('db.json', 'w') as file:
+        file.write(json.dumps(data))
 ```
 
 The resulting HTML should look something like this, but feel free to use a `table` or `div`s instead.

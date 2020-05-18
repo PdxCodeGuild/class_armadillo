@@ -1,0 +1,15 @@
+{
+    "Productivity":[
+      {
+        "educations": "GO TO STUDY HALL", 
+        "priority": "high"
+
+      },{
+        "health":"eat fruit",
+        "priority":"high"
+      },{
+        "chores":"iron socks",
+        "priority":"low"
+      }
+    ]
+  }
