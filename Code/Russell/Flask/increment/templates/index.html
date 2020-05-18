@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment Demo</title>
+</head>
+<body>
+    <h1>Increment or Decrement</h1>
+    <div>{{value}}</div>
+    <form action="/" method="post">
+        <select name="inc_or_dec"> 
+            <option value="increment">Increment</option>
+            <option value="decrement">Decrement</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+    <ul>
+        {% for fruit in fruits %}
+        <li>{{fruit}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
