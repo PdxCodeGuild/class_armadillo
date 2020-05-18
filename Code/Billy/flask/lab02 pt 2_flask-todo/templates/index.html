@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Billy B.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do It List</title>
+
+    <!-- prevents enter button from working when filling in fields on form -->
+    <script type="text/javascript">
+        function stopRKey(evt) {
+            var evt = (evt) ? evt : ((event) ? event : null);
+            var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+            if ((evt.keyCode == 13) && (node.type == "text")) { return false; }
+        }
+        document.onkeypress = stopRKey;   
+    </script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        ul {
+            list-style-type: circle;
+            margin-left: 25px;
+            padding: 0;
+        }
+
+        .ok {
+            margin-left: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row align-items-center">
+        <div class="col">
+            <form autocomplete="off" class="ok" action="/enter_task" method="POST">
+                <input autocomplete="off" type="text" name="new_text" placeholder="Enter task"><br>
+                <input type="radio" name="new_pri" value="high" checked> High<br>
+                <input type="radio" name="new_pri" value="medium"> Medium<br>
+                <input type="radio" name="new_pri" value="low"> Low<br>
+                <button type="submit">submit</button><br>
+            </form>
+        </div>
+        <div class="col">
+            <h1>
+                <img src="{{ url_for('static', filename='image1.png') }}">
+            </h1>
+        </div>
+        <div class="col">
+            <ul>
+                {% for task in doit %}
+                <li>{{task['text']}} ({{task['priority']}})</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
