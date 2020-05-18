@@ -1,42 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: blanchedalmond;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        #links {
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: rgba(46, 10, 10, 0.171);
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        a:hover {
+            color: whitesmoke;
+        }
+
+        a:active {
+            color: purple;
+        }
+
+        #image {
+            margin-top: 10px;
+            border-radius: 15px;
+            width: 50%;
+        }
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #forms {
+            padding: 10px;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlackJack Advice</title>
+    <title>Flask To-Do List</title>
 </head>
-<body>
-    <header><h1>BlackJack Advice</h1></header>
-    
-    <div id="main">
-        <img id="image" src="/static/pictures/blackjack.jpg">
-        <form id="forms" action="/" method="post">
-            
-            <select name="card_choice_one">
-                {%for card in deck %}
-                <option value="{{card}}">{{card}}</option>
-                {%endfor%}
-            </select>
-            <select name="card_choice_two">
-                {%for card in deck %}
-                <option value="{{card}}">{{card}}</option>
-                {%endfor%}
-            </select>
-            <select name="card_choice_three">
-                {%for card in deck %}
-                <option value="{{card}}">{{card}}</option>
-                {%endfor%}
-            </select>
-            <!-- <input type="text" placeholder="Do you want to hit? y/n " name="hit_or_stay" /> -->
-            <button type="submit">submit</button>
-        </form>
-        <div id="results">
-            <p>{{blackjack}}</p>
-        </div>
 
+<body>
+    <header>
+        <h1>Welcome to the Flask To-Do List</h1>
+        <a id="links" href="/">Flask To-Do List</a>
+    </header>
+    <div id="main">
+        <img id="image" src="/static/To_Do_List.png">
+        <form id="forms" action="/save_to_json" method="post">
+            <input type="text" placeholder="Enter a task: " name="task" />
+            <select name="priority">
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+            <button type="submit">Save</button>
+            <button type="submit" id="delete">Delete Last Item</button>
+        </form>
     </div>
+    {% for task in tasks%}
     
-    <footer>&copy Class_A 2020</footer>
+    <ul>
+        <li>{{data}}</li>
+    </ul>
+    {% endfor %}
+    <footer>
+        <p>&copy United Converters 2020 </p>
+    </footer>
 </body>
+
 </html>

@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
@@ -30,14 +30,42 @@ def index():
             chores.append(data['todos'][counter]['text'])
             counter += 1
         
-        todo_dict = dict(zip(chores,priority))
-        print(todo_dict)
-           
+    todo_dict = dict(zip(chores,priority))
 
-        return render_template('index.html', data=data, priority=priority, chores=chores, todo_dict=todo_dict)
         
-    # return 'hello world'
+    return render_template('index.html', data=data, todo_dict=todo_dict, chores=chores, priority=priority)
+
+
+
+@app.route('/save_chore', methods=['POST']) 
+def save_chore():
+
+    data = load_database()
+    print(data)
+    print(request.form)
+    data['todos'].append(request.form)
+    print(data)
+    save_db(data)
+    return redirect('/')     
+    
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # $env:FLASK_APP = "app.py" 
