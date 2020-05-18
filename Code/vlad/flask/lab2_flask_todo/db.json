@@ -2,12 +2,12 @@
     "todos": [
         {
             "text": "walk the dog",
-            "priority": "high",
-            "completed": true
+            "priority": "high"
         },
         {
             "text": "butter the cat",
-            "priority": "medium"
+            "priority": "medium",
+            "completed": true
         },
         {
             "text": "wash dishes",

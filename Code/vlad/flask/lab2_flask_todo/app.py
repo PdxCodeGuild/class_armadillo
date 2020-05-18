@@ -63,16 +63,47 @@ def submit_form():
 @app.route('/strikethrough', methods=['POST'])
 def strikethrough():
     # return "Hello"
-    print(request.form)
+    # print(dict(request.form))
+    strike = dict(request.form) # save it to a variable 
+    print(list(strike)) # to print the keys in the dictionary in a list 
+    strike = list(strike) # ['walk the dog', 'Eat ', 'walk'] list of the thing I checkout on the todo list
 
 # load to the database
-# change the HTML  
-# save to the database 
-
-    # save_database(todo)
-
-
+    todo = load_database() # I can call this data_load_db = load_database()
+    # print(todo)
+    # writing a for loop 
+    for item in todo['todos']: # todo is the entire dictionary
+        # print(item['text']) # printing the text key of this dictionary todos
+        if item['text'] in strike: # we are checking to see if the items on the list have been checked
+        #    print(item['text'])
+            item.update({"completed":True})# this is to add the completed: true to all the other keys value pairs in the other dictionaries inside the json
+            print(item)
+    print(todo)
+        # save to the database 
+    save_database(todo)
     return redirect('/')
+
+
+# item.update({"completed":True})# this is to add the completed: true to all the other keys value pairs in the other dictionaries inside the json
+
+# updating the dictionary without using the update method as shown above: 
+#     >>dict = {'a':1, 'b':2, 'c': 3}
+# >>> dict
+# {'a': 1, 'b': 2, 'c': 3}
+# >>> dict['d'] = 4
+# >>> dict
+# {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+
+# json = {'todos':[{'a': 1, 'b': 2}, {'a': 3, 'b':4}]}
+#      for item in json['todos']:
+# ...     print(item)
+# ...
+# {'a': 1, 'b': 2}
+# {'a': 3, 'b': 4}
+
+# change the HTML  
+
+
 
 
 

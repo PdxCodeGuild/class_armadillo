@@ -30,15 +30,18 @@
                 <!-- <label for="inputName" class="col-md-1 control-label">select</label>   -->
                 <div class="col-md-5">
                     <div class="checkbox">
-                        <input type="checkbox" name="packersOff" value="1"/>
+                        <input type="checkbox" name="{{item.text}}"/>
                          <label class="strikethrough">{{item.text}}, {{item.priority}}</label>
-                         <button class='input_button' type="submit">submit</button>
+                         <!-- <div class="form-group {{'has-success has-feedback' if not error_username }}"> -->
+
                     </div>
                  </div>
             </div>
             <!-- <li><h4>{{item.text}}, {{item.priority}}</li></h4> -->
             <!-- <li><h4><input name="{{todo}}"type='checkbox'>{{item.priority}}</li></h4> -->
             {% endfor %}
+            <button class='input_button' type="submit">submit</button>
+
         </ul>
     </form>
     <!-- <li><h4><input  type='checkbox'> </li>butter the cat (medium)</h4>
