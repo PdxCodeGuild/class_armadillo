@@ -1,0 +1,28 @@
+{
+    "pokemon": [
+        {
+            "id": 16,
+            "name": "Pidgey"
+        },
+        {
+            "id": 513,
+            "name": "Pansear"
+        },
+        {
+            "id": 150,
+            "name": "Mewtwo"
+        },
+        {
+            "id": 291,
+            "name": "Ninjask"
+        },
+        {
+            "id": 174,
+            "name": "Igglybuff"
+        },
+        {
+            "id": 15,
+            "name": "Beedrill"
+        }
+    ]
+}

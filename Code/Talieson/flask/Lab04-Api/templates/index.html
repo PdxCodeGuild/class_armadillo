@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=stylesheet href="{{ url_for('static', filename='style/index.css') }}">
+    <title>Pokedex!</title>
+</head>
+
+<body>
+    <header><img src="static\style\header.png"></header>
+    <form class="input_box" action="/generate" method="POST">
+        <button class="enter_button" type="submit">Encounter a new Pokemon!</button>
+    </form>
+    {{result}}
+    <div class="pokedex">
+        <ul>
+            {%for pokemon in pokedex%}
+            <li>{{pokemon.id}}. {{pokemon.name}}</br>
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png">
+            </li>
+            {%endfor%}
+        </ul>
+    </div>
+</body>
+
+</html>
