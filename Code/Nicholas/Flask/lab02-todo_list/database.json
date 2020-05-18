@@ -9,16 +9,8 @@
             "priority": "medium"
         },
         {
-            "text": "wash dishes",
+            "text": "wash the dishes",
             "priority": "low"
         },
-        {
-            "text": "jog",
-            "priority": "high"
-        },
-        {
-            "text": "wash the dishes",
-            "priority": "high"
-        }
     ]
 }
