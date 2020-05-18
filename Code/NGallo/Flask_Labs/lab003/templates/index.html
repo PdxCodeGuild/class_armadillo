@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: darkgoldenrod;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        #links {
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: rgba(46, 10, 10, 0.171);
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        a:hover {
+            color: whitesmoke;
+        }
+
+        a:active {
+            color: black;
+        }
+
+        #image {
+            margin-top: 10px;
+            border-radius: 15px;
+            width: 50%;
+        }
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #forms {
+            padding: 10px;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask API</title>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to my Flask API Lab</h1>
+        <a id="links" href="/">Flask API Lab</a>
+    </header>
+    <div id="main">
+        <img id="image" src="/static/API.png">
+        <form id="forms" action="/save_to_json" method="post">
+            <input type="text" placeholder="Enter a task: " name="task" />
+            <select name="priority">
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+            <button type="submit">Save</button>
+            <button type="submit" id="delete">Delete Last Item</button>
+        </form>
+    </div>
+
+    <div id="python">
+    {% for task in tasks%}
+    <ul>
+        <li>{{data}}</li>
+    </ul>
+    {% endfor %}
+    </div>
+    <footer>
+        <p>&copy United Converters 2020 </p>
+    </footer>
+</body>
+
+</html>

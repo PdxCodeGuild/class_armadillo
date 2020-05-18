@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Validator 2000™</title>
+</head>
+<body>
+    <h1>Credit Card Validator 2000™</h1>
+    <a href="/">back to index</a>
+    <!-- 4 important parts - action, method, input elements with name attributes, button type="submit -->
+    <form action="/cc_validation/" method="post">
+        <input type="text" name="credit_card" placeholder="credit card info here plz" value="4556737586899855"/>
+        <button type="submit">submit</button>
+    </form>
+    {% if result == True %}
+    <div>Valid!</div>
+    {% elif result == False %}
+    <div>Invalid!</div>
+    {% endif %}
+</body>
+</html>
