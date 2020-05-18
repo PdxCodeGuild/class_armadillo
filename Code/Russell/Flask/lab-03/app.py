@@ -14,7 +14,7 @@ def index():
     data = request.form 
     city = data['city']
     country = data['country']
-    response = requests.get('https://api.openweathermap.org/data/2.5/weather?q=vancouver,canada&APPID=d4720e0782944202e1cb97b4ac2d3318')
+    response = requests.get('https://api.openweathermap.org/data/2.5/weather?q=vancouver,canada&APPID=')
     weather_data = response.json()
     
     description = weather_data['weather'][0]['description']
