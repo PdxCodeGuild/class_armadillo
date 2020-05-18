@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,22 +10,25 @@
     <style type="text/css"></style>
 
 </head>
+
 <body>
     <h1>'Honey Do List'</h1>
     <div class="main_pic">
         <img src="{{ url_for('static', filename='chores.jpg')}}" width="400" height="300" />
     </div>
-    <form action="/save_honey_do_list/" method="post">
-        <input type="text" name="chore" placeholder="enter some text"/>
-        <input type="text" name="priority" placeholder="priority"/>
-        <button type="submit">submit</button>
-    </form>
+    <div id="list">
+        <form action="/save_honey_do_list/" method="post">
+            <input type="text" name="chore" placeholder="enter some text" />
+            <input type="text" name="priority" placeholder="priority" />
+            <button type="submit">submit</button>
+        </form>
+    </div>
     <ul>
         {% for chore in honey_do_list %}
         <li>{{chore['chore']}}</li>
         {%endfor%}
     </ul>
-      
-</body>
-</html>
 
+</body>
+
+</html>

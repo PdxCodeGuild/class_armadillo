@@ -10,6 +10,12 @@ h1 {
 .main_pic {
     text-align: center;
 }
+
+/* list and priority input positions  */
+.list {
+    text-align: center;
+}
+
 .dropdown {
     position: relative;
     display: inline-block;
