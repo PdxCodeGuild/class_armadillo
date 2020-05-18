@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <table>
-        <tr>Education</tr>
-            
-
-
-
-
-
-    </table>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>checker</title>
+  </head>
+  <body>
+    <h1>{{title}}</h1>
+    <ul>
+        {% for task in todos %}
+        <li>{{task["task"]}} - {{task['priority']}}</li>
+        {% endfor %}
       
-    </form>
-</body>
+    </ul>
+  </body>
 </html>
