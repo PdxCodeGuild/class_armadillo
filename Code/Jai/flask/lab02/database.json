@@ -1,0 +1,15 @@
+{
+    "todos":[
+      {
+        "task": "walk the dog", 
+        "priority": "high"
+
+      },{
+        "task":"eat fruit",
+        "priority":"high"
+      },{
+        "task":"iron socks",
+        "priority":"low"
+      }
+    ]
+  }

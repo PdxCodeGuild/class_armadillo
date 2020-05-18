@@ -5,28 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style type="text/css">
+        body {
+            font-family: sans-serif;
+            background-color: lightslategray;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
 </head>
 
 <body>
-    <h1>Increment or Decrement</h1>
-    <div>{{value}}</div>
-    <form action="/submit_form" method="post">
-        <select name="inc_or_dec">
-            <option value="increment">increment</option>
-            <option value="decrement">decrement</option>
-        </select>
-        <button type="submit">submit</button>
-    </form>
-    <h1>Save Your To Do List</h1>
-    <form action="/save_to_do" method="post">
-        <input type="text" name="mytodo" />
-        <button type="submit">submit</button>
+    <header>
+        <h1>Welcome to the to do list</h1>
+
+    </header>
+    <div id="main">
         <ul>
-            <li>walk the dog (high)</li>
-            <li>butter the cat (medium)</li>
-            <li>wash dishes (low)</li>
+            {% for task in tasks %}
+            <li>{{task}}</li>
+            {% endfor %}
         </ul>
-    </form>
+        <p>Add Chore Below/Select Priority</p>
+        <form action="/submit_task_to_do" method="POST">
+            <input type="text" name="task">
+            <select name="priority" id="">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <button type="submit">submit</button>
+        </form>
+    </div>
 </body>
+
+</html>
 
 </html>

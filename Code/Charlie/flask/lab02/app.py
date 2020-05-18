@@ -1,51 +1,33 @@
+from flask import Flask, render_template, request, redirect
 import json
-from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# saving and loading the database
 def load_database():
-    with open('data.json', 'r') as file: # open the file
-        text = file.read() # read the text
-    return json.loads(text)
+    with open('data.json', 'r') as file:
+        text = file.read()
+    text = json.loads(text)
+    
+    return text
 
 def save_database(data):
-    with open('data.json', 'w') as file: # open the file
-        text = json.dumps(data, indent=4) # turn the python dictionary into a json string
+    with open('data.json', 'w') as file:
+        text = json.dumps(data)
         file.write(text)
 
-
-
-@app.route('/')
+@app.route("/")
 def index():
+    text = load_database()
+    tasks = list()
+    for task in (text["todos"]):
+        tasks.append(task["text"] + " (" + task["priority"] + ")")
+    return render_template("index.html", tasks = tasks)
+
+@app.route("/submit_task_to_do", methods=["POST"])
+def submit_task():
+    task = {"text": request.form["task"],
+    "priority": request.form["priority"]}
     data = load_database()
-    return render_template('index.html', value=data)
-
-
-@app.route('/submit_form', methods=['POST'])
-def submit_form():
-    # load the database
-    data = load_database()
-    
-    # get the data out of the form
-    print(request.form) # 
-
-
-    # save the data to the database
+    data["todos"].append(task)
     save_database(data)
-
-    # redirect the user back to the home page
-    # return 'you are at the submit form view'
-    return data
-
-
-
-@app.route('/save_to_do', methods=['POST'])
-def save_number():
-    mytodo = request.form['mytodo']
-    data = load_database()
-    data['saved'].append(mytodo)
-    data['saved'].sort()
-    save_database(data)
-
-    return data
+    return redirect("/")

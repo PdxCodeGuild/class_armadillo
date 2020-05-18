@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,20 @@
 
 <body>
     <h1>To Do List</h1>
-    <div>
-        {{data['todos'][1]['text']}}
-        Priority: {{data['todos'][1]['priority']}}
-    </div>
-    
+
+    <form action="/save_chore" method="POST">
+        <textarea name="text" cols="30" rows="1" placeholder="Enter Chore"></textarea>
+        <textarea name="priority" cols="30" rows="1" placeholder="Enter Priority"></textarea>
+        <button type="submit">Add</button>
+    </form>
+
+    {% for item in todo_dict %}
+    <div>{{item}} ({{todo_dict[item]}})</div>
+
+    {% endfor %}
+
+
+
 </body>
+
 </html>
