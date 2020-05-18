@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import json
 
 
@@ -27,3 +27,16 @@ def index():
    print(data) 
    return render_template("index.html", title= "todo list", todos= data['todos'])
 
+@app.route('/newtask', methods = ['POST'])
+def savetask():
+    print(request.form)
+    newtask = request.form['new_task']
+    priority = request.form['priority']
+    data = load_database()
+    data['todos'].append({'task':newtask, 'priority': priority })
+    
+    save_database(data)
+    
+
+    return redirect('/')
+    
