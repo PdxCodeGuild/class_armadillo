@@ -23,7 +23,3 @@ def index():
 
 #Part 2
 
-@app.route('/save', methods=['GET', 'POST'])
-def new_task():
-    save_database(list)
-    return
