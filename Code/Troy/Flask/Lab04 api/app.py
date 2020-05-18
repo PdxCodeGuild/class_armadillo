@@ -1,23 +1,27 @@
 
 
-from flask import Flask request render_templates
+from flask import Flask, request, render_template
 import requests
 import json
 
 app = Flask(__name__)
 
+
+# requests the url.
+# requested_url = requests.get('https://favqs.com/api/qotd')
+# creates the python dictionary.
+# requested_data = json.loads(requested_url.text)
+# prints the dictionary.
+#print(requested_data)
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return "Hello World"
+    get_quote = requests.get('https://favqs.com/api/qotd')
+    requested_data = json.loads(get_quote.text)
+    author_response = requested_data['quote']['author']
+    quote_response = requested_data['quote']['body']
 
-
-# # requests the url.
-# requested_url = requests.get('https://favqs.com/api/qotd')
-# # creates the python dictionary.
-# requested_data = json.loads(requested_url.text)
-# # prints the dictionary.
-# #print(requested_data)
-
+    return render_template('index.html', author_response=author_response, quote_response=quote_response)
 
 # # defines the function to get the quote.
 # def get_quote():
@@ -32,3 +36,5 @@ def index():
 #     author_response = requests.get('https://favqs.com/api/qotd')
 #     return json.loads(author_response.text)
 # print(author_response()['quote']['author'])
+
+# # return render_template('index.html')

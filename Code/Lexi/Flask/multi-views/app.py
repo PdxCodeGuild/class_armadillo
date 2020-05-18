@@ -11,7 +11,7 @@ def load_database():
     return json.loads(text) # convert JSON string into a python dict
 
 #opens db.json, turns the python dictionary into json, and saves it into the file
-def save_database():
+def save_database(text):
     with open('db.json', 'w') as file: # open the file
         text = json.dumps(data, indent=4) #turn the python dictionary into a json string
         file.write(text)
@@ -54,7 +54,7 @@ def submit_form():
     return redirect('/')
 
 @app.route('/save_number', methods=['POST'])
-def save_number():
+def save_number(data):
     mynumber = request.form['mynumber']
     print(mynumber)
     print(type(mynumber))

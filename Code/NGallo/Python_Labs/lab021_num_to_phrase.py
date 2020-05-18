@@ -1,4 +1,4 @@
-print("--- Gu")
+print("--- Guess a Number ---")
 
 def guess_a_number():
 
@@ -20,19 +20,25 @@ def guess_a_number():
     print(f"mod one: {user_int_mod_one}")
 
     tens_digit = user_int - user_int_mod_one
-    print(tens_digit)
+    print(f"tens digit: {tens_digit}")
+
+    hundredth_digit = user_int % 100
+    print(f"hundredth digit: {hundredth_digit}")
 
     user_int_mod_hundredth = (user_int %100) // 10 * 10
     print(f"mod hundredth: {user_int_mod_hundredth}")
 
+    remainder = (user_int - hundredth_digit) // 100
+    print(f"remainder: {remainder}")
 # if statements 
     if user_int <= 19:
         print(word_dictionary[user_int])
     elif user_int <= 99:
         print(f"you entered {word_dictionary[tens_digit]} {word_dictionary[user_int_mod_one]}")
     elif user_int >= 100:
-        print(f"you entered 
-        {word_dictionary[user_int_mod_hundredth]} {word_dictionary[tens_digit]} {word_dictionary[user_int_mod_one]}")
+        print(f"you entered {word_dictionary[remainder]} hundred {word_dictionary[user_int_mod_hundredth]} {word_dictionary[user_int_mod_one]}")
+    else:
+        pass
     # return number_to_phrase
 
 guess_a_number = guess_a_number()

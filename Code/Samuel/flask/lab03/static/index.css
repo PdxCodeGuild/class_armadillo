@@ -1,0 +1,19 @@
+h1{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+    font-size: 35px;
+}
+
+a{
+    text-align: center;
+    font-size: 30px;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+}
