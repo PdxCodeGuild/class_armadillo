@@ -37,10 +37,10 @@ def submit_form():
     todo = load_database()
     
     # get the data out of the form
-    print(request.form) # ImmutableMultiDict([('inc_or_dec', 'increment')])
+    # print(request.form) # ImmutableMultiDict([('')])
     user_input = request.form['user_input']
     priority = request.form['priority']
-    print(todo) 
+    # print(todo) 
 
    # todo.append({"text":user_input,"priority":"low"})# 
     todo["todos"].append({"text":user_input,"priority":priority})

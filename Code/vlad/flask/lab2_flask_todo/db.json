@@ -27,6 +27,26 @@
         {
             "text": "watch",
             "priority": "car"
+        },
+        {
+            "text": "sleep",
+            "priority": "high"
+        },
+        {
+            "text": "run",
+            "priority": "low"
+        },
+        {
+            "text": "",
+            "priority": ""
+        },
+        {
+            "text": "walk",
+            "priority": "high"
+        },
+        {
+            "text": "run",
+            "priority": ""
         }
     ]
 }
