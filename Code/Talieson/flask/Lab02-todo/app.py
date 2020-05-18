@@ -24,7 +24,6 @@ def save_database(data):
 
 @app.route('/save_task', methods=['POST'])
 def save_task():
-    print(request.form)
     task = request.form["task"]
     priority = request.form["priority"]
     data = load_database()

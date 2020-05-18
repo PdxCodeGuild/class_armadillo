@@ -12,26 +12,30 @@
 </head>
 
 <body>
-{{todo}}
+    {{todo}}
     <h2>My Todo List</h2>
-    <form  methods="POST">
+    <form action="/submit_form" method="POST">
+        <option value="increment">increment</option>
+        <option value="decrement">decrement</option>
+    </form>
         <h3><input class='input_field' type="text" name="user_input"placeholder="Please enter an item be added to the list: " /></h3>
         <button class='input_button' type="submit">submit</button>
     </form>
-    <form  methods="GET">
-    <ul>
-        {% for item in todo %}
-        <li><h4><input name="{{todo}}"type='checkbox'>{{item.text}}, {{item.priority}}</li></h4>
-        <!-- <li><h4><input name="{{todo}}"type='checkbox'>{{item.priority}}</li></h4> -->
-        {% endfor %}
-    </ul>
+    <form methods="POST">
+        <h2> Incomplete Items</h2>
+        <ul>
+            {% for item in todo %}
+            <li><h4><input name="{{todo}}">{{item.text}}, {{item.priority}} <a href="#"></a></li></h4>
+            <!-- <li><h4><input name="{{todo}}"type='checkbox'>{{item.priority}}</li></h4> -->
+            {% endfor %}
+        </ul>
     </form>
-        <!-- <li><h4><input  type='checkbox'> </li>butter the cat (medium)</h4>
+    <!-- <li><h4><input  type='checkbox'> </li>butter the cat (medium)</h4>
         <li><h4><input  type='checkbox'> </li>wash dishes (low)g</h4>
         <li><h4><input  type='checkbox'> </li>pay the bills (high)</h4>
         <li><h4><input  type='checkbox'> </li>watch last dance episode (high)</h4>
         <li><h4><input  type='checkbox'> </li>complete lab2 (high)</h4> -->
-   
+
 
 </body>
 

@@ -13,27 +13,27 @@
 </head>
 
 <body>
-
+    <!-- url for the header located in the static file -->
     <header>
         <img src="{{ url_for('static', filename='header_pic.png')}}" />
     </header>
-
+    <!-- container for the action buttons with a submit button -->
     <div class="container">
         <div class="button">
             <form action="" method="post">
-                <input id="num_select" type="number" name="password_length" placeholder="Number of Characters" />
-                <input id="num_select" type="number" name="password_length" placeholder="Uppercase Letter" />
-                <input id="num_select" type="number" name="password_length" placeholder="Lowercase Letter" />
-                <input id="num_select" type="number" name="password_length" placeholder="Numbers" />
-                <input id="num_select" type="number" name="password_length" placeholder="Special Characters" />
+                <input id="num_select" type="number" name="uppercase" placeholder="Uppercase Letter" />
+                <input id="num_select" type="number" name="lowercase" placeholder="Lowercase Letter" />
+                <input id="num_select" type="number" name="numbers" placeholder="Numbers" />
+                <input id="num_select" type="number" name="special_characters" placeholder="Special Characters" />
                 <button id="submit_select" type="submit">submit</button>
             </form>
         </div>
     </div>
-    
+    <!-- url for the slot machine pic located in the static file -->
     <div class="slot">
         <img id="slot1" src="{{ url_for('static', filename='slot.jpg')}}" width="600" height="500" />
     </div>
+    <!-- jinja code in a div for the ouput -->
     {%if password != ""%}
     <div class="output">
         <span>

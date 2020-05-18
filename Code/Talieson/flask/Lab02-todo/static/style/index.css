@@ -81,7 +81,6 @@ li:nth-last-child(1){
 li button span{
 	background-color: #e74c3c;
 	height: auto;
-	margin-right: 20px;
 	text-align: center;
 	color: white;
 	width: 0;
@@ -90,10 +89,18 @@ li button span{
     opacity: 0;
 }
 li:hover span{
-	width: 50px;
+	width: 40px;
     opacity: 1.0;
     cursor: pointer;
 }
+.trash{
+	background-color: #e74c3c;
+}
+.demo:checked + label {
+	text-decoration: line-through;
+	color: darkgray;
+}
 .fa-trash{
-	size: 2.4em;
+	font-size: 2rem;
+	padding: 5px;
 }
