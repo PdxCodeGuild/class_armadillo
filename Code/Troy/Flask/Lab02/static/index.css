@@ -15,8 +15,15 @@ h1 {
 .list {
     text-align: center;
 }
+/* chores list */
+.chores {
+    text-align: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 
-.dropdown {
+/* .dropdown {
     position: relative;
     display: inline-block;
 }
@@ -33,4 +40,4 @@ h1 {
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
+} */
