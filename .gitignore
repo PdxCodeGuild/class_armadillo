@@ -3,9 +3,10 @@
 .vscode
 secrets.js
 secrets.py
+config.py
 local_settings.py
 local_settings.js
-
+.ipynb_checkpoints
 
 
 
