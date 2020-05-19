@@ -2,6 +2,27 @@
 
 # Models
 
+- [Models](#models)
+  - [Class-Table Representation](#class-table-representation)
+  - [Field Types](#field-types)
+    - [Nullable Fields](#nullable-fields)
+    - [Default Values](#default-values)
+  - [Database Relationships](#database-relationships)
+      - [Users](#users)
+      - [Cities](#cities)
+    - [One-to-One](#one-to-one)
+    - [Many-to-One](#many-to-one)
+    - [Many-to-Many](#many-to-many)
+    - [on_delete](#ondelete)
+  - [ORM Operations](#orm-operations)
+    - [Create an Instance](#create-an-instance)
+    - [Save an Instance](#save-an-instance)
+    - [Get All Rows](#get-all-rows)
+    - [Get a Particular Row](#get-a-particular-row)
+    - [Filter Rows](#filter-rows)
+    - [Specify an Order](#specify-an-order)
+    - [Specify the Number of Rows to Return](#specify-the-number-of-rows-to-return)
+
 Models are Python classes that parallel tables in the database. The ORM manages this dual representation, translating statements in Python to operations on the database. You can read more about models [here](https://docs.djangoproject.com/en/2.2/topics/db/models/), and more about the ORM [here](https://docs.djangoproject.com/en/2.2/ref/models/querysets/).
 
 
