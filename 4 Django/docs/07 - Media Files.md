@@ -12,7 +12,7 @@
     - [7: Add a View to Receive the Form and Save the Model](#7-add-a-view-to-receive-the-form-and-save-the-model)
 
 
-Web applications often allow users to upload files. This document covers how to allow users to upload files and save them alongside our application on a server. If you're using cloud hosting, you may want to look at alternative ways of storing files which separate the files from the application. Look at the official docs for more info: [File Uploads](https://docs.djangoproject.com/en/2.0/topics/http/file-uploads/), [ImageField](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.ImageField), [FileField](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.FileField). You may also look at the different [mime types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types).
+Web applications often allow users to upload files. This document covers how to allow users to upload files and save them alongside our application on a server. If you're using cloud hosting, you may want to look at alternative ways of storing files which separate the files from the application. Look at the official docs for more info: [File Uploads](https://docs.djangoproject.com/en/3.0/topics/http/file-uploads/), [ImageField](https://docs.djangoproject.com/en/3.0/ref/models/fields/#django.db.models.ImageField), [FileField](https://docs.djangoproject.com/en/3.0/ref/models/fields/#django.db.models.FileField). You may also look at the different [mime types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types).
 
 
 ### 1: Specify the Save Location

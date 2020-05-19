@@ -16,7 +16,7 @@
     - [Redirecting](#redirecting)
 
 
-**Views** are python functions that are executed when a request follows a route. The view can then respond with HTML, JSON, text, etc. An app's views are contained in its `views.py` file. You can read more about views [here](https://docs.djangoproject.com/en/2.0/topics/http/views/) and [here](https://docs.djangoproject.com/en/2.0/ref/request-response/).
+**Views** are python functions that are executed when a request follows a route. The view can then respond with HTML, JSON, text, etc. An app's views are contained in its `views.py` file. You can read more about views [here](https://docs.djangoproject.com/en/3.0/topics/http/views/) and [here](https://docs.djangoproject.com/en/3.0/ref/request-response/).
 
 
 ## Requests
