@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- keep in mind the template rendering will still apply to commented out code -->
+    <!-- if you want to prevent the template renderer from applying to some code, use the example below -->
+    {% comment %}
+    <!-- render a value in the template using {{}} -->
+    {% endcomment %}
+
+    <title>{{title}}</title>
+</head>
+<body>
+    
+    <!-- template rendering examples -->
+
+    <!-- you can use if statements, render or not render a block of html -->
+    {% if message != '' %}
+    <div>{{message}}</div>
+    {% endif %}
+    
+
+    <h1>{{title}}</h1>
+    <p>welcome to my blog :)</p>
+
+    <!-- for loops repeat whatever is inside them for every element -->
+    <ul>
+        {% for fruit in fruits %}
+        <li>{{fruit}}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Make a new blog post!</h2>
+    <!-- 5 important parts of a form -->
+    <!-- action - path to which you're submitting your data -->
+    <!-- method - http method you'll use -->
+    <!-- input elements with name attributes - how you'll retrieve the data on the backend -->
+    <!-- button type="submit" -->
+    <!-- CSRF token -->
+    <form action="/blogapp/save_blog_post/" method="post">
+        <!-- https://en.wikipedia.org/wiki/Cross-site_request_forgery -->
+        {% csrf_token %}
+        <input type="text" name="blog_post_title" placeholder="blog post title"/><br/>
+        <textarea name="blog_post_body" placeholder="blog post body"></textarea><br/>
+        <input type="number" name="blog_post_rating" placeholder="rating"/>
+        <button type="submit">submit</button>
+    </form>
+
+
+
+    {% for blog_post in blog_posts %}
+    {% if blog_post.approved %}
+    <div>
+        <h2>{{blog_post.title}} {{blog_post.rating}}/10</h2>
+        <p>{{blog_post.body}}</p>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+</body>
+</html>

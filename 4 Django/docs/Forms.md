@@ -25,7 +25,7 @@ def newtodo(request):
 
 ## The Form Class
 
-Django has a special Form class to make the creation of forms easier. You can read in the official docs: [Working with Forms](https://docs.djangoproject.com/en/2.0/topics/forms/), [Forms API](https://docs.djangoproject.com/en/2.0/ref/forms/api/#django.forms.Form). You can put your forms in `forms.py` inside your app.
+Django has a special Form class to make the creation of forms easier. You can read in the official docs: [Working with Forms](https://docs.djangoproject.com/en/3.0/topics/forms/), [Forms API](https://docs.djangoproject.com/en/3.0/ref/forms/api/#django.forms.Form). You can put your forms in `forms.py` inside your app.
 
 
 ##### forms.py
@@ -66,7 +66,7 @@ def index(request):
 
 ## The ModelForm Class
 
-ModelForms allow us to generate a form directly from a model. You can read more about ModelForms in the [official docs](https://docs.djangoproject.com/en/2.0/topics/forms/modelforms/).
+ModelForms allow us to generate a form directly from a model. You can read more about ModelForms in the [official docs](https://docs.djangoproject.com/en/3.0/topics/forms/modelforms/).
 
 ##### forms.py
 ```python

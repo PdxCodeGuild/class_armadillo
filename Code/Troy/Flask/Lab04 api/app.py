@@ -16,6 +16,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    output = ''
     get_quote = requests.get('https://favqs.com/api/qotd')
     requested_data = json.loads(get_quote.text)
     author_response = requested_data['quote']['author']
