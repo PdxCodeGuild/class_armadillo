@@ -1,5 +1,8 @@
 # Lab02 Todo List: 
 
+# For anyone working on Lab 2, remember to check out these demos. You can run them and put in print statements to understand how they work:
+# https://github.com/PdxCodeGuild/class_armadillo/tree/master/Code/Matthew/flask/increment
+# https://github.com/PdxCodeGuild/class_armadillo/tree/master/Code/Matthew/flask/increment%20-%20multiple%20views
 from flask import Flask, render_template, request, redirect
 import json
 
@@ -18,14 +21,15 @@ def save_database(data):
         text = json.dumps(data, indent=4) # turn the python dictionary into a json string
         file.write(text)
 
-@app.route('/')
-def index():
+#=======
+@app.route('/') # the view function it default to a GET Method
+def index(): 
     #data = load_database()
     #return render_template('index.html', value=data['value'], fav_nums=data['fav_nums'])
     todo = load_database()
     # value = data['value']
     todo = todo["todos"]# setting the todo equal to the todos
-    print(todo)
+    #print(todo)
     return render_template("index.html", todo=todo)
    
 #============ save to the database +++++++
@@ -36,22 +40,72 @@ def submit_form():
     todo = load_database()
     
     # get the data out of the form
-    print(request.form) # ImmutableMultiDict([('inc_or_dec', 'increment')])
-    del_or_add = request.form['del_or_add']
-    print(del_or_add) 
+    # print(request.form) # ImmutableMultiDict([('')])
+    user_input = request.form['user_input']
+    priority = request.form['priority']
+    # print(todo) 
 
-    # modify the data from the database
-    if del_or_add == 'increment':
-        todo['text'] += 1
-    else:
-        todo['text'] -= 1
+   # todo.append({"text":user_input,"priority":"low"})# 
+    todo["todos"].append({"text":user_input,"priority":priority})
 
-    # save the data to the database
+# todo is the variable with a dictionary with the key todos follow by a list of dictionary with two keys value pairs 
+#todo = {'todos': [{'text': 'walk the dog'}]}
+#  fruits =  {
+#         1: "banana"
+#         2:"mango"
+#         3: "orange"
+#     }
+# fruits[1] # 
+    # # save the data to the database
     save_database(todo)
 
     # redirect the user back to the home page
     # return 'you are at the submit form view'
     return redirect('/')
+
+@app.route('/strikethrough', methods=['POST']) # views
+def strikethrough():
+    # return "Hello"
+    # print(dict(request.form))
+    strike = dict(request.form) # save it to a variable 
+    print(list(strike)) # to print the keys in the dictionary in a list 
+    strike = list(strike) # ['walk the dog', 'Eat ', 'walk'] list of the thing I checkout on the todo list
+
+# load to the database
+    todo = load_database() # I can call this data_load_db = load_database()
+    # print(todo)
+    # writing a for loop 
+    for item in todo['todos']: # todo is the entire dictionary
+        # print(item['text']) # printing the text key of this dictionary todos
+        if item['text'] in strike: # we are checking to see if the items on the list have been checked
+        #    print(item['text'])
+            item.update({"completed":True})# this is to add the completed: true to all the other keys value pairs in the other dictionaries inside the json
+            print(item)
+    print(todo)
+        # save to the database 
+    save_database(todo)
+    return redirect('/')
+
+
+# item.update({"completed":True})# this is to add the completed: true to all the other keys value pairs in the other dictionaries inside the json
+
+# updating the dictionary without using the update method as shown above: 
+#     >>dict = {'a':1, 'b':2, 'c': 3}
+# >>> dict
+# {'a': 1, 'b': 2, 'c': 3}
+# >>> dict['d'] = 4
+# >>> dict
+# {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+
+# json = {'todos':[{'a': 1, 'b': 2}, {'a': 3, 'b':4}]}
+#      for item in json['todos']:
+# ...     print(item)
+# ...
+# {'a': 1, 'b': 2}
+# {'a': 3, 'b': 4}
+
+# change the HTML  
+
 
 
 
