@@ -1,5 +1,8 @@
 # Lab02 Todo List: 
 
+# For anyone working on Lab 2, remember to check out these demos. You can run them and put in print statements to understand how they work:
+# https://github.com/PdxCodeGuild/class_armadillo/tree/master/Code/Matthew/flask/increment
+# https://github.com/PdxCodeGuild/class_armadillo/tree/master/Code/Matthew/flask/increment%20-%20multiple%20views
 from flask import Flask, render_template, request, redirect
 import json
 

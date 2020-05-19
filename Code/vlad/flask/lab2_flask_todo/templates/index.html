@@ -32,7 +32,7 @@
                     <div class="checkbox">
                         <input type="checkbox" name="{{item.text}}"/>
                          <label class="strikethrough">{{item.text}}, {{item.priority}}</label>
-                         <!-- <div class="form-group {{'has-success has-feedback' if not error_username }}"> -->
+                         {% if item.completed==true %}completed{% endif %}
 
                     </div>
                  </div>

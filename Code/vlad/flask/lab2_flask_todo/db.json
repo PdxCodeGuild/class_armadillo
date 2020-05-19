@@ -11,15 +11,18 @@
         },
         {
             "text": "wash dishes",
-            "priority": "low"
+            "priority": "low",
+            "completed": true
         },
         {
             "text": "cut the grass ",
-            "priority": "low"
+            "priority": "low",
+            "completed": true
         },
         {
             "text": "buy some cloths",
-            "priority": "low"
+            "priority": "low",
+            "completed": true
         },
         {
             "text": "Eat ",
@@ -27,11 +30,13 @@
         },
         {
             "text": "watch",
-            "priority": "car"
+            "priority": "car",
+            "completed": true
         },
         {
             "text": "sleep",
-            "priority": "high"
+            "priority": "high",
+            "completed": true
         },
         {
             "text": "run",
@@ -51,7 +56,12 @@
         },
         {
             "text": "snack",
-            "priority": "high"
+            "priority": "high",
+            "completed": true
+        },
+        {
+            "text": "",
+            "priority": ""
         }
     ]
 }
