@@ -12,3 +12,6 @@ def save_database(data):
         text = json.dumps(data, indent=4)
         file.write(text)
 
+
+@app.route('/', methods=['GET', 'POST'])
+def index():

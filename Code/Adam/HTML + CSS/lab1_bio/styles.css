@@ -1,0 +1,11 @@
+* {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+  font-family: 'Pathway Gothic One', Times, serif;
+  text-align: center;
+}
+h1  {
+  font-size:150px;
+  color: #8a0303;
+  margin: 1px;
+}
