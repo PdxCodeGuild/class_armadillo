@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote of the Day</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}"/>
+</head>
+<body>
+    <div id="container">
+        <h1>Quote of the Day</h1>
+        <p>{{message['quote']['body']}}</p>
+        <p>-{{message['quote']['author']}}</p>
+    </div>
+</body>
+</html>

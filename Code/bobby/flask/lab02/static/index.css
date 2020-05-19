@@ -1,7 +1,14 @@
+
+
 h1{
-    text-align: center;
-    text-shadow: black;
-    color: red;
-    background-color: #5f6670;
-    margin: 0%;
+   text-align: Center;
+   color: red;
+   text-shadow: black;
+   font-style: italic;
+   font: bolder;
+}
+
+ul{
+    font-family:cursive;
+
 }

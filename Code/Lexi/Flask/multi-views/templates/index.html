@@ -23,7 +23,12 @@
     </ul>
     <h1>SAVE YOUR FAVORITE NUMBA</h1>
     <form action ="/save_number" method="post">
-        <input type="text"/>
+        <input type="number" name="mynumber"/>
+        <ul>
+            {% for fav_num in fav_nums %}
+            <li>{{fav_num}}</li>
+            {% endfor %}
+        </ul>
         <button type="submit">submit</button>
     </form>
     

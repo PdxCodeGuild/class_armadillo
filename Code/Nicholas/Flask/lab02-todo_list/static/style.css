@@ -1,0 +1,29 @@
+h1{font-size:36pt;
+  }
+h3{font-size:24pt;
+   font-weight:bold;
+  }
+body{text-align: center;
+     list-style-position: inside;
+     font-family: 'Space Mono', monospace;
+    }
+
+img{border-radius: 50%;
+    width: 300px;} 
+
+input{font-size:24pt;
+      font-family: 'Space Mono', monospace;
+      border-color: black;
+     }   
+select{font-size:24pt;
+       font-family: 'Space Mono', monospace;
+      }
+button{font-size:24pt;
+       transition-duration: 1.0 sec;
+       font-family: 'Space Mono', monospace;
+      } 
+
+button:hover{background-color: red;
+            }
+
+main{font-size: 24pt;}    
