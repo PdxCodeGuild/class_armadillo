@@ -2,7 +2,8 @@
     "todos": [
         {
             "text": "walk the dog",
-            "priority": "high"
+            "priority": "high",
+            "completed": true
         },
         {
             "text": "butter the cat",
@@ -26,7 +27,8 @@
         },
         {
             "text": "Eat ",
-            "priority": "High"
+            "priority": "High",
+            "completed": true
         },
         {
             "text": "watch",
@@ -40,22 +42,32 @@
         },
         {
             "text": "run",
-            "priority": "low"
+            "priority": "low",
+            "completed": true
         },
-      
         {
             "text": "walk",
-            "priority": "high"
+            "priority": "high",
+            "completed": true
         },
         {
             "text": "run",
-            "priority": ""
+            "priority": "",
+            "completed": true
         },
         {
             "text": "snack",
             "priority": "high",
             "completed": true
+        },
+        {
+            "text": "workout",
+            "priority": "high",
+            "completed": true
+        },
+        {
+            "text": "shower",
+            "priority": "low"
         }
-        
     ]
 }
