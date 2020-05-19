@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MICROMANAGER 2020</title>
 </head>
 <body>
     <h1>MICROMANAGER 2020</h1>
+    <img src='https://cdn.dribbble.com/users/984594/screenshots/3334930/stapler.gif' alt=red_stapler>
     <h3>Enter a task and set its priority:</h3>
-    <form action="/" method="post">
-        <input type="text" name ="task" placeholder="Add a task"/>
-        <select name = "priority">
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
-        </select>
-        <button type="submit">Add</button>
-    </form>
-    <div>
-        <ol>
-            {% for todos in todos %}
-            <li> {{todos['text']}}<span>, priority:</span>{{todos['priority']}}</li>
-            {% endfor %}
-        </ol>
-    </div>
+    <main>
+        <form action="/" method="post">
+            <input type="text" name ="task" placeholder="Add a task"/>
+            <select name = "priority">
+                <option selected="selected">Priority</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+            <button type="submit">Add</button>
+        </form>
+        <div>
+            <ol>
+                {% for todos in todos %}
+                <li> {{todos['text']}}<span>, priority:</span>{{todos['priority']}}</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </main>
 
 </body>
 </html>
