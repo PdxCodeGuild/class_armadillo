@@ -32,7 +32,7 @@
                 <form action="/delete_task" method="post">
                     <input type="hidden" name="task_index" value="{{loop.index-1}}">
                     <button type="submit" class="trash"><span><i class="fas fa-trash"></i></span></button>
-                    <input type="checkbox" class="demo"/>
+                    <input type="checkbox" class="demo" hidden/>
                     <label for="demo"><span>
                         <b>Task:</b> {{task.text}}
                         <b>Priority:</b> {{task.priority}}
