@@ -34,13 +34,12 @@ For comparison, [Flask](http://flask.pocoo.org/) is also a Python-based back-end
 
 The core of Django is the [request-response cycle](django_diagram.png). A request is received by the server, it follows a **route**, actives a **view**, which then uses **models** and a **template** to generate a **response**, which is then rendered in the user's browser. The following docs will cover each of these topics in turn, but bear in mind that they're all interdependent.
 
-- Route: a mapping between a URL and a view, uses regex
-- View: a Python function which receives a request (url, parameters) and creates a response (html)
-- Template: an html file with special syntax for filling in data
+- Route: a mapping between a URL and a view
+- View: a Python function which receives a request (url) and creates a response (html+css+js)
+- Template: an HTML file with special syntax for filling in data
 - Model: a Python class that parallels a database table
 
-Django applications are contained in a **project** which can have multiple **apps**. How you divide up the functionality of the application is up to your discretion, what's important is that it makes sense to you.
-
+Django applications are contained in a **project** which can have multiple **apps**. Each app has its own routes, views, templates, and models. How you divide up the functionality of the application is up to your discretion, what's important is that it makes sense to you.
 
 ## Management Commands
 
@@ -49,7 +48,7 @@ You can view a full list of the management commands [here](https://docs.djangopr
 | Command | Description |
 | ---     | ---         |
 | `django-admin startproject myproject` | create a Django project |
-| `python manage.py startapp` | create an app |
+| `python manage.py startapp myapp` | create an app |
 | `python manage.py runserver` | run the server |
 | `python manage.py makemigrations` | stage changes to the database |
 | `python manage.py migrate` | apply changes to the database |
