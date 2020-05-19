@@ -21,10 +21,10 @@ def pokemon():
     pokedex = load_pokedex()
     for number in pokedex["pokemon"]:
         if new_pokemon["id"] == number["id"]:
-            # result = f"You've already encounted that Pokemon!!"
             return redirect('/')
 
     pokedex["pokemon"].append({"id":new_pokemon["id"], "name":new_pokemon["forms"][0]["name"].capitalize()})
+
     save_pokedex(pokedex)
     return redirect('/')
 
