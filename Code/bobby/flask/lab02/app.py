@@ -1,22 +1,36 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import json
 
 app = Flask (__name__)
 
-@app.route('/', methods = ['GET', 'POST'])
-def index():
+def load_database():
+    with open('database.json', 'r') as file:
+        text = file.read()
+    text = json.loads(text)
     
-    if request.method == 'POST':
-        # saving and loading the database
-        def save_database(data):
-            with open('database.json', 'w') as file:
-                file.write(json.dumps(data))
+    return text
 
-        def load_database():
-            with open('database.json', 'r') as file:
-                data = json.loads(file.read())
-            return data
-    data = save_database()
+def save_database(data):
+    with open('database.json', 'w') as file:
+        text = json.dumps(data)
+        file.write(text)
+    
 
-    # return"Hello World"
+@app.route("/", methods= ['GET', 'POST'])
+def index():
+    text = load_database()
+    tasks = list()
+    for task in (text["todos"]):
+        tasks.append(task["text"] + " (" + task["priority"] + ")")
+    return render_template("index.html", tasks = tasks)
 
+@app.route("/submit_list", methods=["POST"])
+def submit_task():
+    task = {
+        "text": request.form["text"],
+        "priority": request.form["priority"]
+    }
+    data = load_database()
+    data["todos"].append(task)
+    save_database(data)
+    return redirect("/")

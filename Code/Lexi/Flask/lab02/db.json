@@ -1,0 +1,15 @@
+{"chores" : [
+    {
+        "chore" : "clean room",
+        "priority" : "high"
+    },
+    {
+        "chore" : "clean car",
+        "priority" : "medium"
+    },
+    {
+        "chore" : "walk Boxer",
+        "priority" : "low"
+    }
+]
+}
