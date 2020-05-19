@@ -1,6 +1,10 @@
 
 # Django Overview
 
+- [Django Overview](#django-overview)
+  - [What is a web application?](#what-is-a-web-application)
+  - [What is Django?](#what-is-django)
+
 ## What is a web application?
 
 A web application is a website that offers significant functionality beyond simple, static pages. Features include login systems, viewing/saving/editing of information (CRUD), email systems, and many more. [Amazon](http://amazon.com), [LinkedIn](http://linkedin.com), and [Trello](http://trello.com) are all examples of web applications. A web application is split into two major sections: the front-end (client) and the back-end (server).
