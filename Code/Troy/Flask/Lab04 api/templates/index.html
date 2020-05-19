@@ -15,7 +15,9 @@
         <input button type ="submit" type="button" class="button" value="Press Here for Quote" />
         <!-- <button type="submit">Enter for Quote</button> -->
       </form> 
-      {{author_response}}
-      {{quote_response}}   
+      {% block body%}
+      <p>The author is: {{author_response}}</p>
+      <p>Their quote is: {{quote_response}}</p>
+      {%endblock body%}         
 </body>
 </html>
