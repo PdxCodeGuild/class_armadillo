@@ -30,9 +30,21 @@
                 <!-- <label for="inputName" class="col-md-1 control-label">select</label>   -->
                 <div class="col-md-5">
                     <div class="checkbox">
-                        <input type="checkbox" name="{{item.text}}"/>
-                         <label class="strikethrough">{{item.text}}, {{item.priority}}</label>
-                         {% if item.completed==true %}completed{% endif %}
+                        
+                         <!-- <label class="strikethrough">{{item.text}}, {{item.priority}}</label> -->
+                         {% if item.completed==true %} <p id= "Completed">{{item.text}}, {{item.priority}} </p> 
+                         {%else%}
+                          <input type="checkbox" name="{{item.text}}"/> 
+                          <label class="strikethrough">{{item.text}}, {{item.priority}}</label>
+                            {% endif %} 
+                        
+                         <!-- {% if item.compleated == true %}
+                            <label class="strikethrough">{{item.text}}</label>
+                        {% else %}
+                            <label class="strikethrough">{{item.text}}, {{item.priority}}</label>
+                        {% endif %} -->
+                        
+                       
 
                     </div>
                  </div>

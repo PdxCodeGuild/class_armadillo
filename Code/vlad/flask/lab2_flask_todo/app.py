@@ -63,7 +63,7 @@ def submit_form():
     # return 'you are at the submit form view'
     return redirect('/')
 
-@app.route('/strikethrough', methods=['POST'])
+@app.route('/strikethrough', methods=['POST']) # views
 def strikethrough():
     # return "Hello"
     # print(dict(request.form))

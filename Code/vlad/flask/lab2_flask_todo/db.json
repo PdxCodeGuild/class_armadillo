@@ -67,7 +67,33 @@
         },
         {
             "text": "shower",
-            "priority": "low"
+            "priority": "low",
+            "completed": true
+        },
+        {
+            "text": "shop",
+            "priority": "high",
+            "completed": true
+        },
+        {
+            "text": "clean",
+            "priority": "low",
+            "completed": true
+        },
+        {
+            "text": "playball ",
+            "priority": "high",
+            "completed": true
+        },
+        {
+            "text": "movies",
+            "priority": "low",
+            "completed": true
+        },
+        {
+            "text": "Air",
+            "priority": "High",
+            "completed": true
         }
     ]
 }
