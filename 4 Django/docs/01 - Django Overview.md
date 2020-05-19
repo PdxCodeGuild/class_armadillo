@@ -4,6 +4,8 @@
 - [Django Overview](#django-overview)
   - [What is a web application?](#what-is-a-web-application)
   - [What is Django?](#what-is-django)
+  - [Management Commands](#management-commands)
+  - [Custom Management Commands](#custom-management-commands)
 
 ## What is a web application?
 
@@ -15,15 +17,12 @@ The **back-end** consists of code, files, and a database. Unlike the front-end, 
 
 | Framework | Language |
 |--- |--- |
-| Django | Python |
-| Node | JavaScript |
-| Spring | Java |
-| Ruby on Rails | Ruby |
-| ASP.NET | C# |
-| Laravel | PHP |
-
-
-
+| [Django](https://www.djangoproject.com/), [Flask](https://flask.palletsprojects.com/en/1.1.x/) | Python |
+| [Express](https://expressjs.com/) | JavaScript |
+| [Spring](https://spring.io/), [Struts](https://struts.apache.org/) | Java |
+| [Ruby on Rails](https://rubyonrails.org/) | Ruby |
+| [ASP.NET](https://dotnet.microsoft.com/apps/aspnet) | C# |
+| [Laravel](https://laravel.com/) | PHP |
 
 
 
@@ -41,3 +40,37 @@ The core of Django is the [request-response cycle](django_diagram.png). A reques
 - Model: a Python class that parallels a database table
 
 Django applications are contained in a **project** which can have multiple **apps**. How you divide up the functionality of the application is up to your discretion, what's important is that it makes sense to you.
+
+
+## Management Commands
+
+You can view a full list of the management commands [here](https://docs.djangoproject.com/en/3.0/ref/django-admin/)
+
+| Command | Description |
+| ---     | ---         |
+| `django-admin startproject myproject` | create a Django project |
+| `python manage.py startapp` | create an app |
+| `python manage.py runserver` | run the server |
+| `python manage.py makemigrations` | stage changes to the database |
+| `python manage.py migrate` | apply changes to the database |
+| `python manage.py createsuperuser` | create an admin (which has access to the admin panel) |
+| `python manage.py collectstatic` | collects static files from each app and puts them into one folder, used for deployment |
+| `python manage.py shell` | open an interactive session, often used to do database operations |
+
+## Custom Management Commands
+
+If you need to execute some Python code to perform administrative operations (load data into a database from a file or API, erase saved files, etc), you can write a custom management command. These are executed just like other management commands (`runserver`, `startapp`, `migrate`, etc).
+
+To create a custom management command, first create a `management` folder inside your app. Inside of that, create a `commands` folder. Inside of that, create a `<command name>.py`. Inside your `<command name>.py`, write the following.
+
+```python
+from django.core.management.base import BaseCommand
+
+class Command(BaseCommand):
+
+    def handle(self, *args, **options):
+        # write the code here
+        pass
+```
+
+Now you can execute this function using `python manage.py <command name>`. Any parameters you write after the `<command name>` will be passed to the `handle` function.
