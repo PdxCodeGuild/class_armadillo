@@ -23,6 +23,30 @@
         {
             "id": 15,
             "name": "Beedrill"
+        },
+        {
+            "id": 102,
+            "name": "Exeggcute"
+        },
+        {
+            "id": 429,
+            "name": "Mismagius"
+        },
+        {
+            "id": 391,
+            "name": "Monferno"
+        },
+        {
+            "id": 767,
+            "name": "Wimpod"
+        },
+        {
+            "id": 325,
+            "name": "Spoink"
+        },
+        {
+            "id": 365,
+            "name": "Walrein"
         }
     ]
 }
