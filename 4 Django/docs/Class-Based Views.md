@@ -2,12 +2,12 @@
 
 # Class-Based Views
 
-- [Reference Documentation](https://docs.djangoproject.com/en/2.0/ref/class-based-views/)
-- [Introduction to class-based views](https://docs.djangoproject.com/en/2.0/topics/class-based-views/intro/)
-- [Part of the polls tutorial](https://docs.djangoproject.com/en/2.0/intro/tutorial04/#use-generic-views-less-code-is-better)
-- [Built-in class-based generic views](https://docs.djangoproject.com/en/2.0/topics/class-based-views/generic-display/)
-- [Form handling with class-based views](https://docs.djangoproject.com/en/2.0/topics/class-based-views/generic-editing/)
-- [Using mixins with class-based views](https://docs.djangoproject.com/en/2.0/topics/class-based-views/mixins/)
+- [Reference Documentation](https://docs.djangoproject.com/en/3.0/ref/class-based-views/)
+- [Introduction to class-based views](https://docs.djangoproject.com/en/3.0/topics/class-based-views/intro/)
+- [Part of the polls tutorial](https://docs.djangoproject.com/en/3.0/intro/tutorial04/#use-generic-views-less-code-is-better)
+- [Built-in class-based generic views](https://docs.djangoproject.com/en/3.0/topics/class-based-views/generic-display/)
+- [Form handling with class-based views](https://docs.djangoproject.com/en/3.0/topics/class-based-views/generic-editing/)
+- [Using mixins with class-based views](https://docs.djangoproject.com/en/3.0/topics/class-based-views/mixins/)
 
 
 - [simpleisbetterthancomplex.com's overview](https://simpleisbetterthancomplex.com/article/2017/03/21/class-based-views-vs-function-based-views.html)
@@ -15,9 +15,9 @@
 
 ## Types of Views
 
-- [Base Views: View, TemplateView, RedirectView](https://docs.djangoproject.com/en/2.0/ref/class-based-views/base/)
-- [Display Views: DetailView,List View](https://docs.djangoproject.com/en/2.0/ref/class-based-views/generic-display/)
-- [Editing Views: FormView, CreateView, UpdateView, DeleteView](https://docs.djangoproject.com/en/2.0/ref/class-based-views/generic-editing/)
+- [Base Views: View, TemplateView, RedirectView](https://docs.djangoproject.com/en/3.0/ref/class-based-views/base/)
+- [Display Views: DetailView,List View](https://docs.djangoproject.com/en/3.0/ref/class-based-views/generic-display/)
+- [Editing Views: FormView, CreateView, UpdateView, DeleteView](https://docs.djangoproject.com/en/3.0/ref/class-based-views/generic-editing/)
 
 
 ## Routing

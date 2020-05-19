@@ -12,30 +12,31 @@
   </head>
   <body>
     <h1>{{title}}</h1>
-    <ul>
+    <ol>
         {% for task in todos %}
         <li>{{task["task"]}} - {{task['priority']}}</li>
         {% endfor %}
 
         
-        <form action="/newtask" method="post">
+        <form class="form-inline" action="/newtask" method="post">
             
-            <input type="text" name="new_task" value="task" placeholder="Enter a new task"> 
+            <input type="text" name="new_task" placeholder="Enter a new task"> 
            
             
-              <select class="form-control form-control-sm" name="priority">
+              <select class="form-control form-control-sm" name="priority" header="select">
+                   <option value="none" selected disabled>priority</option>
                    <option value="low"> Low </option>
                    <option value="medium">medium </option>
                    <option value="high">high</option>
                    
               </select>
               
-            <input type="submit" value=submit>
+            <input class="btn btn-primary" type="submit" value="submit">
  
          
 
 
             </form>
-    </ul>
+    </ol>
   </body>
 </html>
