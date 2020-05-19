@@ -1,5 +1,20 @@
 # Templates
 
+- [Templates](#templates)
+  - [Template Rendering Syntax](#template-rendering-syntax)
+    - [Rendering a Value](#rendering-a-value)
+    - [Conditionals](#conditionals)
+    - [Looping](#looping)
+  - [Reverse URL Lookup](#reverse-url-lookup)
+      - [urls.py](#urlspy)
+      - [index.html](#indexhtml)
+  - [Forms](#forms)
+  - [Static Files](#static-files)
+  - [Template Inheritance](#template-inheritance)
+      - [base.html](#basehtml)
+      - [index.html](#indexhtml-1)
+      - [detail.html](#detailhtml)
+
 Templates are like blueprints for your HTML pages. They contain plain HTML/CSS/JavaScript, but also additional syntax for generating HTML/CSS/JavaScript using variables from your Python view. You can read more about Templates [here](https://docs.djangoproject.com/en/2.0/topics/templates/) and [here](https://docs.djangoproject.com/en/2.0/ref/templates/builtins/)
 
 The variable names referred to inside the template must be defined in the data context (a dictionary) passed to the `render` function inside the view. For more information, see the [views doc](02%20-%20Views.md).

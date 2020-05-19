@@ -2,6 +2,16 @@
 
 # Media Files
 
+- [Media Files](#media-files)
+    - [1: Specify the Save Location](#1-specify-the-save-location)
+    - [2: Set up the Model](#2-set-up-the-model)
+    - [3: Add a Route to Access the Files](#3-add-a-route-to-access-the-files)
+    - [4: Test](#4-test)
+    - [5: Render an Image](#5-render-an-image)
+    - [6: Put a Form on your Page](#6-put-a-form-on-your-page)
+    - [7: Add a View to Receive the Form and Save the Model](#7-add-a-view-to-receive-the-form-and-save-the-model)
+
+
 Web applications often allow users to upload files. This document covers how to allow users to upload files and save them alongside our application on a server. If you're using cloud hosting, you may want to look at alternative ways of storing files which separate the files from the application. Look at the official docs for more info: [File Uploads](https://docs.djangoproject.com/en/2.0/topics/http/file-uploads/), [ImageField](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.ImageField), [FileField](https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.FileField). You may also look at the different [mime types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types).
 
 

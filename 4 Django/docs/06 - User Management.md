@@ -1,6 +1,18 @@
 
 # User Management
 
+- [User Management](#user-management)
+  - [Users, Groups, and Permissions](#users-groups-and-permissions)
+  - [Creating & Editing Users](#creating--editing-users)
+    - [Accessing Groups and Permissions](#accessing-groups-and-permissions)
+    - [Changing Passwords](#changing-passwords)
+  - [Authentication, Login, & Logout](#authentication-login--logout)
+  - [Authorization](#authorization)
+    - [@login_required](#loginrequired)
+    - [@permission_required](#permissionrequired)
+    - [@user_passes_test(f)](#userpassestestf)
+  - [Extending the User Model](#extending-the-user-model)
+
 Many web applications have the ability for a user to 1) create an account, 2) log into and out of that account, and 3) view pages that are only accessible to logged-in users. For more info, read [here](https://docs.djangoproject.com/en/2.0/topics/auth/) and [here](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication).
 
 

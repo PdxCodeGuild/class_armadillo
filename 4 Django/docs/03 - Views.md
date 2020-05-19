@@ -1,6 +1,21 @@
 
 # Views
 
+- [Views](#views)
+  - [Requests](#requests)
+    - [Path Parameters](#path-parameters)
+        - [urls.py](#urlspy)
+        - [views.py](#viewspy)
+    - [Receiving Query Parameters](#receiving-query-parameters)
+    - [Receiving a Form Submission](#receiving-a-form-submission)
+    - [Receiving JSON](#receiving-json)
+  - [Responses](#responses)
+    - [Responding with a String / Raw HTML](#responding-with-a-string--raw-html)
+    - [Responding with a Template](#responding-with-a-template)
+    - [Responding with JSON](#responding-with-json)
+    - [Redirecting](#redirecting)
+
+
 **Views** are python functions that are executed when a request follows a route. The view can then respond with HTML, JSON, text, etc. An app's views are contained in its `views.py` file. You can read more about views [here](https://docs.djangoproject.com/en/2.0/topics/http/views/) and [here](https://docs.djangoproject.com/en/2.0/ref/request-response/).
 
 
