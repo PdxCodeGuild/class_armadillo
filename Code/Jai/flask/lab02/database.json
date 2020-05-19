@@ -1,15 +1,40 @@
 {
-    "todos":[
-      {
-        "task": "walk the dog", 
-        "priority": "high"
-
-      },{
-        "task":"eat fruit",
-        "priority":"high"
-      },{
-        "task":"iron socks",
-        "priority":"low"
-      }
+    "todos": [
+        {
+            "task": "walk the dog",
+            "priority": "high"
+        },
+        {
+            "task": "eat fruit",
+            "priority": "high"
+        },
+        {
+            "task": "iron socks",
+            "priority": "low"
+        },
+        {
+            "task": "go away",
+            "priority": "medium"
+        },
+        {
+            "task": "",
+            "priority": "low"
+        },
+        {
+            "task": "",
+            "priority": "low"
+        },
+        {
+            "task": "learn stuff",
+            "priority": "medium"
+        },
+        {
+            "task": "",
+            "priority": "priority;"
+        },
+        {
+            "task": "walk the fish",
+            "priority": "medium"
+        }
     ]
-  }
+}

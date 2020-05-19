@@ -14,8 +14,9 @@ def save_database(data):
     with open('database.json', 'w') as file:
         text = json.dumps(data)
         file.write(text)
+    
 
-@app.route("/")
+@app.route("/", methods= ['GET', 'POST'])
 def index():
     text = load_database()
     tasks = list()
@@ -23,10 +24,12 @@ def index():
         tasks.append(task["text"] + " (" + task["priority"] + ")")
     return render_template("index.html", tasks = tasks)
 
-@app.route("/submit_task_to_do", methods=["POST"])
+@app.route("/submit_list", methods=["POST"])
 def submit_task():
-    task = {"text": request.form["task"],
-    "priority": request.form["priority"]}
+    task = {
+        "text": request.form["text"],
+        "priority": request.form["priority"]
+    }
     data = load_database()
     data["todos"].append(task)
     save_database(data)

@@ -12,5 +12,10 @@
             "text": "wash the dishes",
             "priority": "low"
         },
+        {
+            "text": "clean room",
+            "priority": "low"
+        }
+
     ]
 }
