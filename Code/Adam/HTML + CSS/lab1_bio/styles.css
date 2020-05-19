@@ -1,11 +1,14 @@
 * {
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);/* Pick a color scheme and modify the background, body text, and link text color. */
   background-color: rgb(0, 0, 0);
   font-family: 'Pathway Gothic One', Times, serif;
-  text-align: center;
+  text-align: center
 }
 h1  {
-  font-size:150px;
+  font-size:150px; 
   color: #8a0303;
-  margin: 1px;
+  margin: 1px; /* Modify the padding on your paragraphs to look better */
+  /* Add a rounded border to the picture. */
+  /* modify margins on your paragraphs to look better */
+  /* Change the bullet points on the list of places to be a different character, like ☞. */
 }
