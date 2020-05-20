@@ -2,10 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <style></style>
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>
+        Welcome to The To do list!
+    </h1>
+    <h2>Current List</h2>
+    <ul>
+        {% for todo in list %}
+        <li>{{todo['text']}} - {{todo['priority']}}</li>
+        {% endfor %}
+    </ul>
+    <h2>Add new Todo!</h2>
+    <form action="/save" method="POST">
+        <input id="new_todo" type="text" name="new_todo" placeholder="Enter New todo task"/>
+        <select name="priority">
+            <option value="none">none</option>
+            <option value="low">low</option>
+            <option value="medium">medium</option>
+            <option value="high">high</option>
+        </select>
+        <button type="submit">submit</button>
+    </form>
 </body>
 </html>

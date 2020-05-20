@@ -1,0 +1,21 @@
+body{
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+    background-color:rgb(167, 164, 164);
+}
+h1{
+    font-size: 2.5rem;
+}
+h1, h2{
+    text-shadow: 2px 2px black;
+    color: red;
+}
+h3{
+    padding: 20px;
+}
+option{
+    font-family: 'Permanent Marker', cursive;
+}
+button{
+    font-family: 'Permanent Marker', cursive;
+}

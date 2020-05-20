@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>Hello World? Will this work?</div>
+  {{blog_posts}}
+  <ul>
+    {% for blog_post in blog_posts %}
+    <li>{{ blog_post.title }}</li>
+    {% empty %}
+    <h1>No Posts.</h1>
+    {% endfor %}
+  </ul>
+</body>
+</html>
