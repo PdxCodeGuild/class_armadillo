@@ -48,6 +48,13 @@ while True:
             if name.lower() in contact['name'].lower():
                 print_contact(contact)
                 found_contact = True
+    elif command == 'update':
+        name = input('what is the contact\'s name which you want to update? ')
+        field = input('what field would you like to update? (name, age, email, favorite color)? ')
+        value = input('what is the new value? ')
+        for contact in contacts:
+            if contact['name'] == name:
+                contact[field] == 'name'
     else:
         print('command not recognized')
         break
