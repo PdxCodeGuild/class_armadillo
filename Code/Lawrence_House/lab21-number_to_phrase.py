@@ -12,8 +12,23 @@ ones_digit = x%10
 
 # print(seed_number)
 
+ones = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+]
+
+tens = [
+    'ten',
+    'eleven',
+    'twelve',
+    'thirteen',
+    'fourteen',
+]
 def english(seed_number):
     if seed_number == 1:
         print('One')
 
-print(english)
+print(english(seed_number))
