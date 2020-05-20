@@ -1,0 +1,52 @@
+{
+    "pokemon": [
+        {
+            "id": 16,
+            "name": "Pidgey"
+        },
+        {
+            "id": 513,
+            "name": "Pansear"
+        },
+        {
+            "id": 150,
+            "name": "Mewtwo"
+        },
+        {
+            "id": 291,
+            "name": "Ninjask"
+        },
+        {
+            "id": 174,
+            "name": "Igglybuff"
+        },
+        {
+            "id": 15,
+            "name": "Beedrill"
+        },
+        {
+            "id": 102,
+            "name": "Exeggcute"
+        },
+        {
+            "id": 429,
+            "name": "Mismagius"
+        },
+        {
+            "id": 391,
+            "name": "Monferno"
+        },
+        {
+            "id": 767,
+            "name": "Wimpod"
+        },
+        {
+            "id": 325,
+            "name": "Spoink"
+        },
+        {
+            "id": 365,
+            "name": "Walrein"
+        }
+    ]
+}
