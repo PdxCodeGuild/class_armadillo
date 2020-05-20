@@ -1,0 +1,8 @@
+    For the model: 
+
+    # docs models primary key identify the row it is call id in django
+    # foreign key is the other key on another table
+    # it is better two setup into two table for better organization 
+    # because you can have many user that can go to portland this is call one to many relationship
+
+    many to many relationship: will will talk later
