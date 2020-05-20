@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Things To Do</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css/') }}"/>
+    <style type="text/css"></style>
 </head>
 <body>
+    
     <h1>
-        Hello World!
+        Things To Do
     </h1>
     <form action="/" method ="POST">
        <input type = "text" name = "task" placeholder = "Add Task"/>
@@ -19,12 +22,23 @@
        <button type="Submit">Add</button>
     </form>
     {{result}}
+
     <div>
+        
+        <p>
+            Add to To Do list
+        </p>
+        <form action="/submit_list" method="POST"></form>
         <ul>
-            <li>walk the dog (high)</li>
-            <li>butter the cat (medium)</li>
-            <li>wash dishes (low)</li>
+            <li>Wash The Dishes (High)</li>
+            <li>Walk The Dog (Medium)</li>
+            <li>Wash The Cars (Low)</li>
         </ul>
     </div>
+
+    <div>
+        <img src="{{ url_for('static', filename= 'scroll.png') }}" alt="scroll">
+    </div>
+
 </body>
 </html>

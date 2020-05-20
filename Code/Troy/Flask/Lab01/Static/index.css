@@ -3,12 +3,10 @@
 /* body */
 body {
     background-color: #003049;
-    /* background-color:white; */
 }
 /* header */
 header{ 
     text-align: center;
-    /* background-color: #FF006E; */
     box-shadow: 0 5px 5px grey;
     margin-bottom:20px;
 }
@@ -18,6 +16,7 @@ header{
     padding:10px;
     color:white;
 }
+
 /* button */
 /*button position */
 .container .button {
@@ -43,17 +42,6 @@ header{
     width: 60px; 
 }
 
-/* #upper_select {
-    text-align: center;
-    height: 25px;
-    width: 200px;
-}
-
-#lower_select {
-    text-align: center;
-    height: 25px;
-    width: 200px;  */
-
 /* password output */
 .output {
     text-align: center;
@@ -65,11 +53,8 @@ header{
 /* slot pic positioning */
 .slot {
     text-align: center;
-   
-    /* display: block;
-    margin-left: auto;
-    margin-right: auto; */
 }
+
 /* slot pic edges */
 #slot1 {
     border-radius: 50px;

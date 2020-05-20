@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/index.css') }}" />
+
     <title>To Do List</title>
 </head>
 
@@ -19,7 +20,6 @@
         <form class="input_box" action="/save_task" method="post">
             <input type="text" name="task" maxlength="32" placeholder="Add new task..." />
             <select class="multiselect" multiple id="priority" name="priority">
-                <option value="none">none</option>
                 <option value="low">low</option>
                 <option value="medium">medium</option>
                 <option value="high">high</option>
@@ -31,12 +31,14 @@
             <li>
                 <form action="/delete_task" method="post">
                     <input type="hidden" name="task_index" value="{{loop.index-1}}">
-                    <button type="submit"><span><i class="fas fa-trash"></i></span></button>
+                    <button type="submit" class="trash"><span><i class="fas fa-trash"></i></span></button>
+                    <input type="checkbox" class="demo" hidden/>
+                    <label for="demo"><span>
+                        <b>Task:</b> {{task.text}}
+                        <b>Priority:</b> {{task.priority}}
+                    </span></label>
                 </form>
-                <span>
-                    <b>Task:</b> {{task.text}}
-                    <b>Priority:</b> {{task.priority}}
-                </span>
+
             </li>
             {%endfor%}
         </ul>
