@@ -1,11 +1,12 @@
+
 from django.urls import path
 from . import views
 
 app_name = 'blogapp'
 urlpatterns = [
-    # first parameter - the path part of the url
-    # second parameter - the view the path is connected to
-    # third parameter - name of the route
+    # localhost:8000/
     path('', views.index, name='index'),
-    path('save_blog_post/', views.save_blog_post, name='save_blog_post')
+    # localhost:8000/5/
+    # localhost:8000/23/
+    path('<int:blog_post_id>/', views.detail, name='detail')
 ]
