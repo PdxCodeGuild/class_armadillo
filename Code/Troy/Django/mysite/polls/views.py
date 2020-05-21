@@ -1,10 +1,11 @@
+
+
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
-
-
-from django.http import HttpResponse
-from django.template import loader 
+from django.urls import reverse
 
 from .models import  Question
+
 # Create your views here.
 
 def index(request):
