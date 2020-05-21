@@ -3,7 +3,7 @@
 
 ## 1) Project Setup
 
-1. Create a project: `django-admin startproject blogproj`
+1. Create a project: `django-admin startproject blogproj`, if you get 'command not found', try `python -m django startproject blogproj`
 2. Move into the project folder `cd blogproj`
 3. Create the database with built-in models `python manage.py migrate`
 4. Create a superuser `python manage.py createsuperuser`
