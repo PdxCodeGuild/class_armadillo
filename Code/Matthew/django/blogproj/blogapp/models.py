@@ -1,31 +1,20 @@
 from django.db import models
 
-# models are python classes that parallel tables in the database
-# migrations synchronize our models with the database
-# python manage.py makemigrations - stage the changes
-# python manage.py migrate - apply the changes
-# https://github.com/PdxCodeGuild/class_armadillo/blob/master/4%20Django/docs/05%20-%20Models.md#class-table-representation
+
+class BlogPostType(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
 
 class BlogPost(models.Model):
-    # charfield - represents a string with a maximum length
-    title = models.CharField(max_length=100)
-    # textfield - represents a string with an unlimited length
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=200)
     body = models.TextField()
-    # booleanfield - represents a boolean
+    type = models.ForeignKey(BlogPostType, on_delete=models.PROTECT)
+    created_date = models.DateTimeField()
     approved = models.BooleanField()
-    # integerfield - represents an integer
-    rating = models.IntegerField()
 
-    # returns a string representation of the model
-    # used by the admin panel
     def __str__(self):
-        return self.title + ' - ' + self.body[:4]+'...'
-
-
-
-
-
-
-
-
+        return self.title
 
