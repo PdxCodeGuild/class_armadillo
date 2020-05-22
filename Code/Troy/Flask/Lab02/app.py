@@ -5,10 +5,10 @@
 from flask import Flask, render_template, request, redirect
 import json
 
-#defines variable app and assigns it from Flask.
+# class
 app = Flask(__name__)
 
-# defines the function for chores.
+# defines the view for chores.
 def load_chores():
     # opens the file.
     with open('database.json', 'r') as file:
