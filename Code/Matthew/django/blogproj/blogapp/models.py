@@ -15,6 +15,8 @@ class BlogPost(models.Model):
     created_date = models.DateTimeField()
     approved = models.BooleanField()
 
+
+
     def __str__(self):
         return self.title
 
