@@ -1,70 +1,42 @@
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from .models import BlogPost
+from django.shortcuts import render, get_object_or_404, reverse
+from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.utils import timezone
 
-# view - python function that receives the http request and returns the http response
-# the view does the heavy lifting
-# https://github.com/PdxCodeGuild/class_armadillo/blob/master/4%20Django/docs/03%20-%20Views.md
+from .models import BlogPost, BlogPostType
+
 def index(request):
-
-
-    # http method - get, put, post, or delete
-    print(request.method)
-
-    # path - e.g. /blogapp/
-    print(request.path)
-
-    # query parameters
-    # e.g. localhost:8000/blogapp/?a=1&b=2&c=3 becomes {'a':'1', 'b':'2', 'c':'3'}
-    # e.g. https://www.google.com/search?q=armadillo
-    print(request.GET)
-
-    # form data - the name attributes of input elements are the keys, the values are whatever the user entered
-    print(request.POST)
-
-    # text response
-    # return HttpResponse('hello world!')
-
-    # get all the rows out of the BlogPost table
-    # using the ORM - object relational mapping
-    # we write statements in python, the ORM translates those into queries on the database
-    blog_posts = BlogPost.objects.all()
-
-    # we can iterate over the results using for-loop
-    for blog_post in blog_posts:
-        print(blog_post)
-
-    # data context - dictionary containing data we'll use to render the template
-    context = {
-        'title': 'My Blog',
-        'message': '',
-        'fruits': ['apples', 'bananas', 'pears'],
-        'blog_posts': blog_posts
+    posts = BlogPost.objects.order_by('-created_date').filter(approved=True)
+    data = {
+        'posts': posts
     }
-    # render the template
-    # parameter 1 - request that we're given as a parameter to the view
-    # parameter 2 - app name / template name
-    # parameter 3 - data context
-    return render(request, 'blogapp/index.html', context)
+    print(data)
+    return render(request, 'blogapp/index.html', data)
 
 
-# make another view JUST to receive the form submission and redirect back to the first view
-def save_blog_post(request):
-    print(request.POST) # dictionary that contains the form data
-    
-    # get the data out of the dictionary of form data
-    blog_post_title = request.POST['blog_post_title']
-    blog_post_body = request.POST['blog_post_body']
-    blog_post_rating = request.POST['blog_post_rating']
-    print(blog_post_title, blog_post_body, blog_post_rating)
+def detail(request, blog_post_id):
+    post = get_object_or_404(BlogPost, pk=blog_post_id)
+    if not post.approved:
+        raise Http404
+    return render(request, 'blogapp/detail.html', {'post': post})
 
-    # create an instance of our model, pass values as kwargs
-    blog_post = BlogPost(title=blog_post_title,
-                            body=blog_post_body,
-                            rating=blog_post_rating,
-                            approved=True)
-    # save the instance of our model to the database
-    blog_post.save()
+def create_post_page(request):
+    blog_post_types = BlogPostType.objects.order_by('name')
+    return render(request, 'blogapp/new.html', {'types': blog_post_types})
 
-    return HttpResponseRedirect('/blogapp/')
 
+def save_post(request):
+    # print(request.POST)
+
+    title = request.POST['blog_post_title']
+    author = request.POST['blog_post_author']
+    type_id = request.POST['blog_post_type_id']
+    body = request.POST['blog_post_body']
+
+    post = BlogPost(title=title,
+                    author=author,
+                    type_id=type_id,
+                    body=body,
+                    created_date=timezone.now(),
+                    approved=True)
+    post.save()
+    return HttpResponseRedirect(reverse('blogapp:detail', args=(post.id,)))
