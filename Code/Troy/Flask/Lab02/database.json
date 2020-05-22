@@ -17,10 +17,12 @@
             "priority": "high"
         },
         {
-            "chore": "do dishes"
+            "chore": "do dishes",
+            "priority": "low"
         },
         {
-            "chore": "tidy your room"
+            "chore": "tidy your room",
+            "priority": "medium"
         }
     ]
 }
