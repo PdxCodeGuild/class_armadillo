@@ -1,9 +1,9 @@
 li a {
     color: white;
-    font-size: large;
+    font-size: medium;
     
 }
 
 body {
-    background: white url("images/background.jpg") no-repeat;
+    background: url("images/background.jpeg") no-repeat;
 }
