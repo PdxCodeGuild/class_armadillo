@@ -23,6 +23,10 @@
         {
             "chore": "tidy your room",
             "priority": "medium"
-        }
+        },
+        {
+            "chore": "shopping",
+            "priority": "low"
+        }        
     ]
 }
