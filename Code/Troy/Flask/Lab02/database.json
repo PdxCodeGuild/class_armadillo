@@ -27,6 +27,10 @@
         {
             "chore": "shopping",
             "priority": "low"
-        }        
+        },
+        {
+            "chore": "haircut",
+            "priority": "medium"
+        }
     ]
 }

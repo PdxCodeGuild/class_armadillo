@@ -41,12 +41,18 @@ def index():
 def save_honey_do_list():
     chore = request.form['chore']
     priority = request.form['priority']
-    print(chore)
+    # print(chore)
     data = load_chores()
-    data['honey_do_list'].append({'chore':chore})
-    data['honey_do_list'].append({'priority':priority})
-    # data['honey_do_list'].sort()
+    #assigns a variable and creates a dictionary combining chore and priority
+    honey_do = {
+        'chore':chore,
+        'priority':priority
+    }
+    # takes new input and appends it to the json database
+    data['honey_do_list'].append(honey_do)
+    # saves the new input in the json database`
     save_chores(data)
+   
 
     return redirect('/')
 
