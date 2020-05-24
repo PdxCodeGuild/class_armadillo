@@ -20,3 +20,11 @@
 {
     background: darkseagreen;
 }
+
+li a {
+    color: black
+}
+
+body {
+    background-image: url("static/background_beach.jpeg")no-repeat;
+}
