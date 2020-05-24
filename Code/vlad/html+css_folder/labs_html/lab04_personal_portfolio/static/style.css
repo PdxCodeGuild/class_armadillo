@@ -26,5 +26,5 @@ li a {
 }
 
 body {
-    background-image: url("background_beach.jpeg")no-repeat;
+    background-image: url("static/background_beach.jpeg")no-repeat;
 }

@@ -1,0 +1,85 @@
+<!-- 
+   Lab 4: Personal Portfolio
+Did you know GitHub will let you use a repo to host a static website? Follow this tutorial to create your own site. This will be a separate repo from your class repo, but do not place your other labs here.
+
+If you're looking for inspiration, check out these:
+
+http://annaspysz.com/
+http://matthewbryancurtis.com/
+https://kprasch.github.io/TinyResume/
+https://medium.freecodecamp.org/15-web-developer-portfolios-to-inspire-you-137fb1743cae
+https://www.reddit.com/r/learnprogramming/comments/39g7v9/example_portfolio_websites/
+-->
+
+<!--
+  W3 School: Get the Bootstrap: 
+
+  https://www.w3schools.com/booTsTrap/bootstrap_get_started.asp
+  Bootstrap CDN
+If you don't want to download and host Bootstrap yourself, you can include it from a CDN (Content Delivery Network).
+
+MaxCDN provides CDN support for Bootstrap's CSS and JavaScript. You must also include jQuery:
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Home</title>
+  <link rel="stylesheet" type="text/css" href="static/style.css"/>
+  <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/> -->
+  <style type="text/css">
+    /* my style here */
+  </style>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <!-- create a header and the class name header in the body-->
+  <!-- create a nav class and the class name header in the body-->
+  <!-- create a div class container  and the class name header in the body-->
+  <!-- add my image to the body HTML-->
+
+  <header class="header">
+    <nav class="navbar navar-style">
+      <div class="container">
+        <div class="nav-header"> 
+          <!-- Create the button to hide the navbar when making the website smaller: -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menuicon">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+          <a href=""><img class="logo" src="personal_portfolio_logo.png"></a>
+          <a href=""><img class="logo" src="photo_ID_Vladimir_Antigua.jpg"></a> 
+
+        </div>
+        <!-- to help collapse the navbar -->
+        <div class="collapse navbar-collapse" id="menuicon">
+        <ul class="nav navbar-nav navbar-right"> <!-- move the navbar to the right = navbar-right -->
+          <li><a href="">Travel Planner</a></li>
+          <li><a href="">Top 10 Destinations</a></li>
+          <li><a href="">Discount</a></li>
+          <li><a href="">Connect with Us</a></li>
+          <li><a href="">Deals Special Offer</a></li>
+          <li><a href="">Contact Us</a></li>
+        </ul>
+      </div>
+      </div>
+    </nav>
+  </header>
+
+</body>
+
+</html>
