@@ -1,5 +1,5 @@
 
-# Lab 15 - user input is on line 15
+# Lab 15 - user input is on line 15 # Allow the user to input the amount of rotation used in the encryption. (ROTN)
 
 def rotn(text, num):
   output = ''
