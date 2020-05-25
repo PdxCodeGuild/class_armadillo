@@ -1,8 +1,11 @@
 # lab 21 - converts numerics to english
+# mistakes: kept accessing incorrect part of dictionary
+
+
 
 
 ones = {
-        0 : "zero",
+       
         1 : "one",
         2 : "two",
         3 : "three",
@@ -12,55 +15,75 @@ ones = {
         7 : "seven",
         8 : "eight",
         9 : "nine",
-        0 : "zero",
+        0 : "",
 }
 # make dictionary
-tens_dict = {
-  10 : "teen",
-  20 : 'twenty',
-  30 : 'thirty',
-  40 : 'forty',
-  50 : 'fifty',
-  60 : 'sixty',
-  70 : 'seventy',
-  80 : 'eighty',
-  90 : 'ninety',
-  0  : 'zero',
-}
+tens = {1: 
+            {1: "eleven",
+            2: "twelve", 
+            3: "thirteen", 
+            4: "fourteen",
+            5: "fifteen", 
+            6: "sixteen", 
+            7: "seventeen", 
+            8: "eighteen",
+            9: "ninteen", 
+            0: "ten"},
+        2: "twenty", 
+        3: "thirty", 
+        4: "fourty", 
+        5: "fifty", 
+        6: "sixty",
+        7: "seventy", 
+        8: "eighty", 
+        9: "ninety", 
+        0: ""}
 
-hundreds = {1: "one hundred", 2: "two hundred", 3: "three hundred",
-            4: "four hundred", 5: "five hundred", 6: "six hundred",
-            7: "seven hundred", 8: "eight hundred",
-            9: "nine hundred", 0: ""}
+hundreds = {1: "one hundred", 
+            2: "two hundred", 
+            3: "three hundred",
+            4: "four hundred", 
+            5: "five hundred", 
+            6: "six hundred",
+            7: "seven hundred", 
+            8: "eight hundred",
+            9: "nine hundred", 
+            0: ""}
 
 # main run loop
+
 while True:
-  # test input
+    # tested loop takes, and validates, input
+    while True:
+        number = (input('''
+    Enter a number to get it's english translation.
+    if finished, enter done.
+        '''))
+        if number.isdigit():
+            number = int(number)
+            break
+        elif number in ['done', 'quit', 'exit']:
+            print("Thanks for using numbers to english translation!\n")
+            exit()
+        else:
+            print("please enter a valid number between 0 - 999.")
+    # floor divide to get the front digit
+    hund_dig = number // 100
+    # floor divide minus the first digit * 100 to get the second digit
+    ten_dig = (number - hund_dig*100) // 10
+    # use modulus to get final digit
+    one_dig = number % 10
+    # check if we have a 1 in our second digit
+    if ten_dig == 1:
+        # access nested dictionary to get special names in "-teens"
+        output = f"{hundreds[hund_dig]} {tens[ten_dig][one_dig]}"
+    # test for edge case of a 0 being input
+    elif hund_dig == 0 and ten_dig == 0 and one_dig == 0:
+        output = "zero"
+    # if we don't have outlier inputs, assemble output message
+    else:
+        output = f"{hundreds[hund_dig]} {tens[ten_dig]} {ones[one_dig]}"
 
-  number = int(input("Enter a numeric value 0 - 999: "))
-
-
-  print(number)
-  # floor divide hundreds
-  hundreds_place = (number // 100)
-  print(hundreds_place)
-  # floor divide minus first index/hundreds' place to get tens' place
-  tens_place = ((number) // 10)
-  print(tens_place)
-  # use modulo to get ones' place
-  ones_place = (number % 10)
-  print(ones_place)
-  # check if we have a remainder in the tens' place
-  if tens_place == 1:
-    result = f'{hundreds[hundreds_place]} { tens_dict[tens_place][ones_place]}'
-  elif hundreds_place == 0 and tens_place == 0 and ones_place == 0:
-    result = "zero"
-
-  else:
-    result = f'{hundreds[hundreds_place]} {tens_dict[tens_place]} {ones[ones_place]}'
-  
-  print(result)
-
- # line 55, in <module>
+    print(f"\n\t{number} in english is {output}!")
 #     result = f'{hundreds[hundreds_place]} { tens_dict[tens_place][ones_place]}'
 # KeyError: 1
