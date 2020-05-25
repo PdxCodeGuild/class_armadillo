@@ -26,62 +26,29 @@ dictionary2 = {0 : 'N', 1 : 'O', 2 : 'P', 3 : 'Q', 4 : 'R', 5 : 'S',
         21 : 'I', 22 : 'J', 23 : 'K', 24 : 'L', 25 : 'M'}
 
 
-user = input("Pick a letter from the dictionary1: ")
+# phrase = input("Enter the letters you'd like to be encrypted: ")
 
-
-def encrypt(message, shift): 
-    cipher = '' 
+# defines rot function.
+def encrypt(message): 
+    # creates string coe to iterate over to find indices
+    cipher = 'abcdefghijklmnopqrstuvwxyz' 
+    # creates open string so user can enter a code
+    phrase = ''
+    # initiates loop
     for letter in message: 
         # checking for space 
-        if(letter != ' '): 
-            # looks up the dictionary and  
-            # adds the shift to the index 
-            num = ( dictionary1[letter] + shift ) % 26
-            # looks up the second dictionary for  
-            # the shifted alphabets and adds them 
-            cipher += dictionary2[num] 
+        if letter == ' ': 
+            phrase += ' '
+            # attaches user phrase using rot13 code 
         else: 
-            # adds space 
-            cipher += ' '
+            phrase += cipher[(cipher.find(letter)+13)%26]
   
-    return cipher
-
-
-
-     # Function to decrypt the string  
-# according to the shift provided 
-def decrypt(message, shift): 
-    decipher = '' 
-    for letter in message: 
-        # checks for space 
-        if(letter != ' '): 
-            # looks up the dictionary and  
-            # subtracts the shift to the index 
-            num = ( dict1[letter] - shift + 26) % 26
-            # looks up the second dictionary for the  
-            # shifted alphabets and adds them 
-            decipher += dict2[num] 
-        else: 
-            # adds space 
-            decipher += ' '
-  
-    return decipher 
-  
-
-# driver function to run the program 
-def main(): 
-    # use 'upper()' function to convert any lowercase characters to uppercase 
-    message = "LEARNING"
-    shift = 13
-    result = encrypt(message.upper(), shift) 
-    print (result) 
-  
-    message = "ZSOFBWBU"
-    shift = 13
-    result = decrypt(message.upper(), shift) 
-    print (result) 
-  
-
+  # returns phrase from below
+    return phrase
+# users input of what they want encrypted.
+message = input("Enter the letters you'd like to be encrypted: ")
+# prints the encrypted msg.
+print(f'Your new code is {encrypt(message)}')
 
 
 
