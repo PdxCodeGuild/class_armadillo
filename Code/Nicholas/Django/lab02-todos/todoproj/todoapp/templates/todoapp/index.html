@@ -6,8 +6,11 @@
     <title>Todos</title>
 </head>
 <body>
-    <h1>{{message}}</h1>
-    <div>{{task}}{{publish_date}}</div>
+    <ul>
+        {% for todos in todos %}
+        <li>{{todos.task}}</li>
+        {% endfor %}
+    </ul>
     
 </body>
 </html>
