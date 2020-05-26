@@ -13,22 +13,24 @@
     - [One-to-One](#one-to-one)
     - [Many-to-One](#many-to-one)
     - [Many-to-Many](#many-to-many)
-    - [on_delete](#ondelete)
+    - [on_delete](#on_delete)
   - [ORM Operations](#orm-operations)
+    - [Example Model](#example-model)
     - [Create an Instance](#create-an-instance)
     - [Save an Instance](#save-an-instance)
     - [Get All Rows](#get-all-rows)
     - [Get a Particular Row](#get-a-particular-row)
+    - [Check if a Record Exists](#check-if-a-record-exists)
     - [Filter Rows](#filter-rows)
     - [Specify an Order](#specify-an-order)
     - [Specify the Number of Rows to Return](#specify-the-number-of-rows-to-return)
 
-Models are Python classes that parallel tables in the database. The ORM manages this dual representation, translating statements in Python to operations on the database. You can read more about models [here](https://docs.djangoproject.com/en/2.2/topics/db/models/), and more about the ORM [here](https://docs.djangoproject.com/en/2.2/ref/models/querysets/).
+Models are Python classes that parallel tables in the database. The ORM manages this dual representation, translating statements in Python to queries on the database. You can read more about models [here](https://docs.djangoproject.com/en/2.2/topics/db/models/), and more about the ORM [here](https://docs.djangoproject.com/en/2.2/ref/models/querysets/).
 
 
 ## Class-Table Representation
 
-Database tables are like excel spreadsheets: they have headers and rows. Tables can also be thought of as Python classes, where the headers are class attributes, and the rows are instances.
+Database tables are like excel spreadsheets: they have headers and rows. Tables can also be thought of as Python classes, where the headers are class attributes, and the rows are instances. All models are automatically given an `id` field as a primary key, which uniquely identifies a row.
 
 | id | email_address | first_name | last_name |
 | --- | --- | --- | --- |
@@ -37,18 +39,15 @@ Database tables are like excel spreadsheets: they have headers and rows. Tables 
 | 3 | brian@gmail.com | Brian | Barber |
 
 ```python
-class User:
-    def __init__(self, id, email_address, first_name, last_name):
-        self.id = id
-        self.email_address = email_address
-        self.first_name = first_name
-        self.last_name = last_name
-user1 = User(1, 'wendy@gmail.com', 'Wendy', 'Carson')
-user2 = User(2, 'alyssa@gmail.com', 'Alyssa', 'Lyons')
-user3 = User(3, 'brian@gmail.com', 'Brian', 'Barber')
+from django.db import models
+class Contact(models.Model):
+    email_address = models.CharField(max_length=200)
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+contact1 = Contact(email='wendy@gmail.com', first_name='Wendy', last_name='Carson')
+contact2 = Contact(email='alyssa@gmail.com', first_name='Alyssa', last_name='Lyons')
+contact3 = Contact(email='brian@gmail.com', first_name='Brian', last_name='Barber')
 ```
-All models are automatically given an `id` field, which is an int that uniquely identifies a row.
-
 
 ## Field Types
 
@@ -66,7 +65,7 @@ You can read more about the field types [here](https://docs.djangoproject.com/en
 
 ### Nullable Fields
 
-Fields can be 'null' or absent. In Python, the attributes of the instances will be `None`. To declare these fields to be 'nullable', you must specify both `null=True` for the database, and `blank=True` for the admin interface.
+Fields can be 'null' or absent. In Python, the attributes of the instances will be `None`. To declare these fields to be 'nullable', you must specify both `null=True` for the database, and `blank=True` to be able to leave an input field blank in the admin panel.
 
 ```Python
 date_completed = models.DateTimeField(null=True, blank=True)
@@ -171,6 +170,8 @@ You can read more about many-to-many relationships [here](https://docs.djangopro
 
 
 ### on_delete
+"'
+ B 
 
 The `on_delete` parameter lets you control what to do with other rows when a connected row is deleted. You can read more about `on_delete` [here](https://docs.djangoproject.com/en/2.2/ref/models/fields/#arguments). The important options are:
 
@@ -182,9 +183,16 @@ The `on_delete` parameter lets you control what to do with other rows when a con
 
 ## ORM Operations
 
-The ORM 'object relational mapping' provides functions in Python that perform operations on the database. To read more about ORM operations, look [here](https://docs.djangoproject.com/en/2.2/topics/db/queries/).
+The ORM 'object relational mapping' provides functions in Python that perform operations on the database. To read more about ORM operations, look [here](https://docs.djangoproject.com/en/2.2/topics/db/queries/). Note that `__init__`, `get`,  and `filter` take `**kwargs` (which turns named parameters into a dictionary), whereas `order_by` takes `*args` (which turns arguments into a list).
 
-Note that `__init__`, `get`,  and `filter` take `**kwargs` (which turns named parameters into a dictionary), whereas `order_by` takes `*args` (which turns arguments into a list).
+### Example Model
+
+```python
+class TodoItem(models.Model):
+    todo_text = models.CharField(max_length=200)
+    date_entered = models.DateTimeField()
+    date_completed = models.DateTimeField(null=True, blank=True)
+```
 
 
 ### Create an Instance
@@ -220,6 +228,19 @@ To get a particular row, use `get()`. Here we're getting the item with a given p
 ```python
 item_id = 5
 item = TodoItem.objects.get(pk=item_id)
+```
+
+This will raise an exception if the record is not found. A safer way is like this.
+
+```python
+item = TodoItem.objects.filter(pk=item_id).first()
+```
+
+### Check if a Record Exists
+
+```python
+if TodoItem.objects.filter(pk=item_id).exists():
+    ...
 ```
 
 ### Filter Rows
