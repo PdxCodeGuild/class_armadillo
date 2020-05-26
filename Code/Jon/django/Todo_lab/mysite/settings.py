@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qkj^vn@ayf#ym(w_*+2h_i(z&nwn2cl5e#h=lp)i!k(t!qw014'
+SECRET_KEY = '-m%i9=5i0unu7ck!!rgm+4(uy5and-7twevpfq)%2h=lce*9h)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,14 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todos',
+    'todo_list',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +55,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -107,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/Indiana/Indianapolis'
+TIME_ZONE = 'US/PACIFIC'
 
 USE_I18N = True
 
