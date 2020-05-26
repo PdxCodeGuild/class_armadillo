@@ -1,5 +1,5 @@
 
-# Lab 2: Contacts
+# Lab 3: Contacts
 
 Let's build a CRUD application for managing a contact list.
 
