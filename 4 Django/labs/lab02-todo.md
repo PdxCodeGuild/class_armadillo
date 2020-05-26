@@ -4,7 +4,12 @@
 
 Let's create a simple todo app. This can be done with a single model `TodoItem` which contains a text **description**, a **created date**, a **completed date**, and a boolean representing whether it was **completed**. The index page should list all the todo items, and a text field and a button (in a form). When the clicks the button, it should saves a new todo item to the server and shows the newly-added item in the list. Use one view to render the template, and another view to receive the form submission and redirect back to the first view.
 
+
 ## Version 2
+
+Add a button next to each todo item to complete it. Show completed items in a separate list (or at the bottom of the existing list) with grey color and maybe a line through them.
+
+## Version 3
 
 Let's add a **Priority** model with a **name** field (e.g. low, medium, high), and a **foreign key** to the **TodoItem** model. The form for creating a todo item should also have a dropdown list for selecting the priority. Display the priority in the list of todo items.
 

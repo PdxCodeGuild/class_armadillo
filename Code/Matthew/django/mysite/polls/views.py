@@ -11,6 +11,20 @@ def index(request):
     }
     return render(request, 'polls/index.html', context)
 
+
+def delete(request):
+    print(request.POST) # make sure you're getting the form data
+    question_id = request.POST['question_id']
+    question = Question.objects.get(pk=question_id)
+    question.delete()
+    return HttpResponseRedirect(reverse('polls:index'))
+
+
+def delete2(request, question_id):
+    question = Question.objects.get(pk=question_id)
+    question.delete()
+    return HttpResponseRedirect(reverse('polls:index'))
+
 def detail(request, question_id):
     question = Question.objects.get(pk=question_id)
     return render(request, 'polls/detail.html', {'question': question})
