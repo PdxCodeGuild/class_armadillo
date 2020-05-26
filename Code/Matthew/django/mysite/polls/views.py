@@ -1,20 +1,20 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
-
 from .models import Question, Choice
 
-# home page - list of questions
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    context = {'title': 'polls index', 'latest_question_list': latest_question_list}
+    context = {
+        'title': 'Polls!',
+        'latest_question_list': latest_question_list
+    }
     return render(request, 'polls/index.html', context)
 
-# detail page for a question - contain the form to vote
 def detail(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
+    question = Question.objects.get(pk=question_id)
     return render(request, 'polls/detail.html', {'question': question})
 
-# show the results of the votes (each choice and the votes)
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/results.html', {'question': question})
@@ -22,11 +22,10 @@ def results(request, question_id):
 
 def vote(request, question_id):
     # print(request.POST)
-
-    # return HttpResponse('ok')
     question = get_object_or_404(Question, pk=question_id)
     try:
-        selected_choice = question.choice_set.get(pk=request.POST['choice'])
+        choice_id = request.POST['choice']
+        selected_choice = question.choices.get(pk=choice_id)
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
         return render(request, 'polls/detail.html', {

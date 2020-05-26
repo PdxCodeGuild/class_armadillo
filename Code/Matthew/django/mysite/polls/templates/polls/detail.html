@@ -12,11 +12,18 @@
     
     <form action="{% url 'polls:vote' question.id %}" method="post">
         {% csrf_token %}
-        {% for choice in question.choice_set.all %}
+        {% for choice in question.choices.all %}
             <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
             <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
         {% endfor %}
         <input type="submit" value="Vote">
+        <!-- <button type="submit">Vote</button> -->
     </form>
+
+    <!-- the 'for' attribute of the label is the id of the input element to which the label belongs-->
+    <!-- <form>
+        <input type="radio" name="fruit" id="fruit1"/>
+        <label for="fruit1"></label>
+    </form> -->
 </body>
 </html>
