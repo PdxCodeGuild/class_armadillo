@@ -6,6 +6,10 @@ app_name = 'polls'
 urlpatterns = [
     # ex: /polls/
     path('', views.index, name='index'),
+    # ex: delete/ - receiving question id in form data
+    path('delete/', views.delete, name='delete'),
+    # ex: delete2/5/ - receiving question id in the path
+    path('delete2/<int:question_id>/', views.delete2, name='delete2'),
     # ex: /polls/5/
     path('<int:question_id>/', views.detail, name='detail'),
     # ex: /polls/5/results/
