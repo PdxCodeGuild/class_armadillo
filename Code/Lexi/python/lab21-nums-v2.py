@@ -1,6 +1,6 @@
 # lab 21 - converts numerics to english
-# mistakes: kept accessing incorrect part of dictionary
-
+# mistakes: kept accessing incorrect part of dictionary, zeros
+# referred to Vlad's, Talieson's, Sam's
 
 
 
@@ -84,6 +84,6 @@ while True:
     else:
         output = f"{hundreds[hund_dig]} {tens[ten_dig]} {ones[one_dig]}"
 
-    print(f"\n\t{number} in english is {output}!")
+    print(f"\n\t{number} in plain words is {output}!")
 #     result = f'{hundreds[hundreds_place]} { tens_dict[tens_place][ones_place]}'
 # KeyError: 1

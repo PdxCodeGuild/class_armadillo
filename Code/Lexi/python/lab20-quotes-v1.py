@@ -1,49 +1,33 @@
-# Lab 20 The URL to get a random quote is https://favqs.com/api/qotd, send a request here, parse the JSON in the response into a python dictionary, and show the quote and the author.
-
-# 1:15 mark of Week 5 > May 4th https://zoom.us/rec/play/tJN_Ie-hr203HdzGuASDUfUvW9S5Kv-shyMX8vYEzk_nB3JXYVOhYOAWY7ZqnZ74BFFAB8zTSaw49UG3?continueMode=true&_x_zm_rtaid=B_eY-b4sRDOhI4C9lZhUUQ.1590447779267.8865d7bf23014c3f1f90087953230acd&_x_zm_rhtaid=568
-# sources: https://favqs.com/api/
-# other cool ideas: https://www.programmableweb.com/category/keywords/api
+# Version 1: Get a Random Quote
+# The URL to get a random quote is https://favqs.com/api/qotd, send a request here, parse the JSON in the response into a python dictionary, and show the quote and the author.
 import requests
-import json 
-while True:
-    key = input("What keyword do you want to have a search for quotes by? :")
+import json
 
-    page=1
-    url = f'https://favqs.com/api/quotes?page={page}1&filter={key}'
-    headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
-    response = requests.get(url, headers=headers)
-    data = json.loads(response.text)
-    output = []
-    if data['quotes'][0]['body'] == 'No quotes found':
-        print("\nchoose a different keyword - that one yields no results\n")
-        break
-    for quote in data['quotes']:
-
-        output.append({
-            'body': quote['body'],
-            'author': quote['author']
-        })
-        print(output)
-
-    for quote in data['quotes']:
-        print("\n" + ' "' + quote['body'] + '"- ' + quote['author'])
-        print()
+url = ('https://favqs.com/api/qotd')
+data = requests.get(url)
+text = json.loads(data.text)
 
 
-# import requests
-# import json
+subj = text['quote']['tags'][0]
+quote = text['quote']['body']
+auth = text['quote']['author']
+print(f' \n QUOTE OF THE DAY IS ABOUT: \'{subj}\' - stating \"{quote}\" by the author, {auth}')
 
-# # site we are using
-# url = 'https://api.chucknorris.io/jokes/random'
-# # send API request
-# response = requests.get(url)
-# # look at the text in raw JSON format
-# print(response.text)
-# # create a variable that represents a python dictionary
-# # https://www.w3schools.com/python/python_json.asp
-# joke = json.loads(response.text)
-
-# print(f'The joke is : "{joke["value"]}".')
-
-# RESULT:
-# The joke is : "Chuck Norris can make you evacuate your bowels with a high five.".
+# {
+#   "qotd_date": "2020-05-27T00:00:00.000+00:00",
+#   "quote": {
+#     "id": 45785,
+#     "dialogue": false,
+#     "private": false,
+#     "tags": [
+#       "peace"
+#     ],
+#     "url": "https://favqs.com/quotes/buddha/45785-those-who-are-",
+#     "favorites_count": 0,
+#     "upvotes_count": 1,
+#     "downvotes_count": 0,
+#     "author": "Buddha",
+#     "author_permalink": "buddha",
+#     "body": "Those who are free of resentful thoughts surely find peace."
+#   }
+# }
