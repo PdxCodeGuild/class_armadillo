@@ -14,6 +14,9 @@ def index(request):
 
     return render(request, 'todo_list/index.html', context)
 
+
+
+
 def delete(request):
     chore_id = request.POST['delete']
     chore = TodoItem.objects.get(id=chore_id)

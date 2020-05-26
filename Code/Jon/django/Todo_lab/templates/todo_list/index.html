@@ -10,21 +10,28 @@
 
     <title>Hello, world!</title>
   </head>
+
+
+
   <body>
-      
+    
     <h1>Todo List</h1>
-    {{ chores }}
     {% for chore in chores %}
-    <p>
+      {% if chore.status %}
+    <p style="text-decoration: line-through; opacity: .6; color: grey;">
       {{ chore.name }} 
       - 
       {{ chore.created_date }}
-      -
-      {% if chore.status %}
-      {{ chore.status }}
-        Done
       {% else %}
-        Not done
+      <p>
+        {{ chore.name }} 
+        - 
+        {{ chore.created_date }}
+        <form action="">
+          <input type="text" value="{{}}"">
+          <button type='submit'>Done</button>
+      </form>
+  
       {% endif %}
     </p>
     {% endfor %}
@@ -36,6 +43,8 @@
       <input type="text" name="description">
       <button type="submit">Submit</button>
     </form>
+
+    
 
     <form action="{% url 'todo_list:delete' %}" method="POST">
       {% csrf_token %}
