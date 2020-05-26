@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Todos 
 
 def index(request):
     context={'message':'hello world!'}
