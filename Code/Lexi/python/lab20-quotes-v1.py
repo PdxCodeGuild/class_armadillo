@@ -5,32 +5,29 @@
 # other cool ideas: https://www.programmableweb.com/category/keywords/api
 import requests
 import json 
-key = input("What keyword do you want to have a search for quotes by? :")
+while True:
+    key = input("What keyword do you want to have a search for quotes by? :")
 
-url = 'https://favqs.com/api/quotes?page=1&filter={key}'
-headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
-response = requests.get(url, headers=headers)
-data = json.loads(response.text)
-for quote in data['quotes']:
-    print(quote['body'] + ' - ' + quote['author'])
+    page=1
+    url = f'https://favqs.com/api/quotes?page={page}1&filter={key}'
+    headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
+    response = requests.get(url, headers=headers)
+    data = json.loads(response.text)
+    output = []
+    if data['quotes'][0]['body'] == 'No quotes found':
+        print("\nchoose a different keyword - that one yields no results\n")
+        break
+    for quote in data['quotes']:
 
-print(data['quote'][0]['body'] + ' - ' + data['quotes'][0]['author'])
+        output.append({
+            'body': quote['body'],
+            'author': quote['author']
+        })
+        print(output)
 
-
-# SOURCE: https://www.geeksforgeeks.org/response-json-python-requests/
-# import requests
-# import json
-
-# response = requests.get('https://favqs.com/api/qotd')
-
-# print(response)
-
-# print(response.json())
-
-
-
-
-
+    for quote in data['quotes']:
+        print("\n" + ' "' + quote['body'] + '"- ' + quote['author'])
+        print()
 
 
 # import requests
