@@ -12,8 +12,41 @@
   </head>
   <body>
       
-    <h1>Hello, world!</h1>
+    <h1>Todo List</h1>
+    {{ chores }}
+    {% for chore in chores %}
+    <p>
+      {{ chore.name }} 
+      - 
+      {{ chore.created_date }}
+      -
+      {% if chore.status %}
+      {{ chore.status }}
+        Done
+      {% else %}
+        Not done
+      {% endif %}
+    </p>
+    {% endfor %}
 
+
+    <form action="{% url 'todo_list:create' %}" method="POST">
+      {% csrf_token %}
+      <input type="text" name="name">
+      <input type="text" name="description">
+      <button type="submit">Submit</button>
+    </form>
+
+    <form action="{% url 'todo_list:delete' %}" method="POST">
+      {% csrf_token %}
+      <select name="delete" id="">
+        {% for chore in chores %}
+          <option value="{{ chore.id }}">{{ chore.name }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit" class="btn btn-outline-dark">Delete</button>
+    </form>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
