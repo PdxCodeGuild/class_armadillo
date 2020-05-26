@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Get Quoted!</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}" />
+    <link href: https://coolors.co/palettes/trending />
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    <style type="text/css"></style>
 </head>
 <body>
-    <form action="" method="post">
-        <input type="text" name="input_text" placeholder="enter some text"/>
-        <button type="submit">submit</button>
-      </form>    
+    <h1>Get Your Quote Today!!</h1>
+    <form action="/" method="post">
+        <input button type ="submit" type="button" class="button" value="Press Here for Quote" />
+        <!-- <button type="submit">Enter for Quote</button> -->
+      </form> 
+      {% block body%}
+      <p>The author is: {{author_response}}</p>
+      <p>Their quote is: '{{quote_response}}'</p>
+      {%endblock body%}         
 </body>
 </html>

@@ -2,15 +2,108 @@
     "todos": [
         {
             "text": "walk the dog",
-            "priority": "high"
+            "priority": "high",
+            "completed": true
         },
         {
             "text": "butter the cat",
-            "priority": "medium"
+            "priority": "medium",
+            "completed": true
         },
         {
             "text": "wash dishes",
-            "priority": "low"
+            "priority": "low",
+            "completed": true
+        },
+        {
+            "text": "cut the grass ",
+            "priority": "low",
+            "completed": true
+        },
+        {
+            "text": "buy some cloths",
+            "priority": "low",
+            "completed": true
+        },
+        {
+            "text": "Eat ",
+            "priority": "High",
+            "completed": true
+        },
+        {
+            "text": "watch",
+            "priority": "car",
+            "completed": true
+        },
+        {
+            "text": "sleep",
+            "priority": "high",
+            "completed": true
+        },
+        {
+            "text": "run",
+            "priority": "low",
+            "completed": true
+        },
+        {
+            "text": "walk",
+            "priority": "high",
+            "completed": true
+        },
+        {
+            "text": "run",
+            "priority": "",
+            "completed": true
+        },
+        {
+            "text": "snack",
+            "priority": "high",
+            "completed": true
+        },
+        {
+            "text": "workout",
+            "priority": "high",
+            "completed": true
+        },
+        {
+            "text": "shower",
+            "priority": "low",
+            "completed": true
+        },
+        {
+            "text": "shop",
+            "priority": "high",
+            "completed": true
+        },
+        {
+            "text": "clean",
+            "priority": "low",
+            "completed": true
+        },
+        {
+            "text": "playball ",
+            "priority": "high",
+            "completed": true
+        },
+        {
+            "text": "movies",
+            "priority": "low",
+            "completed": true
+        },
+        {
+            "text": "Air",
+            "priority": "High",
+            "completed": true
+        },
+        {
+            "text": "watch my Truck and wax it ",
+            "priority": "High",
+            "completed": true
+        },
+        {
+            "text": "Fold the laundry",
+            "priority": "Low ",
+            "completed": true
         }
     ]
 }

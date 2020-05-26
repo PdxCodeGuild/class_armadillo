@@ -1,40 +1,31 @@
-op = input("What is the operation to perform? : ")
-print('1. Add')
-print('2. Subtract')
-print('3. Multiply')
-print('4. Divide')
 
-# def operand(i):
-#     switcher = {
-#         1: 'add',
-#         2: 'subtract',
-#         3: 'multiply',
-#         4: 'divide',
-#     }
-#     return switcher.get(i, "invalid entry")
+# lab 13
+
+# https://stackoverflow.com/questions/48134055/python-function-returns-none-in-elif-or-else
+
+# https://levelup.gitconnected.com/3-ways-to-write-a-calculator-in-python-61642f2e4a9a
+
+op = input("What is the operation to perform? ('/', '*', '+', '-'): ")
 
 first = int(input("What is the first number? : "))
 second = int(input("What is the second number? : "))
 
-print(operand(0))
+out = None
 
-def add(first, second):
-    return first + second
-print(f'{add(first,second)} is the sum')
+if op == '/':
+    out = (first/second)
 
-# sum = (first + second)
-# print(f'{sum} is the result')
+elif op == '*':
+    out = first * second
 
-# above only adds
+elif op == '-':
+    out = first - second
 
-# def subtract(first, second):
-#     return first - second
-# print(subtract(first,second) + 'is the difference')
+elif op == '+':
+    out = first + second
 
-# def multiply(first, second):
-#     return first * second
-# print(multiply(first,second) + 'is the product')
+else:
+    print("not a valid operator")
 
-# def divide(first, second):
-#     return first / second
-# print(divide(first,second) + 'is the quotient')
+
+print(str(out))
