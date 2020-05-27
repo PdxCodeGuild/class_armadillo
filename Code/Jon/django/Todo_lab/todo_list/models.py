@@ -8,4 +8,6 @@ class TodoItem(models.Model):
     description = models.CharField(max_length=200)
     created_date = models.DateTimeField(auto_now_add=True)
     completed_date = models.DateTimeField(blank=True, null=True)
-    status = models.BooleanField()
+    status = models.BooleanField(default=False)
+
+    

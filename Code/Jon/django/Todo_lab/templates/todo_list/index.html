@@ -10,10 +10,52 @@
 
     <title>Hello, world!</title>
   </head>
-  <body>
-      
-    <h1>Hello, world!</h1>
 
+
+
+  <body>
+    
+    <h1>Todo List</h1>
+    {% for chore in chores %}
+      {% if chore.status %}
+    <p style="text-decoration: line-through; opacity: .6; color: grey;">
+      {{ chore.name }} 
+      - 
+      {{ chore.created_date }}
+      {% else %}
+      <p>
+        {{ chore.name }} 
+        - 
+        {{ chore.created_date }}
+        <form action="">
+          <input type="text" value="{{}}"">
+          <button type='submit'>Done</button>
+      </form>
+  
+      {% endif %}
+    </p>
+    {% endfor %}
+
+
+    <form action="{% url 'todo_list:create' %}" method="POST">
+      {% csrf_token %}
+      <input type="text" name="name">
+      <input type="text" name="description">
+      <button type="submit">Submit</button>
+    </form>
+
+    
+
+    <form action="{% url 'todo_list:delete' %}" method="POST">
+      {% csrf_token %}
+      <select name="delete" id="">
+        {% for chore in chores %}
+          <option value="{{ chore.id }}">{{ chore.name }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit" class="btn btn-outline-dark">Delete</button>
+    </form>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
