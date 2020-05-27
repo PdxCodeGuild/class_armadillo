@@ -41,3 +41,28 @@ def complete(request, todo_item_id):
     todo_item.save()
     # redirect back to the index view
     return HttpResponseRedirect(reverse('todo:index'))
+
+def clear_completed(request):
+    # get all the todo items whose completed date is null
+    completed_items = TodoItem.objects.filter(completed_date__isnull=False)
+    # delete them
+    completed_items.delete()
+    # redirect back to the index page
+    return HttpResponseRedirect(reverse('todo:index'))
+
+
+def delete(request, todo_item_id):
+    # look up the todo item with the given id
+    todo_item = TodoItem.objects.get(pk=todo_item_id)
+    # delete the todo item
+    todo_item.delete()
+    # redirect back to the index page
+    return HttpResponseRedirect(reverse('todo:index'))
+
+def delete_via_form(request):
+    print(request.POST)
+    todo_item_id = request.POST['todo_item_id']
+    todo_item = TodoItem.objects.get(pk=todo_item_id)
+    todo_item.delete()
+    # redirect back to the index page
+    return HttpResponseRedirect(reverse('todo:index'))
