@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <form action="/" method="get">
-        <input value = "text" id="city" name="Enter a city">
-        <button type="submit">submit</button>
-    </form>
-    <div id="result">
-        <p>{{city}}</p>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <form action="/" method="post">
+          <input
+            placeholder="Enter a city name followed by the fully spelled out state name "
+            name="city"
+          />
+
+          <button type="submit">submit</button>
+        </form>
+      </div>
     </div>
-</body>
+    <div>
+      <a href="/"> Back to Home</a>
+    </div>
+    <p class="info" id="result">{{pete}}</p>
+  </body>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"
+  ></script>
 </html>

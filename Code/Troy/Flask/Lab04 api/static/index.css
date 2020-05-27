@@ -1,14 +1,17 @@
+
+/* body */
 body {
     text-align: center;
     background-color: #9d0208;
     font-family: 'Inconsolata', monospace;
     font-size: 30px;
+    margin: 10px;
 }
-
+/* Title or header of page */
 h1 {
     text-align: center;
 }
-
+/* button */
 .button {
     background-color: #FFBA08;
     border: none;

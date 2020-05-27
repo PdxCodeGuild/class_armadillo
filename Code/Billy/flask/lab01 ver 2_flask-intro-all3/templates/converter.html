@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Billy B.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator Comlplex</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <!-- prevents enter button from working when filling in fields on form -->
+    <script type="text/javascript">
+        function stopRKey(evt) {
+            var evt = (evt) ? evt : ((event) ? event : null);
+            var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+            if ((evt.keyCode == 13) && (node.type == "text")) { return false; }
+        }
+        document.onkeypress = stopRKey;   
+    </script>
+
+    <style type="text/css">
+        header {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .output {
+            text-align: center;
+            font-size: 50px;
+            font-family: 'Roboto', sans-serif;
+            color: rgb(146, 145, 145);
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <header>
+        <img src="{{ url_for('static', filename='password_art6.png') }}">
+    </header> -->
+    <!-- form includes input validation (pattern, title) -->
+    <div class="row align-items-center">
+        <div class="col">
+            <form autocomplete="off" action="/" method="POST"></form>
+            <header>
+                <img src="{{ url_for('static', filename='password_art9.png') }}">
+            </header>
+            <input autocomplete="off" type="text" name="distance" class="form-control" placeholder="What's the distance?"
+                pattern="^[0-9]+$" title="Invalid. Please input digits only [0-9]..." required/>
+            <br>
+            <input autocomplete="off" type="text" name="units_1" class="form-control"
+                placeholder="What are the INPUT units?" required/>
+            <br>
+            <input autocomplete="off" type="text" name="units_2" class="form-control"
+                placeholder="What are the OUTPUT units?" required/>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-secondary btn-md btn-block">Convert!</button>
+            <!-- <div class="output">{{conversion}}</div> -->
+            </form>
+        </div>
+        <div class="col">
+            <form autocomplete="off" action="/" method="POST">
+                <header>
+                    <img src="{{ url_for('static', filename='password_art9.png') }}">
+                </header>
+                <input autocomplete="off" type="text" name="upper" class="form-control"
+                    placeholder="How many uppercase letters?" pattern="^[0-9]+$"
+                    title="Invalid. Please input digits only [0-9]..." required />
+                <br>
+                <input autocomplete="off" type="text" name="lower" class="form-control"
+                    placeholder="How many lowercase letters?" pattern="^[0-9]+$"
+                    title="Invalid. Please input digits only [0-9]..." required />
+                <br>
+                <input autocomplete="off" type="text" name="number" class="form-control" placeholder="How many numbers?"
+                    pattern="^[0-9]+$" title="Invalid. Please input digits only [0-9]..." required />
+                <br>
+                <input autocomplete="off" type="text" name="character" class="form-control"
+                    placeholder="How many special characters?" pattern="^[0-9]+$"
+                    title="Invalid. Please input digits [0-9]..." required />
+                <br>
+                <button type="submit" class="btn btn-secondary btn-md btn-block">Generate!</button>
+            </form>
+        </div>
+        <div class="col">
+            <form autocomplete="off" action="/" method="POST">
+                <header>
+                    <img src="{{ url_for('static', filename='password_art9.png') }}">
+                </header>
+                <input autocomplete="off" type="text" name="upper" class="form-control" placeholder="What's your word?">
+                <br>
+                <input autocomplete="off" type="text" name="lower" class="form-control"
+                    placeholder="What's the amount of rotation?" pattern="^[0-9]+$"
+                    title="Invalid. Please input digits only [0-9]..." required />
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-secondary btn-md btn-block">Encode!</button>
+                <!-- <div class="output">{{output}}</div> -->
+            </form>
+        </div>
+    </div>
+    <div class="output">{{output}}</div>
+</body>
+</html>
