@@ -94,6 +94,16 @@
             "text": "Air",
             "priority": "High",
             "completed": true
+        },
+        {
+            "text": "watch my Truck and wax it ",
+            "priority": "High",
+            "completed": true
+        },
+        {
+            "text": "Fold the laundry",
+            "priority": "Low ",
+            "completed": true
         }
     ]
 }

@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/Los_Angeles' #https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+TIME_ZONE = 'US/Pacific' #'America/Los_Angeles' # or can be entered as 'US/Pacific' #https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 USE_I18N = True
 

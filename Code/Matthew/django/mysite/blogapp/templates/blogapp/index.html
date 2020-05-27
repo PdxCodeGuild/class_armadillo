@@ -1,0 +1,16 @@
+
+{% extends 'blogapp/base.html' %}
+
+{% block content %}
+    <div>
+        <a href="{% url 'blogapp:create_post_page' %}">new post</a>
+    </div>
+    {% for post in posts %}
+    <div>
+        <a href="{% url 'blogapp:detail' post.id %}">{{post.title}}</a>
+    </div>
+    {% endfor %}
+    <!-- <script type="text/javascript">
+        alert('hello world!')
+    </script> -->
+{% endblock %}

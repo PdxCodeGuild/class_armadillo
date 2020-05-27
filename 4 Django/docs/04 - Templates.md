@@ -1,23 +1,25 @@
 # Templates
 
 - [Templates](#templates)
+  - [Passing a Value to the Template](#passing-a-value-to-the-template)
   - [Template Rendering Syntax](#template-rendering-syntax)
     - [Rendering a Value](#rendering-a-value)
     - [Conditionals](#conditionals)
     - [Looping](#looping)
   - [Reverse URL Lookup](#reverse-url-lookup)
-      - [urls.py](#urlspy)
-      - [index.html](#indexhtml)
   - [Forms](#forms)
   - [Static Files](#static-files)
   - [Template Inheritance](#template-inheritance)
       - [base.html](#basehtml)
-      - [index.html](#indexhtml-1)
+      - [index.html](#indexhtml)
       - [detail.html](#detailhtml)
 
 Templates are like blueprints for your HTML pages. They contain plain HTML/CSS/JavaScript, but also additional syntax for generating HTML/CSS/JavaScript using variables from your Python view. You can read more about Templates [here](https://docs.djangoproject.com/en/3.0/topics/templates/) and [here](https://docs.djangoproject.com/en/3.0/ref/templates/builtins/)
 
 The variable names referred to inside the template must be defined in the data context (a dictionary) passed to the `render` function inside the view. For more information, see the [views doc](02%20-%20Views.md).
+
+## Passing a Value to the Template
+
 
 ## Template Rendering Syntax
 
@@ -25,6 +27,14 @@ The variable names referred to inside the template must be defined in the data c
 
 You can render a value in a template using `{{}}`.
 
+
+**views.py**
+```python
+from django.shortcuts import render
+def index(self)
+    return render(request, 'myapp/index.html', {'name': 'Jane'})
+```
+**index.html**
 ```html
 <span>Hello, {{name}}!</span>
 ```
@@ -33,11 +43,20 @@ You can render a value in a template using `{{}}`.
 
 What you put inside an `if` block will only be rendered if the condition is true.
 
+**views.py**
+```python
+from django.shortcuts import render
+def index(self)
+    return render(request, 'myapp/index.html', {'temperature': random.randint(50, 100)})
+```
+**index.html**
 ```html
-{% if number == 5 %}
-<span>the number is 5</span>
-{% elif numer == 4 %}
-<span>the number is 4</span>
+{% if temperature < 60 %}
+<span>cold</span>
+{% elif temperature < 80 %}
+<span>warm</span>
+{% else %}
+<span>hot</span>
 {% endif %}
 ```
 
@@ -45,10 +64,17 @@ What you put inside an `if` block will only be rendered if the condition is true
 
 Whatever you put inside the `for` block will be repeated for each iteration of the loop. For example, we can build a list of items.
 
+**views.py**
+```python
+from django.shortcuts import render
+def index(self)
+    return render(request, 'myapp/index.html', {'fruits': ['apples', 'bananas', 'pears']})
+```
+**index.html**
 ```html
 <ul>
-    {% for todo_item in todo_items %}
-    <li>{{ todo_item.text }}</li>
+    {% for fruit in fruits %}
+    <li>{{ fruit }}</li>
     {% endfor %}
 </ul>
 ```
@@ -59,7 +85,7 @@ Whatever you put inside the `for` block will be repeated for each iteration of t
 In order for Django to find the proper path when rendering the template, the app's `urls.py` must contain the variable `app_name`, e.g. `app_name = 'todos'`.
 
 
-#### urls.py
+**urls.py**
 ```python
 from django.urls import path
 from . import views
@@ -70,7 +96,7 @@ urlpatterns = [
 ]
 ```
 
-#### index.html
+**index.html**
 ```html
 <form action="{% url 'todos:add' %}" method="post">
     {% csrf_token %}
