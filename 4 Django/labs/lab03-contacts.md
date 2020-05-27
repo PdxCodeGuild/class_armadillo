@@ -17,23 +17,15 @@ Our `Contact` model will have the following fields:
 | `is_cell` | `BooleanField` | `<input type="checkbox"/>` |
 | `comments` | `TextField`| `<textarea></textarea>` |
 
-## Pages
+## Views
 
 The application will have the following views:
 
-- `/contacts/` will render a template containing a `new contact` button, as well as a list of contacts each with a `view contact` button and an `edit contact` button
+- `/contacts/` will render a template containing a `new contact` button, as well as a list of contacts each with a `view contact` button
 - `/contacts/<id>/` will be a detail page for a contact with the given `id`
 - `/contacts/new/` will render a template containing a form for creating a new contact
 - `/contacts/new/submit/` will receive the form submission from `/contacts/new/`, create a new contact in the database, and redirect to the detail page for the newly created contact
-- `/contacts/<id>/edit/` will have a form for editing a contact
 
-## Steps
+## Version 2 (optional)
 
-These are the recommended steps:
-
-1. Define the model in the app's `models.py`
-2. Register the model with the admin page, log in and create some records to make sure everything works
-3. Create the contact detail page, which displays the different fields and their values
-4. Create the new contact page
-5. Create the edit contact page
-
+Add the ability to delete a contact, and a separate page for editing a contact (basically the same form as the new contact, but with all the fields pre-populated with a given contact's info).
