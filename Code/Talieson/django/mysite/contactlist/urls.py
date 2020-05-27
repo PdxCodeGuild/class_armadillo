@@ -1,0 +1,9 @@
+from django.urls import path
+from . import views
+
+
+app_name = 'contactlist'
+urlpatterns = [
+    path('create_contact', views.create_contact, name='create_contact'),
+    path('', views.contacts, name='contacts'),
+]

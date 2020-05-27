@@ -1,14 +1,27 @@
-from datetime import datetime
+from datetime import date
 import re 
 import requests
 
+
 # define the path and open text file
 
-# gets data from website
-response = requests.get('https://or.water.usgs.gov/non-usgs/bes/metro_center.rain') # gets data from website
-text = response.text #turns into text format
+rain_list = requests.get('https://or.water.usgs.gov/non-usgs/bes/metro_center.rain') 
+rain_data = rain_list.text
 
-def get_rain(text): # function 
+def rain():
+    current_date = date.current_date()
+    return current_date.strftime('%d-%b-%Y')
+rain = rain()
+
+print(rain)
+
+
+
+# gets data from website
+rain = requests.get('https://or.water.usgs.gov/non-usgs/bes/metro_center.rain') # gets data from website
+rain_data = rain.text #turns into text format
+
+def weather(text): # function 
     return re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text) # regular expression we want to find EVERYTHING that fits this criteria
         # \d means digits
         # \w means words
