@@ -14,6 +14,7 @@
 </head>
 <body>
     <h1>{{title}}</h1>
+    <a href="{% url 'todo:clear_completed' %}">clear completed</a>
     <form action="{% url 'todo:create' %}" method="post">
         {% csrf_token %}
         <input type="text" placeholder="enter todo item" required name="todo_text"/>
@@ -30,6 +31,8 @@
             <th>Created Date</th>
             <th>Priority</th>
             <th></th>
+            <th></th>
+            <th></th>
         </tr>
         {% for todo_item in todo_items %}
         <tr>
@@ -38,11 +41,21 @@
                 <td class="completed">{{todo_item.created_date}}</td>
                 <td class="completed">{{todo_item.priority.name}}</td>
                 <td>{{todo_item.completed_date}}</td>
+                <td><a href="{% url 'todo:delete' todo_item.id %}" class="btn btn-primary">delete</a></td>
+                <td>
+                    <form action="{% url 'todo:delete_via_form' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="todo_item_id" value="{{todo_item.id}}"/>
+                        <button type="submit" class="btn btn-primary">delete</button>
+                    </form>
+                </td>
             {% else %}
                 <td>{{todo_item.description}}</td>
                 <td>{{todo_item.created_date}}</td>
                 <td>{{todo_item.priority.name}}</td>
-                <td><a href="{% url 'todo:complete' todo_item.id %}"><button>complete</button></a></td>
+                <td><a href="{% url 'todo:complete' todo_item.id %}" class="btn btn-primary">complete</a></td>
+                <td></td>
+                <td></td>
             {% endif %}
         </tr>
         {% endfor %}
