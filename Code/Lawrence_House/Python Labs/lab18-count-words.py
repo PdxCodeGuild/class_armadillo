@@ -29,5 +29,6 @@ for word in words:
 
 words = list(word_counts.items()) # .items() returns a list of tuples
 words.sort(key=lambda tup: tup[1], reverse=True)  # sort largest to smallest, based on count
+print("The Top 10 most common words are:\n")
 for i in range(min(10, len(words))):  # print the top 10 words, or all of them, whichever is smaller
   print(words[i][0], words[i][1])

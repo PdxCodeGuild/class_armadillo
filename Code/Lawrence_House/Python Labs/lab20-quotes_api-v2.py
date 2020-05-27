@@ -14,11 +14,15 @@ while True:
     for quote in data['quotes']:
         print(quote['body'] + ' - ' + quote['author'])
         print('\n')
-    page_choice = input(f"Enter 'next page' or 'done': ")
+    page_choice = input(f"Enter 'next page' 'prev page' or 'done': ")
     if page_choice == 'done':
         exit()
     elif page_choice == 'next page':
         page += 1
+        print("\n""Page", page)
+    elif page_choice == 'prev page':
+        page -= 1
+        print("\n""Page", page)
         
 
 # print(data1[0]['body'])

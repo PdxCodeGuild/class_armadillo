@@ -2,23 +2,28 @@ import string
 import re
 import math
 
+# Open and load text
 
 filename = 'Code\Lawrence_House\metamorp.txt'
 file = open(filename, 'rt')
 text = file.read()
 file.close()
 
-# 
+# Regex for determining sentences
 
 regex = r'([A-Z][^\.!?]*[\.!?])'
 sentence_list = re.findall(regex, text)
 sentences = len(sentence_list)
+
+# Splitting text into individual words, removing punctuation and making all lowercase
 
 words = text.split()
 
 punc_table = str.maketrans('', '', string.punctuation)
 stripped = [w.translate(punc_table) for w in words]
 words = [word.lower() for word in stripped]
+
+# Counting letters
 
 def char_count(word):
     number_of_chars = 0
@@ -29,10 +34,9 @@ def char_count(word):
 
 characters = char_count(words)
 
+# Counting words
+
 words = len(words)
-
-
-
 
 # def letter_count
 # if char in ascii.lower 
@@ -41,10 +45,13 @@ words = len(words)
 
 # characters = ()
 
+# Ari Calculation
+
 ari = 4.71*(characters/words) + 0.5*(words/sentences) - 21.43
 ari = round(ari)
 print(ari)
 
+# ARI Dictionary
 
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
