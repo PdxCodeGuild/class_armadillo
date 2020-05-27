@@ -26,7 +26,7 @@ Let's build a front-end to an API by sending HTTP requests to the API from our o
 - **Version 3**: allow the user to save "favorites" to a `db.json` database.
 
 
-You can use one of the following APIs or [choose your own](https://github.com/public-apis/public-apis).
+You can use one of following APIs or [choose your own](https://github.com/public-apis/public-apis).
 
 - Random quote / search quotes: [FavQs](https://favqs.com/api)
 - Current weather / forecast: [OpenWeatherMap](https://openweathermap.org/api). You can use the [built-in icons](https://openweathermap.org/weather-conditions#Icon-list) or these [more minimal ones](https://websygen.github.io/owfont/).
