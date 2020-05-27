@@ -12,14 +12,17 @@ import json
 url = requests.get('https://favqs.com/api/qotd')
 data = json.loads(url.text)
 
-
+# defines function to get quote
 def quotes():
+    # send a request to the api
     get_quote = requests.get('https://favqs.com/api/qotd')
+     # turn json string into a python dictionary
     return json.loads(get_quote.text)
 print(quotes()['quote']['body'])
 
 def response():
     response = requests.get('https://favqs.com/api/qotd')
+    # turn json string into a python dictionary
     return json.loads(response.text)
 print(response()['quote']['author'])
 
@@ -32,15 +35,15 @@ print(response()['quote']['author'])
 
 
 
-url = 'https://api.chucknorris.io/jokes/random'
-# send the request to the api
-response = requests.get(url) 
-# look at the raw json
-print(response.text) 
-# turn the json into a python dictionary
-data = json.loads(response.text) 
-#  # get a part of the response data out of the dictionary
-print(data['value'])
+# url = 'https://api.chucknorris.io/jokes/random'
+# # send the request to the api
+# response = requests.get(url) 
+# # look at the raw json
+# print(response.text) 
+# # turn the json into a python dictionary
+# data = json.loads(response.text) 
+# #  # get a part of the response data out of the dictionary
+# print(data['value'])
 
 # site to pull from
 # url = "https://favqs.com/api/qotd"
