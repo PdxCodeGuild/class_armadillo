@@ -1,16 +1,9 @@
 import random
-import inflect
-
-p = inflect.engine()
-words = p.number_to_words(1234)
-print(words)
-
-
 
 
 # references
 # https://pypi.org/project/num2words/
-https://stackoverflow.com/questions/19504350/how-to-convert-numbers-to-words-in-python
+# https://stackoverflow.com/questions/19504350/how-to-convert-numbers-to-words-in-python
 
 
 
@@ -20,37 +13,75 @@ https://stackoverflow.com/questions/19504350/how-to-convert-numbers-to-words-in-
 
 
 # ask for user input
-question = int(input("Choose a number from 0-9: "))
 
 
-ones = {
-        0 : "zero",
-        1 : "one",
-        2 : "two",
-        3 : "three",
-        4 : "four",
-        5 : "five",
-        6 : "six",
-        7 : "seven",
-        8 : "eight",
-        9 : "nine"
-}
 
-tens = {
-        0 : "ten",
-        1 : "eleven",
-        2 : "twelve",
-        3 : "thirteen",
-        4 : "fourteen",
-        5 : "fifteen",
-        6 : "sixteen",
-        7 : "seventeen",
-        8 : "eighteen",
-        9 : "nineteen"
-} 
+nums_1to19 = [
+         "zero",
+         "one",
+         "two",
+         "three",
+         "four",
+         "five",
+         "six",
+         "seven",
+         "eight",
+         "nine",
+         "ten",
+         "eleven",
+         "twelve",
+         "thirteen",
+         "fourteen",
+         "fifteen",
+         "sixteen",
+         "seventeen",
+         "eighteen",
+         "nineteen",
+]
 
-small_num = (ones, tens[question])
-print(small_num)
+n_20 = "twenty"
+n_30 = "thirty"
+n_40 = "forty"
+n_50 = "fifty"
+n_60 = "sixty"
+n_70 = "seventy"
+n_80 = "eighty"
+n_90 = "ninety"
+
+# ask for user input
+x = int(input("Choose a number you want to translate into words: "))
+# converting the list into a string
+List_x = list(str(x))
+# takes 'ones' place and turns it into an integer
+ones = int(List_x[-1])
+# changing from number form
+of_ones = nums_1to19[ones]
+# adding 'zero' so that it doesn't add additional zeros
+if of_ones == "zero" and len(List_x) != 1:
+        of_ones = ''
+if x < 20:
+        number = nums_1to19[x]
+# scanning through every number the user provides
+elif List_x[-2] == '2':
+        number = '{} {}'.format(n_20, of_ones)
+elif List_x[-2] == '3':
+        number = '{} {}'.format(n_30, of_ones)
+elif List_x[-2] == '4':
+        number = '{} {}'.format(n_40, of_ones)
+elif List_x[-2] == '5':
+        number = '{} {}'.format(n_50, of_ones)
+elif List_x[-2] == '6':
+        number = '{} {}'.format(n_60, of_ones)
+elif List_x[-2] == '7':
+        number = '{} {}'.format(n_70, of_ones)
+elif List_x[-2] == '8':
+        number = '{} {}'.format(n_80, of_ones)
+elif List_x[-2] == '9':
+        number = '{} {}'.format(n_90, of_ones)
+print('Translated, your output is :' , number)
+
+
+
 
 # # rounds down to the nearest tens
 # tens_digit = user_input//10
