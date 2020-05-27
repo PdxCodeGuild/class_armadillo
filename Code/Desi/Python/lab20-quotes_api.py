@@ -6,6 +6,27 @@
 
 import requests
 import json
+
+
+
+url = requests.get('https://favqs.com/api/qotd')
+data = json.loads(url.text)
+
+
+def quotes():
+    get_quote = requests.get('https://favqs.com/api/qotd')
+    return json.loads(get_quote.text)
+print(quotes()['quote']['body'])
+
+def response():
+    response = requests.get('https://favqs.com/api/qotd')
+    return json.loads(response.text)
+print(response()['quote']['author'])
+
+
+
+
+
 # from secrets 
 # import chuck_norris_api_key
 
