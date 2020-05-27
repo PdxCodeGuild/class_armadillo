@@ -119,23 +119,11 @@ def index(request):
 ```python
 from django.db import models
 
-
-class BlogPostType(models.Model):
-    name = models.CharField(max_length=200)
-    
-    def __str__(self):
-        return self.name
-
 class BlogPost(models.Model):
-    # id = models.IntegerField...
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
     body = models.TextField()
-    type = models.ForeignKey(BlogPostType, on_delete=models.PROTECT, related_name='posts')
-    date_published = models.DateTimeField(auto_now_add=True)
-    
-    def html_body(self):
-        return self.body.replace('\n', '<br/>')
+    date_published = models.DateTimeField()
     
     def __str__(self):
         return self.title + ' - ' + self.author
@@ -149,10 +137,9 @@ class BlogPost(models.Model):
 
 ```python
 from django.contrib import admin
-from .models import BlogPost, BlogPostType
+from .models import BlogPost
 
 admin.site.register(BlogPost)
-admin.site.register(BlogPostType)
 ```
 
 4. Log into your admin panel `localhost:8000/admin`, you should see your models, and can make sure they work by creating some record
@@ -165,7 +152,7 @@ admin.site.register(BlogPostType)
 from django.shortcuts import render
 
 def index(request):
-    blog_posts = BlogPost.objects.order_by('date_published')
+    blog_posts = BlogPost.objects.order_by('-date_published')
     context = {
         'blog_posts': blog_posts
     }

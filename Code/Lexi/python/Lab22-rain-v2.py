@@ -1,80 +1,76 @@
+
+#Download or use requests to get these files. The two columns that are most important are the date and the daily total. The simplest representation of this data is a list of tuples, but you may also use a list of dictionaries, or a list of instances of a custom class.
 # from module import CLASS
 from datetime import datetime
 import requests
 import re
 import math
 
-#https://www.w3schools.com/python/ref_requests_response.asp
-response = requests.get('https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain')
-text = response.text
+def load_rain_data(url):
+    data = requests.get(url)
+    text = data.text
+    rain_data = re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text)
+    print(rain_data)
 
-def get_rain(text): # create function
-    return re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text)
- 
-def get_data(dates):
-  # create empty list to fill
-  rain_data = []
-  # iterate through list
-  for day in date: 
-      # use special format for list
-      rain = datetime.strptime(day[0], '%d-%b-%Y'), int(day[1])
-      # adds date to empty list we created
-      rain_data.append(rain) 
-      # return list
-  return rain_data
 
-def get_mean(rain_data):
-  # start with 0
-  total = 0
-  # iterate through list
-  for height in rain_data:
-    # add to total
-    total += height[1]
-    # get the avg
-  return total / len(rain_data) 
+    for i in range(len(rain_data)):
+        date = rain_data[i][0]
+        daily_total = rain_data[i][1]
+        date = datetime.strptime(date, '%d-%b-%Y')
 
-#The standard deviation is the square root of the variance. 
-# 68.2% of the data falls within 1 standard deviation of 
-# the mean.
+        daily_total = int(daily_total)*0.01 * 2.54
 
-def get_variance(rain_data):
-  total = 0
-  for height in rain_data:
-    total += (height[1] - get_mean(rain_data)) ** 2
+        rain_data[i] = {
+            'date': date,
+            'daily_total' : daily_total,
+        }
+    return rain_data
+
+    print(rain_data)
+
+def calc_mean(rain_data):
+
+    total = 0
+    for row in rain_data:
+        total += row['daily_total']
     return total / len(rain_data)
 
+def calc_var(rain_data, mean):
+    total = 0
+    for row in rain_data:
+        total += (row['daily_total'] - mean ) **2
+    return total / len(rain_data)
 
-# https://en.wikipedia.org/wiki/Standard_deviation
-def standard_deviation(nums):
-    return math.sqrt(get_variance(rain_data))
-
-
-def get_max_day(rain_data): # finds the tuple(s) with the hightest daily total.
-   max_rain_day = ' ' # collects highest rain days as strings                                                                              
-   maximum = max(rain_data, key=lambda x:x[1]) # selects tuple that has the highest secomd index, returns tuple that containest largest dily total value
-   # max() would usually base it on first index of tuple, lambda key parameter specifies that max() should use index [1] to determine max
-   for i in range(len(rain_data)): # iterates through rain data tuples
-      if rain_data[i][1] == maximum[1]: # if tuple daily total equals max, it will included as max
-         rain_data[i]= ((rain_data[i][0]).strftime('%d-%b-%Y'), rain_data[i][1]) # converts that tuple to readable date format
-         max_rain_day += str(rain_data[i]) # adds highest tuple to max_rain_day
-         # max_rain_day.append(rain_data[i]) # if collected via list instead of string
-   return max_rain_day
+def highest(rain_data):
+    row_highest = rain_data[0]
+    for row in rain_data:
+        if row['daily_total'] > row_highest['daily_total']:
+            row_highest = row
+    return row_highest
 
 
-def rain_numbers(): # main function, combines above functions
-   date = get_rain(text)
-   rain_data = get_data(day)
-   mean = get_mean(rain_data)
-   variance = get_variance(rain_data)
-   standard_deviation = get_stand_dev(rain_data)
-   max_rain_day = get_max_day(rain_data)
-
-   print(f'Mean: {mean} tips')
-   print(f'Variance: {variance}')
-   print(f'Standard deviation: {standard_deviation}')
-   print(f'Wettest day:{max_rain_day}')
+rain_data = load_rain_data('https://or.water.usgs.gov/non-usgs/bes/yeon.rain')
+mean = calc_mean(rain_data)
+print(f'\nThe mean of this rain data is {mean}')
 
 
-rain_numbers() # calls above function
+variance = calc_var(rain_data, mean)
+stan_dev = math.sqrt(variance)
+print(f'\n68% of the data falls in a range greater than {mean-stan_dev} and less than {mean+stan_dev}')
+
+row_highest = highest(rain_data)
+print(f'\nThe day with the most rain was {row_highest["date"]} with {row_highest["daily_total"]} cm. \n')
 
 
+
+# # turn a string into a datetime object
+# date = datetime.strptime('25-MAY-2020', '%d-%b-%Y')
+
+# # access the properties of that object
+# print(date.year)   # 2016
+# print(date.month)  # 3
+# print(date.day)    # 25
+# print(date)  # 2016-03-25 00:00:00
+
+# # turn the datetime object back into a string
+# print(f"Yeon Rain Gage - 3395 NW. Yeon Ave on {date.strftime('%d-%b-%Y')}")  # 25-Mar-2016
