@@ -43,7 +43,7 @@ import string
 
 # to count for numbers zero to 10
 digit_one = { 
-    0: "zero", 
+    0: "Zero", 
     1:'One', 
     2:'Two', 
     3:'Three', 
@@ -85,7 +85,7 @@ digit_three = {
 user_input = int(input('enter a number to convert to words please: '))
 
 def numbers_phrase(nums):
-   
+    
     if nums < 10:
         return digit_one[nums]
 
@@ -95,8 +95,12 @@ def numbers_phrase(nums):
     elif nums < 100:
         tens_digit = nums//10
         ones_digit = nums%10
+    # if nums < 0:
+        # return digit_one[nums]
+        # return digit_three[tens_digit]
         return digit_three[tens_digit] + '-' + digit_one[ones_digit]
-        
+        # enter a number to convert to words please: 50
+        # your number to phase is: fifty-Zero  Learn how to remove the zero here
 
     
 nums = user_input
