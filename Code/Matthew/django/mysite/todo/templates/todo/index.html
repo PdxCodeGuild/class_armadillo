@@ -4,8 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style type="text/css">
+        .completed {
+            color:grey;
+            text-decoration: line-through;
+        }
+    </style>
 </head>
 <body>
     <h1>{{title}}</h1>
+    <form action="{% url 'todo:create' %}" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="enter todo item" required name="todo_text"/>
+        <select name="priority_id">
+            {% for priority in priorities %}
+            <option value="{{priority.id}}">{{priority.name}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-primary">add todo</button>
+    </form>
+    <table class="table">
+        <tr>
+            <th>Todo</th>
+            <th>Created Date</th>
+            <th>Priority</th>
+            <th></th>
+        </tr>
+        {% for todo_item in todo_items %}
+        <tr>
+            {% if todo_item.completed %}
+                <td class="completed">{{todo_item.description}}</td>
+                <td class="completed">{{todo_item.created_date}}</td>
+                <td class="completed">{{todo_item.priority.name}}</td>
+                <td>{{todo_item.completed_date}}</td>
+            {% else %}
+                <td>{{todo_item.description}}</td>
+                <td>{{todo_item.created_date}}</td>
+                <td>{{todo_item.priority.name}}</td>
+                <td><a href="{% url 'todo:complete' todo_item.id %}"><button>complete</button></a></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
