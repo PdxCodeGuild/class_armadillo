@@ -4,8 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style type="text/css">
+        .completed {
+            color:grey;
+            text-decoration: line-through;
+        }
+    </style>
 </head>
 <body>
     <h1>{{title}}</h1>
+    <form action="{% url 'todo:create' %}" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="enter todo item" required name="todo_text"/>
+        <button type="submit">add todo</button>
+    </form>
+    <table>
+        <tr>
+            <th>Todo</th>
+            <th>Created Date</th>
+            <th></th>
+        </tr>
+        {% for todo_item in todo_items %}
+        <tr>
+            {% if todo_item.completed %}
+                <td class="completed">{{todo_item.description}}</td>
+                <td class="completed">{{todo_item.created_date}}</td>
+                <td>{{todo_item.completed_date}}</td>
+            {% else %}
+                <td>{{todo_item.description}}</td>
+                <td>{{todo_item.created_date}}</td>
+                <td><a href="{% url 'todo:complete' todo_item.id %}">complete</a></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
