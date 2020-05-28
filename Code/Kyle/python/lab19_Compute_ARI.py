@@ -9,6 +9,8 @@ import math
 not_a_letter = "`~-!@#$%^&*()_+=?:;,.\"”[]}{â€1234567890™"
 not_a_letter2 = "`~-@#$%^&*()_+=:;,\"”[]}{â€1234567890™"
 
+
+
 # ARI Scale Dictionary
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
@@ -27,13 +29,14 @@ ari_scale = {
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
 
+
 #OPENING LINE
 print("\nWelcome to Lab 19. Let's check to see how many characters, words, and sentences are in Jack London's Classic, 'Call of the Wild.' \n")
 print("Please be patient - depending on the size of the text, this download might take a few seconds. \n")
 
 # import the text to be evaluated from internet
 response  = requests.get('https://www.gutenberg.org/files/215/215-0.txt')
-text = response.text
+text = response.text.lower()
 
 # open text file from path
 # text_path = "C:/Users/kdhar/class_armadillo/code/kyle/call_of_the_wild.txt"
@@ -41,13 +44,15 @@ text = response.text
 #     text = file.read()
 
 # Clean text to remove all admin information, move to lower-case
-text = text[text.find("Chapter I. Into the Primitive"):text.find("End of the Project Gutenberg EBook")]
-text = text.lower()
+text = text[text.find("*** start of this project gutenberg ebook"):text.find("end of this project gutenberg ebook")]
 
 # Clean text to remove UTC Codes, extranious punctuation.
 def mr_clean_1(text):
     text = text.replace('â€™', '\'').replace('\x80\x99', '\'').replace('\x80\x94', '\'').replace('\x80\x9d', '\'').replace('\x80\x9c', '\'').replace('-', ' ')
     text = text.replace('â€', '\"').replace('â€œ', '\"')
+    text = text.replace('start of this project gutenberg ebook', '')
+    text = text.replace('start of the project gutenberg ebook', '')
+    text = text.replace('end of the project gutenberg ebook', '')
     for letter in not_a_letter:
         text = text.replace(letter, '')
     text = text.replace('  ', ' ').replace('   ', ' ')
@@ -106,6 +111,9 @@ def word_count(text):
 def how_many_sentences(text):
     text = text.replace('â€™', '\'').replace('\x80\x99', '\'').replace('\x80\x94', '\'').replace('\x80\x9d', '\'').replace('\x80\x9c', '\'')#.replace('-', ' ')
     text = text.replace('â€', '\"').replace('â€œ', '\"').replace('!', '.').replace('?', '.')
+    text = text.replace('start of this project gutenberg ebook', '')
+    text = text.replace('start of th project gutenberg ebook', '')
+    text = text.replace('end of the project gutenberg ebook', '')
     #print(f"Should be lines of prose with punctuation: {text[:100]}")
     for letter in not_a_letter2:
         text = text.replace(letter, '')

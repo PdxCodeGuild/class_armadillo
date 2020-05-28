@@ -122,7 +122,7 @@ def play_again():
     while True:
         ask_again = input("Would you like to play again? ")
         if ask_again.lower() in affirmatives:
-            mind_reader_no_guess()
+            mind_reader()
         elif ask_again.lower() in negatives:
             print("Goodbye! ")
             break

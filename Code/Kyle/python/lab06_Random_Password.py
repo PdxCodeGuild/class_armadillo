@@ -1,4 +1,4 @@
-# Lab 6: Random Password Generator Version 1-3
+# Lab 6: Random Password Version 1-3
 # Kyle Harasimowicz
 
 # Let's generate a password of length n using a while loop and random.choice, 
