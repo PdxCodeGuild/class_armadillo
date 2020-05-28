@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/index.css') }}"/>
+</head>
+<body>
+    <h1>{{title}}</h1>
+    {{a}} - {{b}}
+    <!-- important parts of a form -->
+    <!-- action - path to which we're submitting the data -->
+    <!-- method - http method we're going to use to submit the data -->
+    <!-- input/select/textarea elements with name attributes - how we retrieve data on the back-end -->
+    <!-- button type="submit" -->
+    <form action="/" method="post">
+        <div>
+            <input type="text" name="mytext" value="hello world"/>
+            <select name="myddl">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+            </select>
+            <input type="checkbox" name="mycheckbox" checked/>
+        </div>
+        <ul>
+            <li><input type="radio" name="fruit" value="apples" checked/> Apples</li>
+            <li><input type="radio" name="fruit" value="bananas"/> Bananas</li>
+            <li><input type="radio" name="fruit" value="pears"/> Pears</li>
+        </ul>
+        <button type="submit">submit</button>
+    </form>
+    {{message}}
+</body>
+</html>
