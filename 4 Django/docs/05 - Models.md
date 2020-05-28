@@ -17,6 +17,7 @@
   - [ORM Operations](#orm-operations)
     - [Example Model](#example-model)
     - [Create an Instance](#create-an-instance)
+    - [Changing a Property on an Instance](#changing-a-property-on-an-instance)
     - [Save an Instance](#save-an-instance)
     - [Get All Rows](#get-all-rows)
     - [Get a Particular Row](#get-a-particular-row)
@@ -24,6 +25,7 @@
     - [Filter Rows](#filter-rows)
     - [Specify an Order](#specify-an-order)
     - [Specify the Number of Rows to Return](#specify-the-number-of-rows-to-return)
+    - [Get the Number of Rows](#get-the-number-of-rows)
 
 Models are Python classes that parallel tables in the database. The ORM manages this dual representation, translating statements in Python to queries on the database. You can read more about models [here](https://docs.djangoproject.com/en/2.2/topics/db/models/), and more about the ORM [here](https://docs.djangoproject.com/en/2.2/ref/models/querysets/).
 
@@ -114,14 +116,12 @@ class User(models.Model):
     email_address = models.CharField(max_length=200)
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
-    city = models.ForeignKey(Question, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
 ```
 
 ### One-to-One
 
-A one-to-one relationship means that for every row in table A, there will be a single corresponding row in table B. An example might be between [counties and capital cities](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/CPT-Databases-OnetoOne.svg/460px-CPT-Databases-OnetoOne.svg.png). Any country only has one capital. Any capital only pretains to one country. You can read more about one-to-one relationships [here](https://docs.djangoproject.com/en/2.2/topics/db/examples/one_to_one/).
-
-Normally a one-to-one relationship is unnecessary, because one could just take the fields from both models and put them onto one model. But you may have to associate new fields with an old model without changing the old model, or need to restrict access to certain data [more info](https://stackoverflow.com/questions/25206447/when-to-use-one-to-one-relationships-in-django-models).
+A one-to-one relationship means that for every row in table A, there will be a single corresponding row in table B. An example might be between [counties and capital cities](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/CPT-Databases-OnetoOne.svg/460px-CPT-Databases-OnetoOne.svg.png). Any country only has one capital. Any capital only pretains to one country. You can read more about one-to-one relationships [here](https://docs.djangoproject.com/en/2.2/topics/db/examples/one_to_one/). Normally a one-to-one relationship is unnecessary, because one could just take the fields from both models and put them onto one model. But you may have to associate new fields with an old model without changing the old model, or need to restrict access to certain data [more info](https://stackoverflow.com/questions/25206447/when-to-use-one-to-one-relationships-in-django-models).
 
 
 ```python
@@ -159,7 +159,7 @@ class Mother(models.Model):
 
 class Child(models.Model):
     name = models.CharField(max_length=200)
-    mother = models.ForeignKey(Mother)
+    mother = models.ForeignKey(Mother, on_delete=models.PROTECT)
 ```
 
 
@@ -170,8 +170,6 @@ You can read more about many-to-many relationships [here](https://docs.djangopro
 
 
 ### on_delete
-"'
- B 
 
 The `on_delete` parameter lets you control what to do with other rows when a connected row is deleted. You can read more about `on_delete` [here](https://docs.djangoproject.com/en/2.2/ref/models/fields/#arguments). The important options are:
 
@@ -199,8 +197,15 @@ class TodoItem(models.Model):
 
 ```python
 from django.utils import timezone
+...
 todo_text = "wash the dishes"
 todo_item = TodoItem(todo_text=todo_text, date_entered=timezone.now(), date_completed=None)
+```
+
+### Changing a Property on an Instance
+
+```python
+todo_item.todo_text = 'walk the dog'
 ```
 
 ### Save an Instance
@@ -245,10 +250,10 @@ if TodoItem.objects.filter(pk=item_id).exists():
 
 ### Filter Rows
 
-You can `filter` particular rows by specifying a particular attribute's value. This is like `get` but you get multiple results instead of the first matching one.
+You can `filter` particular rows by specifying a particular field's value. This is like `get` but you get multiple results instead of the first matching one.
 
 ```python
-todo_items = TodoItem.objects.filter(text='water the roses')
+todo_items = TodoItem.objects.filter(todo_text='water the roses')
 ```
 
 To filter variables by whether or not a field is null, use `<field_name>__isnull`
@@ -258,7 +263,7 @@ completed_items = TodoItem.objects.filter(date_completed__isnull=False)
 
 ### Specify an Order
 
-To specify an order, use `order_by`, which takes any number of strings containing the names of the attributes to sort by. By default sort is ascending, use a negative symbol `-` to sort in the descending order.
+To specify an order, use `order_by`, which takes any number of strings containing the names of the fields to sort by. By default sort is ascending, use a negative symbol `-` to sort in the descending order.
 
 ```python
 todo_items = TodoItem.objects.order_by('-date_entered', '-date_completed')
@@ -271,5 +276,7 @@ To limit the number of items returned, use slicing.
 
 ```python
 # only get the first 5 results
-todo_items = TodoItem.objects.order_by('-date_entered')[:5]
+todo_items = TodoItem.objects.all()[:5]
 ```
+
+### Get the Number of Rows

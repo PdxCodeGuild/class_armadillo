@@ -1,0 +1,22 @@
+{
+    "contacts": [
+        {
+            "name": "Joe",
+            "age": 34,
+            "email": "joe@email.com",
+            "favorite color": "blue"
+        },
+        {
+            "name": "Jane",
+            "age": 43,
+            "email": "jane@email.com",
+            "favorite color": "green"
+        },
+        {
+            "name": "Jill",
+            "age": 65,
+            "email": "jill@email.com",
+            "favorite color": "orange"
+        }
+    ]
+}

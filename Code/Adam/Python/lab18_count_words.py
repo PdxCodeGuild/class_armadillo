@@ -21,6 +21,7 @@ for i in range(min(10, len(words))):  # print the top 10 words, or all of them, 
 import string
 import requests
 
+# def ten_most_frequent_words(dictionay): # build a function for finding 10 most frequent qords
 
 # url = 'https://www.gutenberg.org/files/215/215-0.txt' # Call of the wild from Project Gutenberg
 
@@ -49,13 +50,35 @@ ebook_end = text.find('end of the project gutenberg ebook of the call of the wil
 # print(ebook_start)
 # print(ebook_end)
 text = text[ebook_start:ebook_end]
+
+
 for char in ['!','"','#','$','%','-','&',"'",'.','(',')','+',',','/',':',';','<','=','>','?','@','[','\\',']','^','_','`','{','|','}','~']:
-    print(char)
+    # print(char)
     text = text.replace(char, ' ')
 text = text.split()
-# print(text[:10000])
+# print(text)
 
-print(text)
+
+words_in_book = {}
+
+# iterate over text.
+for word in text:
+    if word in words_in_book: # if the word is already a keyword in the dictionary... 
+        words_in_book[word] += 1 # add 1 to its value
+    elif word not in words_in_book.keys(): # if the word is not in the dictionary..
+        words_in_book[word] = 0 # add the word with a value of 0
+        words_in_book[word] += 1 # add 1 to its value
+
+
+# print(words_in_book)
+
+
+for key, value in words_in_book.items():
+    if value >= 370: # works only for this book
+        print(key, value)
+
+
+# word_count = Counter(text)
 
 # lines = text.split('\n')
 # print(lines[100:200])
@@ -63,7 +86,5 @@ print(text)
 # 3. Your dictionary will have words as keys and counts as values. 
 #    If a word isn't in your dictionary yet, add it with a count of 1. 
 #    Else if it is, increment its count.
-
-
 
 # 4. Print the most frequent top 10 out with their counts. You can do that with the code below.
