@@ -1,12 +1,35 @@
 {% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
-{% if latest_question_list %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+</head>
+<body>
+    <h1>{{title}}</h1>
+    {% if latest_question_list %}
+    <form action="{% url 'polls:delete' %}" method="post">
+        {% csrf_token %}
+        <select name="question_id">
+            <option value="" selected disabled>Select a question</option>
+            {% for question in latest_question_list %}
+            <option value="{{question.id}}">{{question.question_text}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">delete</button>
+    </form>
     <ul>
-    {% for question in latest_question_list %}
-    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-    {% endfor %}
+        {% for question in latest_question_list %}
+        <li>
+            <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+            <a href="{% url 'polls:delete2' question.id %}">delete</a>
+        </li>
+        {% endfor %}
     </ul>
-{% else %}
+    {% else %}
     <p>No polls are available.</p>
-{% endif %}
+    {% endif %}
+</body>
+</html>
