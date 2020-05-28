@@ -1,15 +1,24 @@
-{"chores" : [
-    {
-        "chore" : "clean room",
-        "priority" : "high"
-    },
-    {
-        "chore" : "clean car",
-        "priority" : "medium"
-    },
-    {
-        "chore" : "walk Boxer",
-        "priority" : "low"
-    }
-]
+{
+    "chores": [
+        {
+            "chore": "clean room",
+            "priority": "high"
+        },
+        {
+            "chore": "clean car",
+            "priority": "medium"
+        },
+        {
+            "chore": "walk Boxer",
+            "priority": "low"
+        },
+        {
+            "chore": "eat llama",
+            "priority": "high"
+        },
+        {
+            "chore": "eat llama",
+            "priority": "high"
+        }
+    ]
 }
