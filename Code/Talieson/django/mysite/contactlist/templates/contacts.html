@@ -8,9 +8,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Contact List</title>
 </head>
-<body>
+<body> 
+    <h1>Contacts</h1>
+    {% if Contacts %}
+    <ul>
     {% for contact in Contacts %}
-    <li><a href="">{{ contact.first_name }} {{ contact.last_name }}</a></li>
+        <li><a href="{% url 'contactlist:contact_details/{{contact.id}}/' %}">{{ contact.first_name }} {{ contact.last_name }}</a></li>
     {% endfor %}
+    </ul>
+    {% else %}
+        <p>No contacts have been saved. Add some <a href="{% url 'contactlist:create_contact/' %}">here!</a></p>
+    {% endif %}
 </body>
 </html>
