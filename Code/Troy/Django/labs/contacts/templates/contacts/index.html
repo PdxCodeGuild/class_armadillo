@@ -6,24 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Contacts</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+     <title>Contacts</title>
 </head>
 
 
 <body>
     <h1>Contact List</h1>
-    <form action="" method="post">
-        {% csrf_token %}
-        <input type="text" name="input_text" placeholder="First Name" />
-        <input type="text" name="input_text" placeholder="Last Name" /> 
-        <input type="number" name="input_text" placeholder="Age" />
-        <input type="date" name="input_text" placeholder="Birth Date" />
-        <input type="text"  pattern="?" name="input_text" placeholder="Phone Number" />
-        <input type="checkbox" name="input_text" placeholder="Is Cell"/>
-        <textarea name="input_text" placeholder="Comments"></textarea>
-        <button type="submit">submit</button>
-    </form>
-    
+    <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname"/>
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname"/> 
+            <label for="age">Age</label>
+            <input type="number" name="input_text"/>
+            <label for="bday">Birth Date</label>
+            <input type="date" name="input_text"/>
+            <label for="pnum">Phone Number</label>
+            <input type="text"  pattern="?" name="input_text"/>
+            <input type="checkbox" name="input_text" placeholder="Is Cell"/>
+            <label for="comments">Comments</label>
+            <textarea name="input_text"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
