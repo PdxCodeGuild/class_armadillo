@@ -94,6 +94,36 @@
             "text": "Air",
             "priority": "High",
             "completed": true
+        },
+        {
+            "text": "watch my Truck and wax it ",
+            "priority": "High",
+            "completed": true
+        },
+        {
+            "text": "Fold the laundry",
+            "priority": "Low ",
+            "completed": true
+        },
+        {
+            "text": "Watch NBA",
+            "priority": "High",
+            "completed": true
+        },
+        {
+            "text": "Drink",
+            "priority": "low",
+            "completed": true
+        },
+        {
+            "text": "eat",
+            "priority": "high",
+            "completed": true
+        },
+        {
+            "text": "drive ",
+            "priority": "low",
+            "completed": true
         }
     ]
 }

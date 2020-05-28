@@ -13,22 +13,26 @@
     - [One-to-One](#one-to-one)
     - [Many-to-One](#many-to-one)
     - [Many-to-Many](#many-to-many)
-    - [on_delete](#ondelete)
+    - [on_delete](#on_delete)
   - [ORM Operations](#orm-operations)
+    - [Example Model](#example-model)
     - [Create an Instance](#create-an-instance)
+    - [Changing a Property on an Instance](#changing-a-property-on-an-instance)
     - [Save an Instance](#save-an-instance)
     - [Get All Rows](#get-all-rows)
     - [Get a Particular Row](#get-a-particular-row)
+    - [Check if a Record Exists](#check-if-a-record-exists)
     - [Filter Rows](#filter-rows)
     - [Specify an Order](#specify-an-order)
     - [Specify the Number of Rows to Return](#specify-the-number-of-rows-to-return)
+    - [Get the Number of Rows](#get-the-number-of-rows)
 
-Models are Python classes that parallel tables in the database. The ORM manages this dual representation, translating statements in Python to operations on the database. You can read more about models [here](https://docs.djangoproject.com/en/2.2/topics/db/models/), and more about the ORM [here](https://docs.djangoproject.com/en/2.2/ref/models/querysets/).
+Models are Python classes that parallel tables in the database. The ORM manages this dual representation, translating statements in Python to queries on the database. You can read more about models [here](https://docs.djangoproject.com/en/2.2/topics/db/models/), and more about the ORM [here](https://docs.djangoproject.com/en/2.2/ref/models/querysets/).
 
 
 ## Class-Table Representation
 
-Database tables are like excel spreadsheets: they have headers and rows. Tables can also be thought of as Python classes, where the headers are class attributes, and the rows are instances.
+Database tables are like excel spreadsheets: they have headers and rows. Tables can also be thought of as Python classes, where the headers are class attributes, and the rows are instances. All models are automatically given an `id` field as a primary key, which uniquely identifies a row.
 
 | id | email_address | first_name | last_name |
 | --- | --- | --- | --- |
@@ -37,18 +41,15 @@ Database tables are like excel spreadsheets: they have headers and rows. Tables 
 | 3 | brian@gmail.com | Brian | Barber |
 
 ```python
-class User:
-    def __init__(self, id, email_address, first_name, last_name):
-        self.id = id
-        self.email_address = email_address
-        self.first_name = first_name
-        self.last_name = last_name
-user1 = User(1, 'wendy@gmail.com', 'Wendy', 'Carson')
-user2 = User(2, 'alyssa@gmail.com', 'Alyssa', 'Lyons')
-user3 = User(3, 'brian@gmail.com', 'Brian', 'Barber')
+from django.db import models
+class Contact(models.Model):
+    email_address = models.CharField(max_length=200)
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+contact1 = Contact(email='wendy@gmail.com', first_name='Wendy', last_name='Carson')
+contact2 = Contact(email='alyssa@gmail.com', first_name='Alyssa', last_name='Lyons')
+contact3 = Contact(email='brian@gmail.com', first_name='Brian', last_name='Barber')
 ```
-All models are automatically given an `id` field, which is an int that uniquely identifies a row.
-
 
 ## Field Types
 
@@ -66,7 +67,7 @@ You can read more about the field types [here](https://docs.djangoproject.com/en
 
 ### Nullable Fields
 
-Fields can be 'null' or absent. In Python, the attributes of the instances will be `None`. To declare these fields to be 'nullable', you must specify both `null=True` for the database, and `blank=True` for the admin interface.
+Fields can be 'null' or absent. In Python, the attributes of the instances will be `None`. To declare these fields to be 'nullable', you must specify both `null=True` for the database, and `blank=True` to be able to leave an input field blank in the admin panel.
 
 ```Python
 date_completed = models.DateTimeField(null=True, blank=True)
@@ -115,14 +116,12 @@ class User(models.Model):
     email_address = models.CharField(max_length=200)
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
-    city = models.ForeignKey(Question, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
 ```
 
 ### One-to-One
 
-A one-to-one relationship means that for every row in table A, there will be a single corresponding row in table B. An example might be between [counties and capital cities](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/CPT-Databases-OnetoOne.svg/460px-CPT-Databases-OnetoOne.svg.png). Any country only has one capital. Any capital only pretains to one country. You can read more about one-to-one relationships [here](https://docs.djangoproject.com/en/2.2/topics/db/examples/one_to_one/).
-
-Normally a one-to-one relationship is unnecessary, because one could just take the fields from both models and put them onto one model. But you may have to associate new fields with an old model without changing the old model, or need to restrict access to certain data [more info](https://stackoverflow.com/questions/25206447/when-to-use-one-to-one-relationships-in-django-models).
+A one-to-one relationship means that for every row in table A, there will be a single corresponding row in table B. An example might be between [counties and capital cities](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/CPT-Databases-OnetoOne.svg/460px-CPT-Databases-OnetoOne.svg.png). Any country only has one capital. Any capital only pretains to one country. You can read more about one-to-one relationships [here](https://docs.djangoproject.com/en/2.2/topics/db/examples/one_to_one/). Normally a one-to-one relationship is unnecessary, because one could just take the fields from both models and put them onto one model. But you may have to associate new fields with an old model without changing the old model, or need to restrict access to certain data [more info](https://stackoverflow.com/questions/25206447/when-to-use-one-to-one-relationships-in-django-models).
 
 
 ```python
@@ -160,7 +159,7 @@ class Mother(models.Model):
 
 class Child(models.Model):
     name = models.CharField(max_length=200)
-    mother = models.ForeignKey(Mother)
+    mother = models.ForeignKey(Mother, on_delete=models.PROTECT)
 ```
 
 
@@ -182,17 +181,31 @@ The `on_delete` parameter lets you control what to do with other rows when a con
 
 ## ORM Operations
 
-The ORM 'object relational mapping' provides functions in Python that perform operations on the database. To read more about ORM operations, look [here](https://docs.djangoproject.com/en/2.2/topics/db/queries/).
+The ORM 'object relational mapping' provides functions in Python that perform operations on the database. To read more about ORM operations, look [here](https://docs.djangoproject.com/en/2.2/topics/db/queries/). Note that `__init__`, `get`,  and `filter` take `**kwargs` (which turns named parameters into a dictionary), whereas `order_by` takes `*args` (which turns arguments into a list).
 
-Note that `__init__`, `get`,  and `filter` take `**kwargs` (which turns named parameters into a dictionary), whereas `order_by` takes `*args` (which turns arguments into a list).
+### Example Model
+
+```python
+class TodoItem(models.Model):
+    todo_text = models.CharField(max_length=200)
+    date_entered = models.DateTimeField()
+    date_completed = models.DateTimeField(null=True, blank=True)
+```
 
 
 ### Create an Instance
 
 ```python
 from django.utils import timezone
+...
 todo_text = "wash the dishes"
 todo_item = TodoItem(todo_text=todo_text, date_entered=timezone.now(), date_completed=None)
+```
+
+### Changing a Property on an Instance
+
+```python
+todo_item.todo_text = 'walk the dog'
 ```
 
 ### Save an Instance
@@ -222,12 +235,25 @@ item_id = 5
 item = TodoItem.objects.get(pk=item_id)
 ```
 
-### Filter Rows
-
-You can `filter` particular rows by specifying a particular attribute's value. This is like `get` but you get multiple results instead of the first matching one.
+This will raise an exception if the record is not found. A safer way is like this.
 
 ```python
-todo_items = TodoItem.objects.filter(text='water the roses')
+item = TodoItem.objects.filter(pk=item_id).first()
+```
+
+### Check if a Record Exists
+
+```python
+if TodoItem.objects.filter(pk=item_id).exists():
+    ...
+```
+
+### Filter Rows
+
+You can `filter` particular rows by specifying a particular field's value. This is like `get` but you get multiple results instead of the first matching one.
+
+```python
+todo_items = TodoItem.objects.filter(todo_text='water the roses')
 ```
 
 To filter variables by whether or not a field is null, use `<field_name>__isnull`
@@ -237,7 +263,7 @@ completed_items = TodoItem.objects.filter(date_completed__isnull=False)
 
 ### Specify an Order
 
-To specify an order, use `order_by`, which takes any number of strings containing the names of the attributes to sort by. By default sort is ascending, use a negative symbol `-` to sort in the descending order.
+To specify an order, use `order_by`, which takes any number of strings containing the names of the fields to sort by. By default sort is ascending, use a negative symbol `-` to sort in the descending order.
 
 ```python
 todo_items = TodoItem.objects.order_by('-date_entered', '-date_completed')
@@ -250,5 +276,7 @@ To limit the number of items returned, use slicing.
 
 ```python
 # only get the first 5 results
-todo_items = TodoItem.objects.order_by('-date_entered')[:5]
+todo_items = TodoItem.objects.all()[:5]
 ```
+
+### Get the Number of Rows
