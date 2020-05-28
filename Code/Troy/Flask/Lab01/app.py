@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route('/', methods=["GET", "POST"])
 # defines the view
 def index():
-    output = []
+    output = ''
     if request.method == "POST":
         # Original Code
         # alphabet = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
@@ -38,21 +38,11 @@ def index():
         for i in range(special_characters):
             output += random.choice(string.punctuation)
         # converts strings into a list and shuffles the ouput
-        password = list(output)
+        output = list(output)
         random.shuffle(output)
-        
-
-        message = ''.join(output)
+        # converts the list back into a string
+        output = ''.join(output)
 
         print(request.form)
 
-    return render_template('index.html', password= output)
-# # Python program to convert a list 
-# # to string using list comprehension 
-   
-# s = ['I', 'want', 4, 'apples', 'and', 18, 'bananas'] 
-  
-# # using list comprehension 
-# listToStr = ' '.join(map(str, s)) 
-  
-# print(listToStr)  
+    return render_template('index.html', password = output)
