@@ -2,9 +2,10 @@
 #   - Simple version: the user just enters in the number of characters in the password
 
 from flask import Flask, request, render_template
-app = Flask(__name__)
 import string
 import random
+
+app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
