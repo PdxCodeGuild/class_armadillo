@@ -11,5 +11,5 @@ class Contact(models.Model):
     is_cell = models.BooleanField()
     comments = models.TextField()
 
-def __str__(self):
-    return f"{self.first_name} {self.last_name}"
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
