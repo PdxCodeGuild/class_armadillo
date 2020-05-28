@@ -7,8 +7,14 @@
   <body>
     <ul>
       {% for contact in contacts %}
-      <li>{{ contact.title }}</li>
+      <li>{{ contact.first_name }}</li> <!-- {{ contact.title }} .title here is accessing the model each of the things on the model -->
+      <li>{{ contact.last_name }}</li>
+      <li>{{ contact.birthday }}</li>
+      <li>{{ contact.phone_number }}</li>
+      <li>{{ contact.is_cell }}</li>
+      <li>{{ contact.omments }}</li>
       {% endfor %}
     </ul>
   </body>
 </html>
+

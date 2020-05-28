@@ -2,13 +2,17 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponse
+from .models import Contacts
 
 # def index(request):
 #   return HttpResponse('hello world!') # in order to see hello world I needed to use the following URL: http://localhost:8000/contacts/index/
 from django.shortcuts import render
 
 def index(request):
-    context = {
-        'message': 'Hello World!!'
+  contacts = Contacts.objects.order_by('last_name') # I need to import model in the view in order to access it = from .models import Contacts
+  context = {
+      'contacts': contacts
+
+        #'message': 'Hello World!!'
     }
-    return render(request, 'contacts/index.html', context)
+  return render(request, 'contacts/index.html', context)
