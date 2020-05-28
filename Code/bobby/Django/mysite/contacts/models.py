@@ -8,9 +8,14 @@ class Contactsapp(models.Model):
         return self.name
 
 class Contacts(models.Model):
-    title = models.CharField(max_length=200)
-    author = models.CharField(max_length=200)
-    body = models.TextField()
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    age = models.IntegerField(max_length=3)
+    birthday = models.DateField()
+    phone_number = models.CharField(max_length=12)
+    is_cell = models.BooleanField()
+    comments = models.TextField()
+    
     type = models.ForeignKey(Contactsapp, on_delete=models.PROTECT, related_name='post')
     date_published = models.DateTimeField(auto_now_add=True)
 
