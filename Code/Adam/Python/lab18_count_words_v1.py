@@ -72,10 +72,16 @@ for word in text:
         words_in_book[word] += 1  # add 1 to its value
 
 
-# print(words_in_book)
-count = Counter(words_in_book)
-ten_most_common = count.most_common(10)  # returns top 10 values
+words = list(words_in_book.items()) # .items() returns a list of tuples
+words.sort(key=lambda tup: tup[1], reverse=True)  # sort largest to smallest, based on count
+for i in range(min(10, len(words))):  # print the top 10 words, or all of them, whichever is smaller
+    print(words[i])
+
+# # alternative using counter
+# # print(words_in_book)
+# count = Counter(words_in_book)
+# ten_most_common = count.most_common(10)  # returns top 10 values
 
 
-# Print the most frequent top 10 out with their counts. You can do that with the code below.
-print(ten_most_common)
+# # Print the most frequent top 10 out with their counts. 
+# print(f'The ten most common words are: {ten_most_common}')
