@@ -9,5 +9,6 @@ app_name = 'contacts'
 urlpatterns = [
     path('', views.index, name='index'),
     path('<int:contact_id>/', views.detail, name='detail'),
-    path('contacts/new/', views.new_contact, name='create'),
+    path('new/', views.new_contact_page, name='new'),
+    path('new/submit/', views.new_contact, name='create')
   ]

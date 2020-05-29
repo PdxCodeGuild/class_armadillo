@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Contacts
 from django.urls import reverse
@@ -14,8 +14,11 @@ def index(request):
     return render(request, 'contacts/index.html', context)
 
 def detail(request, contact_id):
-        # return HttpResponseRedirect(request, 'contacts/index.html', context)
-    return render(request, 'contacts/detail.html')
+    contact = get_object_or_404(Contacts, pk=contact_id)
+    return render(request, 'contacts/detail.html', {'contact':contact})
+
+def new_contact_page(request):
+    return render(request, 'contacts/new_contact.html')
     
 def new_contact(request):
     first_name = request.POST['first_name']
@@ -34,4 +37,4 @@ def new_contact(request):
         comments=comments)
     new_contact.save()
 
-    return HttpResponseRedirect(reverse('contacts:index'))
+    return HttpResponseRedirect(reverse('contacts:detail', args=(new_contact.id,)))
