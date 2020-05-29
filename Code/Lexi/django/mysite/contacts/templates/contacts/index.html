@@ -11,12 +11,23 @@
     </div>
     <div>
       <ul>
-        {% for contact in contacts %} 
+        {% for contact in contacts %}
         <li>{{ contact }}</li>
-      
 
         {% endfor %}
       </ul>
+    </div>
+    <div>
+      <!-- display the image-->
+      <img src="../../static/mysite/images/Martigora_engraving.jpg" />
+
+      <!-- create a link -->
+      <a href="{{image.url}}">{{image.name}}</a>
+      <form action="http://localhost:8000/admin/" method="POST" enctype="multipart/form-data">
+        <!-- ... -->
+        <input type="file" name="my_image" accept="image/*" required>
+        <button type="submit">submit</button>
+    </form>
     </div>
   </body>
 </html>

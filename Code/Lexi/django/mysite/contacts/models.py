@@ -14,8 +14,5 @@ class Contact(models.Model):
         # last_name will be unicode strings.
         return f' {self.last_name} {self.age}'
 
-
-# class Choice(models.Model):
-#     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-#     choice_text = models.CharField(max_length=200)
-#     votes = models.IntegerField(default=0)
+class MyModel(models.Model):
+    my_image = models.ImageField(upload_to='images/')
