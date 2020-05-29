@@ -25,3 +25,19 @@ def contacts(request):
     context = {"Contacts": Contact.objects.order_by('last_name')}
     return render(request, 'contacts.html', context)
 
+
+def details(request, id):
+    contact_details = Contact.objects.get(pk=id)
+    context = {
+        "contact_details": contact_details,
+        # 'First Name': contact_details.first_name,
+        # 'Last Name': contact_details.last_name,
+        # 'Age': contact_details.age,
+        # 'Birthday': contact_details.birthday,
+        # 'Email': contact_details.email,
+        # 'Phone Number': contact_details.phone_number,
+        # 'Cell': contact_details.is_cell,
+        # 'Description': contact_details.comments,
+    }
+    print(context)
+    return render(request, 'details.html', context)
