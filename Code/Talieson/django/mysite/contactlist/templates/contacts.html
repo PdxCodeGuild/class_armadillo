@@ -13,7 +13,7 @@
     {% if Contacts %}
     <ul>
     {% for contact in Contacts %}
-        <li><a href="{% url 'contactlist:contact_details/{{contact.id}}/' %}">{{ contact.first_name }} {{ contact.last_name }}</a></li>
+        <li><a href="{% url 'contactlist:details' contact.id %}">{{ contact.first_name }} {{ contact.last_name }}</a></li>
     {% endfor %}
     </ul>
     {% else %}
