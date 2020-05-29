@@ -6,10 +6,14 @@
     <title>Contact List</title>
 </head>
 <body>
-    <ul>
-        {% for contact_list in contact_lists %}
-        <li>{{ contact_list }}</li>
-        {% endfor %}
-    </ul>
+    <h1>Contact List</h1>
+    {% block content %}
+        {% for contact in contact_lists %}
+            <ul>
+                <li><a href="/contact_list/{{contact.id}}">{{contact.first_name}} {{contact.last_name}}</a></li>
+            </ul>
+        {% endfor %}    
+    {% endblock %}
+ 
 </body>
 </html>
