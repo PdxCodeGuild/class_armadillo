@@ -16,4 +16,9 @@ def detail(request, contact_id):
     contact = get_object_or_404(Contact, pk=contact_id)  
     return render(request, 'contact_list/detail.html', {'contact': contact})
 
-
+def new_contact(request):
+    new_contact = Contact()
+    context = {
+        'new_contact': new_contact,
+    }
+    return render(request, 'contact_list/new_contact.html', context)
