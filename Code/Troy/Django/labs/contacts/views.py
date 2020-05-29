@@ -15,7 +15,7 @@ def index(request):
 
 def detail(request, contact_id):
         # return HttpResponseRedirect(request, 'contacts/index.html', context)
-    return HttpResponse('ok')
+    return render(request, 'contacts/detail.html')
     
 def new_contact(request):
     first_name = request.POST['first_name']
