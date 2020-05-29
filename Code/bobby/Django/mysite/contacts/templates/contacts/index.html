@@ -24,7 +24,7 @@
                 <from action="{% url 'contacts:delet' %}" methods="post">
                     {% csrf_token %}
                     <input type= 'hidden' name= 'contact_info' value='{{contact.info}}'/>
-                    <button class= 'btn' type= 'submit'></button>
+                    <button class= 'btn, btn' type= 'submit'></button>
                 </from>
             </td>
             <td>{{contact.first_name}}</td>
