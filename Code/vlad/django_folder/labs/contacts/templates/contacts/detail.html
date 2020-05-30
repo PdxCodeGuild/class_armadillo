@@ -6,6 +6,14 @@
     <title>Detail Page</title>
 </head>
 <body>
-    
+    {% extends 'contacts/' %}
+
+{% block content %}
+    <h2>{{contact.title}}</h2>
+    <h4>Posted by {{post.author}} on {{post.created_date}}</h4>
+    <p>{{contact.}}</p>
+    <p>{{contact.type.name}}</p>
+    <div><a href="{% url 'contact:index' %}">back</a></div>
+{% endblock %}
 </body>
 </html>
