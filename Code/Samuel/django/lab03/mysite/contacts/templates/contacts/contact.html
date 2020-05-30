@@ -8,65 +8,72 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'contacts/style.css' %}">
     <title>View Contact</title>
 </head>
 <body>
-    {% if single_contact %}
     <ul>
+        <div id="name">
+            <p>Contact</p>
+        </div>
+        {% if single_contact %}
         <table>
-            <tr>
-                <th>
-                    <label>First Name</label>
+            <tr id="row">
+                <th id="top-row">
+                    <label>First Name   </label>
                 </th>
-                <th>
-                    <label>Last Name</label>
+                <th id="top-row">
+                    <label>Last Name    </label>
                 </th>
-                <th>
-                    <label>Age</label>
+                <th id="top-row">
+                    <label>Age  </label>
                 </th>
-                <th>
-                    <label>Birthday</label>
+                <th id="top-row">
+                    <label>Birthday </label>
                 </th>
-                <th>
-                    <label>Phone Number</label>
+                <th id="top-row">
+                    <label>Phone Number </label>
                 </th>
-                <th>
-                    <label>Cell Phone?</label>
+                <th id="top-row">
+                    <label>Cell Phone?  </label>
                 </th>
-                <th>
-                    <label>Comments</label>
+                <th id="top-row">
+                    <label>Comments </label>
                 </th>
             </tr>
-            <tr>
-                <th>
+            <tr id="row">
+                <th id="first">
                     <a>{{ single_contact.first_name }}</a>
                 </th>
-                <th>
+                <th id="second">
                     <a>{{ single_contact.last_name }}</a>
                 </th>
-                <th>
+                <th id="first">
                     <a>{{ single_contact.age }}</a>
                 </th>
-                <th>
+                <th id="second">
                     <a>{{ single_contact.birthday }}</a>
                 </th>
-                <th>
+                <th id="first">
                     <a>{{ single_contact.phone_number }}</a>
                 </th>
-                <th>
+                <th id="second">
                     {% if single_contact.is_cell %}
                     <a>Yes</a>
                     {% else %}
                     <a>No</a>
                     {% endif %}
                 </th>
-                <th>
+                <th id="first">
                     <a>{{ single_contact.comments }}</a>
                 </th>
             </tr>
         </table>
+        {% else %}
+        <a id="red">There is no contact of that type.</a>
+        {% endif %}
+        <a id="button" href="/contacts/{{ contact.id }}" class="btn btn-primary">Go Back</a>
     </ul>
-    <a href="/contacts/{{ contact.id }}">Go Back</a>
-    {% endif %}
 </body>
 </html>
