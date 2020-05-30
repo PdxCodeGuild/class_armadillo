@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ydnomjyvc7lqu=)!8m_i!jd938t1k%9ohkq+ghmpq!s*)1e5n@'
+SECRET_KEY = 'oyk8y-pp!o8lysl*ov#!w0$3^99^v@9=%i4&3(_d4d%4vmg@8&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,12 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'polls',
-    'todo',
-    'blogapp',
-    'demo',
+    'contacts',
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -110,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'US/Pacific'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -123,3 +119,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# https://github.com/PdxCodeGuild/class_armadillo/blob/master/4%20Django/docs/07%20-%20Media%20Files.md
+MEDIA_URL = '/uploaded_files/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploaded_files')

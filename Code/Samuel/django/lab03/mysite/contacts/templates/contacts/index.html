@@ -7,18 +7,74 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'contacts/style.css' %}">
     <title>Contact List</title>
 </head>
 <body>
-    {% if list_of_contacts %}
     <ul>
+    <div id="name">
+        <p>Contact List</p>
+    </div>
+    {% if list_of_contacts %}
+    <table>
+        <tr id="row">
+            <th id="top-row">
+                <label>First Name   </label>
+            </th>
+            <th id="top-row">
+                <label>Last Name    </label>
+            </th>
+            <th id="top-row">
+                <label>Age  </label>
+            </th>
+            <th id="top-row">
+                <label>Birthday </label>
+            </th>
+            <th id="top-row">
+                <label>Phone Number </label>
+            </th>
+            <th id="top-row">
+                <label>Cell Phone?  </label>
+            </th>
+            <th id="top-row">
+                <label>Comments </label>
+            </th>
+        </tr>
         {% for contact in list_of_contacts %}
-        <li><a href="/contacts/{{ contact.id }}">{{ contact.first_name }} {{ contact.last_name }}</a></li>
+        <tr id="row">
+            <th id="first">
+                <a href="/contacts/{{ contact.id }}">{{ contact.first_name }}</a>
+            </th>
+            <th id="second">
+                <a>{{ contact.last_name }}</a>
+            </th>
+            <th id="first">
+                <a>{{ contact.age }}</a>
+            </th>
+            <th id="second">
+                <a>{{ contact.birthday }}</a>
+            </th>
+            <th id="first">
+                <a>{{ contact.phone_number }}</a>
+            </th>
+            <th id="second">
+                {% if contact.is_cell %}
+                <a>Yes</a>
+                {% else %}
+                <a>No</a>
+                {% endif %}
+            </th>
+            <th id="first">
+                <a>{{ contact.comments }}</a>
+            </th>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
     {% else %}
     <p>There are no contacts in the list</p>
     {% endif %}
-    <a href="/contacts/new">make new contact</a>
+    <a id="button" href="/contacts/new" class="btn btn-primary">Make new contact</a>
+</ul>
 </body>
 </html>
