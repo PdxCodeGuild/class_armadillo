@@ -12,3 +12,7 @@ def index(request):
     }
 
     return render(request, 'contactsapp/index.html', context)
+
+def details(request):
+    contact = 
+    return render(request, 'contactsapp/details.html' ,contact)

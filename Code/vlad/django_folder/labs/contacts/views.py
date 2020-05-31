@@ -23,6 +23,6 @@ def detail(request, contact_id):
   return render(request, 'contacts/detail.html', {'contact':contact})
   # return HttpResponseRedirect(reverse('contacts:detail', args=(contact.id,))) # remember to putting a comma at the end 
 
-# create a view for new contact page
-def create_contact(request):
-  return render(request, 'contacts/contact_new.html')
+# # create a view for new contact page
+# def create_contact(request):
+#   return render(request, 'contacts/contact_new.html')
