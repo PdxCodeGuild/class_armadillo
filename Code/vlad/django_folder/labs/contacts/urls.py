@@ -1,10 +1,10 @@
 from django.urls import path
 from . import views
+from django.contrib import admin
 
 app_name = 'contacts'
 urlpatterns = [
   path('', views.index, name='index'),
-  path('<int:contacts_id>/', views.detail, name='detail'),
-  path('new/', views.create_new_contact, name='create_new_contact'),
-  path('save_contact/', views.save_post, name='save_post'),
-]
+  path('<int:contact_id>/', views.detail, name='detail'),
+  path('new/', views.contact_new, name='create_new_contact'),  
+  path('new/submit/', views.create_new_contact, name='create_new_contact')

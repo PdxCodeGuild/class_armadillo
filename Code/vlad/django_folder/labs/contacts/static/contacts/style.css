@@ -1,0 +1,9 @@
+li a {
+    color: white;
+    font-size: medium;
+}
+
+body {
+    background: url("background_contact.jpg")no-repeat;
+    padding-right: 50%;
+}

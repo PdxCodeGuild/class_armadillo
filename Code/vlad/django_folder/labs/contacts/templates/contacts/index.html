@@ -1,20 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  
+
     <title>Contacts</title>
   </head>
   <body>
-    <ul>
+    <div class="col-sm-6 banner-image"> 
+        <img src="background_contact.jpg" class="img-responsive">
+    </div>
+    <h1>Contact List Welcome!</h1>
+   
       {% for contact in contacts %}
-      <li>{{ contact.first_name }}</li> <!-- {{ contact.title }} .title here is accessing the model each of the things on the model -->
-      <li>{{ contact.last_name }}</li>
-      <li>{{ contact.birthday }}</li>
-      <li>{{ contact.phone_number }}</li>
-      <li>{{ contact.is_cell }}</li>
-      <li>{{ contact.omments }}</li>
+
+      <div> 
+        <a href="{% url 'contacts:detail' contact.id %}"> {{contact.last_name}}, {{contact.first_name}} </a>
+      </div>
       {% endfor %}
-    </ul>
+    
   </body>
 </html>
 
