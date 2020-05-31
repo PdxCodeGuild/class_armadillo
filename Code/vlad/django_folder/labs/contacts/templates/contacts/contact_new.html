@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Contact</title>
+</head>
+<body>{% extends 'blogapp/base.html' %}
+
+{% comment %} {% block content %}
+    <h2>New Post</h2>
+    <form action="{% url 'blogapp:save_post' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="blog_post_title" placeholder="title"/><br/>
+        <input type="text" name="blog_post_author" placeholder="author"/><br>
+        <select name="blog_post_type_id">
+            <option value="" selected disabled>Type</option>
+            {% for type in types %}
+            <option value="{{type.id}}">{{type.name}}</option>
+            {% endfor %}
+        </select><br/>
+        <textarea name="blog_post_body" placeholder="body"></textarea><br/>
+        <button type="submit">submit</button>
+    </form> {% endcomment %}
+{% endblock %}
+</body>
+</html>
