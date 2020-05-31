@@ -1,4 +1,5 @@
 from django.db import models
+from phone_field import PhoneField
 
 # Create your models here.
 
@@ -52,7 +53,7 @@ class Contacts(models.Model):
     last_name = models.CharField(max_length=200)
     age = models.IntegerField(default= 0)
     birthday = models.DateField(default= "YYYY-MM-DD") # default= "01/01/1999" if the user does not enter a birthday it will it input 01/01/1999
-    phone_number = models.CharField(max_length=200, default="555-555-5555")
+    phone_number = PhoneField(blank=True, help_text='Contact phone number')
     is_cell = models.BooleanField(default=True) # default=True = mean take anything and return true
     comments = models.TextField(max_length=200, blank=True, null=True) # blank=True, = it is not require to fill it out   null=True=  if nothing is here dont crash
 

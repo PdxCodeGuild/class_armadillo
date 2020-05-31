@@ -1,20 +1,58 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Contacts</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'contacts/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  
+
+    <title>Contacts List</title>
   </head>
   <body>
-    <ul>
+    <div class="col-sm-6 banner-image"> 
+        <img src="background_contact.jpg" class="img-responsive">
+    </div>
+    <h1>Contact List Welcome!</h1>
+   
       {% for contact in contacts %}
-      <li>{{ contact.first_name }}</li> <!-- {{ contact.title }} .title here is accessing the model each of the things on the model -->
-      <li>{{ contact.last_name }}</li>
-      <li>{{ contact.birthday }}</li>
-      <li>{{ contact.phone_number }}</li>
-      <li>{{ contact.is_cell }}</li>
-      <li>{{ contact.omments }}</li>
+
+      <div> 
+        <a href="{% url 'contacts:detail' contact.id %}"> {{contact.last_name}}, {{contact.first_name}} </a>
+      </div>
       {% endfor %}
-    </ul>
+      
+    <div>
+    {% comment %} Submit button {% endcomment %}
+      
+      {% comment %} <a href="{% url 'contacts:new' %}"><button type="submit" class="btn btn-first">Create Contact</button></a> 
+       {% endcomment %}
+
+      {% comment %} <a class="btn btn-first" href="{% url 'contacts:new' %}">Create Contact</a> {% endcomment %}
+    </div>
   </body>
 </html>
 
+
+<!--
+    FOLLOW THIS STEPS to continue with the project: 
+See the polls app as a reference also see the demos: 
+    The application will have the following views:
+/contacts/ will render a template containing a new contact button, as well as a list of contacts each with a view contact button
+/contacts/<id>/ will be a detail page for a contact with the given id # detail.html
+/contacts/new/ will render a template containing a form for creating a new contact # contactnew.html
+/contacts/new/submit/ will receive the form submission from /contacts/new/, create a new contact in the database, and redirect to the detail page for the newly created contact
+for this last step I can have a result.html like I have on the polls 
+the redirect will happens after I click the the submit button
+under tamplate create file
+detail.html
+contact_new.html
+-->

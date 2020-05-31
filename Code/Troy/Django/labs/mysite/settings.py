@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'polls.apps.PollsConfig',
     'contacts.apps.ContactsConfig',
-    'phone_field'
+    'phone_field',
 ]
 
 MIDDLEWARE = [

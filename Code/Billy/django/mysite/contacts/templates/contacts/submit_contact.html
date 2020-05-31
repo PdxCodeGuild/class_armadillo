@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New Contact</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>New Contact</h1>
+    <h1>{{title}}</h1>
+    <form action="{% url 'contacts:submit_contact' %}" id="contact_form" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="enter first name" required name="first_name"/><br/>
+        <input type="text" placeholder="enter last name" required name="last_name"/><br/>
+        <input type="number" placeholder="enter age" required name="age"/><br/>
+        <input type="date" placeholder="enter birthday" required name="birthday"/><br/>
+        <input type="number" pattern=^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$ placeholder="enter phone number" required name="phone_number"/><br/>
+        <input type="checkbox" id="is_cell" name="is_cell" value="True">
+        <label for="is_cell">cell</label><br/>
+        <textarea placeholder="enter comments" name="comments" rows="4" cols="50"/></textarea><br/>
+        <!-- <select name="priority_id">
+            {% for priority in priorities %}
+            <option value="{{priority.id}}">{{priority.name}}</option>
+            {% endfor %}
+        </select> -->
+        <button type="submit" class="btn btn-primary">add contact</button>
+    </form>
+    <div><a href="{% url 'contacts:contacts' %}">Back to Contacts</a></div>
+  </body>
+</html>

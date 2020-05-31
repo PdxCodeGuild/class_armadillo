@@ -9,13 +9,17 @@
 
 <body>
     <h2>Contact List</h2>
+    
+
+    {% block content %}
     {% for contact in contacts %}
     <div>
-        <a href="{% url 'contacts:detail' contact.id %}">{{contact.first_name}} {{contact.last_name}}</a>
+        <a href="{% url 'contacts:detail' contact.id %}"> {{contact.last_name}}, {{contact.first_name}}</a>
     </div>
     {% endfor %}
+    {% endblock %}
     <div>
-        <a href="{% url 'contacts:new'%}">New Contact</a>
+        <a href="{% url 'contacts:new'%}"><button type="submit" class="btn btn-primary">Create Contact</button></a>
     </div>
 </body>
 
