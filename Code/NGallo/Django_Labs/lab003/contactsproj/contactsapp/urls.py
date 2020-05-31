@@ -7,4 +7,5 @@ app_name = 'contactsapp'
 urlpatterns = [
     path('', views.index, name='index'),
     path('<int:contact_id>/', views.detail, name='detail'),
+    path('new/', views.addnew, name='new'),
 ]

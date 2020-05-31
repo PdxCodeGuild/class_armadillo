@@ -6,7 +6,8 @@
   </head>
   <body>
     <h1>Contact List</h1>
-    <button>new contact</button>
+          <a href="{% url 'contactsapp:new' %}">Add a Contact</a>
+
 
     <ul>
       {% for contact in contacts %}

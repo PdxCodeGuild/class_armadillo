@@ -22,4 +22,8 @@ def detail(request, contact_id):
     
     context = {'contact': contact}
     
-    return render(request, 'contactsapp/detail.html' ,context)
+    return render(request, 'contactsapp/detail.html',context)
+
+def addnew(request):
+    context = { }
+    return render(request, 'contactsapp/addnew.html', context)
