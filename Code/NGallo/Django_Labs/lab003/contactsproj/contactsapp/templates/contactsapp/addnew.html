@@ -12,7 +12,7 @@
 
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-    <form action="{% url 'contactsapp:new' %}" method="post">
+    <form action="{% url 'contactsapp:submit' %}" method="post">
         {% csrf_token %}
     
         <label for="first_name">First Name: </label> <input id="first_name" type="text" name="first_name" />
@@ -25,7 +25,7 @@
         <br/>
         <label for="phone_number">Phone Number: </label> <input id="phone_number" type="text" pattern="?" name="phone_number" />
         <br/>
-        <label for="is_cell">Cellphone: </label> <input id="is_cell" type="checkbox" name="is_cell" />
+        <input id="is_cell" type="checkbox" name="is_cell" /><label for="is_cell"> Can receive texts?</label>
         <br/>
         <label for="comment">Comments: </label> <textarea id="comment" name="comment"></textarea>
         <br/>
