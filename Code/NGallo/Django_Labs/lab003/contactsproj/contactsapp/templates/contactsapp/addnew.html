@@ -12,13 +12,26 @@
 
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-    <form action="{% url 'polls:vote' question.id %}" method="post">
+    <form action="{% url 'contactsapp:new' %}" method="post">
         {% csrf_token %}
-        {% for choice in question.choice_set.all %}
-        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-        {% endfor %}
-        <input type="submit" value="Vote">
+    
+        <label for="first_name">First Name: </label> <input id="first_name" type="text" name="first_name" />
+        <br/>
+        <label for="last_name">Last Name: </label> <input id="last_name" type="text" name="last_name" />
+        <br/>
+        <label for="age">Age: </label> <input id="age" type="number" name="age" />
+        <br/>
+        <label for="birthday">Birthday: </label> <input id="birthday" type="date" name="birthday" />
+        <br/>
+        <label for="phone_number">Phone Number: </label> <input id="phone_number" type="text" pattern="?" name="phone_number" />
+        <br/>
+        <label for="is_cell">Cellphone: </label> <input id="is_cell" type="checkbox" name="is_cell" />
+        <br/>
+        <label for="comment">Comments: </label> <textarea id="comment" name="comment"></textarea>
+        <br/>
+        <input type="submit" value="new">
+        <br/>
+        <a href="{% url 'contactsapp:index' %}">return home<a> 
     </form>
 </body>
 
