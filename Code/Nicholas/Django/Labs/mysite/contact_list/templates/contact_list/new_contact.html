@@ -3,7 +3,7 @@
 
 {% block content %}
     <h3>Create a new contact:</h3>
-    <form action="{% url 'contact_list:submit' %}" method="post">
+    <form class="" action="{% url 'contact_list:submit' %}" method="post">
         {% csrf_token %}
         <input type = "text" name="first_name" placeholder="first name"/>
         <input type = "text" name="last_name" placeholder="last name"/></br>    
@@ -14,4 +14,5 @@
         <textarea name="comments" placeholder="comments">Enter comments here.</textarea>
         <button type="submit">submit</button>
     </form>
+    <div><a href="{% url 'contact_list:index' %}">back</a></div>
 {% endblock %}    
