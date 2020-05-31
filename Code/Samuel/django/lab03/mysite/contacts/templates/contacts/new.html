@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'contacts/style.css' %}">
+    <title>New Contact</title>
+</head>
+<body>
+    <ul>
+        <div id="name">
+            <p>Make New Contact</p>
+        </div>
+        {% if error_message %}
+        {% for error in error_message %}
+        <p id="red">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+        <form action="{% url 'contacts:contacts_new_submit' %}" method="POST">
+            {% csrf_token %}
+        <table>
+            <tr id="top-row">
+                <th>
+                    <label>Type</label>
+                </th>
+                <th>
+                    <label>Field</label>
+                </th>
+            </tr>
+            <tr id="first">
+                <th>
+                    <label>First Name</label>
+                </th>
+                <th>
+                    <input type="text" name="first_name"/>
+                </th>
+            </tr>
+            <tr id="second">
+                <th>
+                    <label>Last Name</label>
+                </th>
+                <th>
+                    <input type="text" name="last_name"/>
+                </th>
+            </tr>
+            <tr id="first">
+                <th>
+                    <label>Age</label>
+                </th>
+                <th>
+                    <input type="number" name="age"/>
+                </th>
+            </tr>
+            <tr id="second">
+                <th>
+                    <label>Birthday</label>
+                </th>
+                <th>
+                    <input type="date" name="birthday"/>
+                </th>
+            </tr>
+            <tr id="first">
+                <th>
+                    <label>Phone Number</label>
+                </th>
+                <th>
+                    <input type="text" name="phone_number" pattern="?"/>
+                </th>
+            </tr>
+            <tr id="second">
+                <th>
+                    <label>Cell Phone?</label>
+                </th>
+                <th>
+                    <input type="checkbox" name="is_cell"/>
+                </th>
+            </tr>
+            <tr id="first">
+                <th>
+                    <label>Comments</label>
+                </th>
+                <th>
+                    <textarea name="comments"></textarea>
+                </th>
+            </tr>
+        </table>
+            <button id="button" href="/contacts/{{ contact.id }}" class="btn btn-primary" type="submit">submit</button>
+        </form>
+    </ul>
+</body>
+</html>

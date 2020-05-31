@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Contact Details</title>
+</head>
+
+<body>
+    <span>
+        <h1>Contact Details for {{contact_details.first_name}} {{contact_details.last_name}}</h1>
+        <a href="{% url 'contactlist:update_contact' contact_details.id %}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+    </span>
+    <div class="contact content">
+        <p>First Name: {{contact_details.first_name}}</p>
+        <p>Last Name: {{contact_details.last_name}}</p>
+        <p>Age: {{contact_details.age}}</p>
+        <p>Birthday: {{contact_details.birthday}}</p>
+        <p>Email: {{contact_details.email}}</p>
+        {% if is_cell %}
+        <p>Cell Phone Number: {{contact_details.phone_number}}</p>
+        {% else %}
+        <p>Phone Number: {{contact_details.phone_number}}</p>
+        {% endif %}
+        <p>Comments: {{contact_details.comments}}</p>
+    </div>
+</body>
+
+</html>

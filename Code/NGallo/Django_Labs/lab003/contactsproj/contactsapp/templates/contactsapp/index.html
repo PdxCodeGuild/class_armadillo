@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Contacts App</title>
+  </head>
+  <body>
+    <h1>Contact List</h1>
+
+    <ul>
+      {% for contact in contacts %}
+      <li>{{ contact.last_name}},
+      {{ contact.first_name}}
+      </li>
+
+      {% endfor %}
+    </ul>
+  </body>
+</html>
