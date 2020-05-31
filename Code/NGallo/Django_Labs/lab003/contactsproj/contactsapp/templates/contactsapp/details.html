@@ -2,21 +2,19 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Contacts App</title>
+    <title>Contacts {{first_name}}</title>
   </head>
   <body>
-    <h1>Contact List</h1>
-    <button>new contact</button>
+    <h1>{{last_name}}, {{first_name}}</h1>
 
     <ul>
       {% for contact in contacts %}
       <li>{{ contact.last_name}},
       {{ contact.first_name}}
-      <a href="<id>">view information</a>
+      <a href>view information</button>
       </li>
       {% endfor %}
     </ul>
 
-    <button>delete someone</button>
   </body>
 </html>
