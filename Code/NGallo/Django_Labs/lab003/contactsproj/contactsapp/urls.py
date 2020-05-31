@@ -6,5 +6,5 @@ app_name = 'contactsapp'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    # path('', views.details, name='details'),
+    path('<int:contact_id>/', views.detail, name='detail'),
 ]
