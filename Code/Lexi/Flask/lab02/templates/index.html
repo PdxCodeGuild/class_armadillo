@@ -1,72 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chore</title>
+</head>
+<body>
+    <h1>chores galore</h1>
+    <img src='../static/chores.png' alt=what the >
+    <h3>Enter a chore and priority:</h3>
+    <main>
+        <form action="/" method="post">
+            <input type="text" name ="task" placeholder="Add a task"/>
+            <select name = "priority">
+                <option selected="selected">Priority</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+            <button type="submit">Add</button>
+        </form>
+        <div>
+            <ol>
+                {% for chores in chores %}
+                <li> {{chores['chore']}}<span> Do it with this level of urgency: </span>{{chores['priority']}}</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </main>
 
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{url_for('static', filename='style.css') }}"
-    />
-
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-      crossorigin="anonymous"
-    ></script>
-
-    <title>To Do List</title>
-  </head>
-  <body>
-    <h1>
-      <img src="{{ url_for('static', filename='chores.png') }}" />
-    </h1>
-    <form action="/" method="post">
-      <!--SHOULD ONLY CONTAIN INPUT AND BUTTOn-->
-      <input type="text" name="chore_list" />
-      <button type="submit">SUBMIT</button>
-    </form>
-
-
-<!--rainbow table-->
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-success">
-        Dapibus ac facilisis in
-      </li>
-      <li class="list-group-item list-group-item-info">
-        Cras sit amet nibh libero
-      </li>
-      <li class="list-group-item list-group-item-warning">
-        Porta ac consectetur ac
-      </li>
-      <li class="list-group-item list-group-item-danger">Vestibulum at eros</li>
-    </ul>
-    <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-success"
-        >Dapibus ac facilisis in</a
-      >
-      <a href="#" class="list-group-item list-group-item-info"
-        >Cras sit amet nibh libero</a
-      >
-      <a href="#" class="list-group-item list-group-item-warning"
-        >Porta ac consectetur ac</a
-      >
-      <a href="#" class="list-group-item list-group-item-danger"
-        >Vestibulum at eros</a
-      >
-    </div>
-
-    <!--JINJA DOC-->
-
-
-    <ul>
-      {% for chore in chores %}
-      <li>
-        {{ chores.chore}}
-        <!--THIS IS THE DICT-->
-      </li>
-      {% endfor %}
-    </ul>
-  </body>
+</body>
 </html>

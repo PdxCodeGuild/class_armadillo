@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'contacts/style.css' %}">
+    <title>View Contact</title>
+</head>
+<body>
+    <ul>
+        <div id="name">
+            <p>Contact</p>
+        </div>
+        {% if single_contact %}
+        <table>
+            <tr id="row">
+                <th id="top-row">
+                    <label>First Name   </label>
+                </th>
+                <th id="top-row">
+                    <label>Last Name    </label>
+                </th>
+                <th id="top-row">
+                    <label>Age  </label>
+                </th>
+                <th id="top-row">
+                    <label>Birthday </label>
+                </th>
+                <th id="top-row">
+                    <label>Phone Number </label>
+                </th>
+                <th id="top-row">
+                    <label>Cell Phone?  </label>
+                </th>
+                <th id="top-row">
+                    <label>Comments </label>
+                </th>
+            </tr>
+            <tr id="row">
+                <th id="first">
+                    <a>{{ single_contact.first_name }}</a>
+                </th>
+                <th id="second">
+                    <a>{{ single_contact.last_name }}</a>
+                </th>
+                <th id="first">
+                    <a>{{ single_contact.age }}</a>
+                </th>
+                <th id="second">
+                    <a>{{ single_contact.birthday }}</a>
+                </th>
+                <th id="first">
+                    <a>{{ single_contact.phone_number }}</a>
+                </th>
+                <th id="second">
+                    {% if single_contact.is_cell %}
+                    <a>Yes</a>
+                    {% else %}
+                    <a>No</a>
+                    {% endif %}
+                </th>
+                <th id="first">
+                    <a>{{ single_contact.comments }}</a>
+                </th>
+            </tr>
+        </table>
+        {% else %}
+        <a id="red">There is no contact of that type.</a>
+        {% endif %}
+        <a id="button" href="/contacts/{{ contact.id }}" class="btn btn-primary">Go Back</a>
+    </ul>
+</body>
+</html>

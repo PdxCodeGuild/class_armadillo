@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Contacts App</title>
+  </head>
+  <body>
+    <h1>Contact List</h1>
+          <a href="{% url 'contactsapp:new' %}">Add a Contact</a>
+
+
+    <ul>
+      {% for contact in contacts %}
+      <li>{{contact.last_name}},
+      {{contact.first_name}}
+      <a href="{% url 'contactsapp:detail' contact.id %}">view information</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <button>delete someone</button>
+  </body>
+</html>
