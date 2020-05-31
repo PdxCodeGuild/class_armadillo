@@ -60,3 +60,7 @@ class Contacts(models.Model):
 
     def __str__(self):
         return f'{self.first_name}  {self.last_name}' # we add this only to the first and last name because everything else will be tight to the person first and last name this is why we only do it for the first and last
+
+
+# Django Tutorial = https://docs.djangoproject.com/en/3.0/intro/tutorial01/
+# Django Quick tutorial = https://github.com/PdxCodeGuild/class_armadillo/blob/master/4%20Django/docs/Django%20Quickstart.md
