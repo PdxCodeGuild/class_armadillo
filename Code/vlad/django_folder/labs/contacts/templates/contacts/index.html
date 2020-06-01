@@ -31,12 +31,9 @@
       {% endfor %}
       
     <div>
-    {% comment %} Submit button {% endcomment %}
-      {% comment %} <a href="{% url 'contacts:new' %}"><button type="submit" class="btn btn-primary">Create Contact</button></a> {% endcomment %}
-      {% comment %}<a href="{% url 'contacts:new' %}"><button type="submit" class="btn btn-first">Create Contact</button></a> 
-       {% endcomment %}
 
-      {% comment %} <a class="btn btn-first" href="{% url 'contacts:new' %}">Create Contact</a> {% endcomment %}
+    <a href="{% url 'contacts:new' %}"><button type="submit" class="btn btn-primary">Create Contact</button></a>
+    
     </div>
   </body>
 </html>
