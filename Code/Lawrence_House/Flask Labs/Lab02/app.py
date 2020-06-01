@@ -26,7 +26,6 @@ def index():
 @app.route('/save', methods=['GET', 'POST'])
 def save():
     list = load_database()
-    new_list = list['todos'].append(list)
-    new_list = list['todos'].append(request.form)
-    save_database(new_list)
-    return "ok"
+    list["todos"].append(request.form)
+    save_database(list)
+    return "saved!"

@@ -17,7 +17,7 @@
             <h2>Detail Page</h2>
             <div class="form-group">
                 <label for="fname">First Name:</label>
-                <input type="text" class="form-control" id="fname" value="{{ contact.first_name }}"  name="first_name" required />
+                <input type="text" class="form-control" id="fname" value="{{ contact.first_name }}"  name="first_name" required /> <!-- We do not need a placeholder here because the form is already created and this is -->
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
@@ -66,6 +66,10 @@
             {% comment %} <button type="submit" class="btn btn-primary">Submit</button>
         </div> {% endcomment %}
 
+      <form action= "{% url 'contacts:index' %}"  method= "post">  <!-- See how can I add the following class on the main form =  class="was-validated-->
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Go Back to Home Page</button></a>
+      </form>
     </body>
 </html>
 
