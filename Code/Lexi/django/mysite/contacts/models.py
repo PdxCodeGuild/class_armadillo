@@ -12,7 +12,7 @@ class Contact(models.Model):
 
     def __str__(self):
         # last_name will be unicode strings.
-        return f' {self.last_name} {self.age}'
+        return f' last name: {self.last_name} age of humanoid: {self.age}'
 
 class MyModel(models.Model):
     my_image = models.ImageField(upload_to='images/')

@@ -3,14 +3,16 @@
 
 {% block content %}
     <h3>Create a new contact:</h3>
-    <form action="{% url 'contact_list:submit' %}" method="post">
+    <form class="" action="{% url 'contact_list:submit' %}" method="post">
         {% csrf_token %}
         <input type = "text" name="first_name" placeholder="first name"/>
-        <input type = "text" name="last_name" placeholder="last name"/>    
-        <input type="number" name="age" placeholder="age"/>
-        <input type="date" name="birthday" placeholder="birthday"/>
-        <input type="text" name="phone_number" pattern = "[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="phone number:"/>
-        <input type="checkbox" name="is_cell" placeholder="cell phone?"/>
-        <text_area name="comments" placeholder="comments"/></text_area>
+        <input type = "text" name="last_name" placeholder="last name"/></br>    
+        <input type="number" name="age" placeholder="age"/></br>
+        <input type="date" name="birthday" placeholder="birthday">birthday</input></br>
+        <input type="text" name="phone_number" placeholder="phone number:"/>
+        <input type="checkbox" name="is_cell">cell phone?</input></br>
+        <textarea name="comments" placeholder="comments">Enter comments here.</textarea>
+        <button type="submit">submit</button>
     </form>
+    <div><a href="{% url 'contact_list:index' %}">back</a></div>
 {% endblock %}    
