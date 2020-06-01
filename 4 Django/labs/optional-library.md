@@ -1,5 +1,5 @@
 
-# Lab 4: Library
+# Lab: Library
 
 Let's create an application for representing a library. You should have two models (below) and a page for users to check out and check in books. You can enter the book and author information using the admin panel.
 

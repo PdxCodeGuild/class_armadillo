@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>New Contact...</h1>
-    <form action="{% url 'contacts:submit_contact' %}" id="contact_form" method="post">
+    <form action="{% url 'contacts2:submit_contact' %}" id="contact_form" method="post">
       {% csrf_token %}
       <table class="table">
         <tr>
@@ -25,14 +25,12 @@
             <td><input type="number" required name="age"/></td>
             <td><input type="date" required name="birthday"/></td>
             <td><input type="number" pattern=^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$ required name="phone_number"/></td>
-            <td><input type="checkbox" id="is_cell" name="is_cell" value="True">
-              <!-- <label for="is_cell">cell</label><br/> -->
-            </td>
+            <td><input type="checkbox" id="is_cell" name="is_cell" value="True"></td>
             <td><textarea name="comments"></textarea></td>
         </tr>
       </table>
-      <button type="submit" class="btn btn-success btn-lg">✔</button>&ensp;
-      <a href="{% url 'contacts:contacts' %}" class="btn btn-secondary btn-lg">&#127968;</a>
+      <button type="submit" class="btn btn-success btn-lg">➕</button>&ensp;
+      <a href="{% url 'contacts2:contacts' %}" class="btn btn-secondary btn-lg">&#127968;</a> 
     </form>
   </body>
   </html>

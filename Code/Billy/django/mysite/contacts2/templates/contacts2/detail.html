@@ -28,7 +28,9 @@
             <td>{{card.comments}}</td>
         </tr>
     </table>
+    <a href="{% url 'contacts2:detail' card.id %}" class="btn btn-info btn-lg">✏</a>&ensp;
     <a href="{% url 'contacts2:entry_page' %}" class="btn btn-success btn-lg">➕</a>&ensp;
-    <a href="{% url 'contacts:contacts' %}" class="btn btn-secondary btn-lg">&#127968;</a>
+    <a href="{% url 'contacts2:delete' card.id %}" class="btn btn-danger btn-lg">✖</a>&ensp;
+    <a href="{% url 'contacts2:contacts' %}" class="btn btn-secondary btn-lg">&#127968;</a>
 </body>
 </html>
