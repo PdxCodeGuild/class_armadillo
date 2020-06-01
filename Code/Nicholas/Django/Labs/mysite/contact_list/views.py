@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404, reverse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Contact
 from django.template import loader
 
@@ -22,3 +22,27 @@ def new_contact(request):
         'new_contact': new_contact,
     }
     return render(request, 'contact_list/new_contact.html', context)
+
+def submit(request):
+    first_name = request.POST['first_name']
+    last_name = request.POST['last_name']
+    age = request.POST['age']
+    birthday = request.POST['birthday']
+    phone_number = request.POST['phone_number']
+    if 'is_cell' in request.POST:
+        is_cell = True
+    else:
+        is_cell = False    
+    comments = request.POST['comments']
+
+    new_contact = Contact(first_name=first_name,
+                          last_name=last_name,
+                          age=age,
+                          birthday=birthday,
+                          phone_number=phone_number,
+                          is_cell=is_cell,
+                          comments=comments,)
+    new_contact.save()
+
+    return HttpResponseRedirect(reverse('contact_list:index'))
+

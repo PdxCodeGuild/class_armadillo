@@ -1,18 +1,78 @@
+<!--Form Validation: https://www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_form_validation_was&stacked=h-->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Page</title>
-</head>
-<body>
-    <ul> 
-      <li>{{ contact.first_name }}</li> <!-- {{ contact.title }} .title here is accessing the model each of the things on the model -->
-      <li>{{ contact.last_name }}</li>
-      <li>{{ contact.birthday }}</li>
-      <li>{{ contact.phone_number }}</li>
-      <li>{{ contact.is_cell }}</li>
-      <li>{{ contact.comments }}</li>
-    </ul>
-</body>
+    <head>
+        <title>Detail Page</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    </head>
+    <!-- {{ contact.first_name }} and the other fields like last name are will be polled from the database to the detail page this is why each of the values below has this format value="{{ contact.first_name }}"-->
+    <body>
+        <div class="container">
+            <h2>Detail Page</h2>
+            <div class="form-group">
+                <label for="fname">First Name:</label>
+                <input type="text" class="form-control" id="fname" value="{{ contact.first_name }}"  name="first_name" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="lname">Last Name:</label>
+                <input type="text" class="form-control" id="lname" value="{{ contact.first_name }}" name="last_name" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" class="form-control" id="age" value="{{ contact.age }}" name="age" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="bday">Birth Day:</label>
+                <input type="number" class="form-control" id="bday" value="{{ contact.birthday }}" name="birthday" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="pnum">Phone Number:</label>
+                <input type="number" class="form-control" id="pnum" value="{{ contact.phone_number }}" name="phone_number" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+
+            <div class="form-group form-check">
+              <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" name="is_cell" required /> Is a Cellphone number.
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Check this checkbox to continue.</div>
+              </label>
+
+        <div class="form-group">
+            <label for="comments">Comments:</label>
+            <textarea class="form-control" id="comm" name="comments"> </textarea>
+        </div>
+
+            </div>
+            {% comment %} <button type="submit" class="btn btn-primary">Submit</button>
+        </div> {% endcomment %}
+
+    </body>
 </html>
+
+<!-- Add a Back button here button with bootstrap -->
+<!-- Add a Delete button here make the button with bootstrap -->
+<!-- Add a Better Background picture here and the Detail and New Contact Page -->
+
+<!-- Ask for help to TAs and Matthew to enable the html formatting settings for some reason the settings has be dissable 
+LEARN ask for assistance on how to enable ES Lint and Prettier ALSO Server Live Server I tried for few hours different videos and looked online
+but was unable to enable enable live server -->

@@ -15,7 +15,7 @@
   
   
 
-    <title>Contacts</title>
+    <title>Contacts List</title>
   </head>
   <body>
     <div class="col-sm-6 banner-image"> 
@@ -29,9 +29,26 @@
         <a href="{% url 'contacts:detail' contact.id %}"> {{contact.last_name}}, {{contact.first_name}} </a>
       </div>
       {% endfor %}
-    
+      
+    <div>
+    {% comment %} Submit button {% endcomment %}
+      <a href="{% url 'contacts:new' %}"><button type="submit" class="btn btn-primary">Create Contact</button></a>
+      {% comment %}<a href="{% url 'contacts:new' %}"><button type="submit" class="btn btn-first">Create Contact</button></a> 
+       {% endcomment %}
+
+      {% comment %} <a class="btn btn-first" href="{% url 'contacts:new' %}">Create Contact</a> {% endcomment %}
+    </div>
   </body>
 </html>
+
+<!-- Add a Back button here button with bootstrap -->
+<!-- Add a Delete button here make the button with bootstrap -->
+<!-- Add a Better Background picture here and the Detail and New Contact Page -->
+
+<!-- Ask for help to TAs and Matthew to enable the html formatting settings for some reason the settings has be dissable 
+LEARN ask for assistance on how to enable ES Lint and Prettier ALSO Server Live Server I tried for few hours different videos and looked online
+but was unable to enable enable live server -->
+
 
 <!--
     FOLLOW THIS STEPS to continue with the project: 
