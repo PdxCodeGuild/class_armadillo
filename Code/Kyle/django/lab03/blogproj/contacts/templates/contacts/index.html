@@ -5,6 +5,11 @@
     <title></title>
   </head>
   <body>
+      <ul>
+          {% for contact in contacts %}
+          <li>{{contact.title}}</li>
+          {% endfor %}
+      </ul> 
     <h1>{{ message }}</h1>
   </body>
 </html>
