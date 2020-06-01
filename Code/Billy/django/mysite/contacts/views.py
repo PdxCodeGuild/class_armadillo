@@ -26,7 +26,7 @@ def submit_contact(request):
     age = request.POST['age']
     birthday = request.POST['birthday']
     phone_number = request.POST['phone_number']
-    is_cell = request.POST['is_cell']
+    is_cell = 'is_cell' in request.POST
     comments = request.POST['comments']
     new_card = Contact(first_name=first_name, last_name=last_name, age=age,
         birthday=birthday, phone_number=phone_number, is_cell=is_cell, comments=comments)
