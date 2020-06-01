@@ -47,11 +47,13 @@ def encrypt(message):
     return phrase
 # users input of what they want encrypted.
 message = input("Enter the letters you'd like to be encrypted: ")
+# message2 = input("How many rotations of Rot13 would you like?  ")
 # prints the encrypted msg.
 print(f'Your new code is {encrypt(message)}')
 
 
 
+    
 
 #Lab 15: ROT Cipher
 #Write a program that prompts the user for a string,

@@ -1,11 +1,10 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, reverse
+from django.http import HttpResponse, HttpResponseRedirect
+
+from .models import Contacts
 # Create your views here.
 
+
 def index(request):
-    context = {
-        'message': 'Hello World'
-    }
-    return render(request, 'contacts/index.html', context)
-
-
+    contacts = Contacts.objects.all()
+    return render(request, 'contacts/index.html', {'contacts': contacts})

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'contacts/style.css' %}" />
+    <title>Contacts</title>
+</head>
+
+<body>
+
+    <h2>Contact Data</h2>
+    <div class="form-group">
+        <label for="fname">First Name</label>
+        <input type="text" class="form-control" id="fname" name="first_name" value="{{contact.first_name}}" />
+        <label for="lname">Last Name</label>
+        <input type="text" class="form-control" id="lname" name="last_name" value="{{contact.last_name}}" />
+        <label for="age">Age</label>
+        <input type="number" class="form-control" id="age" name="age" value="{{contact.age}}" />
+        <label for="bday">Birth Date</label>
+        <input type="date" class="form-control" id="bday" name="birth_date" value="{{contact.birth_date}}" />
+        <label for="pnum">Phone Number</label>
+        <input type="text" pattern="?" class="form-control" id="pnum" name="phone_number"
+            value="{{contact.phone_number}}" />
+        <label for="checkbox">
+            <input type="checkbox" name="is_cell" /> Is Cell
+        </label>
+        <label for="comments">Comments</label>
+        <textarea class="form-control" id="comm" name="comments">{{contact.comments}}</textarea>
+    </div>
+
+    <form action="{% url 'contacts:index' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Return to Main List</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

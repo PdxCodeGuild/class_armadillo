@@ -1,24 +1,24 @@
-unit = {
-    'ft': .3048,
-    'mi': 1609.34,
+
+
+units = {
+    'ft': 0.3048,
     'm': 1,
+    'mi': 1609.34,
     'km': 1000,
-    'yd': .9144,
-    'in': .0254
+    'yd':  0.9144,
+    'in': 0.0254,
+
 }
 
 
 
+num = int(input('what number do you want to convert?: '))
+input_unit = input('what unit of measurement you want to convert from: ')
+output_unit = input('what unit of measurement would you like to convert to: ')
 
-num = int(input("what is the distance in meters7?: "))
-
-measurement = input("what unit of measurement would you like to convert your number to?: ")
-
-conversion = num * unit[measurement]
-
-
-print(f'{conversion=}')
-
-
+conversion = num * units[input_unit] 
+new_conversion = abs(conversion / units[output_unit])
+result = f'{num} {input_unit} is equal to {new_conversion} {output_unit} '
+print(result)
 
 
