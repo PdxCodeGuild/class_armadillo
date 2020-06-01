@@ -1,3 +1,5 @@
+# lab21 numer to phrase
+
 
 def get_number():
     number = input("Enter a number to translate to english: ")
