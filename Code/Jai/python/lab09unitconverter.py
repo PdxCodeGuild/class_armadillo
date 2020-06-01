@@ -13,7 +13,7 @@ units = {
 
 
 num = int(input('what number do you want to convert?: '))
-input_unit = input('whatunit of measurement you want to convert from: ')
+input_unit = input('what unit of measurement you want to convert from: ')
 output_unit = input('what unit of measurement would you like to convert to: ')
 
 conversion = num * units[input_unit] 
