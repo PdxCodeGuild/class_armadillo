@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Contact</title>
+</head>
+
+<body>
+    <h1>{{ question.question_text }}</h1>
+
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    <form action="{% url 'contactsapp:submit' %}" method="post">
+        {% csrf_token %}
+    
+        <label for="first_name">First Name: </label> <input id="first_name" type="text" name="first_name" />
+        <br/>
+        <label for="last_name">Last Name: </label> <input id="last_name" type="text" name="last_name" />
+        <br/>
+        <label for="age">Age: </label> <input id="age" type="number" name="age" />
+        <br/>
+        <label for="birthday">Birthday: </label> <input id="birthday" type="date" name="birthday" />
+        <br/>
+        <label for="phone_number">Phone Number: </label> <input id="phone_number" type="text" pattern="?" name="phone_number" />
+        <br/>
+        <input id="is_cell" type="checkbox" name="is_cell" /><label for="is_cell"> Can receive texts?</label>
+        <br/>
+        <label for="comment">Comments: </label> <textarea id="comment" name="comment"></textarea>
+        <br/>
+        <input type="submit" value="new">
+        <br/>
+        <a href="{% url 'contactsapp:index' %}">return home<a> 
+    </form>
+</body>
+
+</html>
