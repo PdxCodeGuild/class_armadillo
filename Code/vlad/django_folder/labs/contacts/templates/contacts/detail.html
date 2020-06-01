@@ -24,7 +24,7 @@
 
             <div class="form-group">
                 <label for="lname">Last Name:</label>
-                <input type="text" class="form-control" id="lname" value="{{ contact.first_name }}" name="last_name" required />
+                <input type="text" class="form-control" id="lname" value="{{ contact.last_name }}" name="last_name" required />
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
             </div>
@@ -37,7 +37,7 @@
             </div>
 
             <div class="form-group">
-                <label for="bday">Birth Day:</label>
+                <label for="bday">Birthday:</label>
                 <input type="number" class="form-control" id="bday" value="{{ contact.birthday }}" name="birthday" required />
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
@@ -57,7 +57,7 @@
                   <div class="invalid-feedback">Check this checkbox to continue.</div>
               </label>
 
-        <div class="form-group">
+            <div class="form-group">
             <label for="comments">Comments:</label>
             <textarea class="form-control" id="comm" name="comments"> </textarea>
         </div>
