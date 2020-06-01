@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'todo',
     'blogapp',
     'demo',
+    'contacts',
 ]
 
 
