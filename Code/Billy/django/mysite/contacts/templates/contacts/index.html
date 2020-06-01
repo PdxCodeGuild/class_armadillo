@@ -6,16 +6,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Contacts  <a href="{% url 'contacts:entry_page' %}" class="btn btn-primary">+ new</a></h1>
+    <h1>Contacts...</h1>
     <table class="table">
       <tr>
-          <th><i>Name</i></th>
+          <th><a href="{% url 'contacts:entry_page' %}" class="btn btn-success btn-lg">➕</a></th>
           <th></th>
           <th></th>
       </tr>
       {% for card in cards %}
       <tr>
-          <td><a href="{% url 'contacts:detail' card.id %}" class="btn btn-primary">view</a>  {{card.last_name}}, {{card.first_name}}</td>
+          <td><a href="{% url 'contacts:detail' card.id %}" class="btn btn-secondary btn-sm">🔎</a>  {{card.last_name}}, {{card.first_name}}</td>
           <td></td>
           <td></td>
       </tr>
