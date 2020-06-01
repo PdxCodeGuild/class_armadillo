@@ -6,13 +6,14 @@
   </head>
   <body>
     <h1>Contact List</h1>
-    <button>new contact</button>
+          <a href="{% url 'contactsapp:new' %}">Add a Contact</a>
+
 
     <ul>
       {% for contact in contacts %}
-      <li>{{ contact.last_name}},
-      {{ contact.first_name}}
-      <a href="<id>">view information</a>
+      <li>{{contact.last_name}},
+      {{contact.first_name}}
+      <a href="{% url 'contactsapp:detail' contact.id %}">view information</a>
       </li>
       {% endfor %}
     </ul>

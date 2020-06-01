@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Contact - {{contact.last_name}}, {{contact.first_name}}</title>
+  </head>
+  <body>
+    <h1>{{contact.last_name}}, {{contact.first_name}}</h1>
+    <p>Birth date: {{contact.birthday}}</p>
+    <p>Years Old: {{contact.age}}</p>
+   
+    <p>Phone Number: {{contact.phone_number}}</p>
+    <p>Is cell: {{contact.is_cell}}</p>
+    <p>Additional comments:
+    {{contact.comment}}</p>
+    <a href="{% url 'contactsapp:index' %}">return home<a>
+  </body>
+</html>

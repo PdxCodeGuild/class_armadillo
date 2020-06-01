@@ -1,27 +1,88 @@
+<!--Form Validation: https://www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_form_validation_was&stacked=h-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Contact</title>
-</head>
-{% comment %} <body>{% extends 'blogapp/base.html' %} {% endcomment %}
+    <head>
+        <title>New Contact</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>New Contact</h2>
+            <form action= "{% url 'contacts:create' %}"  method= "post">  <!-- See how can I add the following class on the main form =  class="was-validated-->
+            {% csrf_token %} <!-- Cross-site request forgery (also known as CSRF) is a web security vulnerability that allows an attacker to induce users to perform actions that they do not intend to perform. It allows an attacker to partly circumvent the same origin policy, which is designed to prevent different websites from interfering with each othe  -->
+                <div class="form-group">
+                    <label for="fname">First Name:</label>
+                    <input type="text" class="form-control" id="fname" placeholder="Please Enter First Name" name="first_name" required />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
 
-{% comment %} {% block content %}
-    <h2>New Post</h2>
-    <form action="{% url 'blogapp:save_post' %}" method="post">
-        {% csrf_token %}
-        <input type="text" name="blog_post_title" placeholder="title"/><br/>
-        <input type="text" name="blog_post_author" placeholder="author"/><br>
-        <select name="blog_post_type_id">
-            <option value="" selected disabled>Type</option>
-            {% for type in types %}
-            <option value="{{type.id}}">{{type.name}}</option>
-            {% endfor %}
-        </select><br/>
-        <textarea name="blog_post_body" placeholder="body"></textarea><br/>
-        <button type="submit">submit</button>
-    </form> {% endcomment %}
-{% endblock %}
-</body>
+                <div class="form-group">
+                    <label for="lname">Last Name:</label>
+                    <input type="text" class="form-control" id="lname" placeholder="Please Enter Last Name" name="last_name" required />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" class="form-control" id="age" placeholder="Please Enter Your Age" name="age" required />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="bday">Birthday:</label>
+                    <input type="date" class="form-control" id="bday" placeholder="Please Enter Your Birthday" name="birthday" required />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="pnum">Phone Number:</label>
+                    <input type="number" class="form-control" id="pnum" placeholder="Please Enter Phone Number" name="phone_number" required />
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="is_cell" required /> Is a Cellphone number.
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Check this checkbox to continue.</div>
+                    </label>
+
+               <div class="form-group">
+                <label for="comments">Comments or Notes:</label>
+                <textarea class="form-control" id="comm" name="comments"></textarea>
+               </div>
+
+              </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+    </body>
 </html>
+
+<!-- Ask for help to TAs and Matthew to enable the html formatting settings for some reason the settings has be dissable 
+LEARN ask for assistance on how to enable ES Lint and Prettier ALSO Server Live Server I tried for few hours different videos and looked online
+but was unable to enable enable live server -->
+
+<!-- Add a Back button here button with bootstrap -->
+<!-- Add a Delete button here make the button with bootstrap -->
+<!-- Add a Better Background picture here and the Detail and New Contact Page -->
+
+{% comment %} # Django Tutorial = https://docs.djangoproject.com/en/3.0/intro/tutorial01/ {% endcomment %}
+{% comment %} # Django Quick tutorial = https://github.com/PdxCodeGuild/class_armadillo/blob/master/4%20Django/docs/Django%20Quickstart.md {% endcomment %}
+
+<!-- What is CSRF?
+Cross-site request forgery (also known as CSRF) is a web security vulnerability that allows an attacker to induce users to perform actions that they do not intend to perform. It allows an attacker to partly circumvent the same origin 
+policy, which is designed to prevent different websites from interfering with each other.
+
+https://portswigger.net/web-security/csrf
+-->

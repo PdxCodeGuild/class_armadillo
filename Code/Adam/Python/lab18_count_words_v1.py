@@ -26,13 +26,13 @@ import requests
 
 # url = 'https://www.gutenberg.org/files/215/215-0.txt' # Call of the wild from Project Gutenberg
 
-# 1) Open the file.
+# Open the file.
 # starter code
 response = requests.get('https://www.gutenberg.org/files/215/215-0.txt')
 text = response.text
 
 
-# 2. Make everything lowercase, strip punctuation, split into a list of words.
+# Make everything lowercase, strip punctuation, split into a list of words.
 text = text.lower()
 # text = text.split(' ')
 # print(text)
@@ -78,10 +78,6 @@ for i in range(min(10, len(words))):  # print the top 10 words, or all of them, 
     print(words[i])
 
 # # alternative using counter
-# # print(words_in_book)
 # count = Counter(words_in_book)
 # ten_most_common = count.most_common(10)  # returns top 10 values
-
-
-# # Print the most frequent top 10 out with their counts. 
-# print(f'The ten most common words are: {ten_most_common}')
+# print(f'The ten most common words are: {ten_most_common}') # Print the most frequent top 10 out with their counts. 
