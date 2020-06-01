@@ -34,28 +34,26 @@ def create_contact_page(request):
     return render(request, 'contacts/contact_new.html')
 
 def create_contact(request):
-    first_name = request.POST['first_name']
-    last_name = request.POST['first_last']
+    first_name = request.POST['first_name'] # When creating a new contact in the new contact page it will show and create a field for the first name 
+    last_name = request.POST['last_name']
     age = request.POST['age']
     birthday = request.POST['birthday']
     phone_number = request.POST['phone_number']
-    is_cell = 'is_cell' in request.POST
+    is_cell = 'is_cell' in request.POST  # we have a in here because it is a checkbox and if you do not have it it wont work
     comments = request.POST['comments']
     
     #Create a tuple 
-    create_contact = Contacts
-    (
-        first_name=first_name,
-        age=age,
-        birthday=birthday,
-        phone_number=phone_number,
-        is_cell = is_cell,
-        comments=comments,
-    )
-create_contact.save() # to save to the database
+    create_contact = Contacts(first_name=first_name,
+          last_name=last_name,
+          age=age,
+          birthday=birthday,
+          phone_number=phone_number,
+          is_cell = is_cell,
+          comments=comments)
+    create_contact.save() # to save to the database
 
 
-return HttpResponseRedirect(reverse('contacts:detail', args=(create_contact.id,))) # remember to putting a comma at the end
+    return HttpResponseRedirect(reverse('contacts:detail', args=(create_contact.id,))) # remember to putting a comma at the end
 
 # I am having issues with the  first_name=first_name, and  ) on line 54 
 # the terminal is giving me the following error: 
