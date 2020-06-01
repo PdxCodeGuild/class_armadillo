@@ -1,4 +1,5 @@
 from django.db import models
+from phone_field import PhoneField
 
 # Create your models here.
 
@@ -50,12 +51,16 @@ from django.db import models
 class Contacts(models.Model):
     first_name = models.CharField(max_length=200) # max_length=200 make alway a max length so the user does not input more that is require by adding extract characters 
     last_name = models.CharField(max_length=200)
-    age = models.IntegerField(default= 0)
+    age = models.IntegerField() #default= 0
     birthday = models.DateField(default= "YYYY-MM-DD") # default= "01/01/1999" if the user does not enter a birthday it will it input 01/01/1999
-    phone_number = models.CharField(max_length=200, default="555-555-5555")
+    phone_number = PhoneField(blank=True, help_text='Contact phone number')
     is_cell = models.BooleanField(default=True) # default=True = mean take anything and return true
     comments = models.TextField(max_length=200, blank=True, null=True) # blank=True, = it is not require to fill it out   null=True=  if nothing is here dont crash
 
 
     def __str__(self):
         return f'{self.first_name}  {self.last_name}' # we add this only to the first and last name because everything else will be tight to the person first and last name this is why we only do it for the first and last
+
+
+# Django Tutorial = https://docs.djangoproject.com/en/3.0/intro/tutorial01/
+# Django Quick tutorial = https://github.com/PdxCodeGuild/class_armadillo/blob/master/4%20Django/docs/Django%20Quickstart.md
