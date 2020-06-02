@@ -2,7 +2,8 @@
 from django.db import models
 
 
-class Pokemon_Type(models.Model):
+
+class PokemonType(models.Model):
 
     pokemon_name = models.CharField(max_length=50)
 
@@ -17,7 +18,11 @@ class Pokemon(models.Model):
     weight = models.IntegerField()
     image_front = models.CharField(max_length=50)
     image_back = models.CharField(max_length=50)
-    types = models.ManyToManyField(Pokemon_Type)
+    types = models.ManyToManyField(PokemonType)
 
     def __str__(self):
-        return self.name + ' ' + self.number
+        return self.name 
+    def __int__(self):
+        return self.number
+
+   
