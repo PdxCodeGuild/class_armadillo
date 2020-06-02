@@ -25,8 +25,10 @@ response into a python dictionary, and show the quote and the author.
 import requests
 import json
 
-url = 'https://api.chucknorris.io/jokes/random'
+url = 'https://favqs.com/api/qotd'
 response = requests.get(url) # send the request to the api
-print(response.text) # look at the raw json
+# print(response.text) # look at the raw json
 data = json.loads(response.text) # turn the json into a python dictionary
-print(data['value']) # get a part of the response data out of the dictionary
+print(f" \"{data['quote']['body']}\" - {data['quote']['author']}")# get a part of the response data out of the dictionary
+
+
