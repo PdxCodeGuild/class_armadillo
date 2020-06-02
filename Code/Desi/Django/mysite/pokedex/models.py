@@ -2,7 +2,7 @@ from django.db import models
 
 
 
-pokemon = 
+
 # PokemonType should have the following fields:
 
 class pokedex(models.Model):
@@ -16,17 +16,17 @@ class pokedex(models.Model):
 
     def __str__(self):
         return f'{self.name} {self.image_front} {self.image_back}'
-            "name": "bulbasaur",
-            "height": 7,
-            "weight": 69,
-            "image_front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-            "image_back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png",
-            "types": [
-                "poison",
-                "grass"
-            ],
-            "url": "https://pokemon.fandom.com/wiki/bulbasaur"
-        },
+        #     "name": "bulbasaur",
+        #     "height": 7,
+        #     "weight": 69,
+        #     "image_front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+        #     "image_back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png",
+        #     "types": [
+        #         "poison",
+        #         "grass"
+        #     ],
+        #     "url": "https://pokemon.fandom.com/wiki/bulbasaur"
+        # },
 
 
 

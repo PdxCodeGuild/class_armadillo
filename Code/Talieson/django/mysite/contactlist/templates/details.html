@@ -19,7 +19,7 @@
         <p>Age: {{contact_details.age}}</p>
         <p>Birthday: {{contact_details.birthday}}</p>
         <p>Email: {{contact_details.email}}</p>
-        {% if is_cell %}
+        {% if contact_details.is_cell %}
         <p>Cell Phone Number: {{contact_details.phone_number}}</p>
         {% else %}
         <p>Phone Number: {{contact_details.phone_number}}</p>
