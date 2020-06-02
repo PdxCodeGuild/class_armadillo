@@ -22,12 +22,12 @@ class Command(BaseCommand):
             )[0]
 
             # create db objects for types and set up relations to pokemon
-            for t in pokemon['types']:
-                p_type, created = PokemonType.objects.get_or_create(name=t)
+            for typ in pokemon['types']:
+                poke_type, created = PokemonType.objects.get_or_create(name=typ)
 
-                if p_type not in p_mon.types.all():
-                    p_mon.types.add(p_type)
-                    p_type.pokemon.add(p_mon)
+                if poke_type not in p_mon.types.all():
+                    poke_mon.types.add(poke_type)
+                    poke_type.pokemon.add(poke_mon)
 
                 
                 

@@ -109,40 +109,36 @@
       <div class="col col-5 align-self-end" id="right-side">
         <div class="row">
           <!-- green info screen -->
-          <div class="col col-10 offset-1" id="info-screen"></div>
+          <div class="col col-10 offset-1" id="info-screen">
+            <p>
+              Welcome to the PokeDex!
+            </p>
+          </div>
         </div>
+
+        
   
         <!-- blue buttons panel -->
         <div class="row">
           <div class="col col-8 offset-2" id="blue-buttons">
-            <div class="row">
-              <div class="col col-3">
-                <div class="blue-button"></div>
+            <form action="{% url 'pokedex' %}" method="POST">
+              <div class="row">
+                <div class="col col-10 offset-1 text-center">
+                  {% csrf_token %}
+                  <input type="text" name="query" class="text-center" placeholder="Search...">
+                </div>
               </div>
-              <div class="col col-3">
-                <div class="blue-button"></div>
+              <div class="row">
+                <div class="col col-8 offset-2 text-center">
+                  Name: <input type="radio" name="query_type">
+                  Type: <input type="radio" name="query_type">
+                </div>
+                <div class="col col-12 text-center">
+                  <input type="submit" class="blue-button" value="Submit">
+                </div>
               </div>
-              <div class="col col-3">
-                <div class="blue-button"></div>
-              </div>
-              <div class="col col-3">
-                <div class="blue-button"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col col-3">
-                <div class="blue-button"></div>
-              </div>
-              <div class="col col-3">
-                <div class="blue-button"></div>
-              </div>
-              <div class="col col-3">
-                <div class="blue-button"></div>
-              </div>
-              <div class="col col-3">
-                <div class="blue-button"></div>
-              </div>
-            </div>
+            </form>
+            
           </div>
         </div>
   
