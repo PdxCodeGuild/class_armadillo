@@ -11,7 +11,8 @@ from django.http import HttpResponseRedirect
 
 def index(request):
     # I need to import model in the view in order to access it = from .models import Contacts
-    contacts = Contacts.objects.order_by('last_name')
+    contacts = Contacts.objects.all().order_by(
+        'last_name')  # to see it by last_name
     context = {
         'contacts': contacts  # this is a dictionary of the whole contacts with the key contacts
 
@@ -24,39 +25,43 @@ def index(request):
 # View for the Detail
 
 
-def detail(request, contact_id): # contact_id each person have a unique contact_id
+def detail(request, contact_id):  # contact_id each person have a unique contact_id
     contact = get_object_or_404(Contacts, pk=contact_id)
-    return render(request, 'contacts/detail.html', {'contact': contact}) # {'contact': contact}) this is giving a single contact this is why is singular because when we click the name of one of the people in the contact list it will give only that person contact details instead of everyone else
-    
+    # {'contact': contact}) this is giving a single contact this is why is singular because when we click the name of one of the people in the contact list it will give only that person contact details instead of everyone else
+    return render(request, 'contacts/detail.html', {'contact': contact})
 
 
 def create_contact_page(request):
     return render(request, 'contacts/contact_new.html')
 
+
 def create_contact(request):
-    first_name = request.POST['first_name'] # When creating a new contact in the new contact page it will show and create a field for the first name 
+    # When creating a new contact in the new contact page it will show and create a field for the first name
+    first_name = request.POST['first_name']
     last_name = request.POST['last_name']
     age = request.POST['age']
     birthday = request.POST['birthday']
     phone_number = request.POST['phone_number']
-    is_cell = 'is_cell' in request.POST  # we have a in here because it is a checkbox and if you do not have it it wont work
+    # we have a in here because it is a checkbox and if you do not have it it wont work
+    is_cell = 'is_cell' in request.POST
     comments = request.POST['comments']
-    
-    #Create a tuple 
+
+    # Create a tuple
     create_contact = Contacts(first_name=first_name,
-          last_name=last_name,
-          age=age,
-          birthday=birthday,
-          phone_number=phone_number,
-          is_cell = is_cell,
-          comments=comments)
-    create_contact.save() # to save to the database
+                              last_name=last_name,
+                              age=age,
+                              birthday=birthday,
+                              phone_number=phone_number,
+                              is_cell=is_cell,
+                              comments=comments)
+    create_contact.save()  # to save to the database
 
+    # remember to putting a comma at the end
+    # redirecting to the detail page
+    return HttpResponseRedirect(reverse('contacts:detail', args=(create_contact.id,)))
 
-    return HttpResponseRedirect(reverse('contacts:detail', args=(create_contact.id,))) # remember to putting a comma at the end
-
-# I am having issues with the  first_name=first_name, and  ) on line 54 
-# the terminal is giving me the following error: 
+# I am having issues with the  first_name=first_name, and  ) on line 54
+# the terminal is giving me the following error:
 
 #     from . import views
 #   File "/Users/owner/Desktop/Program/class_armadillo/Code/vlad/django_folder/labs/contacts/views.py", line 48
