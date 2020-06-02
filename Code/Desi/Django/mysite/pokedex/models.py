@@ -1,6 +1,8 @@
 from django.db import models
 
 
+
+pokemon = 
 # PokemonType should have the following fields:
 
 class pokedex(models.Model):

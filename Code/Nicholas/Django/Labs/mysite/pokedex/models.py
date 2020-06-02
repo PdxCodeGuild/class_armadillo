@@ -15,7 +15,7 @@ class Pokemon(models.Model):
     weight = models.IntegerField()
     image_front = models.CharField()
     image_back = models.Charfield()
-    types = models.ManyToManyField(PokemonType)
+    types = models.ManyToManyField(PokemonType, related_name='')
 
     def __str__(self):
         return self.image_front + ' ' + self.name
