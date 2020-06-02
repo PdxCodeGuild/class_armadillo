@@ -21,6 +21,8 @@ class Pokemon(models.Model):
     types = models.ManyToManyField(PokemonType)
 
     def __str__(self):
-        return self.name + ' ' + self.number
+        return self.name 
+    def __int__(self):
+        return self.number
 
    
