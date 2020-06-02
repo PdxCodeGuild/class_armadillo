@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Contact List</title>
 </head>
 <body> 
@@ -19,5 +20,7 @@
     {% else %}
         <p>No contacts have been saved. Add some <a href="{% url 'contactlist:create_contact/' %}">here!</a></p>
     {% endif %}
+
+    <a href="{% url 'contactlist:create_contact' %}"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
 </body>
 </html>
