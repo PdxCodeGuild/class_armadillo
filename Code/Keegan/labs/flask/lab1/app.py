@@ -58,3 +58,7 @@ def unit_converter():
         context['result'] = result
 
     return render_template('unit-converter.html', context=context)
+
+@app.route('/generate', methods=['GET', 'POST'])
+def generate():
+    return render_template('password-generator.html')
