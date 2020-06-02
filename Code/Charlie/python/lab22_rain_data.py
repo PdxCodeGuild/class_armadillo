@@ -1,58 +1,56 @@
-
-
-
-
-import requests
 from datetime import datetime
+import requests
 import re
 import math
-import matplotlib.pyplot as plt
 
-
-url = requests.get('https://or.water.usgs.gov/non-usgs/bes/multnomah.rain')
-
-multnomah_rain = url.text
-# get the rain-fall
-
-
-
-# regular expression to identify the date and total amount of rain fall
-
-def day_in_month(multnomah_rain):
-
-    # get the date
-    # listy = []
-    # get just the total rainfalls
-    monthly_rain = re.findall(r'\d+-\w+-\d+\s+(\d+)', multnomah_rain)
-    # get just the dates
-    monthly_date = re.findall(r'\d+-\w+-\d+', multnomah_rain)
-    # iterated over the rainfalls and joined them into a list of tuples.
-    for i in range(len(monthly_rain)):
-        # date = datetime.strptime(monthly_date[i], '%d-%b-%Y')
-        rain_fall_amount = int(monthly_rain[i])
-        # print(date)
-        output = (monthly_date[i],rain_fall_amount)
-        # tuples = listy.append(tuples)
-        # total_rain_fall = 0
-        # for i in rain_fall_amount:
-        #     total_rain_fall += rain_fall_amount[i]
-        #     wow = total_rain_fall/rain_fall_amount
-            # print(wow)
-        
-                
-        
-        
-        print(output)
+def load_rain_data(url):
+    data = requests.get(url)
+    text = data.text
+    rain_data = re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text)
     
-    # call our function
-    # x_values = []
-    # y_values = []
-    # for row in tuples:
-    #     if row[monthly_[i]].year == 2010 and row[monthly_date[i]].month == 3:
-    #         x_values.append(row['monthly_date'])
-    #         y_values.append(row['rain_fall_amount'])
-    # plt.plot(x_values, y_values)
-    # plt.show()
 
 
-day_in_month(multnomah_rain)
+    for i in range(len(rain_data)):
+        date = rain_data[i][0]
+        daily_total = rain_data[i][1]
+        daily_total = int(daily_total)*0.01 * 2.54
+        
+        rain_data[i] = {
+            'date': date,
+            'daily_total' : daily_total,
+        }
+    return rain_data
+
+  
+
+def calc_mean(rain_data):
+
+    total = 0
+    for row in rain_data:
+        total += row['daily_total']
+    return total / len(rain_data)
+
+def calc_var(rain_data, mean):
+    total = 0
+    for row in rain_data:
+        total += (row['daily_total'] - mean ) **2
+    return total / len(rain_data)
+
+def highest(rain_data):
+    highest_rain = rain_data[0]
+    for row in rain_data:
+        if row['daily_total'] > highest_rain['daily_total']:
+            highest_rain = row
+    return highest_rain
+
+
+rain_data = load_rain_data('https://or.water.usgs.gov/non-usgs/bes/yeon.rain')
+mean = calc_mean(rain_data)
+variance = calc_var(rain_data, mean)
+stan_dev = math.sqrt(variance)
+highest_rain = highest(rain_data)
+
+
+print(f'\nThe mean of this rain data is {mean}')
+print(f'\n68% of the data falls in a range greater than {mean-stan_dev} and less than {mean+stan_dev}')
+print(f'\nThe day with the most rain was {highest_rain["date"]} with {highest_rain["daily_total"]} cm. \n')

@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 
 # Create your views here.
 def index(request):
-    contacts = Contacts.objects.all()
+    contacts = Contacts.objects.order_by('last_name')
 
     context = {
         'contacts': contacts

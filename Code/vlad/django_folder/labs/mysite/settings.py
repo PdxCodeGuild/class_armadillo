@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'phone_field',
+    'pokedex',
 ]
 
 MIDDLEWARE = [
@@ -107,7 +109,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'US/Pacific' #'America/Los_Angeles' # or can be entered as 'US/Pacific' #https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+# 'America/Los_Angeles' # or can be entered as 'US/Pacific' #https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+TIME_ZONE = 'US/Pacific'
 
 USE_I18N = True
 

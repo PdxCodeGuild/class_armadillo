@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'polls.apps.PollsConfig',
     'contacts.apps.ContactsConfig',
-    'phone_field'
+    'phone_field',
+    'pokedex.apps.PokedexConfig',
 ]
 
 MIDDLEWARE = [
