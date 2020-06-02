@@ -13,7 +13,7 @@
         <tr>
             <th>Last Name</th>
             <th>First Name</th>
-            <th>Age</th>
+            <!-- <th>Age</th> -->
             <th>Birthday</th>
             <th>Phone Number</th>
             <th>Cell?</th>
@@ -22,17 +22,16 @@
         <tr>
             <td><input type="text" required name="last_name"/></td>
             <td><input type="text" required name="first_name"/></td>
-            <td><input type="number" required name="age"/></td>
-            <td><input type="date" required name="birthday"/></td>
-            <td><input type="number" pattern=^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$ required name="phone_number"/></td>
-            <td><input type="checkbox" id="is_cell" name="is_cell" value="True">
-              <!-- <label for="is_cell">cell</label><br/> -->
-            </td>
-            <td><textarea name="comments"></textarea></td>
+            <!-- <td><input type="number" required name="age"/></td> -->
+            <td><input type="date" required name="birthday"></td>
+            <td><input type="number" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" title="format (XXX)XXX-XXXX or XXXXXXXXXX or XXXX-XXX-XXXX" required name="phone_number"/></td>
+            <td><input type="checkbox" id="is_cell" name="is_cell" value="True"></td>
+            <td><input type="text" name="comments">
+            <!-- <td><textarea name="comments"></textarea></td> -->
         </tr>
       </table>
-      <button type="submit" class="btn btn-success btn-lg">✔</button>&ensp;
-      <a href="{% url 'contacts:contacts' %}" class="btn btn-secondary btn-lg">&#127968;</a>
+      <button type="submit" title="submit" class="btn btn-success btn-lg">✔</button>&ensp;
+      <a href="{% url 'contacts:contacts' %}" title="home" class="btn btn-secondary btn-lg">&#127968;</a> 
     </form>
   </body>
   </html>
