@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'contacts.apps.ContactsConfig',
     'phone_field',
+    'pokedex.apps.PokedexConfig',
 ]
 
 MIDDLEWARE = [
