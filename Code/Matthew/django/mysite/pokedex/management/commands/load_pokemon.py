@@ -5,4 +5,6 @@ from django.core.management.base import BaseCommand
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        print('you just ran a custom management command!')
+        with open('./pokedex/management/commands/pokemon.json', 'r') as file:
+            text = file.read()
+            print(text)
