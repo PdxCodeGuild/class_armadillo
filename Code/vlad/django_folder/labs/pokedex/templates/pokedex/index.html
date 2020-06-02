@@ -5,7 +5,12 @@
     <title>Pokedex</title>
   </head>
   <body>
-    <h1>{{ pokemon }}</h1>
+    <h1>Welcome to Pokemon Land!</h1>
+    <h2><b>Pokédex data!<b></h2>
+    {% for pokemon in pokemon %}
+      <li>{{ pokemon.name }}</li>
+      <li>{{ pokemon.number }}</li>
+      {% endfor %}
     
   </body>
 </html>
