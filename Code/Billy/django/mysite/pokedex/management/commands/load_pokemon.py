@@ -6,7 +6,6 @@ import json
 class Command(BaseCommand):
     def handle(self, *args, **options):
         with open('pokemon.json', 'r') as file: # open file
-            text = file.read() # read the file
-        pokemon = json.loads(text) # convert json to dictionary
-        pokemon = pokemon['pokemon'] # extract the list inside dict
+            pokemon = json.loads(file.read()) # read the file and convert json to dictionary
+        # pokemon = pokemon['pokemon'] # extract the list inside dict
         return pokemon
