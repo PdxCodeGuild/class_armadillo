@@ -1,0 +1,35 @@
+{% extends 'contacts/base.html' %}
+
+{% block title %}Detail{% endblock %}
+
+{% block content %}
+<a href="{% url 'contacts:index' %}" class="btn btn-primary">back</a>
+<table>
+    <tr>
+        <td><b>First Name</b></td>
+        <td>{{contact.first_name}}</td>
+    </tr>
+    <tr>
+        <td><b>Last Name</b></td>
+        <td>{{contact.last_name}}</td>
+    </tr>
+    <tr>
+        <td><b>Birthday</b></td>
+        <td>{{contact.birthday}}</td>
+    </tr>
+    <tr>
+        <td><b>Email</b></td>
+        <td>{{contact.email}}</td>
+    </tr>
+    <tr>
+        <td><b>Phone Number</b></td>
+        <td>{{contact.phone_number}} {% if contact.is_cell %}(cellphone){% else %}(landline){% endif %}</td>
+    </tr>
+    <tr>
+        <td><b>Comments</b></td>
+        <td>{{contact.comments}}</td>
+    </tr>
+</table>
+<a href="{% url 'contacts:edit' contact.id %}" class="btn btn-primary">edit</a>
+<a href="{% url 'contacts:delete' contact.id %}" class="btn btn-primary">delete</a>
+{% endblock %}
