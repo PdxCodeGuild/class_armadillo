@@ -294,6 +294,10 @@ body {
   margin-bottom: 10px;
 }
 
+#right-side .row {
+  width: 100%;
+}
+
 #info-screen {
   background-color: #30fa04;
   border: 2px solid black;
