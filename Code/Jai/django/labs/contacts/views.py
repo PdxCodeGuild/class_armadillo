@@ -1,22 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import contact
+from .models import Contact
 
 # Create your views here.
 
-def contacts(request):
-    context: {}
-    return render(request, 'contacts/index.html', contacts)
-    
+def index(request):
+    context = {        
+        'contacts': contacts
 
-
-
-
-
-
-
-
-
+    }
+    return render(request, 'contacts/index.html', context)
 
 
 
