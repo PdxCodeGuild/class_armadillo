@@ -2,72 +2,70 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Detail Page</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    </head>
-    <!-- {{ contact.first_name }} and the other fields like last name are will be polled from the database to the detail page this is why each of the values below has this format value="{{ contact.first_name }}"-->
-    <body>
-        <div class="container">
-            <h2>Detail Page</h2>
-            <div class="form-group">
-                <label for="fname">First Name:</label>
-                <input type="text" class="form-control" id="fname" value="{{ contact.first_name }}"  name="first_name" required />
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-
-            <div class="form-group">
-                <label for="lname">Last Name:</label>
-                <input type="text" class="form-control" id="lname" value="{{ contact.last_name }}" name="last_name" required />
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-
-            <div class="form-group">
-                <label for="age">Age:</label>
-                <input type="number" class="form-control" id="age" value="{{ contact.age }}" name="age" required />
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-
-            <div class="form-group">
-                <label for="bday">Birthday:</label>
-                <input type="date" class="form-control" id="bday" value="{{ contact.birthday }}" name="birthday" required />
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-
-            <div class="form-group">
-                <label for="pnum">Phone Number:</label>
-                <input type="number" class="form-control" id="pnum" value="{{ contact.phone_number }}" name="phone_number" required />
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">Please fill out this field.</div>
-            </div>
-
-            <div class="form-group form-check">
-              <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="is_cell" required /> Is a Cellphone number.
-                  <div class="valid-feedback">Valid.</div>
-                  <div class="invalid-feedback">Check this checkbox to continue.</div>
-              </label>
-
-            <div class="form-group">
-            <label for="comments">Comments:</label>
-            <textarea class="form-control" id="comm" name="comments"> </textarea>
-        </div>
-
-            </div>
-            {% comment %} <button type="submit" class="btn btn-primary">Submit</button>
-        </div> {% endcomment %}
-
-    </body>
-</html>
+	<head>
+		<title>Detail Page</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	</head>
+	<!-- {{ contact.first_name }} and the other fields like last name are will be polled from the database to the detail page this is why each of the values below has this format value="{{ contact.first_name }}"-->
+	<body>
+		<div class="container">
+			<h2>Detail Page</h2>
+			<div class="form-group">
+				<label for="fname">First Name:</label>
+				<input type="text" class="form-control" id="fname" value="{{ contact.first_name }}"  name="first_name" required />
+				<!-- We do not need a placeholder here because the form is already created and this is -->
+				<div class="valid-feedback">Valid.</div>
+				<div class="invalid-feedback">Please fill out this field.</div>
+			</div>
+			<div class="form-group">
+				<label for="lname">Last Name:</label>
+				<input type="text" class="form-control" id="lname" value="{{ contact.last_name }}" name="last_name" required />
+				<div class="valid-feedback">Valid.</div>
+				<div class="invalid-feedback">Please fill out this field.</div>
+			</div>
+			<div class="form-group">
+				<label for="age">Age:</label>
+				<input type="number" class="form-control" id="age" value="{{ contact.age }}" name="age" required />
+				<div class="valid-feedback">Valid.</div>
+				<div class="invalid-feedback">Please fill out this field.</div>
+			</div>
+			<div class="form-group">
+				<label for="bday">Birthday:</label>
+				<input type="date" class="form-control" id="bday" value="{{ contact.birthday }}" name="birthday" required />
+				<div class="valid-feedback">Valid.</div>
+				<div class="invalid-feedback">Please fill out this field.</div>
+			</div>
+			<div class="form-group">
+				<label for="pnum">Phone Number:</label>
+				<input type="number" class="form-control" id="pnum" value="{{ contact.phone_number }}" name="phone_number" required />
+				<div class="valid-feedback">Valid.</div>
+				<div class="invalid-feedback">Please fill out this field.</div>
+			</div>
+			<div class="form-group form-check">
+				<label class="form-check-label">
+					<input class="form-check-input" type="checkbox" name="is_cell" required /> Is a Cellphone number.
+                  
+					<div class="valid-feedback">Valid.</div>
+					<div class="invalid-feedback">Check this checkbox to continue.</div>
+				</label>
+				<div class="form-group">
+					<label for="comments">Comments:</label>
+					<textarea class="form-control" id="comm" name="comments"></textarea>
+				</div>
+			</div>
+			<form action= "{% url 'contacts:index' %}"  method= "post"> <!-- Back button to go back to the Home Page which is the index-->
+				<!-- See how can I add the following class on the main form =  class="was-validated-->
+        {% csrf_token %}
+        
+				<button type="submit" class="btn btn-primary">Go Back to Home Page</button>
+			</form>
+		</body>
+	</html>
 
 <!-- Add a Back button here button with bootstrap -->
 <!-- Add a Delete button here make the button with bootstrap -->

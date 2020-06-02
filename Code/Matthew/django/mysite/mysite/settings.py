@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'todo',
     'blogapp',
     'demo',
+    'contacts',
+    'main',
+    'pokedex',
 ]
 
 
