@@ -1,4 +1,4 @@
-"""Labs URL Configuration
+"""pokedex URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -18,6 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('contactsapp/', include('contactsapp.urls')),
-    path('pokedex/', include('pokedex.urls')),
+    path('pokeapp', include('pokeapp.urls'))
 ]
