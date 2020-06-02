@@ -1,5 +1,5 @@
 from django.db import models
-'''
+
 # Create your models here.
 class Pokemon(models.Model):
     number = models.IntegerField()
@@ -11,7 +11,8 @@ class Pokemon(models.Model):
     types = models.ManyToManyField(pokemontype)
 
     def __str__return(self):
-        return self.name + ' - ' + slef.ty
+        return self.name + ' - ' + self.type
 
-#class PokemonType(models.Model):
-   '''
+class PokemonType(models.Model):
+    name = models.CharField(max_length=50)
+    
