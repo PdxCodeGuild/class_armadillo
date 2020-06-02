@@ -29,6 +29,6 @@ url = 'https://favqs.com/api/qotd'
 response = requests.get(url) # send the request to the api
 # print(response.text) # look at the raw json
 data = json.loads(response.text) # turn the json into a python dictionary
-print(f" \"{data['quote']['body']}\" - {data['quote']['author']}")# get a part of the response data out of the dictionary
-
+print(f" \"{data['quote']['body']}\" - {data['quote']['author']}") # get a part of the response data out of the dictionary
+# print(data['quote']['author'])
 
