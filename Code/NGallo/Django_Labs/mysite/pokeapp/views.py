@@ -5,3 +5,4 @@ def index(request):
         'message': 'Hello World!'
     }
     return render(request, 'pokeapp/index.html', context)
+
