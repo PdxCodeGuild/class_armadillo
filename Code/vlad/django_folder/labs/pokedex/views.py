@@ -1,12 +1,14 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse
+from .models import Pokemon, PokemonType
 
 
 # Create your views here.
 
 def index(request):
-    pokemon = Pokemon.object.order_by('name')
+    # this is the name of my app Pokemon
+    pokemon = Pokemon.objects.order_by('name')
     context = {
         'pokemon': pokemon
 
