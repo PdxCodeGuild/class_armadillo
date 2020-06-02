@@ -26,9 +26,9 @@
             <td>{{card.comments}}</td>
         </tr>
     </table>
-    <a href="{% url 'contacts2:edit_page' card.id %}" title="edit" class="btn btn-info btn-lg">✏</a>&ensp;
-    <a href="{% url 'contacts2:entry_page' %}" title="new" class="btn btn-success btn-lg">➕</a>&ensp;
-    <a href="{% url 'contacts2:delete' card.id %}" title="delete" class="btn btn-danger btn-lg">✖</a>&ensp;
-    <a href="{% url 'contacts2:contacts' %}" title="home" class="btn btn-secondary btn-lg">&#127968;</a>
+    <a href="{% url 'contacts:edit_page' card.id %}" title="edit" class="btn btn-info btn-lg">✏</a>&ensp;
+    <a href="{% url 'contacts:entry_page' %}" title="new" class="btn btn-success btn-lg">➕</a>&ensp;
+    <a href="{% url 'contacts:delete' card.id %}" title="delete" class="btn btn-danger btn-lg">✖</a>&ensp;
+    <a href="{% url 'contacts:contacts' %}" title="home" class="btn btn-secondary btn-lg">&#127968;</a>
 </body>
 </html>
