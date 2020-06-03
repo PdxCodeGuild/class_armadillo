@@ -3,6 +3,7 @@ from django.core.management.base import BaseCommand
 import json
 from pokedex.models import Pokemon, PokemonType
 
+
 class Command(BaseCommand):
 
 
