@@ -6,4 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('contacts/', include('contacts.urls')),
     path('todo/', include('todo.urls')),
+    path('pokedex/', include('pokedex.urls')),
 ]
