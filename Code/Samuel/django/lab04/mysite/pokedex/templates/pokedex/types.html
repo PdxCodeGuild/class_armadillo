@@ -9,17 +9,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'pokedex/style.css' %}">
-    <title>Pokedex Home</title>
+    <title>Document</title>
 </head>
 <body>
     <ul>
-        <form action="{% url 'pokedex:pokemon_type' %}" method="POST">
-            {% csrf_token %}
-            <input type="text" name="search">
-            <button id="button" href="/contacts/types" class="btn btn-primary" type="submit">submit</button>
-        </form>
         <div id="name">
-            <p>Pokedex</p>
+            <p>Search Results for: {{ query }}</p>
         </div>
         {% if list_of_pokemon %}
         <table>
