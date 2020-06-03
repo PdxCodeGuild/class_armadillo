@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="{% url 'pokedex:index' %}">Home</a> 
+        <form method="GET" action="" >
+            <input type="search" name="search" placeholder="Search by name or type"><button type="submit"> Search </button>
+        </form>
+    </header>
+    {% block content %}{% endblock content %}
+
+</body>
+</html>

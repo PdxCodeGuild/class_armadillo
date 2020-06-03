@@ -7,7 +7,7 @@ import random
 # flask app for requests
 @app.route ('/', methods=["GET", "POST"])
 # defines the view
-def index():
+def pswd_gen():
     output = ''
     if request.method == "POST":
         # assigns variable and output for uppercase, lowercase, numbers, and special characters.
@@ -35,4 +35,4 @@ def index():
 
 
         print(request.form)
-    return render_template("Lab01-pswd_gen.html", password=password)
+    return render_template("pswd_gen.html", password=password)

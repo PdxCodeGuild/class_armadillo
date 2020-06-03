@@ -18,8 +18,9 @@ class Command(BaseCommand):
                 weight = pokemans['weight']
                 image_front = pokemans['image_front']
                 image_back = pokemans['image_back']
+                types = pokemans['types']
 
-                add_pokemon = Pokemon(
+                add_pokemon = Pokemon.objects.get_or_create(
                     number=number,
                     name=name,
                     height=height,
@@ -27,11 +28,7 @@ class Command(BaseCommand):
                     image_front=image_front,
                     image_back=image_back,
                 )
-                add_pokemon.objects.get_or_create()
-
-                for types in pokemon['types']:
-                    add_type = PokemonType.objects.get_or_create(name=pokemon_type,)[0]
-                    if add_type not in add_pokemon.types.all():
-                        add_type.types.add(add_type)
-                        add_type.pokemon_set.add(add_pokemon)
+                
+                for typ in types:
+                    add_type, other = PokemonType.objects.get_or_create(name=types)
             # print(pokemans)
