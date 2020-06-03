@@ -8,6 +8,8 @@ class Command(BaseCommand):
 
     
     def handle(self, *args, **options):
+        Pokemon.objects.all().delete()
+        PokemonType.objects.all().delete()
         with open('./pokedex/management/commands/pokemon.json', 'r') as file:
             text = file.read()
         data = json.loads(text)
@@ -28,17 +30,10 @@ class Command(BaseCommand):
                                 image_back=image_back,)
             new_pokemon.save()                    
             for ptype in types:
-                if ptype == types[0]:
-                    p_types1 = PokemonType(name=types)
-                    p_types1.save()
-                elif ptype == types[1]: 
-                    p_types2 = PokemonType(name=types)
-                    p_types2.save()                   
-            
-            if len(types)== 1:
+                p_types1,created = PokemonType.objects.get_or_create(name=ptype)
                 new_pokemon.types.add(p_types1) 
-            else:
-                new_pokemon.types.add(p_types1, p_types2)
+           
+               
 
             # save the contact to the database
             
