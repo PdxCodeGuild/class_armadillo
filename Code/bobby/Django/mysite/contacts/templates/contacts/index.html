@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>contacts</title>
-    <style></style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style type=text/css></style>
 </head>
 <body>
-    <h1>{{ message }}</h1>
-    <table>
+    <h1>
+        {{ message }} 
+    </h1>
+    <table class= table>
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
@@ -18,26 +21,29 @@
             <th>Cell</th>
             <th>Comments</th>
         </tr>
-        {% for contact in contactsapp %}
+        {% for contacts in Contacts %}
         <tr>
             <td>
-                <from action="{% url 'contacts:delet' %}" methods="post">
+                <form action="{% url 'contacts:delete' %}" methods="post">
                     {% csrf_token %}
-                    <input type= 'hidden' name= 'contact_info' value='{{contact.info}}'/>
-                    <button class= 'btn, btn' type= 'submit'></button>
-                </from>
+                    <input type= ' ' name= 'contact.id' value='{{contact.id}}'/>
+                   
+                </form>
             </td>
-            <td>{{contact.first_name}}</td>
-            <td>{{contact.last_name}}</td>
-            <td>{{contact.age}}</td>
-            <td>{{contact.birthday}}</td>
-            <td>{{contact.phone_number}}</td>
-            <td>{{contact.cell}}</td>
+            <td>{{contacts.first_name}}</td>
+            <td>{{contacts.last_name}}</td>
+            <td>{{contacts.age}}</td>
+            <td>{{contacts.birthday}}</td>
+            <td>{{contacts.phone_number}}</td>
+            <td>{{contacts.cell}}</td>
             <td>{{contact.comments}}</td>
         </tr>
         {% endfor %}
     </table>
 
-
+<div style='text-align: left;'>
+    <a href='{% url "Contacts:add" %}' class = 'btn btn-primary'>Add Contact</a>
+</div>
 </body>
+<footer>Copyright 2020</footer>
 </html>

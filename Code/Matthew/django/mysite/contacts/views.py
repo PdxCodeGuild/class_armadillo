@@ -1,16 +1,34 @@
 from django.shortcuts import render, get_object_or_404, reverse
+from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseRedirect
 import string
-
+from django.db.models import Q
 from datetime import datetime
 
 from .models import Contact
 
 def index(request):
+    # print(request.POST)
+
+    # get value of 'page' from the query string, default to 1 if the query parameter is not specified
+    page = request.GET.get('page', 1)
+    
 
     contacts = Contact.objects.all().order_by('last_name')
+    search = ''
+    if request.method == 'POST':
+        search = request.POST['search']
+        # contacts = contacts.filter(last_name__icontains=search, first_name__icontains=search)
+        contacts = contacts.filter(Q(first_name__icontains=search)
+                                | Q(last_name__icontains=search)
+                                | Q(email__icontains=search)
+                                | Q(phone_number__icontains=search)
+                                | Q(comments__icontains=search))
+    paginator = Paginator(contacts, 10)
+    contacts = paginator.page(page)
     context = {
-        'contacts': contacts
+        'contacts': contacts,
+        'search': search
     }
     return render(request, 'contacts/index.html', context)
 
