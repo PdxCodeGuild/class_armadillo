@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.template import loader
-from django.urls import reverse
 from django.db.models import Q
 from .models import Pokemon, Type
 import string
