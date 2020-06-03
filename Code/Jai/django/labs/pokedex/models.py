@@ -6,8 +6,8 @@ from django.db import models
 class PokemonType(models.Model):
     name = models.CharField(max_length=100)
 
-    def __str__return(self):
-        return self.number + ' - ' + self.name
+    def __str__(self):
+        return self.name
 
 class Pokemon(models.Model):
     number = models.IntegerField(default=0)
@@ -18,6 +18,6 @@ class Pokemon(models.Model):
     image_back = models.CharField(max_length=200)
     types = models.ManyToManyField(PokemonType)
 
-    def __str__return(self):
-        return self.number + ' - ' + self.name
+    def __str__(self):
+        return str(self.number) + ' - ' + self.name
 

@@ -133,7 +133,17 @@ body {
   background-color: #fbfbfb;
   border: 2px solid #000;
   border-radius: 15px;
+  box-shadow: inset 0 0 5px #000;
   height: 40vh;
+}
+
+#main-screen .pokemon-image {
+  height: 100%;
+}
+
+#main-screen .pokemon-image img {
+  height: 100%;
+  object-fit: contain;
 }
 
 #bottom-panel {
@@ -295,14 +305,23 @@ body {
 }
 
 #info-screen {
-  background-color: #30fa04;
+  background-color: #31fb04;
   border: 2px solid black;
   border-radius: 15px;
+  box-shadow: inset 0 0 5px #0a3600;
   color: #0a3600;
   margin-bottom: 10px;
   margin-top: 10px;
   min-height: 300px;
   padding: 15px;
+}
+
+#info-screen h3 {
+  margin-bottom: 30px;
+}
+
+#info-screen p {
+  padding: 0 15px;
 }
 
 #blue-buttons {
@@ -317,11 +336,14 @@ body {
   padding: 5px;
 }
 
+#blue-buttons form {
+  font-size: .8rem;
+}
+
 #blue-buttons .blue-button {
   background-color: #509df9;
   border: 2px solid black;
   border-radius: 5px;
-  margin: 2px 0;
   min-height: 25px;
 }
 
@@ -334,6 +356,7 @@ body {
   background-color: inherit;
   border: none;
   border-bottom: 2px solid black;
+  padding: 10px;
   width: 90%;
 }
 
