@@ -14,7 +14,8 @@ def index(request):
     return render(request, 'pokedex/index.html', data)
 
 def detail(request, pokemon_id):
-    pokemon = get_object_or_404(Pokedex, pk=pokemon_id)
+    pokemon = get_object_or_404(Pokemon, pk=pokemon_id)
+    return render(request, 'pokedex/detail.html', {'pokemon':pokemon})
 
 # def pokemon_data(request):
 #     number = request.POST['number']

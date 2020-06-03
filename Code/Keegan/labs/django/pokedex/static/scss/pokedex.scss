@@ -3,6 +3,7 @@ body {
 }
 #pokedex {
     display: flex;
+    font-family: 'Press Start 2P', cursive;
     padding: 20px;
 }
 
@@ -298,21 +299,28 @@ body {
     height: 90vh;
     min-height: 350px;
     margin-bottom: 10px;
+
+    .row {
+        width: 100%;
+    }
 }
 
 #info-screen {
     background-color: #30fa04;
     border: 2px solid black;
     border-radius: 15px;
+    color: #0a3600;
     margin-bottom: 10px;
     margin-top: 10px;
-    min-height: 150px;
+    min-height: 300px;
+    padding: 15px;
 }
 
 #blue-buttons {
     background-color: #2666d0;
     border: 2px solid black;
     border-radius: 10px;
+    color: #fbfbfb;
     min-height: 75px;
 
     .col {
@@ -323,9 +331,23 @@ body {
         background-color: #509df9;
         border: 2px solid black;
         border-radius: 5px;
-        height: 25px;
         margin: 2px 0;
-        min-height: 15px;
+        min-height: 25px;
+    }
+    input {
+        color: #fbfbfb;
+        text-align: center;
+    }
+
+    input[type=text] {
+        background-color: inherit;
+        border: none;
+        border-bottom: 2px solid black;
+        width: 90%;
+    }
+
+    input[type=submit] {
+        padding: 10px;
     }
 }
 
@@ -364,7 +386,7 @@ body {
     border: 2px solid black;
     border-radius: 50%;
     color: #FF0000;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     height: 40px;
     width: 40px;
 }

@@ -1,7 +1,12 @@
 from django.db import models
-from django.utils import timezone
+
 
 # Create your models here.
+class Priority(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name + ' ' + str(self.todo_items.count())
 
 class TodoItem(models.Model):
     name = models.CharField(max_length=40)
@@ -10,6 +15,12 @@ class TodoItem(models.Model):
     completed_date = models.DateTimeField(blank=True, null=True)
     status = models.BooleanField(default=False)
     priority = models.IntegerField(default=0)
+
+    def completed(self):
+        return self.completed_date != None
+
+    def __str__(self):
+        return self.description + ' - ' + self.priority.name
 
 # class ToDoList(models.Model):
 #     description = models.CharField(max_length=50)
