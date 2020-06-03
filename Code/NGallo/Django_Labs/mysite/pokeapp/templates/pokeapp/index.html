@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <style>
+    background-color: black;
+  </style>
+  <meta charset="utf-8">
+  <title>PokeDex</title>
+</head>
+
+<body>
+  <h1>PokeDex<h1>
+      <main>
+        <img id="PokeDex_image" src="/pokeapp/static/images/pokedex.png">
+        {{% for poke in pokemon_by_number%}}
+        {{ context }}
+        {{% endfor%}} {% endcomment %}
+      </main>
+      <footer> Nick Gallo &copy 2020</footer>
+</body>
+
+</html>

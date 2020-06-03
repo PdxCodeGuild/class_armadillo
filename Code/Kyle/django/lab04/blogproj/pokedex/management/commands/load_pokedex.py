@@ -8,6 +8,7 @@ class Command(BaseCommand):
         with open('./pokedex/management/commands/pokedex.json', 'r') as file:
 
             text = file.read()
+            
             context = json.loads(text)
             pokemon = context['pokemon']
 
