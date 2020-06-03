@@ -9,13 +9,27 @@
 <body>
     <h1>Welcome to Pokemon Land!</h1>
     <h2><b>Pokédex data!<b></h2>
-    {% for pokemon in pokemon %}
-    <li>{{ pokemon.name }}</li>
-    <li>{{ pokemon.number }}</li>
-    {% endfor %}
 
+    {% for pokemon in pokemon %}
+    <div>
+        <!-- <li>{{ pokemon.name }}</li>
+        <li>{{ pokemon.number }}</li> -->
+        <img src="{% url 'pokedex:detail' pokemon.id%}"> {{ pokemon.name }} </a>
+        <a href="{% url 'pokedex:detail' pokemon.number%}"> {{pokemon.name}} {{pokemon.image_back}}</a>
+    </div>
+    {% endfor %}
 </body>
 
 </html>
 
-<!-- {% comment %} add the image =  {% endcomment %} -->
+
+
+<!-- {% for pokemon in pokemon %}
+<div>
+     <li>{{ pokemon.name }}</li>
+    <li>{{ pokemon.number }}</li> -->
+<!-- <img src="{% url 'pokedex:detail' pokemon.id%}"> {{ pokemon.name }} {{pokemon.image_front}} -->
+<!-- {{pokemon.image_back}}</a> -->
+<!-- <a href="{% url 'pokedex:detail' pokemon.id%}"> {{ pokemon.number }} {{pokemon.name}} {{pokemon.image_back}}</a> -->
+</div>
+<!-- {% endfor %} --> -->
