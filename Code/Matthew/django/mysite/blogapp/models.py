@@ -2,6 +2,15 @@ from django.db import models
 
 
 
+# tag = BlogPostTag.objects.get(name='#delicious')
+# default if related name is not specified
+# "here is what you call the set of all of me"
+# tag.blogpost_set.all()
+# tag.posts.all()
+
+
+
+
 class BlogPost(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
