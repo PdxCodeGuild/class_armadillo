@@ -48,7 +48,9 @@
               <div class="row">
                 <div class="col col-10 offset-1" id="main-screen">
                   {% if pokemon %}
-                    <img src="{{ pokemon.image_front }}" height=300 alt="{{ pokemon.name }}">
+                    <div class="pokemon-image d-flex align-items-center justify-content-center">
+                      <img src="{{ pokemon.image_front }}" alt="{{ pokemon.name }}">
+                    </div>
                   {% endif %}
                 </div>
               </div>
@@ -116,14 +118,37 @@
             {% if pokemon %}
           <h3 class="text-center">{{ pokemon.name }}</h3>
           <div class="row no-gutters">
-            <div class="col col-12">
-              <p><strong>Number</strong><span class="filler"></span>{{ pokemon.number }}</p>
-              <p><strong>Types</strong><span class="filler"></span>
-                {{ types }}
-              </p>
-              <p><strong>Height</strong><span class="filler"></span>{{ pokemon.height }}</p>
-              <p><strong>Weight</strong><span class="filler"></span>{{ pokemon.weight }}</p>
+            <div class="col col-6 d-flex-column align-items-end">
+              <p class="text-right">Number</p>
             </div>
+            <div class="col col-6">
+              <p>{{ pokemon.number }}</p>
+            </div>
+          </div>
+          <div class="row no-gutters">
+            <div class="col col-6 d-flex-column align-items-end">
+              <p class="text-right">Type(s)</p>
+            </div>
+            <div class="col col-6">
+              <p>{{ types }}</p>
+            </div>
+          </div>
+          <div class="row no-gutters">
+            <div class="col col-6 d-flex-column align-items-end">
+              <p class="text-right">Height</p>
+            </div>
+            <div class="col col-6">
+              <p>{{ pokemon.height }}</p>
+            </div>
+          </div>
+          <div class="row no-gutters">
+            <div class="col col-6 d-flex-column align-items-end">
+              <p class="text-right">Weight</p>
+            </div>
+            <div class="col col-6">
+              <p>{{ pokemon.weight }}</p>
+            </div>
+          </div>
             {% else %}
             Welcome to the PokeDex!
             {% endif %}
@@ -134,64 +159,74 @@
 
 
         <!-- blue buttons panel -->
-        <div class="row">
-          <div class="col col-8 offset-2" id="blue-buttons">
-            <form action="{% url 'pokedex' %}" method="POST">
-              <div class="row">
-                <div class="col col-10 offset-1 text-center">
-                  {% csrf_token %}
-                  <input type="text" name="query" class="text-center" placeholder="Search...">
+        <div class="container">
+          <div class="row">
+            <div class="col col-8 offset-2" id="blue-buttons">
+              <form action="{% url 'pokedex' %}" method="POST" class="d-flex-column align-items-center">
+                <div class="row">
+                  <div class="col col-12 text-center">
+                    {% csrf_token %}
+                    <input type="text" name="query" class="text-center" placeholder="Search...">
+                  </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col col-8 offset-2 text-center">
-                  Name: <input type="radio" name="query_type">
-                  Type: <input type="radio" name="query_type">
+                <div class="row no-gutters">
+                  <div class="col col-3 offset-1 text-center">
+                    <label>Name</label> <input type="radio" name="query_type" value="name" checked>
+                  </div>
+                  <div class="col col-3 text-center">
+                    <label>Type </label> <input type="radio" name="query_type" value="poke_type">
+                  </div>
+                  <div class="col col-4 text-center">
+                    <label>Number</label> <input type="radio" name="query_type" value="number">
+                  </div>
+                  <div class="col col-12 text-center">
+                    <input type="submit" class="blue-button" value="Submit">
+                  </div>
                 </div>
-                <div class="col col-12 text-center">
-                  <input type="submit" class="blue-button" value="Submit">
-                </div>
-              </div>
-            </form>
-
+              </form>
+  
+            </div>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col col-4 offset-1 d-flex" id="yellow-green-leds">
-            <div class="led" id="yellow-led"></div>
-            <div class="led" id="green-led"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col col-6 d-flex" id="yellow-green-leds">
+              <div class="led" id="yellow-led"></div>
+              <div class="led" id="green-led"></div>
+            </div>
+            <div class="col col-6 d-flex" id="orange-green-buttons">
+              <div class="green-button"></div>
+              <div class="orange-button"></div>
+            </div>
           </div>
-          <div class="col col-4 offset-2 d-flex" id="orange-green-buttons">
-            <div class="green-button"></div>
-            <div class="orange-button"></div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col col-4 offset-1">
-            <div class="d-flex justify-content-around" id="grey-arrow-buttons">
-              <div class="grey-button d-flex justify-content-center align-items-center">
-                <div class="arrow">
-                  &#129088;
+          <div class="row">
+            <div class="col col-6">
+              <div class="d-flex justify-content-around" id="grey-arrow-buttons">
+                <div class="grey-button d-flex justify-content-center align-items-center">
+                  <div class="arrow">
+                    &#129088;
+                  </div>
+                </div>
+                <div class="grey-button d-flex justify-content-center align-items-center">
+                  <div class="arrow">
+                    &#129090;
+                  </div>
                 </div>
               </div>
-              <div class="grey-button d-flex justify-content-center align-items-center">
-                <div class="arrow">
-                  &#129090;
-                </div>
+            </div>
+  
+            <div class="col col-6 d-flex justify-content-around">
+              <div class="yellow-button d-flex justify-content-center align-items-center">
+                <div class="double-arrow">&#11244;</div>
+              </div>
+              <div class="yellow-button d-flex justify-content-center align-items-center">
+                <div class="double-arrow">&#11246;</div>
               </div>
             </div>
-          </div>
   
-          <div class="col col-4 offset-2 d-flex justify-content-around">
-            <div class="yellow-button d-flex justify-content-center align-items-center">
-              <div class="double-arrow">&#11244;</div>
-            </div>
-            <div class="yellow-button d-flex justify-content-center align-items-center">
-              <div class="double-arrow">&#11246;</div>
-            </div>
           </div>
-  
+
         </div>
       </div>
     </div>

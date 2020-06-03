@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+</head>
+<body>
+    <h1>Contacts App</h1>
+    <a href="{% url 'contacts:new' %}">Create New Contact</a>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Phone Number</th>
+        </tr>
+        {% for contact in contacts %}
+        <tr>
+            <td><a href="/contacts/{{contact.id}}">{{contact.first_name}} {{contact.last_name}}</a></td>
+            <td>{{contact.birthday}}</td>
+            <td>{{contact.phone_number}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>
