@@ -11,8 +11,8 @@ class Command(BaseCommand):
 
         # create DB entries for pokemon
         for pokemon in all_pokemon:
-            p_mon = Pokemon.objects.get_or_create(
-                name=pokemon['name'],
+            poke_mon = Pokemon.objects.get_or_create(
+                name=pokemon['name'].title(),
                 number=int(pokemon['number']),
                 height=int(pokemon['height']),
                 weight=int(pokemon['weight']),
@@ -25,9 +25,8 @@ class Command(BaseCommand):
             for typ in pokemon['types']:
                 poke_type, created = PokemonType.objects.get_or_create(name=typ)
 
-                if poke_type not in p_mon.types.all():
+                if poke_type not in poke_mon.types.all():
                     poke_mon.types.add(poke_type)
-                    poke_type.pokemon.add(poke_mon)
-
                 
+                    poke_type.pokemon.add(poke_mon)
                 

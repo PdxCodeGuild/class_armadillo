@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'todolist',
     'pokedex',
     'contact_list',
     'polls.apps.PollsConfig',

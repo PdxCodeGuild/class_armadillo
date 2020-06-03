@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from .models import TodoItem
-
+# MISTAKE: LINE 15 (FIXED)
 
 # this view helps us render data in the template
 def index(request):
