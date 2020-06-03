@@ -12,6 +12,66 @@
     <title>Document</title>
 </head>
 <body>
-    {{ list_of_pokemon }}
+    <ul>
+        <div id="name">
+            <p>Search Results for: {{ query }}</p>
+        </div>
+        {% if list_of_pokemon %}
+        <table>
+            <tr id="row">
+                <th id="top-row">
+                    <label>Number   </label>
+                </th>
+                <th id="top-row">
+                    <label>Name    </label>
+                </th>
+                <th id="top-row">
+                    <label>Height  </label>
+                </th>
+                <th id="top-row">
+                    <label>Weight </label>
+                </th>
+                <th id="top-row">
+                    <label>Types </label>
+                </th>
+                <th id="top-row">
+                    <label>Front Image </label>
+                </th>
+                <th id="top-row">
+                    <label>Back Image </label>
+                </th>
+            </tr>
+            {% for pokemon in list_of_pokemon %}
+            <tr id="row">
+                <th id="first">
+                    <a href="/pokedex/{{ pokemon.id }}">{{ pokemon.number }}</a>
+                </th>
+                <th id="second">
+                    <a>{{ pokemon.name }}</a>
+                </th>
+                <th id="first">
+                    <a>{{ pokemon.height }}</a>
+                </th>
+                <th id="second">
+                    <a>{{ pokemon.weight }}</a>
+                </th>
+                <th id="first">
+                    {% for type in pokemon.types.all %}
+                    <a>{{ type }}</a>
+                    {% endfor %}
+                </th>
+                <th id="second">
+                    <img src="{{ pokemon.image_front }}" alt="{{ pokemon.name }} image front">
+                </th>
+                <th id="first">
+                    <img src="{{ pokemon.image_back }}" alt="{{ pokemon.name }} image back">
+                </th>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>There are no Pokemons to be seen in the list</p>
+        {% endif %}
+    </ul>
 </body>
 </html>

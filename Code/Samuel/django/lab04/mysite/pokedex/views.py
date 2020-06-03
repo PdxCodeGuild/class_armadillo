@@ -4,9 +4,9 @@ from django.template import loader
 from django.urls import reverse
 from django.db.models import Q
 from .models import Pokemon, Type
-
+import string
 def index(request):
-    list_of_pokemon = Pokemon.objects.order_by('number')
+    list_of_pokemon=Pokemon.objects.order_by('number')
     template = loader.get_template('pokedex/index.html')
     context = {
         'list_of_pokemon': list_of_pokemon,
@@ -22,11 +22,10 @@ def pokemon_id(request, pokemon_id):
     return HttpResponse(template.render(context, request))
 
 def pokemon_type(request):
-    list_of_pokemon = Pokemon.objects.all()
-    for poke in list_of_pokemon:
-        print(poke)
+    list_of_pokemon = Pokemon.objects.filter(Q(name__icontains=request.POST['search']) | Q(types__name__icontains=request.POST['search'].lower()))
     template = loader.get_template('pokedex/types.html')
     context = {
         'list_of_pokemon': list_of_pokemon,
+        'query': request.POST['search']
     }
-    return HttpResponseRedirect(reverse('pokedex:pokemon_type', args=(list_of_pokemon.id,)))
+    return HttpResponse(template.render(context, request))
