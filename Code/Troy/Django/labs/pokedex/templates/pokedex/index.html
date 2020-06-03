@@ -18,7 +18,7 @@
     {% for p in pokemon %}
 
     <div>
-        <img src="{% url 'pokedex:detail' p.id%}"> {{p.image_front}}</a>
+        <img id="{% url 'pokedex:detail' p.id%}" src="{{p.image_front}}">
         <a href="{% url 'pokedex:detail' p.id%}"> {{p.name}}</a>
         
     </div>
