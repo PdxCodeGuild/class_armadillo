@@ -2,5 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-def pokedex(request):
-    return HttpResponse('Hello Pokemon World')
+def index(request):
+    context = {
+        'message': 'Hello Pokemon World'
+    }
+    return render(request, 'pokedex/index.html', context)
