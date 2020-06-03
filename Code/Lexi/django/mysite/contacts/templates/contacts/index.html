@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Contacts</h1>
+    <table class="table">
+      <tr>
+          <th><a href="{% url 'contacts:entry_page' %}" class="btn btn-success btn-lg">➕</a></th>
+          <th></th>
+          <th></th>
+      </tr>
+      {% for card in cards %}
+      <tr>
+          <td><a href="{% url 'contacts:detail' card.id %}" class="btn btn-secondary btn-sm">🔎</a>  {{card.last_name}}, {{card.first_name}}</td>
+          <td></td>
+          <td></td>
+      </tr>
+      {% endfor %}
+      <ul>
+        {% for contact in contacts %}
+        <li>{{ contact }}</li>
+
+        {% endfor %}
+      </ul>
+
+    </div>
+    <div>
+      <!-- display the image-->
+      <img src="../../static/mysite/images/Martigora_engraving.jpg" />
+
+      <!-- create a link -->
+      <a href="{{image.url}}">{{image.name}}</a>
+      <form action="http://localhost:8000/admin/" method="POST" enctype="multipart/form-data">
+        <!-- ... -->
+        <input type="file" name="my_image" accept="image/*" required>
+        <button type="submit">submit</button>
+    </form>
+    </div>
+  </body>
+</html>

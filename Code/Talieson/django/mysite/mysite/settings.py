@@ -31,15 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'contactlist.apps.ContactlistConfig',
-    'blog.apps.BlogConfig',
-    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pokedex',
+    'contactlist.apps.ContactlistConfig',
+    'blog.apps.BlogConfig',
+    'polls.apps.PollsConfig',
 ]
 
 MIDDLEWARE = [

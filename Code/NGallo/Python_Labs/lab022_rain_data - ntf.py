@@ -1,9 +1,14 @@
 from datetime import date
 import requests
+import re
 
-website_data = requests.get('https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain')
-weather_table = website_data.text
-# print(weather_table) works
+def get_data(url):
+   website_data = requests.get(url)
+   weather_table = website_data.text
+   date_tuples = re.findall(r'(\d+-\w+-\d+)\s+(\d+)', weather_table)
+   return date_tuples
+
+
 
 def timedate():
    today = date.today()
@@ -13,9 +18,14 @@ def timedate():
    # print(today)
    # print(today.strftime('%d-%b-%Y'))
    return today.strftime('%d-%b-%Y')
+
 timedate = timedate()
 
 print(timedate)
+
+weather_tuples = get_data('https://or.water.usgs.gov/non-usgs/bes/hayden_island.rain')
+
+print(weather_tuples)
 
 # from datetime import datetime
 # ​

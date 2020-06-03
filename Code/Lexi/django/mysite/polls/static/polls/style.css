@@ -1,3 +1,10 @@
-li a {
+li a:visited {
     color: green;
+}
+/* always restart server whenever making changes to the static file */
+body {
+    background: grey
+    url("images/big\ bird.jpg");
+    background-color: beige;
+    
 }

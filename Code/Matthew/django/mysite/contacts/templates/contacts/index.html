@@ -1,0 +1,55 @@
+
+{% extends 'contacts/base.html' %}
+
+
+{% block title %}List{% endblock %}
+
+{% block content %}
+    <div>
+        <form action="{% url 'contacts:index' %}" method="post">
+            {% csrf_token %}
+            <input type="text" placeholder="enter some text" name="search" value="{{search}}"/>
+            <button class="btn btn-primary" type="submit">search</button>
+        </form>
+        <a href="{% url 'contacts:new' %}" class="btn btn-primary">New Contact</a>
+    </div>
+    <div>{{contacts.object_list.count}}/{{contacts.paginator.count}} contacts shown{% if search %} for search text "{{search}}"{% endif %}</div>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Birthday</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for contact in contacts %}
+        <tr>
+            <td><a href="{% url 'contacts:detail' contact.id %}">{{contact.last_name}}, {{contact.first_name}}</a></td>
+            <td><a href="mailto:{{contact.email}}">{{contact.email}}</a></td>
+            <td><a href="tel:{{contact.phone_number}}">{{contact.formatted_phone_number}}</a></td>
+            <td>{{contact.birthday|date:'Y-m-d'}} ({{contact.age}})</td>
+            <td><a href="{% url 'contacts:delete' contact.id %}" class="btn btn-primary">delete</a></td>
+            <td><a href="{% url 'contacts:edit' contact.id %}" class="btn btn-primary">edit</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div>
+        {% if contacts.has_previous %}
+            <a href="?page={{contacts.previous_page_number}}">&lt;</a>
+        {% endif %}
+        <span>{{contacts.number}}</span>
+        {% if contacts.has_next %}
+            <a href="?page={{contacts.next_page_number}}">&gt;</a>
+        {% endif %}
+    </div>
+
+    {% comment %}
+    <ul>
+        {% for contact in contacts %}
+        <li>{{contact.first_name}} {{contact.last_name}}</li>
+        {% endfor %}
+    </ul>
+    {% endcomment %}
+    
+{% endblock %}

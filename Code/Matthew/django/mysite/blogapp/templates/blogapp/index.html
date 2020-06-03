@@ -8,6 +8,8 @@
     {% for post in posts %}
     <div>
         <a href="{% url 'blogapp:detail' post.id %}">{{post.title}}</a>
+        <!-- hardcoded path -->
+        <!-- <a href="/blogapp/{{post.id}}/">{{post.title}}</a> -->
     </div>
     {% endfor %}
     <!-- <script type="text/javascript">

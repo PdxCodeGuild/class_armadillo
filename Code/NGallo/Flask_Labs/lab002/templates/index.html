@@ -67,7 +67,7 @@
         <h1>Welcome to the Flask To-Do List</h1>
         <a id="links" href="/">Flask To-Do List</a>
     </header>
-    <div id="main">
+    <main id="main">
         <img id="image" src="/static/To_Do_List.png">
         <form id="forms" action="/save_to_json" method="post">
             <input type="text" placeholder="Enter a task: " name="task" />
@@ -77,18 +77,26 @@
                 <option value="low">Low</option>
             </select>
             <button type="submit">Save</button>
-            <button type="submit" id="delete">Delete Last Item</button>
+
         </form>
-    </div>
-    {% for task in tasks%}
-    
-    <ul>
-        <li>{{data}}</li>
-    </ul>
-    {% endfor %}
+
+        <ul>
+            {% for task in todos%}
+
+
+            <li>{{task.text}} | {{task.priority}} priority</li>
+
+            {% endfor %}
+
+        </ul>
+        <form id="delete" action="/delete_from_json" method="post">
+            <button type="submit" id="delete">Delete Item</button>
+        </form>
+    </main>
     <footer>
         <p>&copy United Converters 2020 </p>
     </footer>
+
 </body>
 
 </html>

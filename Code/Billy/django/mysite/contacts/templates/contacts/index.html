@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Contacts...</h1>
+    <table class="table">
+      <tr>
+          <th><a href="{% url 'contacts:entry_page' %}" title="new" class="btn btn-success btn-lg">➕</a></th>
+          <th></th>
+          <th></th>
+      </tr>
+      {% for card in cards %}
+      <tr>
+          <td><a href="{% url 'contacts:detail' card.id %}" title="details" class="btn btn-secondary btn-sm">🔎</a>&ensp;
+            <a href="{% url 'contacts:edit_page' card.id %}" title="edit" class="btn btn-info btn-sm">✏</a>&ensp;
+            <a href="{% url 'contacts:delete' card.id %}" title="delete" class="btn btn-danger btn-sm">✖</a>&ensp;
+            {{card.last_name}}, {{card.first_name}}</td>
+          <td></td>
+          <td></td>
+      </tr>
+      {% endfor %}
+  </table>
+  </body>
+</html>

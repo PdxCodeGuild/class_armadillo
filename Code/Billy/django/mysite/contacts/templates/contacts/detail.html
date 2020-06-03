@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Contact Details...</h1>
+    <table class="table">
+        <tr>  
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Age</th>
+            <th>Birthday</th>
+            <th>Phone Number</th>
+            <th>Comments</th>   
+        </tr>
+        <tr>
+            <td>{{card.last_name}}</td>
+            <td>{{card.first_name}}</td>
+            <td>{{card.age}}</td>
+            <td>{{card.birthday}}</td>
+            <td>{{card.format_phone}} {% if card.is_cell %}(cellphone){% else %}(landline){% endif %}</td>
+            <td>{{card.comments}}</td>
+        </tr>
+    </table>
+    <a href="{% url 'contacts:edit_page' card.id %}" title="edit" class="btn btn-info btn-lg">✏</a>&ensp;
+    <a href="{% url 'contacts:entry_page' %}" title="new" class="btn btn-success btn-lg">➕</a>&ensp;
+    <a href="{% url 'contacts:delete' card.id %}" title="delete" class="btn btn-danger btn-lg">✖</a>&ensp;
+    <a href="{% url 'contacts:contacts' %}" title="home" class="btn btn-secondary btn-lg">&#127968;</a>
+</body>
+</html>

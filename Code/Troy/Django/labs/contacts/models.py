@@ -1,6 +1,7 @@
 
 from django.db import models
 from django.utils import timezone
+from phone_field import PhoneField
 import datetime
 
 # Create your models here.
@@ -9,12 +10,12 @@ class Contacts(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     age = models.IntegerField()
-    birthday = models.DateField()
-    phone_number = models.CharField(max_length=10)
+    birth_date = models.DateField(default="YYYY-MM-DD")
+    phone_number = PhoneField(blank=True, help_text='Contact phone number')
     is_cell = models.BooleanField()
-    comment = models.TextField()
+    comments = models.TextField(blank=True)
 
     def __str__(self):
-        return self.Contacts
+        return self.last_name + ', ' + self.first_name
 
 
