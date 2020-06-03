@@ -1,8 +1,8 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
-from django.urls import reverse
-
+from django.shortcuts import render, get_object_or_404
 from .models import Pokemon, PokemonType
+from django.urls import reverse
+from django.http import HttpResponse
+
 
 
 
@@ -10,11 +10,11 @@ def index(request):
     context = {
         "Pokemon": Pokemon.objects.order_by('number')}
     
-    return render(request, 'index.html', context)
+    return render(request, 'pokedex/index.html', context)
 
-def details(request, name):
-    pokemon_details = Pokemon.objects.get(name=name)
+def detail(request, pokedex_id):
+    pokemon = get_object_or_404(Pokemon, pk=pokedex_id)
     context = {
-        "pokemon_details": pokemon_details,
+        "pokemon_detail": pokemon_detail,
     }
-    return render(request, 'details.html', context)
+    return render(request, 'detail.html', context)

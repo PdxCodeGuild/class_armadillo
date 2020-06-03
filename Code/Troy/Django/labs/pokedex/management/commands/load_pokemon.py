@@ -22,18 +22,29 @@ class Command(BaseCommand):
                 image_back = pokemon['image_back']
                 types  = pokemon['types']
 
-            pokemon_data = Pokemon(number=number,
-                    name=name,
-                    height=height,
-                    weight=weight,
-                    image_front=image_front,
-                    image_back= image_back,
-                    types=types)
-            pokemon_data.save()
+                pokemon_data, created = Pokemon.objects.get_or_create(number=number,
+                        name=name,
+                        height=height,
+                        weight=weight,
+                        image_front=image_front,
+                        image_back= image_back)
+                # print(pokemon_data)
+                # types = PokemonType.objects.get_or_create(name=types)
+                for typ in types:                                 
+                    powers, created = PokemonType.objects.get_or_create(name=typ)
+                    if powers not in pokemon_data.types.all():
+                        pokemon_data.types.add(powers)
+                        powers.pokemon.add(pokemon_data)
+                # pokemon_data.save()
 
-# MAKE IT LOOK LIKE THE VIEWS PAGE FROM CONTACTS!!!
 
-            print(pokemon)
+
+                    
+
+
+
+
+            
             
 
     
