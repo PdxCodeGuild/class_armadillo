@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from pokedex.models import Pokemon
+from pokedex.models import Pokemon, PokemonType
 import json
 # from .models import Pokemon
 
@@ -8,6 +8,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # This is to delete all the rows out of the table each time I run the python3 manage.py load_pokemon it will load a fresh data without dupplicating on the database.
         Pokemon.objects.all().delete()
+        PokemonType.objects.all().delete()
         # open the file containing the json and  we need to add the relative path with open below: './pokedex/management/commands/pokemon.json'
         with open('./pokedex/management/commands/pokemon.json', 'r') as file:
             # reading the text in the file
@@ -31,7 +32,7 @@ class Command(BaseCommand):
             image_back = pika_data['image_back']
             types = pika_data['types']
 
-            # create a contact from our data
+            # create a pokemon from our data
             pokemon = Pokemon(number=number,
                               name=name,
                               height=height,

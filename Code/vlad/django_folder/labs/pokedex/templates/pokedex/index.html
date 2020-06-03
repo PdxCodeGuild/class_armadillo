@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Pokedex</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Welcome to Pokemon Land!</h1>
     <h2><b>Pokédex data!<b></h2>
     {% for pokemon in pokemon %}
-      <li>{{ pokemon.name }}</li>
-      <li>{{ pokemon.number }}</li>
-      {% endfor %}
-    
-  </body>
+    <li>{{ pokemon.name }}</li>
+    <li>{{ pokemon.number }}</li>
+    {% endfor %}
+
+</body>
+
 </html>
+
+<!-- {% comment %} add the image =  {% endcomment %} -->
