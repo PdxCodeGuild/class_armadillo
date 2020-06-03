@@ -9,19 +9,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'pokedex/style.css' %}">
-    <title>Pokedex Home</title>
+    {% if single_pokemon %}
+    <title>{{ single_pokemon.name }}</title>
+    {% else %}
+    <title>Not Available</title>
+    {% endif %}
 </head>
 <body>
     <ul>
-        <form action="{% url 'pokedex:pokemon_type' %}" method="POST">
-            {% csrf_token %}
-            <input type="text" name="search">
-            <button id="button" href="/contacts/types" class="btn btn-primary" type="submit">submit</button>
-        </form>
         <div id="name">
             <p>Pokedex</p>
         </div>
-        {% if list_of_pokemon %}
+        {% if single_pokemon %}
         <table>
             <tr id="row">
                 <th id="top-row">
@@ -46,37 +45,36 @@
                     <label>Back Image </label>
                 </th>
             </tr>
-            {% for pokemon in list_of_pokemon %}
             <tr id="row">
                 <th id="first">
-                    <a href="/pokedex/{{ pokemon.id }}">{{ pokemon.number }}</a>
+                    <a>{{ single_pokemon.number }}</a>
                 </th>
                 <th id="second">
-                    <a>{{ pokemon.name }}</a>
+                    <a>{{ single_pokemon.name }}</a>
                 </th>
                 <th id="first">
-                    <a>{{ pokemon.height }}</a>
+                    <a>{{ single_pokemon.height }}</a>
                 </th>
                 <th id="second">
-                    <a>{{ pokemon.weight }}</a>
+                    <a>{{ single_pokemon.weight }}</a>
                 </th>
                 <th id="first">
-                    {% for type in pokemon.types.all %}
+                    {% for type in single_pokemon.types.all %}
                     <a>{{ type }}</a>
                     {% endfor %}
                 </th>
                 <th id="second">
-                    <img src="{{ pokemon.image_front }}" alt="{{ pokemon.name }} image front">
+                    <img src="{{ single_pokemon.image_front }}" alt="{{ single_pokemon.name }} image front">
                 </th>
                 <th id="first">
-                    <img src="{{ pokemon.image_back }}" alt="{{ pokemon.name }} image back">
+                    <img src="{{ single_pokemon.image_back }}" alt="{{ single_pokemon.name }} image back">
                 </th>
             </tr>
-            {% endfor %}
         </table>
         {% else %}
         <p>There are no Pokemons to be seen in the list</p>
         {% endif %}
+        <a id="button" href="/pokedex/home/" class="btn btn-primary">Go Back</a>
     </ul>
 </body>
 </html>
