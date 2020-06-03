@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+<h1>Create New Contact</h1>
+    <form action="{% url 'contacts:save_submit' %}" method='post'>
+        {% csrf_token %}
+        <div>First Name <input id='input_first_name' type="text" name='contact_first_name'></div>
+        <div>Last Name <input id='input_last_name' type="text" name='contact_last_name'></div>
+        <div>Birthday <input id='input_birthday' type="date" name='contact_birthday'></div>
+        <div>Phone Number <input id='input_phone_number' type="text" name='contact_phone_number'></div>
+        <div>Comments <input id='input_comments' type="text" name='contact_comments'></div>
+        <button type='submit'>Save New Contact</button>
+
+    </form>
+
+</body>
+
+</html>
