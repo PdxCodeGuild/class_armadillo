@@ -39,7 +39,7 @@ class Command(BaseCommand):
                               weight=weight,
                               image_front=image_front,
                               image_back=image_back)
-            types = PokemonType.objects.get(name=types)
+            # types = PokemonType.objects.get(name=types)
             # save the contact to the database
             pokemon.save()
 
