@@ -1,9 +1,10 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+
+<head>
     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'contacts/style.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -12,30 +13,32 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  
-  
+
+
 
     <title>Contacts List</title>
-  </head>
-  <body>
-    <div class="col-sm-6 banner-image"> 
+</head>
+
+<body>
+    <div class="col-sm-6 banner-image">
         <img src="background_contact.jpg" class="img-responsive">
     </div>
     <h1>Contact List Welcome!</h1>
-   
-      {% for contact in contacts %}
 
-      <div> 
+    {% for contact in contacts %}
+
+    <div>
         <a href="{% url 'contacts:detail' contact.id %}"> {{contact.last_name}}, {{contact.first_name}} </a>
-      </div>
-      {% endfor %}
-      
+    </div>
+    {% endfor %}
+
     <div>
 
-    <a href="{% url 'contacts:new' %}"><button type="submit" class="btn btn-primary">Create Contact</button></a>
-    
+        <a href="{% url 'contacts:new' %}"><button type="submit" class="btn btn-primary">Create Contact</button></a>
+
     </div>
-  </body>
+</body>
+
 </html>
 
 <!-- Add a Back button here button with bootstrap -->
