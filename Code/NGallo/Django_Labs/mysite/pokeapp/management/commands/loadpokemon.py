@@ -7,4 +7,3 @@ class Command(BaseCommand):
             text = file.read() # read the text
             context = json.loads(text) # convert the text containing json into a dictionary
             pokemon = context['pokemon'] # extract the list inside the dictionary
-            
