@@ -13,7 +13,12 @@ def index(request):
 
 def detail(request, pokemon_number):
     pokemon = Pokemon.objects.get(number=pokemon_number)
+    
+    print(pokemon.types.all())
     return render(request, 'pokedex/detail.html', {'pokemon': pokemon })
+
+
+   
 
                
     
