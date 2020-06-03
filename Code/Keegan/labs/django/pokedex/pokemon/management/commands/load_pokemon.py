@@ -27,7 +27,6 @@ class Command(BaseCommand):
 
                 if poke_type not in poke_mon.types.all():
                     poke_mon.types.add(poke_type)
-                    poke_type.pokemon.add(poke_mon)
-
                 
+                    poke_type.pokemon.add(poke_mon)
                 

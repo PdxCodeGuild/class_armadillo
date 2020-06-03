@@ -2,7 +2,7 @@ from django.db import models
 
 class PokemonType(models.Model):
     name = models.CharField(max_length=200)
-
+    
     def __str__(self):
         return self.name
 
@@ -14,6 +14,6 @@ class Pokemon(models.Model):
     image_front = models.CharField(max_length=200)
     image_back = models.CharField(max_length=200)
     types = models.ManyToManyField(PokemonType)
-    
+
     def __str__(self):
-        return self.name + ' - ' + self.number + ' - ' + self.types
+        return self.name

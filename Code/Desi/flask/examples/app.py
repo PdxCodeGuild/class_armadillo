@@ -26,8 +26,6 @@
 #     return html
 
 
-    return "welcome to the home page"
-
 @app.route ('/about')
 def about():
     return "welcome to the about page"

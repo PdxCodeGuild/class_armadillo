@@ -5,6 +5,8 @@ from contacts.models import Contact
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
+        Contact.objects.all().delete()
+
         # open the file containing the json
         with open('./contacts/management/commands/contacts.json', 'r') as file:
             # reading the text in the file

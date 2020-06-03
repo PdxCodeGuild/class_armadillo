@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'contacts/style.css' %}" />
-    <title>Pokedex</title>
+    <title>Pokemon Data</title>
 </head>
 
 <body>
@@ -25,11 +25,11 @@
         <label for="weight">Weight</label>
         <input type="number" class="form-control" id="weight" name="weight" value="{{pokemon.weight}}" />
         <label for="fimg">Front Image</label>
-        <input type="text" class="form-control" id="fimg" name="front_image" value="{{pokemon.https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png}}" />
+        <input type="text" class="form-control" id="fimg" name="front_image" value="{{pokemon.p.image_front}}" />
         <label for="bimg">Back Image</label>
-        <input type="text" class="form-control" id="bimg" name="back_image" value="{{pokemon.https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png}}" />
+        <input type="text" class="form-control" id="bimg" name="back_image" value="{{pokemon.p.image_back}}" />
         <label for="types">Types</label>
-        <input type="manytomany" class="form-control" id="types" name="types" value="{{pokemon.types}}" />
+        <input type="manytomany" class="form-control" id="types" name="types" value="{{pokemon.types.all}}" />
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
