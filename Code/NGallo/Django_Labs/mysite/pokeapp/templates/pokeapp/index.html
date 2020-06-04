@@ -3,13 +3,25 @@
 
 <head>
   {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'pokeapp/style.css' %}">
-  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'pokeapp/index.css' %}">
+  <meta charset="UTF-8">
+    <meta name="description" content="Pokedex built by me">
+    <meta name="keywords" content="portland, oregon, pokemon">
+    <meta name="author" content="Nick Gallo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PokeDex</title>
 </head>
 
 <body>
   <h1>Gotta Catch Em' All</h1>
+
+  <ul>
+    <form class="form" action="{% url 'pokeapp:search_pokemon' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="search a pokemon" name="search">
+        <button id="button" class="search_button" type="submit">submit</button>
+    </form>
+
   <main>
     <ul>
       {% for pokemon in pokemon_by_number %}
