@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% comment %} must add load static anytime to get static tag to work  {% endcomment %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon {{ pokemon.name }}</title>
+</head>
+<body>
+    <header>Gotta Catch Em' All</header>
+    <h1>{{pokemon.name}}</h1>
+    <p>Number: {{pokemon.number}}</p>
+    <p>Height: {{pokemon.height}}</p>
+   
+    <p>Weight: {{pokemon.weight}}</p>
+    <p>Front <img class="pokemon_front_picture" src="{{pokemon.image_front}}"></p>
+    <p>Back: <img class="pokemon_back_picture" src="{{pokemon.image_back}}"></p>
+    {% comment %} must handle types differently because many to many {% endcomment %}
+    <p>Type(s): <ul>{% for type in pokemon.types.all %} <li>{{type}}</li>{% endfor %}</ul></p>
+    <a href="{% url 'pokeapp:index' %}">return home<a>
+    <img id="PokeDex_image" src="{% static 'pokeapp/images/pokedex.png' %}">
+    <footer> Nick Gallo &copy 2020</footer>
+</body>
+</html>
