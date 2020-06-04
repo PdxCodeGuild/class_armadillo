@@ -7,6 +7,10 @@ class PokemonType(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+    
+    # https://docs.djangoproject.com/en/3.0/ref/models/options/
+    class Meta:
+        ordering = ['name']
 
 class Pokemon(models.Model):
     number = models.IntegerField()
@@ -19,4 +23,8 @@ class Pokemon(models.Model):
     url = models.URLField(null=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name} {self.number}'
+        # results in; dratini 147
+  
+       
+
