@@ -6,6 +6,58 @@
     <title>Pokedex</title>
 </head>
 <body>
-    
+    <h1>Gotta Catch 'Em All!</h1>
+    <table>
+        <tr>
+            <th>
+                <label>number</label>
+            </th>
+            <th>
+                <label>name</label>
+            </th>
+            <th>
+                <label>height</label>
+            </th>
+            <th>
+                <label>weight</label>
+            </th>
+            <th>
+                <label>front image</label>
+            </th>
+            <th>
+                <label>back image</label>
+            </th>
+            <th>
+                <label>type</label>
+            </th>
+        </tr>
+        {% for pokemon in pokemon %}
+        <tr>
+            <th>
+                <a>{{pokemon.number}}.</a>
+            </th>
+            <th>
+                <a>{{pokemon.name|title}}</a>
+            </th>
+            <th>
+                <a>{{pokemon.height}}</a>
+            </th>
+            <th>
+                <a>{{pokemon.weight}}</a>
+            </th>
+            <th>
+                <img src="{{pokemon.image_front}}">
+            </th>
+            <th>
+                <img src="{{pokemon.image_back}}">
+            </th>
+            <th>
+                {% for type in pokemon.types.all %}
+                {{ type.name }}
+                {% endfor %}
+            </th>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
