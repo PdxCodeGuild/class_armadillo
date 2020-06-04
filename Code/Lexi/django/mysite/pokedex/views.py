@@ -4,7 +4,25 @@ from django.urls import reverse
 from django.http import HttpResponse
 from django.db.models import Q
 
+def index(request):
 
+    pokemon = Pokemon.objects.all().order_by('name')
+    search = ''
+    if request.method == 'POST':
+        search = request.POST['search']
+        pokemon = Pokemon.objects.filter(Q(name__icontains=search) )
+    data = {
+        'pokemon': pokemon,
+        'search': search,
+    }
+    # print(request.POST()) <--this does NOT WORK
+    return render(request, 'pokedex/index.html', data)
+
+def detail(request, pokemon_id):
+    pokemon = get_object_or_404(Pokemon, pk=pokemon_id)
+    return render(request, 'pokedex/detail.html',{'pokemon':pokemon})
+
+# FIRST INDEX CREATED FOR THIS LAB
 # def index(request):
 
 #     context = {
@@ -12,23 +30,21 @@ from django.db.models import Q
     
 #     return render(request, 'pokedex/index.html', context)
 
-def index(request):
-    pokemon = Pokemon.objects.order_by('number')
-    search = 75
-    pokemon = Pokemon.objects.filter(
-        Q(name='search') | Q(number=search)
-        )
-    data = {
-        'pokemon': pokemon,
-        'search': search,
-    }
+# SECOND INDEX CREATED FOR THIS LAB
+# def index(request):
+#     pokemon = Pokemon.objects.order_by('number')
+#     search = 75
+#     pokemon = Pokemon.objects.filter(
+#         Q(name='search') | Q(number=search)
+#         )
+#     data = {
+#         'pokemon': pokemon,
+#         'search': search,
+#     }
     
-    return render(request, 'pokedex/index.html', data)
+#     return render(request, 'pokedex/index.html', data)
 
-def detail(request, pokemon_id):
-    pokemon = get_object_or_404(Pokemon, pk=pokemon_id)
-    return render(request, 'pokedex/detail.html',{'pokemon':pokemon})
-
+# THIRD INDEX CREATED FOR THIS LAB
 # def pokemon_type(request):
 #     list_of_pokemon = Pokemon.objects.filter(Q(name__icontains=request.POST['search']) | Q(types__name__icontains=request.POST['search'].lower()))
 

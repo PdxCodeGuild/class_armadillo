@@ -1,19 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Original Pokemen</h1>
-    <div>
-        <img src = "{{pokemon.image_front}}">
-    </div>
-    {% for pokemon in pokemon %}
-    <img src = "{{pokemon.image_front}}">
-    <li>{{pokemon.name}}</li>
-    {% endfor %}
+{% extends 'pokedex/base.html' %} 
+{% block title %} Search for Stats {% endblock %} 
+{% block content %}
 
-</body>
-</html>
+
+     <form action="{% url 'pokedex:index' %}" method="post">
+       {% csrf_token %}
+       <input
+         type="text"
+         placeholder="enter a pokemon to search"
+         name="search"
+         value="{{search}}"
+       />
+       <button class="btn btn-primary" type="submit">search</button>
+     </form>
+
+    {% for p in pokemon %}
+    <img src="{{p.image_front}}" />
+    <li>{{p.name}}</li>
+    {% endfor %}
+   
+  {% endblock %} 
