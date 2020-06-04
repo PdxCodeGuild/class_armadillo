@@ -14,6 +14,12 @@
 
 <body>
     <h1>Pokemon Go!</h1>
+    <div>
+        <form action="{% url 'pokedex:index' %}" method="post">
+            {% csrf_token %}
+          <input type="text" placeholder="Search for Pokemon" name="search">
+        </form>
+    </div>
 
     {% for p in pokemon %}
 
@@ -23,6 +29,7 @@
         <a href="{% url 'pokedex:detail' p.id%}"> {{p.name}}</a>
         
     </div>
+    <div>{% if search %} for search text "{{search}}"{% endif %}</div>
     {% endfor %}
 </body>
 <!-- jQuery library -->
