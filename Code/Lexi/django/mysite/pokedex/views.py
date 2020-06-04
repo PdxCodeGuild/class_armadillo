@@ -10,14 +10,13 @@ def index(request):
     search = ''
     if request.method == 'POST':
         search = request.POST['search']
-        pokemon = Pokemon.objects.filter(Q(name='search') | Q(number=search)
-        )
-        data = {
-            'pokemon': pokemon,
-            'search': search,
-        }
-        print(request.POST)
-        return render(request, 'pokedex/index.html', data)
+        pokemon = Pokemon.objects.filter(Q(name__icontains=search) )
+    data = {
+        'pokemon': pokemon,
+        'search': search,
+    }
+    # print(request.POST()) <--this does NOT WORK
+    return render(request, 'pokedex/index.html', data)
 
 def detail(request, pokemon_id):
     pokemon = get_object_or_404(Pokemon, pk=pokemon_id)
