@@ -1,9 +1,13 @@
 body{
     background-color: blanchedalmond;
+    padding-left: 20px;
+    padding-right: 20px;
 }
-h1 {
+.header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 .podex_div{
     text-decoration: none;
@@ -11,12 +15,49 @@ h1 {
     border: 1px solid rgba(71, 71, 32, 0.712);
     border-radius: 5px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    padding-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 ul {
     list-style-type: none;
 }
 #PokeDex_image {
     width: 50%;
+}
+
+.bottom_nav_bar{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/* unvisited link */
+a:link {
+    color: green;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: red;
+  }
+  
+  /* selected link */
+  a:active {
+    color: yellow;
+  }
+.footer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
