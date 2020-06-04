@@ -6,7 +6,7 @@ def pokedex(request, poke_num = 0):
     pokemon=''
     types =''
     # pokemon_list = Pokemon.objects.all()
-    query_type = 'name'
+    query_type = request.GET.get('query', 'name')
 
     if poke_num > 0:
         pokemon = Pokemon.objects.get(number=poke_num)
@@ -15,6 +15,7 @@ def pokedex(request, poke_num = 0):
         context = {
             'pokemon': pokemon,
             'types': types,
+            'query_type':query_type
         }
 
         return render(request, 'pokedex.html', context)
