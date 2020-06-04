@@ -8,8 +8,9 @@
 </head>
 {% block content %}
 <body>
+    <div> {% if search %} {{Pokemone.count}} found for "{{search}}" search. {% endif %}</div>
     {% for pokemon in Pokemon %}
-    <li><a href="{% url 'pokedex:details' pokemon.name %}">{{ pokemon.number }} {{ pokemon.name }}</a></li>
+    <li><a href="{% url 'pokedex:details' pokemon.name %}">{{ pokemon.number }} {{ pokemon.name | title }}</a></li>
 {% endfor %}
 </body>
 {% endblock content %}
