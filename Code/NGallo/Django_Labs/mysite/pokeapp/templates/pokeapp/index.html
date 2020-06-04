@@ -3,19 +3,26 @@
 
 <head>
   <style>
-    background-color: black;
+    background: black;
+    
   </style>
   <meta charset="utf-8">
   <title>PokeDex</title>
 </head>
 
 <body>
-  <h1>PokeDex<h1>
+  <header>Gotta Catch Em' All</header>
       <main>
-        <img id="PokeDex_image" src="/pokeapp/static/images/pokedex.png">
-        {{% for poke in pokemon_by_number%}}
-        {{ context }}
-        {{% endfor%}} {% endcomment %}
+      {% comment %} <form action="{% url 'pokeapp:'%}" method='POST'>
+      <input type='text' name='pokemon' placeholder='pokemon'>
+        <input type=''
+        <select name='pokemon'></select> {% endcomment %}
+        <img id="PokeDex_image" src="/pokeapp/static/pokeapp/images/pokedex.png">
+        <ul>
+        {% for pokemon in pokemon_by_number %}
+        <li><a href="{% url 'pokeapp:poke_detail' pokemon.number%}" id="pokemon_link"> {{ pokemon.name }}</a></li><br/>
+        {% endfor%}
+        </ul>
       </main>
       <footer> Nick Gallo &copy 2020</footer>
 </body>
