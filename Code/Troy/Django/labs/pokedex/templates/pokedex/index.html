@@ -14,6 +14,12 @@
 
 <body>
     <h1>Pokemon Go!</h1>
+    <div>
+        <form action="{% url 'pokedex:index' %}" method="post">
+            {% csrf_token %}
+          <input type="text" placeholder="Search for Pokemon" name="search">
+        </form>
+    </div>
 
     {% for p in pokemon %}
 
@@ -23,7 +29,17 @@
         <a href="{% url 'pokedex:detail' p.id%}"> {{p.name}}</a>
         
     </div>
+    <div>{% if search %} for search text "{{search}}"{% endif %}</div>
     {% endfor %}
+    <div>
+        {% if pokemon.has_previous %}
+            <a href="?page={{pokemon.previous_page_number}}">&lt;</a>
+        {% endif %}
+        <span>{{pokemon.number}}</span>
+        {% if pokemon.has_next %}
+            <a href="?page={{pokemon.next_page_number}}">&gt;</a>
+        {% endif %}
+    </div>
 </body>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -10,7 +10,7 @@ class Command(BaseCommand):
         PokemonType.objects.all().delete()
         with open('./pokedex/management/commands/pokemon.json', 'r') as file:
             text = file.read()
-        data = json.loads(text)
+            data = json.loads(text)
         for pokemon in data['pokemon']:
             number = pokemon['number']
             name = pokemon['name']

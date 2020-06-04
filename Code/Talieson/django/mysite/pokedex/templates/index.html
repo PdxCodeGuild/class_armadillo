@@ -8,9 +8,20 @@
 </head>
 {% block content %}
 <body>
+    <div> {% if search %} {{Pokemon.count}} found for "{{search}}" search. {% endif %}</div>
     {% for pokemon in Pokemon %}
-    <li><a href="{% url 'pokedex:details' pokemon.name %}">{{ pokemon.number }} {{ pokemon.name }}</a></li>
+    <li><a href="{% url 'pokedex:details' pokemon.name %}">{{ pokemon.number }} {{ pokemon.name | title }}</a></li>
 {% endfor %}
+
+<div>
+    {% if Pokemon.has_previous %}
+        <a href="?page={{Pokemon.previous_page_number}}">&lt;</a>
+    {% endif %}
+    <span>{{Pokemon.number}}</span>
+    {% if Pokemon.has_next %}
+        <a href="?page={{Pokemon.next_page_number}}">&gt;</a>
+    {% endif %}
+</div>
 </body>
 {% endblock content %}
 </html>
