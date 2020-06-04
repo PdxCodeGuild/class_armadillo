@@ -21,4 +21,5 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.pokedex, name='pokedex'),
+    path('<int:poke_num>', views.pokedex, name='pokedex')
 ]
