@@ -6,6 +6,15 @@
     <title>Pokedex</title>
 </head>
 <body>
-    <h1>Pokedex</h1>
+    <div class="row">
+        <div class="col-6">
+            <div>
+                <h1>{{title}}</h1>
+                <ol>
+                    {% for pokemon in pokemons %}
+                    <img src="{{pokemon.image_front}}"><img src="{{pokemon.image_back}}"><li><h2>{{pokemon.name}}</h2></li>
+                    {% endfor %}
+                </ol>
+            </div>
 </body>
 </html>
