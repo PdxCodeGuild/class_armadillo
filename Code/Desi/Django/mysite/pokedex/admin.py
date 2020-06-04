@@ -1,7 +1,7 @@
 from django.contrib import admin
 
+from pokedex.models import PokemonType, Pokemon
+
 # Register your models here.
-from.models import Post
-
-admin.site.register(Post)
-
+admin.site.register(Pokemon)
+admin.site.register(PokemonType)

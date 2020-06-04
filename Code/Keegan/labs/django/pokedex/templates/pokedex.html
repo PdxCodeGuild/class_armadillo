@@ -151,14 +151,14 @@
           </div>
           <!-- If more than one pokemon returned in query -->
           {% elif pokemon_list%}
-            <p>Results for {{ query_type }} {{ query }}</p>
+            <p></p>
             {% for pokemon in pokemon_list %}
               <a href="{% url 'pokedex' pokemon.number %}" class="poke-list-link">
                 <div class="row no-gutters poke-list-item">
                   <div class="col col-3 offset-1">
                     <p>{{ pokemon.number }}.</p>
                   </div>
-                  <div class="col col-5">
+                  <div class="col col-8">
                     <p>{{ pokemon.name }}</p>
                   </div>
                 </div>
@@ -171,8 +171,6 @@
         </div>
       </div>
 
-
-
       <!-- blue buttons panel -->
       <div class="container">
         <div class="row">
@@ -182,18 +180,19 @@
               <div class="row">
                 <div class="col col-12 text-center">
                   {% csrf_token %}
-                  <input type="text" name="query" class="text-center" placeholder="Search...">
+                  <input type="text" name="query" class="text-center" placeholder="Search..." value="{% if query %} {{ query }} {% endif %}">
                 </div>
               </div>
               <div class="row no-gutters">
                 <div class="col col-3 offset-1 text-center">
-                  <label>Name</label> <input type="radio" name="query_type" value="name" checked>
-                </div>
+                  <label>Name</label> 
+                    <input type="radio" name="query_type" value="name" {% if query_type == 'name' %} checked {% endif %}>
+                </div> 
                 <div class="col col-3 text-center">
-                  <label>Type </label> <input type="radio" name="query_type" value="poke_type">
+                  <label>Type </label> <input type="radio" name="query_type" value="poke_type" {% if query_type == 'type' %} checked {% endif %}>
                 </div>
                 <div class="col col-4 text-center">
-                  <label>Number</label> <input type="radio" name="query_type" value="number">
+                  <label>Number</label> <input type="radio" name="query_type" value="number" {% if query_type == 'number' %} checked {% endif %}>
                 </div>
                 <div class="col col-12 text-center">
                   <input type="submit" class="blue-button" value="Submit">
@@ -233,14 +232,20 @@
           </div>
 
           <div class="col col-6 d-flex justify-content-around">
-            <div class="yellow-button d-flex justify-content-center align-items-center">
-              <div class="double-arrow">&#11244;</div>
-            </div>
-            <div class="yellow-button d-flex justify-content-center align-items-center">
-              <div class="double-arrow">&#11246;</div>
-            </div>
-          </div>
+            <a href="{% if pokemon_list.has_previous %} ?page={{ pokemon_list.previous_page_number }}&query={{ query }} {% else %} # {%endif%}">
+              <div class="yellow-button d-flex justify-content-center align-items-center">
+                <div class="double-arrow">&#11244;</div>
+              </div>
+            </a>
+            
+            <a href="{% if pokemon_list.has_next %} ?page={{ pokemon_list.next_page_number }}&query={{ query }} {% else %} # {%endif%}">
+            
+              <div class="yellow-button d-flex justify-content-center align-items-center">
+                <div class="double-arrow">&#11246;</div>
+              </div>
+            </a>
 
+          </div>
         </div>
 
       </div>

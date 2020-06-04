@@ -3,35 +3,36 @@ from django.http import HttpResponse
 from .models import Pokemon, PokemonType
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from django.db.models import Q
+from django.core.paginator import Paginator
 
 
 
 def index(request):
     pokemon = Pokemon.objects.order_by('number')
+
+    page = request.GET.get('page', 1)
+    # pokemon = Pokemon.objects.filter('name').first()
+    search= ''
+    if request.method == 'POST':
+        search = request.POST['search']
+
+        pokemon = Pokemon.objects.filter(
+        Q(name__icontains=search)| Q(number__icontains=search)
+    )
+    paginator = Paginator(pokemon, 10)
+    pokemon = paginator.page(page)
     data = {
-        'pokemon': pokemon
+        'pokemon': pokemon,
+        'search': search,
     }
+
     return render(request, 'pokedex/index.html', data)
 
 def detail(request, pokemon_id):
     pokemon = get_object_or_404(Pokemon, pk=pokemon_id)
     return render(request, 'pokedex/detail.html', {'pokemon':pokemon})
 
-# def pokemon_data(request):
-#     number = request.POST['number']
-#     name = request.POST['name']
-#     height = request.POST['height']
-#     weight = request.POST['weight']
-#     image_front = request.POST['image_front']
-#     image_back = request.POST['image_back']
-#     types = request.POST['types']
-#     pokemon_data = (number=number,
-#         name=name,
-#         height=height,
-#         weight=weight,
-#         image_front=image_front,
-#         image_back= image_back,
-#         types=types)
-#     pokemon_data.save()
+# def powers(request):
+#     typ = pokemon_data
 
-#     return HttpResponseRedirect(reverse('pokedex:detail', args=(pokemon.id)))

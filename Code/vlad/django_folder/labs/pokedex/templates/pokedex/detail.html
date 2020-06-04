@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Pokemon Card</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Pokemon Card </h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Number</th>
+                    <th>Name</th>
+                    <th>Height</th>
+                    <th>Weight</th>
+                    <th>Poke Front Image</th>
+                    <th>Poke Back Image</th>
+                    <th>Poke Types</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <tr class="number"></tr>
+                    <td>{{ pokemon.number }}</td>
+
+                </tr>
+                <tr class="name">
+                    <td>{{ pokemon.name }}</td>
+
+                </tr>
+                <tr class="height">
+                    <td>{{ pokemon.height }}</td>
+
+                </tr>
+                <tr class="weight">
+                    <td>{{ pokemon.weight }}</td>
+
+                </tr>
+                <tr class="img_front">
+                    <td><img src="{{pokemon.image_front}}"></td>
+
+                </tr>
+                <tr class="img_back">
+                    <td><img src="{{pokemon.image_back}}"></td>
+
+                </tr>
+                <tr class="pokemon_types">
+                    <td>{{ pokemon.types }}</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <form action="{% url 'pokedex:index' %}" method="post">
+        {% csrf_token %}
+        <!-- Back button to go back to the Index - Home Page-->
+        <!-- See how can I add the following class on the main form =  class="was-validated-->
+        <button type="submit" class="btn btn-primary">Go Back to the Pokemon Home Page</button>
+    </form>
+</body>
+
+</html>

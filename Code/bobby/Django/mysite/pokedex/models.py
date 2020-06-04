@@ -18,5 +18,5 @@ class Pokemon(models.Model):
     image_back = models.CharField(max_length=50)
     types = models.ManyToManyField(PokemonType)
 
-    def __str__return(self):
-        return self.number + '-' + self.name
+    def __str__(self):
+        return self.name
