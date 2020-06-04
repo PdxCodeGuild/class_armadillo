@@ -8,14 +8,16 @@
 
 <body>
     <h1>Welcome to Pokemon Land!</h1>
-    <h2><b>Pokédex data!<b></h2>
+    <h2><b>Pokédex Roster Click the Name of your favorite Pokemon to Learn more About it!<b></h2>
 
     {% for pokemon in pokemon %}
     <div>
         <!-- <li>{{ pokemon.name }}</li>
         <li>{{ pokemon.number }}</li> -->
-        <img src="{% url 'pokedex:detail' pokemon.id%}"> {{ pokemon.name }} </a>
-        <a href="{% url 'pokedex:detail' pokemon.number%}"> {{pokemon.name}} {{pokemon.image_back}}</a>
+        <img src="{{pokemon.image_front}}">
+        <img src="{{pokemon.image_back}}">
+
+        <a href="{% url 'pokedex:detail' pokemon.number%}">{{ pokemon.name }}</a>
     </div>
     {% endfor %}
 </body>
