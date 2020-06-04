@@ -19,4 +19,4 @@ class Pokemon(models.Model):
     types = models.ManyToManyField(PokemonType)
 
     def __str__return(self):
-        return self.number + '-' + self.name
+        return self.name
