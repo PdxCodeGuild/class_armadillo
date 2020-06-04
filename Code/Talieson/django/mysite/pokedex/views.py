@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.db.models import Q
 from .models import Pokemon, PokemonType
 
 # Create your views here.
@@ -14,4 +15,6 @@ def details(request, name):
     context = {
         "pokemon_details": pokemon_details,
     }
-    return render(request, 'details.html', context)
+    return render(request, "details.html", context)
+
+
