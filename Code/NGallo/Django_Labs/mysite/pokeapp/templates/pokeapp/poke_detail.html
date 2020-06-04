@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% comment %} must add load static anytime to get static tag to work  {% endcomment %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'pokeapp/poke_detail.css' %}">
+    <meta charset="UTF-8">
+    <meta name="description" content="Pokedex built by me">
+    <meta name="keywords" content="portland, oregon, pokemon">
+    <meta name="author" content="Nick Gallo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon {{ pokemon.name }}</title>
+</head>
+<body>
+    <h1>Information on {{pokemon.name}}</h1>
+    <a href="{% url 'pokeapp:index' %}">return home<a>
+
+    <div class="podex_div">
+    <img id="PokeDex_image" alt="picture of pokedex" src="{% static 'pokeapp/images/pokedex.png' %}">
+    <p>Number: {{pokemon.number}}</p>
+    <p>Height: {{pokemon.height}}</p>
+    <p>Weight: {{pokemon.weight}}</p>
+    <p><img class="pokemon_front_picture" src="{{pokemon.image_front}}"><img class="pokemon_back_picture" src="{{pokemon.image_back}}"></p>
+    {% comment %} must handle types differently because many to many {% endcomment %}
+    <p>Type(s): <ul>{% for type in pokemon.types.all %} <li> {{type}} </li>{% endfor %}</ul></p>
+    </div>
+    <a href="{% url 'pokeapp:index' %}">return home<a>
+    <footer> Nick Gallo &copy 2020</footer>
+</body>
+</html>
