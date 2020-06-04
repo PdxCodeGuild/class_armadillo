@@ -1,10 +1,5 @@
 from django.shortcuts import render
 from .models import Pokemon, PokemonType
-def index(request):
-    context = {
-        'message': 'Hello World!'
-    }
-    return render(request, 'pokeapp/index.html', context)
 
 def index(request):
     # getting all the pokemon by number
@@ -12,4 +7,13 @@ def index(request):
     context = {
         'pokemon_by_number': pokemon_by_number
     }
-    return render(request,'todoapp/index.html', context)
+    return render(request,'pokeapp/index.html', context)
+
+def poke_detail(request, pokemon_number):
+    try:
+        pokemon = Pokemon.objects.get(number=pokemon_number)
+    except Pokemon.DoesNotExist:
+        raise Http404("Pokemon does not exist")    
+        
+    context = {'pokemon': pokemon}
+    return render(request, 'pokeapp/poke_detail.html', context)

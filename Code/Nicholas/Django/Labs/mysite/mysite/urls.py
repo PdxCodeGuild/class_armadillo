@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('todolist/', include('todolist.urls')),
+    path('todos/', include('todos.urls')),
     path('pokedex/', include('pokedex.urls')),
     path('contact_list/', include('contact_list.urls')),
     path('polls/', include('polls.urls')),
