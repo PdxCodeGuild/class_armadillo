@@ -39,11 +39,16 @@ class Command(BaseCommand):
                               weight=weight,
                               image_front=image_front,
                               image_back=image_back)
-            # loop through each type and associate go through each items and if the type is not there then create it.
-            types, created = PokemonType.objects.get_or_create(name=types)
-
             # save the contact to the database
             pokemon.save()
+
+            # loop through each type and associate go through each items and if the type is not there then create it.
+            # here we are looping over the dictionary and looking for the data with the key types
+            # looping poke_type in the dictionary call pika_data selecting the types ['types']
+            for poke_type in pika_data['types']:
+                types, created = PokemonType.objects.get_or_create(
+                    name=poke_type)
+                pokemon.types.add(types)
 
        # tags - many-to-many =======================================
 

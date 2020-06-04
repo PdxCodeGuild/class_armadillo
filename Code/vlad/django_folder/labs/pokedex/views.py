@@ -19,9 +19,23 @@ def index(request):
 def detail(request, pokemon_id):  # contact_id each person have a unique contact_id
     # I am searching by number
     pokemon = get_object_or_404(Pokemon, number=pokemon_id)
+    types = []  # make a list of just the types
+    for type in pokemon.types.all():
+        print(type)
+        types.append(type.name)
+
     # {'contact': contact}) this is giving a single contact this is why is singular because when we click the name of one of the people in the contact list it will give only that person contact details instead of everyone else
-    return render(request, 'pokedex/detail.html', {'pokemon': pokemon})
+    # to get a list of the types to turn the query set of the types into a list: list(pokemon.types.all())
+    return render(request, 'pokedex/detail.html', {'pokemon': pokemon, 'types': ', '.join(types)})
 
 
-# def create_pokemon_page(request):
+# on line 22 create an empty list then loop each pokemon.types.all
+# then append the name of each type to the list
+# this will give me the name
+# in the template detail I can use the join method
+# Using list comprehension way to do it below:
+# #types = ', '.join([p_type.name for p_type in pokemon.types.all()])
+
+
+# # def create_pokemon_page(request):
 #     return render(request, 'pokemon/new_pokemon.html')
