@@ -11,13 +11,15 @@ class Command(BaseCommand):
         with open('pokemon.json', 'r') as file:
             text = file.read()
             data = json.loads(text)
+
             for pokemans in data['pokemon']:
-                number = pokemans['number']
+                number = int(pokemans['number'])
                 name = pokemans['name']
-                height = pokemans['height']
-                weight = pokemans['weight']
+                height = int(pokemans['height'])
+                weight = int(pokemans['weight'])
                 image_front = pokemans['image_front']
                 image_back = pokemans['image_back']
+                types = pokemans['types']
 
                 add_pokemon = Pokemon(
                     number=number,
@@ -27,11 +29,9 @@ class Command(BaseCommand):
                     image_front=image_front,
                     image_back=image_back,
                 )
-                add_pokemon.objects.get_or_create()
-
-                for types in pokemon['types']:
-                    add_type = PokemonType.objects.get_or_create(name=pokemon_type,)[0]
-                    if add_type not in add_pokemon.types.all():
-                        add_type.types.add(add_type)
-                        add_type.pokemon_set.add(add_pokemon)
+                add_pokemon.save()
+                for typ in types:
+                    add_type, other = PokemonType.objects.get_or_create(name=typ)
+                    add_pokemon.types.add(add_type)
+                    
             # print(pokemans)

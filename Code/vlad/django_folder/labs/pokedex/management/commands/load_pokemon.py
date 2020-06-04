@@ -39,9 +39,39 @@ class Command(BaseCommand):
                               weight=weight,
                               image_front=image_front,
                               image_back=image_back)
-            # types = PokemonType.objects.get(name=types)
+            # loop through each type and associate go through each items and if the type is not there then create it.
+            types, created = PokemonType.objects.get_or_create(name=types)
+
             # save the contact to the database
             pokemon.save()
+
+       # tags - many-to-many =======================================
+
+# Sample of many to many long way and short way:
+
+        # # get a blog post
+        # blog_post = BlogPost.objects.get(title='Burrito')
+        # # get all the tags associated with a blog post
+        # print(blog_post.tags.all())
+
+        # # create a blog post tag
+        # # tag = BlogPostTag(name='#delicious')
+        # # save it to the database - necessary before we create a relationship with a blog post
+        # # tag.save()
+
+        # # check if a record exists, .exists returns true if .filter has any results
+        # # if BlogPostTag.objects.filter(name='#delicious').exists():
+        # #     tag = BlogPostTag.objects.get(name='#delicious')
+        # # else:
+        # #     tag = BlogPostTag(name='#delicious')
+        # #     tag.save()
+
+        # # get_or_create will get the record if it exists or create it
+        # # it returns a tuple, the first value is the record
+        # # the second is a boolean that's true if it's created
+        # tag, created = BlogPostTag.objects.get_or_create(name='#delicious')
+
+# ===================================================================================
 
     # number = models.IntegerField()
     # name = models.CharField(max_length=50)
