@@ -6,20 +6,17 @@ class PokemonType(models.Model):
     name = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
 class Pokemon(models.Model):
-    number = models.IntegerField(max_length=4)
+    number = models.IntegerField()
     name = models.CharField(max_length=20)
     height = models.IntegerField()
     weight = models.IntegerField()
     image_front = models.CharField(max_length=20)
     image_back = models.CharField(max_length=20)
     types = models.ManyToManyField('PokemonType', related_name='pokemon')
+    url = models.URLField(null=True)
 
     def __str__(self):
-        return self.image_front
-    def __str__(self):
-        return self.name 
-    def __int__(self):
-        return self.number
+        return self.name
