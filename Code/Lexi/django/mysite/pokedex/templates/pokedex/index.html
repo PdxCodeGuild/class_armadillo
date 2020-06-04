@@ -14,6 +14,12 @@
     <img src = "{{pokemon.image_front}}">
     <li>{{pokemon.name}}</li>
     {% endfor %}
-
+<div>
+    <form action="{% url 'pokedex:index' %}" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="enter a pokemon to search" name="search" value="{{search}}"/>
+        <button class="btn btn-primary" type="submit">search</button>
+    </form>
+</div>
 </body>
 </html>
