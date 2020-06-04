@@ -17,3 +17,16 @@ def poke_detail(request, pokemon_number):
         
     context = {'pokemon': pokemon}
     return render(request, 'pokeapp/poke_detail.html', context)
+
+# contacts.post for reference
+def search_pokemon(request):
+    
+    name = request.POST['search']
+
+    pokemon = Pokemon.objects.filter(name=pokemon_name)   
+    # to return back to index you have to pass the same key to the template
+
+    context = {
+        'pokemon_by_number': pokemon_by_name
+    }
+    return render(request, 'pokeapp/index.html', context)

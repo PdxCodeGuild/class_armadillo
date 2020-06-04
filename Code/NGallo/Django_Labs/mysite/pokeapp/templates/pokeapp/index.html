@@ -10,6 +10,14 @@
 
 <body>
   <h1>Gotta Catch Em' All</h1>
+
+  <ul>
+    <form action="{% url 'pokeapp:search_pokemon' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="search a pokemon" name="search">
+        <button id="button" class="search_button" type="submit">submit</button>
+    </form>
+    
   <main>
     <ul>
       {% for pokemon in pokemon_by_number %}
