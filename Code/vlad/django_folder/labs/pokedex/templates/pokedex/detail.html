@@ -13,12 +13,12 @@
 <body>
 
     <div class="container">
-        <h2>Pokemon Card </h2>
+        <h2 style="color:blue;"><i>Pokemon Card</i></h2>
 
         <table class="table">
             <thead>
                 <tr>
-                    <th></th>
+
                     <th>Number</th>
                     <th>Name</th>
                     <th>Height</th>
@@ -32,33 +32,13 @@
                 <tr>
                     <tr class="number"></tr>
                     <td>{{ pokemon.number }}</td>
-
-                </tr>
-                <tr class="name">
                     <td>{{ pokemon.name }}</td>
-
-                </tr>
-                <tr class="height">
                     <td>{{ pokemon.height }}</td>
-
-                </tr>
-                <tr class="weight">
                     <td>{{ pokemon.weight }}</td>
-
-                </tr>
-                <tr class="img_front">
                     <td><img src="{{pokemon.image_front}}"></td>
-
-                </tr>
-                <tr class="img_back">
                     <td><img src="{{pokemon.image_back}}"></td>
-
-                </tr>
-                <tr class="pokemon_types">
                     <td>{{ pokemon.types }}</td>
-
                 </tr>
-
             </tbody>
         </table>
     </div>

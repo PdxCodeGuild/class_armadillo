@@ -1,22 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
     <title>Pokedex</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <h1>Welcome to Pokemon Land!</h1>
-    <h2><b>Pokédex Roster Click the Name of your favorite Pokemon to Learn more About it!<b></h2>
+    <h1 style="color:skyblue;"><i>Welcome to Pokemon Land!</i></h1>
+    <h2 style="color:rgb(135, 235, 138);"><i>Pokédex Roster<b></i>
+    </h2>
+    <h2 style="color:rgb(235, 135, 135);"><i>Click the Name of your Favorite Pokemon to see more details!<b></i>
+    </h2>
+
 
     {% for pokemon in pokemon %}
     <div>
         <!-- <li>{{ pokemon.name }}</li>
-        <li>{{ pokemon.number }}</li> -->
+    <li>{{ pokemon.number }}</li> -->
         <img src="{{pokemon.image_front}}">
         <img src="{{pokemon.image_back}}">
-
         <a href="{% url 'pokedex:detail' pokemon.number%}">{{ pokemon.name }}</a>
     </div>
     {% endfor %}
