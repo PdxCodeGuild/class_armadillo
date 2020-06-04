@@ -5,9 +5,12 @@ from django.http import Http404, HttpResponse, HttpResponseRedirect
 # Create your views here.
 
 def index(request):
-    pokemans = Pokemon.objects.order_by('number')
+    pokemans = Pokemon.objects.all()
     context = {
         'title': 'Pokedex!',
-        'pokemon': pokemans
+        'pokemons': pokemans,
     }
     return render(request, 'pokedex/index.html', context)
+
+# def detail(request):
+#     pass
