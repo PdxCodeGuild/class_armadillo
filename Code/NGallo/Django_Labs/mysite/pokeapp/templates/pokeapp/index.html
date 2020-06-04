@@ -2,29 +2,23 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <style>
-    background: black;
-    
-  </style>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'pokeapp/style.css' %}">
   <meta charset="utf-8">
   <title>PokeDex</title>
 </head>
 
 <body>
-  <header>Gotta Catch Em' All</header>
-      <main>
-      {% comment %} <form action="{% url 'pokeapp:'%}" method='POST'>
-      <input type='text' name='pokemon' placeholder='pokemon'>
-        <input type=''
-        <select name='pokemon'></select> {% endcomment %}
-        <img id="PokeDex_image" src="/pokeapp/static/pokeapp/images/pokedex.png">
-        <ul>
-        {% for pokemon in pokemon_by_number %}
-        <li><a href="{% url 'pokeapp:poke_detail' pokemon.number%}" id="pokemon_link"> {{ pokemon.name }}</a></li><br/>
-        {% endfor%}
-        </ul>
-      </main>
-      <footer> Nick Gallo &copy 2020</footer>
+  <h1>Gotta Catch Em' All</h1>
+  <main>
+    <ul>
+      {% for pokemon in pokemon_by_number %}
+      <li><a class="poke_words_images" href="{% url 'pokeapp:poke_detail' pokemon.number%}" id="pokemon_link"> <img class="pokemon_front_picture" src="{{pokemon.image_front}}"> {{ pokemon.name }}</a>
+      </li><br />
+      {% endfor%}
+    </ul>
+  </main>
+  <footer> Nick Gallo &copy 2020</footer>
 </body>
 
 </html>
