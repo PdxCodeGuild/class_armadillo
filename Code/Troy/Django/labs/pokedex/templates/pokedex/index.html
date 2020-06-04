@@ -31,6 +31,15 @@
     </div>
     <div>{% if search %} for search text "{{search}}"{% endif %}</div>
     {% endfor %}
+    <div>
+        {% if pokemon.has_previous %}
+            <a href="?page={{pokemon.previous_page_number}}">&lt;</a>
+        {% endif %}
+        <span>{{pokemon.number}}</span>
+        {% if pokemon.has_next %}
+            <a href="?page={{pokemon.next_page_number}}">&gt;</a>
+        {% endif %}
+    </div>
 </body>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

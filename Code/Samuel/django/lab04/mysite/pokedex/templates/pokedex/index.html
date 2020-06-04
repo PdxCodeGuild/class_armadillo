@@ -18,10 +18,10 @@
             <input type="text" name="search">
             <button id="button" href="/contacts/types" class="btn btn-primary" type="submit">submit</button>
         </form>
+        <div>{{list_of_pokemon.object_list.count}}/{{list_of_pokemon.paginator.count}}</div>
         <div id="name">
             <p>Pokedex</p>
         </div>
-        {% if list_of_pokemon %}
         <table>
             <tr id="row">
                 <th id="top-row">
@@ -74,9 +74,15 @@
             </tr>
             {% endfor %}
         </table>
-        {% else %}
-        <p>There are no Pokemons to be seen in the list</p>
-        {% endif %}
+        <div>
+            {% if list_of_pokemon.has_previous %}
+            <a href="?page={{list_of_pokemon.previous_page_number}}">&lt;</a>
+            {% endif %}
+            <span>{{list_of_pokemon.number}}</span>
+            {% if list_of_pokemon.has_next %}
+            <a href="?page={{list_of_pokemon.next_page_number}}">&gt;</a>
+            {% endif %}
+        </div>
     </ul>
 </body>
 </html>
