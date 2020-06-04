@@ -21,6 +21,7 @@ class Command(BaseCommand):
                 image_front = pokemon['image_front']
                 image_back = pokemon['image_back']
                 types  = pokemon['types']
+                
 
                 pokemon_data, created = Pokemon.objects.get_or_create(number=number,
                         name=name,
