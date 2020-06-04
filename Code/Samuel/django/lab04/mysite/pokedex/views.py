@@ -3,10 +3,14 @@ from django.http import HttpResponse
 from django.template import loader
 from django.db.models import Q
 from .models import Pokemon, Type
+from django.core.paginator import Paginator
 import string
 def index(request):
+    page = request.GET.get('page',1)
     list_of_pokemon=Pokemon.objects.order_by('number')
     template = loader.get_template('pokedex/index.html')
+    paginator = Paginator(list_of_pokemon, 20)
+    list_of_pokemon = paginator.page(page)
     context = {
         'list_of_pokemon': list_of_pokemon,
     }
