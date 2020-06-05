@@ -28,15 +28,15 @@ def detail(request, number):
     types = pokemon.types.all() #parse and iterate
     print(types)
 
-    # typ = ''
-    # for typ in types:
-    #     typ.append(types)
-    # print(types)
 
     context = {
         'pokemon': pokemon,
         'types' : types,
     }
+    # typ = ''
+    # for typ in types:
+    #     typ.append(types)
+    # print(types)
 
     return render(request, 'pokedex/detail.html', context)
 
