@@ -6,5 +6,5 @@ class ShortenedURL(models.Model):
     counter = models.IntegerField()
 
     def __str__(self):
-        return self.code + self.url + self.counter
+        return self.code + self.url + str(self.counter)
 
