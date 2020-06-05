@@ -26,7 +26,7 @@
     <div>
         <img id="{% url 'pokedex:detail' p.id%}" src="{{p.image_front}}">
         <img id="{% url 'pokedex:detail' p.id%}" src="{{p.image_back}}">
-        <a href="{% url 'pokedex:detail' p.id%}"> {{p.name}}</a>
+        <a href="{% url 'pokedex:detail' p.id%}"> {{p.name|title}}</a>
         
     </div>
     <div>{% if search %} for search text "{{search}}"{% endif %}</div>
