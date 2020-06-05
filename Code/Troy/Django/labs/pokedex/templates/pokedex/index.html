@@ -7,19 +7,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <a href="https://fontmeme.com/pokemon-font/"><img
+            src="https://fontmeme.com/permalink/200605/72a5dae9b56c644f57fd9698a11b3ef7.png" alt="pokemon-font"
+            border="0"></a>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'pokedex/style.css' %}" />
-    <!-- <link rel="icon" type="image/png" href="img/favicon.png"> browser tab icon-->
+    <!-- <link rel="icon" type="image/png" href="img/favicon.png"> browser tab icon -->
     <title>Pokedex</title>
 </head>
 
 <body>
-    <h1>Pokemon Go!</h1>
     <div>
         <form action="{% url 'pokedex:index' %}" method="post">
             {% csrf_token %}
             <img class="pokeball" alt="picture of pokedex" src="{% static 'pokedex/pokeball.png' %}">
-           <input type="text" placeholder="Search for Pokemon" name="search">
+            <input type="text" placeholder="Search for Pokemon" name="search">
         </form>
     </div>
 

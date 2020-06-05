@@ -22,6 +22,7 @@ def index(request):
     )
     paginator = Paginator(pokemon, 10)
     pokemon = paginator.page(page)
+    
     data = {
         'pokemon': pokemon,
         'search': search,
