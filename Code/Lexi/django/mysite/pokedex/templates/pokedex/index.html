@@ -1,7 +1,16 @@
 {% extends 'pokedex/base.html' %} 
+{% load static %}
+
+<link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'pokedex/style.css' %}"
+    />
+
 {% block title %} Search for Stats {% endblock %} 
 {% block content %}
 
+<div class="flexbox-container"></div>
 
      <form action="{% url 'pokedex:index' %}" method="post">
        {% csrf_token %}
@@ -13,10 +22,11 @@
        />
        <button class="btn btn-primary" type="submit">search</button>
      </form>
-
+    </div>
     {% for p in pokemon %}
     <img src="{{p.image_front}}" />
-    <li>{{p.name}}</li>
+    
+    <a href="{{p.url}}">{{p.name}} info</a>
     {% endfor %}
    
   {% endblock %} 

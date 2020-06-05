@@ -16,11 +16,38 @@ def index(request):
         'search': search,
     }
     # print(request.POST()) <--this does NOT WORK
+    print(pokemon) #<QuerySet [<Pokemon: abra 63>,
     return render(request, 'pokedex/index.html', data)
 
-def detail(request, pokemon_id):
-    pokemon = get_object_or_404(Pokemon, pk=pokemon_id)
-    return render(request, 'pokedex/detail.html',{'pokemon':pokemon})
+# changed from 'id' which is a primary key to the actual pokemon number
+def detail(request, number):
+    # had pk=pokemon_id but that generates something similar to counter
+    pokemon = get_object_or_404(Pokemon, number=number)
+    # try to get queryset of types from models
+    # types = models.ManyToManyField('PokemonType', related_name='pokemon')
+    types = pokemon.types.all() #parse and iterate
+    print(types)
+
+    # typ = ''
+    # for typ in types:
+    #     typ.append(types)
+    # print(types)
+
+    context = {
+        'pokemon': pokemon,
+        'types' : types,
+    }
+
+    return render(request, 'pokedex/detail.html', context)
+
+
+
+# <QuerySet [<PokemonType: fire>]>
+# treat it as list inside django template
+
+
+
+
 
 # FIRST INDEX CREATED FOR THIS LAB
 # def index(request):
