@@ -14,6 +14,10 @@ class PokemonType(models.Model):
         return f'{self.name}'
         # (+ str(self.age)) this is to show the age add this at the end of last name inside the f string
 
+    # to arrange the Poke type in alphabetical order do the following:
+    class Meta:
+        ordering = ['name']
+
 
 class Pokemon(models.Model):
 
@@ -27,6 +31,10 @@ class Pokemon(models.Model):
 
     def __str__(self):
         return f'{self.name}  {self.number}'
+
+    # to arrange the Poke type in alphabetical order do the following:
+    class Meta:
+        ordering = ['name']
 
 
 # class Article(models.Model):

@@ -1,0 +1,50 @@
+/* body */
+
+body {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/* search bar */
+.pokeball {
+  width: 60px;
+  margin-left: 5px;
+}
+input[type=text] {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  /* background-image: url("../pokedex/pokeball.png"); */
+  /* background-position: 10px 10px;  */
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 12px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  input[type=text]:focus {
+    width: 100%;
+  }
+
+  /* makes the pokemon chip */
+  .chip {
+    display: inline-block;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 0 25px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+  }
+  
+  .chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
