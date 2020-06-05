@@ -15,12 +15,13 @@ class Command(BaseCommand):
             data = json.loads(text)
             for pokemon in data['pokemon']:
                 number = pokemon['number']
-                name   = pokemon['name']
-                height = pokemon['height']
-                weight = pokemon['weight']
+                name   = pokemon['name'].title
+                height = pokemon['height'].title
+                weight = pokemon['weight'].title
                 image_front = pokemon['image_front']
                 image_back = pokemon['image_back']
-                types  = pokemon['types']
+                types  = pokemon['types'].title
+                
 
                 pokemon_data, created = Pokemon.objects.get_or_create(number=number,
                         name=name,
@@ -30,7 +31,8 @@ class Command(BaseCommand):
                         image_back= image_back)
                 # print(pokemon_data)
                 # types = PokemonType.objects.get_or_create(name=types)
-                for typ in types:                                 
+                for typ in types:  
+                    typ =                                
                     powers, created = PokemonType.objects.get_or_create(name=typ)
                     if powers not in pokemon_data.types.all():
                         pokemon_data.types.add(powers)
