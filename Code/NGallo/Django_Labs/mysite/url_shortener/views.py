@@ -1,5 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
 def index(request):
-    
-    return HttpResponse('Hello Troy!')
+
+    return render(request, 'url_shortener/index.html')
+
+def save(request):
+    pass
+
+def redirect(request):
+    pass

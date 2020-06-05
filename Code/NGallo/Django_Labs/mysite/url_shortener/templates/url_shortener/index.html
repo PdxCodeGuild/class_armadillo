@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Url_Shortener</title>
 </head>
 <body>
-    {{ message }}
+    <form action="{% url 'url_shortener:index' %}" method="POST"> 
+        {% csrf_token %}
+    <input class="code_input" name="shortened_url" type="text" placeholder="Enter a URL"></input><button type="submit" class="btn btn-outline-dark">Submit</button>
+</form>
 </body>
 </html>
