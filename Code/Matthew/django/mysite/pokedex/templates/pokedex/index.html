@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <ul>
+        {% for p in pokemon %}
+        <li>{{p.name|title}}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

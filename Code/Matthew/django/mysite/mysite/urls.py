@@ -9,5 +9,6 @@ urlpatterns = [
     path('blogapp/', include('blogapp.urls')),
     path('demo/', include('demo.urls')),
     path('contacts/', include('contacts.urls')),
+    path('pokedex/', include('pokedex.urls')),
     path('', include('main.urls')), # the request will go to this one if it doesn't match any others
 ]
