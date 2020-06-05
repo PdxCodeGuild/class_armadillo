@@ -1,0 +1,11 @@
+{% extends 'pokedex/index.html' %}
+
+{% block content %}
+    <h2>{{pokemon.name}} No. {{pokemon.number}}</h2>
+    <p>Height: {{pokemon.height}} Weight: {{pokemon.weight}}</p>
+    <p>Front: <img src="{{pokemon.image_front}}"> Back: <img src="{{pokemon.image_back}}"></p>
+    {% for type in pokemon.types.all %}
+    <p>{{types.name}}</p>>
+    {% endfor %}
+    <div><a href="{% url 'pokedex:index' %}">back</a></div>
+{% endblock %}

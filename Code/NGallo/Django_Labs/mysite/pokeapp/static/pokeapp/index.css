@@ -1,11 +1,18 @@
 body{
     background-color: blanchedalmond;
+    padding-left: 20px;
+    padding-right: 20px;
 }
-h1 {
+.header {
+    text-decoration: none;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    margin: 5px;
 }
 .form {
+    margin-bottom: 10px;
     align-items: center;
 }
 .poke_words_images{
@@ -27,4 +34,30 @@ ul {
     flex-wrap: wrap;
     justify-content: space-between;
     list-style: none; 
+}
+/* unvisited link */
+a:link {
+    color: green;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: red;
+  }
+  
+  /* selected link */
+  a:active {
+    color: yellow;
+  }
+.footer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
