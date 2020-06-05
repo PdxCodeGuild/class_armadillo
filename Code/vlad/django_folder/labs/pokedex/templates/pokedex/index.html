@@ -5,9 +5,10 @@
     <title>Pokedex</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        /* add a left margin here to make the back to home button to be more in the left side */
+    </style>
 </head>
 
 <body>
@@ -16,17 +17,40 @@
     </h2>
     <h2 style="color:rgb(235, 135, 135);"><i>Click the Name of your Favorite Pokemon to see more details!<b></i>
     </h2>
-
-
-    {% for pokemon in pokemon %}
     <div>
-        <!-- <li>{{ pokemon.name }}</li>
-    <li>{{ pokemon.number }}</li> -->
-        <img src="{{pokemon.image_front}}">
-        <img src="{{pokemon.image_back}}">
-        <a href="{% url 'pokedex:detail' pokemon.number%}">{{ pokemon.name }}</a>
+        <form action="{% url 'pokedex:index' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Search Pokemon" name='q' id="id_q">
+            <!-- Search button at the top of the Index - Home Page-->
+            <button type="submit" class="btn btn-primary">search</button>
+        </form>
     </div>
-    {% endfor %}
+    <div class="row">
+        <div class="col-6">
+            {% for pokemon in pokemons %}
+            <div>
+                <!-- <li>{{ pokemon.name }}</li>
+            <li>{{ pokemon.number }}</li> -->
+                <img src="{{pokemon.image_front}}">
+                <img src="{{pokemon.image_back}}">
+                <a href="{% url 'pokedex:detail' pokemon.number%}">{{ pokemon.name }}</a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-6">
+            <h2 style="color:blue;"><i>Search Results:</i></h2>
+            {% for pokemon in query %}
+            <div>
+                <!-- <li>{{ pokemon.name }}</li>
+            <li>{{ pokemon.number }}</li> -->
+                <img src="{{pokemon.image_front}}">
+                <img src="{{pokemon.image_back}}">
+                <a href="{% url 'pokedex:detail' pokemon.number%}">{{ pokemon.name }}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
 </body>
 
 </html>

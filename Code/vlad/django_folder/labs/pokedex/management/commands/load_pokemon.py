@@ -25,7 +25,8 @@ class Command(BaseCommand):
 
             # getting out the contact data into local variables
             number = pika_data['number']
-            name = pika_data['name']
+            # .title() TO MAKE THE FIRST NAME CAPITAL
+            name = pika_data['name'].title()
             height = pika_data['height']
             weight = pika_data['weight']
             image_front = pika_data['image_front']
