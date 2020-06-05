@@ -19,7 +19,7 @@ class Pokemon(models.Model):
     image_front = models.ImageField(upload_to='admin/')
     image_back = models.ImageField()
     types = models.ManyToManyField(PokemonType, related_name='pokemon')
-
+    
     def __str__(self):
         return self.name 
     def __int__(self):
