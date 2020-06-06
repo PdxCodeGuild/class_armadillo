@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url_Shortener</title>
+</head>
+
+<body>
+    <form action="{% url 'url_shortener:save' %}" method="POST">
+        {% csrf_token %}
+        <input class="code_input" name="shortened_url" type="text" placeholder="Enter a URL"></input>
+        <button type="submit" class="btn btn-outline-dark">Submit</button>
+    </form>
+
+    <ul>
+        {% for url in urls %}
+        <li>{{url.code}} you've visited {{url.counter}} times.
+        </li>
+        <a class="new_link" href="{% url 'url_shortener:redirect' url.code%}">Here is your link</a>
+        {% endfor %}
+      </ul>
+
+</body>
+
+</html>

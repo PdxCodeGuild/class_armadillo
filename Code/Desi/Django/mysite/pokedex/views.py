@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Pokemon,PokemonType
+
 
 def index(request):
 
@@ -7,11 +9,11 @@ def index(request):
 
     context = {'poke': poke}
 
-    return render(request, 'pokedex/index.html', context)
+    return render(request, 'index.html', context)
 
 def detail(request, poke):
     pokemon = Pokemon.objects.get(pk=poke)
-    return render(request, 'pokedex/detail.htmol', {'poke': poke})
+    return render(request, 'pokedex/detail.html', {'poke': poke})
 
 
     # return HttpResponse('ok')
