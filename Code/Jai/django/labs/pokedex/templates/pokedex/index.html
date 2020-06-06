@@ -14,19 +14,22 @@
     <div>
         <form action="{% url 'pokedex:index' %}" method="post">
             {% csrf_token %}
-            <input type="text" placeholder="whose that pokemon"
+            <input type="text" placeholder="who's that pokemon?"
             name="search" value='{{search}}'/><button class="btn btn-primary" type="submit">"i choose you"</button>
         </form>
-        
+
 
 
 
     </div>
-    <ol>
+    <ul>
     {% for pokemon in pokemons  %}
-        <li><a href= "{% url 'pokedex:detail' pokemon.number %}"> {{ pokemon }}</a></li>
+    <img src="{{pokemon.image_front}}" />
+        <li><a href= "{% url 'pokedex:detail' pokemon.number %}"> 
+        
+            {{ pokemon }}</a></li>
     {% endfor %}
-    </ol>
+    </ul>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
