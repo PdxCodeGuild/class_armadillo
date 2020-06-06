@@ -37,6 +37,8 @@
             </div>
             {% endfor %}
         </div>
+
+
         <div class="col-6">
             <h2 style="color:blue;"><i>Search Results:</i></h2>
             {% for pokemon in query %}
@@ -50,7 +52,17 @@
             {% endfor %}
         </div>
     </div>
+    <!-- Pagination on the div below =  https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html-->
 
+    <div class="pagi">
+        {% if pokemons.has_previous %}
+        <a href="?page={{pokemons.previous_page_number}}">&laquo;</a> {% endif %}
+        <!--  <span>{{pokemon.number}}</span>  IS GOVING THE PAGE NUMBER IN THE MIDDLE OF THE PAGE BETWEEN PREVIOUS AND NEXT learn how to stop from saving to the line above
+        when I save the line move up learn how to save in place =  <span>{{pokemon.number}}</span> {% if pokemon.has_next %}
+        <a href="?page={{pokemon.next_page_number}}">&gt;</a> {% endif %} move -->
+        <span>{{pokemons.number}}</span> {% if pokemons.has_next %}
+        <a href="?page={{pokemons.next_page_number}}">&raquo;</a> {% endif %}
+    </div>
 </body>
 
 </html>
