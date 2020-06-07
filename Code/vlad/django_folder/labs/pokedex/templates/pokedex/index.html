@@ -8,6 +8,56 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <style>
         /* add a left margin here to make the back to home button to be more in the left side */
+        
+        .pagi {
+            background-color: rgb(242, 246, 246);
+            display: table-row;
+            height: 1px;
+            margin-left: 96px;
+            font-size: x-large;
+            padding-bottom: 19px;
+            width: 145px;
+        }
+        
+        a.btn-first {
+            background-color: transparent;
+            border: 4px solid pink;
+            color: skyblue;
+        }
+        
+        a.btn-second {
+            background-color: transparent;
+            border: 4px solid pink;
+            color: darkblue;
+        }
+        
+        .wrapper {
+            padding: 20px;
+            height: auto;
+            margin-left: 50px;
+        }
+        
+        a.btn:hover {
+            background: skyblue;
+            border: none;
+            color: rgb(5, 141, 220);
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            transition: 0.5s;
+        }
+        
+        a.btn {
+            margin: 35px 12px;
+            width: 145px;
+            padding: 9px;
+            border-radius: 20px;
+        }
+        
+        footer {
+            background-color: skyblue;
+            display: table-row;
+            height: 1px;
+            font-size: x-large;
+        }
     </style>
 </head>
 
@@ -56,13 +106,22 @@
 
     <div class="pagi">
         {% if pokemons.has_previous %}
-        <a href="?page={{pokemons.previous_page_number}}">&laquo;</a> {% endif %}
+        <a class="btn btn-first" href="?page={{pokemons.previous_page_number}}">&laquo;</a> {% endif %}
         <!--  <span>{{pokemon.number}}</span>  IS GOVING THE PAGE NUMBER IN THE MIDDLE OF THE PAGE BETWEEN PREVIOUS AND NEXT learn how to stop from saving to the line above
         when I save the line move up learn how to save in place =  <span>{{pokemon.number}}</span> {% if pokemon.has_next %}
         <a href="?page={{pokemon.next_page_number}}">&gt;</a> {% endif %} move -->
         <span>{{pokemons.number}}</span> {% if pokemons.has_next %}
-        <a href="?page={{pokemons.next_page_number}}">&raquo;</a> {% endif %}
+        <a class="btn btn-second" href="?page={{pokemons.next_page_number}}">&raquo;</a> {% endif %}
+
     </div>
+    <!-- adding footer  -->
+    <div class="wapper">
+    </div>
+    <footer>
+        <div class="wapper">
+            <p>Click the Previous or Next button to see more Pokemon! -- Pokédex Roster -- &copy;2020</p>
+        </div>
+    </footer>
 </body>
 
 </html>
