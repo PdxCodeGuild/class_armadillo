@@ -16,7 +16,7 @@
         <form action="{% url 'pokedex:pokemon_type' %}" method="POST">
             {% csrf_token %}
             <input type="text" name="search">
-            <button id="button" href="/contacts/types" class="btn btn-primary" type="submit">submit</button>
+            <button id="button" href="/pokedex/types" class="btn btn-primary" type="submit">submit</button>
         </form>
         <div>{{list_of_pokemon.object_list.count}}/{{list_of_pokemon.paginator.count}}</div>
         <div id="name">

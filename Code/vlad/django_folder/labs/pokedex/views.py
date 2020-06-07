@@ -3,13 +3,26 @@ from django.http import HttpResponse
 from django.urls import reverse
 from .models import Pokemon, PokemonType
 from django.db.models import Q
+from django.core.paginator import Paginator
 
-
+# Paginator resource =  https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html
+# we want the paginator to start on the home page which is the index page. this is why we put the paginator under the index view
 # Create your views here.
+
 
 def index(request):
     # this is the name of my app Pokemon
     pokemon = Pokemon.objects.order_by('name')
+    # Make a request to the page with GET because we are getting the page instead of post from the browser this is why is it is capital GET
+    # page is one of the string objects and 1 is the page the page starts this is what is going to be display at the button of my page
+    page = request.GET.get('page', 1)
+
+    # paginator need to be done before the context variable below if do it after it will not show
+    # create a variable and bring the model from line 6 Paginator
+    paginator = Paginator(pokemon, 20)  # this will print 20 pokemons per page
+    # this is saying for every 15 pokemon I need to create a new page
+    pokemon = paginator.page(page)
+
     context = {
         'pokemons': pokemon
 
@@ -17,7 +30,7 @@ def index(request):
     # query = ""
     if request.method == "POST":
         query = request.POST['q']
-        print(type(query))
+        # print(type(query))
         pokes = Pokemon.objects.filter(
             Q(name__icontains=query)
             # icontain will eliminate any capitalization types__number__icontains
