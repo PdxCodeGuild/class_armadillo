@@ -7,7 +7,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         # open the file containing json
-        with open('./contacts/management/commands/contacts.json', 'r') as file:
+        with open('.management/commands/pokedex.json', 'r') as file:
             # reading the text in the file
         file:
             #reading the text in the file

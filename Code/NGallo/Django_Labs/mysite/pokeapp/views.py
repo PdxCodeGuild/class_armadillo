@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Pokemon, PokemonType
+from django.core.paginator import Paginator
+import random
 
 def index(request):
     # getting all the pokemon by number
@@ -30,3 +32,11 @@ def search_pokemon(request):
         'pokemon_by_number': pokemon
     }
     return render(request, 'pokeapp/index.html', context)
+
+def random_pokemon(request):
+    random_pokemon_number = random.randint(1,151)
+    # pass in random integer ^
+    pokemon = Pokemon.objects.get(number=random_pokemon_number)
+    context = {'pokemon': pokemon}
+
+    return render(request, 'pokeapp/poke_detail.html', context)

@@ -1,0 +1,31 @@
+body {
+    background: url("../../static_images/pic.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+input { 
+    border-radius: 7px;
+    width: 75%;
+}
+th {
+    font-size: 1.7rem;
+    color: lightskyblue;
+}
+td {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+.btn-outline-dark {
+    border: 3px solid black;
+    background: hotpink;
+}
+.btn-outline-dark:hover {
+    border: 3px solid white;
+    background: rgb(132, 180, 113);
+    transition: ease-in .3s;
+}
