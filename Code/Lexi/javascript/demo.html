@@ -11,13 +11,31 @@
         <!--submit button needing an EventListener-->
         <button id="btn_user_choice" type="submit">Submit</button>
     <script>
-        // Javascript code
-        console.log("Hi, end user!")
+        // START JS
+        let user_choice = document.querySelector('#user_choice')
+        let btn_user_choice = document.querySelector('#btn_user_choice')
+        // Javascript logic
+        console.log("Hi, end user! Click 'ok' ")
         // declaring a variable for the array so that the computer can choose
         let array = ['r', 'p', 's']
-        let user_choice = prompt("Type in 'r', 'p', or 's'!: ")
+        // let user_choice = prompt("Step 1: Type in 'r', 'p', or 's'!: ")
         // a great formula from user c0derabbit
         let comp = [Math.floor(Math.random() * array.length)]
+
+        if (user_choice === comp) {
+            console.log('\'tis a tie, and not the kind one wears')
+        }
+        else if (user_choice === (comp+1)%3) {
+            console.log('Thou winneth Biggeth in Minas Tirith')
+        }
+        else {
+            console.log('computer powns the day, per the usual')
+        }
+        //add eventListener
+        btn_user_choice.addEventListener('click', function(evt) {
+            alert("Jigsaw: Wanna play a game? ")
+        })
+
     </script>
 </body>
 </html>
