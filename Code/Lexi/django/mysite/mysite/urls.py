@@ -7,4 +7,6 @@ urlpatterns = [
     path('contacts/', include('contacts.urls')),
     path('todo/', include('todo.urls')),
     path('pokedex/', include('pokedex.urls')),
+    path('users/', includ('users.urls')),
+    path('', include('main.urls'))
 ]
