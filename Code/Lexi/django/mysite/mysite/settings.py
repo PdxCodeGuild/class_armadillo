@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'contacts',
     'todo',
     'pokedex',
+    'users',
 ]
 
 MIDDLEWARE = [

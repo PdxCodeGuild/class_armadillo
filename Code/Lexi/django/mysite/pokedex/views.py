@@ -1,21 +1,25 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Pokemon, PokemonType
+from django.core.paginator import Paginator
 from django.urls import reverse
 from django.http import HttpResponse
 from django.db.models import Q
 
 def index(request):
-
+    page = request.GET.get('page', 1)
     pokemon = Pokemon.objects.all().order_by('name')
     search = ''
     if request.method == 'POST':
         search = request.POST['search']
+        print(search)
         pokemon = Pokemon.objects.filter(Q(name__icontains=search) )
     data = {
         'pokemon': pokemon,
         'search': search,
     }
     # print(request.POST()) <--this does NOT WORK
+    paginator = Paginator(pokemon,15)
+    pokemon = paginator.page(page)
     print(pokemon) #<QuerySet [<Pokemon: abra 63>,
     return render(request, 'pokedex/index.html', data)
 
