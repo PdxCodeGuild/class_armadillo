@@ -21,6 +21,7 @@
             // alert('hi!')
             let name = input_name.value // get the value out of the input element
             span_output.innerText = 'Hello ' + name + '!' // set the inner text of the output span
+            span_output.innerText = `Hello ${name}!` // template literal, basically an f-string
         })
 
         // less standard way of setting an event listener
@@ -50,6 +51,20 @@
         // }
         // say_hello()
         // say_hello(5, 78)
+
+
+        // x = 2
+        // y = 2
+        // if (x < 10 && y < 10) {
+        // }
+        // if (x < 10 || y < 10) {
+        // }
+
+        let fruits = 'apples, bananas, pears'
+        fruits = fruits.split(', ') // string -> array of strings
+        console.log(fruits) // ["apples", "bananas", "pears"]
+        fruits = fruits.join(' - ')
+        console.log(fruits) // apples - bananas - pears
         
     </script>
 </body>
