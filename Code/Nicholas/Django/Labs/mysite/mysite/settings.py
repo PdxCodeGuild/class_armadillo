@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'todos',
+    'pokedex',
     'contact_list',
     'polls.apps.PollsConfig',
     'django.contrib.admin',

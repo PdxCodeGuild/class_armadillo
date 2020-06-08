@@ -1,0 +1,35 @@
+{% extends 'pokedex/base.html' %} 
+{% load static %}
+
+
+
+{% block title %} Search for Stats {% endblock %} 
+{% block content %}
+
+<div class="flexbox-container"></div>
+
+
+     <form action="{% url 'pokedex:index' %}" method="post">
+       {% csrf_token %}
+       <input
+         type="text"
+         placeholder="enter a pokemon to search"
+         name="search"
+         value="{{search}}"
+       />
+       <button class="btn btn-primary" type="submit">search</button>
+     </form>
+    </div>
+    <div class="flexbox-item-each">
+    <div class="flexbox-item-img">
+    {% for p in pokemon %}
+    <img src="{{p.image_front}}" />
+    <!--line 6 of: https://github.com/PdxCodeGuild/class_armadillo/blob/master/Code/Matthew/django/mysite/contacts/templates/contacts/detail.html -->
+    <div class="flexbox-item-btn">
+    <a href={{p.url}} class="btn btn-primary">{{p.name}}</a>
+    <a href={{p.number}} class="btn">info</a>
+  </div>
+    {% endfor %}
+  </div>
+</div>
+  {% endblock %} 

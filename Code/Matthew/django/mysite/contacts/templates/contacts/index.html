@@ -5,7 +5,15 @@
 {% block title %}List{% endblock %}
 
 {% block content %}
-    <a href="{% url 'contacts:new' %}" class="btn btn-primary">New Contact</a>
+    <div>
+        <form action="{% url 'contacts:index' %}" method="post">
+            {% csrf_token %}
+            <input type="text" placeholder="enter some text" name="search_text" value="{{search}}"/>
+            <button class="btn btn-primary" type="submit">search</button>
+        </form>
+        <a href="{% url 'contacts:new' %}" class="btn btn-primary">New Contact</a>
+    </div>
+    <div>{{contacts.object_list.count}}/{{contacts.paginator.count}} contacts shown{% if search %} for search text "{{search}}"{% endif %}</div>
     <table class="table">
         <tr>
             <th>Name</th>
@@ -26,6 +34,15 @@
         </tr>
         {% endfor %}
     </table>
+    <div>
+        {% if contacts.has_previous %}
+            <a href="?page={{contacts.previous_page_number}}">&lt;</a>
+        {% endif %}
+        <span>{{contacts.number}}</span>
+        {% if contacts.has_next %}
+            <a href="?page={{contacts.next_page_number}}">&gt;</a>
+        {% endif %}
+    </div>
 
     {% comment %}
     <ul>

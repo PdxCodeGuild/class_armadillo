@@ -9,13 +9,16 @@
     <h1>Contacts...</h1>
     <table class="table">
       <tr>
-          <th><a href="{% url 'contacts:entry_page' %}" class="btn btn-success btn-lg">➕</a></th>
+          <th><a href="{% url 'contacts:entry_page' %}" title="new" class="btn btn-success btn-lg">➕</a></th>
           <th></th>
           <th></th>
       </tr>
       {% for card in cards %}
       <tr>
-          <td><a href="{% url 'contacts:detail' card.id %}" class="btn btn-secondary btn-sm">🔎</a>  {{card.last_name}}, {{card.first_name}}</td>
+          <td><a href="{% url 'contacts:detail' card.id %}" title="details" class="btn btn-secondary btn-sm">🔎</a>&ensp;
+            <a href="{% url 'contacts:edit_page' card.id %}" title="edit" class="btn btn-info btn-sm">✏</a>&ensp;
+            <a href="{% url 'contacts:delete' card.id %}" title="delete" class="btn btn-danger btn-sm">✖</a>&ensp;
+            {{card.last_name}}, {{card.first_name}}</td>
           <td></td>
           <td></td>
       </tr>

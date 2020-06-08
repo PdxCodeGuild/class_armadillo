@@ -9,13 +9,13 @@ class PokemonType(models.Model):
 
 
 class Pokemon(models.Model):
-    number = models.IntegerField(max_length=3)
     name = models.CharField(max_length=50)
+    number = models.IntegerField()
     height = models.IntegerField()
     weight = models.IntegerField()
-    image_front = models.CharField()
-    image_back = models.Charfield()
-    types = models.ManyToManyField(PokemonType)
+    image_front = models.CharField(max_length=200)
+    image_back = models.CharField(max_length=200)
+    types = models.ManyToManyField(PokemonType, related_name="pokemon")
 
     def __str__(self):
-        return self.image_front + ' ' + self.name
+        return str(self.number)+ '.' + ' ' + self.name

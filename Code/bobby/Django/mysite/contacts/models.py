@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-class Contactsapp(models.Model):
+class ContactType(models.Model):
     name = models.CharField(max_length=200)
 
     def __str__(self):
@@ -11,7 +11,7 @@ class Contactsapp(models.Model):
 class Contacts(models.Model):
     first_name = models.CharField(max_length=15)
     last_name = models.CharField(max_length=15)
-    age = models.IntegerField(max_length=3)
+    age = models.IntegerField()
     birthday = models.DateField()
     phone_number = models.CharField(max_length=12)
     is_cell = models.BooleanField()

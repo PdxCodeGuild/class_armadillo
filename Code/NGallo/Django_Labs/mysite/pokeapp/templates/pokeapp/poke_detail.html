@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'pokeapp/poke_detail.css' %}">
+    <link href="//db.onlinewebfonts.com/c/f4d1593471d222ddebd973210265762a?family=Pokemon" rel="stylesheet"
+        type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Pokedex built by me">
+    <meta name="keywords" content="portland, oregon, pokemon">
+    <meta name="author" content="Nick Gallo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon {{ pokemon.name }}</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Information on {{pokemon.name}}</h1>
+        <a href="{% url 'pokeapp:index' %}">return to Pokedex</a>
+    </div>
+
+    <div class="podex_div">
+        <div class="pokemon_name">{{pokemon.name}}</div>
+        <div class="pokemon_card_images"><img class="pokemon_front_picture" src="{{pokemon.image_front}}">
+            <img class="pokemon_back_picture" src="{{pokemon.image_back}}"></div>
+
+        <div class="attributes">Height: {{pokemon.height}}
+                      Weight: {{pokemon.weight}}
+        </div>
+        {% comment %} must handle types differently because many to many {% endcomment %}
+        <ul class="types_div">{% for type in pokemon.types.all %} <li> {{type}} </li>{% endfor %}</ul>
+        <div class="pokemon_number">Number: {{pokemon.number}}</div>
+    </div>
+    <div class="bottom_nav_bar">
+
+        {% comment %} can only add (can't "subtract") -1 {% endcomment %}
+
+        <a href="{% url 'pokeapp:poke_detail' pokemon.number|add:"-1"%}">previous page</a>
+        <a href="{% url 'pokeapp:poke_detail' pokemon.number|add:"1"%}">next page</a>
+        <a class="random_poke_page" href="{% url 'pokeapp:random_pokemon' %}">random pokemon</a>
+        <a href="{% url 'pokeapp:index' %}">return to pokedex</a>
+
+    </div>
+    <footer class="footer">Nick Gallo | Class_Armadillo | &copy 2020</footer>
+</body>
+
+</html>

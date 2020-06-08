@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}    
+<h1>{{pokemon_details.number}}. {{pokemon_details.name}}</h1>
+<img src="{{pokemon_details.image_front}}"><img src="{{pokemon_details.image_back}}">
+    </span>
+    <div class="pokemon_details">
+        <p>height: {{pokemon_details.height}}</p>
+        <p>weight: {{pokemon_details.weight}}</p>
+    
+        {% for type in pokemon_details.types.all %}
+            <span>{{type.name}}</span>
+        {% endfor %}
+    </div>
+{% endblock content %}

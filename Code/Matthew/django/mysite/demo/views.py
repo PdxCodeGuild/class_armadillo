@@ -2,6 +2,7 @@ from django.shortcuts import render, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 import random
 
+
 def index(request):
     if request.method == 'POST':
         print(request.POST)

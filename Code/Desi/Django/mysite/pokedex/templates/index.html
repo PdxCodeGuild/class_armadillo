@@ -1,0 +1,26 @@
+{% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pokedex</title>
+</head>
+<body>
+    <ul>
+        {% for p in pokemon %}
+        {{ p.name }}
+        {% endfor %}
+
+    </ul>
+        <div>
+            <form action='' method='post'>
+                <input type='text' placeholder='enter some text' name='search' value='{{search}}'/>
+                <button class='btn btn-primary' type='submit'>search</button>
+            </form>
+        <a href='' class="btn btn-primary">New Contact</a>
+        </div>
+        
+</body>
+
+</html>
