@@ -6,14 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-        <input id="u_choice" type="text" placeholder="enter 'r', 'p', or 's' to play Rock, Paper, Scissors."/>
+        <!--text box-->
+        <input id="user_choice" type="text" placeholder="enter 'r', 'p', or 's' to play Rock, Paper, Scissors."/>
+        <!--submit button needing an EventListener-->
+        <button id="btn_user_choice" type="submit">Submit</button>
     <script>
+        // Javascript code
         console.log("Hi, end user!")
-        
+        // declaring a variable for the array so that the computer can choose
         let array = ['r', 'p', 's']
-        let u_choice = prompt("Type in 'r', 'p', or 's'!: ")
+        let user_choice = prompt("Type in 'r', 'p', or 's'!: ")
+        // a great formula from user c0derabbit
         let comp = [Math.floor(Math.random() * array.length)]
     </script>
 </body>
 </html>
-<!--mistakes made: 1. placed script before html - Jon explained to put it below-->
+<!--mistakes made: 1. placed script before html - Jon explained to put it below, 2. got formula from https://gist.github.com/c0derabbit/9ad0c77f2713de58fa1c4c0e74199d33-->
