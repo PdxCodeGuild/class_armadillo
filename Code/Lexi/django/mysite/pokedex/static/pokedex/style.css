@@ -1,13 +1,17 @@
-.flexbox-container{
-    display: flex;
-    text-align: center;
-    background-color: tan;
+.count {
+    color: goldenrod;
+}
+.flexbox-item-search{
+
+    margin: 100px;
+    border: 3px solid #333;
+    background-color:rgb(226, 43, 83);
+    opacity: 0.7;
 }
 .flexbox-item-img{
     flex-wrap: wrap;
     width: 200px;
     margin: 10px;
-    border: 3px solid rgb(192, 27, 27);
 }
 .flexbox-item-btn{
     flex-wrap: wrap;
@@ -16,9 +20,7 @@
     background-color: rgb(55, 43, 226);
 }
 .flexbox-item-each{
-    flex-wrap: wrap;
-    align-content: center;
-    padding: 200px;
+
     margin: 10px;
     border: 3px solid #333;
     background-color: blueviolet;

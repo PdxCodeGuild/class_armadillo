@@ -3,10 +3,12 @@
 
 
 
-{% block title %} Search for Stats {% endblock %} 
+{% block title %} Search for <em>Stats</em> {% endblock %} 
 {% block content %}
-
-<div class="flexbox-container"></div>
+<span class="count">
+{{pokemon.count}} result(s) found
+</span>
+<div class="flexbox-item-search">
 
 
      <form action="{% url 'pokedex:index' %}" method="post">
