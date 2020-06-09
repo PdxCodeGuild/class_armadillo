@@ -4,6 +4,6 @@ from django.http import HttpResponse
 from .models import Pokemon, PokemonType
 
 def index(request):
-    
-    return render(request, 'pokedex/index.html', {})
+    pokemon = Pokemon.objects.all()
+    return render(request, 'pokedex/index.html', {'pokemon': pokemon})
 

@@ -33,9 +33,10 @@ class Command(BaseCommand):
             # list of strings, iterating
             for type_str in pokemon_data['types']:
                 # unpacking 'get_or_create' not the above
-                type, created = PokemonType.objects.get_or_create(name=type_str)
+                types, created = PokemonType.objects.get_or_create(name=type_str)
                 # appending it
-                pokemon.types.add(type)
+                pokemon.types.add(types)
+                # when looking at SQLite - junction table has name pokemon - pokemontype (another with 's' at end)
 
             
 

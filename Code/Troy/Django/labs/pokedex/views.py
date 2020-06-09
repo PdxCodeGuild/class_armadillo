@@ -22,6 +22,7 @@ def index(request):
     )
     paginator = Paginator(pokemon, 10)
     pokemon = paginator.page(page)
+    
     data = {
         'pokemon': pokemon,
         'search': search,
@@ -31,8 +32,12 @@ def index(request):
 
 def detail(request, pokemon_id):
     pokemon = get_object_or_404(Pokemon, pk=pokemon_id)
-    return render(request, 'pokedex/detail.html', {'pokemon':pokemon})
+    types = []
+    for typ in pokemon.types.all():
+        types.append(typ.name)
+    types= ', '.join(types)        
+    return render(request, 'pokedex/detail.html', {'pokemon':pokemon, 'types':types})
 
-# def powers(request):
-#     typ = pokemon_data
+
+        
 

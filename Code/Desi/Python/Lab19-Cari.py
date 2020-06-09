@@ -2,7 +2,6 @@ import re
 import math
 import requests  
 
-
 def ari():
 
     book = requests.get('http://www.gutenberg.org/cache/epub/23540/pg23540.txt')
@@ -11,10 +10,12 @@ def ari():
     character = chars(text)
     words = word(text)
     sentences = sentence(text)
+    
 
-    ari = f'4.71 * ({chars}/{words}) + 0.5 * ({words}/{sentences}) -21.43'
+    ari = 4.71 * (character/words) + 0.5 * (words/sentences) -21.43
+    rounded = math.ceil(ari)
 
-    ari = math.ceil(4.71 * (chars/words) + 0.5 * (words/sentences) -21.43)
+    # ari = math.ceil(4.71 * (chars/words) + 0.5 * (words/sentences) -21.43)
             
 
     ari_scale = {
@@ -35,7 +36,7 @@ def ari():
         }
 
 
-    print (f"The ARI score is {ari}\n which correlates to the {ari_scale[ari]['grade_level']} level\nwhich is appropriate for ages {ari_scale[ari]['ages']}.")
+    print (f"The ARI score is {rounded}\n which correlates to the {ari_scale[rounded]['grade_level']} level\nwhich is appropriate for ages {ari_scale[rounded]['ages']}.")
 
 
 def chars(text):
@@ -43,7 +44,10 @@ def chars(text):
     for chars in text:
         if chars.isalpha():
             character +=1
+    
     return character
+
+
 
 punctuation = r',@#$%^&&**():;'
 
@@ -52,13 +56,15 @@ def word(text):
     for i in range(len(counting)):
         counting[i] = counting[i].strip(punctuation)
     some = len(counting)
+    
     return some
 
-def sentences(text):
+def sentence(text):
     count_sentence = 0
     for char in text:
         if char in [',', '!', '?']:
             count_sentence += 1
-    return count_sentences
+    
+    return count_sentence
 
 ari()
