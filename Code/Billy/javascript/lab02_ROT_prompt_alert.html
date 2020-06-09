@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROTn Cipher</title>
+</head>
+<body>
+    <script>
+        let text = prompt('Enter characters for encryption...')
+        let num = prompt('Enter amount of ROTATION...')
+        
+        let output = '' 
+        for (let  i = 0; i < text.length; i++) {
+            let code = text.charCodeAt(i) 
+        if (97 <= code && code <= 122) {
+            code -= 97 
+            output = output.concat(String.fromCharCode((code + num)%26 + 97))
+        } else if (65 <= code && code <= 90) {
+            code -= 65 
+            output = output.concat(String.fromCharCode((code + num)%26 + 65))
+        } else {
+            output = output.concat(String.fromCharCode(code))
+        }    
+        }
+        
+        alert(`${output}`) 
+    
+    </script>  
+</body>
+</html>
