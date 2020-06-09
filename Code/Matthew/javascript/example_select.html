@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="select_fruits">
+        <option value="apples">Apples</option>
+        <option value="bananas">Bananas</option>
+        <option value="pears">Pears</option>
+    </select>
+    <button id="btn_select">select</button>
+    <script>
+        let select_fruits = document.querySelector('#select_fruits')
+        let btn_select = document.querySelector('#btn_select')
+        btn_select.addEventListener('click', function() {
+            alert(select_fruits.value)
+            alert(select_fruits.options[select_fruits.selectedIndex].value)
+        })
+
+        // text = 'hello world abc 123 llama'
+        // index = 10
+        // part1 = text.slice(0, index)
+        // part2 = text.slice(index, text.length)
+        // console.log(part1)
+        // console.log(part2)
+
+
+    </script>
+</body>
+</html>
