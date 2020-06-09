@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // indices      0           1          2        3
+        // length is 4
+        let fruits = ['apples', 'bananas', 'pears', 'cherries']
+        function random_choice(array) {
+            let random_index = Math.floor(Math.random()*array.length)
+            return array[random_index]
+        }
+
+        // for (let i=0; i<100; ++i) {
+        //     console.log(random_choice(fruits))
+        // }
+
+        // get a random number between a and b inclusive
+        function random_randint(a, b) {
+            // b-a is the range of our random number
+            return Math.round(a + Math.random()*(b-a))
+        }
+
+        function random_boolean() {
+            return Math.random() > 0.5
+        }
+        // for (let i=0; i<100; ++i) {
+        //     console.log(random_boolean())
+        // }
+        
+        // Math.random() gives you a random number between 0 and 1
+        // inclusive on the lower bound (0) and exclusive on the upper bound (1)
+        // for (let i=0; i<100; ++i) {
+        //     console.log(Math.random())
+        // }
+        
+        // multiplying by a number is like stretching the range out
+        // for (let i=0; i<100; ++i) {
+        //     console.log(Math.floor(Math.random()*100))
+        // }
+
+        // adding by a number shifts the range along the number line
+        // for (let i=0; i<100; ++i) {
+        //     console.log(Math.floor(10 + Math.random()*10))
+        // }
+    </script>
+</body>
+</html>
