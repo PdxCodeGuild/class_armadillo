@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('urlshortener/', include('url_shortener.urls')),
     path('polls/', include('polls.urls')),
     path('todoapp/', include('todoapp.urls')),
     path('pokeapp/', include('pokeapp.urls')),

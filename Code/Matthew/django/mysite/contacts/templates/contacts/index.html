@@ -8,7 +8,7 @@
     <div>
         <form action="{% url 'contacts:index' %}" method="post">
             {% csrf_token %}
-            <input type="text" placeholder="enter some text" name="search" value="{{search}}"/>
+            <input type="text" placeholder="enter some text" name="search_text" value="{{search}}"/>
             <button class="btn btn-primary" type="submit">search</button>
         </form>
         <a href="{% url 'contacts:new' %}" class="btn btn-primary">New Contact</a>

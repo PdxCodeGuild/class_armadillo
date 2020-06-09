@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input_name" type="text" placeholder="enter your name"/>
+    <button id="btn_say_hello">say hello!</button>
+    <span id="span_output"></span>
+    <script>
+        // get elements out of the html and into javascript
+        // document.querySelector takes a css selector
+        let input_name = document.querySelector('#input_name')
+        let btn_say_hello = document.querySelector('#btn_say_hello')
+        let span_output = document.querySelector('#span_output')
+        // the function(evt) is the callback function - a function passed as a parameter to another function
+        // we declarated a function inside the parameter list of addEventListener
+        btn_say_hello.addEventListener('click', function(event) {
+            // alert('hi!')
+            let name = input_name.value // get the value out of the input element
+            span_output.innerText = 'Hello ' + name + '!' // set the inner text of the output span
+            span_output.innerText = `Hello ${name}!` // template literal, basically an f-string
+        })
+
+        // less standard way of setting an event listener
+        // function say_hello() {
+        //     alert('hi!')
+        // }
+        // btn_say_hello.addEventListener('click', say_hello)
+        
+        // btn_say_hello.onclick = function() {
+        //     alert('hi!')
+        // }
+
+        
+        // you can call functions and just leave out parameters
+        // function add(a, b) {
+        //     console.log(a)
+        //     console.log(b)
+        //     return a + b
+        // }
+        // console.log(add(5, 2))
+        // console.log(add(5))
+        // console.log(add())
+        
+        // you can pass parameters when they aren't asked for or expected
+        // function say_hello() {
+        //     console.log('hello!')
+        // }
+        // say_hello()
+        // say_hello(5, 78)
+
+
+        // x = 2
+        // y = 2
+        // if (x < 10 && y < 10) {
+        // }
+        // if (x < 10 || y < 10) {
+        // }
+
+        let fruits = 'apples, bananas, pears'
+        fruits = fruits.split(', ') // string -> array of strings
+        console.log(fruits) // ["apples", "bananas", "pears"]
+        fruits = fruits.join(' - ')
+        console.log(fruits) // apples - bananas - pears
+        
+    </script>
+</body>
+</html>

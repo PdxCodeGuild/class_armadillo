@@ -1,12 +1,8 @@
-{% load static %}
 
-    <title>Pokemon Data</title>
+   {% extends 'pokedex/base.html' %} 
+   {% block title %}<title>Pokemon Data</title> {% endblock %}
 
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'contacts/style.css' %}"
-    />
+    {% block content %}
   </head>
 
   <body>
@@ -15,12 +11,9 @@
         <tr>
           <th scope="col">{{pokemon.name}}</th>
           <th scope="col">{{pokemon.id}}</th>
-          <th scope="col">{{pokemon.image_front}}</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-          <th scope="col"></th>
+          {% for t in types %}
+          <th scope="col">{{t}}</th>
+            {% endfor %}
         </tr>
       </thead>
     </table>
@@ -59,30 +52,14 @@
         name="weight"
         value="{{pokemon.weight}}"
       />
-      <label for="fimg">Front Image</label>
-      <input
-        type="text"
-        class="form-control"
-        id="fimg"
-        name="front_image"
-        value="{{pokemon.p.image_front}}"
-      />
-      <label for="bimg">Back Image</label>
-      <input
-        type="text"
-        class="form-control"
-        id="bimg"
-        name="back_image"
-        value="{{pokemon.p.image_back}}"
-      />
-      <label for="types">Types</label>
-      <input
-        type="manytomany"
-        class="form-control"
-        id="types"
-        name="types"
-        value="{{pokemon.types.all}}"
-      />
+      <label for="frontal">Front</label>
+      <img src="{{pokemon.image_front}}" />
+      <label for="back">Rearview</label>
+      <img src="{{pokemon.image_back}}" />
+      <label for="types">Types: </label>
+      {% for t in types %}
+        {{t}}
+      {% endfor %}
     </div>
 
     <script
@@ -105,3 +82,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   </body>
 </html>
+
+{% endblock %}

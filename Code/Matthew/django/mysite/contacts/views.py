@@ -17,8 +17,9 @@ def index(request):
     contacts = Contact.objects.all().order_by('last_name')
     search = ''
     if request.method == 'POST':
-        search = request.POST['search']
-        # contacts = contacts.filter(last_name__icontains=search, first_name__icontains=search)
+        # print(request.POST)
+        search = request.POST['search_text']
+        # contacts = contacts.filter(last_name__icontains=search)
         contacts = contacts.filter(Q(first_name__icontains=search)
                                 | Q(last_name__icontains=search)
                                 | Q(email__icontains=search)
