@@ -9,6 +9,9 @@ class PokemonType(models.Model):
     def __str__(self):
         return self.name
 
+class Meta:
+    ordering = ['name']
+
 class Pokemon(models.Model):
     number = models.IntegerField()
     name = models.CharField(max_length=50)
@@ -19,4 +22,4 @@ class Pokemon(models.Model):
     types = models.ManyToManyField(PokemonType)
 
     def __str__(self):
-        return self.name
+        return str(self.number) + '' + self.name

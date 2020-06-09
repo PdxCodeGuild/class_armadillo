@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div_output {
+            color:red;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- html elements we'll use -->
+    <div>
+        <input id="input_noun" type="text" placeholder="noun"/>
+        <input id="input_number" type="text" placeholder="number"/>
+        <input id="input_plural_noun" type="text" placeholder="plural noun"/>
+        <button id="btn_generate">Generate Mad Lib</button>
+    </div>
+    <div id="div_output"></div>
+
+    <!-- script -->
+    <script>
+        // get elements out of html and into javascript
+        let input_noun = document.querySelector('#input_noun')
+        let input_number = document.querySelector('#input_number')
+        let input_plural_noun = document.querySelector('#input_plural_noun')
+        let btn_generate = document.querySelector('#btn_generate')
+        let div_output = document.querySelector('#div_output')
+
+        // div_output.innerText = 'hello!'
+        // div_output.innerHTML = '<b>hi!</b>'
+        // div_output.style.color = 'red'
+        // div_output.style.backgroundColor = 'green'
+
+        btn_generate.addEventListener('click', function() {
+            // get the text the user entered into the input elements
+            let noun = input_noun.value
+            let number = input_number.value
+            let plural_noun = input_plural_noun.value
+            // use a template literal (f-string) to build a sentence
+            let sentence = `Today I went to the ${noun} and bought ${number} ${plural_noun}`
+            // set the inner text of our output div
+            div_output.innerText = sentence
+        })
+
+
+    </script>
+</body>
+</html>
