@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div_output{
+            color: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+    <!--html elements-->
+        <input id="input_charlie" type="text" placeholder="human's name"/>
+        <input id="input_desi" type="text" placeholder="another human's name"/>
+        <input id="input_troy" type="text" placeholder="another human's name"/>
+        <button id="btn_now">Do This MADLIB</button>
+    </div>
+
+    <div id="random"></div>
+    <!--script-->
+    <script>
+    let input_charlie = document.querySelector('#input_charlie')
+    let input_desi = document.querySelector('#input_desi')
+    let input_troy = document.querySelector('#input_troy')
+
+
+
+    btn_now.addEventListener('click', function(){
+        // get the text the user entered (input elements)
+        let charlie = input_charlie.value
+        let desi = input_desi.value
+        let troy = input_troy.value
+
+        three = `At study hall ${desi}, ${troy}, and ${charlie} learned how to study.`
+
+        random.innerText = three
+    })
+
+
+    </script>
+
+
+</body>
+</html>
