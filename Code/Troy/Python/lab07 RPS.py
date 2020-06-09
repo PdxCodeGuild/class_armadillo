@@ -46,20 +46,18 @@ while True:
         print("Damn, you win!  Paper covers rock.")        
     elif user_move == "rock" and computer == "scissors":
         print("Boom! You lose Sucka!  Rock smashes scissors.")
-    elif user_move == "rock" and computer == "rock":
-        print("Crapsticks! It is a tie!")
+    # elif user_move == "rock" and computer == "rock":
+    #     print("Crapsticks! It is a tie!")
     elif user_move == "scissors" and computer == "paper":
         print("Boom! You lose Sucka!  Scissors cut paper.")
     elif user_move == "scissors" and computer == "rock":
         print("Damn, you win!  Rock smashes scissors.")
-    elif user_move == "scissors" and computer == "scissors":
-        print("Crapsticks! It is a tie!")
+    # elif user_move == "scissors" and computer == "scissors":
+    #     print("Crapsticks! It is a tie!")
     elif user_move == "paper" and computer == "rock":
-        print("Damn, you win!  Paper covers rock.")
-    elif user_move == "paper" and computer == "scissors":
         print("Boom! You lose Sucka!  Scissors cut paper.")
-    elif user_move == "paper" and computer == "paper":
-        print("Crapsticks! It is a tie!")
+    elif user_move == "paper" and computer == "scissors":
+        print("Damn, you win!  Paper covers rock.")
     elif user_move == computer:
         print("Crapsticks! It is a tie!")
     # gives a time lapse before starting the sequence over.
