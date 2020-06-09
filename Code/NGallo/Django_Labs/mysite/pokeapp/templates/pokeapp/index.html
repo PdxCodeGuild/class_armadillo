@@ -37,12 +37,13 @@
             <img class="pokemon_front_picture" src="{{pokemon.image_front}}">
           </div>
           <div class="types_div">
-            {% for type in pokemon.types.all %} {{type}} {% endfor %}
+            {% for type in pokemon.types.all %} {{type}} <br/> {% endfor %}
           </div>
         </a>
       </li>
       {% endfor%}
     </ul>
+    <a href="{% url 'pokeapp:index' %}">return to top</a>
   </main>
   <footer class="footer">Nick Gallo | Class_Armadillo | &copy 2020</footer>
 </body>

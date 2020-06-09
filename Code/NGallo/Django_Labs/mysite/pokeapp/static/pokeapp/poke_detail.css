@@ -29,11 +29,42 @@ p {
   align-items: center;
 }
 .pokemon_name{
-  padding-left: 20px;
-  padding-bottom: 15px;
+  position: absolute;
+    left: 20px;
+    top: 6px;
+}
+.pokemon_card_images{
+  position: absolute;
+  top: 71px;
+    left: 31px;
+}
+.pokemon_back_picture{
+  width: 120px;
+  height: 120px;
+
+}
+.pokemon_front_picture{
+  width: 120px;
+  height: 120px;
+}
+.types_div{
+  position: absolute;
+  bottom: 50px;
+  left: 71px;
+}
+.attributes{
+  position: absolute;
+  bottom: 130px;
+    left: 51px;
+}
+.pokemon_number{
+  position: absolute;
+  bottom: 10px;
 }
 .podex_div{
-    width: 250px;
+   position: relative;
+   margin: 0 auto;
+   width: 250px;
     height: 395px;
     background: url("../pokeapp/images/pokemon_card_details.jpg");
     background-repeat: no-repeat;
@@ -56,10 +87,13 @@ ul {
 }
 
 .bottom_nav_bar{
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 20px;
     text-decoration: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 /* unvisited link */
@@ -81,6 +115,7 @@ a:link {
   a:active {
     color: yellow;
   }
+ 
 .footer {
     margin-top: 20px;
     display: flex;

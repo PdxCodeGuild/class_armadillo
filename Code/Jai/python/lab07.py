@@ -8,6 +8,7 @@ user = input("choose rock paper or scissors: ")
 computer = random.choice(choices)
 print(computer)
 ​
+
 if user  == "rock" and computer == "paper":
     print("you lose!")
 elif user == "rock" and computer == "scissors": 
