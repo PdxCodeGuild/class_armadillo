@@ -156,28 +156,55 @@
     // console.log(eveneven([5, 6, 4, 9, 2, 8])) //true
     // Problem 10 --------------------------------------------------------------
     // Return a new array containing an every other number
-    function every_other(nums) {
-        count = 0
-        for(let i = 0; i<nums.length; i++){
-            if(nums[i]%2 == 0)
-        }
-    }
-    //console.log(every_other([0, 1, 2, 3, 4, 5, 6, 7, 8])) // 0, 2, 4, 6, 8
-
+    // function every_other(nums) {
+    //     count = []
+    //     for(let i = 0; i<nums.length; i+=2){
+    //         console.log(i)
+    //         count.push(nums[i])
+            
+    //     }
+    //     return count
+    // }
+    // console.log(every_other([0, 1, 2, 3, 4, 5, 6, 7, 8])) // 0, 2, 4, 6, 8
+    // console.log(every_other([13, 25, 63, 41, 12])) // 0, 2, 4, 6, 8
     // Problem 11 --------------------------------------------------------------
-    // Given a list of numbers, and a target number, find a pair of numbers from the list that sum to a target number. Optional: return a list of all pairs of numbers that sum to a target value.
-    function find_pair(nums, target) {
-        // your code here
-    }
-    //console.log(find_pair([5, 6, 2, 3], 7)) // [5, 2]
+    // Given a list of numbers, and a target number, 
+    // find a pair of numbers from the list that sum to a target number. 
+    // Optional: return a list of all pairs of numbers that sum to a target value.
+    // function find_pair(nums, target) {
+    //     numbers = []
+    //     for(let i=0; i<nums.length; i++){
+    //         // console.log(nums[i])
+    //         for(let j=0; j<nums.length; j++){
+    //             // console.log(nums[i],nums[j])
+    //             if(nums[i] + nums[j] == target){
+    //                 return [nums[i],nums[j]]
+           
+    //             } 
+    //         }
+    //     }
+    //     return `none of the numbers in array sum to ${target}`
+    // }
+    // console.log(find_pair([5, 6, 2, 3], 7)) // [5, 2]
 
 
     // Problem 12 --------------------------------------------------------------
-    // Write a function that takes `n` as a parameter, and returns a list containing the first n Fibonacci Numbers - https://en.wikipedia.org/wiki/Fibonacci_number.
+    // Write a function that takes `n` as a parameter, 
+    // and returns a list containing the first n Fibonacci Numbers 
+    // - https://en.wikipedia.org/wiki/Fibonacci_number.
     function fibonacci(n) {
-        // your code here
+        fibo = []
+        while(fibo.length<n){
+            if(fibo.length <2){
+                fibo.push(1)
+                
+            
+            }else{fibo.length-1 + fibo.length-2.push
+
+            }
+        }
     }
-    // console.log(fibonacci(8)) // [1, 1, 2, 3, 5, 8, 13, 21]
+    console.log(fibonacci(8)) // [1, 1, 2, 3, 5, 8, 13, 21]
 </script>
 </body>
 </html>
