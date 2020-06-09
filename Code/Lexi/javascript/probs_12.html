@@ -209,35 +209,129 @@ console.log(extract_less_than_ten([2, 8, 12, 18])) // [2, 8]
 
 // // Problem 9 --------------------------------------------------------------
 // // Write a function that takes a list of numbers, and returns True if there is an even number of even numbers.
-// function eveneven(nums) {
-//     // your code here
-// }
-// //console.log(eveneven([5, 6, 2])) // true
-// //console.log(eveneven([5, 5, 2])) // false
+function eveneven(nums) {
+    // check if array has even nums
+    // create a counter, then depending on if the counter is even or odd, return a true or false
+    // if statement
+    // STEP 1. keep track of even numbaz
+    let count = 0
+    // length of array
+    for(num of nums){
 
-// // Problem 10 --------------------------------------------------------------
-// // Return a new array containing a every ither number
-// function every_other(nums) {
-//     // your code here
-// }
-// //console.log(every_other([0, 1, 2, 3, 4, 5, 6, 7, 8])) // 0, 2, 4, 6, 8
+        // checking if num is EVEN or ODD
+        if(num%2 === 0 ){
+        //no return - that will break loop
+        count++
+        }
+
+
+    // this if-else tells you if there is an EVEN or ODD count
+    }
+    if(count%2===0){
+        return true
+    }else{
+        return false
+    }
+    
+}
+
+// RESULT: 
+// eveneven([4,5,6,7,8,9])
+// false
+// eveneven([4,5,6,7,8,9,10])
+// true
+
+// // Problem 10  for index, element in enumerate(iterable) t--------------------------------------------------------------
+// // Return a new array containing a every other number
+function every_other(nums) {
+    // your code here
+    let x = []
+    // passing in an array, so 'in' keyword can be used
+    for(i in nums){
+        if(i%2 === 0){
+            // this is how we 'append' in JS
+            x.push(nums[i])
+        }
+    }
+    return x //(5) [0, 2, 4, 6, 8]  AND [90, 22, 14, 36, 98]
+    // for(num of nums){
+    // x.push(nums[,,2])
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+    // return nums.slice( , ,2)
+ }
+
+console.log(every_other([90, 31, 22, 43, 14, 45, 36, 67, 98])) // 0, 2, 4, 6, 8
+
 
 // // Problem 11 --------------------------------------------------------------
 // // Given a list of numbers, and a target number, find a pair of numbers from the list that sum to a target number. Optional: return a list of all pairs of numbers that sum to a target value.
-// function find_pair(nums, target) {
-//     // your code here
-// }
-// //console.log(find_pair([5, 6, 2, 3], 7)) // [5, 2]
+
+function find_pair(nums, target) {
+    let x = 0
+    while(x<nums.length){
+
+    // STEP 1. for loop to iterate over indices
+    // STEP 2. if-else statement
+    // STEP 3. create empty list
+    // STEP 4. start for loop at '1'
+    // STEP 5. compare value of the two numbers so that they can sum the target number
+    // STEP 6. put it in a while loop
+    
+    for (let i=x+1; i <nums.length; i++){
+        // add value of first index with second value in array and checking if it's the TARGET number
+        console.log(x)
+        console.log(i)
+        console.log(x+i)
+        if (nums[x] + nums[i] === target){
+            let list = [nums[x], nums[i]]
+            return list
+        }
+    }
+    // while loop is checking on base number - that number doesn't iterate until it counts over all
+    // secondary number is in the for loop - that's why increment is outside of for loop
+        x++
+}
+}
+console.log(find_pair([1, 4, 5, 2, 3], 8)) // [5, 2]
+// SOURCE: https://www.w3resource.com/javascript-exercises/javascript-array-exercise-26.php
 
 
 // // Problem 12 --------------------------------------------------------------
 // // Write a function that takes `n` as a parameter, and returns a list containing the first n Fibonacci Numbers - https://en.wikipedia.org/wiki/Fibonacci_number.
-// function fibonacci(n) {
-//     // your code here
-// }
-// // console.log(fibonacci(8)) // [1, 1, 2, 3, 5, 8, 13, 21]
+function fibonacci(n) {
+    // pass it a number known as 'n'
+    // all inside while loop that says, while array is NOT at parameter that was passed, we make it longer
+
+    //start with empty list
+    let list = [1,1]
+    //passing the array a number to compare it to target number
+    while( list.length < n ){
+        // take highest index and add it to number before it
+        // very first number must add to itself
+        list.push(list[list-1])
+}
+console.log(fibonacci(8)) // [1, 1, 2, 3, 5, 8, 13, 21]
 
 // ```
+function find_pair(nums, target) {
+    let x = 0
+    while(x<nums.length){
+
+    for (let i=x+1; i <nums.length; i++){
+     
+        console.log(x)
+        console.log(i)
+        console.log(x+i)
+        if (nums[x] + nums[i] === target){
+            let list = [nums[x], nums[i]]
+            return list
+        }
+    }
+        x++
+}
+}
+
+
     </script>
 </body>
 </html>
