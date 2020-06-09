@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+</head>
+<body>
+    <script>
+        let conv_rate= {
+            ft: .3048,
+            mi: 1609.34,
+            m: 1,
+            km: 1000,
+            yd: .9144,
+            in: .0254,
+        } 
+
+        let user_dist = prompt('Please enter distance...')
+        let user_unit_orig = prompt('Please enter units to CONVERT (ft, mi, m, km, yd, in)...').toLowerCase()
+        let user_unit_desired = prompt('Please enter DESIRED units (ft, mi, m, km, yd, in)...').toLowerCase()
+        dist_meters = user_dist * conv_rate[user_unit_orig]
+        dist_new = dist_meters / conv_rate[user_unit_desired]
+        alert(`${user_dist} ${user_unit_orig} equals ${dist_new} ${user_unit_desired}`)
+    </script>  
+</body>
+</html>

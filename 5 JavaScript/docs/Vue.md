@@ -4,6 +4,18 @@
 # Vue.js
 
 
+- [Vue.js](#vuejs)
+  - [Overview](#overview)
+  - [1 Rendering Values](#1-rendering-values)
+  - [2 Setting Attributes](#2-setting-attributes)
+  - [3 Conditionals](#3-conditionals)
+  - [4 Loops](#4-loops)
+  - [5 Input Fields](#5-input-fields)
+  - [6 Event Listeners](#6-event-listeners)
+  - [7 Lifecycle Hooks](#7-lifecycle-hooks)
+
+## Overview
+
 Front-end frameworks like **Vue**, **React** (Facebook), and **Angular** (Google) can be used to create complex, interactive web pages. The principle advantage they offer is the separation of *display* and *data*. Developing complex pages in [vanilla JavaScript](http://vanilla-js.com/) becomes cumbersome and messy, every time an value is updated, certain HTML elements must be created or hidden, have its style changed, have its inner text changed, etc. Libraries like **Vue.js** allows  the HTML section to decide how things are displayed and allows the JavaScript section to decide how data is processed.
 
 

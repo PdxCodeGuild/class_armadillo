@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Mob Coded with Keegan, Billy, Desi, Nicholas, Vlad, and Russell
+        // fundamentals ===================================================
+    // ================================================================
+
+    // Problem 1 ------------------------------------------------------
+    // Write a function that tells whether a number is even or odd
+    // function is_even(a) {
+    //     // simpler single line solution:
+    //     return a % 2 == 0
+        // more complex solution:
+        // if(a % 2 == 0){
+        //     return true
+        // }
+        // else {
+        //     return false}
+    // }
+    // console.log(is_even(5)) // False
+    // console.log(is_even(6)) // True
+
+
+    // Problem 2 ------------------------------------------------------
+    // Write a function that takes two integers, 'a' and 'b', and returns 'true' if one is positive and the other is negative, and return 'false' otherwise.
+    // function opposite(a, b) {
+    //     return a * b < 0 
+    // }
+    // console.log(opposite(10, -1)) // True
+    // console.log(opposite(2, 3)) // False
+    // console.log(opposite(-1, -1)) // False
+
+    // Problem 3 ------------------------------------------------------
+    // Write a function that returns the maximum of 3 parameters.
+    // function maximum_of_three(a, b, c) {
+    //     return Math.max(a,b,c)
+    // }
+    // console.log(maximum_of_three(5,6,2)) // 6
+    // console.log(maximum_of_three(-4,3,10)) // 10
+
+
+
+    // strings ========================================================
+    // ================================================================
+
+    // Problem 4 ------------------------------------------------------
+    // Get a string from the user, print out another string, doubling every letter.
+    // function double_letters(word) {
+    //     let a = ''
+    //     for(let i = 0; i<word.length; i++){
+    //     // adding letters together twice:
+    //     // a += word[i]+word[i]
+       
+    //     // with repeat JS string method:
+    //     a += word[i].repeat(2)
+    //     // console.log(word[i]+word[i])
+    //     }
+    //     return a    
+
+    // }
+    // console.log(double_letters('hello')) // hheelllloo
+
+    // Problem 5 ------------------------------------------------------
+    // Return the number of letter occurances in a string.
+    // function count_letter(letter, word) {
+    //     letter_count = 0
+    //     for(let i=0; i<word.length; i++){
+    //         if(word[i] == letter)
+    //         letter_count += 1
+    //     }
+    //         return letter_count
+    // }
+    // console.log(count_letter('i', 'antidisestablishmentterianism')) // 5
+    // console.log(count_letter('p', 'pneumonoultramicroscopicsilicovolcanoconiosis')) // 2
+
+    // Problem 6 ------------------------------------------------------
+    // Return the letter that appears the latest in the english alphabet.
+    // function latest_letter(word) {
+    //     //chaining methods(split word, then sort):
+    //     latest = (word.split('').sort())
+        
+    //     //with slice method
+    //     // return latest.slice(-1)[0]
+       
+    //     // //subtracting 1 from length to get last letter
+    //     // return latest[latest.length - 1]
+        
+    //     //one line solution:
+    //     return word.split('').sort()[word.length-1]
+    // }    
+    // console.log(latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis')) // v
+
+    // Problem 7 ------------------------------------------------------
+    // // Write a function that returns the number of occurances of 'hi' in a given string.
+    // function count_hi(text) {
+        //single line solution using Regex:
+        // return (text.match(new RegExp('hi','g'))||[]).length
+        
+        //multiline solution:
+        // count = 0
+        // for(let i = 0; i<text.length-1; i++){
+        //     if(text[i] == 'h' && text[i+1] == 'i'){
+        //     count += 1    
+        //     }
+        // }
+        // return count
+    // }
+    // console.log(count_hi('hihi')) // 2
+
+
+
+    // arrays =====================================================
+    // ============================================================
+
+    // Problem 8 --------------------------------------------------------------
+    // Write a function to move all the elements of a list with value less than 10 to a new list and return it.
+    // function extract_less_than_ten(nums) {
+    //     less_than_10 = []
+    //     // using foreach, defining function inline(use for addEventListener)
+    //     nums.forEach(function(num){(
+    //         if (num < 10){
+    //             less_than_10.push(num)
+    //             }
+    //     })
+
+    //     // iterating over array, then pushing to new list
+    //     // for(let i = 0; i<nums.length; i++){
+    //     //     if (nums[i] < 10){
+    //     //         less_than_10.push(nums[i])
+    //     //         }
+    //     // }
+    //         return less_than_10
+    // }
+    // console.log(extract_less_than_ten([2, 8, 12, 18])) // [2, 8]
+
+    // Problem 9 --------------------------------------------------------------
+    // Write a function that takes a list of numbers, and returns True if there is an even number of even numbers.
+    // function eveneven(nums) {
+    //     count = 0
+    //     for(let i = 0; i<nums.length; i++){
+    //         if(nums[i]%2 == 0){
+    //             count += 1
+    //         }
+    //         console.log(nums[i], count)
+    //     }
+    //     return count % 2 == 0
+    // }
+    // console.log(eveneven([5, 6, 2])) // true
+    // console.log(eveneven([5, 5, 2])) // false
+    // console.log(eveneven([5, 6, 4, 9, 2, 8])) //true
+    // Problem 10 --------------------------------------------------------------
+    // Return a new array containing an every other number
+    function every_other(nums) {
+        count = 0
+        for(let i = 0; i<nums.length; i++){
+            if(nums[i]%2 == 0)
+        }
+    }
+    //console.log(every_other([0, 1, 2, 3, 4, 5, 6, 7, 8])) // 0, 2, 4, 6, 8
+
+    // Problem 11 --------------------------------------------------------------
+    // Given a list of numbers, and a target number, find a pair of numbers from the list that sum to a target number. Optional: return a list of all pairs of numbers that sum to a target value.
+    function find_pair(nums, target) {
+        // your code here
+    }
+    //console.log(find_pair([5, 6, 2, 3], 7)) // [5, 2]
+
+
+    // Problem 12 --------------------------------------------------------------
+    // Write a function that takes `n` as a parameter, and returns a list containing the first n Fibonacci Numbers - https://en.wikipedia.org/wiki/Fibonacci_number.
+    function fibonacci(n) {
+        // your code here
+    }
+    // console.log(fibonacci(8)) // [1, 1, 2, 3, 5, 8, 13, 21]
+</script>
+</body>
+</html>

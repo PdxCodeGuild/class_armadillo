@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madlib</title>
+</head>
+<body>
+    <div>
+        <input id="bodypart" type="text" placeholder="enter a bodypart"/>
+        <input id="large_object" type="text" placeholder="enter a large thing"/>
+        <input id="item_adj" type="text" placeholder="enter an adjective"/>
+        <input id="creation_process" type="text" placeholder="enter a verb"/>
+        <input id="items" type="text" placeholder="enter an item(plural)"/>
+        <input id="tool" type="text" placeholder="enter a tool"/>
+        <input id="complicated_subject" type="text" placeholder="enter a field of study"/>
+        <input id="adjective" type="text" placeholder="enter a adjective"/>
+        <button id="generate">Submit</button>
+    </div>
+
+    <div id="div_output"></div>
+    
+    <script>
+        let input_bodypart = document.querySelector('#bodypart')
+        let input_large_object = document.querySelector('#large_object')
+        let input_item_adj = document.querySelector('#item_adj')
+        let input_creation_process = document.querySelector('#creation_process')
+        let input_items = document.querySelector('#items')
+        let input_tool = document.querySelector('#tool')
+        let input_complicated_subject = document.querySelector('#complicated_subject')
+        let input_adjective = document.querySelector('#adjective')
+        let generate = document.querySelector('#generate')
+
+        generate.addEventListener('click', function() {
+            let bodypart = input_bodypart.value
+            let large_thing = input_large_object.value
+            let item_adj =  input_item_adj.value
+            let creation_process = input_creation_process.value
+            let items = input_items.value
+            let tool = input_tool.value
+            let complicated_subject = input_complicated_subject.value
+            let adjective = input_adjective.value
+
+            let answer = `Egyptian men and women wore makeup. It was thought to have healing powers, it helped protect their ${bodypart} from (the) ${large_thing}.
+            They used ${item_adj} {item} to help with infections. They were one of the first civilizations to invent writing. They also used ink
+            to write and paper called papyrus. The Ancient Egyptians were scientists and mathematicians. They had numerous inventions
+            including ways to ${creation_process} ${items}, medicine, cosmetic the calendar, the ${tool} for farming, musical instruments, and even
+            ${complicated_subject}. They were truly a(n) ${adjective} people.`
+        
+            div_output.innerText = answer
+        })
+    </script>
+</body>
+</html>
