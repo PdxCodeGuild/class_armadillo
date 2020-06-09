@@ -1,7 +1,20 @@
 
 # APIs and AJAX
 
-See also: [The Internet](../../0%20Intro/The%20Internet.md)
+
+- [APIs and AJAX](#apis-and-ajax)
+  - [API](#api)
+  - [AJAX](#ajax)
+    - [AJAX in Axios](#ajax-in-axios)
+      - [Setting Query Parameters](#setting-query-parameters)
+      - [Setting Custom Request Headers](#setting-custom-request-headers)
+      - [Sending Data](#sending-data)
+    - [AJAX in Vanilla JavaScript](#ajax-in-vanilla-javascript)
+    - [AJAX in jQuery](#ajax-in-jquery)
+  - [CORS](#cors)
+  - [JSONP](#jsonp)
+
+See also: [Networking](../../0%20General/08%20-%20Networking.md)
 
 ## API
 

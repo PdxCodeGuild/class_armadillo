@@ -1,6 +1,17 @@
 
 # Python and JavaScript
 
+- [Python and JavaScript](#python-and-javascript)
+  - [Quick Comparison](#quick-comparison)
+  - [If Statements](#if-statements)
+  - [While Loops](#while-loops)
+  - [For Loops](#for-loops)
+  - [Modulus](#modulus)
+    - [Modulus in Python](#modulus-in-python)
+    - [Modulus in JavaScript](#modulus-in-javascript)
+
+## Quick Comparison
+
 In Python `if`, `while` and `for` don't require parentheses, have colons, and use indentation to define the body. In JavaScript, these statements **do** require parentheses, don't have a colon, and require curly braces to define the body. If you don't write curly braces, the next statement will be considered the body.
 
 | Python | JavaScript |
@@ -16,6 +27,7 @@ In Python `if`, `while` and `for` don't require parentheses, have colons, and us
 | else: | else {} |
 | while c: | while (c) {} | 
 | for i in range(len(mylist)): | for (let i=0; i<myarray.length; ++i) {} |
+| a if c else b | c? a: b |
 
 
 ## If Statements
@@ -34,15 +46,15 @@ else:
 
 
 ```javascript
-let temperature = prompt('what is the temperature?');
+let temperature = prompt('what is the temperature?')
 if (temperature >= 80) {
-    alert('hot');
+    alert('hot')
 } else if (temperature >= 70) {
-    alert('warm');
+    alert('warm')
 } else if (temperature >= 60) {
-    alert('chilly');
+    alert('chilly')
 } else {
-    alert('cold');
+    alert('cold')
 }
 ```
 
@@ -62,10 +74,10 @@ while i < 10:
 In JavaScript `while` loops need parentheses and use curly braces.
 
 ```javascript
-let i = 0;
+let i = 0
 while (i < 10) {
-    console.log(i);
-    i += 1;
+    console.log(i)
+    i += 1
 }
 ```
 
@@ -91,7 +103,7 @@ for (let i=0; i<10; ++i) {
 
 Modulus works differently in each language for negative numbers.
 
-#### Modulus in Python
+### Modulus in Python
 
 ```python
 for i in range(-4, 5):
@@ -109,7 +121,7 @@ for i in range(-4, 5):
 4%3=1
 ```
 
-#### Modulus in JavaScript
+### Modulus in JavaScript
 
 ```javascript
 for (let i=-4; i<5; ++i) {

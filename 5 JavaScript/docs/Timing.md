@@ -1,6 +1,14 @@
 
 # Timing Events
 
+- [Timing Events](#timing-events)
+  - [Overview](#overview)
+  - [Using setTimeout and clearTimeout](#using-settimeout-and-cleartimeout)
+  - [Using setInterval](#using-setinterval)
+  - [window.requestAnimationFrame](#windowrequestanimationframe)
+
+## Overview
+
 Timing events allow us to delay execution of code, or execute code on a fixed interval, which is useful for many things. You can read more about timing events [here](https://www.w3schools.com/js/js_timing.asp) and [here](https://developer.mozilla.org/en-US/Add-ons/Code_snippets/Timers).
 
 ## Using setTimeout and clearTimeout
