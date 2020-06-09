@@ -1,6 +1,22 @@
 
 # jQuery
 
+- [jQuery](#jquery)
+  - [Overview](#overview)
+  - [Wrappers](#wrappers)
+  - [Executing On Page Load](#executing-on-page-load)
+  - [Selecting Elements](#selecting-elements)
+  - [Getting and Setting Values](#getting-and-setting-values)
+    - [HTML](#html)
+    - [Attributes](#attributes)
+    - [CSS](#css)
+  - [Creating and Appending Elements](#creating-and-appending-elements)
+  - [Events](#events)
+  - [Animation](#animation)
+  - [AJAX](#ajax)
+
+## Overview
+
 [jQuery](https://jquery.com/) is a JavaScript library that can make general DOM manipulation easier, enables some operations that are difficult in 'Vanilla' JS, and standardizes cross-browser compatibility. It's still very popular (and thus worth familiarizing yourself with), but it was more useful in the past. JavaScript got better, and front-end frameworks like Angular, React, and Vue emerged. You shouldn't build complex pages using jQuery because they quickly become unmanageable, but it's still very common and useful for simpler pages. You can learn more about jQuery [here](https://learn.jquery.com/) and [here](https://www.w3schools.com/jquery/default.asp). There's also [jQuery Mobile](http://jquerymobile.com/) and [jQuery UI](https://jqueryui.com/). There's also an [anti-jQuery blog](https://blog.garstasio.com/you-dont-need-jquery/).
 
 

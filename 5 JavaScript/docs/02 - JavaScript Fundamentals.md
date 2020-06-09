@@ -1,11 +1,19 @@
 
 # Fundamentals
 
-You can read more about JavaScript syntax on the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar).
+
+- [Fundamentals](#fundamentals)
+  - [Declaring Variables](#declaring-variables)
+  - [Data Types](#data-types)
+  - [Type Conversion](#type-conversion)
+  - [Comments](#comments)
+  - [Input](#input)
+  - [Output](#output)
+
 
 ## Declaring Variables
 
-There are three ways to declare variables: `var`, `let` and `const`. The only difference between `var` and `let` is that `let` has a more limited scope. In general, `let` is preferable, unless you your code needs to be compatible with older browsers.
+There are three ways to declare variables: `var`, `let` and `const`. The only difference between `var` and `let` is that `let` has a more limited scope. In general, `let` is preferable, unless your code needs to be compatible with older browsers.
 
 ```javascript
 if (2 < 10) {
@@ -54,6 +62,8 @@ let person = {
 person.age += 1;
 person['age'] += 1;
 ```
+
+## Type Conversion
 
 To convert between types, use `parseInt`, `parseFloat` and `toString`.
 

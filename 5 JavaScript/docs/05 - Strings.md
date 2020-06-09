@@ -1,12 +1,24 @@
 
 # Strings
 
-Strings represent text, and can be enclosed in either double-quotes or single-quotes. You can read more about strings [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) and [here](https://www.w3schools.com/js/js_string_methods.asp).
+- [Strings](#strings)
+  - [Overview](#overview)
+  - [String Methods](#string-methods)
+  - [Escape Sequences](#escape-sequences)
+  - [Template Literals](#template-literals)
+  - [Line Continuation](#line-continuation)
+
+
+## Overview
+
+Strings represent text, and can be enclosed in either double-quotes or single-quotes. You can read more about strings [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) and [here](https://www.w3schools.com/js/js_strings.asp).
 
 ```javascript
-let s = 'hello world!';
-let t = "hello world!";
+let a = 'hello world!'
+let b = "hello world!"
 ```
+
+## String Methods
 
 Below are some common operations that can be performed on strings, you can also find a list [here](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Useful_string_methods) and [here](https://www.w3schools.com/js/js_string_methods.asp).
 
@@ -37,7 +49,6 @@ Below are some common operations that can be performed on strings, you can also 
 
 
 
-
 ## Escape Sequences
 
 Escape sequences allow us to enter special characters into our strings.
@@ -53,8 +64,6 @@ Escape sequences allow us to enter special characters into our strings.
 | `\0` | begins an octal character |
 | `\x` | begins a hexidecimal character |
 | `\u` | begins a unicode character (e.g. `\u2665` is `♥`) |
-
-
 
 
 
