@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+    <style>
+    </style>
+</head>
+<body>
+    <input id="input_user" type="text" size="50" placeholder="Choose rock, paper or scissors..."/><br><br>
+    <button id="btn_generate">Fight!</button>
+    <div id="div_output"></div>
+    <script>      
+        let input_user = document.querySelector('#input_user')
+        let btn_generate = document.querySelector('#btn_generate')
+        let div_output = document.querySelector('#div_output')
+        
+        btn_generate.addEventListener('click', function() {
+            let user = input_user.value
+            let choices = ['rock', 'paper', 'scissors']
+            let computer = choices[Math.floor(Math.random() * choices.length)]
+        
+
+            if (user == 'rock' && computer == 'paper') {
+                output = 'Rock bows to paper. You lose!'
+            } else if (user == 'rock' && computer == 'scissors') {
+                output = 'Rock beats scissors. You win!'
+            } else if (user == 'paper' && computer == 'scissors') {
+                output = 'Paper dies to scissors. You lose!'
+            } else if (user == 'paper' && computer == 'rock') {
+                output = 'Paper beats rock. You win!'   
+            } else if (user == 'scissors' && computer == 'paper') {
+                output = 'Scissors beat paper.  You win!'
+            } else if (user == 'scissors' && computer == 'rock') {
+                output = 'Scissors run from rock. You lose!'    
+            } else {
+                output = 'It\'s a tie!'
+            }
+            div_output.innerText = `${output}`
+        })
+        
+    </script>  
+</body>
+</html>

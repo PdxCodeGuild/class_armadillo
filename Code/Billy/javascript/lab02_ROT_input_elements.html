@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROTn Cipher</title>
+    <style>
+    </style>
+</head>
+<body>
+    <input id="input_text" type="text" size="50" placeholder="Enter characters for encryption..."/><br><br>
+    <input id="input_num" type="text" size="50" placeholder="Enter amount of ROTATION..."/><br><br>
+    <button id="btn_generate">Encrypt!</button>
+    <div id="div_output"></div>
+    <script>      
+        let input_text = document.querySelector('#input_text')
+        let input_num = document.querySelector('#input_num')
+        let btn_generate = document.querySelector('#btn_generate')
+        let div_output = document.querySelector('#div_output')
+        
+        btn_generate.addEventListener('click', function() {
+            let text = input_text.value
+            let num = input_num.value
+            let output = '' 
+            for (let  i = 0; i < text.length; i++) {
+                let code = text.charCodeAt(i) 
+            if (97 <= code && code <= 122) {
+                code -= 97 
+                output = output.concat(String.fromCharCode((code + num)%26 + 97))
+            } else if (65 <= code && code <= 90) {
+                code -= 65 
+                output = output.concat(String.fromCharCode((code + num)%26 + 65))
+            } else {
+                output = output.concat(String.fromCharCode(code))
+            }    
+            }
+
+            div_output.innerText = `${output}`
+        })
+
+    </script>  
+</body>
+</html>
