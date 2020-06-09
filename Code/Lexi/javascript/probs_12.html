@@ -305,12 +305,16 @@ function fibonacci(n) {
     //start with empty list
     let list = [1,1]
     //passing the array a number to compare it to target number
-    while( list.length < n ){
+
         // take highest index and add it to number before it
         // very first number must add to itself
-        list.push(list[list-1])
+        for( i=1; (i<n-1) ; i++){
+        // appending
+        list.push(list[i-1] + list[i])
+        }
+        return list //[1, 1, 2, 3, 5, 8, 13, 21, 34]
 }
-console.log(fibonacci(8)) // [1, 1, 2, 3, 5, 8, 13, 21]
+console.log(fibonacci(10)) // [1, 1, 2, 3, 5, 8, 13, 21]
 
 // ```
 function find_pair(nums, target) {
