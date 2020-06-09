@@ -97,14 +97,21 @@
     // console.log(latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis')) // v
 
     // Problem 7 ------------------------------------------------------
-    // Write a function that returns the number of occurances of 'hi' in a given string.
-    function count_hi(text) {
-        count = 0
-        for(let i = 0; i<text.length-1; i++){
-            if (text[i] == 'h' && text[i+1] == 'i')
-        }
-    }
-    console.log(count_hi('hihi')) // 2
+    // // Write a function that returns the number of occurances of 'hi' in a given string.
+    // function count_hi(text) {
+        //single line solution using Regex:
+        // return (text.match(new RegExp('hi','g'))||[]).length
+        
+        //multiline solution:
+        // count = 0
+        // for(let i = 0; i<text.length-1; i++){
+        //     if(text[i] == 'h' && text[i+1] == 'i'){
+        //     count += 1    
+        //     }
+        // }
+        // return count
+    // }
+    // console.log(count_hi('hihi')) // 2
 
 
 
@@ -113,23 +120,47 @@
 
     // Problem 8 --------------------------------------------------------------
     // Write a function to move all the elements of a list with value less than 10 to a new list and return it.
-    function extract_less_than_ten(nums) {
-        // your code here
-    }
-    //console.log(extract_less_than_ten([2, 8, 12, 18])) // [2, 8]
+    // function extract_less_than_ten(nums) {
+    //     less_than_10 = []
+    //     // using foreach, defining function inline(use for addEventListener)
+    //     nums.forEach(function(num){(
+    //         if (num < 10){
+    //             less_than_10.push(num)
+    //             }
+    //     })
+
+    //     // iterating over array, then pushing to new list
+    //     // for(let i = 0; i<nums.length; i++){
+    //     //     if (nums[i] < 10){
+    //     //         less_than_10.push(nums[i])
+    //     //         }
+    //     // }
+    //         return less_than_10
+    // }
+    // console.log(extract_less_than_ten([2, 8, 12, 18])) // [2, 8]
 
     // Problem 9 --------------------------------------------------------------
     // Write a function that takes a list of numbers, and returns True if there is an even number of even numbers.
-    function eveneven(nums) {
-        // your code here
-    }
-    //console.log(eveneven([5, 6, 2])) // true
-    //console.log(eveneven([5, 5, 2])) // false
-
+    // function eveneven(nums) {
+    //     count = 0
+    //     for(let i = 0; i<nums.length; i++){
+    //         if(nums[i]%2 == 0){
+    //             count += 1
+    //         }
+    //         console.log(nums[i], count)
+    //     }
+    //     return count % 2 == 0
+    // }
+    // console.log(eveneven([5, 6, 2])) // true
+    // console.log(eveneven([5, 5, 2])) // false
+    // console.log(eveneven([5, 6, 4, 9, 2, 8])) //true
     // Problem 10 --------------------------------------------------------------
-    // Return a new array containing a every ither number
+    // Return a new array containing an every other number
     function every_other(nums) {
-        // your code here
+        count = 0
+        for(let i = 0; i<nums.length; i++){
+            if(nums[i]%2 == 0)
+        }
     }
     //console.log(every_other([0, 1, 2, 3, 4, 5, 6, 7, 8])) // 0, 2, 4, 6, 8
 
