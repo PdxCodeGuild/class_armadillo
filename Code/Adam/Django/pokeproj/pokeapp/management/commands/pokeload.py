@@ -1,15 +1,17 @@
 from django.core.management.base import BaseCommand
+from ...models import Pokemon, PokemonType
 import requests
 import json
-from pokeapp.models import Pokemon, PokemonType
+import os
 
 
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
+        print(os.getcwd())
 
-        Pokemon.objects.all.delete()
-        PokemonType.objects.all.delete()
+        Pokemon.objects.all().delete()
+        PokemonType.objects.all().delete()
 
         # get json data by sending an http request
         response = requests.get('https://raw.githubusercontent.com/PdxCodeGuild/class_armadillo/master/4%20Django/labs/pokemon.json')
