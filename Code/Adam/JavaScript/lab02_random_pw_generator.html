@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        alert('Welcome to Random Password Generator!')
+        n = prompt('How long would you like your password to be?:')
+        
+        let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+        let numbers = '1234567890'
+        let spec_chars = '!@#$%^&*()_+{}|:"<>?[]\;,./'
+        // var res = str1.concat(str2, str3);
+        let password_pool = alphabet.concat(numbers, spec_chars)
+
+        let i = 0;
+        while (i <= n) {
+            // alert(password_pool)
+            // const randomElement = array[Math.floor(Math.random() * array.length)];
+            let random_password = password_pool[Math.floor(Math.random() * n)]
+            i++;
+            console.log(random_password)
+        }
+    </script>
+</body>
+</html>

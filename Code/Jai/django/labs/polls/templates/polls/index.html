@@ -6,6 +6,8 @@
   <title>Document</title>
 </head>
 <body>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% statuc 'polls/style.css'}">
   {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}

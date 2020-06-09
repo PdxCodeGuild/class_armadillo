@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MadLib</title>
+</head>
+<body>
+    <h1>An Honest Madlib</h1>
+    <div>
+        <input id="in_number1" type="text" placeholder="Enter a noun."/> 
+        <input id="in_adj1" type="text" placeholder="Enter and adjective."/>
+        <input id="in_number2" type="text" placeholder="Pick another number, how about a big one?"?>
+        <input id="in_adj2" type="text" placeholder="Enter another adjective."/>
+        <input id="in_color" type ="text" placeholder="What's your favorite color?"/>
+        <input id="in_body_part" type="text" placeholder="Enter a random body part."/>
+        <input id="in_number3" type="text" placeholder="Let's get one more number."/>
+        <input id="in_noun" type="text" placeholder="Enter a noun."/>
+        <input id="in_place" type="text" placeholder="Where is the last place you visited?"/>
+        <input id="in_job" type="text" placeholder="What was your least favorite job?"/> 
+        <button id="create_madlib">Create Madlib</button>
+    </div>
+    <div id="output"></div>
+    <script>
+        let in_number1 = document.querySelector('#in_number1')
+        let in_adj1 = document.querySelector('#in_adj1')  
+        let in_number2 = document.querySelector('#in_number2')  
+        let in_adj2 = document.querySelector('#in_adj2')  
+        let in_color = document.querySelector('#in_color')  
+        let in_body_part = document.querySelector('#in_body_part')  
+        let in_number3 = document.querySelector('#in_number3')  
+        let in_noun = document.querySelector('#in_noun')  
+        let in_place = document.querySelector('#in_place')  
+        let in_job = document.querySelector('#in_job')  
+        let div_output = document.querySelector('#output')      
+
+        create_madlib.addEventListener('click',function() { 
+            let number1 = in_number1.value
+            let adj1 = in_adj1.value
+            let number2 = in_number2.value
+            let adj2 = in_adj2.value
+            let color = in_color.value
+            let body_part = in_body_part.value
+            let number3 = in_number3.value
+            let noun = in_noun.value
+            let place = in_place.value
+            let job = in_job.value
+            let story = `Abraham Lincoln was the ${number1}th President of the ${adj1} States.\n 
+            He was over ${number2} feet tall and is known for wearing a ${adj2} ${color} hat.\n
+            Lincoln's ${body_part} is featured on the front of the penny and the ${number3} dollar bill.\n
+            Born in a ${noun} cabin in Kentucky, Abraham Lincoln grew up in ${place}.\n
+            He even became a ${job} and went on to become president.`
+            div_output.innerText = story
+        })
+    </script>
+</body>
+</html>

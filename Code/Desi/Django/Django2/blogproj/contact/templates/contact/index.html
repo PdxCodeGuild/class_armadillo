@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'contact/base.html'}
+
+    {% block title %}List{% end block %}
+
+    {% block content %}
+        <div>
+            <form action='{% url 'contact: index' %}' method='post'
+            {% csrf_token %}
+            <input type='text' placeholder='enter some text' name='search' value='{{search}}'/>
+            <button class='btn btn-primary' type='submit'>search</button>
+        
+        </form>
+        <a href="{% url 'contact:new' %}" class="btn btn-primary">New Contact</a>
+        </div>
+        <div>{{contact.objects_list.count}}/contact shown{% if search %} for 
+        <table class='table'>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Birthday</th>
+                <th></th>
+                <th></th>
+
+            </tr>
+
+        
+        </div>
+</body>
+</html>

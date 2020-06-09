@@ -1,0 +1,76 @@
+<!-- madlib input elements -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>madlib input elements</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        #champ2 {
+            height: 25px;
+            width: 350px;
+            padding: 8px;
+            background-color: rgb(204, 238, 136);
+        }
+        
+        #feel2 {
+            height: 25px;
+            width: 350px;
+            padding: 8px;
+            border-color: aquamarine;
+        }
+        
+        #sport2 {
+            height: 25px;
+            width: 375px;
+            padding: 8px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- for the HTML elements place holders for the input -->
+
+    <div> <input id='champ2' type="text" placeholder="How many titles have LeBron James won: "></div>
+    <div> <input id='feel2' type="text" placeholder="Enter how Jordan should feel: "></div>
+    <div><input id='sport2' type="text" placeholder="Enter which NBA team LeBron James is playing:  "></div>
+    <div id='result'></div>
+    <div><button id="btn_create"> Create Madlib </button></div>
+
+    <script>
+        // put elements from the html and into the javascript:
+        let champ2 = document.querySelector('#champ2')
+        let feel2 = document.querySelector('#feel2')
+        let sport2 = document.querySelector('#sport2')
+        let btn_create = document.querySelector('#btn_create')
+        let result = document.querySelector('#result')
+
+        // get the text the user entered into the input elements using .value and use a template literal (f-string) to build a sentence
+        //HTML DOM innerText Property: https://www.w3schools.com/jsref/prop_node_innertext.asp
+
+        btn_create.addEventListener('click', function() {
+
+
+            let champ = champ2.value
+            let feel = feel2.value
+            let sport = sport2.value
+            let madlib = `LeBron won  ${champ} titles.  I think Michael Jordan should feel ${feel} 
+            if LeBron continue to win NBA titles and become the champion in the next seasons, 
+            LeBron will pass MJ and become the ultimate GOAT without any argument!
+            And what about Shaq? he should feel ${feel} about LeBron success? 
+            After all, LeBron is clearly the NBA King (not the tiger king :) 
+            Bron is the best Player in the ${sport}`
+            result.innerText = madlib
+
+        })
+    </script>
+</body>
+
+</html>
+
+<body>
