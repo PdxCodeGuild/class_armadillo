@@ -3,34 +3,49 @@
 
 <head>
   {% load static %}
+  <link href="//db.onlinewebfonts.com/c/f4d1593471d222ddebd973210265762a?family=Pokemon" rel="stylesheet"
+    type="text/css" />
   <link rel="stylesheet" type="text/css" href="{% static 'pokeapp/index.css' %}">
   <meta charset="UTF-8">
-    <meta name="description" content="Pokedex built by me">
-    <meta name="keywords" content="portland, oregon, pokemon">
-    <meta name="author" content="Nick Gallo">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pokedex built by me">
+  <meta name="keywords" content="portland, oregon, pokemon">
+  <meta name="author" content="Nick Gallo">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PokeDex</title>
 </head>
 
 <body>
-  <h1>Gotta Catch Em' All</h1>
-
-  <ul>
+  <div class="header">
+    <h1>Gotta Catch Em' All</h1>
     <form class="form" action="{% url 'pokeapp:search_pokemon' %}" method="POST">
-        {% csrf_token %}
-        <input type="text" placeholder="search a pokemon" name="search">
-        <button id="button" class="search_button" type="submit">submit</button>
+      {% csrf_token %}
+      <input type="text" placeholder="search a pokemon" name="search">
+      <button id="button" class="search_button" type="submit">submit</button>
     </form>
+    <a class="random_poke_page" href="{% url 'pokeapp:random_pokemon' %}">random pokemon</a>
+  </div>
 
   <main>
     <ul>
       {% for pokemon in pokemon_by_number %}
-      <li><a class="poke_words_images" href="{% url 'pokeapp:poke_detail' pokemon.number%}" id="pokemon_link"> <img class="pokemon_front_picture" src="{{pokemon.image_front}}"> {{ pokemon.name }}</a>
-      </li><br />
+      <li>
+        <a class="poke_words_images" href="{% url 'pokeapp:poke_detail' pokemon.number%}" id="pokemon_link">
+          <div class="pokemon_name">
+            {{ pokemon.name }}
+          </div>
+          <div class="pokemon_card_images">
+            <img class="pokemon_front_picture" src="{{pokemon.image_front}}">
+          </div>
+          <div class="types_div">
+            {% for type in pokemon.types.all %} {{type}} <br/> {% endfor %}
+          </div>
+        </a>
+      </li>
       {% endfor%}
     </ul>
+    <a href="{% url 'pokeapp:index' %}">return to top</a>
   </main>
-  <footer> Nick Gallo &copy 2020</footer>
+  <footer class="footer">Nick Gallo | Class_Armadillo | &copy 2020</footer>
 </body>
 
 </html>

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'todoapp',
     'contactsapp',
     'pokeapp',
+    'url_shortener',
 ]
 
 MIDDLEWARE = [

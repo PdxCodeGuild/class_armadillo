@@ -12,9 +12,9 @@ class Command(BaseCommand):
         # write the code here
         with open('pokemon.json','r') as file:
             text = file.read()
-
+        # the ENTIRE dictionary
         data = json.loads(text)
-
+        # how to get these things per pokemon
         for pokemon_data in data['pokemon']:
             pokemon = Pokemon(
                 name = pokemon_data['name'],
@@ -24,14 +24,19 @@ class Command(BaseCommand):
                 image_front = pokemon_data['image_front'],
                 image_back = pokemon_data['image_back'],
                 url = pokemon_data['url'])
-
+           
+            # doing it the KWARG shortcut way
             # pokemon = Pokemon(**pokemon_data)
 
             pokemon.save()
-            print(pokemon)
-
+         
+            # list of strings, iterating
             for type_str in pokemon_data['types']:
-                type, created = PokemonType.objects.get_or_create(name=type_str)
+                # unpacking 'get_or_create' not the above
+                types, created = PokemonType.objects.get_or_create(name=type_str)
+                # appending it
+                pokemon.types.add(types)
+                # when looking at SQLite - junction table has name pokemon - pokemontype (another with 's' at end)
 
             
 

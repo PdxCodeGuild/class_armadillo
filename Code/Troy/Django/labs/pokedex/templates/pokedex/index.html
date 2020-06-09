@@ -7,37 +7,41 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <a href="https://fontmeme.com/pokemon-font/"><img
+            src="https://fontmeme.com/permalink/200605/72a5dae9b56c644f57fd9698a11b3ef7.png" alt="pokemon-font"
+            border="0"></a>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'contacts/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'pokedex/style.css' %}" />
+    <!-- <link rel="icon" type="image/png" href="img/favicon.png"> browser tab icon -->
     <title>Pokedex</title>
 </head>
 
 <body>
-    <h1>Pokemon Go!</h1>
     <div>
         <form action="{% url 'pokedex:index' %}" method="post">
             {% csrf_token %}
-          <input type="text" placeholder="Search for Pokemon" name="search">
+            <img class="pokeball" alt="picture of pokedex" src="{% static 'pokedex/pokeball.png' %}">
+            <input type="text" placeholder="Search for Pokemon" name="search">
         </form>
     </div>
 
     {% for p in pokemon %}
 
-    <div>
-        <img id="{% url 'pokedex:detail' p.id%}" src="{{p.image_front}}">
-        <img id="{% url 'pokedex:detail' p.id%}" src="{{p.image_back}}">
-        <a href="{% url 'pokedex:detail' p.id%}"> {{p.name}}</a>
-        
+    <div class="chip">
+        <img src="{{p.image_front}}" alt="Pokemon" width="96" height="96">
+        <!-- <img id="{% url 'pokedex:detail' p.id%}" src="{{p.image_front}}"> -->
+        <!-- <img id="{% url 'pokedex:detail' p.id%}" src="{{p.image_back}}"> -->
+        <a href="{% url 'pokedex:detail' p.id%}"> {{p.name|title}}</a>
     </div>
     <div>{% if search %} for search text "{{search}}"{% endif %}</div>
     {% endfor %}
     <div>
         {% if pokemon.has_previous %}
-            <a href="?page={{pokemon.previous_page_number}}">&lt;</a>
+        <a href="?page={{pokemon.previous_page_number}}">&lt;</a>
         {% endif %}
         <span>{{pokemon.number}}</span>
         {% if pokemon.has_next %}
-            <a href="?page={{pokemon.next_page_number}}">&gt;</a>
+        <a href="?page={{pokemon.next_page_number}}">&gt;</a>
         {% endif %}
     </div>
 </body>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input_noun" type="text" placeholder="noun">
+    <input id="input_number" type="text" placeholder="number">
+    <input id="input_adjective" type="text" placeholder="adjective">
+    <input id="input_verb" type="text" placeholder="verb">
+    <button id="btn_generate">Mad Lib</button>
+    <div></div>
+    <script>
+        // get elements out of html and into javascripts
+        let input_noun = document.querySelector('#input_noun')
+        let input_number = document.querySelector('#input_number')
+        let input_adjective = document.querySelector('#input_adjective')
+        let input_verb = document.querySelector('#input_verb')
+
+        btn_generate.addEventListener('click', function() {
+            // get the text the user entered into the input elements
+            let noun = input_noun.value 
+            let number = input_number.value 
+            let adjective = input_adjective.value 
+            let verb = input_verb.value 
+            // use a template literal(f-string) to build a sentence
+            let sentence = 'I\'d like ${number} ${noun} I think, Another ${noun} to make me ${adjective}, I think I\'ll ${noun} until I ${adjective}, I\'ll ${noun} until i cannot ${adjective}, perhaps I\'ll have a ${number} of ${noun}, the ${noun} I spy with my own ${noun}, some ${noun} to make me ${verb} so high, I think that i can touch the sky'
+            // set innter text of output div
+        }
+    </script>
+</body>
+</html>

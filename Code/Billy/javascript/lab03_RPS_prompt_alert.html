@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+    <script>
+        let choices = ['rock', 'paper', 'scissors']
+        let user = prompt('Choose rock, paper or scissors...')
+        let computer = choices[Math.floor(Math.random() * choices.length)]
+        
+        if (user == 'rock' && computer == 'paper') {
+            alert('Rock bows to paper. You lose!')
+        } else if (user == 'rock' && computer == 'scissors') {
+            alert('Rock beats scissors. You win!')
+        } else if (user == 'paper' && computer == 'scissors') {
+            alert('Paper dies to scissors. You lose!')
+        } else if (user == 'paper' && computer == 'rock') {
+            alert('Paper beats rock. You win!')   
+        } else if (user == 'scissors' && computer == 'paper') {
+            alert('Scissors beat paper.  You win!')
+        } else if (user == 'scissors' && computer == 'rock') {
+            alert('Scissors run from rock. You lose!')    
+        } else {
+            alert('It\'s a tie!')
+        } 
+    
+    </script>  
+</body>
+</html>
