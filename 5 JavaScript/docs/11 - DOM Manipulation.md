@@ -1,7 +1,24 @@
 
 # DOM Manipulation
 
-JavaScript provides many functions to manipulate the DOM. You can find more info [here](https://www.w3schools.com/js/js_htmldom_document.asp).
+- [DOM Manipulation](#dom-manipulation)
+  - [Overview](#overview)
+  - [Accessing Elements](#accessing-elements)
+  - [Setting innerText and innerHTML](#setting-innertext-and-innerhtml)
+  - [Editing Style](#editing-style)
+  - [Editing Classes](#editing-classes)
+  - [Setting Data](#setting-data)
+  - [Editing Attributes](#editing-attributes)
+  - [Input Fields](#input-fields)
+    - [Text Input](#text-input)
+    - [Radio Buttons and Checkboxes](#radio-buttons-and-checkboxes)
+    - [Dropdown Lists](#dropdown-lists)
+  - [Creating and Adding Elements](#creating-and-adding-elements)
+
+
+## Overview
+
+JavaScript provides many functions to manipulate the DOM. You can find more info on [MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents) and [w3schools](https://www.w3schools.com/js/js_htmldom_document.asp).
 
 ## Accessing Elements
 
