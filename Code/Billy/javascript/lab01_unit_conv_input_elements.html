@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <style>
+    </style>
+</head>
+<body>
+    <input id="input_dist" type="text" placeholder="Distance?"/>
+    <input id="input_units_orig" type="text" placeholder="Units to convert?"/>
+    <input id="input_units_desired" type="text" placeholder="Desired units?"/>
+    <button id="btn_generate">Convert!</button>
+    <div id="div_output"></div>
+    <script>      
+        let input_dist = document.querySelector('#input_dist')
+        let input_units_orig = document.querySelector('#input_units_orig')
+        let input_units_desired = document.querySelector('#input_units_desired')
+        let btn_generate = document.querySelector('#btn_generate')
+        let div_output = document.querySelector('#div_output')
+        
+        btn_generate.addEventListener('click', function() {
+            let conv_rate= {
+            ft: .3048,
+            mi: 1609.34,
+            m: 1,
+            km: 1000,
+            yd: .9144,
+            in: .0254,
+        } 
+            
+            let dist = input_dist.value
+            let units_orig = input_units_orig.value
+            let units_desired = input_units_desired.value
+            dist_meters = dist * conv_rate[units_orig]
+            dist_new = dist_meters / conv_rate[units_desired]
+
+            //let conv = `${dist} ${units_orig} equals ${dist_new} ${units_desired}`
+            div_output.innerText = `${dist} ${units_orig} equals ${dist_new} ${units_desired}`
+        })
+
+    </script>  
+</body>
+</html>
