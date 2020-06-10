@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="choice" type="text" placeholder="Rock, paper, or scissor: ">
+    <button id="submit">Submit</button>
+    <div id="div_output"></div>
+    <script type="text/javascript">
+    alert("Lets Play Rock, Paper, Scissor!")
+
+        // create an array containing RPS choices
+        
+        // write a function that chooses RPS for computer
+        function random_rps() {
+            let rps = ['rock', 'paper', 'scissor']
+            let rand_num = [Math.floor(Math.random() * rps.length)]
+            let comp_choice = rps[rand_num]
+            return comp_choice
+        }
+        console.log()
+
+        let choice = document.querySelector('#choice')
+        let submit = document.querySelector('#submit')
+        let div_output = document.querySelector('#div_output')
+
+
+        // console.log(comp_choice)
+        // console.log(user_choice)
+
+
+        // write a function that determines and declares the winner
+        // get all elements that match the css selecter submit
+        submit.addEventListener('click', function () {
+            let user_choice = choice.value
+            let comp_choice = random_rps()
+
+            if (user_choice == comp_choice) {
+                // set inner text to output winner
+                div_output.innerText = `Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. It's a tie. `
+            }
+            else if (user_choice == 'rock' && comp_choice == 'paper') {
+                div_output.innerText = `Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Paper wraps rock; you lose! `
+            }
+            else if (user_choice == 'rock' && comp_choice == 'scissor') {
+                div_output.innerText = `Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Rock breaks scissor; you Win! `
+            }
+            else if (user_choice == 'paper' && comp_choice == 'rock') {
+                div_output.innerText = `Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Paper wraps rock; you WIn! `
+            }
+            else if (user_choice == 'paper' && comp_choice == 'scissor') {
+                div_output.innerText = `Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Scissor cuts paper; you lose!`
+            }
+            else if (user_choice == 'scissor' && comp_choice == 'rock') {
+                div_output.innerText = `Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Rock breaks scissor; you lose!`
+            }
+            else if (user_choice == 'scissor' && comp_choice == 'paper') {
+                div_output.innerText = `Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Scissor cuts paper; you win! `
+            }
+        })
+    </script>
+</body>
+</html>
