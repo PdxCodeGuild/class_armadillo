@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/credit_card.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--noUIslider CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.5.0/nouislider.min.css" >
+    <!--NOUISLIDER JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.5.0/nouislider.min.js"></script>
+    <!--linking JS files-->
+    <script src="credit_card.js"></script>
+    <script src="noUIslider.js"></script>
+</head>
+<body>
+    <div id="test-slider"></div>
+    <div id="response"></div>
+    <div>
+        <input id="input_credit_card" type="text" placeholder="please enter credit card here"/>
+        <button id="button" type="button">Validate Now</button>
+    </div>
+    <script>
+        let response = document.querySelector('#input_credit_card')
+
+        button.addEventListener('click', function(){
+            let credit_card = input_credit_card.value
+
+            let result = `The credit card you input ${credit_card} is ${validate_cc(credit_card)}`
+
+            response.value = result
+            //not innerText - b/c line 26 for the input id - ref'd in two places - line 30, and that gets a ref from the html sel to the resp also, line 33, input - inputs are form fields, they deal with passing values - same thing with 'select' and 'text area'
+        })
+        </script>
+
+
+<!--HOATIN-->
+<div id="big_bird">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IYvvLZ6Aw1E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<!--for the noUISlider-->
+<script>
+    var slider = document.getElementById('test-slider');
+  noUiSlider.create(slider, {
+   start: [20, 80],
+   connect: true,
+   step: 1,
+   orientation: 'horizontal', // 'horizontal' or 'vertical'
+   range: {
+     'min': 0,
+     'max': 100
+   },
+   format: wNumb({
+     decimals: 0
+   })
+  });
+        
+</script>
+
+<form action="#">
+    <p class="range-field">
+      <input type="range" id="test5" min="0" max="100" />
+    </p>
+  </form>
+</body>
+</html>

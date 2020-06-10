@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number2Words</title>
-</head>
-
-<body>
+    <title>Numbers 2 Phrase</title>
+    <style type = 'text/css'></style>
     <script>
-
-
-        function numsToWords(nums) {
-            let nums_1 = {
+        function digitToPhrase(nums){
+            let one = {
                 0: 'zero',
                 1: 'one',
                 2: 'two',
@@ -32,20 +27,19 @@
                 16: 'sixteen',
                 17: 'seventeen',
                 18: 'eighteen',
-                19: 'nineteen'
-            };
-            let nums_2 = {
+                19: 'nineteen',
+            }
+            let tens = {
                 2: 'twenty',
                 3: 'thirty',
-                4: 'forty',
+                4: 'fourty',
                 5: 'fifty',
                 6: 'sixty',
                 7: 'seventy',
                 8: 'eighty',
-                9: 'ninety',
-                0: ''
-            };
-            let nums_3 = {
+                9: 'nintey',
+            }
+            let hundreds = {
                 1: 'one-hundred',
                 2: 'two-hundred',
                 3: 'three-hundred',
@@ -54,28 +48,33 @@
                 6: 'six-hundred',
                 7: 'seven-hundred',
                 8: 'eight-hundred',
-                9: 'nine-hundred'
+                9: 'nine-hundred',
+
             }
+        
 
-            if (nums < 20) {
-                return nums_1[nums];
-            } else if (nums < 100) {
-                let ones_digit = nums % 10;
-                let tens_digit = Math.floor(nums / 10);
-                return nums_2[tens_digit] + "-" + nums_1[ones_digit];
-            } else if (nums < 999) {
-                let hundreds_digit = Math.floor(nums /100);
-                nums -= hundreds_digit * 100;
-                let tens_digit = Math.floor(nums /10);
-                let ones_digit = nums % 10;
-                return nums_3[hundreds_digit]+ '-' +  nums_2[tens_digit] + '-' + nums_1[ones_digit] 
-
+            if (nums <= 9){
+                return one[nums];
+            }
+            else if(nums >10){
+                let one_spot = nums % 10
+                let tens_spot = Math.floor(nums/10);
+                return tens[tens_spot] + '-' + one[one_spot];
+            }
+            else if (nums < 999){
+                let huns_spot = Math.floor(nums /100);
+                nums -= huns_spot *100;
+                let tens_spot = Math.floor(nums /10);
+                let ones_spot = nums % 10;
+                return hundreds[huns_spot]+ '-' + tens[tens_spot]+ '-' + one [ones_spot]
             }
         }
-        let intro_question = prompt("Please enter a number: ");
-        let results = numsToWords(intro_question);
-        alert(`Your number in English is ${results}.`);
+        let input = prompt("Enter Number 1 - 999: ");
+        let output = digitToPhrase(input)
+        alert (`The Number Phrase You Are looking For Is ${output}. Thank You. Refresh Refresh The Page to Try Again`);
     </script>
+</head>
+<body>
+    
 </body>
-
 </html>

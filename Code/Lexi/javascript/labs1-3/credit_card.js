@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
+
     
     function validate_cc(card){
         let nums = card
@@ -60,6 +52,4 @@
     is_valid = validate_cc('5177419781721269')
     console.log(is_valid)
 
-    </script>
-</body>
-</html>
+ 
