@@ -8,7 +8,11 @@ const units = {
 
 }
 
-let num = promt("enter a number: ")
+let num = prompt("enter a number: ")
 let in_unit = prompt('enter a unit of measurement: ')
 let out_unit = prompt('enter the unit of measurement youd like to convert i to: ')
+let conversion = Math.abs(num * units[in_unit])
 
+let new_conversion = Math.abs(conversion / units[out_unit])
+
+let result = alert(`${num} ${in_unit} is equal to ${new_conversion} ${out_unit}` )
