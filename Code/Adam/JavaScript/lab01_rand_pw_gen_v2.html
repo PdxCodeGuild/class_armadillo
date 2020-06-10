@@ -32,7 +32,7 @@
         let n = input_length.value
         let password = 'Your random password is: ' // message will be output with password
         while (i <= n) {
-             // for each increment of i, generate a random character
+             // for each increment of i, generate a random character from the array
             let random_char = password_pool[Math.floor(Math.random() * password_pool.length)]
             password += random_char // add the charater to the string password
             i++ // increment i
