@@ -11,15 +11,14 @@ rain_data = rain_list.text
 def rain():
     current_date = date.current_date()
     return current_date.strftime('%d-%b-%Y')
-rain = rain()
 
 print(rain)
 
 
 
 # gets data from website
-rain = requests.get('https://or.water.usgs.gov/non-usgs/bes/metro_center.rain') # gets data from website
-rain_data = rain.text #turns into text format
+# rain = requests.get('https://or.water.usgs.gov/non-usgs/bes/metro_center.rain') # gets data from website
+# rain_data = rain.text #turns into text format
 
 def weather(text): # function 
     return re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text) # regular expression we want to find EVERYTHING that fits this criteria
@@ -33,10 +32,24 @@ def get_data(text): # calls above function
     for date in dates: # iterates through each tuples (date) of the 'dates' list
         rain = (datetime.strptime(date[0], '%d-%b-%Y')), int(date[1]) # transforms date in each tuple to date objects
         rain_data.append(rain) # adds date formatted tuples to list
-    return rain_data # (datetime.datetime(2002, 5, 23, 0, 0), 0)]
+    print(rain_data)
+    # return rain_data # (datetime.datetime(2002, 5, 23, 0, 0), 0)]
 
 
-print(rain_data)
+data = [{ 
+          "date": (2020, 5, 1),
+          "time": 0
+},{
+          "date": (2020, 4, 30),
+          "time": 0
+},{          
+          "date": (2020, 4,25),
+          "time": 16
+}]
+
+
+
+# print(rain_data)
 
 
 #             Daily  Hourly data -->
@@ -61,14 +74,3 @@ print(rain_data)
 # '''
 
 
-
-data = [{ 
-          "date": (2020, 5, 1),
-          "time": 0
-},{
-          "date": (2020, 4, 30),
-          "time": 0
-},{          
-          "date": (2020, 4,25),
-          "time": 16
-}]

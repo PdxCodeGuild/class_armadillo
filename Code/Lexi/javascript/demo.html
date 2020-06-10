@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="css/demo.css">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
@@ -15,6 +15,7 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="random"></div>
     <div class="holding_form">
         <form action="#">
            
@@ -29,38 +30,38 @@
         <input id="user_choice" type="text" placeholder="enter 'r', 'p', or 's' to play then Right Click>Inspect>Console to see results!"/>
         <!--submit button needing an EventListener-->
         <button id="btn_user_choice" type="submit">Submit</button>
-        </form>
-    </div>
-    <script>
-        // START JS
-        function RPS(){
+    </form>
+</div>
+<script>
         let user_choice = document.querySelector('#user_choice')
         let btn_user_choice = document.querySelector('#btn_user_choice')
-        let array = ['r', 'p', 's']
-        //console.log(beasts.indexOf('giraffe'));
-        let user_choice_value = user_choice.value
-        user_index = array.indexOf(user_choice.value)
-        console.log(user_choice_value)
-       
-        // a great formula from user c0derabbit
-        // Troy's suggestion Math.max(gives max)
-        // let comp = [Math.max(Math.random() * array.length)]
-        // let comp = [Math.floor(Math.random() * array.length)]
-        //https://www.w3schools.com/js/js_random.asp
+
+
         let comp = Math.floor(Math.random() * 3)
-        // Javascript logic
         let username = prompt("Step 1: What do your opponents call you?")
-        result = (`${username} selected: ${user_index} and computer selected: ${comp}`)
+        // START JS
+        alert(`${username}, you're about to play Rock, Paper, Scissors!`)
+            // const and let do NOT get hoisted, but VAR does
+        let result = (`${username} selected: ${user_index} and computer selected: ${comp}`)
         // declaring a variable for the array so that the computer can choose
-        console.log(result)
+        alert(result)
+        random.innerText = result
+        let array = ['r', 'p', 's']
+        user_index = array.indexOf(user_choice.value)
+        let user_choice_value = user_choice.value
+        alert(user_choice_value)
+        function RPS(){
+
+        
         if (user_index === comp) {
-            console.log('\'tis a tie, and not the kind one wears')
+            alert('\'tis a tie, and not the kind one wears')
         }
         else if (user_index === (comp+1)%3) {
-            console.log('Thou winneth Biggeth in Minas Tirith')
+            alert('Thou winneth Biggeth in Minas Tirith')
         }
         else {
-            console.log('computer powns the day, per the usual')
+            alert('computer powns the day, per the usual')
+        }
         }
         //add eventListener
         btn_user_choice.addEventListener('click', function(evt) {
@@ -69,8 +70,7 @@
             // let comp = comp.value
             // let result = result.value
         })
-        alert(`${username}, thank you for playing Rock, Paper, Scissors!`)
-        }
+        
         RPS()
     </script>
 </body>
