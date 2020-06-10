@@ -10,24 +10,24 @@
 <body>
     <div>
         <input id="length" type="number" placeholder=" input distance" />
-        <label for="length_unit">Distance units:</label>
-        <select name="length_unit" id="length_unit">
-            <option value="length_in">Inches</option>
-            <option value="length_ft">Feet</option>
-            <option value="length_yd">Yards</option>
-            <option value="length_mi">Miles</option>
-            <option value="length_mt">Meters</option>
-            <option value="length_km">Kilometers</option>
+        <label for="input_unit">Distance units:</label>
+        <select name="input_unit" id="input_unit">
+            <option name="inches" value="length_in">Inches</option>
+            <option name="feet" value="length_ft">Feet</option>
+            <option name="yards" value="length_yd">Yards</option>
+            <option name="miles" value="length_mi">Miles</option>
+            <option name="meters" value="length_mt">Meters</option>
+            <option name="kilometers" value="length_km">Kilometers</option>
         </select>
 
         <label for="output_unit">Desired units:</label>
         <select name="output_unit" id="output_unit">
-            <option value="output_in">Inches</option>
-            <option value="output_ft">Feet</option>
-            <option value="output_yd">Yards</option>
-            <option value="output_mi">Miles</option>
-            <option value="output_mt">Meters</option>
-            <option value="output_km">Kilometers</option>
+            <option name="inches" value="output_in">Inches</option>
+            <option name="feet" value="output_ft">Feet</option>
+            <option name="yards" value="output_yd">Yards</option>
+            <option name="miles" value="output_mi">Miles</option>
+            <option name="meters" value="output_mt">Meters</option>
+            <option name="kilometer" value="output_km">Kilometers</option>
         </select>
 
         <button id="convert">Submit</button>
@@ -35,26 +35,31 @@
     <div id="distance_output"></div>
     <script>
         let length
-        let length_unit = ""
+        let input_unit = ""
         let output_unit = ""
         convert.addEventListener('click', function() {
-            length_unit = document.querySelector('#length_unit').value
+            input_unit = document.querySelector('#input_unit').value
+            input_unit_name = document.querySelector('#input_unit')
+            input_unit_name = input_unit_name.options[input_unit_name.selectedIndex].getAttribute("name")
+            output_unit_name = document.querySelector('#output_unit')
+            output_unit_name = output_unit_name.options[output_unit_name.selectedIndex].getAttribute("name")
             output_unit = document.querySelector('#output_unit').value
+            start_length = document.querySelector('#length').value
             length = document.querySelector('#length').value
             // turn the input into meters
-            if (length_unit == "length_in"){
+            if (input_unit == "length_in"){
                 length = length * 0.0254
             }
-            else if(length_unit == "length_ft"){
+            else if(input_unit == "length_ft"){
                 length = length * 0.3048
             }
-            else if(length_unit == "length_yd"){
+            else if(input_unit == "length_yd"){
                 length = length * 0.9144
             }
-            else if(length_unit == "length_km"){
+            else if(input_unit == "length_km"){
                 length = length * 1000
             }
-            else if(length_unit == "length_mi"){
+            else if(input_unit == "length_mi"){
                 length = length * 1609.34
             }
             // turn the input now in meters into output unit
@@ -73,7 +78,7 @@
             else if(output_unit == "output_mi"){
                 length = length * 0.001
             }
-            distance_output.innerText = (`Your input is  ${length} of your output units.`)
+            distance_output.innerText = (`${start_length} ${input_unit_name} is equal to ${length} ${output_unit_name}.`)
         })
     </script>
 </body>
