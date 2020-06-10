@@ -65,7 +65,7 @@
                 return nums_2[tens_digit] + "-" + nums_1[ones_digit];
             } else if (nums < 999) {
                 let hundreds_digit = Math.floor(nums /100);
-                let nums -= hundreds_digit * 100;
+                nums -= hundreds_digit * 100;
                 let tens_digit = Math.floor(nums /10);
                 let ones_digit = nums % 10;
                 return nums_3[hundreds_digit]+ '-' +  nums_2[tens_digit] + '-' + nums_1[ones_digit] 
