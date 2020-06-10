@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/demo.css">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+</head>
+<body>
+    <div class="holding_form">
+        <form action="#">
+           
+            <p>
+              <label>
+                <input type="checkbox" class="filled-in" checked="checked" />
+                <span>Is this game cool or what?</span>
+              </label>
+            </p>
+    </form>
+    </div>
+    <!--TEXT BOX ON PAGE-->
+    <input id="ser_choice" type="text" placeholder="User enters 'r', 'p', or 's' here: "/>
+    <!--button type can be button - 'submit' is just for forms-->
+    <button id="btn_ser_choice" type="button">Play</button>
+    <div id="div_result"></div>
+    <!--JS logic - thanks, Freya!-->
+    <script>
+        // finds button/input box, tells you what it says
+        let ser_choice = document.querySelector('#ser_choice')
+        let btn_ser_choice = document.querySelector('#btn_ser_choice')
+        console.log(ser_choice)
+        console.log(btn_ser_choice)
+
+        let rps = ['r', 'p', 's']
+        let comp = Math.floor(Math.random() * 3)
+        let user_choice = prompt(`Choose 'r', 'p', or 's'`)
+        // let result = (`You selected ${user_choice} and the pc selected ${rps[comp]}!`)
+        let human_choice = rps.indexOf(user_choice)
+        
+        // makes the 0 pop up
+        // alert(human_choice)
+        // while alert is active, it is blocking JS
+
+        console.log(human_choice)
+        console.log(comp)
+
+        if (human_choice === comp){
+            alert('tie')
+        }else if (human_choice === (comp + 1)%3){
+            alert('you won')
+        }else{
+            alert('computer won')
+        }
+
+        btn_ser_choice.addEventListener('click', function(evt){
+            let computed_choice = ser_choice.value
+            div_result.innerText = `You selected ${user_choice} and the pc selected ${rps[comp]}!`
+        })
+    </script>
+</body>
+</html>
