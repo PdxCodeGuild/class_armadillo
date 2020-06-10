@@ -35,7 +35,7 @@
             let result = `The credit card you input ${credit_card} is ${validate_cc(credit_card)}`
 
             response.value = result
-            //not innerText - b/c line 26 for the input id - ref'd in two places - line 30, and that gets a ref from the html sel to the resp also, line 33, input
+            //not innerText - b/c line 26 for the input id - ref'd in two places - line 30, and that gets a ref from the html sel to the resp also, line 33, input - inputs are form fields, they deal with passing values - same thing with 'select' and 'text area'
         })
         </script>
 
