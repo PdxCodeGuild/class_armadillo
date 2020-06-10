@@ -57,14 +57,19 @@
                 9: 'nine-hundred'
             }
 
-            if (nums < 10) {
+            if (nums < 20) {
                 return nums_1[nums];
-            } else if (nums < 20) {
-                return nums_2[nums];
             } else if (nums < 100) {
                 let ones_digit = nums % 10;
-                let tens_digit = nums / 10;
+                let tens_digit = Math.floor(nums / 10);
                 return nums_2[tens_digit] + "-" + nums_1[ones_digit];
+            } else if (nums < 999) {
+                let hundreds_digit = Math.floor(nums /100);
+                nums -= hundreds_digit * 100;
+                let tens_digit = Math.floor(nums /10);
+                let ones_digit = nums % 10;
+                return nums_3[hundreds_digit]+ '-' +  nums_2[tens_digit] + '-' + nums_1[ones_digit] 
+
             }
         }
         let intro_question = prompt("Please enter a number: ");

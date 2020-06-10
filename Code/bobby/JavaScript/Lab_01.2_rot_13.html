@@ -6,7 +6,8 @@
     <title>ROT13(Divinci Cypher)</title>
     <style type = 'text/css'></style>
     <script>
-        const character = 'abcdefghijklmnopqrstuvwxyz1234567890@#$%&*()_-+=:;<.>,?'
+        const character = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$%&*()_-+=:;<.>,?'
+
 
         let rotation = parseInt(prompt('Enter Number of Rotations'))
 
@@ -15,7 +16,7 @@
 
         for(let characters of input) {
             let charactersIndex = character.indexOf(characters)
-            let chypherCharacters = ((charactersIndex + rotation) % 13)
+            let chypherCharacters = ((charactersIndex + rotation) % 75)
             input = input.replace(characters, character[chypherCharacters])
         }
         alert(input)
