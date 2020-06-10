@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div>
+            <a>Input Units</a>
+            <select id="input_units">
+                <option value="Feet">Feet</option>
+                <option value="Miles">Miles</option>
+                <option value="Meters">Meters</option>
+                <option value="Kilometers">Kilometers</option>
+                <option value="Inches">Inches</option>
+                <option value="Yards">Yards</option>
+            </select>
+        </div>
+        <div>
+            <a>Output Units</a>
+            <select id="output_units">
+                <option value="Feet">Feet</option>
+                <option value="Miles">Miles</option>
+                <option value="Meters">Meters</option>
+                <option value="Kilometers">Kilometers</option>
+                <option value="Inches">Inches</option>
+                <option value="Yards">Yards</option>
+            </select>
+        </div>
+        <a>Measurement to convert</a>
+        <input type="text" id="measurement"><br>
+        <button id="btn_submit_info">Submit</button>
+        <span id="output"></span>
+        <script>
+            let units = {
+                "Feet": 0.3048,
+                "Miles": 1609.34,
+                "Meters": 1,
+                "Kilometers": 1000,
+                "Yards": 0.9144,
+                "Inches": 0.0254
+            }
+            let input_units = document.querySelector("#input_units")
+            let output_units = document.querySelector("#output_units")
+            let measurement = document.querySelector("#measurement")
+            let output = document.querySelector("#output")
+
+            btn_submit_info.addEventListener('click', function(event){
+                if(!isNaN(measurement.value)){
+                    output.innerText = `${measurement.value} ${input_units.value} in ${output_units.value} is ` + String((units[input_units.value] * Number(measurement.value)) / units[output_units.value])
+                }else{
+                    output.innerText = "Please enter in a valid number."
+                }
+            })
+        </script>
+</body>
+</html>

@@ -10,6 +10,7 @@
 <body>
 
     <script>
+        function throwHands(){
         while (true) {
             let choice = ["rock", "paper", "scissors"];
             let rando_choice = Math.floor(Math.random()*3);
@@ -20,36 +21,40 @@
                     alert("Ah snap, here we go...I choose... ");
             }
             else if(user_move === 'n'){
-                    alert("Keep movin fool!");
+                alert("Keep movin fool!");
             }
             
-            let user_player = prompt[choice];
-
+            let user_player = prompt(choice);
+            
             let computer_player = choice[rando_choice]; 
             
+            let response = `You chose ${user_player} and computer chose ${computer_player}.`
+            
             if (user_player === "rock" && computer_player === "paper"){
-                alert("Damn, you win!  Paper covers rock.");
+                alert (response + (" Haha, I win!  Paper covers rock."));
             }
             else if (user_player === "rock" && computer_player === "scissors"){
-                alert("Boom! You lose Sucka!  Rock smashes scissors.");
+                alert (response + (" Boom! You lose Sucka!  Rock smashes scissors."));
             }
             else if (user_player === "scissors" && computer_player === "paper"){
-                alert("Boom! You lose Sucka!  scissors cut paper.");   
+                alert(response + (" Boom! You lose Sucka!  scissors cut paper."));   
             }
             else if (user_player === "scissors" && computer_player === "rock"){
-                alert("Damn, you win!  Rock smashes scissors.");
+                alert(response + (" Haha, I win!  Rock smashes scissors."));
             }
             else if (user_player === "paper" && computer_player === "rock"){
-                alert("Boom! You lose sucka! Paper covers rock.");
+                alert(response + (" Boom! You lose sucka! Paper covers rock."));
             }
             else if (user_player === "paper" && computer_player === "scissors"){
-                alert("Damn, you win! Scissors cuts paper.");
+                alert(response + (" Haha, I win! Scissors cuts paper."));
             }
             else if (user_player === computer_player){
-                alert("Crapsticks! It's a tie.");
+                alert(response + (" Crapsticks! It's a tie."));
             }
+            // alert(response)
         }
-
+        } 
+        throwHands() 
 
       
 
