@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //https://www.youtube.com/watch?v=g1C40tDP0Bk
+        // JavaScript Array Reduce
+        const numbers = [1, -1, 2, 3];
+
+        const sum = numbers.reduce((accumulator, currentValue) => {
+            return accumulator + currentValue}, 0);
+        console.log(sum)
+
+        // for (let n of numbers)
+        // sum += n
+        // console.log(sum)
+
+        const numberz = [1, 3, 4, 9]
+
+        // a more ELEGANT solution
+        const total = numberz.reduce((accumulator, currentValue) => accumulator + currentValue);
+            console.log(total)
+
+
+
+
+        const list = [9, 1, 1]
+        const sums = list.reduce((accumulator, currentValue) => {
+            return accumulator + currentValue;
+        })
+        console.log(sums)
+        
+    </script>
+</body>
+</html>
