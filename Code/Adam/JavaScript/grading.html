@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //prompt user for grade
+        let user_input = prompt('Enter your number grade: ')
+        // convert the string to an integer
+        let number_grade = parseInt(user_input, 10) 
+        console.log(number_grade)
+
+
+        //implement if statement
+        if (number_grade >= 90) {
+            alert(`${number_grade} is an A!`)
+        } 
+        else if (number_grade >= 80) {
+            alert(`${number_grade} is a B.`)
+        }
+        else if (number_grade >= 70) {
+            alert(`${number_grade} is a C.`)
+        }
+        else if (number_grade >= 60) {
+            alert(`${number_grade} is a D.`)
+        }
+        else if (number_grade < 60 ){
+            alert(`${number_grade} is an F.`)
+        }
+    </script>
+</body>
+</html>
