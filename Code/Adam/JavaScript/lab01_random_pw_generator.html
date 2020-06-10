@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id='Password'></p> 
+    <script>
+        const page_password = document.getElementById('Password')
+
+        alert('Welcome to Random Password Generator!')
+
+        // ask user for length of password.
+        n = prompt('How long would you like your password to be?:')
+
+        // create a pool of characters to draw on
+        let alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' 
+        let numbers = '1234567890'
+        let spec_chars = '!@#$%^&*()_+{}|:"<>?[]\;,./'
+
+
+        // concatenate alphabet, numbers, spec chars into one string and split it into an array
+        let password_pool = alphabet.concat(numbers, spec_chars).split('')
+        console.log(password_pool)
+
+        let i = 0;
+        let password = 'Your random password is: '
+        // pick a random character n number of times
+        while (i <= n) {
+            // for each increment of i, generate a random character
+            let random_char = password_pool[Math.floor(Math.random() * password_pool.length)]
+            password += random_char // add the charater to the string password
+            i++; // increment i
+        }
+        console.log(password.toString())
+        // assign the passord to the unique identifier to be displayed
+        page_password.innerText = password.toString()
+        </script>
+</body>
+</html>
+
