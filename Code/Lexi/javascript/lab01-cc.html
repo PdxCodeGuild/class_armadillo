@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    function validate_cc(card){
+        let nums = "1234123412341234"
+        //STEP 1. Convert the input string into a list of ints
+        let nums_list = nums.split('') //["1", "2", "3", "4", "1", "2", "3", "4", "1", "2", "3", "4", "1", "2", "3", "4"]
+
+                //Slice off the last digit. That is the check digit.
+                check_digit = nums_list.pop(-1) //4
+                console.log(check_digit)
+
+        //STEP 2. Remove last digit from list
+        //["1", "2", "3", "4", "1", "2", "3", "4", "1", "2", "3", "4", "1", "2", "3"]
+        console.log(nums_list)
+
+        //STEP 3. Reverse the digits.
+        nums_list.reverse() //["3", "2", "1", "4", "3", "2", "1", "4", "3", "2", "1", "4", "3", "2", "1"]
+        console.log(nums_list)
+
+        //STEP 4. Get every other element in the reversed list. https://www.w3schools.com/python/python_for_loops.asp
+        // do NOT redefine
+        nums_list = nums_list.filter((element, index) => {
+            return index % 2 === 0
+        })
+        console.log(nums_list) //["3", "1", "3", "1", "3", "1", "3", "1"]
+
+        //STEP 5. doubles https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+        nums_list = nums_list.map(x => x * 2)
+        console.log(nums_list) //[6, 2, 6, 2, 6, 2, 6, 2]
+
+        //STEP 6. Subtract nine from numbers over nine.
+        // need else statement - Matthew suggests two lines for this
+        nums_list = nums_list.map(function (x){ if (x>9) {return x-9} else{ return x} })
+
+        console.log(nums_list) //[6, 2, 6, 2, 6, 2, 6, 2]
+
+        //STEP 7. sum all values
+        //JavaScript Array reduce() Method
+        const add = (a, b) => a+b
+        nums_list = nums_list.reduce(add)
+        console.log(nums_list) // RESULT:32
+
+        //STEP 8. Remove second digit
+        removed =nums_list %= 10
+        console.log(removed) //2
+
+        //STEP 9. compare second digit from STEP 8 to check digit in STEP 2
+        if (removed === check_digit) {
+            return true
+        } else {
+            return false
+        }
+    }
+    is_valid = validate_cc('1234123412341234')
+    console.log(is_valid)
+
+        // nums_list = nums_list.map(function(is_valid) {if (removed === check_digit){return true }else{ return false }  })
+        // console.log(nums_list)
+    </script>
+</body>
+</html>
