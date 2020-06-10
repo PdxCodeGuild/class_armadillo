@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a>Rotation</a>
+    <input type="text" id="rotation"><br>
+    <a>Word</a>
+    <input type="text" id="word"><br>
+    <button id="btn_submit_info">Submit</button>
+    <span id="output"></span>
+    <script>
+        
+        let rotation = document.querySelector("#rotation")
+        let word = document.querySelector("#word")
+        let output = document.querySelector("#output")
+
+        btn_submit_info.addEventListener('click', function(event){
+            console.log(rotation)
+            console.log(rotation.value)
+            console.log(Number(rotation.value))
+            if(!isNaN(rotation.value)){
+                if(Number(rotation.value) < 26 && Number(rotation.value) > -26){
+                    let alphabet_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    let alphabet_lower = "abcdefghijklmnopqrstuvwxyz"
+                    let digits = "0123456789"
+                    let punctuation = "!@#$%^&*()_+-={}[]:;<>?,./|"
+                    rotation_value = Number(rotation.value)
+                    word_value = word.value
+                    if(rotation_value < 0){
+                        rotation_value = rotation_value + 26
+                    }
+                    let rot_alphabet_upper = alphabet_upper.slice(rotation_value, alphabet_upper.length) + alphabet_upper.slice(0,rotation_value)
+                    let rot_alphabet_lower = alphabet_lower.slice(rotation_value, alphabet_lower.length) + alphabet_lower.slice(0,rotation_value)
+                    let rot_digits = digits.slice(rotation_value, digits.length) + digits.slice(0,rotation_value)
+                    let rot_punctuation = punctuation.slice(rotation_value, punctuation.length) + punctuation.slice(0,rotation_value)
+                    scrambled_word = ""
+                    for (let i=0; i < word_value.length; i++){
+                        if(alphabet_upper.indexOf(word_value[i]) > -1){
+                            scrambled_word += rot_alphabet_upper[alphabet_upper.indexOf(word_value[i])]
+                        }else if(alphabet_lower.indexOf(word_value[i]) > -1){
+                            scrambled_word += rot_alphabet_lower[alphabet_lower.indexOf(word_value[i])]
+                        }else if(digits.indexOf(word_value[i]) > -1){
+                            scrambled_word += rot_digits[digits.indexOf(word_value[i])]
+                        }else if(punctuation.indexOf(word_value[i]) > -1){
+                            scrambled_word += rot_punctuation[punctuation.indexOf(word_value[i])]
+                        }else{
+                            scrambled_word += word_value[i]
+                        }
+                    }
+                    
+                    output.innerText = scrambled_word
+                }else{
+                    output.innerText = "Please enter in a whole number between -26 and 26"
+                }
+            }else{
+                output.innerText = "Please enter in a valid whole number."
+            }
+        })
+    </script>
+</body>
+</html>
