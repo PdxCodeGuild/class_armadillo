@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input_length" type="number" placeholder="Enter password length: ">
+    <button id="submit">Submit</button>
+    <div id="output_div"></div>
+    <script type="text/javascript">
+    alert('Welcome to Random Password Generator!')
+
+    // create a pool of characters to draw on
+    let alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    let numbers = '1234567890'
+    let spec_chars = '!@#$%^&*()_+{}|[]<>?'
+
+    // concatenate alphabet, numbers, spec chars into one string and split it into an array
+    let password_pool = alphabet.concat(numbers, spec_chars).split('')
+    console.log(password_pool)
+    
+    
+    let input_length = document.querySelector('#input_length')
+    let submit = document.querySelector('#submit')
+    let output_div = document.querySelector('#output_div')
+
+
+    submit.addEventListener('click', function () {
+        let i = 0 
+        let n = input_length.value
+        let password = 'Your random password is: ' // message will be output with password
+        while (i <= n) {
+             // for each increment of i, generate a random character
+            let random_char = password_pool[Math.floor(Math.random() * password_pool.length)]
+            password += random_char // add the charater to the string password
+            i++ // increment i
+        }
+        // set inner text of output div to password
+        output_div.innerText = password
+    })
+
+
+    </script>
+</body>
+</html>

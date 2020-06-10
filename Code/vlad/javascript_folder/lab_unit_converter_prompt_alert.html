@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Unit Convert Prompt Alert</title>
+</head>
+
+<body>
+
+    <script>
+        let units = {
+            'ft': .3048,
+            'm': 1,
+            'mi': 1609.34,
+            'km': 1000,
+            'yd': 0.9144,
+            'in': 0.0254,
+
+        }
+
+
+        let num = parseFloat(prompt("Please enter a number to convert: ")) // I need to have parseFloat
+        let c_unit = prompt("Would you please enter the unit to convert from ft, m, mi, km, yd, in: ")
+        let b_unit = prompt("Please enter the unit to convert to: ")
+
+        let product = num * units[c_unit]
+        let product2 = Math.round(product / units[b_unit])
+        let result = `${num} ${c_unit} is equal to ${product2} ${b_unit} `
+        alert(result)
+    </script>
+
+</body>
+
+</html>
