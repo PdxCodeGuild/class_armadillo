@@ -333,7 +333,12 @@ for (let i=0; i<letters.length; ++i) {
 
 // Problem 12 --------------------------------------------------------------
 // Write a function that takes `n` as a parameter, and returns a list containing the first n Fibonacci Numbers - https://en.wikipedia.org/wiki/Fibonacci_number.
+// f_i = f_i-1 + f_i-2
 function fibonacci(n) {
-    // your code here
+    let fibs = [1, 1]
+    for (let i=fibs.length; i<n; i++) {
+        fibs.push(fibs[i-2] + fibs[i-1])
+    }
+    return fibs
 }
-// console.log(fibonacci(8)) // [1, 1, 2, 3, 5, 8, 13, 21]
+console.log(fibonacci(10)) // [1, 1, 2, 3, 5, 8, 13, 21]
