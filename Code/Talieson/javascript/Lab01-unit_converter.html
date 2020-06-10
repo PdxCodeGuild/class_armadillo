@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distance Converter</title>
+</head>
+
+<body>
+    <div>
+        <input id="length" type="number" placeholder=" input distance" />
+        <label for="length_unit">Distance units:</label>
+        <select name="length_unit" id="length_unit">
+            <option value="length_in">Inches</option>
+            <option value="length_ft">Feet</option>
+            <option value="length_yd">Yards</option>
+            <option value="length_mi">Miles</option>
+            <option value="length_mt">Meters</option>
+            <option value="length_km">Kilometers</option>
+        </select>
+
+        <label for="output_unit">Desired units:</label>
+        <select name="output_unit" id="output_unit">
+            <option value="output_in">Inches</option>
+            <option value="output_ft">Feet</option>
+            <option value="output_yd">Yards</option>
+            <option value="output_mi">Miles</option>
+            <option value="output_mt">Meters</option>
+            <option value="output_km">Kilometers</option>
+        </select>
+
+        <button id="convert">Submit</button>
+    </div>
+    <div id="distance_output"></div>
+    <script>
+        let length
+        let length_unit = ""
+        let output_unit = ""
+        convert.addEventListener('click', function() {
+            length_unit = document.querySelector('#length_unit').value
+            output_unit = document.querySelector('#output_unit').value
+            length = document.querySelector('#length').value
+            // turn the input into meters
+            if (length_unit == "length_in"){
+                length = length * 0.0254
+            }
+            else if(length_unit == "length_ft"){
+                length = length * 0.3048
+            }
+            else if(length_unit == "length_yd"){
+                length = length * 0.9144
+            }
+            else if(length_unit == "length_km"){
+                length = length * 1000
+            }
+            else if(length_unit == "length_mi"){
+                length = length * 1609.34
+            }
+            // turn the input now in meters into output unit
+            if (output_unit == "output_in"){
+                length = length * 39.3701
+            }
+            else if(output_unit == "output_ft"){
+                length = length * 3.2808
+            }
+            else if(output_unit == "output_yd"){
+                length = length * 1.0936
+            }
+            else if(output_unit == "output_km"){
+                length = length * 0.0006
+            }
+            else if(output_unit == "output_mi"){
+                length = length * 0.001
+            }
+            distance_output.innerText = (`Your input is  ${length} of your output units.`)
+        })
+    </script>
+</body>
+
+</html>
