@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Pass Gen</title>
+    <script>
+    let lowercase_alphabet = "abcdefghijklmnopqrstuvwxyz"
+    let uppercase_alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    let numbers = "0123456789"
+    let punc = "!^&*,.?"
+    let passchars = lowercase_alphabet + uppercase_alphabet + numbers + punc
+    let user_choice = (prompt("Gonna make a password for you. How many characters do you want? "))
+    alert("Alright! Here you go!")
+    function randpassword(choice) {
+        var result = "";
+        for (let i=0; i<choice; i++) {
+            result += passchars.charAt(Math.floor(Math.random() * passchars.length));
+        }
+        return result;
+    }
+    alert(randpassword(user_choice))
+    </script>
+</head>
+<body>
+    <h1>Hello! I am not creative, so this is blank</h1>
+</body>
+</html>

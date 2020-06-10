@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Unit Convert Input Elements </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        #input_numToConvert {
+            height: 25px;
+            width: 350px;
+            padding: 8px;
+            background-color: rgb(204, 238, 136);
+        }
+        
+        #input_unitToConvertFrom {
+            height: 25px;
+            width: 515px;
+            padding: 8px;
+            border-color: rgb(255, 127, 129);
+        }
+        
+        #input_unitToConvertTo {
+            height: 25px;
+            width: 350px;
+            padding: 8px;
+            background-color: rgb(204, 238, 136);
+        }
+    </style>
+</head>
+
+<body>
+    <div> <input id="input_numToConvert" type="text" placeholder="Please enter a number to convert: "></div>
+    <div> <input id="input_unitToConvertFrom" type="text" placeholder="Would you please enter the unit to convert from ft, m, mi, km, yd, in: "></div>
+    <div> <input id="input_unitToConvertTo" type="text" placeholder="Please enter the unit to convert to: "></div>
+    <div><button id="btn_submit"> Submit </button></div>
+    <script>
+        let input_numToConvert = document.querySelector('#input_numToConvert')
+        let input_unitToConvertFrom = document.querySelector('#input_unitToConvertFrom')
+        let input_unitToConvertTo = document.querySelector('#input_unitToConvertTo')
+        let btn_submit = document.querySelector('#btn_submit')
+
+        btn_submit.addEventListener('click', function() {
+
+            let units = {
+                'ft': .3048,
+                'm': 1,
+                'mi': 1609.34,
+                'km': 1000,
+                'yd': 0.9144,
+                'in': 0.0254,
+
+            }
+
+
+            let numToConvert = parseFloat(input_numToConvert.value)
+            let unitToConvertFrom = input_unitToConvertFrom.value
+            let unitToConvertTo = input_unitToConvertTo.value
+            let submit2 = btn_submit.value
+
+            let product = numToConvert * units[unitToConvertFrom]
+            let product2 = Math.round(product / units[unitToConvertTo])
+            let result = `${numToConvert} ${unitToConvertFrom} is equal to ${product2} ${unitToConvertTo} `
+            console.log(result)
+        })
+    </script>
+
+</body>
+
+</html>

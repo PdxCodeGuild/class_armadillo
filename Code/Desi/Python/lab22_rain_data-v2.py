@@ -51,8 +51,21 @@ def get_variance(rain_list):
 #  of deviation for a group as a whole.
 def get_stand_dev(rain_list):
     return math.sqrt(get_variance(rain_list)
+
   
-  
+def get_max_day(rain_list):
+    max_rain_day = " "
+    # lambda key parameter specifies that max() should use index [1] to determine max rain
+    maximum = max(rain_list, key=lambda x:x[1])
+    for i in range(len(rain_list)):
+      if rain_list[i][1] == maximum[1]:
+        rain_list[i] = ((rain_list[i][0]).strftime('%d-%b-%Y'), rain_data[i][1])
+        max_rain_day += str(rain_list[i])
+    return max_rain_day
+
+
+    
+    
   
 
 def rain_info():
@@ -61,14 +74,17 @@ def rain_info():
   mean = get_mean(rain_list) # see above
   variance = get_variance(rain_list) # see above
   standard_deviation = get_stand_dev(rain_list) # see above
+  max_rain_day = get_max_day(rain_list) 
+
+return rain_info
 
 print(f'mean:{mean}')
 print(f'variance: {variance}')
 print(f'standard deviation: {standard_deviation}')
+print(f'max_day: {max_rain_day}')
 
 
-
-
+rain_info()
 
 
 # Calculae the Mean
