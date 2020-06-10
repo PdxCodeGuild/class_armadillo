@@ -112,15 +112,35 @@ function count_letter(letter, word) {
 // Problem 6 ------------------------------------------------------
 // Return the letter that appears the latest in the english alphabet.
 function latest_letter(word) {
-    console.log(word)
-    console.log(word.split(''))
-    console.log(word.split('').sort())
+
+    // split the word into an array of characters
+    // sort it alphabetically
+    // and take the last element
+    // console.log(word)
+    // console.log(word.split(''))
+    // console.log(word.split('').sort())
     return word.split('').sort()[word.length-1]
 
-    // let latest_character = 
+    // let latest_character = 'a'
     // for (let i=0; i<word.length; ++i) {
-    //     codes.push(word.charCodeAt(i))
+    //     if (word.charCodeAt(i) > latest_character.charCodeAt(0)) {
+    //         // console.log('replacing ' + latest_character + ' with ' + word[i])
+    //         latest_character = word[i]
+    //     }
     // }
+    // return latest_character
+
+
+    // let latest_letter = 'a'
+    // let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    // for (let i=0; i<word.length; ++i) {
+    //     if (alphabet.indexOf(word[i]) > alphabet.indexOf(letter)) {
+    //         // console.log('replacing ' + latest_character + ' with ' + word[i])
+    //         latest_character = word[i]
+    //     }
+    // }
+    // return latest_character
+
 
     // let codes = []
     // for (let i=0; i<word.length; ++i) {
@@ -130,9 +150,18 @@ function latest_letter(word) {
     // console.log(codes)
     // codes = codes.sort(function(a, b) { return a - b })
     // console.log(codes)
-
+    // return String.fromCharCode(codes[codes.length-1])
 }
-console.log(latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis')) // v
+// console.log(latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis')) // v
+
+
+// sort by default sorts in alphabetical order
+// let nums = [90, 105]
+// nums.sort()
+// console.log(nums)
+
+// console.log(5 == '5') // true, implicitly converts both to the same type
+
 
 
 // function min(nums) {
@@ -173,36 +202,143 @@ function count_hi(text) {
 // Problem 8 --------------------------------------------------------------
 // Write a function to move all the elements of a list with value less than 10 to a new list and return it.
 function extract_less_than_ten(nums) {
-    // your code here
+    let new_list = []
+    for (let i=0; i<nums.length; i++) {
+        console.log(i + ' ' + nums[i])
+        if (nums[i] < 10) {
+            new_list.push(nums[i])
+        }
+    }
+    return new_list
+
+    // let new_list = []
+    // let i = 0
+    // while (i < nums.length) {
+    //     if (nums[i] < 10) {
+    //         new_list.push(nums[i])
+    //     }
+    //     i++
+    // }
+    // return new_list
 }
-//console.log(extract_less_than_ten([2, 8, 12, 18])) // [2, 8]
+// console.log(extract_less_than_ten([2, 8, 5, 12, 18])) // [2, 8, 5]
+
+
+
 
 // Problem 9 --------------------------------------------------------------
-// Write a function that takes a list of numbers, and returns True if there is an even number of even numbers.
+// Write a function that takes an array of numbers, and returns True if there is an even number of even numbers.
 function eveneven(nums) {
-    // your code here
+    let evens = []
+    for (let i=0; i<nums.length; i++) {
+        if (is_even(nums[i])) {
+            evens.push(nums[i])
+            console.log(evens)
+        }
+    }
+    return is_even(evens.length)
+
+    // let counter = 0
+    // for (let i=0; i<nums.length; ++i) {
+    //     if (is_even(nums[i])) {
+    //         counter++
+    //     }
+    // }
+    // return is_even(counter)
 }
-//console.log(eveneven([5, 6, 2])) // true
-//console.log(eveneven([5, 5, 2])) // false
+// console.log(eveneven([5, 6, 2])) // true
+// console.log(eveneven([5, 5, 2])) // false
 
 // Problem 10 --------------------------------------------------------------
-// Return a new array containing a every ither number
+// Return a new array containing a every other element
 function every_other(nums) {
-    // your code here
+    let odds = []
+    for (let i=0; i<nums.length; ++i) {
+        if (is_even(i)) {
+            console.log(i + ' ' + nums[i])
+            odds.push(nums[i])
+        }
+    }
+    return odds
+
+    // let r = []
+    // for (let i=0; i<nums.length; i+=2) { // for i in range(0, len(nums), 2):
+    //     r.push(nums[i])
+    // }
+    // return r
 }
-//console.log(every_other([0, 1, 2, 3, 4, 5, 6, 7, 8])) // 0, 2, 4, 6, 8
+//                        0    1    2    3    4
+// console.log(every_other(['a', 'b', 'c', 'd', 'e'])) // ['a', 'c', 'e']
+
+
+
+// let fruits = ['apples', 'bananas', 'pears']
+// // for i in range(len(fruits))
+// for (let i=0; i<fruits.length; ++i) {}
+// // for i in range(0, len(fruits), 3)
+// for (let i=0; i<fruits.length; i+=3) {}
+// // for i in range(2, len(fruits), 2)
+// for (let i=2; i<fruits.length; i+=2) {}
+// // for i in range(len(fruits)-1, -1, -1)
+// for (let i=fruits.length-1; i>-1; i--) {}
+
+
+// def every_other(mylist):
+//     r = []
+//     for i in range(len(mylist)):
+//         if i%2 == 0:
+//             r.append(mylist[i])
+//     return r
+
+
 
 // Problem 11 --------------------------------------------------------------
 // Given a list of numbers, and a target number, find a pair of numbers from the list that sum to a target number. Optional: return a list of all pairs of numbers that sum to a target value.
 function find_pair(nums, target) {
-    // your code here
+    let output = []
+    for (let i=0; i<nums.length; i++) {
+        for (let j=i+1; j<nums.length; j++) {
+            if (nums[i] + nums[j] == target) {
+                output.push([nums[i], nums[j]])
+            }
+            // if (i != j) {
+            //     console.log(nums[i] + ' ' + nums[j])
+            //     if (nums[i] + nums[j] == target) {
+            //         output.push([nums[i], nums[j]])
+            //     }
+            // }
+        }
+    }
+    return output
 }
-//console.log(find_pair([5, 6, 2, 3], 7)) // [5, 2]
+// console.log(find_pair([5, 6, 2, 3, 1], 7)) // [5, 2]
+
+// nested for loop
+let letters = ['a', 'b', 'c', 'd']
+for (let i=0; i<letters.length; ++i) {
+    // console.log(letters[i])
+    for (let j=i+1; j<letters.length; ++j) {
+        console.log(letters[i] + ' ' + letters[j])
+    }
+}
+
+// let matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+// for (let i=0; i<matrix.length; ++i) {
+//     for (let j=0; j<matrix[i].length; ++j) {
+//         console.log(matrix[i][j])
+//     }
+// }
+
 
 
 // Problem 12 --------------------------------------------------------------
 // Write a function that takes `n` as a parameter, and returns a list containing the first n Fibonacci Numbers - https://en.wikipedia.org/wiki/Fibonacci_number.
+// f_i = f_i-1 + f_i-2
 function fibonacci(n) {
-    // your code here
+    let fibs = [1, 1]
+    for (let i=fibs.length; i<n; i++) {
+        fibs.push(fibs[i-2] + fibs[i-1])
+    }
+    return fibs
 }
-// console.log(fibonacci(8)) // [1, 1, 2, 3, 5, 8, 13, 21]
+console.log(fibonacci(10)) // [1, 1, 2, 3, 5, 8, 13, 21]
