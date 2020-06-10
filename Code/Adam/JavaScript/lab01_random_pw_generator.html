@@ -20,7 +20,7 @@
         let spec_chars = '!@#$%^&*()_+{}|:"<>?[]\;,./'
 
 
-        // concatenate alphabet, number, spec chars in a one string and split into an array
+        // concatenate alphabet, numbers, spec chars into one string and split it into an array
         let password_pool = alphabet.concat(numbers, spec_chars).split('')
         console.log(password_pool)
 
@@ -30,10 +30,11 @@
         while (i <= n) {
             // for each increment of i, generate a random character
             let random_char = password_pool[Math.floor(Math.random() * password_pool.length)]
-            password += random_char // add the charater to password
+            password += random_char // add the charater to the string password
             i++; // increment i
         }
         console.log(password.toString())
+        // assign the passord to the unique identifier to be displayed
         page_password.innerText = password.toString()
         </script>
 </body>
