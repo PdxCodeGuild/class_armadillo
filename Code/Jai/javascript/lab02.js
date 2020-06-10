@@ -8,4 +8,7 @@ const units = {
 
 }
 
-let num = 
+let num = promt("enter a number: ")
+let in_unit = prompt('enter a unit of measurement: ')
+let out_unit = prompt('enter the unit of measurement youd like to convert i to: ')
+
