@@ -62,6 +62,8 @@ def rain_info():
   variance = get_variance(rain_list) # see above
   standard_deviation = get_stand_dev(rain_list) # see above
 
+return rain_info
+
 print(f'mean:{mean}')
 print(f'variance: {variance}')
 print(f'standard deviation: {standard_deviation}')
