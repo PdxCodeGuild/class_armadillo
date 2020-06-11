@@ -1,10 +1,10 @@
 .first-text{
     opacity: 0.8;
-    color: whitesmoke;
-    background-color: blueviolet;
+    /* color: whitesmoke; */
+    /* background-color: blueviolet; */
     padding: 8rem;
 }
-.flow-text{
+.big-title, collection{
     color:blue;
     background-color: orange;
 }
