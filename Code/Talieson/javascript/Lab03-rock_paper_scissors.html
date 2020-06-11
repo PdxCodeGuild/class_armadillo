@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✊Hand Battle✊</title>
+    <script>
+        var computer_score = 0
+        var user_score = 0
+    </script>
+</head>
+
+<body>
+    <h1>
+      the value for number is:
+      <script type="text/javascript">
+        document.write(number)
+      </script>
+<body>
+    <div>
+        <select name="user_choice" id="user_choice">
+            <option disabled selected value> Choose your weapon!</option>
+            <option name="✊" value="Rock">✊</option>
+            <option name="🤚" value="Paper">🤚</option>
+            <option name="✌️" value="Scissors">✌️</option>
+            <option name="🤏" value="Lizard">🤏</option>
+            <option name="🖖" value="Spock">🖖</option>
+        </select>
+
+        <button id="btn_battle">BATTLE!</button>
+    </div>
+
+    <div>
+        Your Score: <script>document.write(user_score)</script>  
+        Computer Score: <script>document.write(computer_score)</script>
+    </div>
+    <script>
+        let choices = {
+            Rock: { name: "✊", beats: ["Scissors", "Lizard"] },
+            Paper: { name: "🤚", beats: ["Rock", "Spock"] },
+            Scissors: { name: "✌️", beats: ["Paper", "Lizard"] },
+            Lizard: { name: "🤏", beats: ["Paper", "Spock"] },
+            Spock: { name: "🖖", beats: ["Scissors", "Rock"] },
+        }
+
+        btn_battle.addEventListener('click', function () {
+            let computer_choice = Math.floor((Math.random() / 2 * 10) + 1)
+            if (computer_choice == 1) {
+                computer_choice = "Rock"
+            } else if (computer_choice == 2) {
+                computer_choice = "Paper"
+            } else if (computer_choice == 3) {
+                computer_choice = "Scissors"
+            } else if (computer_choice == 4) {
+                computer_choice = "Lizard"
+            } else if (computer_choice == 5) {
+                computer_choice = "Spock"
+            }
+            user_choice = document.querySelector('#user_choice').value
+            user_choice_image = document.querySelector('#user_choice')
+            user_choice_image = user_choice_image.options[user_choice_image.selectedIndex].getAttribute("name")
+            console.log(user_choice)
+            console.log(computer_choice)
+            if (user_choice == computer_choice) {
+                alert(`You both picked ${user_choice_image}! It's a tie!`)
+            }
+            console.log(choices)
+            let winner = false
+            if (choices[user_choice].beats.includes(computer_choice)) {
+                winner = true
+                alert(`${user_choice_image} beats ${choices[computer_choice].name}! You Win!`)
+                user_score++
+                document.update(user_score)
+            } else {
+                alert(`${choices[computer_choice].name} beats ${user_choice_image}! You Lose!`)
+                computer_score++
+                document.update(computer_score)
+            }
+        })
+    </script>
+</body>
+
+</html>
