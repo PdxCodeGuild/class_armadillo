@@ -14,21 +14,17 @@
         let user_choice = prompt('Enter your choice of rock, paper, or scissor: ')
         console.log(user_choice)
        
+        // declare an array containing RPS choices
         let rps = ['rock', 'paper', 'scissor']
 
+        // generate a random number of 1 through 3
         let rand_num = [Math.floor(Math.random() * rps.length)]
+        // use the random number to select an RPS index
         let comp_choice = rps[rand_num]
         console.log()
 
-        // Randomly choose RPS for the computer
-        // let comp_choice = function random_rps(rps) {
-        //     return rps
-        // }
    
-
-        
-        
-        // Determine who won
+        // Determine and delcare the winner
         if (user_choice == comp_choice) {
             alert(`Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. It's a tie. `)
         }
@@ -36,19 +32,19 @@
             alert(`Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Paper wraps rock; you lose! `)
         }
         else if (user_choice == 'rock' && comp_choice == 'scissor') {
-            alert(`Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Paper wraps rock; you Win! `)
+            alert(`Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Rock breaks scissor; you Win! `)
         }
         else if (user_choice == 'paper' && comp_choice == 'rock') {
             alert(`Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Paper wraps rock; you WIn! `)
         }
         else if (user_choice == 'paper' && comp_choice == 'scissor') {
-            alert(`Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Paper wraps rock; you lose!`)
+            alert(`Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Scissor cuts paper; you lose!`)
         }
         else if (user_choice == 'scissor' && comp_choice == 'rock') {
-            alert(`Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Paper wraps rock; you lose!`)
+            alert(`Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Rock breaks scissor; you lose!`)
         }
         else if (user_choice == 'scissor' && comp_choice == 'paper') {
-            alert(`Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Paper wraps rock; you win! `)
+            alert(`Player Choice: ${user_choice} | Computer Choice: ${comp_choice}. Scissor cuts paper; you win! `)
         }
 
         // List all the cases
