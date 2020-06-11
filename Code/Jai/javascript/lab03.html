@@ -8,46 +8,105 @@
 </head>
 
 <body>
+    <div> <input id ="user_input" type="text" placeholder="how long do you want your password"></div>
+
+    <div><button id="btn_submit"> Submit </button></div>
+    <span id ="span_output"></span>
+    
     <script type = "text/javascript">
     console.log("welcome to the party")
-    
-    let upper_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",]
-    
-    let lower_letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",]
-    let digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,] 
-    let specials = ["!", "@", "#", "$", " %", "^", "&", "*", "(", ")", "_", "+", "?", "<", ">", "~",]
-    let new_password = upper_letters + lower_letters + digits + specials
-        
-    new_password= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456890!@#$%&*()_}:><?' 
-    
-    new_password = new_password.replace(",", "") 
-        console.log(new_password)
-        console.log(typeof(new_password))
-    let input = prompt("how many characters do you want in your password?")
+   let user_input = document.querySelector('#user_input') 
+   
+   let btn_submit = document.querySelector('#btn_submit') 
+   
+   let span_output = document.querySelector('#span_output') 
 
-    function generate_password() { 
+   function generate_password(){ 
+        
+        let new_password = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&*()_}:><?'
+         new_password.split(',')
+
+        let input= user_input.value
         
         let password = " "
-        for (let i = 0; i < input; i++)
-        { let random_index = Math.floor(Math.random() * new_password.length)
+        for (let i = 0; i < input; i++){ 
+            let random_index = Math.floor(Math.random() * new_password.length - 1)
+            if (random_index === -1){
+            random_index += 1
+
+
+
+            } 
+
+        let random_password = new_password[random_index]
+         password += random_password
+              
+        
+        console.log(random_index)
+        }                   
+        
+        return password
+
+
+    }
+    btn_submit.addEventListener('click', function(){
+
+        
+        span_output.innerText = `your password is ${generate_password()}`    
+        
+        
+
+        
+    })
+                                                  
+       
+   
+        
+  
+   
+   
+   
+   
+ </script>
+</body>
+
+</html>   
+   
+<!--    
+    // let upper_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",]
+    
+    // let lower_letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",]
+    // let digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,] 
+    // let specials = ["!", "@", "#", "$", " %", "^", "&", "*", "(", ")", "_", "+", "?", "<", ">", "~",]
+    // let new_password = upper_letters + lower_letters + digits + specials
+        
+//   new_password= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456890!@#$%&*()_}:><?' 
+    
+//     new_password = new_password.replace(",", "") 
+//         console.log(new_password)
+//         console.log(typeof(new_password))
+//     let input = prompt("how many characters do you want in your password?")
+
+//     function generate_password() { 
+        
+//         let password = " "
+//         for (let i = 0; i < input; i++)
+//         { let random_index = Math.floor(Math.random() * new_password.length) -->
             
             
-       let random_password = new_password[random_index]
-       password += random_password
+<!-- //        let random_password = new_password[random_index]
+//        password += random_password
 
  
 
-        }
+//         }
                
-alert(`"your password is: "${password}`)
-console.log(password)
+// alert(`"your password is: "${password}`)
+// console.log(password)
 
 
 
         
 
-    }generate_password()
-    </script>
-</body>
-
-</html>
+//     }generate_password()
+    -->
