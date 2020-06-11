@@ -24,31 +24,22 @@
             let computer = Math.floor(Math.random() * choices.length)
             if(player_select === choices[computer]) {
                 results.innerHTML = `Computer chose ${choices[computer]}! That is a tie!`
-                // output(`Computer chose ${choices[computer]}! That is a tie!`)
             } else if (player_select === 'rock' && choices[computer] === 'paper') {
                 results.innerHTML = 'Computer Wins!'
-                // output('Computer Wins!')
             } else if (player_select === 'rock' && choices[computer] === 'scissors') {
                 results.innerHTML = 'You Win!'
-                // output('You Win!')
             } else if (player_select === 'paper' && choices[computer] === 'rock') {
                 results.innerHTML = 'You Win!'
-                // output('You Win!')
             } else if (player_select === 'paper' && choices[computer] === 'scissors') {
                 results.innerHTML = 'Computer Wins!'
-                // output('Computer Wins!')
             } else if (player_select === 'scissors' && choices[computer] === 'rock') {
                 results.innerHTML = 'Computer Wins!'
-                // output('Computer Wins!')
             } else if (player_select === 'scissors' && choices[computer] === 'paper') {
                 results.innerHTML = 'You Win!'
-                // output('You Win!')
             }
             else {
                 results.innerHTML = 'That is not a valid entry.'
-                // output('That is not a valid entry')
             }
-            // result.innerText = output
         })
     </script>
 </body>
