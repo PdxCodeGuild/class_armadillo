@@ -19,68 +19,72 @@
         function m_to_unit(end_unit, distance) {
             if (['feet', 'ft'].includes(end_unit)) {
                 dist_in_ft = distance / 0.3048 // conversion factor for ft
-                return `${dist_in_ft} ft `
+                console.log(dist_in_ft)
+                return `${dist_in_ft} ft ` // return template literal containing conversion
             }
             else if (['miles', 'mile', 'mi'].includes(end_unit)) {
                 dist_in_mi = distance / 1609.34
+                console.log(dist_in_mi)
                 return `${dist_in_mi} mi `
             }
             else if (['meters', 'meter', 'm'].includes(end_unit)) {
                 dist_in_m = distance / 1
+                console.log(dist_in_m)
                 return `${dist_in_m} m `
             }
             else if (['kilometers', 'kilometer', 'km'].includes(end_unit)) {
                 dist_in_km = distance / 1000
+                console.log(dist_in_km)
                 return `${dist_in_km} km `
+            }
+            else {
+                // if end_unit does't match elements in the array alert the user
+                alert(`${end_unit} is not a valid end unit. `)
             }
         }
 
-        // promt the user to enter distance
-        let distance = prompt('What is the distance?')
-        console.log(distance)
-
-
-        // prompt user for input unit
-        let start_unit = prompt('Enter the starting unit of measurement: ex. ft ')
-        console.log(start_unit)
-
-
-        // prompt the user for end unit
-        let end_unit = prompt(`Enter a unit of measurement to convert ${distance}${start_unit} to: `)
-        console.log(end_unit)
-
-
+        // declare variables and assign the values from the querys
         let input_distance = document.querySelector('#input_distance')
         let input_start_unit = document.querySelector('#input_start_unit')
         let input_end_unit = document.querySelector('#input_end_unit')
         let output_div = document.querySelector('#output_div')
 
 
+        // convert start unit to meters then meters to end_unit via m_to_unit() 
         submit.addEventListener('click', function () {
+            // declare variable to be used in function
+            let distance = input_distance.value
+            let start_unit = input_start_unit.value
+            let end_unit = input_end_unit.value
+
+            // if start_unit matches an element from array
             if (['feet', 'ft'].includes(start_unit)) {
-                dist_in = distance*0.3048
-                output += `${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}`
+                // convert start unit to meters then meters to end_unit via m_to_unit() 
+                dist_in_m = distance * 0.3048 // 
+                // assign template literal containing the converted value to output_div innerText
+                output_div.innerText = `${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}`
                 console.log(m_to_unit(end_unit, dist_in_m))
             }
-            else if (['miles','mile','mi'].includes(start_unit)) {
-                dist_in = distance*1609.34
-                output += `${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}`
+            else if (['miles', 'mile', 'mi'].includes(start_unit)) {
+                dist_in_m = distance * 1609.34
+                output_div.innerText = `${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}`
                 console.log(m_to_unit(end_unit, dist_in_m))
             }
-            else if (['meters','meter','m'].includes(start_unit)) {
-                dist_in = distance*1
-                output += `${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}`
+            else if (['meters', 'meter', 'm'].includes(start_unit)) {
+                dist_in_m = distance * 1
+                output_div.innerText = `${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}`
                 console.log(m_to_unit(end_unit, dist_in_m))
             }
-            else if (['kilometers','kilometer','km'].includes(start_unit)) {
-                dist_in = distance*1000
-                output += `${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}`
+            else if (['kilometers', 'kilometer', 'km'].includes(start_unit)) {
+                dist_in_m = distance * 1000
+                output_div.innerText = `${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}`
                 console.log(m_to_unit(end_unit, dist_in_m))
             }
             else {
+                // if start_unit doesn't match elements in arrays, alert user
                 alert(`${start_unit} is not a valid starting unit.`)
             }
-            output_div.innerText = output
+
         })
 
     </script>
