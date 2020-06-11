@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROT13(Divinci Cypher)</title>
+    <style type = 'text/css'></style>
+    <script>
+        const character = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$%&*()_-+=:;<.>,?'
+
+
+        let rotation = parseInt(prompt('Enter Number of Rotations'))
+
+        let input = prompt('Enter Word, Message, or Phrase to be cyphered')
+        
+
+        for(let characters of input) {
+            let charactersIndex = character.indexOf(characters)
+            let chypherCharacters = ((charactersIndex + rotation) % 75)
+            input = input.replace(characters, character[chypherCharacters])
+        }
+        alert(input)
+        console.log(input)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

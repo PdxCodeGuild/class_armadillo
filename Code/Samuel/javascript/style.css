@@ -1,0 +1,9 @@
+h1{
+    text-align: center;
+}
+
+.option{
+    flex: auto;
+    margin-top: 250px;
+    margin-left: 40%;
+}
