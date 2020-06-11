@@ -8,7 +8,13 @@
 </head>
 
 <body>
+    <h1>Number To Phrase</h1>
+    <input id="input_number" type="text" placeholder="Enter Number">
+    <button id="btn_convert">Convert</button>
+    <div id="div_output"></div>
     <script>
+        let input_number = document.querySelector('#input_number')
+
         function num_phrase(num) {
             let phrase = {
                 1: 'one',
@@ -87,7 +93,12 @@
                 return over_hundred(num)
             }
         }
-        console.log(num_phrase(267))
+        
+        btn_convert.addEventListener('click', function(){
+            let user_number = input_number.value
+            let phrase = num_phrase(user_number)
+            div_output.innerText = phrase
+        })
     </script>
 </body>
 
