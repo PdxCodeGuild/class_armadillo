@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Throw Hands</title>
 </head>
 
 <body>
@@ -18,15 +18,15 @@
         // assigns the variable to the array.
         let choice = ["rock", "paper", "scissors"];
         // assigns variable to reference the html elements.
-        let user_player = document.querySelector('#userMove')
-        let throw_down = document.querySelector('#throw_down')
+        let user_player = document.querySelector('#userMove');
+        let throw_down = document.querySelector('#throw_down');
         // assigns the variable for the computer and implements code to randomly chose from the array.
         let rando_choice = Math.floor(Math.random() * 3);
         let computer_player = choice[rando_choice];
         // places the outcomes and rules in a function with appropriate response for the winner.
         function rules() {
             // sets the value for user_player from the array.
-            user_player = user_player.value
+            user_player = user_player.value;
             // the winning and losing combinations with approriate responses.
             if (user_player === "rock" && computer_player === "paper") {
                 outcome_response = "Computer says, 'Boom! You lose Sucka! Paper covers rock.'";
@@ -53,15 +53,12 @@
         // calls the method of html elements and passes the function as a parameter.
         throw_down.addEventListener('click', function () {
             // calls the function for rules.
-            rules()
+            rules();
             // assigns the variable and produces the choices for both player and computer in a string.
             let response = `You chose ${user_player} and computer chose ${computer_player}.`;
             // combines the output responses and places them in the div and displays them on the page.
             div_response.innerText = response + "\n" + outcome_response;
         })
-
-
-
     </script>
 </body>
 
