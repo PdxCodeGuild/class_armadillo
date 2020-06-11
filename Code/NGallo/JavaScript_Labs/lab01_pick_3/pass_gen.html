@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab_01_R_P_S</title>
+    <title>Lab_01_Random_Pass_Gen</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
     <body>
         <div id="number_div">
             <input id="password_length" type="text" placeholder="enter length of password" />
-            <input type="button" onclick="enable()" value="length_of_password">
+            <input type="button" onclick="MyFunction();return false" value="length_of_password">
 
         </div>
 
@@ -31,7 +31,8 @@
         </div>
 
         <script>
-            
+            let user_input = password_length.getAttribute 
+            console.log(user_input)
         </script>
 
     </body>
