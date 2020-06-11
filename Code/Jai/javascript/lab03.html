@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random password generator</title>
+</head>
+
+<body>
+    <script type = "text/javascript">
+    console.log("welcome to the party")
+    
+    let upper_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",]
+    
+    let lower_letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",]
+    let digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,] 
+    let specials = ["!", "@", "#", "$", " %", "^", "&", "*", "(", ")", "_", "+", "?", "<", ">", "~",]
+    let new_password = upper_letters + lower_letters + digits + specials
+        
+    new_password= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456890!@#$%&*()_}:><?' 
+    
+    new_password = new_password.replace(",", "") 
+        console.log(new_password)
+        console.log(typeof(new_password))
+    let input = prompt("how many characters do you want in your password?")
+
+    function generate_password() { 
+        
+        let password = " "
+        for (let i = 0; i < input; i++)
+        { let random_index = Math.floor(Math.random() * new_password.length)
+            
+            
+       let random_password = new_password[random_index]
+       password += random_password
+
+ 
+
+        }
+               
+alert(`"your password is: "${password}`)
+console.log(password)
+
+
+
+        
+
+    }generate_password()
+    </script>
+</body>
+
+</html>
