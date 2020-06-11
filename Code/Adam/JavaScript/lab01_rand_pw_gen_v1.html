@@ -14,6 +14,7 @@
 
         // ask user for length of password.
         n = prompt('How long would you like your password to be?:')
+        console.log(n)
 
         // create a pool of characters to draw on
         let alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' 
@@ -29,7 +30,7 @@
         let password = 'Your random password is: '
         // pick a random character n number of times
         while (i <= n) {
-            // for each increment of i, generate a random character
+            // for each increment of i, choose a random character from the array
             let random_char = password_pool[Math.floor(Math.random() * password_pool.length)]
             password += random_char // add the charater to the string password
             i++; // increment i

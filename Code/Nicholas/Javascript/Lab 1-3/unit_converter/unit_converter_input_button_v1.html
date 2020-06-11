@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter V1</title>
+    </head>
+<body>
+    <h3>Convert feet to meters:</h3>
+    <input id = "feet_input" type="text" placeholder="enter feet"/>
+    <button id = "convert_feet">convert</button>
+    <div id="conversion"></div> 
+    <script>
+        let feet_input = document.querySelector("#feet_input")
+        let convert_feet = document.querySelector("#convert_feet")
+        let conversion = document.querySelector("#conversion")
+        convert_feet.addEventListener('click', function(){
+            let user_input = (feet_input.value)
+            let meter = parseFloat(user_input * 0.3048)
+            console.log(meter)
+            conversion.innerHTML = (`${user_input} feet equals ${meter.toFixed(2)} meters`)
+        })
+    </script>
+    
+</body>
+</html>

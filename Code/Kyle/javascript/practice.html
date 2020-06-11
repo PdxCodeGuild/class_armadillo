@@ -1,13 +1,343 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practice Javascript</title>
-
+    <title>Document</title>
 </head>
 <body>
     <script>
+
+// # JavaScript Practice Problems
+
+// All work mob programmed from Lexi, Troy, Taleson, Bobby, and Kyle in Jon's breakout room
+
+// Here are 12 problems to practice javascript, these can be run in a terminal using `node myfile.js` or put into the `script` tag of an `html` document and run in a browser. As you go through each practice problem, uncomment the test code below it. Once you verify you're getting the correct output, you can comment-out the test code and move onto the next problem.
+
+// fundamentals ===================================================
+// ================================================================
+
+// Problem 1 ------------------------------------------------------
+// Write a function that tells whether a number is even or odd
+// What operator do we use to check if a number is even?
+
+
+
+function is_even(num) {
+    if(num%2 === 0 ){
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(is_even(6)) // True
+// RESULT (open in html, look at console, type in function, 'is_even(5)' and you can see it works!):
+// is_even
+// function is_even(num)
+
+// is_even(4)
+// true
+// is_even(21)
+// false
+
+
+// // Problem 2 ------------------------------------------------------
+// // Write a function that takes two integers, 'a' and 'b', and returns 'true' if one is positive and the other is negative, and return 'false' otherwise.
+// EXAMPLE: if a = 6, b = -3 --> return true, ELSE false
+function opposite(a, b) {
+    //check if one is pos, and the other is neg
+    if(a < 0 && b > 0) {
+        return true
+    // check inverse of above condition
+    } else if (a>0 && b <0){
+        return true
+    // can only be one 'else'
+    } else {
+        return false
+    }
+    }
+// RESULT(open in html, look at console, type in function, 'opposite(-3,3)' to see below:
+// opposite(3, -3)
+// true
+// opposite(-3, 3)
+// true
+// opposite(-4, -4)
+// false
+// opposite(4, 4)
+// false
+
+
+// console.log(opposite(10, -1)) // True
+// console.log(opposite(2, 3)) // False
+// console.log(opposite(-1, -1)) // False
+
+// // Problem 3 ------------------------------------------------------
+// // Write a function that returns the maximum of 3 parameters.
+// do not use max() method
+// boolean
+// givens: we know we need 3 params, check EACH boolean against one another
+function maximum_of_three(a, b, c) {
+    if ( (a >= b) && (a >= c) ) {
+        return a
+    } else if ( (b >= a) && (b >= c) ){
+        return b
+    } else {
+        return c
+    }
+}
+console.log(maximum_of_three(5,6,2)) // 6
+console.log(maximum_of_three(-4,3,10)) // 10
+
+
+
+// // strings ========================================================
+// // ================================================================
+
+// // Problem 4 ------------------------------------------------------
+// // Get a string from the user, print out another string, doubling every letter.
+// for - loops through a block of code a number of times
+// for/in - loops through the properties of an object
+// THIS IS WHAT WE WANT >> for/of - loops through the values of an iterable object (similar to the python for 'in' loop)
+function double_letters(word) {
+    // we use 'let' keyword for below variable b/c we want it to remain
+    // contained within this function - we do not want x to be global (accessible by other functions within this long html file)
+    let x = ""
+    for (char of word){
+        x += char
+        x += char // hheelllloo
+        console.log(word)
+        // console.log(char*2)
+        // console.log(char*2, end="")
+    }
+
+        console.log(x) // hheelllloo
+
+}
+console.log(double_letters('hello')) // hheelllloo
+
+// Problem 5 ------------------------------------------------------
+// Return the number of letter occurrences in a string.
+// use a counter
+// .count? or .strip?
+function count_letter(letter, word) {
+    // mind python > js syntax
+    let count = 0
+    for (char of word){
+        if (char === letter){
+            count++
+        }
+    } 
+    return count
+}
+console.log(count_letter('i', 'antidisestablishmentterianism')) // 5
+console.log(count_letter('p', 'pneumonoultramicroscopicsilicovolcanoconiosis')) // 2
+
+// // Problem 6 ------------------------------------------------------
+// // Return the letter that appears the latest in the english alphabet.
+// ideas?
+function latest_letter(word) {
+    // STEP 1: turn word into an array of strings
+    // STEP 2: sort it
+    // STEP 3: slice it "famous last words" - Troy
+    let list_of_letters = word.split('')
+    list_of_letters.sort()
+    console.log(list_of_letters) // ["a", "a", "c", "c", "c", "c", "c", "c", "e", "i", "i", "i", "i", "i", "i", "l", "l", "l", "m", "m", "n", "n", "n", "n", "o", "o", "o", "o", "o", "o", "o", "o", "o", "p", "p", "r", "r", "s", "s", "s", "s", "t", "u", "u", "v"]
+    console.log(list_of_letters.slice(-1))//["v"]
+    
+    }
+
+console.log(latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis')) // v
+
+// // Problem 7 ------------------------------------------------------
+// // Write a function that returns the number of occurrences of 'hi' in a given string.
+// similar to problem 5
+//How to count string occurrence in string? https://stackoverflow.com/questions/4009756/how-to-count-string-occurrence-in-string
+function count_hi(text) {
+    // STEP 1: check if post and pre element are a char we are looking for
+    let count = 0
+    // must use 'let' keyword in below for loop - ES6
+    for (let i=0; i < text.length; i++){
+        // console.log(i) // printing four times (0,1,2,3)
+        // if else to check if a letter is in the text
+
+        // if current elem == h, AND if second elem == i
+        if((text[i] === "h") && (text[i+1] === "i")){
+        // increment count to show we found the letter 'i'
+            count++
+        } 
+        // console.log(text[i]) //just the number
+        // console.log(text[i + 1]) // adding to it
+        // console.log(text[i + 2]) // skipping element
+
+    }
+        // make sure you return 'count' outside of for loop
+        // as soon as you get a return, it breaks the loop
+        return count
+}
+
+
+
+console.log(count_hi('hihi')) // 2
+
+
+
+// // arrays =====================================================
+// // ============================================================
+
+// // Problem 8 --------------------------------------------------------------
+// // Write a function to move all the elements of a list with value less than 10 to a new list and return it.
+// STEP 1. create new list
+// STEP 2. Troy: strip, join, append
+// STEP 3. Tal: compare each value in array to see if it's less than 10, if so take it out and put it in new list - POP and APPEND(push in js) method
+function extract_less_than_ten(nums) {
+    // create empty array
+    let new_list = []
+    // create for 'of' loop to iterate through list (called an array in JS)
+    for (num of nums){
+        if (num < 10 ) {
+            // Jon: pop takes it out
+            // nums.pop(num)
+
+            // equivalent of 'append' in python is 'push' in JS
+            new_list.push(num)
+        }
+    }
+    // return new_list OUTSIDE for loop
+    return new_list
+
+}
+console.log(extract_less_than_ten([2, 8, 12, 18])) // [2, 8]
+
+// // Problem 9 --------------------------------------------------------------
+// // Write a function that takes a list of numbers, and returns True if there is an even number of even numbers.
+function eveneven(nums) {
+    // check if array has even nums
+    // create a counter, then depending on if the counter is even or odd, return a true or false
+    // if statement
+    // STEP 1. keep track of even numbaz
+    let count = 0
+    // length of array
+    for(num of nums){
+
+        // checking if num is EVEN or ODD
+        if(num%2 === 0 ){
+        //no return - that will break loop
+        count++
+        }
+
+
+    // this if-else tells you if there is an EVEN or ODD count
+    }
+    if(count%2===0){
+        return true
+    }else{
+        return false
+    }
+    
+}
+
+// RESULT: 
+// eveneven([4,5,6,7,8,9])
+// false
+// eveneven([4,5,6,7,8,9,10])
+// true
+
+// // Problem 10  for index, element in enumerate(iterable) t--------------------------------------------------------------
+// // Return a new array containing a every other number
+function every_other(nums) {
+    // your code here
+    let x = []
+    // passing in an array, so 'in' keyword can be used
+    for(i in nums){
+        if(i%2 === 0){
+            // this is how we 'append' in JS
+            x.push(nums[i])
+        }
+    }
+    return x //(5) [0, 2, 4, 6, 8]  AND [90, 22, 14, 36, 98]
+    // for(num of nums){
+    // x.push(nums[,,2])
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+    // return nums.slice( , ,2)
+ }
+
+console.log(every_other([90, 31, 22, 43, 14, 45, 36, 67, 98])) // 0, 2, 4, 6, 8
+
+
+// // Problem 11 --------------------------------------------------------------
+// // Given a list of numbers, and a target number, find a pair of numbers from the list that sum to a target number. Optional: return a list of all pairs of numbers that sum to a target value.
+
+function find_pair(nums, target) {
+    let x = 0
+    while(x<nums.length){
+
+    // STEP 1. for loop to iterate over indices
+    // STEP 2. if-else statement
+    // STEP 3. create empty list
+    // STEP 4. start for loop at '1'
+    // STEP 5. compare value of the two numbers so that they can sum the target number
+    // STEP 6. put it in a while loop
+    
+    for (let i=x+1; i <nums.length; i++){
+        // add value of first index with second value in array and checking if it's the TARGET number
+        console.log(x)
+        console.log(i)
+        console.log(x+i)
+        if (nums[x] + nums[i] === target){
+            let list = [nums[x], nums[i]]
+            return list
+        }
+    }
+    // while loop is checking on base number - that number doesn't iterate until it counts over all
+    // secondary number is in the for loop - that's why increment is outside of for loop
+        x++
+}
+}
+console.log(find_pair([1, 4, 5, 2, 3], 8)) // [5, 2]
+// SOURCE: https://www.w3resource.com/javascript-exercises/javascript-array-exercise-26.php
+
+
+// // Problem 12 --------------------------------------------------------------
+// // Write a function that takes `n` as a parameter, and returns a list containing the first n Fibonacci Numbers - https://en.wikipedia.org/wiki/Fibonacci_number.
+function fibonacci(n) {
+    // pass it a number known as 'n'
+    // all inside while loop that says, while array is NOT at parameter that was passed, we make it longer
+
+    //start with empty list
+    let list = [1,1]
+    //passing the array a number to compare it to target number
+
+        // take highest index and add it to number before it
+        // very first number must add to itself
+        for( i=1; (i<n-1) ; i++){
+        // appending
+        list.push(list[i-1] + list[i])
+        }
+        return list //[1, 1, 2, 3, 5, 8, 13, 21, 34]
+}
+console.log(fibonacci(10)) // [1, 1, 2, 3, 5, 8, 13, 21]
+
+// ```
+function find_pair(nums, target) {
+    let x = 0
+    while(x<nums.length){
+
+    for (let i=x+1; i <nums.length; i++){
+     
+        console.log(x)
+        console.log(i)
+        console.log(x+i)
+        if (nums[x] + nums[i] === target){
+            let list = [nums[x], nums[i]]
+            return list
+        }
+    }
+        x++
+}
+}
+
+
     </script>
 </body>
 </html>
