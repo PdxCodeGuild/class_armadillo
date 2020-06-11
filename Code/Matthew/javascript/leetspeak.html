@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1337 SP34K Translator</title>
+    <style type="text/css">
+        #btn_translate {
+            font-size:12px;
+        }
+        .myinput {
+            background-color:ivory;
+        }
+        .output {
+            color:mediumseagreen;
+        }
+    </style>
+</head>
+<body>
+    <!-- <label for="input_text">input text</label> -->
+    <input id="input_text" class="myinput" type="text" placeholder="input text" value="hello"/>
+    <span id="span_character_count"></span>
+    <button id="btn_translate">translate</button>
+    <div id="div_output"></div>
+    <script type="text/javascript">
+        // let input_text = document.querySelector('.myinput')
+        let input_text = document.querySelector('#input_text')
+        let btn_translate = document.querySelector('#btn_translate')
+        let div_output = document.querySelector('#div_output')
+        let span_character_count = document.querySelector('#span_character_count')
+
+        // python
+        // x = lambda a, b: a+b
+        // x(5, 2)
+        // y = x
+        // y(5, 2)
+
+        // function can be assigned to variables
+        // let add = function(a, b) {
+        //     return a + b
+        // }
+        // add(5, 2)
+        // let a = add
+        // a(5, 2)
+
+        // function that takes another function (f) as a parameter
+        // function myfunc(f) {
+        //     console.log('b')
+        //     f() // calling the function that was passed as a parameter
+        //     console.log('d')
+        // }
+        // console.log('a') // will print first because it's not within any function
+        // myfunc(function() { // define a function inside the parameter list, this becomes f
+        //     console.log('c')
+        // })
+        // console.log('e')
+
+        
+        input_text.addEventListener('input', function() {
+            span_character_count.innerText = input_text.value.length
+        })
+
+        
+        // setting a property on the html element to a function - has the 'on' part in the name
+        // btn_translate.onclick = function() {}
+        // calling a method on the html element and passing a function as a parameter
+        btn_translate.addEventListener('click', function() {
+            
+            let text = input_text.value
+
+            // text = text.replace('e', '3')
+            // text = text.replace('a', '4')
+            // text = text.replace('o', '0')
+            
+            let translation = [ // array of arrays
+                ['e', '3'],
+                ['a', '4'],
+                ['o', '0'],
+                ['t', '7'],
+                ['l', '1'],
+                ['z', '2']
+            ]
+            for (let i=0; i<translation.length; ++i) {
+                while (text.includes(translation[i][0])) { // loop to replace all occurances
+                    text = text.replace(translation[i][0], translation[i][1])
+                }
+            }
+
+            // let translation = {
+            //     'e': '3',
+            //     'a': '4',
+            //     'o': '0',
+            //     't': '7',
+            //     'l': '1',
+            //     'z': '2'
+            // }
+            // for (let key in translation) {
+            //     while (text.includes(key)) { // loop to replace all occurances
+            //         text = text.replace(key, translation[key])
+            //     }
+            // }
+            // div_output.innerText = text
+        })
+
+        // example of mouse events
+        // btn_translate.addEventListener('mouseenter', function() {
+        //     console.log('mouse entered')
+        // })
+        // btn_translate.addEventListener('mouseleave', function() {
+        //     console.log('mouse left')
+        // })
+
+        
+        // when to use 'let'
+        // python
+        //x = 10 
+        //x = 20 // just assignment
+        // javascript
+        //let x = 10 // declaration and assignment
+        //x = 20 // just assignment
+
+        // set the value of an input element
+        // input_text.value = 'hi'
+
+        // set inner text / inner html
+        // div_output.innerText = 'abc123'
+        // div_output.innerHTML = '<b>abc123</b>'
+
+        // set the style
+        // div_output.style.color = 'red'
+
+        // add a class
+        // div_output.classList.add('output')
+        // div_output.classList.remove('output')
+
+        // modify the attributes
+        // input_text.setAttribute('disabled', 'disabled')
+        // input_text.removeAttribute('disabled')
+        
+    </script>
+</body>
+</html>
