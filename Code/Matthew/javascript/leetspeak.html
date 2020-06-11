@@ -22,6 +22,7 @@
     <span id="span_character_count"></span>
     <button id="btn_translate">translate</button>
     <div id="div_output"></div>
+
     <script type="text/javascript">
         // let input_text = document.querySelector('.myinput')
         let input_text = document.querySelector('#input_text')
@@ -60,6 +61,13 @@
             span_character_count.innerText = input_text.value.length
         })
 
+        function replaceAll(text, to_replace, replace_with) {
+            while (text.includes(to_replace)) {
+                text = text.replace(to_replace, replace_with)
+            }
+            return text
+        }
+
         
         // setting a property on the html element to a function - has the 'on' part in the name
         // btn_translate.onclick = function() {}
@@ -81,6 +89,7 @@
                 ['z', '2']
             ]
             for (let i=0; i<translation.length; ++i) {
+                // text = replaceAll(text, translation[i][0], translation[i][1])
                 while (text.includes(translation[i][0])) { // loop to replace all occurances
                     text = text.replace(translation[i][0], translation[i][1])
                 }
@@ -99,7 +108,8 @@
             //         text = text.replace(key, translation[key])
             //     }
             // }
-            // div_output.innerText = text
+            
+            div_output.innerText = text
         })
 
         // example of mouse events
@@ -136,7 +146,7 @@
         // modify the attributes
         // input_text.setAttribute('disabled', 'disabled')
         // input_text.removeAttribute('disabled')
-        
+
     </script>
 </body>
 </html>
