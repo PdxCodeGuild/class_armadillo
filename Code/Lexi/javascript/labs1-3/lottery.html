@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--connect to my css-->
+    <link rel="stylesheet" href="../css/lottery.css" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="lottery.js"></script>
+  </head>
+  <body>
+    <!-- Teal page content  -->
+
+    <div class="big-title">
+      <div class="grid-example col s12">
+        <span class="first-text">
+          <input
+            type="text"
+            placeholder="Please input six digits here to play"
+          />
+        </span>
+      </div>
+    </div>
+    <div>
+    <div class="row">
+        <div class="col s1">First Number</div>
+        <div class="col s1">Second Number</div>
+        <div class="col s1">Third Number</div>
+        <div class="col s1">Fourth Number</div>
+        <div class="col s1">Fifth Number</div>
+        <div class="col s1">Sixth Number</div>
+    </div>
+    </div>
+                                    <div>
+                                      <button id="input_text" type="button">Hi this is a teeny button</button>
+                                    </div>
+
+    <script>
+      input_text.addEventListener("input", function () {
+        span_character_count.innerText = input_text.value.length;
+      });
+    </script>
+  </body>
+</html>
