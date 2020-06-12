@@ -6,7 +6,77 @@
     <title>Document</title>
 
 </head>
-<body>hello wirld
-    <script src="./lab02.js"></script>
+<body>
+    <div> <input id ="input_num" type="text" placeholder="enter number"></div>
+    <div> <label for="unit">Pick Unit of Measurement:</label> 
+    <select name=unit1 id=unit1>
+        <option value="miles">miles</option>
+        <option value="meters">meters</option>
+        <option value="kilometers">kilometers</option>
+        <option value=inches>inches</option>
+        <option value="feet">feet</option>    
+        <option value="yards">yards</option>  
+
+    </select>
+    <div> <label for="unit2">conversion </label> 
+    <select name="unit2" id="unit2">
+        <option value="miles">miles</option>
+        <option value="meters">meters</option>
+        <option value="kilometers">kilometers</option>
+        <option value=inches>inches</option>
+        <option value="feet">feet</option>    
+        <option value="yards">yards</option>   
+     </select> </div>   
+    
+    <div><button id="btn_submit"> Submit </button></div>
+    <span id ="span_output"></span>
+    
+    <script type = "text/javascript">
+    console.log("welcome to the party")
+   let input_num = document.querySelector('#input_num') 
+   
+   let btn_submit = document.querySelector('#btn_submit') 
+   
+   let span_output = document.querySelector('#span_output') 
+
+   let unit1 = document.querySelector('#unit1')
+   let unit2 = document.querySelector('#unit2')     
+
+    
+function convert_unit(){
+    const units = {
+    ft: 0.3048,
+    m: 1,
+    mi: 1609.34,
+    km: 1000,
+    yd:  0.9144,
+    in: 0.0254,
+    }
+
+    let unit_1 = unit1.value
+    let unit_2 = unit2.value
+    let input= input_num.value
+    let conversion = Math.abs(input_num * units[unit_1])
+    let new_conversion = Math.abs(conversion / units[unit_2])
+
+
+
+    
+
+return new_conversion
+
+}
+
+
+btn_submit.addEventListener('click', function(){
+
+span_output.innerText = `${convert_unit()}`
+
+})
+                            
+
+</script>
 </body>
+
+
 </html>

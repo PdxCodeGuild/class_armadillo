@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--connect to css-->
+    <link rel="stylesheet" href="../css/lottery.css" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--connect to 1st JS-->
+    <script src="lottery.js"></script>
+    <!--connect to 2nd JS-->
+    <script src="lottery_sup.js"></script>
+  </head>
+  <body>
+    <!-- Teal page content  -->
+
+    <div class="big-title">
+      <div class="grid-example col s12">
+        <span class="first-text">
+          <input
+            id="input_text"
+            type="text"
+            placeholder="Please input six digits here to play"
+          />
+        </span>
+      </div>
+    </div>
+    <div>
+      <div id="display_nums" class="collection">
+        <div class="col s1">
+          First Number<span id="span_character_count"></span>
+        </div>
+        <div class="col s1">Second Number</div>
+        <div class="col s1">Third Number</div>
+        <div class="col s1">Fourth Number</div>
+        <div class="col s1">Fifth Number</div>
+        <div class="col s1">Sixth Number</div>
+      </div>
+    </div>
+    <div>
+      <button id="btn_click" type="button">Hi, this is a teeny button</button>
+    </div>
+
+    <script>
+      let input_text = document.querySelector("#input_text");
+
+      //will show the user what he/she/they is typing
+      input_text.addEventListener("input", function () {
+        span_character_count.innerText = input_text.value.length;
+      });
+    </script>
+  </body>
+</html>
