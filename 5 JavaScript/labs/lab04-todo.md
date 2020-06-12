@@ -1,5 +1,5 @@
 
-# Lab 4: Todo List
+# Lab: Todo List
 
 Let's make a todo-list with the following features:
 
