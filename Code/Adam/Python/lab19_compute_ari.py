@@ -121,7 +121,7 @@ sentences = count_sentences(text)
 # compute the ARI
 ari = 4.71*(chars/words) + 0.5*(words/sentences) - 21.43
 # round the ARI to 2 decimal points
-ari = round(ari, 2)
+ari = round(ari)
 
 # if the ARI is lower thank 1 its kindergarden
 # if ARI is higher than 14 its college
