@@ -39,8 +39,6 @@
                 <button id="btn_submit_info" class="btn btn-success">Submit</button>
             </div>
         </div>
-
-
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -52,13 +50,6 @@
                 </tr>
             </thead>
             <tbody id="table">
-                <!-- <tr>
-                <td>Walk the dog</td>
-                <td>High</td>
-                <td>12 Jun 2020</td>
-                <td>12 Jun 2020</td>
-                <td></td>
-            </tr> -->
             </tbody>
         </table>
         <h3>Completed Tasks</h3>
@@ -73,13 +64,6 @@
                 </tr>
             </thead>
             <tbody id="table_complete">
-                <!-- <tr>
-                <td></td>
-                <td></td>
-                <td>date</td>
-                <td>date</td>
-                <td></td>
-            </tr> -->
             </tbody>
         </table>
     </div>
@@ -95,8 +79,6 @@
 
             let todo_text = todo_item.value
             let priority = select_priority.value
-            // console.log(todo_text)
-            // console.log(priority)
             let tr = document.createElement("tr");
             let td1 = document.createElement("td");
             let td2 = document.createElement("td");
@@ -117,9 +99,6 @@
             comp_item.innerHTML = '<span class="material-icons">assignment_turned_in</span>';
             td5.appendChild(comp_item);
 
-
-
-
             let del_item = document.createElement("button");
             del_item.addEventListener("click", function () {
                 table.removeChild(tr);
@@ -138,12 +117,7 @@
             tr.appendChild(td4);
             tr.appendChild(td5);
             table.appendChild(tr);
-
-            // console.log(tr)
-
-
         })
-
     </script>
 </body>
 
