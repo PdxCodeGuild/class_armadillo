@@ -4,15 +4,224 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit Converter</title>
-    <style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style type='text/css'>
+        .container-banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(218, 216, 216);
+        }
+
+        .banner {
+            /* flex: 200px; */
+            margin: 15px;
+            color: rgb(88, 88, 88);
+            font-size: 25px;
+    
+        }
+        
+        .box {
+            border: 0px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 8px;
+        }
+
+        .box:focus {
+            outline: transparent;
+        }
+
+        .box:hover {
+            background-color: rgb(218, 216, 216);
+        }
+
+        .container-1 {
+            display: flex; /* or inline-flex */
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .container-2 {
+            display: flex; /* or inline-flex */
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .container-3 {
+            display: flex; /* or inline-flex */
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .container-4 {
+            display: flex; /* or inline-flex */
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        input {
+            text-align: center;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 8px;
+        }
+
+        input[type="text"]::placeholder {  
+            text-align: center; 
+        } 
+
+        input:focus::placeholder {
+            color: transparent;
+        }
+
+        input:hover {
+            background-color: rgb(218, 216, 216);
+        }
+
+        option {
+            color: red;
+        }
+
+        .p1 {
+            vertical-align: bottom;
+        }
+
+        select{
+            color:rgb(124, 123, 123);
+            text-align: center;
+        }
+
+        option:not(first-child) {
+            color: #000;
+        }
+
+        .flex-item-2-1 { 
+            margin-right: 30px ;
+        }
+        
+        .flex-item-2-2 { 
+            font-size: 20px;
+        }
+
+        .flex-item-2-3 { 
+            margin-left: 30px ;
+        }
+
+        .flex-item-4-1 { 
+            font-size: 50px;
+        }
+
+        .button {
+            text-transform: uppercase;
+            font-weight: bold;
+            color: rgb(124, 123, 123);
+            border: 5px solid rgb(124, 123, 123);
+            text-decoration: none;
+            padding: 1em 3em;
+            display: inline-block;
+            border-radius: 3px;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all .1s ease-in;
+            margin: 2em;
+        }
+
+        .arrow:hover {
+            border-color: black;
+            transform: scale(1.05,1.05);
+            color: black;
+        }
+
+        .arrow:before {
+            content:"→";
+            position:absolute;
+            color: black;
+            left: 75%;
+            opacity: 0;
+            transition: all 0.1s ease-in;   
+        }
+
+        .arrow:hover:before {
+            left:80%;
+            opacity:1;
+        }
+
+        .arrow:focus {
+            outline: transparent;
+            color: black;
+            border-color: black;
+        }
+
     </style>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("select").change(function(){
+                if ($(this).val()=="") $(this).css({color: "#aaa"});
+                else $(this).css({color: "#000"});
+            });
+        }); 
+    </script>    
 </head>
 <body>
-    <input id="input_dist" type="text" size="50" placeholder="Enter distance..."/><br><br>
-    <input id="input_units_orig" type="text" size="50" placeholder="Enter units to CONVERT (ft, mi, m, km, yd, in)..."/><br><br>
-    <input id="input_units_desired" type="text" size="50" placeholder="Enter DESIRED units (ft, mi, m, km, yd, in)..."/><br><br>
-    <button id="btn_generate">Convert!</button>
-    <div id="div_output"></div>
+<div class="container-banner">  
+    <div class="banner">
+        <p><b><i>unit</i> → [converter]</b></p>
+    </div>
+</div>
+<div class="container-1"> 
+    <div class="flex-item-1-1">
+        <input class="box" id="input_dist" type="text" size="25" placeholder="[enter distance]"&emsp/><br>
+    </div> 
+</div>    
+<div class="container-2">
+    <div class="flex-item-2-1"> 
+        <select class="box" id="input_units_orig" name="current units" required>
+            <!-- <option value="" id="drop-1" disabled="disabled" selected="selected" hidden>Current units...</option> -->
+            <optgroup label="current units">
+                <option value="" id="drop-1" disabled="disabled" selected="selected" hidden>[current units]</option>
+                <option value="ft">feet (ft)</option>
+                <option value="mi">miles (mi)</option>
+                <option value="m">meters (m)</option>
+                <option value="km">kilometers (km)</option>
+                <option value="yd">yards (yd)</option>
+                <option value="km">inches (in)</option>
+            </optgroup>    
+        </select><br>
+        <!-- <label for="input_units_orig"><i>Current</i></label> -->
+    </div>
+    <div class="flex-item-2-2"> 
+        →
+    </div>
+    <div class="flex-item-2-3">    
+        <select class="box" id="input_units_desired" name="desired units" required>
+            <optgroup label="current units">
+                <option value="" id="drop-1" disabled selected hidden>[desired units]</option>
+                <option value="ft">feet (ft)</option>
+                <option value="mi">miles (mi)</option>
+                <option value="m">meters (m)</option>
+                <option value="km">kilometers (km)</option>
+                <option value="yd">yards (yd)</option>
+                <option value="km">inches (in)</option>
+        </optgroup>
+        </select>
+    </div>
+</div>
+<div class="container-3">
+    <div class="flex-item-3-1"> 
+        <button class="button arrow" id="btn_generate">Convert</button>
+    </div>
+</div>
+<div class="container-4">
+    <div class="flex-item-4-1" id="div_output"></div>
+</div>  
+
     <script>      
         let input_dist = document.querySelector('#input_dist')
         let input_units_orig = document.querySelector('#input_units_orig')
@@ -35,11 +244,28 @@
             let units_desired = input_units_desired.value
             dist_meters = dist * conv_rate[units_orig]
             dist_new = dist_meters / conv_rate[units_desired]
+            dist_new_rd = Math.round((dist_new + Number.EPSILON) * 100) / 100
 
             //let conv = `${dist} ${units_orig} equals ${dist_new} ${units_desired}`
-            div_output.innerText = `${dist} ${units_orig} equals ${dist_new} ${units_desired}`
+            div_output.innerText = `${dist} ${units_orig} = ${dist_new_rd} ${units_desired}`
         })
 
-    </script>  
+    </script>
+</div>      
 </body>
 </html>
+
+<!-- Lab 1-3: Pick 3 
+Pick 3 Python labs and re-do them in JavaScript. You should first try to write them using JavaScript's prompt and alert in place of Python's input and print. Once you have that working, use input and button elements, with events. You can read the docs on DOM Manipulation and Events. You can view a demo here.
+
+Random Password Generator
+Rock, Paper, Scissors
+Unit Converter
+Credit Card Validation
+Rot13
+Number to Phrase
+
+Citations:
+Button. "Fancy Buttons" by Christopher Hallahan (https://codepen.io/challahan/pen/baJGyY).
+Text box rounded corners. Answer by dleihssirhc (https://stackoverflow.com/questions/7810549/how-to-make-a-text-box-have-rounded-corners)
+-->

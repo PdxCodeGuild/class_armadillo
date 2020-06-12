@@ -4,15 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROTn Cipher</title>
-    <style>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended+Text&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <style type='text/css'>
+    * {
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        background-color: black;
+    }
+
+    label {
+        font-size: 12px; 
+        color: white; 
+    }
+
+    .container-banner {
+        display: flex;
+        justify-content: left;
+        /* align-items: center; */
+        /* background-color: rgb(218, 216, 216); */
+    }
+
+    .banner {
+        /* flex: 200px; */
+        /* margin: 10px; */
+        color: white;
+        font-size: 60px;
+        font-family: 'Libre Barcode 39 Extended Text', cursive;
+    }
+
+    .container-1 {
+        display: flex; /* or inline-flex */
+        /* justify-content: center; */
+        flex-direction: column;
+        /* align-items: center; */
+        margin-top: 10px;
+    }
+
+    .flex-item-1-1 { 
+        margin-bottom: 15px;
+    }
+
+    .flex-item-1-2 { 
+        margin-bottom: 15px;
+    }
+
+    .flex-item-2-1 { 
+        margin-bottom: 15px;
+    }
+
+    .flex-item-2-2 { 
+        margin-top: 20px;
+        text-align: center;
+        font-size: 100px;
+    }
+
+    input {
+            text-align: center;
+        }   
+
+    input:focus {
+            outline: transparent;
+        }
+
+    input[id=input_text] {
+        width: 75px;
+        background-color: rgb(77, 75, 75);
+        -webkit-transition: width .35s ease-in-out;
+        transition: width .35s ease-in-out;
+    }
+    
+    input[id=input_text]:focus {
+        width: 200px;
+    }
+
+    input[type=checkbox] {
+        transform: scale(0.80);
+    }
+
+    .checklabel {
+        font-size: 5px;
+    }
+
+    input[type=text-1] {
+        background-color: rgb(77, 75, 75);
+    }
+
+    button {
+        padding: 5px 50px;
+    }
+
+    button:focus {
+        outline: transparent;
+    }
+
+    button:hover {
+        background-color: rgb(77, 75, 75);
+    }
     </style>
 </head>
 <body>
-    <input id="input_text" type="text" size="50" placeholder="Enter characters for encryption..."/><br><br>
-    <input id="input_num" type="text" size="50" placeholder="Enter amount of ROTATION..."/><br><br>
-    <button id="btn_generate">Encrypt!</button>
-    <div id="div_output"></div>
-    <script>      
+<div class="container-banner">  
+    <div class="banner">
+        ROTn
+        <!-- <img src="images/ROT_logo2.png"> -->
+    </div>
+</div>
+<hr>
+<div class="container-1"> 
+    <div class="flex-item-1-1">
+        <label for="input_text">Characters</label> 
+        <input id="input_text" type="password"/></br>     
+    </div>
+    <div class="flex-item-1-2"> 
+        <label for="input_text2">Rotation&emsp;</label> 
+        <input id="input_num" type="text-1" size=10px/>
+    </div>
+<div class="container-2"> 
+    <div class="flex-item-2-1"> 
+        <button id="btn_generate">Encrypt</button></div>
+        <input id="visible" type="checkbox" onclick="myFunction()">
+        <label for="visible" id="checklabel">Reveal characters</label>
+    </div>
+    <div class="flex-item-2-2"> 
+        <div id="div_output"></div>
+    </div>
+</div>
+</div>
+    <script>    
+        function myFunction() {
+            var x = document.getElementById('input_text');
+            if (x.type === 'password') {
+                x.type = 'text';
+            } else {
+                x.type ='password';
+            }
+        }
+
         let input_text = document.querySelector('#input_text')
         let input_num = document.querySelector('#input_num')
         let btn_generate = document.querySelector('#btn_generate')
@@ -50,4 +177,9 @@ Rock, Paper, Scissors
 Unit Converter
 Credit Card Validation
 Rot13
-Number to Phrase -->
+Number to Phrase 
+
+Citations (CSS):
+Input box gradual change width (https://www.w3schools.com/cssref/sel_focus.asp).
+Toggle password visibility (https://www.w3schools.com/howto/howto_js_toggle_password.asp).
+-->
