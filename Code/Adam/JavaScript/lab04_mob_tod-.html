@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-size: large;
+        font-family: 'Permanent Marker', cursive;
+    }
+    body {
+        background-image: url(images/notebook-paper.jpg);
+    }
+    #completed_list > li {
+        text-decoration: line-through;
+        color: deeppink;
+    }
+    #container {
+    margin-left: 132px;
+    margin-top: 80px;
+    }
+
+</style>
+
+<body>
+    <div id="container">
+        <input id="user_input" type="text" placeholder="Enter task:">
+        <button id="submit">Submit</button>
+        <ul id="todo_list">
+        </ul>
+        <ul id="completed_list"></ul>
+    </div>
+    <script type="text/javascript">
+        let user_input = document.querySelector('#user_input')
+        let submit = document.querySelector('#submit')
+        let todo_list = document.querySelector('#todo_list')
+        let completed_list = document.querySelector('#completed_list')
+
+        submit.addEventListener('click', function () {
+            let new_li = document.createElement('li')
+            new_li.innerText = user_input.value
+            todo_list.appendChild(new_li)
+
+            let remove_button = document.createElement('button')
+            remove_button.innerText = 'Remove'
+            new_li.appendChild(remove_button)
+
+            let complete_button = document.createElement('button')
+            complete_button.innerText = 'Complete'
+            new_li.appendChild(complete_button)
+
+            remove_button.addEventListener('click', function () {
+                todo_list.removeChild(new_li)
+            })
+
+            complete_button.addEventListener('click', function () {
+                let complete_li = document.createElement('li')
+                complete_li.innerText = user_input.value
+                completed_list.appendChild(complete_li)
+                todo_list.removeChild(new_li)
+            })
+                    
+        })
+
+
+    </script>
+</body>
+
+</html>
