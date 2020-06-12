@@ -8,7 +8,17 @@
 </head>
 
 <body>
+    <h3>Get Your Number in English</h3>
+    <div>
+        <input id="number" type="text" placeholder="Enter number...">
+        <button id="btn_n2w">Enter</button>
+    </div>
+    <div id="num_word"></div>
+    <script type="text/javascript"></script>
     <script>
+        let number = document.querySelector("#number");
+        let convert = document.querySelector("btn_n2w");
+
         function numsToWords(nums) {
             let nums_1 = {
                 0: 'zero',
@@ -54,7 +64,6 @@
                 8: 'eight-hundred',
                 9: 'nine-hundred'
             }
-
             if (nums < 20) {
                 return nums_1[nums];
             } else if (nums < 100) {
@@ -62,17 +71,22 @@
                 let tens_digit = Math.floor(nums / 10);
                 return nums_2[tens_digit] + "-" + nums_1[ones_digit];
             } else if (nums < 999) {
-                let hundreds_digit = Math.floor(nums /100);
+                let hundreds_digit = Math.floor(nums / 100);
                 nums -= hundreds_digit * 100;
-                let tens_digit = Math.floor(nums /10);
+                let tens_digit = Math.floor(nums / 10);
                 let ones_digit = nums % 10;
-                return nums_3[hundreds_digit]+ '-' +  nums_2[tens_digit] + '-' + nums_1[ones_digit] 
+                return nums_3[hundreds_digit] + '-' + nums_2[tens_digit] + '-' + nums_1[ones_digit]
 
             }
         }
-        let intro_question = prompt("Please enter a number: ");
-        let results = numsToWords(intro_question);
-        alert(`Your number in English is ${results}.`);
+
+        btn_n2w.addEventListener("click", function () {
+        numsToWords (parseInt(number.value));
+            
+            let results = numsToWords (parseInt(number.value));
+            let response = `Your number in English is ${results}.`
+            num_word.innerText = response;
+        })
     </script>
 </body>
 
