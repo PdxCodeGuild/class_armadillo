@@ -19,13 +19,13 @@
 
     .container-banner {
         display: flex;
-        /* justify-content: center;
-        align-items: center; */
+        justify-content: left;
+        /* align-items: center; */
         /* background-color: rgb(218, 216, 216); */
     }
 
     .banner {
-        flex: 200px;
+        /* flex: 200px; */
         /* margin: 10px; */
         color: white;
         font-size: 60px;
@@ -66,15 +66,23 @@
             outline: transparent;
         }
 
-    input[type=text] {
-        width: 35px;
+    input[id=input_text] {
+        width: 75px;
         background-color: rgb(77, 75, 75);
         -webkit-transition: width .35s ease-in-out;
         transition: width .35s ease-in-out;
     }
     
-    input[type=text]:focus {
-        width: 150px;
+    input[id=input_text]:focus {
+        width: 200px;
+    }
+
+    input[type=checkbox] {
+        transform: scale(0.80);
+    }
+
+    .checklabel {
+        font-size: 5px;
     }
 
     input[type=text-1] {
@@ -82,8 +90,7 @@
     }
 
     button {
-        padding: 5px 28px;
-        /* background-color: rgb(77, 75, 75); */
+        padding: 5px 50px;
     }
 
     button:focus {
@@ -106,22 +113,33 @@
 <div class="container-1"> 
     <div class="flex-item-1-1">
         <label for="input_text">Characters</label> 
-        <input id="input_text" type="text"/>
+        <input id="input_text" type="password"/></br>     
     </div>
     <div class="flex-item-1-2"> 
-        <label for="input_text">Rotation&emsp;</label> 
-        <input id="input_num" type="text-1" size=4px/>
+        <label for="input_text2">Rotation&emsp;</label> 
+        <input id="input_num" type="text-1" size=10px/>
     </div>
 <div class="container-2"> 
     <div class="flex-item-2-1"> 
-        <button id="btn_generate">Encrypt</button>
+        <button id="btn_generate">Encrypt</button></div>
+        <input id="visible" type="checkbox" onclick="myFunction()">
+        <label for="visible" id="checklabel">Reveal characters</label>
     </div>
     <div class="flex-item-2-2"> 
         <div id="div_output"></div>
     </div>
 </div>
 </div>
-    <script>      
+    <script>    
+        function myFunction() {
+            var x = document.getElementById('input_text');
+            if (x.type === 'password') {
+                x.type = 'text';
+            } else {
+                x.type ='password';
+            }
+        }
+
         let input_text = document.querySelector('#input_text')
         let input_num = document.querySelector('#input_num')
         let btn_generate = document.querySelector('#btn_generate')
@@ -163,4 +181,5 @@ Number to Phrase
 
 Citations (CSS):
 Input box gradual change width (https://www.w3schools.com/cssref/sel_focus.asp).
+Toggle password visibility (https://www.w3schools.com/howto/howto_js_toggle_password.asp).
 -->
