@@ -48,7 +48,7 @@ text = text.replace('\'s', '')
 # starter code
 ebook_start = text.find('***')
 ebook_end = text.find(
-    'end of the project gutenberg ebook of the call of the wild, by jack london')
+    'end of the project gutenberg ebook')
 # print(ebook_start)
 # print(ebook_end)
 text = text[ebook_start:ebook_end]
