@@ -7,11 +7,11 @@
 
 </head>
 <body>
-    <script>
+    <script type="text/javascript">
         function rockPaperScissorsGame() {
         while (true) {
             let gameOptions = ["paper", "rock", "scissors"];
-            let computerGameOptions = (Math.random()*3);
+            let computerGameOptions = Math.floor(Math.random()*3);
 
             let playGame = prompt("Hello there. Would you like to play a game? ")
             if (playGame === "y") {
@@ -20,7 +20,7 @@
             else if(playGame === "n") {
                 alert("I'm sorry. Thank you");
             }
-            else(){
+            else() {
                 alert("Not a valid response. Please try again.")
             }
         }

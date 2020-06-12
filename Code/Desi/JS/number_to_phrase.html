@@ -10,10 +10,25 @@
     Click here to translate</h1>
     <button id = "button" > click here </button>
     <p id="clicker"></p>
+    <div id='div_output'></div>
+    <input id="input_number_2_phrase" type="text" placeholder="input_number_2_phrase">
 
 <script>
+    
+    let input_number_2_phrase = document.querySelector('input_number_2_phrase')
+    // tells the computer to 
+    clicker = document.getElementById('clicker')
+    // get off the page and onto browswer
+    btn_generate = document.getElementById('button')
+    btn_generate.addEventListener('click', function() {
+    alert('yes')
+    clicker.innerText=pass})
+    alert(input_number_2_phrase)
 
-btn_generate = 
+
+let pass = 'test message';
+
+
 let ones = ['', 
             'one', 
             'two', 
@@ -52,7 +67,7 @@ let tens = ['',
 ]
 
 function convert_hundreds(num) {
-    if (num > 99){.
+    if (num > 99){ 
         return ones[Math.floor(num/100)] + 'hundred' + convert_tens(num % 100);
 }       else {
         return convert_tens(num)
@@ -67,10 +82,13 @@ function convert_tens(num) {
 
         }
 }
+function convert(nums) {
+    if (num == 0); return "zero";
+        return convert_tens 
+}
 
+console.log 
 </script>
-
-
 
 </body>
 </html>

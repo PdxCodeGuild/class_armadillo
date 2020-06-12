@@ -24,17 +24,17 @@
             if(player_select === choices[computer]) {
                 results.innerHTML = `Computer chose ${choices[computer]}! That is a tie!`
             } else if (player_select === 'rock' && choices[computer] === 'paper') {
-                results.innerHTML = 'Computer Wins!'
+                results.innerHTML = `Computer chose ${choices[computer]}, you lose!`
             } else if (player_select === 'rock' && choices[computer] === 'scissors') {
-                results.innerHTML = 'You Win!'
+                results.innerHTML = `Computer chose ${choices[computer]}, you win!`
             } else if (player_select === 'paper' && choices[computer] === 'rock') {
-                results.innerHTML = 'You Win!'
+                results.innerHTML = `Computer chose ${choices[computer]}, you win!`
             } else if (player_select === 'paper' && choices[computer] === 'scissors') {
-                results.innerHTML = 'Computer Wins!'
+                results.innerHTML = `Computer chose ${choices[computer]}, you lose!`
             } else if (player_select === 'scissors' && choices[computer] === 'rock') {
-                results.innerHTML = 'Computer Wins!'
+                results.innerHTML = `Computer chose ${choices[computer]}, you lose!`
             } else if (player_select === 'scissors' && choices[computer] === 'paper') {
-                results.innerHTML = 'You Win!'
+                results.innerHTML = `Computer chose ${choices[computer]}, you win!`
             }
             else {
                 results.innerHTML = 'That is not a valid entry.'
