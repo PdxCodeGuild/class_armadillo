@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .home_link{
+            text-decoration: none;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Todo App</title>
+</head>
+<body>
+
+    <div id="header">
+        <a class="home_link" href="/index.html">JavaScript Todo App</a>
+    </div>
+
+    <div id="list">
+        <input id="list_item" type="text" placeholder="enter items">
+        <button id="submit_btn" type="submit">Add</button>
+       
+    </div>
+    <div id="display_list">
+        <div id="list_items">
+
+        </div>
+        <!-- <button type="submit" id="delete_btn">Delete item</button>
+        <button type="submit" id="completed_btn">Item complete</button> -->
+    </div>
+
+    <div id="footer">
+        &copy 2020 Class_Armadillo 
+    </div>
+    <script>
+        
+        let listItems = document.querySelector("#list_items")
+        let submit_btn = document.querySelector("#submit_btn")
+        submit_btn.addEventListener("click", function(){
+            let deleteItem = document.createElement("button")
+            deleteItem.innerHTML = "Delete"
+            let listItem = document.querySelector("#list_item").value
+            console.log(listItem)
+
+            let newTodo = document.createElement("div")
+
+            newTodo.appendChild(deleteItem)
+
+            listItems.appendChild(newTodo)
+        })
+
+
+    </script>
+</body>
+</html>
