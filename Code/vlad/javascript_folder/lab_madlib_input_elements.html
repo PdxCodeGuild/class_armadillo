@@ -10,6 +10,10 @@
     <title>madlib input elements</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <style>
+        input {
+            margin: 6px 10px 30px 50px;
+        }
+        
         #champ2 {
             height: 25px;
             width: 350px;
@@ -30,6 +34,41 @@
             padding: 8px;
             background-color: skyblue;
         }
+        
+        #btn_create {
+            margin: 6px 10px 30px 50px;
+            margin: 6px 10px 30px 50px;
+            background-color: transparent;
+            border: 4px solid greenyellow;
+            color: white;
+        }
+        
+        #btn_create:hover {
+            background: skyblue;
+            border: none;
+            color: rgb(5, 141, 220);
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            transition: 0.5s;
+        }
+        
+        body {
+            background-image: url('background_madlib.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        #btn_create {
+            margin: 6px 10px 30px 50px;
+        }
+        
+        #madlib_output {
+            height: 250px;
+            width: 750px;
+            padding: 8px;
+            background-color: white;
+            font-size: large;
+            margin: 6px 10px 30px 50px;
+        }
     </style>
 </head>
 
@@ -41,6 +80,7 @@
     <div><input id='sport2' type="text" placeholder="Enter which NBA team LeBron James is playing:  "></div>
     <div id='result'></div>
     <div><button id="btn_create"> Create Madlib </button></div>
+    <div> <textarea name="" id="madlib_output" placeholder="Madlib Result " cols="30" rows="10"></textarea></div>
 
     <script>
         // put elements from the html and into the javascript:
@@ -49,6 +89,7 @@
         let sport2 = document.querySelector('#sport2')
         let btn_create = document.querySelector('#btn_create')
         let result = document.querySelector('#result')
+        let madlib_output = document.querySelector('#madlib_output')
 
         // get the text the user entered into the input elements using .value and use a template literal (f-string) to build a sentence
         //HTML DOM innerText Property: https://www.w3schools.com/jsref/prop_node_innertext.asp
@@ -64,8 +105,8 @@
             LeBron will pass MJ and become the ultimate GOAT without any argument!
             And what about Shaq? he should feel ${feel} about LeBron success? 
             After all, LeBron is clearly the NBA King (not the tiger king :) 
-            Bron is the best Player in the ${sport}`
-            result.innerText = madlib
+            Bron is the best Player in the ${sport} team and the the world right now!! `
+            madlib_output.value = madlib
 
         })
     </script>
