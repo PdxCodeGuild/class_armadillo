@@ -16,19 +16,20 @@
         <body>
         
         <form>
-        <select id="weapon">
-          <option>Rock</option>
-          <option>Paper</option>
-          <option>Scissors</option>
+        <select id="weapon_choice">
+          <option value="rock">Rock</option>
+          <option value="paper">Paper</option>
+          <option value="scissors">Scissors</option>
         </select>
         <br><br>
-        <input type="button" onclick="enable()" value="weapon_choice">
+        <button type="button" onclick="weaponChoice()">Battle!</button>
+        <button type="button" id="clear" onclick="clearTheBoard()">Clear Page</button>
         </form>
 
     </div>
 
     <div id="output_div">
-    
+      
     </div>
 
     <div id="footer">
@@ -36,34 +37,43 @@
     </div>
 
     <script>
-        function enable() {
-          document.getElementById("weapon_choice").disabled=false;
+        function weaponChoice() {
+          const computerChoice = getComputerChoice()
+          const userChoice = document.getElementById("weapon_choice").value
+          let answer = ''
+          // console.log ('user choice:', userChoice)
+          // console.log ('computer choice:', computerChoice)
+          if (userChoice === computerChoice){
+            answer = 'That\'s a tie you both win!'
+          } else if (userChoice == 'rock' && computerChoice == 'paper') {
+            answer = 'Paper beats rock, you lost =/'            
+          } else if (userChoice == 'scissors' && computerChoice == 'rock') {
+            answer = 'Rock smashes scissors, you lost =/'
+          } else if (userChoice == 'paper' && computerChoice == 'scissors') {
+            answer = 'Scissors cuts paper, you lost =/'
+          } else if (userChoice == 'paper' && computerChoice == 'rock') {
+            answer = 'Paper beats rock, you win!'
+          } else if (userChoice == 'rock' && computerChoice == 'scissors') {
+            answer = 'Rock smashes scissors, you win!'
+          } else if (userChoice == 'scissors' && computerChoice == 'paper') {
+            answer = 'Scissors cuts paper, you win!'
+          }
+          const outputDiv = document.getElementById('output_div')
+          outputDiv.innerHTML = answer 
+        }
+        function getComputerChoice() {
+          const choices = [
+            "rock",
+            "paper",
+            "scissors",
+          ];
+          const randomChoice = choices[Math.floor(Math.random()*choices.length)];
+          return randomChoice
+        }
+        function clearTheBoard(){
+          document.getElementById('output_div').innerHTML = " ";
         }
         </script>
 
 </body>
 </html>
-
-<!-- Lab 7: Rock Paper Scissors
-Let's play rock-paper-scissors with the computer.
-
-The computer will ask the user for their choice (rock, paper, scissors)
-The computer will randomly choose rock, paper or scissors
-Determine who won and tell the user
-Let's list all the cases:
-
-rock vs rock (tie)
-rock vs paper
-rock vs scissors
-paper vs rock
-paper vs paper (tie)
-paper vs scissors
-scissors vs rock
-scissors vs paper
-scissors vs scissors (tie)
-Version 2 (optional)
-After playing, ask them if they'd like to play again. If they say yes, restart the game, otherwise exit.
-
-Version 3 (optional)
-Rock, paper, scissors, lizard, Spock! https://www.instructables.com/id/How-to-Play-Rock-Paper-Scissors-Lizard-Spock/ {% endcomment %}
- -->
