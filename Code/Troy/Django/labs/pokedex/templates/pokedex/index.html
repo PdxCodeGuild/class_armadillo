@@ -12,11 +12,12 @@
             border="0"></a>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'pokedex/style.css' %}" />
-    <!-- <link rel="icon" type="image/png" href="img/favicon.png"> browser tab icon -->
+    <link rel="shortcut icon" type="image/ico" href="{% static 'pokedex/img/favicon.ico' %}"> 
     <title>Pokedex</title>
 </head>
 
 <body>
+    <div class="container"></div>
     <div>
         <form action="{% url 'pokedex:index' %}" method="post">
             {% csrf_token %}
