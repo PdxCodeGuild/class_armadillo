@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.7/Tone.js"></script>
+    <style type="text/css">
+        #container > div {
+            width:60px;
+            height:60px;
+            color:white;
+            margin: 10px;
+        }
+        #container {
+            display:flex;
+            flex-direction: row;
+            justify-content:space-evenly;
+            flex-wrap:wrap;
+            padding:10px;
+            max-width:500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn_make_square">make a square</button>
+    <div id="container"></div>
+    <script>
+        
+        // tone.js
+        // create a synth and connect it to the master output (your speakers)
+        var synth = new Tone.Synth().toMaster()
+
+        let container = document.querySelector('#container')
+        let btn_make_square = document.querySelector('#btn_make_square')
+
+        btn_make_square.addEventListener('click', function() {
+
+            // DOM Manipulation
+            // create a div
+            let mydiv = document.createElement('div')
+
+            // set some style
+            // mydiv.style.width = '40px'
+            // mydiv.style.height = '40px'
+            // mydiv.style.color = 'white'
+            let hue = Math.floor(Math.random()*360)
+            mydiv.style.backgroundColor = `hsl(${hue},100%,50%)`
+            mydiv.style.textAlign = 'center'
+
+            // DOM Manipulation
+            // create another div
+            let innerdiv = document.createElement('div')
+            innerdiv.innerText = 'hi'
+            // put the innerdiv in the div
+            mydiv.appendChild(innerdiv)
+
+            // DOM Manipulation
+            // create a button
+            let button = document.createElement('button')
+            // set a click listener on the button
+            button.addEventListener('click', function() {
+
+                // tone js
+                // play a middle 'C' for the duration of an 8th note
+                // synth.triggerAttackRelease('C4', '8n')
+                let frequency = 240 + Math.random()*400
+                synth.triggerAttackRelease(frequency, '8n')
+
+                // DOM Manipulation
+                // remove an element
+                container.removeChild(mydiv)
+            })
+            button.innerText = 'delete'
+
+            // DOM Manipulation
+            // put the button in the div
+            mydiv.appendChild(button)
+
+            // DOM Manipulation
+            // put the div in the container
+            container.appendChild(mydiv)
+        })
+
+
+    </script>
+</body>
+</html>
