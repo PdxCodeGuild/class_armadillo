@@ -26,7 +26,7 @@
     <div id="list_items">
 
     </div>
-    
+
     <div id="completed_list">
 
     </div>
@@ -67,6 +67,13 @@
                 completed_list.appendChild(newTodo)
                 newTodo.removeChild(completeItem)
                 newTodo.removeChild(deleteItem)
+                let deleteItemTwo = document.createElement("button")
+                deleteItemTwo.innerHTML = "Delete"
+                newTodo.appendChild(deleteItemTwo)
+                deleteItemTwo.addEventListener("click", function () {
+
+                    completed_list.removeChild(newTodo)
+                })
             })
         })
 
