@@ -54,12 +54,12 @@ import math
 def count_chars(text):
     counter =0
     # iterate over the text
-    for char in text:
-        letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    for char in text.lower():
+        letters = 'abcdefghijklmnopqrstuvwxyz'
         # increment a counter if char is in letters
         if char in letters:
             counter += 1
-    return counter
+    return counter 
 
 
 # remove punctuation and split text to a list
@@ -107,7 +107,7 @@ text = text.replace('â\x80\x94', ' ')
 text = text.replace('â\x80\x9d', '')
 text = text.replace('â\x80\x9c', '')
 text = text.replace('å\x93', 'e')
-text = text.replace('\'s', '')
+
 
 # delcare variables to compute the ARI
 chars = count_chars(text)
@@ -149,10 +149,10 @@ ari_scale = {
 }
 
 
-# use ari to select the correspong dictionary and the value of grade level
-# inert them into an f string
 print('---------------------------------------------------------')
 print(f'The ARI for this book is {ari}.')
+# use ari to select the correspong dictionary and the value of grade level and inert them into an f string
 print(f'This corresponds to a {ari_scale[ari]["grade_level"]} level of difficulty')
+# use ari to select the correspong dictionary and the value of ages and inert them into an f string
 print(f'that is suitable for an average person {ari_scale[ari]["ages"]} years old.')
 print('---------------------------------------------------------')
