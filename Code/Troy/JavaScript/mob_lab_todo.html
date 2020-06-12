@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+
+<body>
+    <div>
+        <input id="todo_item" type="text" placeholder="Enter task here..." />
+        <button id="btn_submit_info">Submit</button>
+    </div>
+
+    <div id="task_output"></div>
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Priority</th>
+            <th>Task Date</th>
+            <th>Completed</th>
+        </tr>
+        <tr>
+            <td>Walk the dog</td>
+            <td>High</td>
+            <td>12 Jun 2020</td>
+            <td>12 Jun 2020</td>
+        </tr>
+    </table>
+
+    <script>
+        let todo_item = document.querySelector("#todo_item");
+        let task_output = document.querySelector("#task_output");
+        let btn_submit_info = document.querySelector("#btn_submit_info");
+
+        btn_submit_info.addEventListener("click", function () {
+
+            let todo_text = todo_item.value
+
+        })
+
+    </script>
+</body>
+
+</html>

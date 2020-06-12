@@ -6,6 +6,21 @@
     <title>Unit Converter</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <style type='text/css'>
+        .container-banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(218, 216, 216);
+        }
+
+        .banner {
+            /* flex: 200px; */
+            margin: 15px;
+            color: rgb(88, 88, 88);
+            font-size: 25px;
+    
+        }
+        
         .box {
             border: 0px;
             -webkit-border-radius: 5px;
@@ -26,6 +41,7 @@
             justify-content: center;
             flex-direction: column;
             align-items: center;
+            margin-top: 15px;
         }
 
         .container-2 {
@@ -89,6 +105,10 @@
             margin-right: 30px ;
         }
         
+        .flex-item-2-2 { 
+            font-size: 20px;
+        }
+
         .flex-item-2-3 { 
             margin-left: 30px ;
         }
@@ -150,12 +170,12 @@
     </script>    
 </head>
 <body>
+<div class="container-banner">  
+    <div class="banner">
+        <p><b><i>unit</i> → [converter]</b></p>
+    </div>
+</div>
 <div class="container-1"> 
-    <!-- <input id="input_dist" type="text" size="50" placeholder="Enter distance..."/><br><br>
-    <input id="input_units_orig" type="text" size="50" placeholder="Enter units to CONVERT (ft, mi, m, km, yd, in)..."/><br><br>
-    <input id="input_units_desired" type="text" size="50" placeholder="Enter DESIRED units (ft, mi, m, km, yd, in)..."/><br><br>
-    <button id="btn_generate">Convert!</button>
-    <div id="div_output"></div> -->
     <div class="flex-item-1-1">
         <input class="box" id="input_dist" type="text" size="25" placeholder="[enter distance]"&emsp/><br>
     </div> 
@@ -177,7 +197,7 @@
         <!-- <label for="input_units_orig"><i>Current</i></label> -->
     </div>
     <div class="flex-item-2-2"> 
-        <!-- <p class="p1"> to </p> -->
+        →
     </div>
     <div class="flex-item-2-3">    
         <select class="box" id="input_units_desired" name="desired units" required>
@@ -200,7 +220,7 @@
 </div>
 <div class="container-4">
     <div class="flex-item-4-1" id="div_output"></div>
-</div>    
+</div>  
 
     <script>      
         let input_dist = document.querySelector('#input_dist')

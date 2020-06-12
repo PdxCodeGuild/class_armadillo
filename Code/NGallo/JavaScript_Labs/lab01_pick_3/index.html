@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab_01_unit_converter</title>
 </head>
+
 <body>
 
     <a href="/RPS.html">Rock,Paper Scissors</a>
@@ -13,19 +15,48 @@
 
     <h1>Unit Converter</h1>
 
-    <input id="first_number" type="text" placeholder="enter a number" />
-    <input id="second_measurement" type="text" placeholder="enter the first measurement" />
-    <input id="two_number" type="text" placeholder="enter a number" />
-    <input id="second_measurement" type="text" placeholder="enter a second measurement" />
-    <button id="measure_me">Measure!!</button>
-
+    <form>
+        <input id="first_number" type="text" placeholder="enter a number" />
+        <select id="first_measurement">
+            <option value="feet">feet</option>
+            <option value="miles">miles</option>
+            <option value="meters">meters</option>
+            <option value="kilometers">kilometers</option>
+          </select>
+        <p>to</p>
+        <select id="second_measurement">
+            <option value="feet">feet</option>
+            <option value="miles">miles</option>
+            <option value="meters">meters</option>
+            <option value="kilometers">kilometers</option>
+          </select>
+        <button type="button" onclick="unitConverter()">Measure!!</button>
+    </form>
     <div id="output_div">
 
     </div>
     <div id="footer">
-        Nick Gallo | &copy 2020 | Class_Armadillo 
+        Nick Gallo | &copy 2020 | Class_Armadillo
     </div>
+
+    <script>
+        function unitConverter(){
+            const firstNumber = parseInt(document.getElementById("first_number").value)
+            const firstMeasurement = document.getElementById("first_measurement").value
+            const secondMeasurement = document.getElementById("second_measurement").value
+            // console.log (firstNumber, firstMeasurement, secondMeasurement)
+            const measurementObject = {'feet':0.3048, 'meters':1, 'miles':1609.34, 'kilometers':1000}
+            // console.log (measurementObject)
+            const distanceMeters = (firstNumber * measurementObject[firstMeasurement])
+            console.log (distanceMeters)
+            const answer = (distanceMeters / measurementObject[secondMeasurement])
+            console.log (distanceMeters,answer)
+            const outputDiv = document.getElementById('output_div')
+            outputDiv.innerHTML = answer 
+        }
+    </script>
 </body>
+
 </html>
 
 <!-- Lab 9: Unit Converter
