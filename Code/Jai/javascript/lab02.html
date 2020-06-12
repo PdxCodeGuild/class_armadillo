@@ -45,20 +45,24 @@
     
 function convert_unit(){
     const units = {
-    ft: 0.3048,
-    m: 1,
-    mi: 1609.34,
-    km: 1000,
-    yd:  0.9144,
-    in: 0.0254,
+    feet: 0.3048,
+    meters: 1,
+    miles: 1609.34,
+    kilometers: 1000,
+    yards:  0.9144,
+    inches: 0.0254,
     }
 
     let unit_1 = unit1.value
     let unit_2 = unit2.value
     let input= input_num.value
-    let conversion = Math.abs(input_num * units[unit_1])
+    console.log(unit_1)
+    console.log(unit_2)
+    console.log(input)
+    let conversion = Math.abs(input * units[unit_1])
     let new_conversion = Math.abs(conversion / units[unit_2])
-
+    
+  
 
 
     
@@ -69,9 +73,9 @@ return new_conversion
 
 
 btn_submit.addEventListener('click', function(){
-
-span_output.innerText = `${convert_unit()}`
-
+    
+    span_output.innerText = `${convert_unit()}`
+    console.log(convert_unit())
 })
                             
 

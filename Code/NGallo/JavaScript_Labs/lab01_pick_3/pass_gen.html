@@ -16,9 +16,9 @@
     <h1>Rock, Paper, Scissors</h1>
 
     <body>
-        <div id="number_div">
-            <input id="password_length" type="text" placeholder="enter length of password" />
-            <input type="button" onclick="MyFunction();return false" value="length_of_password">
+        <div class="number_div">
+            <input id="password_length" type="text" placeholder="Enter length of password.." />
+            <button type="button" onclick="passwordGenerator()">Generate Password</button>
 
         </div>
 
@@ -27,29 +27,29 @@
         </div>
 
         <div id="footer">
-            Nick Gallo | &copy 2020 | Class_Armadillo 
+            Nick Gallo | &copy 2020 | Class_Armadillo
         </div>
 
         <script>
-            let user_input = password_length.getAttribute 
-            console.log(user_input)
+            function passwordGenerator() {
+                const alphabet = "abcdefghijklmnopqrstuvwxyz"
+                const numbers = "1234567890"
+                const punctuation = "!@#$%^&*()_?<>+-[]"
+                const giantString = alphabet + numbers + punctuation
+                // console.log(giantString)
+                const lengthOfPassword = parseInt(document.getElementById("password_length").value)
+                // console.log(lengthOfPassword)
+
+                let answer = []
+                for (let i = 0; i<lengthOfPassword; i++) {
+                    answer += giantString.charAt(Math.floor(Math.random() * giantString.length))
+                }
+                const outputDiv = document.getElementById('output_div')
+                outputDiv.innerHTML = answer
+            }
+
         </script>
 
     </body>
 
 </html>
-
-
-<!-- Lab 6: Password Generator
-Let's generate a password of length n using a while loop and random.choice, this will be a string of random characters, e.g. a62xB95. Hint: random.choice can be used to pick a character out of a string, as well as an element out of a list.
-
-Concepts Covered
-input, print
-looping
-random.choice
-the 'sting builder pattern'
-Version 2
-Allow the user to enter the value of n, remember to convert its type to an int, as input returns a string.
-
-Version 3 (optional)
-Ask the user for how many lowercase letters, uppercase letters, numbers, and special characters they'd like in their password. You do not want the pieces in order (e.g. 3 lowercase letters followed by 3 uppercase letters...). You can use list(password_string) or password_string.split('') to convert the string to a list, random.shuffle(password_list) to shuffle it, and then ''.join(password_list) to turn it back into a string. -->
