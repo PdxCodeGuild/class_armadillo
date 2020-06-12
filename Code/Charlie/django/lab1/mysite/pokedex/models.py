@@ -1,20 +1,28 @@
+
 from django.db import models
-from django.conf import settings
 
 
-class pokemon_type(models.Model):
+class PokemonType(models.Model):
     name = models.CharField(max_length=50)
-
-class pokemon(models.Model):
-    number = models.IntegerField(blank=True,null=True)
-    name = models.CharField(max_length=50)
-    height = models.IntegerField(blank=True,null=True)
-    weight = models.IntegerField(blank=True,null=True)
-    image_font = models.CharField(max_length=50)
-    image_back = models.CharField(max_length=50)
 
     def __str__(self):
-        return f'{self.number} {self.name}'
+        return f'{self.name}'
+    
+    class Meta:
+        ordering = ['name']
 
+# Create your models here.                                     
+class Pokemon(models.Model):
+    number = models.IntegerField()
+    name = models.CharField(max_length=50)
+    height = models.IntegerField()
+    weight = models.IntegerField()
+    image_front = models.CharField(max_length=200)
+    image_back = models.CharField(max_length=200)
+    types = models.ManyToManyField(PokemonType, related_name='pokemon')
 
-# Create your models here.
+    def __str__(self):
+        return f'{self.name} {self.number}'
+
+    class Meta:
+        ordering = ['name']
