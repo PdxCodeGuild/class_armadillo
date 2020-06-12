@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Meters Converter</title>
+</head>
+<body>
+    <h1>Insert a length and units to convert it to meters:</h1>
+    <input id ="input_length" type="text" placeholder="enter length"/>
+    <select name ="units" id="input_units">
+        <option selected="selected">Units</option>
+        <option value="feet">Feet</option>
+        <option value="miles">Miles</option>
+        <option value="meters">Meters</option>
+        <option value="kilometers">Kilometers</option>
+        <option value="yards">Yards</option>
+        <option value="inches">Inches</option>
+    </select>
+    <button id="get_meters">Convert</button>
+    <div id="result"></div> 
+    <script>
+        let input_length=document.querySelector("#input_length")
+        let input_units=document.querySelector("#input_units")
+        let get_meters=document.querySelector("#get_meters")
+        let result=document.querySelector("#result")
+        get_meters.addEventListener('click', function(){
+            let units = {
+                "feet" : 0.3048,
+                "miles" : 1609.34,
+                "meters" : 1,
+                "kilometers" : 1000,
+                "yards" : 0.9144,
+                "inches" : 0.0254
+            }
+            let meters = parseFloat(input_length.value * units[input_units.value])
+            result.innerHTML = `${input_length.value} ${input_units.value} = ${meters.toFixed(2)} meters`
+
+        })
+    </script>
+</body>
+</html>

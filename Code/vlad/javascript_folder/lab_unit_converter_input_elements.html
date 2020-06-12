@@ -7,6 +7,10 @@
     <title>Lab Unit Convert Input Elements </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <style>
+        input {
+            margin: 6px 10px 30px 50px;
+        }
+        
         #input_numToConvert {
             height: 25px;
             width: 350px;
@@ -27,6 +31,35 @@
             padding: 8px;
             background-color: rgb(204, 238, 136);
         }
+        
+        #btn_submit {
+            margin: 6px 10px 30px 50px;
+            margin: 6px 10px 30px 50px;
+            background-color: transparent;
+            border: 4px solid color blue;
+        }
+        
+        #btn_submit:hover {
+            background: skyblue;
+            border: none;
+            color: rgb(5, 141, 220);
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            transition: 0.5s;
+        }
+        
+        body {
+            background-image: url('background_unit_converter.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        #unit_converter_output {
+            height: 50px;
+            width: 350px;
+            padding: 8px;
+            background-color: white;
+            font-size: x-large;
+        }
     </style>
 </head>
 
@@ -35,11 +68,13 @@
     <div> <input id="input_unitToConvertFrom" type="text" placeholder="Would you please enter the unit to convert from ft, m, mi, km, yd, in: "></div>
     <div> <input id="input_unitToConvertTo" type="text" placeholder="Please enter the unit to convert to: "></div>
     <div><button id="btn_submit"> Submit </button></div>
+    <div> <input id="unit_converter_output" type="text" placeholder="Unit Converter Result "></div>
     <script>
         let input_numToConvert = document.querySelector('#input_numToConvert')
         let input_unitToConvertFrom = document.querySelector('#input_unitToConvertFrom')
         let input_unitToConvertTo = document.querySelector('#input_unitToConvertTo')
         let btn_submit = document.querySelector('#btn_submit')
+        let unit_converter_output = document.querySelector('#unit_converter_output')
 
         btn_submit.addEventListener('click', function() {
 
@@ -62,6 +97,8 @@
             let product = numToConvert * units[unitToConvertFrom]
             let product2 = Math.round(product / units[unitToConvertTo])
             let result = `${numToConvert} ${unitToConvertFrom} is equal to ${product2} ${unitToConvertTo} `
+
+            unit_converter_output.value = result
             console.log(result)
         })
     </script>
