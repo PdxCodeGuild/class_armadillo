@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+</head>
+
+<body>
+    <h1>Pokedex</h1>
+    {% for pokemon in pokemon %}
+    <div>
+        <img src="{{pokemon.image_front}}">
+        <img src="{{pokemon.image_back}}">
+        <a href="{% url 'pokedex:detail' pokemon.number%}">{{ pokemon.name}}</a>
+    </div>
+
+    {% endfor %}
+
+</body>
+
+</html>
