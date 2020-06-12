@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <style>
-        .home_link{
+        .home_link {
             text-decoration: none;
         }
     </style>
@@ -10,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Todo App</title>
 </head>
+
 <body>
 
     <div id="header">
@@ -19,37 +21,64 @@
     <div id="list">
         <input id="list_item" type="text" placeholder="enter items">
         <button id="submit_btn" type="submit">Add</button>
-       
-    </div>
-    <div id="display_list">
-        <div id="list_items">
 
-        </div>
-        <!-- <button type="submit" id="delete_btn">Delete item</button>
-        <button type="submit" id="completed_btn">Item complete</button> -->
+    </div>
+    <div id="list_items">
+
+    </div>
+
+    <div id="completed_list">
+
     </div>
 
     <div id="footer">
-        &copy 2020 Class_Armadillo 
+        &copy 2020 Class_Armadillo
     </div>
     <script>
-        
+        let completedList = document.querySelector("#completed_list")
         let listItems = document.querySelector("#list_items")
         let submit_btn = document.querySelector("#submit_btn")
-        submit_btn.addEventListener("click", function(){
+
+        function delete_button(id){
             let deleteItem = document.createElement("button")
             deleteItem.innerHTML = "Delete"
+            deleteItem.addEventListener("click", function () {
+
+                id.removeChild(newTodo)
+            })
+        }
+
+        submit_btn.addEventListener("click", function () {
+
+            let completeItem = document.createElement("button")
+            completeItem.innerHTML = "Complete"
+
             let listItem = document.querySelector("#list_item").value
             console.log(listItem)
 
             let newTodo = document.createElement("div")
+            newTodo.innerText = listItem
 
-            newTodo.appendChild(deleteItem)
+            newTodo.appendChild(completeItem)
+            let toDelete = delete_button(listItem)
+            console.log(toDelete)
+            newTodo.appendChild(toDelete)
 
             listItems.appendChild(newTodo)
+
+
+            completeItem.addEventListener("click", function () {
+                newTodo.style.textDecoration = "line-through"
+                completed_list.appendChild(newTodo)
+                newTodo.removeChild(completeItem)
+                newTodo.removeChild(deleteItem)
+                list_items.removeChild(newTodo)
+            })
         })
+
 
 
     </script>
 </body>
+
 </html>
