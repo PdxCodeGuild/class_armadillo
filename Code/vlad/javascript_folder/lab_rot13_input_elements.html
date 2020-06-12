@@ -40,17 +40,17 @@
             transition: 0.5s;
         }
         
-        .wrapper {
-            padding: 20px;
-            height: auto;
-            margin-left: 50px;
+        body {
+            background-image: url('background_rot13.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         
-        footer {
-            background-color: skyblue;
-            display: table-row;
-            height: 1px;
-            font-size: x-large;
+        #rotation_output {
+            height: 50px;
+            width: 350px;
+            padding: 8px;
+            background-color: white;
         }
     </style>
 </head>
@@ -59,12 +59,15 @@
     <div> <input id="input_rotation" type="text" placeholder="What is the rotation amount? "></div>
     <div> <input id="user_input" type="text" placeholder="Enter any word: "></div>
     <div><button id="btn_submit"> Submit </button></div>
+    <!-- <div id="rotation_output" aria-placeholder="result"></div> -->
+    <div> <input id="rotation_output" type="text" placeholder="Rotations Result "></div>
     <!-- in the HTML section make sure to Use double quotes-->
 
     <script>
         let input_rotation = document.querySelector('#input_rotation')
         let user_input = document.querySelector('#user_input')
         let btn_submit = document.querySelector('#btn_submit')
+        let rotation_output = document.querySelector('#rotation_output')
 
         btn_submit.addEventListener('click', function() {
             let rotation2 = parseInt(input_rotation.value)
@@ -85,6 +88,7 @@
                 word += alphabet[x]
 
             }
+            rotation_output.value = word
             console.log(word) // make sure to add the console.log after  the loop have finished 
         })
     </script>
