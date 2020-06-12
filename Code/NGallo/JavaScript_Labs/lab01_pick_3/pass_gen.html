@@ -16,9 +16,9 @@
     <h1>Rock, Paper, Scissors</h1>
 
     <body>
-        <div id="number_div">
-            <input id="password_length" type="text" placeholder="enter length of password" />
-            <input type="button" onclick="MyFunction();return false" value="length_of_password">
+        <div class="number_div">
+            <input id="password_length" type="text" placeholder="Enter length of password.." />
+            <button type="button" onclick="passwordGenerator()">Generate Password</button>
 
         </div>
 
@@ -27,12 +27,32 @@
         </div>
 
         <div id="footer">
-            Nick Gallo | &copy 2020 | Class_Armadillo 
+            Nick Gallo | &copy 2020 | Class_Armadillo
         </div>
 
         <script>
-            let user_input = password_length.getAttribute 
-            console.log(user_input)
+            function passwordGenerator() {
+                const alphabet = "abcdefghijklmnopqrstuvwxyz"
+                const numbers = "1234567890"
+                const punctuation = "!@#$%^&*()_?<>+-[]"
+                const lengthOfPassword = parseInt(document.getElementById("password_length").value)
+                console.log(lengthOfPassword)
+
+                const random_password = []
+                while i in range(password_length):
+                    rando.append(random.choice(possible_chars))
+                i += 1
+                rando_string = ''.join(rando)
+                print(rando_string)
+
+
+
+
+                answer = ''
+                const outputDiv = document.getElementById('output_div')
+                outputDiv.innerHTML = answer
+            }
+
         </script>
 
     </body>
