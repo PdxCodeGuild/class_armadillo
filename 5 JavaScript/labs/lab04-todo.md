@@ -1,12 +1,14 @@
 
 # Lab 4: Todo List
 
-Let's make a simple todo-list which supports the following operations:
+Let's make a todo-list with the following features:
 
-- add an item to the list
-- remove an item from the list
-- mark an item as completed
+- a text input and button to add an item to the list
+- a button on each item to remove the item from the list
+- a button on each item to mark the item as completed
 
 Removed items should disappear entirely. Completed items should appear at the bottom (or in a separate list) with a line through them.
 
+## Version 2
 
+Use Bootstrap, Materialize, or custom CSS to make it look beautiful.
