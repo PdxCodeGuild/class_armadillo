@@ -26,7 +26,7 @@
     <div id="list_items">
 
     </div>
-
+    
     <div id="completed_list">
 
     </div>
@@ -38,17 +38,10 @@
         let completedList = document.querySelector("#completed_list")
         let listItems = document.querySelector("#list_items")
         let submit_btn = document.querySelector("#submit_btn")
+        submit_btn.addEventListener("click", function () {
 
-        function delete_button(id){
             let deleteItem = document.createElement("button")
             deleteItem.innerHTML = "Delete"
-            deleteItem.addEventListener("click", function () {
-
-                id.removeChild(newTodo)
-            })
-        }
-
-        submit_btn.addEventListener("click", function () {
 
             let completeItem = document.createElement("button")
             completeItem.innerHTML = "Complete"
@@ -60,19 +53,20 @@
             newTodo.innerText = listItem
 
             newTodo.appendChild(completeItem)
-            let toDelete = delete_button(listItem)
-            console.log(toDelete)
-            newTodo.appendChild(toDelete)
+            newTodo.appendChild(deleteItem)
 
             listItems.appendChild(newTodo)
+            deleteItem.addEventListener("click", function () {
 
+                list_items.removeChild(newTodo)
+
+            })
 
             completeItem.addEventListener("click", function () {
                 newTodo.style.textDecoration = "line-through"
                 completed_list.appendChild(newTodo)
                 newTodo.removeChild(completeItem)
                 newTodo.removeChild(deleteItem)
-                list_items.removeChild(newTodo)
             })
         })
 
