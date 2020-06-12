@@ -23,7 +23,7 @@
         </select>
         <br><br>
         <button type="button" onclick="weaponChoice()">Battle!</button>
-        <button type="button" conclick= >Play again?!</button>
+        <button type="button" id="clear" onclick="clearTheBoard()">Clear Page</button>
         </form>
 
     </div>
@@ -70,7 +70,10 @@
           const randomChoice = choices[Math.floor(Math.random()*choices.length)];
           return randomChoice
         }
-    </script>
+        function clearTheBoard(){
+          document.getElementById('output_div').innerHTML = " ";
+        }
+        </script>
 
 </body>
 </html>
