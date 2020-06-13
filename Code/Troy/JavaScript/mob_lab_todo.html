@@ -4,42 +4,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>To Do List</title>
+    <style>
+        #table_complete {
+            text-decoration: line-through;
+        }
+
+        #all {
+            margin: 0 auto;
+            max-width: 1250px;
+        }
+    </style>
 </head>
 
 <body>
-    <div>
-        <input id="todo_item" type="text" placeholder="Enter task here..." />
-        <button id="btn_submit_info">Submit</button>
+    <div id="all">
+        <h1>To Do List 2.0</h1>
+        <div class="row">
+            <div class="col">
+                <input id="todo_item" type="text" class="form-control" placeholder="Enter task here..." />
+            </div>
+            <div class="col">
+                <select id="select_priority" class="form-control">
+                    <option selected disabled>Choose Priority</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
+            <div class="col">
+                <button id="btn_submit_info" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Priority</th>
+                    <th>Created Date</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="table">
+            </tbody>
+        </table>
+        <h3>Completed Tasks</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Priority</th>
+                    <th>Created Date</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="table_complete">
+            </tbody>
+        </table>
     </div>
-
-    <div id="task_output"></div>
-    <table>
-        <tr>
-            <th>Task</th>
-            <th>Priority</th>
-            <th>Task Date</th>
-            <th>Completed</th>
-        </tr>
-        <tr>
-            <td>Walk the dog</td>
-            <td>High</td>
-            <td>12 Jun 2020</td>
-            <td>12 Jun 2020</td>
-        </tr>
-    </table>
-
     <script>
         let todo_item = document.querySelector("#todo_item");
         let task_output = document.querySelector("#task_output");
         let btn_submit_info = document.querySelector("#btn_submit_info");
+        let select_priority = document.querySelector("#select_priority");
+        let table = document.querySelector("#table");
+        let table_complete = document.querySelector("#table_complete");
 
         btn_submit_info.addEventListener("click", function () {
 
             let todo_text = todo_item.value
+            let priority = select_priority.value
+            let tr = document.createElement("tr");
+            let td1 = document.createElement("td");
+            let td2 = document.createElement("td");
+            let td3 = document.createElement("td");
+            let td4 = document.createElement("td");
+            let td5 = document.createElement("td");
 
+
+            let comp_item = document.createElement("button");
+            comp_item.addEventListener("click", function () {
+                table.removeChild(tr);
+                table_complete.appendChild(tr);
+                tr.removeChild(td5);
+                tr.removeChild(td4);
+            })
+            comp_item.classList.add("btn");
+            comp_item.classList.add("btn-success");
+            comp_item.innerHTML = '<span class="material-icons">assignment_turned_in</span>';
+            td5.appendChild(comp_item);
+
+            let del_item = document.createElement("button");
+            del_item.addEventListener("click", function () {
+                table.removeChild(tr);
+            })
+            del_item.classList.add("btn");
+            del_item.classList.add("btn-danger");
+            del_item.innerHTML = '<span class="material-icons">delete</span>';
+
+            td4.appendChild(del_item);
+            td1.innerText = todo_text;
+            td2.innerText = priority;
+            td3.innerText = new Date().toLocaleDateString();
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            tr.appendChild(td5);
+            table.appendChild(tr);
         })
-
     </script>
 </body>
 
