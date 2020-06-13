@@ -4,10 +4,41 @@ import string
 import random
 
 
+
+
+@app.route('/', methods=['GET','POST'])
+def index():
+    if request.method == 'POST':
+        print(contact_name)
+        return render_template('rot13.html', result='rot13')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # flask app for requests
 @app.route ('/', methods=["GET", "POST"])
 # defines the view
-def pswd_gen():
+def index():
     output = ''
     if request.method == "POST":
         # assigns variable and output for uppercase, lowercase, numbers, and special characters.
