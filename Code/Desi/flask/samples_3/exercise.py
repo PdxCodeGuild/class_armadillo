@@ -1,12 +1,23 @@
-from flask import flask
+
+from flask import Flask
 app = Flask(__name__)
+
+# @app.route('/')
+# def hello_world():
+#     return 'Hello World'
 
 @app.route('/')
 def index():
-    return 'Welcome to the home page'
+    html = '<html><head></head></body>'
+    html += '<ul>'
+    for i in range(100):
+        html += f'<li>{i}</li>'
+    html += '<ul>'
+    html += '</body></html>'
+    print(html)
 
-@app.route('/about')
-def about():
-    return "weclome to the about page"
+    # return 'Welcome to the home page'
 
     
+
+
