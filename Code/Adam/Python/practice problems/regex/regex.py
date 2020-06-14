@@ -1,6 +1,7 @@
 import re
 
 
+
 text_to_search ='''
 abcdefghijklmnopqrstuvwxyz
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
@@ -24,12 +25,19 @@ Mr. T
 
 sentence = 'Start a sentence and then bring it an end'
 
-# pattern = re.compile(r'\.') # searches for literal periods
-pattern = re.compile(r'coreyms\.com')
-
-print(text_to_search[142:153])
+pattern = re.compile(r'\d\d\d.\d\d\d.\d\d\d\d')
 
 matches = pattern.finditer(text_to_search)
 
-for match in matches:
-    print(match)
+with open('data.txt', 'r') as f:
+    contents = f.read()
+
+    matches = pattern.finditer(contents)
+
+    for match in matches:
+        print(match)
+
+
+# print(text_to_search[142:153])
+
+# pattern = re.compile(r'\.') # searches for literal periods
