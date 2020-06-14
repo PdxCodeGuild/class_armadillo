@@ -1,15 +1,28 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Contact
-
+from .forms import ContactForm
 # Create your views here.
 
 def index(request):
     context = {        
-        'contacts': contacts
+        'contacts':[]
 
     }
-    return render(request, 'contacts/index.html', context)
+    return render(request, 'index.html', context)
+
+
+def create(request):
+    context = {
+        
+
+    }
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    context['form'] = form
+
+    return render(request, 'new.html', context)
 
 
 
