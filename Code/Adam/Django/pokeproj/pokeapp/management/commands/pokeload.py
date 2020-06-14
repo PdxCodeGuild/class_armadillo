@@ -35,3 +35,9 @@ class Command(BaseCommand):
                                 image_front=image_front,
                                 image_back=image_back)
             pokemon.save()
+            for type_str in types:
+                # get the PokemonType witht the given if it exists
+                # if it doesn't, create it
+                type, created = PokemonType.objects.get_or_create(name=type_str)
+
+                pokemon.types.add(type)
