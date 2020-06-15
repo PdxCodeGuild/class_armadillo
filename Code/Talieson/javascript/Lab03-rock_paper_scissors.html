@@ -90,8 +90,6 @@ button{
             user_choice = document.querySelector('#user_choice').value
             user_choice_image = document.querySelector('#user_choice')
             user_choice_image = user_choice_image.options[user_choice_image.selectedIndex].getAttribute("name")
-            console.log(user_choice)
-            console.log(computer_choice)
             if (user_choice == computer_choice) {
                 alert(`You both picked ${user_choice_image}! It's a tie!`)
                 winner = true
