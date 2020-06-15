@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Redirect</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style type="text/css">
+        #timer {
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-style: inherit;
+            font-size: 200px;
+        }
+    </style>
+    <script type=text/javascript>
+        let timer = document.querySelector('#timer');
+        let m = 5;
+        setInterval(function() {
+            timer.innerText = m;
+            if (m === 0){
+                let urls = [
+                'https://www.supercrosslive.com',
+                'https://www.thursdaynightmotocross.com/',
+                'https://www.youtube.com/channel/UC-srKMDagY9-kiQEtIbUoQw?view_as=subscriber',
+                'https://www.veteranmx.com/',
+                ];
+                let index = Math.floor(Math.random()*urls.length);
+                window.location = urls[index];
+            } 
+            m -= 1;
+         }, 1000);
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <button class="btn btn-primary">Redirect</button>
+    </div>
+</body>
+
+</html>
