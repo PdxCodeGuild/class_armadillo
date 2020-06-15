@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clock</title>
-</head>
-<body>
-    <script type="text/javascript"> 
-    function display_c(){
-    let refresh=1000; // Refresh rate in milli seconds
-    mytime=setTimeout('display_ct()',refresh)
-    }
-    
-    function display_ct() {
-    let x = new Date()
-    document.getElementById('ct').innerHTML = x;
-    display_c();
-     }
+
+    <script type="text/javascript">
+        function display_c() {
+            let refresh = 1000; // Refresh rate in milli seconds
+            mytime = setTimeout('display_ct()', refresh)
+        }
+
+        function display_ct() {
+            let x = new Date()
+            document.getElementById('ct').innerHTML = x;
+            display_c();
+        }
     </script>
-    
-    
-    <body onload=display_ct();>
-    <span id='ct' ></span>
+</head>
+
+
+<body onload=display_ct();>
+    <span id='ct'></span>
 </body>
+
 </html>
