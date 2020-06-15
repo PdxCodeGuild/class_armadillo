@@ -1,94 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
     <title>Clock</title>
 </head>
 <body>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: 'Metal Mania', cursive;
+            background-color: lightgrey;
+        }
+        .clock {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            z-index: 1;
+            border: 1px solid darkslategrey;
+            background-color: slategrey;
+        }
+        .clock .hand {
+            --rotation: 0;
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+            width: 10px;
+            transform-origin: bottom;
+            transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+        }
+        .clock .hour_hand {
+            height: 36%;
+            width: 10px;
+            z-index: 3;
+            background-color: black;
+        }
+        .clock .minute_hand {
+            width: 7px;
+            height: 42%;
+            z-index: 4;
+            background-color: black;
+        }
+        .clock .second_hand {
+            width: 3px;
+            height: 45%;
+            z-index: 5;
+            background-color: red;
+        }
+        .hand_holder {
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            transform: translate(-50%, 50%);
+            background-color: black;
+            z-index: 7;
+        }
+        .clock .number {
+            position: absolute;
+            text-align: center;
+            font-size: 2rem;
+            width: 100%;
+            height: 100%;
+            z-index: 8;
+            --roation: 0;
+            transform: rotate(var(--rotation));
+        }
+        .clock .num_1 {--rotation: 30deg;}
+        .clock .num_2 {--rotation: 60deg;}
+        .clock .num_3 {--rotation: 90deg;}
+        .clock .num_4 {--rotation: 120deg;}
+        .clock .num_5 {--rotation: 150deg;}
+        .clock .num_6 {--rotation: 180deg;}
+        .clock .num_7 {--rotation: 210deg;}
+        .clock .num_8 {--rotation: 240deg;}
+        .clock .num_9 {--rotation: 270deg;}
+        .clock .num_10 {--rotation: 300deg;}
+        .clock .num_11 {--rotation: 330deg;}
+        .clock .num_12 {--rotation: 360deg;}
+        .date {
+            position: absolute;
+            left: 50%;
+            bottom: 34%;
+            transform: translate(-50%, 50%);
+            z-index: 2;
+            font-size: 1.6rem;
+        }
+    </style>
 
-<style>
-    body{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        overflow: hidden;
-    }
-    .clock{
-        position: relative;
-        width: 500px;
-        height: 500px;
-        border-radius:50%;
-        z-index: 1;
-        border: 1px solid darkslategrey;
-        background-color: slategrey;
-    }
-    .clock .hand {
-        position: absolute;
-        left: 50%;
-        bottom: 50%;
-        width: 10px;
-        transform: translateX(-50%);
-    }
-    .clock .hour_hand {
-        height: 36%;
-        width: 10px;
-        z-index: 3;
-        background-color: black;
-    }
-    .clock .minute_hand {
-        width: 7px;
-        height: 42%;
-        z-index: 4;
-        background-color: black;
-
-    }
-    .clock .second_hand {
-        width: 3px;
-        height: 45%;
-        z-index: 5;
-        background-color: red;
-    }
-    .hand_holder {
-        position: absolute;
-        left: 50%;
-        bottom: 50%;
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
-        transform: translate(-50%, 50%);
-        background-color:black;
-        z-index: 7;
-    }
-    .clock .number {
-        position: absolute;
-        text-align: center;
-        font-size: 2rem;
-        width: 100%;
-        height: 100%;
-        z-index: 2;
-        --roation: 0;
-        transform: rotate(var(--rotation));
-    }
-
-    .clock .num_1 {--rotation:30deg;}
-    .clock .num_2 {--rotation:60deg;}
-    .clock .num_3 {--rotation:90deg;}
-    .clock .num_4 {--rotation:120deg;}
-    .clock .num_5 {--rotation:150deg;}
-    .clock .num_6 {--rotation:180deg;}
-    .clock .num_7 {--rotation:210deg;}
-    .clock .num_8 {--rotation:240deg;}
-    .clock .num_9 {--rotation:270deg;}
-    .clock .num_10 {--rotation:300deg;}
-    .clock .num_11 {--rotation:330deg;}
-    .clock .num_12 {--rotation:360deg;}
-</style>
     <div class="clock">
-        <div class="hand hour_hand"></div>
-        <div class="hand minute_hand"></div>
-        <div class="hand second_hand"></div>
+        <div class="hand hour_hand" id="hour_hand"></div>
+        <div class="hand minute_hand" id="minute_hand"></div>
+        <div class="hand second_hand" id="second_hand"></div>
         <div class="hand_holder"></div>
 
         <div class="number num_1">I</div>
@@ -104,5 +116,65 @@
         <div class="number num_11">XI</div>
         <div class="number num_12">XII</div>
     </div>
+
+    <div class="date" id="date"></div>
+
+    <script>
+        setInterval(turnClock, 1000)
+        setInterval(setDate, 1000)
+
+        var hourHand = document.querySelector('#hour_hand')
+        var minuteHand = document.querySelector('#minute_hand')
+        var secondHand = document.querySelector('#second_hand')
+        var currentDate = new Date()
+
+        function turnClock() {
+            var currentDate = new Date()
+            // math time. Get the increment, divide by 60, use that times 360, which will then be changed to degrees and set the rate at which we rotate the bottom of the hand div
+            var secondsRate = currentDate.getSeconds() / 60
+            var minutesRate = (secondsRate + currentDate.getMinutes()) / 60
+            // this has to be done differently. PM times are actually rotating at a rate of what is effecitvely 360 + rotation rate. 
+            var hoursRate = (minutesRate + currentDate.getHours()) / 12
+            rotate(secondHand, secondsRate)
+            rotate(minuteHand, minutesRate)
+            rotate(hourHand, hoursRate)
+        }
+
+        function rotate(id, rotationRate) {
+            id.style.setProperty('--rotation', rotationRate * 360)
+        }
+
+        function romanize(date) {
+            // take date and split into individual numbers
+            var digits = String(+date).split(""),
+                romanArray = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM",
+                    "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC",
+                    "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],
+                // take our empty string and interate over digits
+                roman = "",
+                i = 3;
+            while (i--)
+                // access the array at index of romanArray at result of each string in digits to 10th
+                roman = (romanArray[+digits.pop() + (i * 10)] || "") + roman;
+                // i don't
+            return Array(+digits.join("") + 1).join("M") + roman;
+        }
+
+        function setDate(){
+            var currentDate = new Date()
+            var dayList = ["Sol's Day", "Luna's Day", "Mars' Day", "Mercury's Day ", "Joves' Day", "Venus' Day", "Saturnus' Day"]
+            var day = currentDate.getDay()
+            var romanDateStr = romanize(currentDate.getMonth() + 1) + "." +
+                               romanize(currentDate.getDate()) + "." +
+                               romanize(currentDate.getFullYear());
+            
+            date.innerText = (` ${dayList[day]}  ${romanDateStr}`)
+            console.log((` ${dayList[day]}  ${romanDateStr}`))
+        }
+
+        turnClock()
+        setDate()
+    </script>
 </body>
+
 </html>
