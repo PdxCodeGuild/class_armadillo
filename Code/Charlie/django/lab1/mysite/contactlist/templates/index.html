@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Contacts</title>
+</head>
+
+<body>
+    <h2>Contact List</h2>
+    
+
+    {% block content %}
+    {% for contact in contacts %}
+    <div>
+        <a href="{% url 'contactsist:detail' contact.id %}"> {{contact.last_name}}, {{contact.first_name}}</a>
+    </div>
+    {% endfor %}
+    {% endblock %}
+    <div>
+        <a href="{% url 'contactslist:contact'%}"><button type="submit" class="btn btn-primary">Create Contact</button></a>
+    </div>
+</body>
+
+</html>
