@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+
+<body>
+    <h1>The current date and time is: </h1>
+    <div id="clock"></div>
+    <script>
+        let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        function currentTime() {
+            let date = new Date();
+            let dayOfWeek = daysOfWeek[date.getDay()];
+            let year = date.getFullYear();
+            let month = monthNames[date.getMonth()];
+            let day = date.getDate();
+            let hour = date.getHours();
+            let min = date.getMinutes();
+            let sec = date.getSeconds();
+            dayOfWeek = addZero(dayOfWeek);
+            year = addZero(year);
+            month = addZero(month);
+            day = addZero(day);
+            hour = addZero(hour);
+            min = addZero(min);
+            sec = addZero(sec);
+            function addZero(z) {
+                if (z < 10) {
+                    return "0" + z;
+                }
+                else {
+                    return z;
+                }
+            }
+
+
+            document.querySelector("#clock").innerText = dayOfWeek+ ","+" "+month + " " + day + "," + " " + year + " " + hour + ":" + min + ":" + sec
+            let refreshTime = setTimeout(currentTime, 1000);
+        }
+
+        currentTime();
+    </script>
+</body>
+
+</html>
