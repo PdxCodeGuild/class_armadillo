@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200&family=Metal+Mania&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.7/Tone.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-size: large;
+        font-family: 'Permanent Marker', cursive;
+    }
+    body {
+        background-image: url(images/notebook-paper.jpg);
+    }
+    #completed_list > li {
+        text-decoration: line-through;
+        color: deeppink;
+    }
+    #container {
+    margin-left: 132px;
+    margin-top: 80px;
+    }
+    button {
+        border-radius: 10px;
+        border: none;
+        font-family: 'Exo 2', sans-serif;
+        background-color: bisque;
+    }
+    li > button {
+        margin-left: 11px;
+        border-radius: 10px;
+        border: none;
+    }
+    button:hover {
+        border: solid black;
+    }
+    button:focus {
+        outline: transparent;
+    }
+    h1 {
+        left: 518px;
+        margin-top: -81px;
+        position: absolute;
+        font-size: xxx-large;
+    }
+    img {
+    position: absolute;
+    left: 136px;
+    width: 88%;
+    margin-top: 52px;
+    z-index: -1;
+    opacity: .5;
+    }
+
+</style>
+
+<body>
+    <h1>Todo List:</h1>
+    <img src="images/59f752c6c2ee1.image.jpg">
+    <div id="container">
+        <input id="user_input" type="text" placeholder="Enter task:">
+        <button id="submit">Submit</button>
+        <ul id="todo_list">
+        </ul>
+        <ul id="completed_list"></ul>
+    </div>
+    <script type="text/javascript">
+    //create a synth and connect it to the master output (your speakers)
+    var synth = new Tone.MetalSynth().toMaster()
+
+    //play a middle 'C' for the duration of an 8th note
+    
+    let user_input = document.querySelector('#user_input')
+    let submit = document.querySelector('#submit')
+    let todo_list = document.querySelector('#todo_list')
+    let completed_list = document.querySelector('#completed_list')
+    
+    submit.addEventListener('click', function () {
+        let new_li = document.createElement('li')
+        new_li.innerText = user_input.value
+        todo_list.appendChild(new_li)
+        
+        let remove_button = document.createElement('button')
+        remove_button.innerText = 'Remove'
+        new_li.appendChild(remove_button)
+        
+        let complete_button = document.createElement('button')
+        complete_button.innerText = 'Complete'
+        new_li.appendChild(complete_button)
+        
+        remove_button.addEventListener('click', function () {
+            todo_list.removeChild(new_li)
+        })
+        
+        complete_button.addEventListener('click', function () {
+            let complete_li = document.createElement('li')
+            complete_li.innerText = user_input.value
+            completed_list.appendChild(complete_li)
+            todo_list.removeChild(new_li)
+            synth.triggerAttackRelease('C4', '8n')
+        })
+        
+        // user_input.value = ''
+        
+    })
+    
+    
+    </script>
+</body>
+
+</html>
