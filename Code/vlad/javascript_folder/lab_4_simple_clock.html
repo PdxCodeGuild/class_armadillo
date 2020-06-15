@@ -18,11 +18,11 @@ and set it in the DOM. If you have time, check out the full clock lab.-->
         let simple_clock = document.querySelector('#simple_clock')
         setInterval(function() {
             let clock = new Date().toLocaleTimeString()
+            simple_clock.innerText = clock
             console.log(clock)
         }, 1000);
 
-        simple_clock.innerText
-            // console.log(clock)
+        // console.log(clock)
     </script>
 
 
