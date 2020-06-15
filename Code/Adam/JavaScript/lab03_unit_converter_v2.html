@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: gray;
+    }
+</style>
+<body>
+    <h1 id="main">Simple Unit Converter</h1>
+    <input id="input_distance" type="number" placeholder="Enter a number: " />
+    <input id="input_start_unit" type="text" placeholder="Enter starting unit: " />
+    <input id="input_end_unit" type="text" placeholder="Enter an end unit: " />
+    <button id="submit">Submit</button>
+    <div id="output_div"></div>
+    <script type="text/javascript">
+
+        // convert the distance in meters to a specified unit
+        function m_to_unit(end_unit, distance) {
+            if (['feet', 'ft'].includes(end_unit)) {
+                dist_in_ft = distance / 0.3048 // conversion factor for ft
+                console.log(dist_in_ft)
+                return `${dist_in_ft} ft ` // return template literal containing conversion
+            }
+            else if (['miles', 'mile', 'mi'].includes(end_unit)) {
+                dist_in_mi = distance / 1609.34
+                console.log(dist_in_mi)
+                return `${dist_in_mi} mi `
+            }
+            else if (['meters', 'meter', 'm'].includes(end_unit)) {
+                dist_in_m = distance / 1
+                console.log(dist_in_m)
+                return `${dist_in_m} m `
+            }
+            else if (['kilometers', 'kilometer', 'km'].includes(end_unit)) {
+                dist_in_km = distance / 1000
+                console.log(dist_in_km)
+                return `${dist_in_km} km `
+            }
+            else {
+                // if end_unit does't match elements in the array alert the user
+                alert(`${end_unit} is not a valid end unit. `)
+            }
+        }
+
+        // declare variables and assign the values from the querys
+        let input_distance = document.querySelector('#input_distance')
+        let input_start_unit = document.querySelector('#input_start_unit')
+        let input_end_unit = document.querySelector('#input_end_unit')
+        let output_div = document.querySelector('#output_div')
+
+
+        // convert start unit to meters then meters to end_unit via m_to_unit() 
+        submit.addEventListener('click', function () {
+            // declare variable to be used in function
+            let distance = input_distance.value
+            let start_unit = input_start_unit.value
+            let end_unit = input_end_unit.value
+
+            // if start_unit matches an element from array
+            if (['feet', 'ft'].includes(start_unit)) {
+                // convert start unit to meters then meters to end_unit via m_to_unit() 
+                dist_in_m = distance * 0.3048 // 
+                // assign template literal containing the converted value to output_div innerText
+                output_div.innerText = `${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}`
+                console.log(m_to_unit(end_unit, dist_in_m))
+            }
+            else if (['miles', 'mile', 'mi'].includes(start_unit)) {
+                dist_in_m = distance * 1609.34
+                output_div.innerText = `${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}`
+                console.log(m_to_unit(end_unit, dist_in_m))
+            }
+            else if (['meters', 'meter', 'm'].includes(start_unit)) {
+                dist_in_m = distance * 1
+                output_div.innerText = `${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}`
+                console.log(m_to_unit(end_unit, dist_in_m))
+            }
+            else if (['kilometers', 'kilometer', 'km'].includes(start_unit)) {
+                dist_in_m = distance * 1000
+                output_div.innerText = `${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}`
+                console.log(m_to_unit(end_unit, dist_in_m))
+            }
+            else {
+                // if start_unit doesn't match elements in arrays, alert user
+                alert(`${start_unit} is not a valid starting unit.`)
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,15 +1,19 @@
-from django.shortcuts import render
-from .models import pokemon
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-import json
-import requests
-
-path = 'pokemon.json'
-
-def index(request, path):
-    with open(path, 'r') as file:
-        text = file.read()
-    pokemon = json.loads(text)
-    pokemon = pokemon['pokemon']
-    return render(request, 'pokedex/pokemon.json')
+import json 
+from .models import Pokemon, PokemonType
 # Create your views here.
+
+def index(request):
+    pokemon = Pokemon.objects.order_by('name')
+
+    context = {'pokemon': pokemon}
+
+    return render(request, 'index.html', context)
+
+def detail(request, pokemon_id):
+    pokemon = get_object_or_404(Pokemon, number=pokemon_id)
+   
+    return render(request, 'detail.html', {'pokemon': pokemon })
+ 
+    
