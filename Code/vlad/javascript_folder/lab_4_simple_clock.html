@@ -4,12 +4,32 @@ the current date and time. You can then create a string by calling methods on th
 and set it in the DOM. If you have time, check out the full clock lab.-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab 4: Simple Clock</title>
 </head>
+
 <body>
-    
+    <div id="simple_clock">
+    </div>
+    <script>
+        let simple_clock = document.querySelector('#simple_clock')
+        setInterval(function() {
+            let clock = new Date().toLocaleTimeString()
+            console.log(clock)
+        }, 1000);
+
+        simple_clock.innerText
+            // console.log(clock)
+    </script>
+
+
+
+
+
+
 </body>
+
 </html>
