@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors - A Game</title>
+
+</head>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <script type="text/javascript">
+        
+
+        function rockPaperScissorsGame() {
+        while (true) {
+            let gameOptions = ["paper", "rock", "scissors"];
+            let computerGameOptions = Math.floor(Math.random()*3);
+
+            let playGame = prompt("Hello there. Would you like to play a game? ")
+            if (playGame === "y") {
+                    alert("Ok");
+            }
+            else if(playGame === "n") {
+                alert("I'm sorry. Thank you");
+            }
+            else() {
+                alert("Not a valid response. Please try again.")
+            }
+        }
+            alert("Shoot your shot. Rock, Paper, or Scissors: ")
+            let userEntry = prompt(gameOptions);
+            let computerEntry = prompt(computerGameOptions); 
+                
+            if (userEntry === "rock" && computerEntry === "rock"){
+                alert("You selected Rock and computer chose Rock.");
+                alert("You tied!");
+            }
+            else if (userEntry === "rock" && computerEntry === "scissors"){
+                alert("You selected Rock and computer chose Scissors.");
+                alert("You won!")
+            }
+            else if (userEntry === "rock" && computerEntry === "paper"){
+                alert("You selected Rock and computer chose Paper.");
+                alert("You lose!")
+            }
+            else if (userEntry === "paper" && computerEntry === "rock"){
+                alert("You selected Paper and computer chose Rock.");
+                alert("You won!")
+            }
+            else if (userEntry === "paper" && computerEntry === "paper"){
+                alert("You selected Paper and computer chose Paper.");
+                alert("You tied!")
+            }
+            else if (userEntry === "paper" && computerEntry === "scissors"){
+                alert("You selected Paper and computer chose Scissors.");
+                alert("You lose!")
+            }
+            else if (userEntry === "scissors" && computerEntry === "rock"){
+                alert("You selected Scissors and computer chose Rock.");
+                alert("You lose!")
+            }
+            else if (userEntry === "scissors" && computerEntry === "paper"){
+                alert("You selected Scissors and computer chose Paper.");
+                alert("You win!")
+            }
+            else if (userEntry === "scissors" && computerEntry === "scissors"){
+                alert("You selected Scissors and computer chose Scissors.");
+                alert("You tied!")
+            }
+    } 
+    rockPaperScissorsGame() 
+
+    </script>
+</body>
+</html>

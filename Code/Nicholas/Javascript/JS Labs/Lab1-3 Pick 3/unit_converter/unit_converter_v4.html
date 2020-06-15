@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <style>
+        body{
+            background-image: url("https://lh3.googleusercontent.com/proxy/gxRsQt2mDfPif77tjYMLmJ3T19ISzqb1JE2ocGqFqekzSJPoeP3DIBq2JShaNkp4Wzui6NrRizpJIWgRrX6K_h-eOiphUJHr6QNM3v5uHeKy4mY9Xip0Uyw_34Uv1wNEvg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .converter_all {
+            background-color: white;
+            margin: 0 auto;
+            margin-top: 200px;
+            max-width: 500px;
+            border: 5px solid;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #get_conversion {
+            max-height: 80px;
+            background-color: greenyellow;
+            border-radius: 10px;
+        }
+
+        .inputs {
+            margin: 0 auto;
+            font-size: 32pt;
+            text-align: center;
+        }
+        #result{
+            text-align:center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="converter_all">
+        <h1>Unit Converter</h1>
+        <h2>1) Enter a length and units.</h2>
+        <h2>2) Choose new units you want to convert the measurement to.</h2>
+        <h2>3) Convert!</h2>
+        <div class="inputs">
+            <input id="input_length" type="text" placeholder="enter length" />
+            <select name="input" id="input_units">
+                <option selected="selected">old units</option>
+                <option value="feet">Feet</option>
+                <option value="miles">Miles</option>
+                <option value="meters">Meters</option>
+                <option value="kilometers">Kilometers</option>
+                <option value="yards">Yards</option>
+                <option value="inches">Inches</option>
+            </select>
+            <select name="output" id="output_units">
+                <option selected="selected">new units</option>
+                <option value="feet">Feet</option>
+                <option value="miles">Miles</option>
+                <option value="meters">Meters</option>
+                <option value="kilometers">Kilometers</option>
+                <option value="yards">Yards</option>
+                <option value="inches">Inches</option>
+            </select>
+            <button id="get_conversion">Convert</button>
+        </div>
+        <h2 id="result"></h2>
+    </div>
+    <script>
+        let input_length = document.querySelector("#input_length")
+        let input_units = document.querySelector("#input_units")
+        let output_units = document.querySelector("#output_units")
+        let get_conversion = document.querySelector("#get_conversion")
+        let result = document.querySelector("#result")
+        get_conversion.addEventListener('click', function () {
+            let units = {
+                "feet": 0.3048,
+                "miles": 1609.34,
+                "meters": 1,
+                "kilometers": 1000,
+                "yards": 0.9144,
+                "inches": 0.0254
+            }
+            let distance_meters = (input_length.value * units[input_units.value])
+            let new_length = parseFloat(distance_meters / units[output_units.value])
+            result.innerHTML = `${input_length.value} ${input_units.value} = ${new_length.toFixed(2)} ${output_units.value}`
+
+        })
+    </script>
+</body>
+
+</html>

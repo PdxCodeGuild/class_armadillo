@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // convert the distance in meters to a specified unit
+        function m_to_unit(end_unit, distance) {
+            if (['feet','ft'].includes(end_unit)) {
+                dist_in_ft = distance/0.3048 // conversion factor for ft
+                return `${dist_in_ft} ft `
+            }
+            else if (['miles','mile','mi'].includes(end_unit)) {
+                dist_in_mi = distance/1609.34 // conversion factor for mi
+                return `${dist_in_mi} mi `
+            }
+            else if (['meters','meter','m'].includes(end_unit)) {
+                dist_in_m = distance/1 // conversion factor for m
+                return `${dist_in_m} m `
+            }
+            else if (['kilometers','kilometer','km'].includes(end_unit)) {
+                dist_in_km = distance/1000 // conversion factor for km
+                return `${dist_in_km} km `
+            }
+        }
+        
+        // Prompt the user to enter the distance
+        let distance = prompt('What is the distance? ')
+        console.log(distance)
+
+
+        // Promt the user for the input unit
+        let start_unit = prompt('What is the starting unit of measurement?')
+        console.log(start_unit)
+
+
+        // Prompt the user for the output unit
+        let end_unit = prompt(`What unit of measurement are you converting ${distance}${start_unit} to? `)
+        console.log(end_unit)
+
+
+        // convert the start_unit to meters then convert the distance in meters to any other unit
+        if (['feet','ft'].includes(start_unit)) {
+            dist_in_m = distance*0.3048  // 1 ft is 0.3048 m
+            alert(`${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}.`) // print the conversion
+            console.log(m_to_unit(end_unit, dist_in_m))
+        }
+        else if (['miles','mile', 'mi'].includes(start_unit)) {
+            dist_in_m = distance*1609.34  // 1 mi is 1609.34 m
+            alert(`${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}.`)
+            console.log(m_to_unit(end_unit, dist_in_m))
+        }
+        else if (['meters','meter','m'].includes(start_unit)) { 
+            dist_in_m = distance*1
+            alert(`${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}.`)
+            console.log(m_to_unit(end_unit, dist_in_m))
+        }
+        else if (['kilometers','kilometer','km'].includes(start_unit)) {
+            dist_in_m = distance*1000 // 1 km is 1000 m
+            alert(`${distance} ${start_unit} converts to ${m_to_unit(end_unit, dist_in_m)}.`)
+            console.log(m_to_unit(end_unit, dist_in_m))
+            
+        }
+        else {
+            alert(`${start_unit} not a valid starting unit.`)
+        }
+
+        
+    </script>
+</body>
+</html>

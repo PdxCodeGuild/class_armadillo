@@ -1,14 +1,38 @@
 <!doctype html>
 <html>
 <head>
-<link rel="stylesheet" href="madlib.CSS">    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Madlib</title>
 
 </head>
 <body>
+    <div>
+        <input id="input_number" type="text" placeholder="number"/>
+        <input id="input_adjective" type="text" placeholder="adjective"/>
+        <input id="input_animal" type="text" placeholder="animal"/>
+        <input id="input_action" type="text" placeholder="action"/>
+        <button id="btn_generate">Generate Mad Lib</button>
+    </div>
+    <div id="userMadlib"></div>
 
-    <script src="madlib.JS"></script>
+    <script>
+        let number = document.querySelector('#number');
+        let adjective = document.querySelector('adjective');
+        let animal = document.querySelector('#animal');
+        let action = document.querySelector('#action');
+        let btn_generate = document.querySelector('#btn_gnerate');
+        let userMadlib = document.querySelector('#userMadLib');
+
+        btn_generate.addEventListener('click', function() {
+            
+            let number = prompt("Please enter a number: ")
+            let adjective = prompt("Please enter an adjective: ")
+            let animal = prompt("Please enter your favorite animal. If you selected a number greater than '1' in your first response, please kindly enter the plural of your favorite animal. ")
+            let action = prompt("Please enter an 'action' verb. Examples: 'swashbuckling,' 'defenestrating,' 'cajoling,' etc. ")
+            let madlib = `I saw ${number} ${adjective} ${animal} at PDX Code Guild's offices today. They were ${action} with complete and utter abandon.`
+            userMadlib.innerText = madlib
+        })
+    </script>
 </body>
 </html>

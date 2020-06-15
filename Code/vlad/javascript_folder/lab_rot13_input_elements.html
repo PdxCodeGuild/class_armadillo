@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>rot13 input elements</title>
     <style>
+        input {
+            margin: 6px 10px 30px 50px;
+        }
+        
         #input_rotation {
             height: 25px;
             width: 350px;
@@ -20,6 +24,34 @@
             padding: 8px;
             border-color: aquamarine;
         }
+        
+        #btn_submit {
+            margin: 6px 10px 30px 50px;
+            background-color: transparent;
+            border: 4px solid pink;
+            color: skyblue;
+        }
+        
+        #btn_submit:hover {
+            background: skyblue;
+            border: none;
+            color: rgb(5, 141, 220);
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            transition: 0.5s;
+        }
+        
+        body {
+            background-image: url('background_rot13.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        #rotation_output {
+            height: 50px;
+            width: 350px;
+            padding: 8px;
+            background-color: white;
+        }
     </style>
 </head>
 
@@ -27,12 +59,15 @@
     <div> <input id="input_rotation" type="text" placeholder="What is the rotation amount? "></div>
     <div> <input id="user_input" type="text" placeholder="Enter any word: "></div>
     <div><button id="btn_submit"> Submit </button></div>
+    <!-- <div id="rotation_output" aria-placeholder="result"></div> -->
+    <div> <input id="rotation_output" type="text" placeholder="Rotations Result "></div>
     <!-- in the HTML section make sure to Use double quotes-->
 
     <script>
         let input_rotation = document.querySelector('#input_rotation')
         let user_input = document.querySelector('#user_input')
         let btn_submit = document.querySelector('#btn_submit')
+        let rotation_output = document.querySelector('#rotation_output')
 
         btn_submit.addEventListener('click', function() {
             let rotation2 = parseInt(input_rotation.value)
@@ -53,6 +88,7 @@
                 word += alphabet[x]
 
             }
+            rotation_output.value = word
             console.log(word) // make sure to add the console.log after  the loop have finished 
         })
     </script>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let input_number_2_phrase = document.querySelector('input_number_2_phrase')
+        // tells the computer to 
+        clicker = document.getElementById('clicker')
+        // get off the page and onto browswer
+        btn_generate = document.getElementById('button')
+        btn_generate.addEventListener('click', function() {
+        alert('yes')
+        clicker.innerText=pass})
+        alert(input_number_2_phrase)
+    
+    
+    let pass = 'test message';
+    
+    
+    let ones = ['', 
+                'one', 
+                'two', 
+                'three', 
+                'four', 
+                'five', 
+                'six', 
+                'seven', 
+                'eight', 
+                'nine',
+                ]
+    
+    let teens = ['',
+                'ten',
+                'eleven',
+                'twelve',
+                'thirteen',
+                'fourteen',
+                'fifteen',
+                'sixteen',
+                'seventeen',
+                'eighteen',
+                'nineteen',            
+    
+    ]
+    
+    let tens = ['',
+                'twenty',
+                'thirty',
+                'forty',
+                'fifty',
+                'sixty',
+                'seventy',
+                'eighty',
+                'ninety',            
+    ]
+    
+    function convert_hundreds(num) {
+        if (num > 99){ 
+            return ones[Math.floor(num/100)] + 'hundred' + convert_tens(num % 100);
+    }       else {
+            return convert_tens(num)
+    }
+    }
+    
+    function convert_tens(num) {
+        if (num < 10) return ones[num];
+            else if (num >= 10 && num < 20) return teens[num - 10];
+            else {
+            return tens[Math.floor(num/10)] + " " + ones[num % 10];
+    
+            }
+    }
+    function convert(nums) {
+        if (num == 0); return "zero";
+            return convert_tens 
+
+    // let question = prompt("Enter a number ...  ");
+    // let answer = num_2_phrase(question);
+    // alert(`Here you go ... ${answer}`);
+    // }
+    
+    console.log 
+    </script>
+    
+    </body>
+    </html>
+</body>
+</html>

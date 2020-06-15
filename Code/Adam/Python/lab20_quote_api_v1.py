@@ -32,3 +32,4 @@ data = json.loads(response.text) # turn the json into a python dictionary
 print(f" \"{data['quote']['body']}\" - {data['quote']['author']}") # get a part of the response data out of the dictionary
 # print(data['quote']['author'])
 
+
