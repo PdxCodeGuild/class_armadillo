@@ -24,7 +24,7 @@
         let btn_generate = document.querySelector('#btn_gnerate');
         let userMadlib = document.querySelector('#userMadLib');
 
-        btn_generate.addEventListener('enter', function() {
+        btn_generate.addEventListener('click', function() {
             
             let number = prompt("Please enter a number: ")
             let adjective = prompt("Please enter an adjective: ")
@@ -32,7 +32,7 @@
             let action = prompt("Please enter an 'action' verb. Examples: 'swashbuckling,' 'defenestrating,' 'cajoling,' etc. ")
             let madlib = `I saw ${number} ${adjective} ${animal} at PDX Code Guild's offices today. They were ${action} with complete and utter abandon.`
             userMadlib.innerText = madlib
-        }
+        })
     </script>
 </body>
 </html>

@@ -6,6 +6,13 @@
   <title>contacts</title>
 </head>
 <body>
+      {% for contact in contacts %}
+      {{ contact.first_name }}
+      {{contact.last_name}}
+    
+      {% endfor %}
+
+
   <h1>contacts</h1>
 </body>
-</html>
+</html> 
