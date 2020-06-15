@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="output_div"></div>
+    <h1>Randomized Entertainment</h1>
+    <script>
+
+
+        entertainment_urls = [
+            'https://www.netflix.com/',
+            'https://www.hulu.com/',
+            'https://www.youtube.com/',
+            'https://www.disneyplus.com/',
+            'https://www.cbs.com/'
+        ]
+
+
+        // declaring random_url and assigning it a random url from the array entertainment urls
+        let random_url = entertainment_urls[Math.floor(Math.random() * entertainment_urls.length)]
+
+
+        let counter = 5; // declaring counter and assigning the number 5
+        let interval = setInterval(function () {
+            // decrement counter
+            counter = counter - 1; 
+            // assigning innerHTML a template literal that dispays our decrementing counter
+            document.getElementById("output_div").innerHTML = `Your browser will be redirected in ${counter} secs. `
+            // when counter reaches 0, clear the interval and redirect to a random url
+            if (counter == 0) {
+                clearInterval(interval);
+                window.location.replace(random_url)
+            }
+        }, 1000); // each interval is 1000 milliseconds or 1 sec
+
+
+
+    </script>
+</body>
+
+</html>

@@ -7,13 +7,14 @@
 </head>
 <body>
     <h1>Current Time</h1>
-    <div id="output"></div>
+    <div id="output_div"></div>
     <script>
         setInterval(function() {
+            // declaring output and 
             var output = new Date()
-            document.getElementById("output").innerHTML = output
-        }, 1000)
-        // let output = document.querySelector('#output')
+            // assigning the variable to be displayed in innerHTML
+            document.getElementById("output_div").innerHTML = output
+        }, 1000) // sets interval to 1 sec. This is the rate at which output will be updated
 
     </script>
 </body>
