@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='index.css') }}"/>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="vertical-center">
+            <form action="" method="post">
+                <input type="number" name="password_length" placeholder="enter some test" />
+                <button type="submit">submit
+                </button>
+            </form>
+        </div>
+    </div>
+    <img src="{{url_for('static', filename='Desis_Password.png') }}"/>
+    <form action="/" method="post">
+        <input type="text" name="user_name" placeholder="can you help me generate a password with random characters"/>
+        <input type="date" name="birthday" placeholder="I would like you to choose a number between 5 and 35"/>
+    </form>
+    {%if password != ""%}
+        <div class="output">
+            <span>
+                Your new password is {{password}}
+            </span>
+        </div>
+    {%endif%}
+</body>
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Rot13 encoder</h1>
+    <form action="" methods="post">
+        <input type='text' name="input_text" placeholder="Enter text to encode"/>
+        <button type="button">submit</button>
+    </form>
+
+
+
+
+
+    d1 = {'A' : 1, 'B' : 2, 'C' : 3, 'D' : 4, 'E' : 5, 
+        'F' : 6, 'G' : 7, 'H' : 8, 'I' : 9, 'J' : 10, 
+        'K' : 11, 'L' : 12, 'M' : 13, 'N' : 14, 'O' : 15, 
+        'P' : 16, 'Q' : 17, 'R' : 18, 'S' : 19, 'T' : 20, 
+        'U' : 21, 'V' : 22, 'W' : 23, 'X' : 24, 'Y' : 25, 'Z' : 26} 
+
+
+# Dictionary to lookup alphabets  
+# corresponding to the index after shift 
+
+d2 = {0 : 'N', 1 : 'O', 2 : 'P', 3 : 'Q', 4 : 'R', 5 : 'S', 
+        6 : 'T', 7 : 'U', 8 : 'V', 9 : 'W', 10 : 'X', 
+        11 : 'Y', 12 : 'Z', 13 :'A', 14 : 'B', 15 : 'C', 
+        16 : 'D', 17 : 'E', 18 : 'F', 19 : 'G', 20 : 'H', 
+        21 : 'I', 22 : 'J', 23 : 'K', 24 : 'L', 25 : 'M'}
+
+
+# phrase = input("Enter the letters you'd like to be encrypted: ")
+
+# defines rot function.
+def encrypt(message): 
+    # creates string coe to iterate over to find indices
+    cipher = 'abcdefghijklmnopqrstuvwxyz' 
+    # creates open string so user can enter a code
+    phrase = ''
+    # initiates loop
+    for letter in message: 
+        # checking for space 
+        if letter == ' ': 
+            phrase += ' '
+            # attaches user phrase using rot13 code 
+        else: 
+            phrase += cipher[(cipher.find(letter)+13)%26]
+  
+  # returns phrase from below
+    return phrase
+# users input of what they want encrypted.
+message = input("Enter the letters you'd like to be encrypted: ")
+# message2 = input("How many rotations of Rot13 would you like?  ")
+# prints the encrypted msg.
+print(f'Your new code is {encrypt(message)}')
+
+
+
+</body>
+</html>

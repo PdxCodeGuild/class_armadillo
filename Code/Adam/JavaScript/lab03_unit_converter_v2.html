@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
+<style>
+    body {
+        background-color: gray;
+    }
+</style>
 <body>
-    <input id="input_distance" type="number" placeholder="Enter a number for distance: " />
-    <input id="input_start_unit" type="text" placeholder="Enter starting unit of measurement: " />
-    <input id="input_end_unit" type="text" placeholder="Enter unit to convert to: " />
+    <h1 id="main">Simple Unit Converter</h1>
+    <input id="input_distance" type="number" placeholder="Enter a number: " />
+    <input id="input_start_unit" type="text" placeholder="Enter starting unit: " />
+    <input id="input_end_unit" type="text" placeholder="Enter an end unit: " />
     <button id="submit">Submit</button>
     <div id="output_div"></div>
     <script type="text/javascript">

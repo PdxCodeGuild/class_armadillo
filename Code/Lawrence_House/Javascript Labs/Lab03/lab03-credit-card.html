@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    // Slice off the last digit. that is the check digit
+        let cc_digits = [4,5,5,6,7,3,7,5,8,6,8,9,9,8,5,5]
+        let check_digit = cc_digits.pop(-1)
+
+
+        // Reverse the digits
+        cc_digits.reverse()
+
+        for (let i=0; i<cc_digits;++i) {
+            cc_digits[i] *= 2
+        }
+
+        for (let i=0; i<cc_digits;++i) {
+            if (cc_digits[i] > 9) {
+                cc_digits[i] -= 9
+            }
+        }
+
+        var sum = cc_digits.reduce(function(a, b){
+            return a + b;
+        }, 0);
+
+        
+
+        cc_digits = sum
+
+        let last_check = cc_digits % 10
+
+        alert(cc_digits)
+
+        if (check_digit == last_check) {
+            alert('valid')
+        } else {
+            alert('invalid')
+        }
+    </script>
+
+    <h1>Halfway through june already huh.</h1>
+</body>
+</html>
