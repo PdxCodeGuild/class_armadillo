@@ -1,11 +1,51 @@
+<!--
+Create a page which randomly redirectly to another. Start with an array of urls (as strings), 
+and randomly pick one using Math.random(). Then redirect to the page by assigning the url 
+to window.location. Using JavaScript's timing 
+events, show a 5-second countdown to the user. When the countdown is finished, redirect to a random page.
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab 5: Random Redirector</title>
 </head>
+
 <body>
-    
+    <!-- hard code an list/array and fill it with randoms urls
+    then generate a random number pass that random number into the list or array 
+    to get an element out. 
+    look set timeout = it is like set interval but run one time 
+    run the url by running the window.location.href = 'http://www.example.com' this will be the random url -->
+
+    <!-- <a href=""></a> -->
+
+
+    <p>Click the button to wait 3 seconds, then alert "Hello".</p>
+
+    <button onclick="myRandomUrl()">Try it</button>
+
+    <script>
+        urls = ['https://www.nba.com/', 'https://pdxcodeguild.com/', 'https://www.nfl.com/', 'https://www.mlb.com/', ];
+
+        function myRandomUrl() {
+            setTimeout(function() {
+                random_url = Math.floor(Math.random() * 3) // generate a random number between 0-3 which match the elements on the list
+                    // window.location.href = 'https://www.nba.com/' // referring to the url
+                window.location.href = urls[random_url] // this giving the random number which pass array which provide the random url
+                    // console.log(urls[random_url])
+                    // console.log(random_url)
+
+
+            }, 5000);
+        }
+    </script>
+
+
 </body>
-</html>  
+
+</html>
