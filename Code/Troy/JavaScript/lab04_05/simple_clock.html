@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Clock</title>
+</head>
+
+<body>
+    <h3>Just a Simple Clock</h3>
+    <div class="clock"></div>
+
+    <script>
+        function clockDisplay() {
+            let date = new Date();
+            console.log(date)
+            let hour = date.getHours();
+            // hour = updateTime();
+            let min = date.getMinutes();
+            // min = updateTime();
+            let sec = date.getSeconds();
+            // sec = updateTime();
+            let x = setTimeout(function() {
+                clockDisplay()}, 1000);
+
+            let time = document.querySelector("clock");
+            time.innerText = hour + ":" + min + ":" + sec
+            console.log(time)
+
+            
+        }
+        clockDisplay();
+
+    </script>
+
+
+</body>
+
+</html>
