@@ -4,24 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css" />
     <title>Simple Clock</title>
 </head>
 <style>
     body {
         background: black;
     }
+
     #title {
         font-family: Orbitron;
         font-size: 60px;
         color: red;
         text-align: center;
     }
+
     #clock {
         font-family: Orbitron;
         font-size: 60px;
         color: deepskyblue;
-        text-align: center;        
+        text-align: center;
     }
 </style>
 
@@ -35,14 +37,13 @@
         function clockDisplay() {
             let date = new Date();
             console.log(date)
-            let hour = date.getHours();
-            hour = updatingClock(hour);
+            let hour = date.getHours(hour);                       
             let min = date.getMinutes();
-            min = updatingClock(min);
+            min = updateTime(min);
             let sec = date.getSeconds();
-            sec = updatingClock(sec);
+            sec = updateTime(sec);
 
-            let time = document.querySelector("#clock");
+            let time = document.querySelector("clock");
             time.innerText = hour + ":" + min + ":" + sec
             console.log(time)
         }
@@ -57,6 +58,7 @@
             }
 
         }
+        clockDisplay();
 
     </script>
 
