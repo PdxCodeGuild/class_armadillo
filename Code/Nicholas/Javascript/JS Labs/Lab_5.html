@@ -9,17 +9,20 @@
 
 <body>
     <div id="countDown"></div>
+
     <script>
-        urls = ["https://www.rei.com/", "https://www.broadcastify.com/listen/stid/18", "https://apnews.com/", "https://unsplash.com/", "https://www.awwwards.com/"]
-        let randomSite = urls[Math.floor(Math.random() * urls.length)]
         let counter = 5;
-        let int = setInterval(function() {
+        setInterval(function () {
             counter -= 1;
             document.querySelector("#countDown").innerHTML = `${counter}`
-            if (counter == 0) {
-                clearInterval(int);
-                window.location.replace(randomSite)
+            if(counter == 0) {
+                let urls = ["https://www.rei.com/", "https://www.broadcastify.com/listen/stid/18", "https://apnews.com/", "https://unsplash.com/", "https://www.awwwards.com/"];
+                let randomSite = urls[Math.floor(Math.random() * urls.length)]
+                window.location = urls[randomSite]
             }
+            countDown.innerText = `${counter}`;
+            counter -= 1;
+
         }, 1000);
     </script>
 </body>
