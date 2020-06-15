@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Clock</title>
+    <style type="text/css">
+    
+        body {
+            background-color: black;
+        }
+        #clock {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #ccff00;
+            font-size: 200px;
+            text-align: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+    </style>
+    <script>
+   var idVar = setInterval(() => { 
+		timer()
+	}, 1000);
+
+	function timer() {
+		var dateVar = new Date();
+		var time = dateVar.toLocaleTimeString();
+        document.getElementById("clock").innerHTML = time;
+	};
+    </script>
+
+</head>
+
+<body>
+    <p id = "clock"></p>
+</body>
+
+</html>
