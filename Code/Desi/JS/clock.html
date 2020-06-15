@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+    function updateClock()
+    {
+
+    let currentTime = new Date();
+    
+    
+    let currentHours = currentTime.getHours();
+    let currentMinutes = currentTime.getMinutes();
+    let currentSeconds = currentTime.getSeconds();
+
+
+    currentMinutes = (currentMinutes < 10 ? "0": "") + currentMinutes;
+    currentSeconds = (currentSeconds < 10 ? "0": "") + currentSeconds;
+    
+
+    let timeOfDay = (currentHours < 12) ? "AM" : "PM";
+    
+    //  convert the hours component to 12-hour format if needed
+    currentHours = (currentHours > 12) ? currentHours -12 : currentHours;
+    
+    //  convert  hours component of "0" to "12"
+    currentHours = (currentHours == 0) ? 12 : currentHours;
+   
+    // compose string for display
+    let currentTimeString = currentHours + ':' + currentMinutes + ':'+ currentSeconds + ':' + timeOfDay;
+
+    <span id="clock">&nbsp;</span>
+
+        // update the time display
+    document.getElementById('clock').firstChild.nodeValue = currentTimeString;
+    }
+
+    console.log
+    </script>
+
+    <body onload="updateClock(); setInterval('updateClock()', 1000)">
+    
+    
+    
+</body>
+</html>
