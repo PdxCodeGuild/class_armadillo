@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Number To Phrase</h1>
+    <input id="input_number" type="text" placeholder="Enter Number">
+    <button id="btn_convert">Convert</button>
+    <div id="div_output"></div>
+    <script>
+        let input_number = document.querySelector('#input_number')
+
+        function num_phrase(num) {
+            let phrase = {
+                1: 'one',
+                2: 'two',
+                3: 'three',
+                4: 'four',
+                5: 'five',
+                6: 'six',
+                7: 'seven',
+                8: 'eight',
+                9: 'nine',
+                10: 'ten',
+                11: 'eleven',
+                12: 'twelve',
+                13: 'thirteen',
+                14: 'fourteen',
+                15: 'fifteen',
+            }
+            function under_hundred(num) {
+                if (num < 16) {
+                    return phrase[num]
+                } else if (num < 20) {
+                    num %= 10;
+                    return phrase[num] + 'teen'
+                } else if (num == 20) {
+                    return 'twenty'
+                } else if (num == 30) {
+                    return 'thirty'
+                } else if (num == 40) {
+                    return 'forty'
+                } else if (num == 50) {
+                    return 'fifty'
+                } else if (num == 60) {
+                    return 'sixty'
+                } else if (num == 70) {
+                    return 'seventy'
+                } else if (num == 80) {
+                    return 'eighty'
+                } else if (num == 90) {
+                    return 'ninety'
+                } else if (num > 20 && num < 30) {
+                    return 'twenty-' + phrase[num % 10]
+                } else if (num > 30 && num < 40) {
+                    return 'thirty-' + phrase[num % 10]
+                } else if (num > 40 && num < 50) {
+                    return 'forty-' + phrase[num % 10]
+                } else if (num > 50 && num < 60) {
+                    return 'fifty-' + phrase[num % 10]
+                } else if (num > 60 && num < 70) {
+                    return 'sixty-' + phrase[num % 10]
+                } else if (num > 70 && num < 80) {
+                    return 'seventy-' + phrase[num % 10]
+                } else if (num > 80 && num < 90) {
+                    return 'eighty-' + phrase[num % 10]
+                } else if (num > 90 && num < 100) {
+                    return 'ninety-' + phrase[num % 10]
+                }
+            }
+
+
+            function over_hundred(num) {
+                let first_phrase = phrase[Math.floor(num / 100)] + '-hundred '
+                let first_digit = Math.floor(num / 100)
+                let second_digits = num - first_digit * 100
+                if (second_digits < 1) {
+                    return first_phrase 
+
+                } else {
+                    return first_phrase + under_hundred(second_digits)
+                }
+
+            }
+            if (num < 100) {
+                return under_hundred(num)
+            } else {
+                return over_hundred(num)
+            }
+        }
+        
+        btn_convert.addEventListener('click', function(){
+            let user_number = input_number.value
+            let phrase = num_phrase(user_number)
+            div_output.innerText = phrase
+        })
+    </script>
+</body>
+
+</html>
