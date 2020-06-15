@@ -7,7 +7,14 @@ body {
     padding-bottom: 3rem;
     color: #5a5a5a;
   }
-  
+
+#left  {
+    width: 200px;
+    
+  }
+#right {
+  width: 300px;
+}
   
   /* CUSTOMIZE THE CAROUSEL
   -------------------------------------------------- */
