@@ -7,60 +7,34 @@
     <title>Simple Clock</title>
     <style type="text/css">
     
-
+        body {
+            background-color: black;
+        }
         #clock {
             font-family: Arial, Helvetica, sans-serif;
             color: #ccff00;
-            font-size: 50px;
+            font-size: 200px;
             text-align: center;
             padding-top: 40px;
             padding-bottom: 40px;
         }
     </style>
     <script>
-        date = new Date
-        hour = date.getHours
-        min = date.getMinutes
-        sec = date.getSeconds
-        function currentTime() {
-            let date = new Date();
-            let hour = date.getHours();
-            let min = date.getMinutes();
-            let sec = date.getSeconds();
-        }
+   var idVar = setInterval(() => { 
+		timer()
+	}, 1000);
 
-        function currentTime() {
-            hour = updateTime(hour);
-            min = updateTime(min);
-            sec = updateTime(sec);
-        }
-
-        function updateTime(k) {
-            if (k < 10) {
-                return '0' + k;
-            }
-            else {
-                return k;
-            }
-        }
-    currentTime();
-
-        // function currentTime() {
-        //     var midday = 'am',
-        //         midday = (hour >= 12) ? 'pm' : 'am';
-        // }
-        // function currentTime() {
-        //     hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12) : hour);
-        // }
-        
-
-
+	function timer() {
+		var dateVar = new Date();
+		var time = dateVar.toLocaleTimeString();
+		document.getElementById("clock").innerHTML = time;
+	};
     </script>
 
 </head>
 
 <body>
-    <div id='clock'></div>
+    <p id = "clock"></p>
 </body>
 
 </html>
