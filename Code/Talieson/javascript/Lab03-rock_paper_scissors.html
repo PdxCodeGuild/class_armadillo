@@ -4,37 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✊Hand Battle✊</title>
-    <script>
-        var computer_score = 0
-        var user_score = 0
-    </script>
+    <title>Hand Battle!</title>
+
 </head>
+<style>
+body{
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+    background-color:rgb(167, 164, 164);
+    font-size: 1.5rem;
+}
+h1{
+    font-size: 2.5rem;
+}
+#info span{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+h1, h2{
+    text-shadow: 2px 2px black;
+    color: red;
+}
+option{
+    font-family: 'Permanent Marker', cursive;
+}
+button{
+    font-family: 'Permanent Marker', cursive;
+}
+</style>
 
 <body>
-    <h1>
-      the value for number is:
-      <script type="text/javascript">
-        document.write(number)
-      </script>
-<body>
+    <h1>✊🤚✌️🤏🖖<u>HAND BATTLE!!!</u>🖖🤏✌️🤚✊</h1> 
     <div>
         <select name="user_choice" id="user_choice">
             <option disabled selected value> Choose your weapon!</option>
-            <option name="✊" value="Rock">✊</option>
-            <option name="🤚" value="Paper">🤚</option>
-            <option name="✌️" value="Scissors">✌️</option>
-            <option name="🤏" value="Lizard">🤏</option>
-            <option name="🖖" value="Spock">🖖</option>
+            <option name="✊" value="Rock">✊ Rock!</option>
+            <option name="🤚" value="Paper">🤚 Paper!</option>
+            <option name="✌️" value="Scissors">✌️ Scissors!</option>
+            <option name="🤏" value="Lizard">🤏 Lizard!</option>
+            <option name="🖖" value="Spock">🖖 Spock!</option>
         </select>
 
         <button id="btn_battle">BATTLE!</button>
     </div>
-
-    <div>
-        Your Score: <script>document.write(user_score)</script>  
-        Computer Score: <script>document.write(computer_score)</script>
+    <div id="score">
+        Your Score: 0</br>
+        Computer Score: 0
     </div>
+    <div id="info">
+        <span><h1>✊</h1><p> "Good 'ol rock, nothin' beats rock." - Bart Simpson (except 🤚 or 🖖)</p></span>
+        <span><h1>🤚</h1><p> "The <s>pen</s> paper is mightier than the <s>sword</s> rock" - Edward Bulwer-Lytton (but it's not mightier then 🤏 or ✌️)</p></span>
+        <span><h1>✌️</h1><p> "Don't play with scissors!" - Every Mom Ever (especially if your opponent has 🖖 or ✊) </p></span>
+        <span><h1>🤏</h1><p> "I am the Lizard King. I can do anything!" - Jim Morrison (unless your opponent is ✌️ or ✊)</p></span>
+        <span><h1>🖖</h1><p> "Live long and Prosper." - Spock (unless your opponent picks 🤏 or 🤚)</p></span>
+    </div>
+    <script>
+        var computer_score = 0
+        var user_score = 0
+    </script>
+
     <script>
         let choices = {
             Rock: { name: "✊", beats: ["Scissors", "Lizard"] },
@@ -57,6 +86,7 @@
             } else if (computer_choice == 5) {
                 computer_choice = "Spock"
             }
+            var winner = false
             user_choice = document.querySelector('#user_choice').value
             user_choice_image = document.querySelector('#user_choice')
             user_choice_image = user_choice_image.options[user_choice_image.selectedIndex].getAttribute("name")
@@ -64,19 +94,19 @@
             console.log(computer_choice)
             if (user_choice == computer_choice) {
                 alert(`You both picked ${user_choice_image}! It's a tie!`)
+                winner = true
             }
-            console.log(choices)
-            let winner = false
+            if(winner == false){
             if (choices[user_choice].beats.includes(computer_choice)) {
                 winner = true
                 alert(`${user_choice_image} beats ${choices[computer_choice].name}! You Win!`)
                 user_score++
-                document.update(user_score)
             } else {
                 alert(`${choices[computer_choice].name} beats ${user_choice_image}! You Lose!`)
                 computer_score++
-                document.update(computer_score)
-            }
+            }}
+            score.innerText = (`Your Score: ${user_score} 
+            Computer Score:  ${computer_score}`)
         })
     </script>
 </body>
