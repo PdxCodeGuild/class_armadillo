@@ -9,28 +9,34 @@
 
 <body>
     <h3>Just a Simple Clock</h3>
-    <div class="clock"></div>
+    <div id="clock"></div>
 
     <script>
         function clockDisplay() {
             let date = new Date();
             console.log(date)
             let hour = date.getHours();
-            // hour = updateTime();
+            hour = updatingClock(hour);
             let min = date.getMinutes();
-            // min = updateTime();
+            min = updatingClock(min);
             let sec = date.getSeconds();
-            // sec = updateTime();
-            let x = setTimeout(function() {
-                clockDisplay()}, 1000);
+            sec = updatingClock(sec);
 
-            let time = document.querySelector("clock");
+            let time = document.querySelector("#clock");
             time.innerText = hour + ":" + min + ":" + sec
-            console.log(time)
+            console.log(time)           
+        }
+        let x = setTimeout(clockDisplay, 1000);
 
+        function updatingClock(i) {
+            if (i < 10) {
+                i = "0" + i;
+                return i
+            }else {
+                return i
+            }
             
         }
-        clockDisplay();
 
     </script>
 
