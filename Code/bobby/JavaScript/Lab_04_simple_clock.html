@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Clock</title>
+    <style type="text/css">
+    
+
+        #clock {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #ccff00;
+            font-size: 50px;
+            text-align: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+    </style>
+    <script>
+        date = new Date
+        hour = date.getHours
+        min = date.getMinutes
+        sec = date.getSeconds
+        function currentTime() {
+            let date = new Date();
+            let hour = date.getHours();
+            let min = date.getMinutes();
+            let sec = date.getSeconds();
+        }
+
+        function currentTime() {
+            hour = updateTime(hour);
+            min = updateTime(min);
+            sec = updateTime(sec);
+        }
+
+        function updateTime(k) {
+            if (k < 10) {
+                return '0' + k;
+            }
+            else {
+                return k;
+            }
+        }
+    currentTime();
+
+        // function currentTime() {
+        //     var midday = 'am',
+        //         midday = (hour >= 12) ? 'pm' : 'am';
+        // }
+        // function currentTime() {
+        //     hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12) : hour);
+        // }
+        
+
+
+    </script>
+
+</head>
+
+<body>
+    <div id='clock'></div>
+</body>
+
+</html>
