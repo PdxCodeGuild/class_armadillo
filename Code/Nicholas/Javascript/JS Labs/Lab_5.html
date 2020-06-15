@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random URLS</title>
+</head>
+
+<body>
+    <div id="countDown"></div>
+    <script>
+        urls = ["https://www.rei.com/", "https://www.broadcastify.com/listen/stid/18", "https://apnews.com/", "https://unsplash.com/", "https://www.awwwards.com/"]
+        let randomSite = urls[Math.floor(Math.random() * urls.length)]
+        let counter = 5;
+        let int = setInterval(function() {
+            counter -= 1;
+            document.querySelector("#countDown").innerHTML = `${counter}`
+            if (counter == 0) {
+                clearInterval(int);
+                window.location.replace(randomSite)
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
