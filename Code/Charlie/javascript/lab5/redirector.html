@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirector</title>
+</head>
+
+<body>
+    <h2>Redirect to a Webpage</h2>
+    <script>
+        let urls = [
+            'http://www.w3schools.com/',
+            'https://pdxcodeguild.com/',
+            'https://github.com/PdxCodeGuild/class_armadillo',
+        ];
+
+
+
+
+        let count = 6;
+        function countDown() {
+            let timer = document.getElementById("timer");
+            if (count > 0) {
+                count--;
+                timer.innerHTML = "This page will redirect in " + count + " seconds.";
+                setTimeout("countDown()", 1000);
+            } else {
+                index = Math.floor(Math.random() * 2)
+                window.location.href = urls[index];
+            }
+
+        }
+
+
+    </script>
+    <span id="timer">
+        <script type="text/javascript">countDown();</script>
+    </span>
+</body>
+
+</html>
