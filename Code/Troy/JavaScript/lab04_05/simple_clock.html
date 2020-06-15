@@ -36,14 +36,15 @@
     <script>
         function clockDisplay() {
             let date = new Date();
-            console.log(date)
-            let hour = date.getHours(hour);                       
+            // console.log(date)
+            let hour = date.getHours();
+            hour = updatingClock(hour);
             let min = date.getMinutes();
-            min = updateTime(min);
+            min = updatingClock(min);
             let sec = date.getSeconds();
-            sec = updateTime(sec);
+            sec = updatingClock(sec);
 
-            let time = document.querySelector("clock");
+            let time = document.querySelector("#clock");
             time.innerText = hour + ":" + min + ":" + sec
             // console.log(time)
         }
@@ -56,10 +57,7 @@
             } else {
                 return i
             }
-
         }
-        clockDisplay();
-
     </script>
 
 
