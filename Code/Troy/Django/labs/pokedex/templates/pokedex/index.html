@@ -12,38 +12,40 @@
             border="0"></a>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'pokedex/style.css' %}" />
-    <link rel="shortcut icon" type="image/ico" href="{% static 'pokedex/img/favicon.ico' %}"> 
+    <link rel="shortcut icon" type="image/ico" href="{% static 'pokedex/img/favicon.ico' %}">
     <title>Pokedex</title>
 </head>
 
 <body>
-    <div class="container"></div>
-    <div>
-        <form action="{% url 'pokedex:index' %}" method="post">
-            {% csrf_token %}
-            <img class="pokeball" alt="picture of pokedex" src="{% static 'pokedex/pokeball.png' %}">
-            <input type="text" placeholder="Search for Pokemon" name="search">
-        </form>
-    </div>
+    <div class="container">
+        <img src= "{% static 'pokedex/pokemonbackground3.jpg' %}" style="width: 100%">
+        <div>
+            <form action="{% url 'pokedex:index' %}" method="post">
+                {% csrf_token %}
+                <img class="pokeball" alt="picture of pokedex" src="{% static 'pokedex/pokeball.png' %}">
+                <input type="text" placeholder="Search for Pokemon" name="search">
+            </form>
+        </div>
 
-    {% for p in pokemon %}
+        {% for p in pokemon %}
 
-    <div class="chip">
-        <img src="{{p.image_front}}" alt="Pokemon" width="96" height="96">
-        <!-- <img id="{% url 'pokedex:detail' p.id%}" src="{{p.image_front}}"> -->
-        <!-- <img id="{% url 'pokedex:detail' p.id%}" src="{{p.image_back}}"> -->
-        <a href="{% url 'pokedex:detail' p.id%}"> {{p.name|title}}</a>
-    </div>
-    <div>{% if search %} for search text "{{search}}"{% endif %}</div>
-    {% endfor %}
-    <div>
-        {% if pokemon.has_previous %}
-        <a href="?page={{pokemon.previous_page_number}}">&lt;</a>
-        {% endif %}
-        <span>{{pokemon.number}}</span>
-        {% if pokemon.has_next %}
-        <a href="?page={{pokemon.next_page_number}}">&gt;</a>
-        {% endif %}
+        <div class="chip">
+            <img src="{{p.image_front}}" alt="Pokemon" width="96" height="96">
+            <!-- <img id="{% url 'pokedex:detail' p.id%}" src="{{p.image_front}}"> -->
+            <!-- <img id="{% url 'pokedex:detail' p.id%}" src="{{p.image_back}}"> -->
+            <a href="{% url 'pokedex:detail' p.id%}"> {{p.name|title}}</a>
+        </div>
+        <div>{% if search %} for search text "{{search}}"{% endif %}</div>
+        {% endfor %}
+        <div class="pagination">
+            {% if pokemon.has_previous %}
+            <a href="?page={{pokemon.previous_page_number}}">&lt;</a>
+            {% endif %}
+            <span>{{pokemon.number}}</span>
+            {% if pokemon.has_next %}
+            <a href="?page={{pokemon.next_page_number}}">&gt;</a>
+            {% endif %}
+        </div>
     </div>
 </body>
 <!-- jQuery library -->
