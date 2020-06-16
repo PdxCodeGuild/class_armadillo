@@ -31,32 +31,29 @@ import requests
 import json
 
 
-# prompt he user for a keyword
-# keyword = input('Enter a keyword to search for quotes: ')
-keyword = 'meaning' # for testing
+while True:
+  keyword = input('Enter a keyword to search for quotes: ') # prompt he user for a keyword
+  # keyword = 'meaning'  # for testing
+  page = 1 # sets the defualt to page to 1
 
+  
+  url = f'https://favqs.com/api/quotes?page={page}&filter={keyword}'
+  headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
+  response = requests.get(url, headers=headers) # send the request to the api
+  data = json.loads(response.text) # declare a dictionary and assign it the json text
+  # print(data)
 
-# sets the defualt to page to 1
-page = 1
-
-
-url = f'https://favqs.com/api/quotes?page={page}&filter={keyword}'
-headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
-# send the request to the api
-response = requests.get(url, headers=headers) 
-# declare a dictionary and assign it the json text
-data = json.loads(response.text)
-# print(data)
-
-for q in data['quotes']:
-  quote = q['body']
-  author = q['author']
-  print(f'\n"{quote}" - {author}')
-
+  # iterate through the data
+  for q in data['quotes']:
+      # for each iteration assign the value of body to quote
+      quote = q['body']
+      # and assign the value of author to the variable author
+      author = q['author']
+      print(f'\n"{quote}" - {author}')
 
 
 """
-example:
+# example of how to reference elements in json
 
 this_dict = [
 {"brand": "Ford",
