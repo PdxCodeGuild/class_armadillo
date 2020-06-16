@@ -3,6 +3,7 @@
 from datetime import datetime
 import re 
 import requests
+import math
 
 
 # define the path and open text file
@@ -50,7 +51,7 @@ def get_variance(rain_list):
 # quantity calculated to indicate the extent
 #  of deviation for a group as a whole.
 def get_stand_dev(rain_list):
-    return math.sqrt(get_variance(rain_list)
+    return math.sqrt(get_variance(rain_list))
 
   
 def get_max_day(rain_list):
@@ -59,7 +60,7 @@ def get_max_day(rain_list):
     maximum = max(rain_list, key=lambda x:x[1])
     for i in range(len(rain_list)):
       if rain_list[i][1] == maximum[1]:
-        rain_list[i] = ((rain_list[i][0]).strftime('%d-%b-%Y'), rain_data[i][1])
+        rain_list[i] = ((rain_list[i][0]).strftime('%d-%b-%Y'), rain_list[i][1])
         max_rain_day += str(rain_list[i])
     return max_rain_day
 
@@ -76,12 +77,14 @@ def rain_info():
   standard_deviation = get_stand_dev(rain_list) # see above
   max_rain_day = get_max_day(rain_list) 
 
-return rain_info
+  # return rain_info
 
-print(f'mean:{mean}')
-print(f'variance: {variance}')
-print(f'standard deviation: {standard_deviation}')
-print(f'max_day: {max_rain_day}')
+  # mean = get_mean(rain_list)
+
+  print(f'mean: {mean}')
+  print(f'variance: {variance}')
+  print(f'standard deviation: {standard_deviation}')
+  print(f'max_day: {max_rain_day}')
 
 
 rain_info()
