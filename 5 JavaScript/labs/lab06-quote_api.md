@@ -7,9 +7,7 @@ Use the [favqs.com](https://favqs.com/api/) api to show a random quote. Send a `
 
 ## Version 2
 
-The API also supports browsing quotes. Add an `input type="text"` and a `search button`, then use the `page` and `filter` query parameters to get a bunch of quotes. Then you can show those quotes in a list.
-
-In order to get authorization for this request, we need to add a request header with the authorization token.
+The API also supports browsing quotes. Add an `input type="text"` and a `search button`, then use the `filter` query parameter to get a bunch of quotes. Then you can show those quotes in a list. In order to get authorization for this request, we need to add a request header with the authorization token.
 
 ```javascript
 let headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}

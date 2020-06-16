@@ -18,13 +18,17 @@
         ]
 
         function selfDestruct() {
-            // countdown = 6;
+            let countdown === 6;
             setInterval (function(){
-                // countdown -= 1
-            }, 6000)
+                if (countdown > 0){
+                    countdown -= 1
+                }
 
             let newSite = links[Math.floor(Math.random() * links.length)]
             window.location.assign(newSite)
+
+            }, 1000)       
+            
         }
 
         selfDestruct();

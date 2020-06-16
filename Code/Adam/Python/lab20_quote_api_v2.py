@@ -32,26 +32,39 @@ import json
 
 
 while True:
-  keyword = input('Enter a keyword to search for quotes: ') # prompt he user for a keyword
-  # keyword = 'meaning'  # for testing
-  page = 1 # sets the defualt to page to 1
+    # prompt he user for a keyword
+    keyword = input('Enter a keyword to search for quotes: ')
+    # keyword = 'meaning'  # for testing
+    page = 1  # sets the defualt to page to 1
 
+    url = f'https://favqs.com/api/quotes?page={page}&filter={keyword}'
+    headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
+    # send the request to the api
+    response = requests.get(url, headers=headers)
+    # declare a dictionary and assign it the json text
+    data = json.loads(response.text)
+    # print(data)
 
-  url = f'https://favqs.com/api/quotes?page={page}&filter={keyword}'
-  headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
-  response = requests.get(url, headers=headers) # send the request to the api
-  data = json.loads(response.text) # declare a dictionary and assign it the json text
-  # print(data)
+    # iterate through the data
+    number = 1
+    for q in data['quotes']:
+        # for each iteration assign the value of body to quote
+        quote = q['body']
+        # and assign the value of author to the variable author
+        author = q['author']
+        # print quote and author in an f string
+        print(f'\n{number}) "{quote}" - {author}')
+        number += 1
+    
+    # last_page = data['last_page']
+    # if last_page == ''
+    # # while True:
 
-  # iterate through the data
-  number = 1
-  for q in data['quotes']:
-      # for each iteration assign the value of body to quote
-      quote = q['body']
-      # and assign the value of author to the variable author
-      author = q['author']
-      print(f'\n{number}) "{quote}" - {author}') # print quote and author in an f string
-      number += 1
+    # # check if on last page; if not on last page, offer user next page option
+    # page_input = input('Would you like see the next page? ')
+
+    # # else offer to enter a new keyowrd or to exit
+
 
 
 """
