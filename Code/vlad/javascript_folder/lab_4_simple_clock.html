@@ -4,12 +4,67 @@ the current date and time. You can then create a string by calling methods on th
 and set it in the DOM. If you have time, check out the full clock lab.-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Lab 4: Simple Clock</title>
+
+    <style>
+        #title {
+            margin: 18px 20px 60px 500px;
+        }
+        /* margin: 6px 10px 30px 50px; */
+        
+        #simple_clock {
+            margin: 18px 20px 60px 500px;
+            font-size: xx-large;
+            width: 20%;
+            border: 2px solid gray;
+            padding: 8px;
+            color: aliceblue;
+            /* background-color: skyblue; */
+        }
+        
+        #simple_clock:hover {
+            background: transparent;
+            border: none;
+            color: rgb(5, 141, 220);
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            transition: 0.5s;
+            /* #simple_clock {} */
+        }
+        
+        body {
+            background-image: url('background_clock.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <h1 id="title">What Time is it! </h1>
+
+    <div id="simple_clock">
+    </div>
+    <script>
+        let simple_clock = document.querySelector('#simple_clock')
+        setInterval(function() {
+            let clock = new Date().toLocaleTimeString()
+            simple_clock.innerText = clock
+            console.log(clock)
+        }, 1000);
+
+        // console.log(clock)
+    </script>
+
+
+
+
+
+
 </body>
+
 </html>

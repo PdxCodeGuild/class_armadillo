@@ -1,11 +1,89 @@
+<!--
+Create a page which randomly redirectly to another. Start with an array of urls (as strings), 
+and randomly pick one using Math.random(). Then redirect to the page by assigning the url 
+to window.location. Using JavaScript's timing 
+events, show a 5-second countdown to the user. When the countdown is finished, redirect to a random page.
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Lab 5: Random Redirector</title>
+
+    <style>
+        #title {
+            margin: 18px 20px 60px 400px;
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            width: 57%;
+            font-size: large;
+            color: white;
+        }
+        /* margin: 6px 10px 30px 50px; */
+        
+        #Submit {
+            margin: 18px 20px 60px 500px;
+            font-size: xx-large;
+            width: 20%;
+            border: 2px solid gray;
+            padding: 8px;
+            /* color: aliceblue; */
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            /* background-color: skyblue; */
+        }
+        
+        #Submit:hover {
+            background: transparent;
+            border: none;
+            color: rgb(5, 141, 220);
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            transition: 0.5s;
+            /* #simple_clock {} */
+        }
+        
+        body {
+            background-image: url('background_url.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <!-- hard code an list/array and fill it with randoms urls
+    then generate a random number pass that random number into the list or array 
+    to get an element out. 
+    look set timeout = it is like set interval but run one time 
+    run the url by running the window.location.href = 'http://www.example.com' this will be the random url -->
+
+    <!-- <a href=""></a> -->
+
+
+    <p id="title">Click the Submit button below to wait 5 seconds, to be redirected to a random url.</p>
+
+    <button id="Submit" onclick="myRandomUrl()">Submit</button>
+
+    <script>
+        urls = ['https://www.nba.com/', 'https://pdxcodeguild.com/', 'https://www.nfl.com/', 'https://www.mlb.com/', ];
+
+        function myRandomUrl() {
+            setTimeout(function() {
+                random_url = Math.floor(Math.random() * 3) // generate a random number between 0-3 which match the elements on the list
+                    // window.location.href = 'https://www.nba.com/' // referring to the url
+                window.location.href = urls[random_url] // this giving the random number which pass array which provide the random url
+                    // console.log(urls[random_url])
+                    // console.log(random_url)
+
+
+            }, 5000);
+        }
+    </script>
+
+
 </body>
-</html>  
+
+</html>
