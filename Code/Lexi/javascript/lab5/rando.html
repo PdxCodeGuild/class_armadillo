@@ -1,0 +1,51 @@
+<!--mistakes: 1. made window.location outside of loop, 2. did not decrement, 3. did not assign variable to setInterval -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #place_here {
+        background-color: #0080ff;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: xx-large;
+      }
+    </style>
+  </head>
+  <body>
+      <!--increases font size-->
+    <h1><span id="place_here"></span></h1>
+    <img src="static/ash.jpg">
+    <script>
+      setTimeout(function () {
+        //create list
+        list_urls = [
+          "https://www.heroku.com/home",
+          "https://tutorial.djangogirls.org/en/",
+          "https://codepen.io/",
+          "https://codingbat.com/python",
+          "https://www.cia.gov/library/publications/the-world-factbook/",
+        ];
+        //pick one at random
+        pick = list_urls[Math.floor(Math.random() * list_urls.length)];
+        //show URL
+        document.body.innerText = pick;
+        // go to page after 3 seconds of being on a blank page
+        window.location.replace(pick);
+      }, 3000);
+
+      // create a countdown
+      let countdown = 5;
+      let timer = setInterval(function () {
+        document.querySelector("#place_here").innerText =
+          countdown +
+          " seconds left until you will be directed to a random URL";
+        countdown -= 1;
+      }, 1000);
+
+      // redirect to a rando page
+    </script>
+  </body>
+</html>
