@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote API</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="quoteOfDay"></div>
+    <script>
+        let url = 'https://favqs.com/api/qotd'
+        let quoteOfDay = document.querySelector("#quoteOfDay")
+
+        axios({
+            method: 'get',
+            url: url
+        }).then((response) => {
+            let quote = (response.data.quote.body)
+            let author = (response.data.quote.author)
+            quoteOfDay.innerText = (`"${quote}" -${author}`)
+        })
+    </script>
+</body>
+
+</html>
