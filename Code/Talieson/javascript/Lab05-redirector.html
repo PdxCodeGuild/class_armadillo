@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Redirector</title>
+    <script src="utilities.js"></script>
+</head>
+<body>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-size: 2rem;
+        }
+    </style>
+    <div id="countdown"></div>
+    <script>
+        var milisecondsUntilRedirect = 500;
+        setInterval(updateTimer, 10)
+        setInterval(getWebsite, 5000)
+        
+        function updateTimer(){
+        console.log(milisecondsUntilRedirect)
+        milisecondsUntilRedirect--
+        console.log(milisecondsUntilRedirect)
+        countdown.innerText = (`You will be redirected to a useless website in ${milisecondsUntilRedirect} miliseconds. You've been warned.`)
+        }
+
+        function getWebsite() {
+        website = websites[Math.floor(Math.random() * websites.length)]
+        window.location = website
+    }
+    </script>
+</body>
+</html>

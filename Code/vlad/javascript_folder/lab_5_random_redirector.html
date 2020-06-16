@@ -12,7 +12,45 @@ events, show a 5-second countdown to the user. When the countdown is finished, r
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Lab 5: Random Redirector</title>
+
+    <style>
+        #title {
+            margin: 18px 20px 60px 400px;
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            width: 57%;
+            font-size: large;
+            color: white;
+        }
+        /* margin: 6px 10px 30px 50px; */
+        
+        #Submit {
+            margin: 18px 20px 60px 500px;
+            font-size: xx-large;
+            width: 20%;
+            border: 2px solid gray;
+            padding: 8px;
+            /* color: aliceblue; */
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            /* background-color: skyblue; */
+        }
+        
+        #Submit:hover {
+            background: transparent;
+            border: none;
+            color: rgb(5, 141, 220);
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            transition: 0.5s;
+            /* #simple_clock {} */
+        }
+        
+        body {
+            background-image: url('background_url.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,9 +63,9 @@ events, show a 5-second countdown to the user. When the countdown is finished, r
     <!-- <a href=""></a> -->
 
 
-    <p>Click the button to wait 5 seconds, to be redirected to a random url.</p>
+    <p id="title">Click the Submit button below to wait 5 seconds, to be redirected to a random url.</p>
 
-    <button onclick="myRandomUrl()">Try it</button>
+    <button id="Submit" onclick="myRandomUrl()">Submit</button>
 
     <script>
         urls = ['https://www.nba.com/', 'https://pdxcodeguild.com/', 'https://www.nfl.com/', 'https://www.mlb.com/', ];

@@ -1,7 +1,7 @@
 
 # Lab: Calculator
 
-Let's build a simple calculator, you may use jQuery and a CSS framework if you'd like. You can find some examples of calculators on [Google](https://www.google.com/search?q=calculator+screenshot&rlz=1C1CHBF_enUS752US752&source=lnms&tbm=isch&sa=X&ved=0ahUKEwie2JG15M3WAhUQ-mMKHUdsCnkQ_AUICigB&biw=1536&bih=772&dpr=1.25). It should support the following functions at minimum.
+Let's build a simple calculator, you may use a CSS framework if you'd like. You can find some examples of calculators on [Google](https://www.google.com/search?q=calculator+screenshot&rlz=1C1CHBF_enUS752US752&source=lnms&tbm=isch&sa=X&ved=0ahUKEwie2JG15M3WAhUQ-mMKHUdsCnkQ_AUICigB&biw=1536&bih=772&dpr=1.25). It should support the following functions at minimum.
 
 - 0-9 and . (decimal place)
 - = (show result)
@@ -10,7 +10,7 @@ Let's build a simple calculator, you may use jQuery and a CSS framework if you'd
 - \+ \- \* \\ (basic arithmetic)
 - backspace
 
-## Advanced
+## Advanced (optional)
 
 You can pick from any of these advanced features.
 
