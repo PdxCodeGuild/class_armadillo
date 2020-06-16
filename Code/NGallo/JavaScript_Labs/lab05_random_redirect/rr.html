@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <style>
+        body{
+            text-align: center;
+            background: blue;
+            color: burlywood;
+        }
+
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Redirect</title>
 </head>
+
 <body>
-    
+    <div class="header">
+        <h1>You're not here</h1>
+    </div>
+
+    <div class="main">
+        <h3>You're redirecting in <span id="countDown">6 seconds remaining</span></h3>
+    </div>
+    <div class="footer">
+        <h4>Nick Gallo | Class_Armadillo &copy2020 </h4>
+    </div>
+    <script>
+        setTimeout(function () {
+            let randomUrls = ["http://www.nickgallo.dev", "http://www.nickgallo.dev/pokedex/", "http://www.nickgallo.dev/contactsapp/", "https://www.nickgallo.dev/urlshortener/"
+            ]
+
+            let randomRedirect = randomUrls[Math.floor(Math.random() * randomUrls.length)]
+            console.log(randomRedirect)
+            window.location.replace((randomRedirect))
+        }, 5000)
+
+        let timeleft = 5
+        let downloadTimer = setInterval(function () {
+            document.getElementById("countDown").innerHTML = timeleft + " seconds remaining"
+            timeleft -= 1
+        }, 1000)
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <style>
+        #container {
+            display:flex;
+            flex-direction: row;
+            justify-content:center;
+        }
+        #container > * {
+            margin:40px;
+        }
+        #pokelist {
+            width:200px;
+        }
+        #pokelist li {
+            cursor:pointer;
+        }
+        #pokelist li:hover {
+            font-size:24px;
+            color:blue;
+        }
+        #pokedata {
+            top:0;
+            position:fixed;
+            transform:translateX(40px);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="pokelist">
+        </ul>
+        <div id="pokedata">
+            <div id="div_name">pidgeotto</div>
+            <img id="img_front" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png"/>
+        </div>
+    </div>
+    <script>
+
+        // lamda expressions in python
+        // x = lambda a, b: a + b
+        
+        // function add(a, b) {
+        //     return a + b
+        // }
+        // let add = function(a, b) {
+        //     return a + b
+        // }
+        // // arrow notation
+        // let add = (a, b) => {
+        //     return a + b
+        // }
+        // // if you have a single parameter, you can leave out the parens
+        // let say_hello = name => {
+        //     console.log('hello ' + name)
+        // }
+
+
+        // python - synchronous, requests will pause the execution of the program until a response comes back
+        // import requests
+        // import json
+        // response = requests.get('https://pokeapi.co/api/v2/pokemon?limit=100')
+        // data = json.loads(response.text)
+        // print(data)
+        
+        // javascript - asynchronous, the code will keep running and NOT wait for the response
+        // axios({
+        //     method: 'get',
+        //     url: 'https://pokeapi.co/api/v2/pokemon?limit=100'
+        // }).then(response => {
+        //     console.log(response.data)
+        // })
+
+        // console.log('A')
+        // let data = null // don't do this
+        // axios({
+        //     method: 'get',
+        //     url: 'https://pokeapi.co/api/v2/pokemon?limit=100'
+        // }).then(response => {
+        //     console.log('C')
+        //     console.log(response.data)
+        //     data = response.data // or this
+        // })
+        // console.log('B')
+        // console.log(data) // prints out 'null'
+
+
+
+        let pokelist = document.querySelector('#pokelist')
+        let div_name = document.querySelector('#div_name')
+        let img_front = document.querySelector('#img_front')
+
+        
+        // send an http request to get a list of pokemon
+        let url = 'https://pokeapi.co/api/v2/pokemon?limit=100'
+        axios({
+            method: 'get',
+            url: url
+        }).then(response => { // handling the response from the pokeapi
+            // check out the data we get in response
+            // console.log(response) // mostly useless metadata
+            console.log(response.data) // the actual data response from the api
+            let pokemon = response.data.results // get the pokemon out the data
+            for (let i=0; i<pokemon.length; ++i) { // iterate over the pokemon
+                // console.log(pokemon[i].name)
+                
+                // create an li for each of the pokemon
+                let li = document.createElement('li')
+                // set the inner text to the pokemon's name
+                li.innerText = pokemon[i].name
+                // add our li to the ul
+                pokelist.appendChild(li)
+
+                // set an event listener for when the user clicks a pokemon
+                li.addEventListener('click', function() {
+                    // when a pokemon is clicked, send another http request
+                    axios({
+                        method: 'get',
+                        // url for the individual pokemon's data
+                        // e.g. https://pokeapi.co/api/v2/pokemon/1
+                        url: pokemon[i].url
+                    }).then(response => {
+
+                        // get the data out of the response
+                        let name = response.data.name
+                        let img_url = response.data.sprites.front_default
+                        // console.log(name)
+                        // console.log(img_url)
+
+                        // capitalize the first letter of the name
+                        // show the data in the page
+                        div_name.innerText = name[0].toUpperCase() + name.slice(1, name.length)
+                        img_front.src = img_url // img_front.setAttribute('src', img_url)
+                    })
+                })
+            }
+        })
+    </script>
+</body>
+</html>

@@ -53,6 +53,7 @@ console.log(url1) // INVALID: http://example.com/?business=Schmitt & Associates
 console.log(url2) // VALID: http://example.com/?business=Schmitt%20%26%20Associates
 ```
 
+The code below sends the request to `https://opentdb.com/api.php?amount=10&category=18&difficulty=easy`
 
 ```javascript
 axios({
