@@ -36,7 +36,7 @@ while True:
   # keyword = 'meaning'  # for testing
   page = 1 # sets the defualt to page to 1
 
-  
+
   url = f'https://favqs.com/api/quotes?page={page}&filter={keyword}'
   headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
   response = requests.get(url, headers=headers) # send the request to the api
@@ -44,12 +44,14 @@ while True:
   # print(data)
 
   # iterate through the data
+  number = 1
   for q in data['quotes']:
       # for each iteration assign the value of body to quote
       quote = q['body']
       # and assign the value of author to the variable author
       author = q['author']
-      print(f'\n"{quote}" - {author}')
+      print(f'\n{number}) "{quote}" - {author}') # print quote and author in an f string
+      number += 1
 
 
 """
