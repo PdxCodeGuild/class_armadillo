@@ -5,4 +5,9 @@ body {
 h1, #html_tag {
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+}
+#hold_clock{
+    border: purple, 5rem;
+    text-align: center;
 }
