@@ -1,5 +1,5 @@
 
-# Lab 7: Random Quote
+# Lab 6: Random Quote
 
 Before starting, check out the doc on [APIs and AJAX](../docs/13%20-%20APIs%20and%20Ajax.md).
 
