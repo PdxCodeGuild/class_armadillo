@@ -50,8 +50,11 @@ url = f'https://favqs.com/api/quotes?page={page}&filter={keyword}'
 headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
 response = requests.get(url, headers=headers)
 data = json.loads(response.text) # turn the json into a python dictionary
-print(data)
+# print(data)
 # print(f"\n{data['quotes'][0]['body']} - {data['quotes'][0]['author']}\n")
+
+for quote in data['quotes']:
+    print(f"\n{quote['body']} - {quote['author']}\n")
 
 # quote_list = []
 # for quote in data['quotes']:
