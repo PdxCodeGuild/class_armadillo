@@ -3,19 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="book_favicon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Quote of the Day</title>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <title>Tome of Ancient Wisdom</title>
 </head>
-<body>
-    <div>
-        <div id="quote"></div><button id="btn_random_quote">Random Quote</button>
-    </div>
+<style>
+    body {
+  background: url(https://wallpapercave.com/wp/XEq6o0E.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'MedievalSharp', cursive;
+}
 
-    <div>
-        <input id="search_term" type="text" placeholder="Search.."/><button id="btn_search_quote" class="fa fa-search"></button>
-        <ul id="quote_list">
-        </ul>
+.content {
+  text-align: center;
+  color:black;
+  margin: 40px auto;
+  width: 100%;
+  max-width: 960px;
+  border-radius: 5px;
+  padding-bottom: 32px;
+  font-size: 1.75rem;
+}
+
+h1{
+  min-height: 40px;
+  width: 90%;
+  font-size: 2rem;
+  max-width: 700px;
+  vertical-align: middle;
+  text-align: center;
+  margin: 0 auto;
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  width: 90%;
+  max-width: 700px;
+  text-align: left;
+  margin: 0 auto;
+  padding-bottom: 32px;
+}
+</style>
+<body>
+    <div class="head">
+        <input id="search_term" type="text" placeholder="Search.." />
+        <button id="btn_search_quote" class=" btn fa fa-magic" aria-hidden="true"></button>
+        <div>
+            <button id="btn_random_quote">Invoke the Tome of Wisdom</button>
+        </div>
+
+    </div>
+    <h1 id="quote_header"></h1>
+    <div class="content">
+        <ul id="quote_list"></ul>
+        <div id="quote"></div>
     </div>
 </body>
 </html>
@@ -28,13 +78,13 @@ btn_random_quote.addEventListener('click', function () {
         method: 'get',
         url: url
     }).then(response => { 
-        console.log(response.data.quote.body)
-        quote.innerText = response.data.quote.body
+        quote.innerText = (`"${response.data.quote.body}" - ${response.data.quote.author}`)
     })})
 
 btn_search_quote.addEventListener('click', function () {
     searchTerm = document.querySelector('#search_term').value
     let quoteList = document.querySelector('#quote_list')
+    let quoteHeader = document.querySelector('#quote_header')
     let authorization = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
     let url = 'https://favqs.com/api/quotes/?filter='+ searchTerm
     axios({
@@ -42,18 +92,17 @@ btn_search_quote.addEventListener('click', function () {
         url: url,
         headers: authorization,
     }).then(response => {
-        console.log(response.data)
         quotes = response.data.quotes
-        console.log(quotes)
     for(let i=0; i<quotes.length; ++i) {
                 
                 // create an li for each of the pokemon
                 let li = document.createElement('li')
                 // set the inner text to the pokemon's name
-                li.innerText = (`${quotes[i].body} - ${quotes[i].author}`)
+                li.innerText = (`"${quotes[i].body}" - ${quotes[i].author}`)
                 // add our li to the ul
                 quoteList.appendChild(li)
             }
+            quoteHeader.innerText = (`Quotes about ${searchTerm}`)
         })    
     })
 </script>
