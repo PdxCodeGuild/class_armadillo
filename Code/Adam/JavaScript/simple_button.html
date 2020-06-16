@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body {
+        background-color: cornflowerblue;
+    }
+</style>
 
 <body>
-    <input id="input" type="text" />
+    <input id="input" type="text" placeholder="Enter some text: "/>
     <button id="submit">submit</button>
     <div id="output"></div>
     <script type="text/javascript">
@@ -19,7 +24,7 @@
 
         submit.addEventListener('click', function () {
             let whatever = input.value;
-            output.innerText = 'Hello, ' + whatever + '!';
+            output.innerText = `Your input was: ${whatever}`
         })
     </script>
 </body>
