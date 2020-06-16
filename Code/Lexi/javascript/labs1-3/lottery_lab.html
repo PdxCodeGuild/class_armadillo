@@ -1,0 +1,99 @@
+<!--issues: getting input to be used for ticket number-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--connect to css-->
+    <link rel="stylesheet" href="../css/lottery.css" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  </head>
+  <body>
+    <span class="first-text">
+      <input
+        id="input_text"
+        type="text"
+        placeholder="Please input six digits here to play"
+      />
+    </span>
+
+    <span id="span_character_count"></span>
+
+    <button id="btn_click" type="button">Submit</button>
+
+    <div id="who_won"></div>
+    <script>
+     
+
+      function numMatches() {
+        let input_text = document.querySelector("#input_text");
+      let btn_click = document.querySelector("#btn_click");
+      let who_won = document.querySelector("#who_won");
+
+      input_text.addEventListener("input", function () { //line 28
+        span_character_count.innerText = input_text.value.length;
+      });
+
+      btn_click.addEventListener("click", function (evt) {
+    
+        who_won.innerText = attempt
+      });
+          let ticket = input_text.value;
+        let winning = Math.floor(100000 + Math.random() * 900000);
+        if (Number.isInteger(winning)) {
+          winning = winning.toString();
+        }
+
+        for (let w of winning) {
+          console.log(w);
+          if (Number.isInteger(w)) {
+            return w;
+          }
+        }
+        if (Number.isInteger(ticket)) {
+          ticket = ticket.toString();
+        }
+        for (let t of ticket) {
+          console.log(t);
+        }
+
+        console.log(winning);
+        winning = winning.split("");
+
+        ticket = ticket.split("");
+        console.log(ticket);
+
+        newArray=ticket
+        var find = winning;
+        var found = false;
+        for(var i=0; i< newArray.length;i++){
+            for(var j=0; j < newArray[i].length + i; j++){
+                if (newArray[i][j] === find){
+                    console.log("Your numbers" + find + " match the winning ticket");
+                    found = true;
+                }
+            }
+        
+        }
+        if (!found) {
+            var attempt = ("No matching ticket number was found. Try again");
+     
+        }
+    
+        numMatches()
+    }
+
+    
+    </script>
+  </body>
+</html>
+// Source: https://stackoverflow.com/questions/45292969/javascript-how-can-i-make-the-else-output-something-only-once
