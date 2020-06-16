@@ -30,9 +30,20 @@ response = requests.get(url, headers=headers)
 import requests
 import json
 
-url = 'https://favqs.com/api/quotes?page=1&filter=nature'
 
-# Prompt the user for a keyword
-keyword = input('Please enter a keyword to refine your list of quotes: ')
+# prompt he user for a keyword
+keyword = input('Enter a keyword to search for quotes: ')
+
+# sets the defualt to page to 1
+page = 1
+
+
+def find_quotes():
+    url = f'https://favqs.com/api/quotes?page={page}&filter={keyword}'
+    headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
+    response = requests.get(url, headers=headers)
+    print(response)
+
+
 # list the quotes you get in response
 # prompt user to show next page or enter new keyword

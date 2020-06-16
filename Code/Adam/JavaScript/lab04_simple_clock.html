@@ -3,42 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Clock</title>
-    <style type='text/css'>
-    </style>
+    <title>Document</title>
 </head>
 <body>
-    <div id="date"></div>
-    <div id="tic-toc"></div>
-    <script type="text/javascript">
-
-        function getClock() {
-            let now = new Date();
-            let mo = now.getMonth()
-            let day = now.getDate()
-            let yr = now.getFullYear()
-            let hr = now.getHours();
-            let min = now.getMinutes();
-            let sec = now.getSeconds();
-
-            min = addZero(min)
-            sec = addZero(sec)
-            
-            document.getElementById('date').innerText = mo + '/' + day + '/' + yr
-            document.getElementById('tic-toc').innerText = hr + ':' + min + ':' + sec
-        }
-
-        function addZero(num){
-            if (num<10) {
-                num='0' + num
-            }
-            return num
-        }
-
+    <h1>Current Time</h1>
+    <div id="output_div"></div>
+    <script>
         setInterval(function() {
-            getClock();
-        }, 500);
-        
+            // declaring output and 
+            var output = new Date()
+            // assigning the variable to be displayed in innerHTML
+            document.getElementById("output_div").innerHTML = output
+        }, 1000) // sets interval to 1 sec. This is the rate at which output will be updated
+
     </script>
 </body>
 </html>
