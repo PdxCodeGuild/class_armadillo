@@ -9,12 +9,22 @@
 
 <body>
     <h1>You're not here</h1>
+    <h3>You're redirecting in <span id="countDown">6 seconds remaining</span></h3>
     <script>
-        // Simulate a mouse click:
-        window.location.href = "http://www.nickgallo.dev";
+        setTimeout(function () {
+            let randomUrls = ["http://www.nickgallo.dev", "http://www.nickgallo.dev/pokedex/", "http://www.nickgallo.dev/contactsapp/", "https://www.nickgallo.dev/urlshortener/"
+            ]
 
-        // Simulate an HTTP redirect:
-        window.location.replace("http://www.nickgallo.dev");
+            let randomRedirect = randomUrls[Math.floor(Math.random() * randomUrls.length)]
+            console.log(randomRedirect)
+            window.location.replace((randomRedirect))
+        }, 5000)
+
+        let timeleft = 5
+        let downloadTimer = setInterval(function () {
+            document.getElementById("countDown").innerHTML = timeleft + " seconds remaining"
+            timeleft -= 1
+        }, 1000)
     </script>
 </body>
 
