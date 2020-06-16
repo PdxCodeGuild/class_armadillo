@@ -12,12 +12,15 @@
     <title>Document</title>
 </head>
 <body>
-    <span id="quote">
-
-    </span>
-    <p id="author"></p>
-    <input type="text" id="search">
-    <button id="btn_submit_info" class="btn btn-primary">Submit</button>
+    <div id=random_quote>
+        <p id="quote"></p>
+        <p id="author"></p>
+    </div>
+        <p id="words">Search for a list of quotes below:</p>
+        <div id="searchbar">
+            <input type="text" id="search">
+            <button id="btn_submit_info" class="btn btn-primary">Search</button>
+        </div>
     <ul id="list_of_quotes"></ul>
     <script>
         let quote = document.querySelector("#quote")
