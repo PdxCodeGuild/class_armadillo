@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        body{
+            text-align: center;
+        }    
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Clock</title>
 </head>
 <body>
+
+    <div class="header">
+    <h1>What time is it?</h1>
+    </div>
     
+    <div class="main">
+    <h2 class="time_div" id="time"></h2>
+    </div>
+    
+    <div class="footer">
+        <h4>Nick Gallo | Class_Armadillo | &copy 2020</h4>
+    </div>
+    <script>
+    function currentTime(){
+        let time = new Date()
+        let day = time.getDate()
+        let month = time.getMonth()+1
+        let year = time.getFullYear()
+        let hour = time.getHours()
+        let minute = time.getMinutes()
+        let second = time.getSeconds()
+        let displayTime = "It is " + month + "/" +  day + "/" +  year + " " + hour + ":" + minute + ":" + second;
+        document.getElementById('time').innerHTML = displayTime;
+    }
+    setInterval(currentTime, 1000);
+</script>
 </body>
 </html>
