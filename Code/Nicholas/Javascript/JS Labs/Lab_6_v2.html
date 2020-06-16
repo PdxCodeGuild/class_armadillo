@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote API</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+</head>
+
+<body>
+    <input id="quote_keyword" type="text" placeholder="Enter Keyword">
+    <ul id="quotes_list"></ul>
+    <button id="search_quotes" type="button">Search Quotes</button>
+
+    <div id="generate_quotes"></div>
+    <script>
+        search_quotes.addEventListener('click', function () {
+            let quotesList = document.querySelector("#quotes_list")
+            let quoteKeyword = document.querySelector("#quote_keyword").value
+            let headers = { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' }
+            let url = "https://favqs.com/api/quotes/?filter=" + quoteKeyword
+            axios({
+                method: 'get',
+                url: url,
+                headers: headers
+            }).then((response) => {
+                console.log(response.data)
+                let quotes = response.data.quotes
+                for (let i = 0; i < quotes; i++) {
+                    let li = document.createElement("li")
+                    quotesList.appendChild(li)
+                    li.innerText =
+                }
+            })
+
+        })
+    </script>
+</body>
+
+</html>
