@@ -10,18 +10,13 @@
     
   </head>
   <body>
-    <h1>Right click 'inspect' and open up the console now! Type in 'numMatches(234567,109292)' without the quotes. You can select the numbers you want to use as both your actual ticket (first set of six numbers) and winning ticket (second set of numbers). Best of luck!
+    <h1>Right click 'inspect' and open up the console now! Type in 'numMatches(234567,109292)' without the quotes. You can select the numbers you want to use as both your actual ticket (first set of six numbers) and winning ticket (second set of numbers). Enjoy!
     </h1>
     <img src="static/dc lottery.png">
     <script>
-      function numMatches() {
+      function numMatches(ticket, winning) {
 
-        // to show how many numbers are entered
-        let input_text = document.querySelector("#input_text");
-        let ticket = input_text.value;
-
-
-        let winning = Math.floor(100000 + Math.random() * 900000);
+        winning = Math.floor(100000 + Math.random() * 900000);
         if (Number.isInteger(winning)) {
           winning = winning.toString();
         }
