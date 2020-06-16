@@ -9,10 +9,10 @@ import random
 
 
 
-dictionary = {'a':'n', 'b':'o' 'c':'p', 'd':'q', 'e':'r', 'f':'s', 'g':'t', 
+dictionary = {'a':'n', 'b':'o', 'c':'p', 'd':'q', 'e':'r', 'f':'s', 'g':'t', 
                 'h':'u', 'i':'v','j':'w', 'k':'x', 'l':'y', 'm':'z', 'n':'a', 
                 'o':'b', 'p':'c', 'q':'d', 'r':'e', 's':'f', 't':'g', 'u':'h', 
-                'v':'i', 'w':'j' 'x':'k', 'y':'l', 'z':'m' 
+                'v':'i', 'w':'j', 'x':'k', 'y':'l', 'z':'m', 
 }
 
 
@@ -30,15 +30,15 @@ def rot(text):
     return rot13
 
 
-
+#  with url localhost:5000 include /rot13 to access web page
 @app.route('/rot13', methods=['GET','POST'])
 def index():
-    text = request.form.get('text')
+    text = request.form.get('message')
     translated_text = text
     if text:
         translated_text = rot(text)
 
-    return render_template('index.html', text = translated_text)
+    return render_template('rot13.html', text = translated_text)
 
 
 

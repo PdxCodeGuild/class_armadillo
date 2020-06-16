@@ -7,3 +7,26 @@ h1{
     margin-top: 250px;
     margin-left: 40%;
 }
+
+#author{
+    text-align: center;
+}
+
+#quote{
+    text-align: center;
+}
+
+#random_quote{
+    margin-top: 50px;
+    flex: auto;
+    flex-direction: column;
+}
+
+#words{
+    text-align: center;
+}
+
+#searchbar{
+    display: block;
+    margin-left: 45%
+}
