@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <title>Redirector</title>
+</head>
+<style>
+    body {
+        background: blue;
+    }
+
+    #redirect {
+        font-size: 150px;
+        font-family: 'Orbitron', sans-serif;
+        color: #D90429;
+        text-align: center;        
+        position: absolute;
+        top: 50%;        
+        left: 50%;       
+        transform: translate(-50%, -50%);
+        
+    }
+</style>
+
+<body>
+    <div id="redirect"></div>
+    <script>
+        let redirect = document.querySelector("#redirect");
+
+        let x = 5;
+
+        setInterval(function () {
+            if (x === 0) {
+                let urls = ['https://www.espn.com/',
+                    'https://www.nfl.com/',
+                    'https://www.foxsports.com/'
+                ];
+                let urls_array = Math.floor(Math.random() * urls.length);
+                window.location = urls[urls_array];
+            }
+            redirect.innerText = x;
+            x -= 1;
+        }, 1000)
+    </script>
+</body>
+
+</html>

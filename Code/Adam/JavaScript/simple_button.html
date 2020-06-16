@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: cornflowerblue;
+    }
+</style>
+
+<body>
+    <h2>This is a Simple Button</h2>
+    <p>Whatever you enter will be displayed.</p>
+
+    <input id="input" type="text" placeholder="Enter some text: " />
+    <button id="submit">submit</button>
+    <div id="output"></div>
+    <script type="text/javascript">
+
+        let input = document.querySelector('#input')
+        let submit = document.querySelector('#submit');
+        let output = document.querySelector('#output');
+
+        submit.addEventListener('click', function () {
+            let whatever = input.value;
+            output.innerText = `Your input was: ${whatever}`
+        })
+    </script>
+</body>
+
+</html>

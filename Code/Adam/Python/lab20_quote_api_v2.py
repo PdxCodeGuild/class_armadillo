@@ -30,9 +30,50 @@ response = requests.get(url, headers=headers)
 import requests
 import json
 
-url = 'https://favqs.com/api/quotes?page=1&filter=nature'
 
-# Prompt the user for a keyword
-keyword = input('Please enter a keyword to refine your list of quotes: ')
-# list the quotes you get in response
-# prompt user to show next page or enter new keyword
+while True:
+  keyword = input('Enter a keyword to search for quotes: ') # prompt he user for a keyword
+  # keyword = 'meaning'  # for testing
+  page = 1 # sets the defualt to page to 1
+
+
+  url = f'https://favqs.com/api/quotes?page={page}&filter={keyword}'
+  headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
+  response = requests.get(url, headers=headers) # send the request to the api
+  data = json.loads(response.text) # declare a dictionary and assign it the json text
+  # print(data)
+
+  # iterate through the data
+  number = 1
+  for q in data['quotes']:
+      # for each iteration assign the value of body to quote
+      quote = q['body']
+      # and assign the value of author to the variable author
+      author = q['author']
+      print(f'\n{number}) "{quote}" - {author}') # print quote and author in an f string
+      number += 1
+
+
+"""
+# example of how to reference elements in json
+
+this_dict = [
+{"brand": "Ford",
+  "model": "Mustang",
+  "year": 1964,
+  "color" : ['cherry_red','sky_blue', 'pine_green']
+},
+{"brand": "VW",
+  "model": "Beatle",
+  "year": 1972,
+  "color" : ['cherry_red','sky_blue', 'pine_green']
+},
+{"brand": "Buick",
+  "model": "Skylar",
+  "year": 1968,
+  "color" : ['cherry_red','sky_blue', 'pine_green']
+}
+]
+print(this_dict[0]['model'])  # would return Mustang
+print(this_dict[1]['color'][1])  # would return sky_blue
+"""

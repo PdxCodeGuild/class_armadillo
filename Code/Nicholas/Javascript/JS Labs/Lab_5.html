@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random URLS</title>
+</head>
+
+<body>
+    <div id="countDown"></div>
+    <script>
+        document.querySelector("#countDown")
+        let counter = 5;
+        setInterval(function () {
+            if (counter === 0) {
+                let urls = ["https://www.rei.com/", "https://www.broadcastify.com/listen/stid/18", "https://apnews.com/", "https://unsplash.com/", "https://www.awwwards.com/"]
+
+                randomSite = urls[Math.floor(Math.random() * urls.length)]
+                window.location.assign(randomSite)
+            }
+            countDown.innerText = `Redirecting in ${counter}`;
+            counter -= 1;
+        }, 1000);
+    </script>
+</body>
+
+</html>
