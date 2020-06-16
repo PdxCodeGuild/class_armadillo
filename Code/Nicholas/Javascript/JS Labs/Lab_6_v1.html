@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Quote</title>
+    <title>Quote API</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <style type = 'text/css'>
-    
-    </style>
+</head>
+
+<body>
+    <div id="quoteOfDay"></div>
     <script>
         let url = 'https://favqs.com/api/qotd'
+        let quoteOfDay = document.querySelector("#quoteOfDay")
+
         axios({
             method: 'get',
             url: url
-        }).then(response => {
-            console.log(response.data)
+        }).then((response) => {
+            let quote = (response.data.quote.body)
+            let author = (response.data.quote.author)
+            quoteOfDay.innerText = (`"${quote}" -${author}`)
         })
     </script>
-</head>
-<body>
-    
 </body>
+
 </html>
