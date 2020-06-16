@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 05</title>
+
+</head>
+<body>
+    <h2>Redirector</h2>
+    <div id="redirector">
+        <script type="text/javascript">
+        let links = [
+            "https://www.google.com/",
+            'https://www.duckduckgo.com',
+            "https://www.bbc.com/news",
+            "https://www.cbc.ca/news/canada",
+        ]
+
+        function selfDestruct() {
+            // countdown = 6;
+            setInterval (function(){
+                // countdown -= 1
+            }, 6000)
+
+            let newSite = links[Math.floor(Math.random() * links.length)]
+            window.location.assign(newSite)
+        }
+
+        selfDestruct();
+
+        </script>
+    </div>
+
+</body>
+</html>
