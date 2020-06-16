@@ -18,10 +18,10 @@
         ]
 
         function selfDestruct() {
-            countdown = 6;
+            // countdown = 6;
             setInterval (function(){
-                countdown -= 1
-            }, 1000)
+                // countdown -= 1
+            }, 6000)
 
             let newSite = links[Math.floor(Math.random() * links.length)]
             window.location.assign(newSite)
