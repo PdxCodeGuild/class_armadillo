@@ -13,7 +13,20 @@ Problem 3: What is the average age of the library users?
 
 Problem 4: What is the oldest book? (print the name and year)
 
-Problem 5: What is the most favorited book? (print the name and the number of users that like it)
+Problem 5: Using a `for` loop, print out each user and the names of each of their favorite books, e.g.
+
+```
+Jane Smith
+    A Wrinkle in Time
+    The Odyssey
+    The Divine Comedy
+Wendy Carson
+    A Wrinkle in Time
+    The Giving Tree
+...
+```
+
+Problem 6 (optional/challenge) What is the most favorited book? (print the name and the number of users that like it)
 
 ```javascript
 let library = {
