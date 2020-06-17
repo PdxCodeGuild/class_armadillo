@@ -6,12 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quote API</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <style>
+        ul{margin: 0 auto;
+        max-width: 800px;
+        text-align: center;
+        list-style-type: none;
+        padding: 30px;}
+
+    </style>
 </head>
 
 <body>
+    <h2>Enter a keyword to search for relevant quotes:</h2>
     <input id="quote_keyword" type="text" placeholder="Enter Keyword">
-    <ul id="quotes_list"></ul>
     <button id="search_quotes" type="button">Search Quotes</button>
+    <ul id="quotes_list"></ul>
 
     <div id="generate_quotes"></div>
     <script>
@@ -27,10 +36,11 @@
             }).then((response) => {
                 console.log(response.data)
                 let quotes = response.data.quotes
-                for (let i = 0; i < quotes; i++) {
+                for (let i = 0; i < quotes.length; i++) {
                     let li = document.createElement("li")
                     quotesList.appendChild(li)
-                    li.innerText =
+                    li.innerText = (`"${quotes[i].body}" 
+                                    -${quotes[i].author}`)
                 }
             })
 
