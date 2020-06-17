@@ -17,8 +17,10 @@
 </head>
 
 <body>
-    <div class="container">
-        <img src= "{% static 'pokedex/pokemonbackground3.jpg' %}" style="width: 100%">
+    <div id="body" class="container">
+        <!-- <div id="bg_img" class="container">
+            <img src="{% static 'pokedex/pokemonbackground3.jpg' %}">
+        </div> -->
         <div>
             <form action="{% url 'pokedex:index' %}" method="post">
                 {% csrf_token %}
@@ -28,26 +30,47 @@
         </div>
 
         {% for p in pokemon %}
-
         <div class="chip">
             <img src="{{p.image_front}}" alt="Pokemon" width="96" height="96">
-            <!-- <img id="{% url 'pokedex:detail' p.id%}" src="{{p.image_front}}"> -->
-            <!-- <img id="{% url 'pokedex:detail' p.id%}" src="{{p.image_back}}"> -->
             <a href="{% url 'pokedex:detail' p.id%}"> {{p.name|title}}</a>
         </div>
         <div>{% if search %} for search text "{{search}}"{% endif %}</div>
         {% endfor %}
+
+
+        <div class="pagination_2">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    {% if pokemon.has_previous %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    {% endif %}
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    {% if pokemon.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+
         <div class="pagination">
             {% if pokemon.has_previous %}
-            <a href="?page={{pokemon.previous_page_number}}">&lt;</a>
+            <a href="?page={{pokemon.previous_page_number}}">&laquo;</a>
             {% endif %}
             <span>{{pokemon.number}}</span>
             {% if pokemon.has_next %}
-            <a href="?page={{pokemon.next_page_number}}">&gt;</a>
+            <a href="?page={{pokemon.next_page_number}}">&raquo;</a>
             {% endif %}
         </div>
+
     </div>
 </body>
+
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 

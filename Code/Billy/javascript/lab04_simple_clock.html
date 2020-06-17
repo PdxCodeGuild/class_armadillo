@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Clock</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended+Text&family=Quicksand&display=swap" rel="stylesheet">
+    
+    <style type='text/css'>
+    * {
+        background-color: #333;
+        color: #ddd;
+        font-family: 'Quicksand', sans-serif;
+    }
+
+    #date { 
+        text-align: center;
+        text-shadow: 2px 2px 40px #00E676;
+        font-size: 35px;
+    }
+
+    #tic-toc { 
+        text-align: center;
+        text-shadow: 2px 2px 40px #00E676;
+        font-size: 150px;
+    }
+    </style>
+</head>
+<body>
+<div class="timebox">
+    <div id="tic-toc"></div>
+</div>
+<div class="datebox">    
+    <div id="date"></div>
+</div>
+    <script type="text/javascript">
+        function getClock() {
+            let now = new Date();
+            let day = now.getDay()
+            let mo = now.getMonth()
+            let date = now.getDate()
+            let yr = now.getFullYear()
+            let hr = now.getHours();
+            let min = now.getMinutes();
+            // let sec = now.getSeconds();
+
+            let days = [
+                'Sunday',
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+                'Thursday',
+                'Friday',
+                'Saturday',
+            ]
+
+            let mos = [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December',
+            ]
+            
+            mo = mos[mo]
+            day = days[day]
+
+            if (hr == 0) {
+                hr = 12
+                am_pm = 'am' 
+            } else if (hr < 12) {
+                am_pm = 'am'
+            } else {
+                hr = hr - 12
+                am_pm = 'pm'
+            }
+
+            // hr  = addZero(hr)  
+            min = addZero(min)
+            // sec = addZero(sec)
+
+            document.getElementById('date').innerText = day + ', ' + mo + ' ' + date + ', ' + yr
+            document.getElementById('tic-toc').innerText = hr + ':' + min + ' ' + am_pm
+        }
+        
+        function addZero(num){
+            if (num<10) {
+                num='0' + num
+            }
+            return num
+        }
+
+        setInterval(function() {
+            getClock();
+        }, 1000);
+        
+    </script>
+</body>
+</html>
+
+<!-- Lab 4: Simple Clock
+Make a clock that displays the current time and updates every second. Check out JavaScript timing events and dates. Writing new Date() creates a date with the current date and time. You can then create a string by calling methods on that date, and set it in the DOM. If you have time, check out the full clock lab.
+
+Lab 5: Random Redirector
+Create a page which randomly redirectly to another. Start with an array of urls (as strings), and randomly pick one using Math.random(). Then redirect to the page by assigning the url to window.location. Using JavaScript's timing events, show a 5-second countdown to the user. When the countdown is finished, redirect to a random page. -->

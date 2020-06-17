@@ -8,12 +8,114 @@ Use the favqs.com api to show a random quote. Send a GET request to https://favq
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Lab 6: Random Quote Version 1 </title>
+
+    <style>
+        #title {
+            margin: 18px 20px 60px 400px;
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            width: 57%;
+            font-size: large;
+            color: white;
+        }
+        /* margin: 6px 10px 30px 50px; */
+        
+        #author {
+            margin: 10px 180px 40px 400px;
+            font-size: x-large;
+            font-weight: bold;
+            color: white;
+            font-style: italic;
+            /* width: 40%; */
+            border: 2px solid gray;
+            padding: 8px;
+            /* color: aliceblue; */
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            /* background-color: skyblue; */
+        }
+        
+        #body {
+            margin: 18px 20px 60px 500px;
+            font-size: bold x-large;
+            font-weight: bold;
+            color: white;
+            font-style: italic;
+            /* width: 40%; */
+            border: 2px solid gray;
+            padding: 8px;
+            /* color: aliceblue; */
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            /* background-color: skyblue; */
+        }
+        
+        #body:hover {
+            background: transparent;
+            border: none;
+            color: white;
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            transition: 0.5s;
+            /* #simple_clock {} */
+        }
+        
+        #author:hover {
+            background: transparent;
+            border: none;
+            color: white;
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            transition: 0.5s;
+            /* #simple_clock {} */
+        }
+        
+        body {
+            background-image: url('background_quotev1.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        #countdown {
+            color: white;
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <div id="author"></div>
+    <div id="body"> </div>
+    <!-- extract the relevant information, and display it on the page. like the author and body -->
+    <script>
+        let author = document.querySelector('#author')
+        let body = document.querySelector('#body')
+        axios({
+            method: 'get',
+            url: 'https://favqs.com/api/qotd',
+
+        }).then((response) => {
+            let quote = response.data.quote
+                // console.log(quote)
+                // author.innerText = quote
+                // body.innerText = quote
+                // value = quote["body"]
+                // console.log(value)
+                //or
+            value = quote.author
+            console.log(value)
+            value2 = quote.body
+            console.log(value2)
+                // innerText
+            author.innerText = "Author: " + value
+            body.innerText = "Quote of the Day: " + value2
+
+            // quote.innerTex
+        })
+    </script>
+
 </body>
+
 </html>
