@@ -63,7 +63,7 @@
 
             let div_quote = document.querySelector('#quote')
             let div_author = document.querySelector('#author')
-            
+
             let look_up = document.querySelector('#submit')
 
             let url = 'https://favqs.com/api/qotd'
@@ -79,37 +79,42 @@
                 let author = response.data.quote.author
                 div_quote.innerText = quote + " - " + author
             })
-
-            look_up.addEventListener('click', function(evt) {
+ 
+            look_up.addEventListener('click', function (evt) 
+        {
                 evt.preventDefault()
-                let input = document.querySelector('#search').value 
-                console.log(input)   
+                let input = document.querySelector('#search').value
+                console.log(input)
                 axios({
-                method: 'get',
-                url: `https://favqs.com/api/quotes/?filter=${input}`,
-                params: {
-                    filter: input
-                
-                },
-                headers : {
+                    method: 'get',
+                    url: `https://favqs.com/api/quotes/?filter=${input}`,
+                    params: {
+                        filter: input
+
+                    },
                     
+                    headers: {
+
+            
                     'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'
-                }
-            }).then((response) => {
-                for(let i = 1, i>=response.data.length i++){
-                    let text= resonse.data.
+                    
+                    }).then(response) => {
+                        for (let i = 1, i>= response.data.length, i++) {
+                        let text = repsonse.data.quote
+                        writer = text.author
+                        console.log(value)
+                        body = quote.body
+                        console.log(value2)
+                        author.innerText = writer
+                        body.innerText = body
 
-                }
-            
-                
-                console.log(response.data)
-            }) }) 
-            
-            
-            
+                    }
+                    console.log(response.data)
+                })
+            })
 
-        </script>
 
+           </script>   
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
