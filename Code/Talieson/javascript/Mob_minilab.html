@@ -99,8 +99,13 @@ for(i=0; i<library.books.length; i++){
 
  //Problem 5: Using a for loop, print out each user and the names of each of their favorite books, e.g.
  for(i=0; i<library.users.length; i++){
-    console.log(library.users[i].first_name, library.users[i].last_name)
+     problem5.innerText += (library.users[i].first_name +" " + library.users[i].last_name)
+     for(b=0; b<library.users[i].favorite_books.length; b++){
+        bookIndex = library.users[i].favorite_books[b]
+        console.log(library.books[bookIndex].title)
+     }
  }
+ problem5.innerText = (`Using a for loop, print out each user and the names of each of their favorite books.`)
 // Problem 6: What is the most favorited book? (print the name and the number of users that like it)
 favoriteBooks = {}
 for(i=0; i<library.users.length; i++){
@@ -112,7 +117,6 @@ for(i=0; i<library.users.length; i++){
             favoriteBooks[key] = 1
         }
     }}
-console.log(favoriteBooks)
 mostFavoritedBook = 0
 mostFavorites = 0
 favoriteBookKeys = Object.keys(favoriteBooks)
