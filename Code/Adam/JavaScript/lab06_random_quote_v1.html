@@ -37,8 +37,9 @@
         axios({
 
             method: 'get',
+            // send a request to:
             url: 'https://favqs.com/api/qotd',
-        
+
         }).then(response => {
 
             let q_data = response.data.quote
