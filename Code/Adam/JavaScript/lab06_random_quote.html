@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <style>
+        * {
+            background-color: black;
+            color: aliceblue;
+            margin: auto;
+            width: 80%;
+            border: 3px;
+            /* padding: -10px; */
+            margin-top: 100px;
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <div id="qotd_container">
+
+        <p id="q_output"></p>
+
+    </div>
+
+    <script>
+
+        let output = document.querySelector('#q_output')
+
+        axios({
+
+            method: 'get',
+            url: 'https://favqs.com/api/qotd',
+        
+        }).then(response => {
+
+            let q_data = response.data.quote
+            console.log(q_data)
+            let quote = q_data['body']
+            console.log(quote)
+            let author = q_data['author']
+            console.log(author)
+            let qotd = `"${quote}" - ${author}`
+            console.log(qotd)
+            document.getElementById("q_output").innerText = qotd
+
+        }).catch(error => {
+            console.log('Something went wrong!')
+        })
+    </script>
 </body>
+
 </html>
