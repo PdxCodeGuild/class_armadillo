@@ -11,9 +11,9 @@
 <body>
     <input id="input" type="text" placeholder="Enter a keyword: " />
     <button id="submit">submit</button>
-    
+
     <div id="container">
-        <ol id="output">
+        <ol id="quote_list">
         </ol>
     </div>
     <script type="text/javascript">
@@ -21,23 +21,34 @@
 
         let input = document.querySelector('#input')
         let submit = document.querySelector('#submit');
-        let output = document.querySelector('#output');
+        let quote_list = document.querySelector('#quote_list');
 
 
         submit.addEventListener('click', function () {
             let keyword = input.value;
             let url = `https://favqs.com/api/quotes?page=1&filter=${keyword}`
-            // output.innerText = `Your input was: ${whatever}`
             axios({
                 method: 'get',
                 url: url,
-                headers: {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'},
+                // api key 
+                headers: { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' },
             }).then(response => {
                 let q_data = response.data.quotes
                 console.log(q_data)
-            }).catch(error => {
-            console.log('Something went wrong!')
-        })
+                for (let i = 0; i < q_data.length; ++i) {
+                    let body = q_data[i].body
+                    // console.log(quote)
+                    let author = q_data[i].author
+                    // console.log(author)
+                    let quote = `"${body}"" - ${author}`
+                    let li = document.createElement('li')
+                    // li.innerText = q_data[i].body
+                    li.innerText = quote
+                    quote_list.appendChild(li)
+                    }
+                }).catch(error => {
+                    console.log('Something went wrong!')
+            })
         })
     </script>
 </body>
