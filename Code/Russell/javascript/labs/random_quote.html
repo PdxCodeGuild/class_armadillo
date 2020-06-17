@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 </head>
 
 <body>
@@ -23,7 +24,13 @@
             url: url
         }).then((response) => {
             console.log(response.data)
+            let new_quote = response.data.quote.body
+            let author = response.data.quote.author
+            console.log(new_quote)
+            console.log(author)
+            quotes.innerText = new_quote + '    --' + author
         })
+
 
 
 

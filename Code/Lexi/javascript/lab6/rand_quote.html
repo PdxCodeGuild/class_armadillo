@@ -1,0 +1,45 @@
+<!--mistakes: putting things out of order - must know when to print - had to move lines for querySelector and innerText to within the axios context - thanks, Freya!-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <div>
+    <h1><span id="on_page"></span></h1>
+    </div>
+    <script>
+    //created this var OUTSIDE of context so that it is accessible outside the context
+    var quoted = ''
+    // access dict - thanks, Freya
+        axios({
+            method: 'get',
+            url: 'https://favqs.com/api/qotd'}).then((response) => {
+                var dict = (response.data)
+                console.dir(dict)
+                
+            console.log(dict['quote']['author'])
+            quoted = (dict['quote']['body'])
+
+
+            
+    // var only avail in context created
+    let on_page = document.querySelector('#on_page')
+
+    // access var within context
+
+    //setting
+    on_page.innerText = `The random quote is "${quoted}"`
+
+            })
+
+    </script>
+</body>
+</html>
+
