@@ -16,7 +16,7 @@
     #date { 
         text-align: center;
         text-shadow: 2px 2px 40px #00E676;
-        font-size: 40px;
+        font-size: 35px;
     }
 
     #tic-toc { 
@@ -36,12 +36,41 @@
     <script type="text/javascript">
         function getClock() {
             let now = new Date();
+            let day = now.getDay()
             let mo = now.getMonth()
-            let day = now.getDate()
+            let date = now.getDate()
             let yr = now.getFullYear()
             let hr = now.getHours();
             let min = now.getMinutes();
             // let sec = now.getSeconds();
+
+            let days = [
+                'Sunday',
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+                'Thursday',
+                'Friday',
+                'Saturday',
+            ]
+
+            let mos = [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August',
+                'September',
+                'October',
+                'November',
+                'December',
+            ]
+            
+            mo = mos[mo]
+            day = days[day]
 
             if (hr == 0) {
                 hr = 12
@@ -57,7 +86,7 @@
             min = addZero(min)
             // sec = addZero(sec)
 
-            document.getElementById('date').innerText = mo + '.' + day + '.' + yr
+            document.getElementById('date').innerText = day + ', ' + mo + ' ' + date + ', ' + yr
             document.getElementById('tic-toc').innerText = hr + ':' + min + ' ' + am_pm
         }
         
