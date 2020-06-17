@@ -6,15 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
 </head>
+<style>
+    #input {
+        background-color: whitesmoke;
+        color: black;
+        
+    }
+    body {
+        font-family: 'EB Garamond', serif;
+        background-color: black;
+        color: whitesmoke;
+    }
+    ul li {
+        margin-bottom: 30px;
+        font-size: large;
+    }
 
+</style>
 <body>
     <input id="input" type="text" placeholder="Enter a keyword: " />
     <button id="submit">submit</button>
 
     <div id="container">
-        <ol id="quote_list">
-        </ol>
+        <ul id="quote_list">
+        </ul>
     </div>
     <script type="text/javascript">
 
@@ -40,7 +57,7 @@
                     // console.log(quote)
                     let author = q_data[i].author
                     // console.log(author)
-                    let quote = `"${body}"" - ${author}`
+                    let quote = `"${body}"  - ${author}`
                     let li = document.createElement('li')
                     // li.innerText = q_data[i].body
                     li.innerText = quote
