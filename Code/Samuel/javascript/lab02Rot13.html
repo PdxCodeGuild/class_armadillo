@@ -22,31 +22,46 @@
         <span id="output"></span>
     </div>
     <script>
-        
+        // Initializes variables from the webpage.
         let rotation = document.querySelector("#rotation")
         let word = document.querySelector("#word")
         let output = document.querySelector("#output")
 
+        // Activates when the user clicks the submit button
         btn_submit_info.addEventListener('click', function(event){
-            console.log(rotation)
-            console.log(rotation.value)
-            console.log(Number(rotation.value))
+
+            // Checks to see if the user entered in a valid number or not
             if(!isNaN(rotation.value)){
+
+                // Checks to see if the number is within range.
                 if(Number(rotation.value) < 26 && Number(rotation.value) > -26){
+
+                    // Initializes Character Sets
                     let alphabet_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     let alphabet_lower = "abcdefghijklmnopqrstuvwxyz"
                     let digits = "0123456789"
                     let punctuation = "!@#$%^&*()_+-={}[]:;<>?,./|"
+
+                    // Sets the rotation value based on the value given from the webpage
                     rotation_value = Number(rotation.value)
                     word_value = word.value
+
+                    // Adds 26 to offset the rotation if the value that is given is negative.
                     if(rotation_value < 0){
                         rotation_value = rotation_value + 26
                     }
+
+                    // Rotates the character set by slicing it up based on the rotation value, 
+                    // and adding the slices together in reverse to create the rotated character set.
                     let rot_alphabet_upper = alphabet_upper.slice(rotation_value, alphabet_upper.length) + alphabet_upper.slice(0,rotation_value)
                     let rot_alphabet_lower = alphabet_lower.slice(rotation_value, alphabet_lower.length) + alphabet_lower.slice(0,rotation_value)
                     let rot_digits = digits.slice(rotation_value, digits.length) + digits.slice(0,rotation_value)
                     let rot_punctuation = punctuation.slice(rotation_value, punctuation.length) + punctuation.slice(0,rotation_value)
                     scrambled_word = ""
+
+                    // Takes the index of the character, and comparing it to the character set, 
+                    // then taking that index and adding the character from the rotated string 
+                    // set to the scrambled word.
                     for (let i=0; i < word_value.length; i++){
                         if(alphabet_upper.indexOf(word_value[i]) > -1){
                             scrambled_word += rot_alphabet_upper[alphabet_upper.indexOf(word_value[i])]
@@ -61,12 +76,18 @@
                         }
                     }
                     
+                    // Output is the scrambled word. 
                     output.innerText = scrambled_word
+
                 }else{
-                    output.innerText = "Please enter in a whole number between -26 and 26"
+
+                    // Output is the error message.
+                    output.innerText = "Please enter in a whole number between -26 and 26."
                 }
             }else{
-                output.innerText = "Please enter in a valid whole number."
+                
+                // Output is the error message.
+                output.innerText = "Please enter in a valid whole number between -26 and 26."
             }
         })
     </script>
