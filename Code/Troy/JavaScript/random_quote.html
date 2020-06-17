@@ -7,41 +7,48 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
-        <title>Random Quote</title>
+    <title>Random Quote</title>
 </head>
 
 <body>
     <h3>Get Your Quote Here!</h3>
+
     <div id="random_quote">
-        <p id="quote"></p>
-        <p id="author"></p>
+        <div id="get_quote"></div>
+        <div id="get_author"></div>
     </div>
+
     <div id="search">
         <input type="text" id="search_text" palceholder="Type here...">
         <button id="btn_search" class="btn btn-primary">Search</button>
     </div>
+
     <ul id="multiple_quotes"></ul>
+
     <script>
-        let quote = document.querySelector("#quote");
-        let author = document.querySelector("#author");
+        let get_quote = document.querySelector("#get_quote");
+        let get_author = document.querySelector("#get_author");
         let search = document.querySelector("#search");
         let btn_search = document.querySelector("#btn_search");
         let multiple_quotes = document.querySelector("#multiple_quotes");
-        
-        let headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
-        
-        btn_search.addEventListener('click', function() {
+
+        let quote_url = "https://favqs.com/api/qotd"
+        btn_search.addEventListener('click', function () {
             axios({
                 method: 'get',
-                url: 'https://favqs.com/api/quotes/',
+                url: quote_url,
+                headers: { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' }
+            }).then(response => {
+                // let text = response.data.text[""];
+                let quote = response.data.quote.body;
+                let author = response.data.quote.author;
 
-            }).then(response) => 
+                get_quote.innerText = quote
+                get_author.innerText = author
+            }
+            )
         })
     </script>
-
-
-
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
