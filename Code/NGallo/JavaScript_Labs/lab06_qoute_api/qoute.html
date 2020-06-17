@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <style>
+        body {
+            background-color: aqua;
+            color: black;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quote API</title>
 </head>
+
 <body>
     <div class="header">
         Quote API Lab
     </div>
 
-    <input type="text" id="search_input" placeholder="search for quotes here" >
-    <button id="search_button" >Search</button>
+    <input type="text" id="search_input" placeholder="search for quotes here">
+    <button id="search_button">Search</button>
+    <button id="random_button">Random Quote</button>
 
     <div id="output_div">
 
@@ -23,6 +33,26 @@
 
     <script>
 
+        random_button.addEventListener('click', function(){
+        let quoteUrl = 'https://favqs.com/api/qotd'
+        axios({
+            method: 'get',
+            url: quoteUrl 
+        }).then((response) => {
+            let quote = response.data.quote.body
+            let author = response.data.quote.author
+            output_div.innerHTML = "\"" + quote + "\" " + " - " + author
+        })
+        })
+        search_button.addEventListener('click', function (){
+            let searchWord = document.getElementById('search_input').value
+            console.log(searchWord)
+            console.log(search_button)
+
+
+        })
+
     </script>
 </body>
+
 </html>
