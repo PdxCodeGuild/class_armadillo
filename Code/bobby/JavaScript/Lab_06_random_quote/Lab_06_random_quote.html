@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,49 +8,64 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <style type = 'text/css'>
-        body{
-            background-color: ivory;
+    <style type='text/css'>
+        body {
+            background: url(Code\bobby\JavaScript\Lab_06_random_quote\open-book.jpg), ivory;
             font-size: 20px;
             font-weight: bolder;
+            font-family: cursive;
+            text-align: center;
         }
     </style>
-    <script>
-    //btn_rq = line 75    
-    btn_rq.addEventListener('click', function() {
+   
+</head>
+
+<body>
+    <div class='head'>
+        <input id='search_term' type='text' palceholder='Search' />
+        <button id='btn_sq' class='btn btn-primary' aria-hidden='true'>Search</button>
+        <div>
+            <button id='btn_rq'>Get Random Quote</button>
+        </div>
+    </div>
+
+    <h1 id='quote_header'></h1>
+    <div class='content'>
+        <ul id='quote_list'></ul>
+        <div id='quote'></div>
+    </div>
+</body>
+ <script>
+   
+    btn_rq.addEventListener('click', function () {
         let url = 'https://favqs.com/api/qotd'
         axios({
             method: 'get',
             url: url
         }).then(response => {
-           quote.innerText = (`'${response.data.quote.body}' - ${response.data.quote.author}`)
-        })
-    })
-    //btn_sq = line 84 - 89 
-    btn_sq.addEventListener('click', function() {
+            quote.innerText = (`'${response.data.quote.body}' - ${response.data.quote.author}`)
+        })})
+    
+
+    btn_sq.addEventListener('click', function () {
         searchTerm = document.querySelector('#search_term').value
         let qList = document.querySelector('#quote_list')
         let qHeader = document.querySelector('#quote_header')
-        let authorization = {'Authorization' : 'Token token ="855df50978dc9afd6bf86579913c9f8b"'}
-        let url = 'https://favqs.com/api/quotes/?filter='+ searchTerm
+        let url = 'https://favqs.com/api/quotes/?filter=' + searchTerm
         axios({
             method: 'get',
-            url:url,
-            headers: authorization,
+            url: url,
+            headers: {'Authorization': 'Token token="95251f84fa0c7fc3e4d869ef7ebad17e"'}
         }).then(response => {
-                quotes = response.data.quotes
-            for(let i = 0; i <quotes.length; ++i){
+            quotes = response.data.quotes
+            for (let i = 0; i < quotes.length; ++i) {
                 let li = document.createElement('li')
                 li.innerText = (`'${quotes[i].body}' - ${quotes[i].author}`)
                 qList.appendChild(li)
             }
             qHeader.innerText = (`Quotes about ${searchTerm}`)
-        })    
+        })
 
     })
     </script>
-</head>
-<body>
-    
-</body>
 </html>
