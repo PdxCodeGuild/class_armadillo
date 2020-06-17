@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * {
+            font-size: large;
+            font-family: 'EB Garamond', serif;
             background-color: black;
             color: aliceblue;
             margin: auto;
@@ -34,8 +37,9 @@
         axios({
 
             method: 'get',
+            // send a request to:
             url: 'https://favqs.com/api/qotd',
-        
+
         }).then(response => {
 
             let q_data = response.data.quote

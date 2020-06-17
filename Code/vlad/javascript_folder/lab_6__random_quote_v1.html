@@ -8,12 +8,43 @@ Use the favqs.com api to show a random quote. Send a GET request to https://favq
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Lab 6: Random Quote</title>
 </head>
+
 <body>
-    
+    <div id="author"> </div>
+    <div id="body"> </div>
+    <!-- extract the relevant information, and display it on the page. like the author and body -->
+    <script>
+        let author = document.querySelector('#author')
+        let body = document.querySelector('#body')
+        axios({
+            method: 'get',
+            url: 'https://favqs.com/api/qotd',
+
+        }).then((response) => {
+            let quote = response.data.quote
+                // console.log(quote)
+                // author.innerText = quote
+                // body.innerText = quote
+                // value = quote["body"]
+                // console.log(value)
+                //or
+            value2 = quote.author
+            console.log(value2)
+            value = quote.body
+            console.log(value)
+                // value.innerText
+
+            // quote.innerTex
+        })
+    </script>
+
 </body>
+
 </html>
