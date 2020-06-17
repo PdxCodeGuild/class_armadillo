@@ -1,0 +1,130 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniLab</title>
+</head>
+<body>
+    <div id="problem_1"></div>
+    <div id="problem_2"></div>
+    <div id="problem_3"></div>
+    <div id="problem_4"></div>
+    <div id="problem_5"></div>
+    <div id="problem_6"></div>
+</body>
+
+<script>
+
+let library = {
+    meta: {
+        name: 'A Little Library',
+        description: 'practice for working with complex data'
+    },
+    users: [{
+        first_name: 'Jane',
+        last_name: 'Smith',
+        age: 24,
+        favorite_books: [0, 2, 3]
+    },{
+        first_name: 'Wendy',
+        last_name: 'Carson',
+        age: 56,
+        favorite_books: [0, 1]
+    },{
+        first_name: 'Brian',
+        last_name: 'Barber',
+        age: 12,
+        favorite_books: [1]
+    },{
+        first_name: 'Alyssa',
+        last_name: 'Lyons',
+        age: 34,
+        favorite_books: [1, 2]
+    }],
+    books: [{
+        title: 'A Wrinkle in Time',
+        author: 'Madeleine L\'Engle',
+        published: 1962
+    },{
+        title: 'The Giving Tree',
+        author: 'Shel Silverstein',
+        published: 1964
+    },{
+        title: 'The Odyssey',
+        author: 'Homer',
+        published: -800
+    },{
+        title: 'The Divine Comedy',
+        author: 'Dante Alighieri',
+        published: 1320
+    }]
+}
+problem1 = document.querySelector("#problem_1")
+problem2 = document.querySelector("#problem_2")
+problem3 = document.querySelector("#problem_3")
+problem4 = document.querySelector("#problem_4")
+problem5 = document.querySelector("#problem_5")
+problem6 = document.querySelector("#problem_6")
+problem1.innerText = (`What is the name of the library? 
+${library.meta.name}`)
+
+// Problem 2: How many library users are there?
+
+problem2.innerText = (`How many library users are there? 
+${library.users.length}`)
+
+// Problem 3: What is the average age of the library users?
+
+totalAge = 0
+for(i=0; i<library.users.length; i++){
+    totalAge += library.users[i].age
+}
+averageAge = totalAge / library.users.length
+
+problem3.innerText = (`What is the average age of the library users? 
+${averageAge}`)
+
+// Problem 4: What is the oldest book? (print the name and year)
+oldestBook = library.books[0]
+for(i=0; i<library.books.length; i++){
+    if(library.books[i].published < oldestBook.published){
+        oldestBook = library.books[i]
+    }
+}
+ problem4.innerText = (`What is the oldest book? 
+ ${oldestBook.title} published in ${oldestBook.published} AD`)
+
+ //Problem 5: Using a for loop, print out each user and the names of each of their favorite books, e.g.
+ for(i=0; i<library.users.length; i++){
+    console.log(library.users[i].first_name, library.users[i].last_name)
+ }
+// Problem 6: What is the most favorited book? (print the name and the number of users that like it)
+favoriteBooks = {}
+for(i=0; i<library.users.length; i++){
+    for(j=0; j<library.users[i].favorite_books.length; j++){
+        key = library.users[i].favorite_books[j]
+        if (favoriteBooks.hasOwnProperty(key)){
+            favoriteBooks[key] += 1
+        } else {
+            favoriteBooks[key] = 1
+        }
+    }}
+console.log(favoriteBooks)
+mostFavoritedBook = 0
+mostFavorites = 0
+favoriteBookKeys = Object.keys(favoriteBooks)
+for(k=0; k < favoriteBookKeys.length; k++){
+    if(favoriteBooks[k] > mostFavorites){
+        mostFavoritedBook = k
+        mostFavorites = favoriteBooks[k]
+    }
+}
+
+problem6.innerText = (`What is the most favorited book?
+ ${library.books[mostFavoritedBook].title} with ${mostFavorites} favorites`)
+
+</script>
+</html>
