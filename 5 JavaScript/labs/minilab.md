@@ -11,9 +11,9 @@ Problem 2: How many library users are there?
 
 Problem 3: What is the average age of the library users?
 
-Problem 3: What is the oldest book? (print the name and year)
+Problem 4: What is the oldest book? (print the name and year)
 
-Problem 4: What is the most favorited book? (print the name and the number of users that like it)
+Problem 5: What is the most favorited book? (print the name and the number of users that like it)
 
 ```javascript
 let library = {
