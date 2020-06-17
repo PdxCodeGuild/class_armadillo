@@ -29,9 +29,19 @@ Use the favqs.com api to show a random quote. Send a GET request to https://favq
 
         }).then((response) => {
             let quote = response.data.quote
-            console.log(quote)
-            body.innerText = value
-            author.innerTex = value
+                // console.log(quote)
+                // author.innerText = quote
+                // body.innerText = quote
+                // value = quote["body"]
+                // console.log(value)
+                //or
+            value = quote.body
+            console.log(value)
+                // value.innerText
+            value2 = quote.author
+            console.log(value2)
+
+            // quote.innerTex
         })
     </script>
 
