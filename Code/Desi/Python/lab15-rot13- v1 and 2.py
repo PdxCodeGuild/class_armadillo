@@ -29,7 +29,7 @@ dictionary2 = {0 : 'N', 1 : 'O', 2 : 'P', 3 : 'Q', 4 : 'R', 5 : 'S',
 # phrase = input("Enter the letters you'd like to be encrypted: ")
 
 # defines rot function.
-def encrypt(message): 
+def encrypt(message,rotations): 
     # creates string coe to iterate over to find indices
     cipher = 'abcdefghijklmnopqrstuvwxyz' 
     # creates open string so user can enter a code
@@ -41,15 +41,17 @@ def encrypt(message):
             phrase += ' '
             # attaches user phrase using rot13 code 
         else: 
-            phrase += cipher[(cipher.find(letter)+13)%26]
+            phrase += cipher[(cipher.find(letter)+rotations)%26]
   
   # returns phrase from below
     return phrase
 # users input of what they want encrypted.
 message = input("Enter the letters you'd like to be encrypted: ")
+
+rotations = int(input("How many rotations would you like? "))
 # message2 = input("How many rotations of Rot13 would you like?  ")
 # prints the encrypted msg.
-print(f'Your new code is {encrypt(message)}')
+print(f'Your new code is {encrypt(message,rotations)}')
 
 
 

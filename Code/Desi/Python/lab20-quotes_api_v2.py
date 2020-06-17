@@ -7,5 +7,5 @@ keyword = input("enter a keyword to search for quotes: ")
 url = f'https://favqs.com/api/quotes?page=1&filter={keyword}'
 
 headers = {"Authorization": 'token token="855df50978dc9afd6bf86579913c9f8b"'}
-response = request.get(url, headers=headers)
+response = requests.get(url, headers=headers)
 print(response.text)
