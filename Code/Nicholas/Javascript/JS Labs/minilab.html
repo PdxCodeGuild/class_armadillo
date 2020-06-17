@@ -1,4 +1,4 @@
-<!-- Minilab Mob by: Matthew, Adam, Kyle, Lawrence, and Nick^2
+<!-- Minilab Mobbed by: Matthew, Adam, Kyle, Lawrence, and Nick^2
 Let's get some practice working with complex data structures. Copy-paste the data structure below into a minilab.html file and extract the relevant information from it. The books on each of the users is an array of integers representing the indices of their favorite books in the books array.
 
 Problem 1: What is the name of the library?
@@ -9,7 +9,17 @@ Problem 3: What is the average age of the library users?
 
 Problem 4: What is the oldest book? (print the name and year)
 //Challenge Problem: 
-Problem 5: What is the most favorited book? (print the name and the number of users that like it)
+Problem 5: Using a for loop, print out each user and the names of each of their favorite books, e.g.
+
+Jane Smith
+    A Wrinkle in Time
+    The Odyssey
+    The Divine Comedy
+Wendy Carson
+    A Wrinkle in Time
+    The Giving Tree
+...
+Problem 6 (optional/challenge) What is the most favorited book? (print the name and the number of users that like it)
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -92,20 +102,36 @@ Problem 5: What is the most favorited book? (print the name and the number of us
 
 
         //Problem 4
-        let published_dates=[]
-        for(let i=0; i<library.books.length; i++){
-            console.log(library.books[i].published)
-            published_dates.push(library.books[i].published)
-        }
-        published_dates.sort((a,b)=>a-b)
-        let earliest_year=published_dates[0]
-        for(let i=0; i<library.books.length; i++){
-            if(library.books[i].published==earliest_year){
-                let oldest_book=library.books[i].title
-                console.log(oldest_book)
+        // let published_dates=[]
+        // for(let i=0; i<library.books.length; i++){
+        //     console.log(library.books[i].published)
+        //     published_dates.push(library.books[i].published)
+        // }
+        // published_dates.sort((a,b)=>a-b)
+        // let earliest_year=published_dates[0]
+        // for(let i=0; i<library.books.length; i++){
+        //     if(library.books[i].published==earliest_year){
+        //         let oldest_book=library.books[i].title
+        //         console.log(oldest_book)
+        //     }
+        // }
+        // // console.log(library.books[0].published)
+
+        //Problem 5
+        // let book=library.users[3]
+        for(let i=0; i<library.users.length; i++){
+            // console.log(library.users[i])
+            let first_name=library.users[i].first_name
+            let last_name=library.users[i].last_name
+            console.log(first_name +" "+ last_name)
+            // console.log(library.users[i].favorite_books)
+            for(let b=0; b<library.users[i].favorite_books.length; b++){
+                let favorite_book_index=library.users[i].favorite_books[b]
+                console.log(library.books[favorite_book_index].title)
             }
+            
         }
-        // console.log(library.books[0].published)
+        
 
     </script>
 </body>
