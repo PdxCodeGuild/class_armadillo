@@ -6,22 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
 </head>
+<style>
+    #input {
+        background-color: whitesmoke;
+        color: black;
+        
+    }
+    body {
+        font-family: 'EB Garamond', serif;
+        background-color: black;
+        color: whitesmoke;
+    }
+    ul li {
+        margin-bottom: 30px;
+        font-size: large;
+    }
 
+</style>
 <body>
     <input id="input" type="text" placeholder="Enter a keyword: " />
     <button id="submit">submit</button>
 
     <div id="container">
-        <ol id="quote_list">
-        </ol>
+        <ul id="quote_list">
+        </ul>
     </div>
     <script type="text/javascript">
 
-
+        // declaring variable and assigning value from query
         let input = document.querySelector('#input')
         let submit = document.querySelector('#submit');
-        let quote_list = document.querySelector('#quote_list');
+        let quote_list = document.querySelector('#quote_list'); // not sure if this is needed
 
 
         submit.addEventListener('click', function () {
@@ -32,19 +49,19 @@
                 url: url,
                 // api key 
                 headers: { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' },
-            }).then(response => {
-                let q_data = response.data.quotes
+            }).then(response => { // handles the response
+                let q_data = response.data.quotes // declare q_data and assign it quotes in data
                 console.log(q_data)
-                for (let i = 0; i < q_data.length; ++i) {
-                    let body = q_data[i].body
+                for (let i = 0; i < q_data.length; ++i) { // iterate throught the length of q_data
+                    let body = q_data[i].body // declare body and for each increment get body from data
                     // console.log(quote)
-                    let author = q_data[i].author
+                    let author = q_data[i].author // declare author and for each increment get author from data
                     // console.log(author)
-                    let quote = `"${body}"" - ${author}`
-                    let li = document.createElement('li')
+                    let quote = `"${body}"  - ${author}` // combine body and author to make a single quote
+                    let li = document.createElement('li') // declare li and assign it a method to create new line items
                     // li.innerText = q_data[i].body
-                    li.innerText = quote
-                    quote_list.appendChild(li)
+                    li.innerText = quote // tell li what to put in the new line item
+                    quote_list.appendChild(li) // append the quote list with new line item
                     }
                 }).catch(error => {
                     console.log('Something went wrong!')
