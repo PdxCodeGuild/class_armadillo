@@ -1,10 +1,14 @@
 
 /* body */
-body {
+/* body {
   background-color: #ffff3f;
   padding-left: 20px;
   padding-right: 20px;
+} */
+.container {
+  
 }
+
 /* search bar */
 .pokeball {
   width: 60px;
@@ -96,4 +100,7 @@ input[type=text] {
     background-color: #2980b9;
     color: white;
     transform: rotateY(180deg);
+  }
+  .pagination {
+    
   }
