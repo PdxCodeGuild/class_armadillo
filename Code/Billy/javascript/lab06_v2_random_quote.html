@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kwote of the Day</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    
+    <style type="text/css">
+        .kotd {
+            color: rgb(84, 85, 85);
+            text-align: center;
+        }
+
+        #title {
+            font-size: 50px;
+            margin-bottom: 35px;
+        }
+
+        #kwote {
+            font-family: 'Roboto', sans-serif;
+            color: rgb(146, 145, 145);
+            font-size: 30px;
+            margin: 65px 50px 10px;
+        }
+
+        #author {
+            font-weight: bold;
+            font-size: 22px;
+            margin-top: 20px
+        }
+    </style>
+
+</head>
+<body>
+    <h1 class="kotd" id="title">Kool Kwotes</h1>
+    <hr>
+    <input id="input_text" type="text" size="30" placeholder="Search for kwotes by keyword..."/>
+    <button id="btn_generate">Get</button>
+    <div id="kotd_data">
+        <div id="kwote" class="kotd"></div>
+        <div id="author" class="kotd" id="author"></div>
+    </div>
+    <script>
+        let kwote = document.querySelector('#kwote')
+        let author = document.querySelector('#author')
+        let input_text = document.querySelector('#input_text')
+        let btn_generate = document.querySelector('#btn_generate')
+
+        // let url = 'https://favqs.com/api/quotes'
+
+        btn_generate.addEventListener('click', function() {
+            // let keyword = 'funny'
+            let keyword = input_text.value
+            axios({
+                method: 'get',
+                url: 'https://favqs.com/api/quotes',
+                headers: {
+                    'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'
+                },
+                params: {
+                    filter: `'${keyword}'`,
+                }             
+            })  .then((response) => {
+                console.log(response.data)
+                this.kwotes = response.data.results
+            })
+        })    
+
+    </script>  
+</body>
+</html>
+
+<!-- Lab 6: Random Quote
+Before starting, check out the doc on APIs and AJAX.
+
+Use the favqs.com api to show a random quote. Send a GET request to https://favqs.com/api/qotd, extract the relevant information, and display it on the page.
+
+Version 2
+The API also supports browsing quotes. Add an input type="text" and a search button, then use the filter query parameter to get a bunch of quotes. Then you can show those quotes in a list. In order to get authorization for this request, we need to add a request header with the authorization token.
+
+let headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
+
+Version 3 (optional)
+Add next page / previous page buttons, and the page query parameter to move between pages.-->
