@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * {
+            font-size: large;
+            font-family: 'EB Garamond', serif;
             background-color: black;
             color: aliceblue;
             margin: auto;
             width: 80%;
             border: 3px;
-            /* padding: -10px; */
             margin-top: 100px;
         }
     </style>
@@ -28,25 +30,23 @@
     </div>
 
     <script>
-
-        let output = document.querySelector('#q_output')
-
         axios({
 
             method: 'get',
+            // send a request to:
             url: 'https://favqs.com/api/qotd',
-        
-        }).then(response => {
 
-            let q_data = response.data.quote
+        }).then(response => { // handles the response
+
+            let q_data = response.data.quote    // get the data
             console.log(q_data)
-            let quote = q_data['body']
+            let quote = q_data['body']  // get body out of data
             console.log(quote)
-            let author = q_data['author']
+            let author = q_data['author'] // get author out of data
             console.log(author)
-            let qotd = `"${quote}" - ${author}`
+            let qotd = `"${quote}" - ${author}` // combine body and author to make a single quote
             console.log(qotd)
-            document.getElementById("q_output").innerText = qotd
+            document.getElementById("q_output").innerText = qotd // put the quote in the p tag
 
         }).catch(error => {
             console.log('Something went wrong!')
