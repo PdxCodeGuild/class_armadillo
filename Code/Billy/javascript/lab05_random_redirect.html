@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Redirector</title>
+    <style type='text/css'>
+    body {
+        background: #333;
+    }
+
+    .info {
+        text-align: center;
+        margin-top: 50px;
+        color: white;
+    }
+
+    /* status ellipsis */
+    .lds-ellipsis {
+        display: inline-block;
+        position: absolute;
+        left: 47%;
+        width: 64px;
+        height: 64px;
+    }
+
+    .lds-ellipsis div {
+        position: absolute;
+        top: 27px;
+        left: 500px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: #fff;
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+
+    .lds-ellipsis div:nth-child(1) {
+        left: 6px;
+        animation: lds-ellipsis1 0.6s infinite;
+    }
+
+    .lds-ellipsis div:nth-child(2) {
+        left: 6px;
+        animation: lds-ellipsis2 0.6s infinite;
+    }
+
+    .lds-ellipsis div:nth-child(3) {
+        left: 26px;
+        animation: lds-ellipsis2 0.6s infinite;
+    }
+
+    .lds-ellipsis div:nth-child(4) {
+        left: 45px;
+        animation: lds-ellipsis3 0.6s infinite;
+    }
+
+    @keyframes lds-ellipsis1 {
+        0% {
+            transform: scale(0);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes lds-ellipsis3 {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(0);
+        }
+    }
+
+    @keyframes lds-ellipsis2 {
+        0% {
+            transform: translate(0, 0);
+        }
+        100% {
+            transform: translate(19px, 0);
+        }
+    }
+    </style>
+</head>
+<body>
+<div>
+    <div class="info">
+    Redirecting to a 'new' classic car inventory in <span id="countdown">5</span>...
+    </div>
+</div>
+<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    <script>
+        let x = 5
+
+        function timer () {
+            x--  
+            let urls = [
+                "https://www.streetsideclassics.com/vehicles", 
+                "https://www.rkmotors.com/vehicles", 
+                "https://www.admcars.com/inventory.htm",
+                "https://www.volocars.com/auto-sales/vehicles",
+                "https://www.classiccarliquidators.com/inventory",
+            ]
+
+            if (x == 0) {
+                url = urls[Math.floor(Math.random() * urls.length)]
+                window.location = url
+            }        
+            countdown.innerText = x
+            }
+            
+            setInterval(function() {
+                timer();
+            }, 1000); 
+    </script>
+</body>
+</html>
+
+<!-- Lab 5: Random Redirector
+Create a page which randomly redirectly to another. Start with an array of urls (as strings), 
+and randomly pick one using Math.random(). Then redirect to the page by assigning the url to 
+window.location. Using JavaScript's timing events, show a 5-second countdown to the user. 
+When the countdown is finished, redirect to a random page.
+
+Citations:
+Status ellipsis. "spinrs" by Jay (https://codepen.io/jsamra/pen/MNmJWL). -->
