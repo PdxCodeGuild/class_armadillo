@@ -31,49 +31,40 @@ import requests
 import json
 
 
+# function prints quots
+def get_quotes(page, keyword):
+    url = f'https://favqs.com/api/quotes?page={page}&filter={keyword}'
+    headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
+    # send the request to the api
+    response = requests.get(url, headers=headers)
+    # declare a dictionary and assign it the json text
+    data = json.loads(response.text)
+    # print(data)
+
+    # iterate through the data
+    for q in data['quotes']:
+        last_page = data['last_page']
+        # for each iteration assign the value of body to quote
+        quote = q['body']
+        # and assign the value of author to the variable author
+        author = q['author']
+        # print quote and author in an f string
+        print(f'\n"{quote}" - {author}')
+
+
+page = 1  # sets the defualt to page to 1
 while True:
-  keyword = input('Enter a keyword to search for quotes: ') # prompt he user for a keyword
-  # keyword = 'meaning'  # for testing
-  page = 1 # sets the defualt to page to 1
+    # # prompt he user for a keyword
+    keyword = input('Enter a keyword to search for quotes: ')
+    # # keyword = 'meaning'  # for testing
 
+    # call function to generate quotes
+    get_quotes(page, keyword)
 
-  url = f'https://favqs.com/api/quotes?page={page}&filter={keyword}'
-  headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
-  response = requests.get(url, headers=headers) # send the request to the api
-  data = json.loads(response.text) # declare a dictionary and assign it the json text
-  # print(data)
-
-  # iterate through the data
-  number = 1
-  for q in data['quotes']:
-      # for each iteration assign the value of body to quote
-      quote = q['body']
-      # and assign the value of author to the variable author
-      author = q['author']
-      print(f'\n{number}) "{quote}" - {author}') # print quote and author in an f string
-      number += 1
-
-
-"""
-# example of how to reference elements in json
-
-this_dict = [
-{"brand": "Ford",
-  "model": "Mustang",
-  "year": 1964,
-  "color" : ['cherry_red','sky_blue', 'pine_green']
-},
-{"brand": "VW",
-  "model": "Beatle",
-  "year": 1972,
-  "color" : ['cherry_red','sky_blue', 'pine_green']
-},
-{"brand": "Buick",
-  "model": "Skylar",
-  "year": 1968,
-  "color" : ['cherry_red','sky_blue', 'pine_green']
-}
-]
-print(this_dict[0]['model'])  # would return Mustang
-print(this_dict[1]['color'][1])  # would return sky_blue
-"""
+    while True:
+        # increment the page or break to above while loop
+        page_choice = input('Continue to next page? y/n ')
+        if page_choice == 'y':  # if yes increment page and generate quotes
+            page += 1  # increment the page
+            get_quotes(page, keyword)  # call function again
+        break
