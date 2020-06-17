@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            background-color: aqua;
+            color: black;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 10px;
+        }
+
+        .outputdiv {
+            margin-top: 10px;
+        }
+
+        .outputauthor {
+            font-weight: bold;
+        }
+        li{
+            list-style: none;
+        }
+        .nextpage{
+            display: none;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote API</title>
+</head>
+
+<body>
+    <div class="header">
+        <h2>Quote API Lab</h2>
+    </div>
+
+    <input type="text" id="search_input" placeholder="search for quotes here">
+    <button id="search_button">Search</button>
+    <button id="random_button">Random Quote</button>
+
+    <div class="outputdiv">
+        <button id="nextPage" class="nextpage">next page</button>
+        <div id="output_body">
+
+        </div>
+
+        <div class="outputauthor" id="output_author">
+
+        </div>
+
+        <div class="listdiv">
+            <ul id="quote_list"></ul>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <h4> "Quotes lab" - Nick Gallo | Class_Armadillo &copy2020</h4>
+    </div>
+
+    <script>
+
+        random_button.addEventListener('click', function () {
+            let quoteUrl = 'https://favqs.com/api/qotd'
+            axios({
+                method: 'get',
+                url: quoteUrl
+            }).then((response) => {
+                let quote = response.data.quote.body
+                let author = response.data.quote.author
+                output_body.innerHTML = "\"" + quote + "\""
+                output_author.innerHTML = " - " + author
+            })
+        })
+        search_button.addEventListener('click', function () {
+            quote_list.innerHTML = ''
+            let searchWord = document.getElementById('search_input').value
+            const keys = { 'Authorization': 'Token token="6c763299abbdaf6933feb9ab32f94202"' }
+            let quoteUrl = 'https://favqs.com/api/quotes'
+            axios({
+                method: 'get',
+                url: quoteUrl,
+                headers: keys,
+                params: { 'filter': searchWord },
+            }).then((response) => {
+                
+                let listOfQuotes = response.data.quotes
+                let quoteList = document.getElementById('quote_list')
+                for (let i = 0; i < listOfQuotes.length; ++i) {
+                    let quote = listOfQuotes[i]
+                    console.log(quote)
+                    let listItem = document.createElement('li')
+                    listItem.innerHTML = '<br>' + "\"" + quote['body'] + "\"" + '<br>' + " - " + '<b>' + quote['author'] + '</b>'
+                    quote_list.appendChild(listItem)
+                }
+            })
+
+
+
+        })
+
+    </script>
+</body>
+
+</html>
