@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import Todo
+from .models import todo
 
 # Create your views here.
 def index(request):
-    List = Todo.objects.all().order_by('completed_date')
+    List = todo.objects.all().order_by('completed_date')
 
     context = {
-        'title': 'Todo',
+        'title': 'todo',
         'list': list, 
     }
 
@@ -32,4 +32,4 @@ def index(request):
         # redirect to the index value
         return HttpResponseRedirect(reverse('todo:index'))
 
-    def complete(request, todo)
+    # def complete(request)

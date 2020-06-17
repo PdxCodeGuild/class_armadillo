@@ -11,13 +11,14 @@ def index(request):
   search = ''
   if request.method =='POST':
     search = request.POST['search']
-    contact = contact.filter(Q(first_name_icontains=search))
-                            (Q(last_name_icontains=search))
-                            (Q(email_icontains=search))
-                            (Q(phone_number_icontains=search))
-                            (Q(comments_icontains=search))
+    contact = contact.filter(Q(first_name_icontains=search)
+                          |  Q(last_name_icontains=search)
+                          |  Q(email_icontains=search)
+                          |  Q(phone_number_icontains=search)
+                          |  Q(comments_icontains=search))
                             
   context = {
-    "contact" = conta
+    "contact": contact,
   }
   return HttpResponse('hello world!')
+  return render(request, 'contact/index.html',)
