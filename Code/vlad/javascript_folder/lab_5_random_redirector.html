@@ -6,6 +6,9 @@ events, show a 5-second countdown to the user. When the countdown is finished, r
 
 -->
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,10 +28,12 @@ events, show a 5-second countdown to the user. When the countdown is finished, r
         }
         /* margin: 6px 10px 30px 50px; */
         
-        #Submit {
+        #submit {
             margin: 18px 20px 60px 500px;
             font-size: xx-large;
-            width: 20%;
+            color: skyblue;
+            font-style: italic;
+            /* width: 40%; */
             border: 2px solid gray;
             padding: 8px;
             /* color: aliceblue; */
@@ -36,7 +41,7 @@ events, show a 5-second countdown to the user. When the countdown is finished, r
             /* background-color: skyblue; */
         }
         
-        #Submit:hover {
+        #submit:hover {
             background: transparent;
             border: none;
             color: rgb(5, 141, 220);
@@ -49,6 +54,10 @@ events, show a 5-second countdown to the user. When the countdown is finished, r
             background-image: url('background_url.jpeg');
             background-repeat: no-repeat;
             background-size: cover;
+        }
+        
+        #countdown {
+            color: white;
         }
     </style>
 </head>
@@ -65,24 +74,36 @@ events, show a 5-second countdown to the user. When the countdown is finished, r
 
     <p id="title">Click the Submit button below to wait 5 seconds, to be redirected to a random url.</p>
 
-    <button id="Submit" onclick="myRandomUrl()">Submit</button>
+    <button id="submit" onclick="myRandomUrl()">Submit</button>
 
+    <div id="countdown"></div>
     <script>
         urls = ['https://www.nba.com/', 'https://pdxcodeguild.com/', 'https://www.nfl.com/', 'https://www.mlb.com/', ];
 
+        let submit = document.querySelector("#submit")
+            // counter 
+            //combine the two function using the setInterval
+        let counter = 5;
+
         function myRandomUrl() {
-            setTimeout(function() {
-                random_url = Math.floor(Math.random() * 3) // generate a random number between 0-3 which match the elements on the list
-                    // window.location.href = 'https://www.nba.com/' // referring to the url
-                window.location.href = urls[random_url] // this giving the random number which pass array which provide the random url
-                    // console.log(urls[random_url])
-                    // console.log(random_url)
+            // submit.style.display = "none"
+            let redirect_url = setInterval(function() {
 
-
-            }, 5000);
+                if (counter == 0) {
+                    random_url = Math.floor(Math.random() * 3) // generate a random number between 0-3 which match the elements on the list
+                    window.location.href = urls[random_url] // this giving the random number which pass array which provide the random url
+                    clearInterval(redirect_url);
+                    // document.getElementById("countdown").innerText = counter + " Redirecting to Random URL"
+                    submit.innerText = " Redirecting to Random URL"
+                        // alert(counter)
+                } else {
+                    // document.getElementById("countdown").innerHTML = counter + " seconds remaining"
+                    submit.innerText = counter + " seconds remaining"
+                }
+                counter -= 1;
+            }, 1000);
         }
     </script>
-
 
 </body>
 
