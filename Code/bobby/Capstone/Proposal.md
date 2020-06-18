@@ -22,21 +22,21 @@ Building a Web App for users to buy pre-designed Tumblers and/or Design their ow
  Week 1.
     Mon.
     Tue.
-    Wen.
+    Wed.
     Thr.
     Fri.
     
  Week 2.
     Mon.
     Tue.
-    Wen.
+    Wed.
     Thr.
     Fri.
 
  Week 3.
     Mon.
     Tue.
-    Wen.
+    Wed.
     Thr.
     Fri.
 
