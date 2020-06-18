@@ -40,9 +40,23 @@ let headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'
             font-weight: bold;
             color: black;
             font-style: italic;
-            width: 40%;
+            width: 45%;
             border: 2px solid gray;
             padding: 8px;
+            /* color: aliceblue; */
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            /* background-color: skyblue; */
+        }
+        
+        #quote_list {
+            margin: 10px 180px 40px 100px;
+            font-size: large;
+            /* font-weight: bold; */
+            color: black;
+            font-style: italic;
+            width: 60%;
+            border: 2px solid gray;
+            padding: 20px;
             /* color: aliceblue; */
             box-shadow: 7px 7px 12px rgb(235, 6, 6);
             /* background-color: skyblue; */
@@ -79,15 +93,15 @@ let headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'
             transition: 0.5s;
             /* #simple_clock {} */
         }
-        /* body {
+        
+        body {
             background-image: url('background_search_v2.jpeg');
             background-repeat: no-repeat;
             background-size: cover;
-        } */
-        
-        #countdown {
-            color: white;
         }
+        /* #countdown {
+            color: white;
+        } */
     </style>
 </head>
 
@@ -95,6 +109,14 @@ let headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'
 
     <div> <input id="input_quote" type="text" placeholder="Search your favorite quote: "></div>
     <div><button id="btn_search" type="search"> Click Search </button></div>
+    <div>
+        <ul id="quote_list">
+            <!-- <li>list item</li> -->
+        </ul>
+    </div>
+    <span></span>
+    <!-- <div> <input id="quote_list" type="text" placeholder="List of your favorite quotes: "></div> -->
+
 
     <script>
         // Setting Query Parameters
@@ -110,6 +132,8 @@ let headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'
 
         let input_quote = document.querySelector("#input_quote") // .value for input text and .innnerText for div without input text with id
         let btn_search = document.querySelector("#btn_search")
+        let quote_list = document.querySelector("#quote_list")
+
 
 
         btn_search.addEventListener('click', function() {
@@ -128,51 +152,33 @@ let headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'
                 let quotes = response.data.quotes
                     // loop over quote and try to console log the whole quote
                     //see example from this morning of looping over an array
-                console.log(quotes)
+                    // Iterating over books object -> each 'book' is an object
+
+                for (let i = 0; i < quotes.length; i++) {
+                    let quote = quotes[i]
+                        // console.log(quote.author)
+                        // console.log(quote.body)
+
+                    let list_item = document.createElement('li')
+                        // Author  body innerHTML so I can  A little trick to add bold letter to the author I needed to add inner.HTML instead of inner.Text
+                    list_item.innerHTML = "<b>" + quote.author + " : </b> " + quote.body
+                        // list_item.innerText = quote.author
+
+                    // add li to the ul
+                    quote_list.appendChild(list_item)
+
+
+
+                }
+
+                // console.log(quotes)
             })
 
 
 
         });
-
-        // Setting Custom Request Headers
-        // Depending on the API specification, you may need to put an API key inside the headers of the request.
-
-        // axios({
-        //     method: 'get',
-        //     url: 'https://favqs.com/api/qotd',
-        //     headers: {
-        //         'x-api-key': 'api_key'
-        //     }
-        // }).then((response) => {
-        //     console.log(response.data.quote)
-        // })
     </script>
 
 </body>
 
 </html>
-
-<!-- 
-<script>
-    let author = document.querySelector('#author')
-    let body = document.querySelector('#body')
-    axios({
-            method: 'get',
-            url: 'https://favqs.com/api/qotd',
-
-        }).then((response) => {
-                let quote = response.data.quote
-                    // console.log(quote)
-                    // author.innerText = quote
-                    // body.innerText = quote
-                    // value = quote["body"]
-                    // console.log(value)
-                    //or
-                value = quote.author
-                console.log(value)
-                value2 = quote.body
-                console.log(value2)
-                    // innerText
-                author.innerText = "Author: " + value
-                body.innerText = "Quote of the Day: " + value2 -->
