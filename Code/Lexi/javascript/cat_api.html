@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="cat_api_secrets.js"></script>
+    <style>
+        /* #img_cat {
+            width:500px;
+        } */
+    </style>
+</head>
+<body>
+    <select id="select_breed"></select>
+    <button id="btn_get_image">get image</button>
+    <br/>
+
+    <!-- https://stackoverflow.com/questions/640190/image-width-height-as-an-attribute-or-in-css -->
+    <!-- https://stackoverflow.com/questions/11552380/how-to-automatically-crop-and-center-an-image -->
+    <img id="img_cat" width="500"/>
+    
+    <!-- variables are visible across scripts -->
+    <!-- <script>
+        let x = 5
+    </script>
+    <script>
+        console.log(x)
+    </script> -->
+
+
+    <script>
+
+        let select_breed = document.querySelector('#select_breed')
+        let btn_get_image = document.querySelector('#btn_get_image')
+        let img_cat = document.querySelector('#img_cat')
+        
+        // putting an api key in the querystring - v1
+        // axios({
+        //     method: 'get',
+        //     url: 'https://api.thecatapi.com/v1/breeds?api_key=' + encodeURIComponent(cat_api_key)
+        // }).then(response => {
+        //     console.log(response.data)
+        // })
+
+        // putting an api key in the querystring - v2
+        // axios will take the params and put them into the query string
+        // axios({
+        //     method: 'get',
+        //     url: 'https://api.thecatapi.com/v1/breeds',
+        //     params: {
+        //         api_key: cat_api_key
+        //     }
+        // }).then(response => {
+        //     console.log(response.data)
+        // })
+
+        // putting an api key in the request header
+        // https://docs.thecatapi.com/api-reference/breeds/breeds-list
+        axios({
+            method: 'get',
+            url: 'https://api.thecatapi.com/v1/breeds',
+            headers: {
+                'x-api-key': cat_api_key
+            }
+        }).then(response => {
+            // console.log(response.data)
+            let breeds = response.data
+            for (let i=0; i<breeds.length; ++i) {
+                // console.log(breeds[i].id)
+                // console.log(breeds[i].name)
+                // console.log()
+                let option = document.createElement('option')
+                option.value = breeds[i].id
+                option.innerText = breeds[i].name
+                select_breed.appendChild(option)
+            }
+        })
+
+        btn_get_image.addEventListener('click', function() {
+            // alert(select_breed.value)
+            let breed_id = select_breed.value
+            axios({
+                method: 'get',
+                url: 'https://api.thecatapi.com/v1/images/search',
+                params: {
+                    breed_id: breed_id
+                }
+            }).then(function(response) {
+                let image_url = response.data[0].url
+                img_cat.src = image_url
+            })
+        })
+
+    </script>
+</body>
+</html>

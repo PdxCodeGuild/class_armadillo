@@ -1,0 +1,35 @@
+
+
+# Lab 7: Weather API
+
+Let's use the [OpenWeatherMap API](https://openweathermap.org/api/one-call-api) to display a weather forecast.
+
+## Part 1: Setup
+
+First [make an account](https://openweathermap.org/register), then copy your [api key](https://home.openweathermap.org/api_keys) and put it into a `secrets.js` file in the same directory as your `lab07-weather_api.html`. Make sure `secrets.js` is in the `.gitignore` and then add it to your html file using `<script src="secrets.js"></script>`.
+
+
+## Part 2: Getting the Weather
+
+The OpenWeatherMap API requires the latitude and longitude to get the weather at a given location. To get the user's current latitude and longitude, we can use the [geolocation api](https://www.w3schools.com/html/html5_geolocation.asp). Another strategy is to use another api to get the user's IP address ([ipify](https://www.ipify.org/), and then another to get the latitude and longitude for the IP address ([ipstack](https://ipstack.com/documentation)).
+
+```javascript
+navigator.geolocation.getCurrentPosition(position => {
+    console.log(position.coords.latitude)
+    console.log(position.coords.longitude)
+})
+```
+
+Once you have the latitude and longitude, you can make the call to [OpenWeatherMap](https://openweathermap.org/api/one-call-api) to get the forecast and display the information in the page.
+
+The API gives back Unix Timestamps, which are the number of seconds passed since midnight of January 1st, 1970. You can convert them to JavaScript datetimes like so...
+
+```javascript
+let unix_timestamp = 1592482891
+let datetime = new Date(unix_timestamp*1000)
+console.log(datetime) // Thu Jun 18 2020 05:21:31 GMT-0700 (Pacific Daylight Time)
+```
+
+## Part 3: Using Icons
+
+You can use the [built-in icons](https://openweathermap.org/weather-conditions#Icon-list) or these [more minimal ones](https://websygen.github.io/owfont/).
