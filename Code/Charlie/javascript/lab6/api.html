@@ -9,45 +9,70 @@
 </head>
 
 <body>
-    <div> <input id="user_input" type="text" placeholder="Enter Key Word "></div>
-    <div><button id="btn_submit">Search</button></div>
-    <div id="quote"></div>
-    <div id="author"></div>
+    <div class="header">
+        <h2>Quote Finder</h2>
+    </div>
+
+    <input type="text" id="search_input" placeholder="Search quotes here">
+    <button id="search_button">Search</button>
+    <button id="random_button">Random Quote</button>
+
+    <div class="outputdiv">
+        <div id="output_body">
+
+        </div>
+
+        <div class="outputauthor" id="output_author">
+
+        </div>
+
+        <div class="listdiv">
+            <ul id="quote_list"></ul>
+        </div>
+
+    </div>
 
     <script>
-        let user_input = document.querySelector('#user_input')
-        let btn_submit = document.querySelector('#btn_submit')
-        let div_quote = document.querySelector('#quote')
-        let div_author = document.querySelector('#author')
-        btn_submit.addEventListener('click', function () {
-            let user_input2 = user_input.value
-            let url = `https://favqs.com/api/quotes/?filter=${user_input2}`
-            
+
+        random_button.addEventListener('click', function () {
+            let quoteUrl = 'https://favqs.com/api/qotd'
             axios({
                 method: 'get',
-                url: `https://favqs.com/api/quotes/?filter=${user_input2}`,
-                
-                headers: {
+                url: quoteUrl
+            }).then((response) => {
+                let quote = response.data.quote.body
+                let author = response.data.quote.author
+                output_body.innerHTML = "\"" + quote + "\""
+                output_author.innerHTML = " - " + author
+            })
+        })
+        search_button.addEventListener('click', function () {
+            quote_list.innerHTML = ''
+            let searchWord = document.getElementById('search_input').value
+            const keys = { 'Authorization': 'Token token="6c763299abbdaf6933feb9ab32f94202"' }
+            let quoteUrl = 'https://favqs.com/api/quotes'
+            axios({
+                method: 'get',
+                url: quoteUrl,
+                headers: keys,
+                params: { 'filter': searchWord },
+            }).then((response) => {
 
-                    'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'
-
+                let listOfQuotes = response.data.quotes
+                let quoteList = document.getElementById('quote_list')
+                for (let i = 0; i < listOfQuotes.length; ++i) {
+                    let quote = listOfQuotes[i]
+                    console.log(quote)
+                    let listItem = document.createElement('li')
+                    listItem.innerHTML = '<br>' + "\"" + quote['body'] + "\"" + '<br>' + " - " + '<b>' + quote['author'] + '</b>'
+                    quote_list.appendChild(listItem)
                 }
-            }).then(response => {
-                alert('hello world')
-                console.log(response.data.quote)
-                for (let i = 1; i < response.data.length; i++) {
-                    let quotes = repsonse.data.quote
-                    authors = text.author
-                    console.log(value)
-                    body = quote.body
-                    console.log(value2)
-                    author.innerText = writer
-                    body.innerText = body
-                }
-                console.log(response.data)
             })
 
+
+
         })
+
     </script>
 </body>
 
