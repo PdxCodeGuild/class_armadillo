@@ -4,38 +4,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quotes</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <style>
+        ul.quote_items {
+            padding-bottom: 100px;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="container">
-        <ul id="quotes"></ul>
+
+    <body>
+        <h1>Quote Search</h1>
+        <div class="head">
+            <input id="search_term" type="text" placeholder="Enter Keyword" />
+            <button id="btn_keyword_search">Get Quotes</button>
+        </div>
+
+        <div class="content">
+        </div>
+        <ul id="quote_list" class="quote_items"></ul>
+    </body>
+
+</html>
+
+<script>
+
+
+
+    btn_keyword_search.addEventListener('click', function () {
+        searchTerm = document.querySelector('#search_term').value
+        let authorization_token = { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' }
+        let url = 'https://favqs.com/api/quotes/?filter=' + searchTerm
+        axios({
+            method: 'get',
+            url: url,
+            headers: authorization_token,
+        }).then(response => {
+            quotes = response.data.quotes
+            for (let i = 0; i < quotes.length; ++i) {
+
+                let list_item = document.createElement('li')
+                list_item.innerText = (`"${quotes[i].body}" -- ${quotes[i].author}`)
+                quote_list.appendChild(list_item)
+
+
+            }
+
+        })
+    })
+</script>
+
+<!-- <div id="container">
+        <input id="keyword" type="text" placeholder="Enter Word">
+        <button id="keyword_btn">Get Quotes</button>
+        <ul id="keyword_quotes"></ul>
     </div>
 
     <script>
-        let quotes = document.querySelector('#quotes')
+        let keyword = document.querySelector('#keyword')
 
-        let url = 'https://favqs.com/api/qotd' 
+        let url = `https://favqs.com/api/quotes/filter=${keyword}`
+        console.log(url)
+        keyword_btn.addEventListener('click', function(){
+            
+            axios({
+                method: 'get',
+                url: url,
+                headers : {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'},
+                
+            }).then((response) => {
+                console.log(response.data)
+                // let new_quote = response.data.quote.body
+                // let author = response.data.quote.author
+                // console.log(new_quote)
+                // console.log(author)
+                // keyword_quotes.innerText = new_quote + '    --' + author
+            })
+        }) -->
 
 
-        axios({
-            method: 'get',
-            url: url
-        }).then((response) => {
-            console.log(response.data)
-            let new_quote = response.data.quote.body
-            let author = response.data.quote.author
-            console.log(new_quote)
-            console.log(author)
-            quotes.innerText = new_quote + '    --' + author
-        })
 
 
 
-
-
-    </script>
+</script>
 
 </body>
 
