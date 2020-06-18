@@ -13,7 +13,10 @@
 <body>
     <h1 id="clock"></h1>
     <script>
+        // Initializes variables from the webpage.
         let clock = document.querySelector("#clock")
+
+        // Gets a new date after a second has passed.
         setInterval(function(){
             let time = new Date()
             clock.innerText = time.toLocaleString()
