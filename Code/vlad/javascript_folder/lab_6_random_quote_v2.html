@@ -7,7 +7,8 @@ Before starting, check out the doc on APIs and AJAX.
 Use the favqs.com api to show a random quote. Send a GET request to https://favqs.com/api/qotd, extract the relevant information, and display it on the page.
 
 Version 2
-The API also supports browsing quotes. Add an input type="text" and a search button, then use the page and filter query parameters to get a bunch of quotes. Then you can show those quotes in a list.
+The API also supports browsing quotes. Add an input type="text" and a search button, then use the page and filter query parameters to get a 
+bunch of quotes. Then you can show those quotes in a list.
 
 In order to get authorization for this request, we need to add a request header with the authorization token.
 
@@ -16,12 +17,168 @@ let headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Lab 6: Random Quote V2</title>
+    <style>
+        #title {
+            margin: 18px 20px 60px 400px;
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            width: 57%;
+            font-size: large;
+            color: white;
+        }
+        /* margin: 6px 10px 30px 50px; */
+        
+        #input_quote {
+            margin: 60px 180px 40px 100px;
+            font-size: x-large;
+            font-weight: bold;
+            color: black;
+            font-style: italic;
+            width: 45%;
+            border: 2px solid gray;
+            padding: 8px;
+            /* color: aliceblue; */
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            /* background-color: skyblue; */
+        }
+        
+        #quote_list {
+            margin: 10px 180px 40px 100px;
+            font-size: large;
+            /* font-weight: bold; */
+            color: black;
+            font-style: italic;
+            width: 60%;
+            border: 2px solid gray;
+            padding: 20px;
+            /* color: aliceblue; */
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            /* background-color: skyblue; */
+        }
+        
+        #btn_search {
+            margin: 18px 20px 60px 100px;
+            font-size: bold x-large;
+            font-weight: bold;
+            color: black;
+            font-style: italic;
+            /* width: 40%; */
+            border: 2px solid gray;
+            padding: 8px;
+            /* color: aliceblue; */
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            /* background-color: skyblue; */
+        }
+        
+        #input_quote:hover {
+            background: transparent;
+            border: none;
+            color: black;
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            transition: 0.5s;
+            /* #simple_clock {} */
+        }
+        
+        #btn_search:hover {
+            background: transparent;
+            border: none;
+            color: white;
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            transition: 0.5s;
+            /* #simple_clock {} */
+        }
+        
+        body {
+            background-image: url('background_search_v2.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /* #countdown {
+            color: white;
+        } */
+    </style>
 </head>
+
 <body>
-    
+
+    <div> <input id="input_quote" type="text" placeholder="Search your favorite quote: "></div>
+    <div><button id="btn_search" type="search"> Click Search </button></div>
+    <div>
+        <ul id="quote_list">
+            <!-- <li>list item</li> -->
+        </ul>
+    </div>
+    <span></span>
+    <!-- <div> <input id="quote_list" type="text" placeholder="List of your favorite quotes: "></div> -->
+
+
+    <script>
+        // Setting Query Parameters
+        // You can set query parameters using string concatenation or by setting the params property. Just remember that if you use string concatenation, you may have to use encodeURIComponent if the value has special characters in it. If you use params with Axios, it will automatically encode your parameters for you.
+
+        // let business_name = 'Schmitt & Associates'
+        // let url1 = "http://example.com/?business=" + business_name
+        // let url2 = "http://example.com/?business=" + encodeURIComponent(business_name)
+        // console.log(url1) // INVALID: http://example.com/?business=Schmitt & Associates
+        // console.log(url2) // VALID: http://example.com/?business=Schmitt%20%26%20Associates
+        // The code below sends the request to https://opentdb.com/api.php?amount=10&category=18&difficulty=easy
+
+
+        let input_quote = document.querySelector("#input_quote") // .value for input text and .innnerText for div without input text with id
+        let btn_search = document.querySelector("#btn_search")
+        let quote_list = document.querySelector("#quote_list")
+
+
+
+        btn_search.addEventListener('click', function() {
+            axios({
+                method: 'get',
+                url: 'https://favqs.com/api/quotes',
+                params: {
+                    filter: input_quote.value
+
+                },
+                headers: {
+                    'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'
+                }
+            }).then((response) => {
+
+                let quotes = response.data.quotes
+                    // loop over quote and try to console log the whole quote
+                    //see example from this morning of looping over an array
+                    // Iterating over books object -> each 'book' is an object
+
+                for (let i = 0; i < quotes.length; i++) {
+                    let quote = quotes[i]
+                        // console.log(quote.author)
+                        // console.log(quote.body)
+
+                    let list_item = document.createElement('li')
+                        // Author  body innerHTML so I can  A little trick to add bold letter to the author I needed to add inner.HTML instead of inner.Text
+                    list_item.innerHTML = "<b>" + quote.author + " : </b> " + quote.body
+                        // list_item.innerText = quote.author
+
+                    // add li to the ul
+                    quote_list.appendChild(list_item)
+
+
+
+                }
+
+                // console.log(quotes)
+            })
+
+
+
+        });
+    </script>
+
 </body>
+
 </html>
