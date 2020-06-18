@@ -22,6 +22,11 @@ navigator.geolocation.getCurrentPosition(position => {
 
 Once you have the latitude and longitude, you can make the call to [OpenWeatherMap](https://openweathermap.org/api/one-call-api) to get the forecast and display the information in the page.
 
+
+`https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&
+exclude=hourly,daily&appid={YOUR API KEY}`
+
+
 The API gives back Unix Timestamps, which are the number of seconds passed since midnight of January 1st, 1970. You can convert them to JavaScript datetimes like so...
 
 ```javascript
@@ -32,4 +37,21 @@ console.log(datetime) // Thu Jun 18 2020 05:21:31 GMT-0700 (Pacific Daylight Tim
 
 ## Part 3: Using Icons
 
-You can use the [built-in icons](https://openweathermap.org/weather-conditions#Icon-list) or these [more minimal ones](https://websygen.github.io/owfont/).
+We can display an icon representing the current weather, below is the data from the api, note the `icon` property.
+
+```json
+{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}
+```
+
+OpenWeatherMap provides their own [icons](https://openweathermap.org/weather-conditions#Icon-list) you can use by taking the `icon` property in the response from the api and building a url. The url can then be the `src` attribute of an `img` element.
+
+```html
+<img src="http://openweathermap.org/img/wn/04d.png"/>
+```
+
+There are also these [more minimal icons](https://websygen.github.io/owfont/). Checkout the [usage section](https://websygen.github.io/owfont/#usage) for how to use them; download the zip file, extract file `owfont-regular.css` and put it next to your `html` file, and include it in your html. Then you can use an `i` element to display the icon. For these, you'll need to use the `id` property of the weather data.
+
+```html
+<i class="owf owf-800-d"></i>
+```
+
