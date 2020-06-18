@@ -1,0 +1,73 @@
+
+<!--mistakes: 1. put headers within curlies - if I had provided the secrets.js without it, then no 401 request - 
+Sam helped me resolve this issue -->
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>quotes</title>
+    <style>
+      body {
+        background-color: #0080ff;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: xx-large;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="secrets.js"></script>
+    <link rel="shortcut icon" href="static/quote.png" />
+  </head>
+  <body>
+    <h1>Quotes Generator</h1>
+    <input id="keyword" type="text" placeholder="Enter keyword to search" />
+    <button id="btn_search" type="search">Search Quotes</button>
+    <h2>
+        <ul id = "list_of_quotes">
+            <!--from line 63 and 60-->
+        </ul>
+    </h2>
+    <script>
+        // link elements to JS code
+        let btn_search = document.querySelector("#btn_search");
+        let keyword = document.querySelector("#keyword");
+
+
+    btn_search.addEventListener('click', function(){
+
+   
+      axios({
+        method: "get",
+        url: 'https://favqs.com/api/quotes',
+
+        params: {
+            filter: keyword.value
+        },
+        headers: 
+          api_key,
+        
+      }).then((response) => {
+        // how to access AJAX
+        let quotes = response.data.quotes;
+
+        console.log(quotes)
+        // prints out objects
+
+        //iterate over quotes
+        for(let i = 0; i <quotes.length; i++){
+            let quote = quotes[i]
+            let quote_in_list = document.createElement('li')
+            quote_in_list.innerText = `${quote.author} said ${quote.body}`
+
+            list_of_quotes.appendChild(quote_in_list)
+        }
+
+      });
+
+    })
+    </script>
+  </body>
+</html>
+
+<!--Ajax, web applications can send and retrieve data from a server asynchronously (in the background) without interfering with the display and behavior of the existing page. By decoupling the data interchange layer from the presentation layer, Ajax allows web pages and, by extension, web applications, to change content dynamically without the need to reload the entire page.[3] In practice, modern implementations commonly utilize JSON instead of XML.-->
