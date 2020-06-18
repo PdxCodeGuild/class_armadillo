@@ -7,6 +7,20 @@
     <title>Quotes</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <style>
+        body {
+            background-color: burlywood;
+            
+        }
+        h1 {
+            font-family: fantasy;
+            
+        }
+        div {
+            text-align: center;
+        }
+        ul {
+            font-size: 21px;
+        }
         
     </style>
 </head>
@@ -14,14 +28,14 @@
 <body>
 
 
-    <h1>Quote Search</h1>
     <div class="head">
-        <input id="search_term" type="text" placeholder="Enter Keyword" />
+        <h1>Quote Search</h1>
+        <input id="keyword" type="text" placeholder="Enter Keyword" />
         <button id="btn_keyword_search">Get Quotes</button>
     </div>
 
     
-    <ul id="quote_list"></ul>
+    <ul id="quote_list" class="quotes"></ul>
 
 
 
@@ -31,9 +45,9 @@
 
 
         btn_keyword_search.addEventListener('click', function () {
-            searchTerm = document.querySelector('#search_term').value
+            keyword = document.querySelector('#keyword').value
             let authorization_token = { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' }
-            let url = 'https://favqs.com/api/quotes/?filter=' + searchTerm
+            let url = 'https://favqs.com/api/quotes/?filter=' + keyword
             axios({
                 method: 'get',
                 url: url,
