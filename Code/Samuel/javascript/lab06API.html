@@ -23,26 +23,35 @@
         </div>
     <ul id="list_of_quotes"></ul>
     <script>
+
+        // Initializes variables from the webpage.
         let quote = document.querySelector("#quote")
         let author = document.querySelector("#author")
         let search = document.querySelector("#search")
         let list_of_quotes = document.querySelector("#list_of_quotes")
 
+        // Gets the Quote of the day API from favqs.
         axios({
             method: 'get',
             url: 'https://favqs.com/api/qotd'
+
+        // Displays a random quote and its author.
         }).then((response) => {
             quote.innerText = response.data["quote"]["body"]
             author.innerText = "-" + response.data["quote"]["author"]
         })
 
+        // Checks to see if the user clicks the submit button
         btn_submit_info.addEventListener('click', function(event){
+
+            // Gets the API request from the website based on what was submited by the user.
             axios({
                 method: 'get',
                 url: `https://favqs.com/api/quotes?page=1&filter=${encodeURIComponent(search.value)}`,
                 headers: {
                     'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'
                 }
+            // Displays the first page of quotes to the user.
             }).then((response) => {
                 let data = response.data["quotes"]
                 console.log(data)
