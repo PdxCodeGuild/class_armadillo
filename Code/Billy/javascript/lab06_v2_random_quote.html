@@ -37,17 +37,19 @@
     <hr>
     <input id="input_text" type="text" size="30" placeholder="Search for kwotes by keyword..."/>
     <button id="btn_generate">Get</button>
-    <div id="kotd_data">
+    <!-- <div id="kotd_data">
         <div id="kwote" class="kotd"></div>
         <div id="author" class="kotd" id="author"></div>
+    </div> -->
+    <div id="kwote_list">
     </div>
+    <!-- <div id="kwote_author">
+    </div> -->
     <script>
-        let kwote = document.querySelector('#kwote')
-        let author = document.querySelector('#author')
+        let kwote_list = document.querySelector('#kwote_list')
+        // let author = document.querySelector('#kwote_author')
         let input_text = document.querySelector('#input_text')
         let btn_generate = document.querySelector('#btn_generate')
-
-        // let url = 'https://favqs.com/api/quotes'
 
         btn_generate.addEventListener('click', function() {
             // let keyword = 'funny'
@@ -66,8 +68,18 @@
                     let kwote_ = kwotes[i].body
                     let author_ = kwotes[i].author
                     console.log(author_)
-                    kwote.innerText = '"' + kwote_ + '"'
-                    author.innerText = author_     
+
+                    let div_1 = document.createElement('div')
+    
+                    let div_kw = document.createElement('div')  
+                    div_kw.innerText = '"' + kwote_ + '"'
+                    div_1.appendChild(div_kw)
+                    
+                    let div_auth = document.createElement('div')
+                    div_auth.innerText = author_   
+                    div_1.appendChild(div_auth) 
+
+                    kwote_list.appendChild(div_1)
                 }     
             })
         })    
