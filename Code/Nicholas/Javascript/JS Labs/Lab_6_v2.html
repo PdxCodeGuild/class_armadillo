@@ -2,17 +2,57 @@
 <html lang="en">
 
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quote API</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <style>
+        #header_stuff {
+            margin: 0 auto;
+            max-width: 800px;
+            text-align: center;
+            padding: 30px;
+        }
+
+        ul {
+            list-style-type: none;
+            font-family: 'Open Sans', sans-serif;
+        }
+        li {
+            padding: 20px;
+            margin:20px;
+            font-size:16px;
+        }
+        img{max-width:100px;
+        }
+        button{color:black;
+            font-size:24px;
+            background-color: chartreuse;
+            border-radius:5%;
+            }
+        button:hover{background-color: white;
+        }
+        input{font-size:24px;
+        border-radius:5%;
+        }    
+        h1, h2, button, footer{font-family: 'Balsamiq Sans', cursive;
+        }
+        h1{font-size: 48px;}
+    </style>
 </head>
 
 <body>
-    <input id="quote_keyword" type="text" placeholder="Enter Keyword">
-    <ul id="quotes_list"></ul>
-    <button id="search_quotes" type="button">Search Quotes</button>
-
+    <main id="header_stuff">
+        <h1>QUOTR</h1>
+        <img src="https://www.freelogodesign.org/file/app/client/thumb/dcb2eebf-ae3a-4eaf-9d0b-c1689643b2a6_200x200.png?1592427475927" alt=smiley_logo>
+        <h2>Enter a keyword to search for relevant quotes:</h2>
+        <input id="quote_keyword" type="text" placeholder="Enter Keyword">
+        <button id="search_quotes" type="button">Search Quotes</button>
+        <ul id="quotes_list"></ul>
+        <footer>Quotes API by <a href=https://favqs.com/api>FavQs</footer>
+    </main>
     <div id="generate_quotes"></div>
     <script>
         search_quotes.addEventListener('click', function () {
@@ -27,10 +67,11 @@
             }).then((response) => {
                 console.log(response.data)
                 let quotes = response.data.quotes
-                for (let i = 0; i < quotes; i++) {
+                for (let i = 0; i < quotes.length; i++) {
                     let li = document.createElement("li")
                     quotesList.appendChild(li)
-                    li.innerText =
+                    li.innerText = (`"${quotes[i].body}" 
+                                    -${quotes[i].author}`)
                 }
             })
 
