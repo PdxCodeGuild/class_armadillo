@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 05</title>
+    <title>Lab 05 Redirector</title>
 
 </head>
 <body>
@@ -18,15 +18,16 @@
         ]
 
         function selfDestruct() {
-            let countdown === 6;
+            let countdown = 6; // set countdown
             setInterval (function(){
-                if (countdown > 0){
-                    countdown -= 1
+                if (countdown == 0){
+                    
+                    let newSite = links[Math.floor(Math.random() * links.length)] // declare variable for random links
+                    window.location.assign(newSite)
                 }
-
-            let newSite = links[Math.floor(Math.random() * links.length)]
-            window.location.assign(newSite)
-
+                else {
+                }
+                countdown -= 1 //decrement by 1 each 1000 miliseconds
             }, 1000)       
             
         }
