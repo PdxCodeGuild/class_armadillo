@@ -1,8 +1,9 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <title>Lab 06 - Quotes API</title>
 
 </head>
@@ -10,8 +11,24 @@
     <h2>Quotes API Lab - Javascript Version</h2>
     <div id="quotes">
         <script type="text/javascript">
+            let link = 'https://favqs.com/api/qotd'         
+            
 
+            axios({
+                method: 'get',
+                url: link,
+                // v2 requires Token
+                // headers: { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' },
 
+            }).then(response => { 
+            console.log(response.data)
+
+            let quote = response.data.quote.body;
+            let author = response.data.quote.author;
+
+            let quotes = document.querySelector('#quotes')    
+            quotes.innerHTML = `${quote} - ${author}`
+            })
         </script>
     </div>
 
