@@ -10,7 +10,7 @@ unit = {
 
 
 
-num = int(input("what is the distance in meters7?: "))
+num = int(input("what is the distance in meters?: "))
 
 measurement = input("what unit of measurement would you like to convert your number to?: ")
 

@@ -86,7 +86,7 @@ btn_search_quote.addEventListener('click', function () {
     let quoteList = document.querySelector('#quote_list')
     let quoteHeader = document.querySelector('#quote_header')
     let authorization = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
-    let url = 'https://favqs.com/api/quotes/?filter='+ searchTerm
+    let url = 'https://favqs.com/api/quotes/?filter='+ encodeURIComponent(searchTerm)
     axios({
         method: 'get',
         url: url,
