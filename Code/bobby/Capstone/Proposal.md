@@ -7,6 +7,7 @@ Building a Web App for users to buy pre-designed Tumblers and/or Design their ow
 1. Main Page: User can view previously made Tumblers (most likley using a Carousel). With a navigational bar at the top
 
 2. Views: I will have diffrent Views accessed from a drop down menu.
+
  1 will go to the Pre-Made section where the user can select from stock designs with images of all sides of each tumbler, with pricing, and an advisment stating that final product might slightly differ from the image(as to no two hand made tumblers are the exact same). 
 
  2 another view will go to the customazation are where the user will be able to select background, images, effects) and see what it will look like all together. Again with a notice that design might slightly differ from what is shown.
