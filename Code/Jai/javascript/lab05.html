@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab05 redirector</title>
+</head>
+
+<body>
+    <script>
+
+
+
+        setTimeout(function () {
+            list_urls = [
+                "https://www.youtube.com/watch?v=MCkTebktHVc",
+                "https://www.reddit.com/",
+                "https://portland.craigslist.org/",
+
+
+            ];
+
+            let random_variable = list_urls[Math.floor(Math.random() * list_urls.length)];
+            console.log(random_variable)
+            window.location.replace(random_variable),5000 
+        })
+
+            
+
+
+
+
+    </script>
+</body>
+
+</html>
