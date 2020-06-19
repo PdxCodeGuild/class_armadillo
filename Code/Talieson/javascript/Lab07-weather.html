@@ -1,23 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
     <script src="secrets.js"></script>
     <title>Weather</title>
 </head>
-<body>
-    <script>
-        var user_lat
-        var user_long
-    navigator.geolocation.getCurrentPosition(position => {
-        user_lat = position.coords.latitude
-        user_lon = position.coords.longitude
-    })
-    console.log(user_lat)
-    let url = (`"https://api.openweathermap.org/data/2.5/onecall?lat=${user_loc[0]}&lon=${user_loc[1]}&exclude={part}&appid=${weather_api_key}"`)
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
 
-    console.log(url)
-</script>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #9fc6ec;
+        height: 100vh;
+    }
+
+    .card {
+        width: 60vw;
+        height: 40vw;
+        background-color: #061A40;
+        box-shadow: 0 0 1vw #061A40;
+        border-radius: .3vw;
+        color: #fff;
+        font-family: 'Raleway', sans-serif;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 3%;
+    }
+
+    .header {
+        align-self: flex-start;
+        height: 15%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 2vw;
+    }
+
+    .blocks {
+        height: 85%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 2%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .block-right {
+        width: 40%;
+        height: 100%;
+        background-color: #0353A4;
+        box-shadow: 0 0 10px #0353A4;
+        border-radius: .4vw;
+        display: flex;
+        font-size: 2vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .block-left {
+        width: 55%;
+        height: 100%;
+        background-color: #006DAA;
+        box-shadow: 0 0 10px #006DAA;
+        border-radius: .4vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        font-size: 2vw;
+        font-weight: 600;
+        box-sizing: border-box;
+        padding: 2%;
+    }
+
+    .block-left span:not(:last-child) {
+        margin-bottom: 2vw;
+    }
+
+    .right-img {
+        width: 100%;
+        filter: drop-shadow(0 0 5px #000);
+    }
+
+    .temp {
+        font-size: 3em;
+    }
+
+    .detail {
+        font-size: 1.2em;
+        opacity: .7;
+
+    }
+
+    
+</style>
+
+<body>
+    <div class="card">
+        <div class="header">
+            <span id="weather_location"></span>
+            <span id="weather_date"></span>
+        </div>
+        <div class="blocks">
+            <div class="block-left">
+                <span class="temp" id="weather_temp"></span>
+                <span class="detail" id="weather_precipitation"></span>
+                <span class="detail" id="weather_humidity"></span>
+            </div>
+            <div class="block-right">
+                <img class="right-img" id="weather_img" src="">
+                <span class="detail" id="weather_description"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        var weatherDescription = document.querySelector('#weather_description')
+        var weatherLocation = document.querySelector('#weather_location')
+        var weatherDate = document.querySelector('#weather_date')
+        var weatherPrecipitation = document.querySelector('#weather_precipitation')
+        var weatherTemp = document.querySelector('#weather_temp')
+        var weatherHumidity = document.querySelector('#weather_humidity')
+        var weatherImg = document.querySelector('#weather_img')
+
+        icons = {
+            "01d": "day.svg", 	
+            "01n": "night.svg",
+ 	        "02n": "cloudy-night-1.svg", 	 
+ 	        "03n": "cloudy-night-2.svg", 	 
+ 	        "04n": "cloudy-night-3.svg", 	 
+ 	        "09n": "rainy-5.svg",
+            "10n": "rainy-6.svg",
+            "11n": "thunder.svg",
+            "13n": "snowy-6-svg",
+            "50n": "cloudy.svg",
+            "02d": "cloudy-day-1.svg",
+            "03d": "cloudy-day-2.svg",
+            "04d": "cloudy-day-3.svg",
+            "09d": "rainy-2.svg",
+            "10d": "rainy-3.svg",
+            "11d": "thunder.svg",
+            "13d": "snowy-3-svg",
+            "50d": "cloudy.svg",
+        }
+
+
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+
+        today = mm + '.' + dd + '.' + yyyy;
+        weatherDate.innerText = today
+        navigator.geolocation.getCurrentPosition(position => {
+            let user_lat = position.coords.latitude
+            let user_lon = position.coords.longitude
+            const user_loc = [user_lat, user_lon]
+            var position_url = (`http://api.positionstack.com/v1/reverse?access_key=${position_api_key}&query=${user_loc[0]},${user_loc[1]}`)
+            axios({
+                method: 'get',
+                url: position_url,
+            }).then(response => {
+                let location = (`Weather in ${response.data.data[0].locality}, ${response.data.data[0].region_code}`)
+                weatherLocation.innerText = location
+                console.log(location)
+
+                var weather_url = (`https://api.openweathermap.org/data/2.5/onecall?lat=${user_loc[0]}&lon=${user_loc[1]}&exclude=hourly,daily&appid=${weather_api_key}`)
+                axios({
+                    method: 'get',
+                    url: weather_url,
+                }).then(response => {
+                    console.log(response.data)
+                    let kelvTemp = response.data.current.temp
+                    let fahrTemp = ((kelvTemp - 273.15) * 1.8 + 32).toFixed(1)
+                    weatherTemp.innerText = (`${fahrTemp}°F`)
+                    imgSource = icons[response.data.current.weather[0].icon]
+                    console.log(imgSource)
+                    weatherImg.src = (`./Lab07-icons/${imgSource}`)
+                    console.log(weatherImg.src)
+                    weatherHumidity.innerText = (`Humidity: ${response.data.current.humidity}%`)
+                    weatherDescription.innerText = response.data.current.weather[0].description
+                    weatherPrecipitation.innerText = (`Precipitation: ${response.data.minutely[0].precipitation}%`)
+                })
+            })
+        })
+
+
+    </script>
 </body>
+
 </html>
