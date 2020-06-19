@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="secrets.js"></script>
+    <link rel="stylesheet" type="text/css" href="weather.css"/>
+    <title>Weather Data</title>
+</head>
+<h1>Weather over the next 7 days</h1>
+<div id="weather"></div>
+<body>
+    <script>
+        let lat = "45.520012"
+        let lon = "-122.936584"
+        let weather = document.querySelector("#weather")
+        let months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+        function setPosition(position){
+            lat = position.coords.lat
+            lon = position.coords.lon
+        }
+
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(setPosition)
+        }
+
+        axios({
+            method: "get",
+            url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly&appid=${api_key}`
+        }).then((response) => {
+            console.log(response.data)
+            data = response.data
+            for(let i = 0; i < data['daily'].length; i++){
+                let div = document.createElement("div")
+                let innerDate = document.createElement("div")
+                let innerTempImg = document.createElement("img")
+                let tempElement = document.createElement("a")
+
+                let date = new Date(data['daily'][i]['dt']*1000)
+                let temp = Math.floor(data['daily'][i]['temp']['day']-273)
+                let weatherType = data['daily'][i]['weather'][0]['main']
+
+                div.className = "card"
+                innerDate.className = "card-body"
+                tempElement.className = "card-body"
+
+                div.id = "weather-card"
+                innerDate.id = "date-text"
+                tempElement.id = "temp-text"
+                innerTempImg.id = "weather-image"
+
+                if(temp >= 30){
+                    tempElement.style.color = "red"
+                } else if (temp >= 27) {
+                    tempElement.style.color = "orangered"
+                } else if (temp >= 24) {
+                    tempElement.style.color = "orange"
+                }else if (temp >= 21) {
+                    tempElement.style.color = "goldenrod"
+                }else if (temp >= 18) {
+                    tempElement.style.color = "yellow"
+                }else if (temp >= 15) {
+                    tempElement.style.color = "yellowgreen"
+                }else if (temp >= 12) {
+                    tempElement.style.color = "green"
+                }else if (temp >= 9) {
+                    tempElement.style.color = "cyan"
+                }else if (temp >= 6) {
+                    tempElement.style.color = "blue"
+                }else if (temp >= 3) {
+                    tempElement.style.color = "purple"
+                }else{
+                    tempElement.style.color = "white"
+                }
+
+                if(weatherType == "Rain"){
+                    innerTempImg.src = "http://openweathermap.org/img/wn/09d@2x.png"
+                }else if(weatherType == "Snow"){
+                    innerTempImg.src = "http://openweathermap.org/img/wn/13d@2x.png"
+                }else if(weatherType == "Clouds"){
+                    innerTempImg.src = "http://openweathermap.org/img/wn/03d@2x.png"
+                }else{
+                    innerTempImg.src = "http://openweathermap.org/img/wn/01d@2x.png"
+                }
+
+                tempElement.innerText = temp + "°C"
+                innerDate.innerText = months[date.getMonth()] + " " + date.getDate()
+                div.appendChild(innerTempImg)
+                div.appendChild(tempElement)
+                div.appendChild(innerDate)
+                weather.appendChild(div)
+            }
+        })
+    </script>
+</body>
+</html>

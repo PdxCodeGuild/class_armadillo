@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let credit_card(validate) => {
+
+
+        // convert the input string into a list of ints
+        card = list(card)
+        for(let i=0; i<arr.length; ++i) {
+            validate[i] = f(validate[i])
+
+        // slice of the last digit.  THis is the check digit.  
+        checkDigit = card.pop(-1)
+    
+        //  reverse the digits
+            card.reverse()
+
+
+        // double every other element in the reverse list.
+            for i in range(0, len(card)), 2):
+                card[i] * = 2
+
+        // subtract nine from numbers over nine.
+
+        for(let i=0; i<arr.length; ++i) {
+            if card[i] > 9:
+                card[i] -= 9
+        }
+
+        
+        
+        // sum all values
+        card_sum = 0
+        for(let i=0; i<arr.length; ++i) {
+            card_sum += card[i]
+        }
+         
+
+        // Take the second digit of that sum.
+        
+        //  If that matches the check digit, the whole card number is valid.
+            if card_sum == check_digit:
+                return true
+            else:
+                return false
+
+        is_valid = validate_cc()
+        print(validate_cc)
+        
+        console.log
+        }
+    }
+</script>
+</body>
+</html>

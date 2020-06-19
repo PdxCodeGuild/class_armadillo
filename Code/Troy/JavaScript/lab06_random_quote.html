@@ -33,20 +33,34 @@
         let multiple_quotes = document.querySelector("#multiple_quotes");
 
         let quote_url = "https://favqs.com/api/qotd"
+        axios({
+            method: 'get',
+            url: quote_url,
+            params: {filter: search.value},
+            headers: { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' }
+        }).then(response => {
+            // let text = response.data.text[""];
+            let quote = response.data.quote.body;
+            let author = response.data.quote.author;
+
+            get_quote.innerText = quote
+            get_author.innerText = author
+        }
+        )
         btn_search.addEventListener('click', function () {
             axios({
-                method: 'get',
+                method: "get",
                 url: quote_url,
+                param: search_text.value,
                 headers: { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' }
+
             }).then(response => {
-                // let text = response.data.text[""];
                 let quote = response.data.quote.body;
                 let author = response.data.quote.author;
-
                 get_quote.innerText = quote
                 get_author.innerText = author
-            }
-            )
+                let quotes = response.data.quote.b
+            })
         })
     </script>
 
