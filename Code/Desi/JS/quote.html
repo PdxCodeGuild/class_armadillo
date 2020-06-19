@@ -3,62 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<script> src = 'https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axiom.min.js'</script>
+    <title>Quote Gen</title>
+<!-- <script> src = 'https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js'</script> -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <div id='container'>
-        <ul id='pokelist'>
-        </ul>
-        <div id='pokedata'>
-            <div id='div_name'>pichu</div>
-            <img id='img_front' src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png"/>
-        </div>
+    <div>
+    <h1>Simple Quote Gen</h1>
+    <div id='quoteDisplay'></div>
+    <button onclick="newQuote()">NewQuote</button>
+    <div id='Author'></div>
+    <div id='body'></div> 
+    <div id='div_output'></div>
     </div>
     <script>
-    let random_quote = document.querySelector('#random_quote')
-    let url = 'https://favqs.com/api/qotd'
+        let random_quote = document.querySelector('#random_quote')
+        let url = 'https://favqs.com/api/qotd'
+        let div_output = document.querySelector('#div_output')
+    
+        div_output.innerText = url
+    // document.getElementById('quoteDisplay').innerHTML = url
+
     // javasscripts  - asynchronous, code will keep running and NOT wait for response
         //  similar to python's response, request.get, json.loads
-    // axios({
-    //     method:'get',
-    //     url: 'https://pokeapi.co/api/v2/pokemon?limit=100'
-    // }).then(response => {
-        // console.log(response.data)
+    axios({
+        method:'get',
+        url: url
+    }).then(response => {
+        console.log(response.data)
 
-
-        // I just want to see it work first before i change it =-)
-        let pokelist = document.querySelector('#pokelist')
-        let div_name = document.querySelector('#div_name')
-        let img_front = document.querySelector('#img_front')
-
-        // send an http request to get a list of pokemon
-        let ur = 'https://pokeapi.co/api/v2/pokemon?limit-100'
-        axios({
-            method: 'get',
-            url: 'https://pokeapi.co/api/v2/pokemon?limit=100'
-        }).then(response => {
-            console.log(response.data)
-            let pokemon = response.data.results
-            for (let i=0; i<pokemon.length; ++i) {
-                let li = document.createElement('li')
-                li.innerText = pokemon[i].name
-                pokelist.appendChild(li)
-
-                li.addEventListener('click', function() {
-                    axios({
-                        method: 'get',
-                        url: pokemon[i].url
-                    }).then(response => {
-                        let name = response.data.name
-                        let img_url = response.data.sprintes.front_default
-                        div_name.innerText = name[0].toUpperCase() + name.slice(1, name.length)
-                        img_front.src = img_url
-                    })
-                })
-            } 
-            
-        })
+    })
 
         // let ajax_quote = response.data.results
         // for (let i=0; i<ajax_quote.length; ++i) {
