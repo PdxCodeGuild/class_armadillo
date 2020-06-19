@@ -10,29 +10,46 @@
 <body>
     <button id="btn_get_weather">get weather</button>
     <br/>
+    <div id="output_div1"></div>
     <!-- <img id="img_weather"/> -->
 
     <script>
-
+        // declaring variables and assigning value from query
         let btn_get_weather = document.querySelector('#btn_get_weather')
         let img_weather = document.querySelector('#img_weather')
 
-    
-        navigator.geolocation.getCurrentPosition(position => {
-            let latitude = position.coords.latitude
-            console.log(latitude)
-            let longitude = position.coords.longitude
-            console.log(longitude)
+        
+        btn_get_weather.addEventListener('click', function () {
 
-            // let url = 'https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,daily&appid={YOUR API KEY}'
-            // let url = 'https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid='
-            let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${open_weather_api}`
+            // get the users current latitude and longitude
+            navigator.geolocation.getCurrentPosition(position => {
+                // declare and assign variables for latitude and longitude
+                let latitude = position.coords.latitude
+                // console.log(latitude)
+                let longitude = position.coords.longitude
+                // console.log(longitude)
     
-            axios({
-                method: 'get',
-                url: url,
-            }).then(response => {
-                console.log(response.data)
+
+                // combine the openweather url w/ lat, lon, and api key in a template literal
+                // assign it to the declared variable url
+                let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${open_weather_api}&units=imperial`
+    
+        
+                axios({
+                    method: 'get',
+                    url: url,
+                }).then(response => {
+                    console.log(response.data)
+                    let current_data = response.data.current
+                    console.log(current_data)
+                    let current_temp = current_data.temp
+                    console.log(current_temp)
+                    document.getElementById("output_div1").innerHTML = `The current temperature is ${current_temp} degrees fahrenheit`
+
+                }).catch(error => {
+                    console.log('something went wrong!')
+                })
+    
             })
 
         })

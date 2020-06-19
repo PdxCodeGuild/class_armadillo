@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <script src='secrets.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <style>
+        #Get_Weather_Forecast {
+
+        }
+    </style>
+</head>
+<body>
+    <button type="button">Get Weather Forecast</button>
+    <script>
+
+    let btn_get_weather = document.querySelector('#Get_Weather_Forecast')
+    
+
+    
+    navigator.geolocation.getCurrentPosition(position => {
+        let lat = position.coords.latitude
+        let long = position.coords.longitude
+    
+
+        axios({
+        method: 'get',
+        url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude={part}&appid=${weather_api_key}`,
+        }).then((response) => {
+            let anchorage = response.data
+            console.log(anchorage)
+            let temp = anchorage.current.temp
+        })
+    })
+    </script>
+</body>
+</html>
