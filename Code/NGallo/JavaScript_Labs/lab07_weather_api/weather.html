@@ -5,6 +5,8 @@
     <style>
 
     </style>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="secrets.js"> </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather API</title>
@@ -21,6 +23,20 @@
         <h4>Nick Gallo | Class_Armadillo &copy2020</h4>
     </div>
     <script>
+        navigator.geolocation.getCurrentPosition(position => {
+            let userLatitude = position.coords.latitude
+            let userLongitude = position.coords.longitude
+            let userCoords = [userLatitude, userLongitude]
+        
+            let urlApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${userLatitude}&lon=${userLongitude}&exclude=hourly,daily&appid=${weatherApiKey}&units=imperial`
+
+            axios({
+                method: 'get',
+                url: urlApi,
+            }).then((response) => {
+                console.log(response)
+            }) 
+        }) 
     </script>
 </body>
 
