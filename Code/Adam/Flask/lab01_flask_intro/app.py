@@ -24,7 +24,6 @@ def index():
 
         pw_length = int(request.form['num_select'])
 
-
         alphabet = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
 
         i = 0
@@ -33,6 +32,4 @@ def index():
             output += random.choice(alphabet)
             i += 1
         
-
-
     return render_template('index.html', password = output)
