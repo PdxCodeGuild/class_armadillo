@@ -4,10 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
-    <style>
+    <link href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap" rel="stylesheet">
+    <style type='text/css'>
+        /* .container-banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(218, 216, 216);
+        } */
+
+        .banner {
+            /* flex: 200px; */
+            margin: 15px;
+            /* color: rgb(88, 88, 88); */
+            color:maroon;
+            font-size: 50px;
+            font-family: 'Lacquer', cursive;
+            text-align: center;
+        }
+
+        #b1 {
+            font-size: 25px;
+        }
+
     </style>
 </head>
 <body>
+    <div class="container-banner">  
+        <div class="banner">
+            <p>(RPS)<span id="b1"> ...make war not love</span></p>
+        </div>
+    </div>
     <input id="input_user" type="text" size="50" placeholder="Choose rock, paper or scissors..."/><br><br>
     <button id="btn_generate">Fight!</button>
     <div id="div_output"></div>
