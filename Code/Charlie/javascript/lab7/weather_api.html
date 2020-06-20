@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="secrets.js"></script>
+</head>
+
+<body>
+
+
+    <div id="weather"></div>
+    <script>
+        
+        let weather = document.querySelector('#weather')
+
+        navigator.geolocation.getCurrentPosition(showPosition)
+        function showPosition(position) {
+            console.log("Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude)
+
+            axios({
+                method: 'get',
+                url: 'https://api.openweathermap.org/data/2.5/onecall',
+                params: {
+                    lat: position.coords.latitude,
+                    lon: position.coords.longitude,
+                    appid:api_key
+                }
+            } ).then(response => {
+
+                weather.innerText= response.data.current.weather[0].main
+            })
+        }
+
+
+
+    </script>
+</body>
+
+</html>

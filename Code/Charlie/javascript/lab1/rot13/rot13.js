@@ -1,5 +1,6 @@
 let user_input = document.querySelector('#user_input')
 let btn_submit = document.querySelector('#btn_submit')
+let output = document.querySelector('#output')
 
 btn_submit.addEventListener('click', function(){
     let user_input2 = user_input.value
@@ -9,6 +10,7 @@ btn_submit.addEventListener('click', function(){
     let rotate = 13
     
     let word = ""
+    let result = ""
 
     for (let i=0; i<user_input2.length; ++i) {
         let letters = user_input2[i]
@@ -16,5 +18,6 @@ btn_submit.addEventListener('click', function(){
         word += alpha[x]
     }
     console.log(word)
-    alert(`Your rotated word is: ${word}`)
+    result = (`Your rotated word is: ${word}`)
+    output.innerText = `${(result)}`
 })

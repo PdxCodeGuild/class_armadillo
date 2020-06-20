@@ -37,7 +37,7 @@ def get_number():
     
     else:
         output = f"{three_numbers[three_digits]} {two_numbers[two_digits]} {one_number[one_digit]}"
-    print(f"{number} in english is{output}!")
+    print(f"{number} in english is {output}!")
 
 
     
