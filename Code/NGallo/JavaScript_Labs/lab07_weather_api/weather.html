@@ -3,7 +3,14 @@
 
 <head>
     <style>
-
+         body{
+             background-color: rgba(66, 145, 145, 0.37);
+             text-align: center;
+         }
+         .header_image{
+             width: 50%;
+             border-radius: 25px;
+         }
     </style>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="secrets.js"> </script>
@@ -15,16 +22,18 @@
 
 <body>
     
-    <div id="header">
+    <div class="header" id="header">
         <h2>Weather API Lab</h2>
-        <i class="owf owf-200"></i>
+        <img class="header_image" src="images/intro.jpg">
     </div>
     <div id="weatherOutaput">
         <p>Current time: <span id="time"></span></p>
-        <p>Current weather: <span id="weather"></span></p>
+        <p>Current weather: <span id="weather"></span><img class="icon_div_class" id="icon_image" src=></p>
         <p>Feels like: <span id="feels_like"></span>°</p>
+        <p>Sunrise: <span id="sunrise"></span></p>
+        <p>Sunset: <span id="sunset"></span></p>
         </div>
-        <img id="icon_div" src="">
+        <img class="icon_div_class" id="icon_image" src=>
     </div>
     <div id="footer">
         <h4>Weather App | Nick Gallo | Class_Armadillo &copy2020</h4>
@@ -37,7 +46,6 @@
             // console.log(userCoords)
             let urlApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${userLatitude}&lon=${userLongitude}&exclude=hourly,daily&appid=${weatherApiKey}&units=imperial`
 
-
             axios({
                 method: 'get',
                 url: urlApi,
@@ -49,6 +57,16 @@
                 timeDiv = document.getElementById("time")
                 timeDiv.innerHTML = now
 
+                let sunSetResponse = response.data.current.sunset
+                let sunset = new Date(sunSetResponse * 1000)
+                sunsetDiv = document.getElementById("sunset")
+                sunsetDiv.innerHTML = sunset
+
+                let sunriseResponse = response.data.current.sunrise
+                let sunrise = new Date(sunriseResponse * 1000)
+                sunriseDiv = document.getElementById("sunrise")
+                sunriseDiv.innerHTML = sunrise
+
                 let weather = response.data.current.weather[0].description
                 weatherDiv = document.getElementById("weather")
                 weatherDiv.innerHTML = weather
@@ -58,8 +76,11 @@
                 feelsDiv.innerHTML = feelsLike
 
                 let icon = response.data.current.weather[0].icon
-                iconDiv = document.getElementById("icon_div")
-                iconDiv.setAttribute(`"src"`, `"http://penweathermap.org/img/wn/${icon}.png"`)
+                let iconUrl = `http://openweathermap.org/img/wn/${icon}.png`
+                console.log(iconUrl)
+                iconImage = document.getElementById("icon_image")
+                iconImage.setAttribute("src", iconUrl)
+
                 
             })
         }) 
