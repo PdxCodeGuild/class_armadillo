@@ -3,31 +3,47 @@
 
 <head>
     <style>
-
+         body{
+             background-color: rgba(66, 145, 145, 0.37);
+             text-align: center;
+         }
+         .header_image{
+             width: 50%;
+             border-radius: 25px;
+         }
     </style>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="secrets.js"> </script>
+    <link href="/owfont-master/css/owfont-regular.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather API</title>
 </head>
 
 <body>
-    <div id="header">
+    
+    <div class="header" id="header">
         <h2>Weather API Lab</h2>
+        <img class="header_image" src="images/intro.jpg">
     </div>
-    <div id="weatherOutput">
-
+    <div id="weatherOutaput">
+        <p>Current time: <span id="time"></span></p>
+        <p>Current weather: <span id="weather"></span><img class="icon_div_class" id="icon_image" src=></p>
+        <p>Feels like: <span id="feels_like"></span>°</p>
+        <p>Sunrise: <span id="sunrise"></span></p>
+        <p>Sunset: <span id="sunset"></span></p>
+        </div>
+        <img class="icon_div_class" id="icon_image" src=>
     </div>
     <div id="footer">
-        <h4>Nick Gallo | Class_Armadillo &copy2020</h4>
+        <h4>Weather App | Nick Gallo | Class_Armadillo &copy2020</h4>
     </div>
     <script>
         navigator.geolocation.getCurrentPosition(position => {
             let userLatitude = position.coords.latitude
             let userLongitude = position.coords.longitude
             let userCoords = [userLatitude, userLongitude]
-        
+            // console.log(userCoords)
             let urlApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${userLatitude}&lon=${userLongitude}&exclude=hourly,daily&appid=${weatherApiKey}&units=imperial`
 
             axios({
@@ -35,7 +51,38 @@
                 url: urlApi,
             }).then((response) => {
                 console.log(response)
-            }) 
+
+                let dateTime = response.data.current.dt
+                let now = new Date(dateTime * 1000)
+                timeDiv = document.getElementById("time")
+                timeDiv.innerHTML = now
+
+                let sunSetResponse = response.data.current.sunset
+                let sunset = new Date(sunSetResponse * 1000)
+                sunsetDiv = document.getElementById("sunset")
+                sunsetDiv.innerHTML = sunset
+
+                let sunriseResponse = response.data.current.sunrise
+                let sunrise = new Date(sunriseResponse * 1000)
+                sunriseDiv = document.getElementById("sunrise")
+                sunriseDiv.innerHTML = sunrise
+
+                let weather = response.data.current.weather[0].description
+                weatherDiv = document.getElementById("weather")
+                weatherDiv.innerHTML = weather
+
+                let feelsLike = response.data.current.feels_like
+                feelsDiv = document.getElementById("feels_like")
+                feelsDiv.innerHTML = feelsLike
+
+                let icon = response.data.current.weather[0].icon
+                let iconUrl = `http://openweathermap.org/img/wn/${icon}.png`
+                console.log(iconUrl)
+                iconImage = document.getElementById("icon_image")
+                iconImage.setAttribute("src", iconUrl)
+
+                
+            })
         }) 
     </script>
 </body>
