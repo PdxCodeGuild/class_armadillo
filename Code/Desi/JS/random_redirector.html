@@ -27,16 +27,17 @@
     //         let fiveMinutes = 5,
     //             display = document.querySelector('#time');
     //         startTimer(fiveMinutes, display);
-        };
+        // };
     </script>
 </head>
 <body>
     <h1 style="text-align:center;color:pink;">
        The Desi Chronicles
     </h1>
-    <div>If your browser supports Refresh, you'll be redirected to The Desi Chronicles 
+    <div id="output">   If your browser supports Refresh, you'll be redirected to The Desi Chronicles 
         homepage in 5 seconds.  Otherwise, you'll be eaten by zombies. <span id='time'>05:00</span></div>
         <form id='form1' runat='server'></form>
+    
 
     <script>
         let urls = [
@@ -50,11 +51,21 @@
         // for (let i=0; i < urls.length; ++i) {
         //     console.log(url[i])
         // }
+        let counter = 5;
+        let interval = setInterval(function () {
+            //  user knows that the timer is counting down from 5.
+        output.innerHTML = `redirect in ${counter}`
 
-        let index = Math.floor((Math.random()* 5));
+        
+        let index = Math.floor(Math.random()* 5);
         let url = urls[index]
+        
+        counter = counter -1;
+        if (counter == 0) {
+            window.location = url
+        }
 
-        window.location = url
+        }, 1000);
     </script>
 
     </div>
