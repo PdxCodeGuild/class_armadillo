@@ -1,25 +1,30 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from .models import Contact
-from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
+# view at main page
 def index(request):
-    cards = Contact.objects.order_by('last_name')
+    contacts = Contact.objects.order_by('last_name')
     context = {
-        'cards': cards
+        'contacts': contacts
     }
     return render(request, 'contacts/index.html', context)
 
-def detail(request, card_id):
+# view at details page
+def detail(request, contact_id):
     # card = Contact.objects.get(pk=card_id)
-    card = get_object_or_404(Contact, pk=card_id)
+    contacts = get_object_or_404(Contact, pk=contact_id)
     context = {
-        'card': card
+        'contacts': contacts
     }
     return render(request, 'contacts/detail.html', context)
 
-def entry_page(request):
+# view at submitting contact page
+def new_contact(request):
     return render(request, 'contacts/submit_contact.html')
 
+# function for above page
 def submit_contact(request):
     first_name = request.POST['first_name']
     last_name = request.POST['last_name']
@@ -28,10 +33,10 @@ def submit_contact(request):
     phone_number = request.POST['phone_number']
     is_cell = 'is_cell' in request.POST
     comments = request.POST['comments']
-    new_card = Contact(first_name=first_name, last_name=last_name, age=age,
+    new_contact = Contact(first_name=first_name, last_name=last_name, age=age,
         birthday=birthday, phone_number=phone_number, is_cell=is_cell, comments=comments)
-    new_card.save()
-    return HttpResponseRedirect(reverse('contacts:detail', args=(new_card.id,)))
+    new_contact.save()
+    return HttpResponseRedirect(reverse('contacts:detail', args=(new_contact.id,)))
 
 # manticore img
 def upload_image(request):
