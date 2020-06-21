@@ -1,0 +1,14 @@
+{
+    "todo":[
+        {
+            "text": "walk the dog",
+            "priority": "high"
+        },{
+            "text": "butter the cat",
+            "priority": "medium"
+        },{
+            "text": "wash dishes",
+            "priority": "low"
+        }
+    ]
+}
