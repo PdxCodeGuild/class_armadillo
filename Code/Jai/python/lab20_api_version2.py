@@ -25,4 +25,5 @@ while True:
         forward = input('shall we continue? yes or no?')
         if forward == 'yes':
             page += 1
-        break
+        else:
+            break

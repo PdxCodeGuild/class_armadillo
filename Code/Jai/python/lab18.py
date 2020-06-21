@@ -39,7 +39,7 @@ for char in clean_text:
         count[char] += 1
 
 words = list(count.items()) #returns a list of tuples
-
+print(words)
 words.sort(key=lambda tup: tup[1], reverse=True) #sort the largest to the smallest 
 
 for i in range(min(10, len(words))): #prints the top 10 of words from largst to smallest
