@@ -49,7 +49,7 @@ PdxCodeGuild/class_armadillo | Added by GitHub -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!-- <link href="css/owfont-regular.css" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet" href="owfont-regular.css">
     <script src="secrets.js"></script>
 
     <title>Lab 7 Weather API </title>
@@ -140,7 +140,7 @@ PdxCodeGuild/class_armadillo | Added by GitHub -->
 
         <div><button id="btn_weather" type="search"> Search Weather </button></div>
         <div id="weather_result"> </div>
-
+        <img id="icons" src="http://openweathermap.org/img/wn/04d.png" />
     </div>
     <div>
         <ul id="weather_forecast">
@@ -153,6 +153,7 @@ PdxCodeGuild/class_armadillo | Added by GitHub -->
         let btn_weather = document.querySelector('#btn_weather')
         let weather_forecast = document.querySelector('#btn_weather')
         let weather_result = document.querySelector('#weather_result')
+        let icons = document.querySelector('#icons')
 
         // https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&
         // exclude={part}&appid={YOUR API KEY}
@@ -195,6 +196,9 @@ PdxCodeGuild/class_armadillo | Added by GitHub -->
                      Sunrise: ${sunrise_time.getHours()}:${sunrise_time.getMinutes()}
                      Sunset: ${sunset_time.getHours()}:${sunset_time.getMinutes()}
                    `
+                        //icons
+                    icons.src = `http://openweathermap.org/img/wn/${currentData.weather[0].icon}.png`
+                        //how to show the description:  /${currentData.weather[0].description}.png
 
 
                     // let unix_timestamp = 1592482891
