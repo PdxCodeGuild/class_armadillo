@@ -4,22 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="../../static/style.css">
   </head>
   <body>
     <h1>Contacts</h1>
+    <div>
+      <a href="{% url 'contacts:new_contact' %}" class="btn btn-success btn-lg">➕Submit New Contact here</a>
+    </div>
     <table class="table">
       <tr>
-          <th><a href="{% url 'contacts:entry_page' %}" class="btn btn-success btn-lg">➕</a></th>
-          <th></th>
-          <th></th>
-      </tr>
-      {% for card in cards %}
-      <tr>
-          <td><a href="{% url 'contacts:detail' card.id %}" class="btn btn-secondary btn-sm">🔎</a>  {{card.last_name}}, {{card.first_name}}</td>
-          <td></td>
-          <td></td>
-      </tr>
-      {% endfor %}
+        
       <ul>
         {% for contact in contacts %}
         <li>{{ contact }}</li>
