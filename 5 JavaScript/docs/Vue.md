@@ -6,6 +6,7 @@
 
 - [Vue.js](#vuejs)
   - [Overview](#overview)
+  - [Including Vue](#including-vue)
   - [1 Rendering Values](#1-rendering-values)
   - [2 Setting Attributes](#2-setting-attributes)
   - [3 Conditionals](#3-conditionals)
@@ -19,9 +20,27 @@
 Front-end frameworks like **Vue**, **React** (Facebook), and **Angular** (Google) can be used to create complex, interactive web pages. The principle advantage they offer is the separation of *display* and *data*. Developing complex pages in [vanilla JavaScript](http://vanilla-js.com/) becomes cumbersome and messy, every time an value is updated, certain HTML elements must be created or hidden, have its style changed, have its inner text changed, etc. Libraries like **Vue.js** allows  the HTML section to decide how things are displayed and allows the JavaScript section to decide how data is processed.
 
 
+- [Vue](https://vuejs.org/)
+- [Intro to Vue](https://vuejs.org/v2/guide/index.html)
+- [Cheat Sheet](https://www.vuemastery.com/pdf/Vue-Essentials-Cheat-Sheet.pdf)
+
+## Including Vue
+
+You can include Vue in your page like so:
+
+```html
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<!-- or -->
+
+<!-- production version, optimized for size and speed -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+```
+
 ## 1 Rendering Values
 
-Render variables in the HTML using `{{}}`.
+Render variables in the HTML using `{{}}`. [more info](https://vuejs.org/v2/guide/syntax.html#Interpolations)
 
 ```html
 <div id="app">
@@ -39,7 +58,7 @@ Render variables in the HTML using `{{}}`.
 
 ## 2 Setting Attributes
 
-Set attribute values using `v-bind`.
+Set attribute values using `v-bind`. [more info](https://vuejs.org/v2/guide/syntax.html#Attributes)
 
 ```html
 <div id="app">
@@ -58,7 +77,7 @@ Set attribute values using `v-bind`.
 ## 3 Conditionals
 
 
-There are two directive for controlling the visibility of an HTML element, `v-if` and `v-show`. If the variable they're associated with is `true`, the element will be shown, if it is `false`, it won't be. `v-if` actually removes the element, while `v-show` simply hides it. `v-if` has a higher toggle cost, but `v-show` has a higher initial cost (if the value is initially `false`). [link](https://vuejs.org/v2/guide/conditional.html#v-if-vs-v-show)
+There are two directive for controlling the visibility of an HTML element, `v-if` and `v-show`. If the variable they're associated with is `true`, the element will be shown, if it is `false`, it won't be. `v-if` actually removes the element, while `v-show` simply hides it. `v-if` has a higher toggle cost, but `v-show` has a higher initial cost (if the value is initially `false`). [more info](https://vuejs.org/v2/guide/conditional.html)
 
 ```html
 <div id="app">
@@ -77,7 +96,7 @@ There are two directive for controlling the visibility of an HTML element, `v-if
 
 ## 4 Loops
 
-Loop over a list using `v-for`, repeatedly generating elements. Just like with Python, the variable name is arbitrary. You can optionally add an index.
+Loop over a list using `v-for`, repeatedly generating elements. Just like with Python, the variable name is arbitrary. You can optionally add an index. [more info](https://vuejs.org/v2/guide/list.html)
 
 ```html
 <div id="app">
@@ -100,7 +119,7 @@ Loop over a list using `v-for`, repeatedly generating elements. Just like with P
 
 ## 5 Input Fields
 
-You can bind app variables to input fields using `v-model`. If the user changes the value of the input field, the variable in the app will be updated and vice versa.
+You can bind app variables to input fields using `v-model`. If the user changes the value of the input field, the variable in the app will be updated and vice versa. [more info](https://vuejs.org/v2/guide/forms.html)
 
 
 ```html
@@ -125,7 +144,7 @@ You can bind app variables to input fields using `v-model`. If the user changes 
 
 ## 6 Event Listeners
 
-Bind events on elements to methods using `v-on`.
+Bind events on elements to methods using `v-on`. [more info](https://vuejs.org/v2/guide/events.html)
 
 ```html
 <div id="app">
@@ -147,9 +166,8 @@ Bind events on elements to methods using `v-on`.
 
 ## 7 Lifecycle Hooks
 
-Lifecycle hooks are special functions called throughout the lifecycle of a Vue app.
+Lifecycle hooks are special functions called throughout the lifecycle of a Vue app. [more info](https://vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks)
 
-```html
 ```html
 <div id="app">
 </div>
@@ -162,5 +180,4 @@ Lifecycle hooks are special functions called throughout the lifecycle of a Vue a
     }
   })
 </script>
-```
 ```

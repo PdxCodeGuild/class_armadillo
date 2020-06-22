@@ -51,7 +51,7 @@
 
                         axios.get(url, {
                             headers: {
-                                'Authorization': 'Token token="' + 'API KEY HERE' + '"'
+                                'Authorization': 'Token token="' + '855df50978dc9afd6bf86579913c9f8b' + '"'
                             },
                             params: {
                                 filter: this.filter_text,
@@ -62,7 +62,7 @@
                         .then(function (response) {
                             let data = response.data
                             quotes = data.quotes
-                            processData()
+                            // processData()
                             console.log(response.data)
                             app.quotes = [] // this is not the app inside a callback!!!
                             for (let i = 0; i < data.quotes.length; ++i) {

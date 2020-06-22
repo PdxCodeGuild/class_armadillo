@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="secrets.js"></script>
+    <style type="text, css"></style>
+</head>
+<h1>Hello World!!</h1>
+
+<body>
+
+</body>
+<script>
+    navigator.geolocation.getCurrentPosition(position => {
+        console.log(position.coords.latitude)
+        console.log(position.coords.longitude)
+
+        let url = 'api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={weather_api}'
+
+        axios({
+            method: 'get',
+            url: url,
+        }).then(response => {
+            console.log(response.data)
+        })
+    })
+</script>
+
+</html>

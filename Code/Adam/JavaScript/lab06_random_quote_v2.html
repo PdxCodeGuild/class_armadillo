@@ -20,6 +20,9 @@
         color: whitesmoke;
     }
     ul li {
+        text-align: center;
+        width: 96%;
+        list-style-type: none;
         margin-bottom: 30px;
         font-size: large;
     }
@@ -38,7 +41,7 @@
         // declaring variable and assigning value from query
         let input = document.querySelector('#input')
         let submit = document.querySelector('#submit');
-        let quote_list = document.querySelector('#quote_list'); // not sure if this is needed
+        let quote_list = document.querySelector('#quote_list'); // not sure why this is needed
 
 
         submit.addEventListener('click', function () {
@@ -57,7 +60,7 @@
                     // console.log(quote)
                     let author = q_data[i].author // declare author and for each increment get author from data
                     // console.log(author)
-                    let quote = `"${body}"  - ${author}` // combine body and author to make a single quote
+                    let quote = `"${body}"\n- ${author}` // combine body and author to make a single quote
                     let li = document.createElement('li') // declare li and assign it a method to create new line items
                     // li.innerText = q_data[i].body
                     li.innerText = quote // tell li what to put in the new line item

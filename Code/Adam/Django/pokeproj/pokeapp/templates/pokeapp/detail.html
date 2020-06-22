@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    ul {
+        list-style-type: none;
+    }
+</style>
+<body>
+    <div>
+        <ul>
+            <li>
+                {{pokemon.number}}) {{pokemon.name}}
+            </li>
+            <li>
+                weight: {{pokemon.weight}} height: {{pokemon.height}}
+            </li>
+            <li>
+                <img src="{{pokemon.image_front}}">
+                <img src="{{pokemon.image_back}}">
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

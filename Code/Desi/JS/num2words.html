@@ -6,22 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-    let btnConvert = document.querySelector('button');
-    let input = document.querySelector('input');
-    let output = document.querySelector('h1');
-
-        btnConvert.addEventListener('click', () => {
-        output.innerText = numberToWords.toWords(input.value);
-});
-</script>
-
+    
     <div class= 'container'>
-        <input type='text'>
-        <button>Convert</button>
+        <input id='user_input' type='text'>
+        <button id='btn-push'>Convert</button>
         <h1>Output</h1>
     </div>
-    <script src="numberToWords.html"></script>
-    <script src="script.html"></script>
+    <h1 id='div_output'></h1>
+  
+    
+    <script>
+        let btnConvert = document.getElementById('btn-push');
+        let input = document.getElementById('user_input')
+        let output = document.querySelector('#h1');
+        let div_output = document.getElementById('div_output')
+    
+            btnConvert.addEventListener('click', () => {
+            div_output.innerText = toWords(input.value);
+            
+    });
+    </script>
+
 </body>
 </html>

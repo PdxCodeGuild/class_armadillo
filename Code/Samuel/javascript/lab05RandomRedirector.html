@@ -14,13 +14,18 @@
     <h1>Time until random website:</h1>
     <h1 id="timer"></h1>
     <script>
+
+        // Initializes variables from the webpage.
         timer = document.querySelector("#timer")
+
+        // Initializes a list of links to visit
         links = [
             "https://google.com",
             "https://www.youtube.com/",
             "https://github.com/PdxCodeGuild/class_armadillo"
         ]
-        i = 5
+
+        // Counts down from 5 then redirects the user to a different webpage.
         setInterval(function(){
             timer.innerText = i
             i -= 1

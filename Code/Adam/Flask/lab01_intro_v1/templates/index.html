@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <title>Random Password Generator</title>
+    <!-- <link rel="shortcut icon"> one day -->
+</head>
+<body>
+    <form action="" method="post">
+        <input required id="num_select" type="number" name="num_select" placeholder="Enter a number:" />
+        <button id="submit" type="submit">submit</button>
+    </form>
+    <div>
+        <span>
+            Your random password is: {{password}}
+        </span>
+    </div>
+</body>
+</html>

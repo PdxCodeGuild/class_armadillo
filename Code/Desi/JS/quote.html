@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Gen</title>
+<!-- <script> src = 'https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js'</script> -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div>
+    <h1>Simple Quote Gen</h1>
+    <div id='quoteDisplay'></div>
+    <button onclick="newQuote()">NewQuote</button>
+    <div id='Author'></div>
+    <div id='body'></div> 
+    <div id='div_output'></div>
+    </div>
+    <script>
+        let random_quote = document.querySelector('#random_quote')
+        let url = 'https://favqs.com/api/qotd'
+        let div_output = document.querySelector('#div_output')
+        let author = document.querySelector('#author')
+        let body = document.querySelector('#body')
+        quote.innerText = quote
+        author.innerText = author
+
+    // document.getElementById('quoteDisplay').innerHTML = url
+
+    // javasscripts  - asynchronous, code will keep running and NOT wait for response
+        //  similar to python's response, request.get, json.loads
+    btn_search.addEventListner('click', function () {
+    axios({
+        method:'get',
+        url: url
+        param: {
+            amount: 10,
+            category: 18,
+            difficulty: 'easy',
+        }
+    }).then(response => {
+        let quote = response.data.quote.body
+        console.log(quote)
+        let author = response.data.quote.author
+        console.log(author)
+        quote.innerText = quote
+        author.innerText = author
+        let quotes  = response.data.quote.b
+
+        document.getElementById('quoteDisplay').innerHTML = quote
+    })
+
+    
+    })
+        console.log
+        // let ajax_quote = response.data.results
+        // for (let i=0; i<ajax_quote.length; ++i) {
+        //     // console.log(ajax_quote[i].name)
+        //     let li = document.createElement('li')
+        //     li.innerText = ajax_quote[li].name
+        //     li.addEventListener('click', function(){
+        //         alert('sup')
+        //     })
+        //     random_quote.appendChild(li)
+
+       
+    </script>
+</body>
+</html>

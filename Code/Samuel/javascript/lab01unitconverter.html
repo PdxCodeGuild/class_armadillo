@@ -41,6 +41,7 @@
         <span>Output: </span><span id="output"></span>
     </div>
         <script>
+            // Unit conversions for when we convert the units to meters, then back from meters to their respective units
             let units = {
                 "Feet": 0.3048,
                 "Miles": 1609.34,
@@ -49,18 +50,28 @@
                 "Yards": 0.9144,
                 "Inches": 0.0254
             }
+
+        // Initializes variables from the webpage.
             let input_units = document.querySelector("#input_units")
             let output_units = document.querySelector("#output_units")
             let measurement = document.querySelector("#measurement")
             let output = document.querySelector("#output")
 
+            // Activates when the user clicks the submit button
             btn_submit_info.addEventListener('click', function(event){
+
+                // Checks to see if the value the user entered is a number or not.
                 if(!isNaN(measurement.value)){
+
+                    // Output is equal to the starting value times the unit conversion.
                     output.innerText = `${measurement.value} ${input_units.value} in ${output_units.value} is ` + String((units[input_units.value] * Number(measurement.value)) / units[output_units.value])
                 }else{
+
+                    // Prints a message stating the user entered in an invalid input.
                     output.innerText = "Please enter in a valid number."
                 }
             })
+
         </script>
 </body>
 </html>

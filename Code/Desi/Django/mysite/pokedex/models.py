@@ -12,11 +12,6 @@ class PokemonType(models.Model):
         return self.name
 
     
-
-
-
-
-
 class Pokemon(models.Model):
     name = models.CharField(max_length=20)
     numbers = models.IntegerField()
@@ -28,7 +23,9 @@ class Pokemon(models.Model):
     
 
     def __str__(self):
-        return f'{self.name} {self.image_front} {self.image_back}'
+        return self.name +' ' + '(' + str(self.number) +')'
+
+        # return f'{self.name} {self.image_front} {self.image_back}'
         #     "name": "bulbasaur",
         #     "height": 7,
         #     "weight": 69,
