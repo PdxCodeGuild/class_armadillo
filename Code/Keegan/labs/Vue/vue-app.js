@@ -57,11 +57,6 @@ let numberToPhrase = new Vue({
             let hundreds = this.getHundreds(number);
             let tens     = this.getTens(number);
             let ones     = this.getOnes(number);
-
-
-            console.log('hundreds',hundreds)
-            console.log('tens', tens)
-            console.log('ones', ones)
         
             let phrase = ''
     
@@ -82,7 +77,6 @@ let numberToPhrase = new Vue({
         },
     
         updateResult: function(){
-            console.log(this.userNumber)
             if(this.userNumber === '') {
                 this.result = 'zero';
             }
