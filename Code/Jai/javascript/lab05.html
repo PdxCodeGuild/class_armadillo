@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab05 redirector</title>
+</head>
+
+
+<body>
+    <h1>GET REDIRECTED IN 5..4..3...2...1</h1>
+    <div id="output_div"></div>
+    <script>
+
+
+
+        
+            list_urls = [
+                "https://www.facebook.com/",
+                "https://www.reddit.com/",
+                "https://portland.craigslist.org/",
+
+           
+                ]
+        
+            let random_site = list_urls[Math.floor(Math.random() * list_urls.length)]
+            let counter = 5;
+            let interval = setInterval(function() {
+
+                counter = counter - 1;
+                document.getElementById("output_div").innerHTML = `you will be redirected in ${counter} seconds`
+                if (counter == 0) {
+                    window.location.replace(random_site)
+
+                }
+            },1000);
+
+            
+
+
+
+
+    </script>
+</body>
+
+</html>

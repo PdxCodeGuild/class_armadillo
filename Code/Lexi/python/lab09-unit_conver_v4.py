@@ -19,9 +19,19 @@ while another_conversion:
         "inches": 0.0254,
         "in": 0.0254,
         }
-
     start = input("What unit are you converting?: ").lower()  #user enters unit
+
+    # input validation https://www.w3schools.com/python/ref_dictionary_get.asp
+    does_exist = units.get(start, False)
+
+        
     amount = float(input(f"How much of '{start}' are ya talking about?: "))  #user enters length in chosen unit
+
+    if does_exist:
+        distance_m = amount * (units.get(f'{start}'))
+    else:
+        print(f'Enter a different valid unit')
+        exit() 
     end = input(f"So {amount} {start} to what unit?: ").lower()  #user enters new unit to convert to
 
     converted = amount * units[start]  #converts user input to meters
