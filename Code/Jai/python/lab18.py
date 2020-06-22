@@ -12,22 +12,16 @@ txt = response.text.lower()
 
 list_of_words = txt.split()
 
-#print(list_of_words)
 
 
-    
 
-#translator is a built in variable name given by maketrans 
-#clean_text takes in txt and translates it into utf-8 and translator takes in the variable translator and makes it back into text
 translator = str.maketrans('', '', string.punctuation)
-clean_text = txt.translate(translator) # I am a string with punctuation
+clean_text = txt.translate(translator) 
 
 
 
 clean_text = clean_text.split()
 
-#word_dict = clean_text
-#print(clean_text[:100])
 
 count = {} #this is a dictionary containing the words as keys and their values 
 
