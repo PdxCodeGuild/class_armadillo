@@ -3,13 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Lab 08 Vue</title>
 
 </head>
 <body>
-    <h2>Working with Vue</h2>
-    <div id="vue">
-        <script type="text/javascript">
+    
+    <div id="game">
+        <h2>{{ Rock, Paper, Scissors }}</h2>
+        <div>
+            <input type="text" v-model="rpsOptions" placeholder="Weapon of Choice" />
+            <select>
+            <option value="Rock">Rock</option>
+            <option value="Paper">Paper</option>
+            <option value="Scissors">Scissors</option>
+            </select>
+            <button v-on:click="shoot">Shoot!</button>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+          let game = new Vue({
+            el: '#game',
+            data: {
+                user_entry: '', // add user selector option
+                output: '',
+                gameOptions: ['Rock', 'Paper', 'Scissors',],
+                
+            },
+        }),
+
+            methods: {
+                rockPaperScissorsGame: function () {
+                    
+//                    while (true) {
+//                        let startGame = prompt("Hello there. Would you like to play a game? ")
+//                        if (startGame === "y") {
+//                                alert("Ok");
+//                        }
+//                        else if(playGame === "n") {
+//                            alert("I'm sorry. Thank you");
+//                        }
+//                        else() {
+//                            alert("Not a valid response. Please try again.")
+//                        }
+//                    }, // closes while loop
+
+                    let = computer_Entry = this.gameOptions[Math.floor(Math.random() * this.gameOptions.length)];
+
+                    if (this.user_entry === "rock" && this.computerEntry === "rock"){
+                        this.output = "You selected Rock and computer chose Rock. You tied!");
+                    }
+                    else if (this.user_entry === "rock" && this.computerEntry === "paper"){
+                        this.output = "You selected Rock and computer chose Paper. You lost!");
+                    } 
+                    else if (this.user_entry === "rock" && this.computerEntry === "scissors"){
+                        this.output = "You selected Rock and computer chose Scissors. You won!");
+                    } 
+                    else if (this.user_entry === "paper" && this.computerEntry === "rock"){
+                        this.output = "You selected Paper and computer chose Rock. You won!");
+                    } 
+                    else if (this.user_entry === "paper" && this.computerEntry === "paper"){
+                        this.output = "You selected Paper and computer chose Paper. You tied!");
+                    } 
+                    else if (this.user_entry === "paper" && this.computerEntry === "scissors"){
+                        this.output = "You selected paper and computer chose Scissors. You lost!");
+                    }
+                    else if (this.user_entry === "scissors" && this.computerEntry === "rock"){
+                        this.output = "You selected Scissors and computer chose Rock. You lost!");
+                    } 
+                    else if (this.user_entry === "scissors" && this.computerEntry === "paper"){
+                        this.output = "You selected Scissors and computer chose Paper. You won!");
+                    } 
+                    else if (this.user_entry === "scissors" && this.computerEntry === "scissors"){
+                        this.output = "You selected Scissors and computer chose Scissors. You tied!");
+                    } 
+                }, // closes rockPaperScissorsGame function
+            }, // closes methods
+ 
 
 
         </script>

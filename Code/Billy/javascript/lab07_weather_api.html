@@ -6,18 +6,38 @@
     <title>Current Weather - Portland OR</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="secrets.js"></script>
+    <link href="css/owfont-regular.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
     <style type="text/css">
+        .outer {
+            margin-top: 10%;
+        } 
+
+        .inner {
+            width: 30%;
+            margin: 0 auto;
+            justify-content: center;
+        } 
+
+        .weather {
+            font-family: 'Holtwood One SC', serif;
+            font-size: 14px;
+        }
+
         #description {
-            text-transform: capitalize
+            text-transform: capitalize;
         }
     </style>
 </head>
 <body>
-    <img id="image"/>
-    <div class="weather" id="description" ></div>
-    <div class="weather" id="temp" ></div>
-    <div class="weather" id="hum" ></div>
-
+    <div class="outer">
+        <div class="inner">
+            <i class= " " id="image"/></i>
+            <div class="weather" id="description" ></div></b>
+            <div class="weather" id="temp" ></div>
+            <div class="weather" id="hum" ></div>   
+        </div>
+    </div>
     <script>
         let description = document.querySelector('#description')
         let image = document.querySelector('#image')
@@ -36,16 +56,21 @@
             url: `https://api.openweathermap.org/data/2.5/onecall?lat=45.5315503&lon=-122.6843879&exclude=hourly,daily&appid=${weather_api_key}`,
         }).then(response => {
             // console.log(response.data)
-            icon = response.data.current.weather[0].icon
-            image.src = `http://openweathermap.org/img/wn/${icon}.png`
+            // icon = response.data.current.weather[0].icon
+            // image.src = `http://openweathermap.org/img/wn/${icon}.png`
+            id = response.data.current.weather[0].id
+            console.log(id)
+            document.getElementById("image").className = `owf owf-${id}-d owf-5x owf-pull-left`
+            console.log(document.getElementById("image").className)
+            // image.class = `owf owf-${id}`
+            // console.log(image.class)
             description.innerText = response.data.current.weather[0].description
             let temp_K = response.data.current.temp
             let temp_F = ((temp_K - 273.15) * 9/5 + 32).toFixed()
-            temp.innerText = `${temp_F}°F`
-            hum.innerText = `${response.data.current.humidity}%`
+            temp.innerText = `${temp_F}°F  🌡️`
+            hum.innerText = `${response.data.current.humidity}%  💦`
         })    
     </script>
-    
 </body>
 </html>
 

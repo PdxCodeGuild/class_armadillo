@@ -44,6 +44,7 @@
                 <option v-for="priority in priorities" v-bind:value="priority">{{priority}}</option>
             </select>
             <button v-on:click="addTodo">add</button>
+            <button v-on:click="completeAll">complete all</button>
         </div>
         <div v-for="(todo, index) in todos" class="todo">
             <span>{{index + 1}})</span>
@@ -136,6 +137,13 @@
                     // set the completed date on the todo item
                     this.todos[index].completed_date = this.currentDate()
                     this.sortTodos()
+                },
+                completeAll: function() {
+                    for (let i=0; i<this.todos.length; ++i) {
+                        if (this.todos[i].completed_date === null) {
+                            this.todos[i].completed_date = this.currentDate()
+                        }
+                    }
                 }
             },
             // code that's run when the app is created
