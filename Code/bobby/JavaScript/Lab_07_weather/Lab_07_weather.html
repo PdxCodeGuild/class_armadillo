@@ -18,10 +18,16 @@
     navigator.geolocation.getCurrentPosition(position => {
         console.log(position.coords.latitude)
         console.log(position.coords.longitude)
+
+        let url = 'api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={weather_api}'
+
+        axios({
+            method: 'get',
+            url: url,
+        }).then(response => {
+            console.log(response.data)
+        })
     })
-    console.log()
-    let url = 'api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={weather_api}'
-    
 </script>
 
 </html>
