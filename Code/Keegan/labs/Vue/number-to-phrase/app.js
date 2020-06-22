@@ -1,5 +1,3 @@
-
-
 let numberToPhrase = new Vue({
     el: '#vue-container',
     data: {
@@ -17,6 +15,7 @@ let numberToPhrase = new Vue({
                 9: 'nine'
             },
             1: {
+                0: 'ten',
                 1: 'eleven',
                 2: 'twelve',
                 3: 'thirteen',
