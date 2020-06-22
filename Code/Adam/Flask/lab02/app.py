@@ -15,3 +15,4 @@ def save_database(data):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    

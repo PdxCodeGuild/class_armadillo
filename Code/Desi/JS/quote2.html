@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='x-ua-compatible' content='ie=edge'>
+    <title>Quote Generator</title>
+    <link rel='stylesheet' href='https://unpkg.com/papercss@1.4.0/dist/paper.min.css'>
+</head>
+<body>
+    <div class='row reflex-center'></div>
+    <button id='button' class='btn-large new-quote-button' onCLick='getquote'>New Quote</button>
+    <p class='quote' id='getquote'></p>
+
+</div>
+
+<script>
+
+    let quotes = [
+        "'When the going gets tough, the tough use JavaScript'",
+        "'To code or not to code, that is the question'",
+        "'There is more than one type of coder, but they all started at zero'",
+        "'Give me your kisses, and your pull requests'",
+        "'Gitter done!'",
+        "'How many functions does it take to change the world?'",
+        "'You had me at Hello World'",
+        "'Take me to your profile'",
+        "'Every error is a chance to learn'",
+        "'Stop repeating yourself! Stop repeating yourself! Stop repeating yourself!'",
+        "'Mmmmm, Vanilla JavaScript'",
+        "'Hold me close and make me responsive'",
+        "'Tell me your secret function'",
+        "'There is more than one way to write a function'",
+        "'You're an array of sunshine'",
+        "'Whisper sweet functions in my ear'",
+        "'Don't tell anyone, but I really hate IE6'",
+        "'!false === it's funny because it's true'",
+        "'It was love at first byte'",
+        "'@ossia made me do it!'",
+        "'I function better at night'",
+  ]
+
+
+        function getquotes() {
+            let randomNumber = Math.floor(math.random() * quotes.lenght);
+            document.getElementById('newquotesection').innerHTML = quotes[randomNumber];
+
+        }
+    
+        </script>
+</body>
+</html>

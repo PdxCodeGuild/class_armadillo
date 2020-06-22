@@ -18,11 +18,12 @@ def get_quote(page, keyword):
 
 page = 1 
 while True:
-    keyword = input('what kind of quote?: ')
+    keyword = input('enter keyword?: ')
     get_quote(page, keyword)
 
     while True:
         forward = input('shall we continue? yes or no?')
         if forward == 'yes':
             page += 1
-        break
+        elif forward == 'no':
+            break
