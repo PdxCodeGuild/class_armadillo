@@ -25,7 +25,7 @@ def create_contact(request):
 
 def contacts(request):
     context = {"Contacts": Contact.objects.order_by('last_name')}
-    return render(request, 'contact.html', context)
+    return render(request, 'contacts.html', context)
 
 
 def details(request, id):
@@ -33,7 +33,7 @@ def details(request, id):
     context = {
         "contact_details": contact_details,
     }
-    return render(request, 'detail.html', context)
+    return render(request, 'details.html', context)
 
 
 def update(request, id):
@@ -42,7 +42,7 @@ def update(request, id):
         form = ContactForm(request.POST, instance=contact_details)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('contactlist:detail', args=(contact_details.id,)))
+            return HttpResponseRedirect(reverse('contactlist:details', args=(contact_details.id,)))
     else:
         form = ContactForm(initial={"first_name": contact_details.first_name,
                                     "last_name": contact_details.last_name,

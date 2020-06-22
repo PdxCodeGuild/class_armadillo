@@ -1,0 +1,65 @@
+<!-- Pick 3 Python labs and re-do them in JavaScript. You should first try to write them using JavaScript's prompt and alert in place of Python's input and print. Once you have that working, use input and button elements, with events. You can read the docs on DOM Manipulation and Events. You can view a demo here. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--connect to css-->
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="shortcut icon" href="static/shibe.png"/>
+
+</head>
+<body>
+  <img src="static/pw.png" width="500px">
+</br>
+<span>
+    <input id="user_input1" placeholder="Word you wish to rotate"/>
+
+    <input id="user_input2" placeholder="A number to rotate by"/>
+    </span>
+    <div id="div_output"></div>
+    <button type="button" id="btn_submit">Submit</button>
+    <span>Check this box to make like a shibe and hide!</span>
+    <input id="visible" type="checkbox" onclick="Encrypt()" />
+    <script>
+      function Encrypt(){
+        var i = document.getElementById('user_input1')
+        if(i.type === 'password'){
+          i.type = 'text'
+        } else {
+          i.type = 'password'
+        }
+        }
+      
+              let input1 = document.querySelector('#user_input1')
+              let input2 = document.querySelector('#user_input2')
+              let div_output = document.querySelector('#div_output')
+              let btn_submit = document.querySelector('#btn_submit')
+            
+
+
+btn_submit.addEventListener('click', function(){
+  let text = user_input1.value
+  let num = user_input2.value
+        let output = ''
+        // https://www.w3schools.com/js/js_loop_for.asp
+        for (let c=0; c <text.length; c++){
+          let code = text.charCodeAt(c)
+          if (97 <= code <= 122){
+            code -= 97
+            output = output.concat(String.fromCharCode((code + num)%26 + 97))
+          } else if (65 <=code && code <= 90) {
+            code -=65
+            output = output.concat(String.fromCharCode((code + num)%26 + 65))
+          } else {
+            output = output.concat(String.fromCharCode(code))
+          }
+        }
+        div_output.innerText = `${output}`
+})
+
+    </script>
+  </body>
+</html>
