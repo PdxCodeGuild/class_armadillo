@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List v2</title>
+</head>
+<body>
+    <form action="/" method="post">
+        <input name="text_input" type="text" placeholder="What needs doing? " />
+        <select name="priority_input">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+        </select>
+        <button id="submit" type="submit">submit</button>
+    </form>
+    <ul>
+        {% for todo in agenda %}
+        <li>Task: <b>{{todo['todo']}}</b> | Priority: <b>{{todo['priority']}}</b></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

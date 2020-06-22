@@ -31,6 +31,8 @@ def index():
         lowers = string.ascii_lowercase
         numbers = '0123456789'
         specials = '!@#$%^&*()_+[]|:;",.<>?/'
+
+
         # password is the sum of all user inputs; it is the total number of characters in the password
         password_length = num_select_uppers + num_select_lowers + num_select_chars + num_select_nums
 
@@ -70,8 +72,7 @@ def index():
             output += random.choice(master_pool)
             z += 1
 
+
     return render_template('index.html', password = output )
-
-
 
 
