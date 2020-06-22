@@ -67,8 +67,8 @@
             description.innerText = response.data.current.weather[0].description
             let temp_K = response.data.current.temp
             let temp_F = ((temp_K - 273.15) * 9/5 + 32).toFixed()
-            temp.innerText = `${temp_F}°F`
-            hum.innerText = `${response.data.current.humidity}%`
+            temp.innerText = `${temp_F}°F  🌡️`
+            hum.innerText = `${response.data.current.humidity}%  💦`
         })    
     </script>
 </body>
