@@ -7,6 +7,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="secrets.js"></script>
     <style type="text/css">
+        #description {
+            text-transform: capitalize
+        }
     </style>
 </head>
 <body>
@@ -16,7 +19,6 @@
     <div class="weather" id="hum" ></div>
 
     <script>
-
         let description = document.querySelector('#description')
         let image = document.querySelector('#image')
         let temp = document.querySelector('#temp')
@@ -37,10 +39,11 @@
             icon = response.data.current.weather[0].icon
             image.src = `http://openweathermap.org/img/wn/${icon}.png`
             description.innerText = response.data.current.weather[0].description
-            temp.innerText = `${response.data.current.temp}°K`
+            let temp_K = response.data.current.temp
+            let temp_F = ((temp_K - 273.15) * 9/5 + 32).toFixed()
+            temp.innerText = `${temp_F}°F`
             hum.innerText = `${response.data.current.humidity}%`
         })    
-
     </script>
     
 </body>
