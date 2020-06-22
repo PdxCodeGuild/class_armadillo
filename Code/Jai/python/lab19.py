@@ -1,23 +1,29 @@
-import json 
-import requests 
-import string 
+import requests
+import re 
+import string
 
 
-#gets information from web 
-url =  'http://www.gutenberg.org/cache/epub/16643/pg16643.txt'
-response = requests.get(url)
-print(response)
-text = response.text
+ari_scale = {
+     1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
+     2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
+     3: {'ages':   '7-8', 'grade_level':    '2nd Grade'},
+     4: {'ages':   '8-9', 'grade_level':    '3rd Grade'},
+     5: {'ages':  '9-10', 'grade_level':    '4th Grade'},
+     6: {'ages': '10-11', 'grade_level':    '5th Grade'},
+     7: {'ages': '11-12', 'grade_level':    '6th Grade'},
+     8: {'ages': '12-13', 'grade_level':    '7th Grade'},
+     9: {'ages': '13-14', 'grade_level':    '8th Grade'},
+    10: {'ages': '14-15', 'grade_level':    '9th Grade'},
+    11: {'ages': '15-16', 'grade_level':   '10th Grade'},
+    12: {'ages': '16-17', 'grade_level':   '11th Grade'},
+    13: {'ages': '17-18', 'grade_level':   '12th Grade'},
+    14: {'ages': '18-22', 'grade_level':      'College'}
+}
 
-#created list of strings from text 
-text = text.split()
-print(text)
+book = requests.get('http://www.gutenberg.org/files/46/46-0.txt')
+print(book)
+book = book.text.lower()
+string_list = book.split()
 
+def word_count():
 
-#used in lab 18
-#translator is a built in variable name given by maketrans 
-#clean_text takes in txt and translates it into utf-8 and translator takes in the variable translator and makes it back into text
-translator = str.maketrans('', '', string.punctuation)
-clean_text = txt.translate(translator) # I am a string with punctuation
-
-clean_text =  clean_text.split()

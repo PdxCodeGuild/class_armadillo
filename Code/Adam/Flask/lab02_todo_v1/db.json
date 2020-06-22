@@ -1,0 +1,15 @@
+{
+    "agenda":[
+        {
+            "todo": "walk the dog",
+            "priority": "high"
+        },{
+            "todo": "butter the cat",
+            "priority": "medium"
+        },{
+            "todo": "wash dishes",
+            "priority": "low"
+        }
+    ]
+}
+    
