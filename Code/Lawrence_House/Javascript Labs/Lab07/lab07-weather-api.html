@@ -31,7 +31,10 @@
         }).then((response) => {
             let anchorage = response.data
             console.log(anchorage)
+            let pic = anchorage.current.weather[0]
             let temp = anchorage.current.temp
+            let dew = anchorage.current.dew_point
+            let wind = anchorage.current.wind_speed
         })
     })
     </script>
