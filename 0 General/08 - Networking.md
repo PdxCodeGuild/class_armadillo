@@ -115,13 +115,19 @@ The response to an HTTP request will have a **status code** which indicates whet
 
 ## Web Application Frameworks
 
+A web application is a website that offers significant functionality beyond simple, static pages. Features include login systems, viewing/saving/editing of information (CRUD), email systems, and many more. [Amazon](http://amazon.com), [LinkedIn](http://linkedin.com), and [Trello](http://trello.com) are all examples of web applications. A web application is split into two major sections: the front-end (client) and the back-end (server).
+
+The **front-end** consists of the HTML, CSS, and JavaScript that runs in the client's browser. HTML represents the structure of your page, CSS describes the presentation and style, and JavaScript allows for interactivity.
+
+The **back-end** consists of code, files, and a database. Unlike the front-end, the code may be in many different languages, depending on which framework is used. The code may be executed in response to HTTP requests by the user or run periodically to perform database operations, testing, etc. Below are some different web application frameworks and the language associated with each.
 
 | Framework | Language |
 |--- |--- |
-| Django, Flask | Python |
-| Ruby on Rails | Ruby |
-| ASP.NET | C# |
-| Node.js | JavaScript |
-| Apache Struts | Java |
+| [Django](https://www.djangoproject.com/), [Flask](https://flask.palletsprojects.com/en/1.1.x/) | Python |
+| [Express](https://expressjs.com/) | JavaScript |
+| [Spring](https://spring.io/), [Struts](https://struts.apache.org/) | Java |
+| [Ruby on Rails](https://rubyonrails.org/) | Ruby |
+| [ASP.NET](https://dotnet.microsoft.com/apps/aspnet) | C# |
+| [Laravel](https://laravel.com/) | PHP |
 
 

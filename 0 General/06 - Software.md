@@ -1,5 +1,16 @@
 
 
+# Software
+
+- [Software](#software)
+  - [Hardware and Machine Code](#hardware-and-machine-code)
+  - [Low- and High-Level Languages](#low--and-high-level-languages)
+  - [Types of Languages](#types-of-languages)
+    - [Programming Languages](#programming-languages)
+    - [Non-Programming Languages](#non-programming-languages)
+    - [Imperative vs Declarative](#imperative-vs-declarative)
+    - [Procedural vs Object-Oriented](#procedural-vs-object-oriented)
+  - [Typing Systems](#typing-systems)
 
 ## Hardware and Machine Code
 
@@ -15,15 +26,35 @@ An issue that arose with this is **portability**. There are many different types
 
 This doesn't mean that low-level languages are obsolete. High-level languages are easier to write and read, and enable us to more quickly develop software. However, the also restrict us with what we can do, and are less efficient than if we wrote all our code in a lower-level language. A metaphor might be using an expresso machine where you can push a single button rather than grinding and filtering the beans yourself.
 
-### Low-Level
-- Machine Code
-- C
-- C++
+- **High-Level**
 - Java, Python, C#
-- JavaScript
-### High-Level
+- C++
+- C
+- Machine Code
+- **Low-Level**
 
 ## Types of Languages
+
+
+### Programming Languages
+
+| type | language |
+| ----|-----|
+| Imperative and Procedural | C, C++, C#, Java, Python |
+| Object-Oriented | C++, C#, Java, Python |
+| Functional | Haskell, Lisp & Scheme, Scala, Python |
+| Declarative | Prolog |
+
+
+### Non-Programming Languages
+
+| type | language |
+| ----|-----|
+| Data Formatting|  JSON, XML|
+| Markup | HTML, MD|
+| Style | CSS|
+| Query | SQL, GraphQL, OCL, LINQ |
+
 
 - [List of Programming Languages by Type](https://en.wikipedia.org/wiki/List_of_programming_languages_by_type)
 - [Esoteric Programming Languages](https://en.wikipedia.org/wiki/Esoteric_programming_language)
@@ -43,25 +74,6 @@ print(y)
 
 
 
-
-#### Programming Languages
-
-| type | language |
-| ----|-----|
-| Imperative and Procedural | C, C++, C#, Java, Python |
-| Object-Oriented | C++, C#, Java, Python |
-| Functional | Haskell, Lisp & Scheme, Scala, Python |
-| Declarative | Prolog |
-
-
-#### Non-Programming Languages
-
-| type | language |
-| ----|-----|
-| Data Formatting|  JSON, XML|
-| Markup | HTML, MD|
-| Style | CSS|
-| Query | SQL, GraphQL, OCL, LINQ |
 
 
 ## Typing Systems
@@ -110,4 +122,4 @@ if (x == y) {
 |               | Static Typing | Dynamic Typing |
 | --------------| --------------| ---------------|
 | Strong Typing | Java          | Python         |
-| Weak Typing   | ??            | JavaScript     |
+| Weak Typing   | -            | JavaScript     |
