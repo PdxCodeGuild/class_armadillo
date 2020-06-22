@@ -72,6 +72,7 @@ def index():
             output += random.choice(master_pool)
             z += 1
 
+
     return render_template('index.html', password = output )
 
 
