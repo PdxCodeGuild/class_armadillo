@@ -8,7 +8,7 @@
 <body>
     <ul>
         {% for todo in agenda %}
-        <li>{{todo['todo']}} | {{todo['priority']}}</li>
+        <li>Task: <b>{{todo['todo']}}</b> | Priority: <b>{{todo['priority']}}</b></li>
         {% endfor %}
     </ul>
 </body>
