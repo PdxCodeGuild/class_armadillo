@@ -2,6 +2,18 @@
 
 # Programming
 
+
+- [Programming](#programming)
+  - [Programming-Related Careers](#programming-related-careers)
+  - [The Software Development Life-Cycle (SDLC)](#the-software-development-life-cycle-sdlc)
+    - [Agile & Scrum](#agile--scrum)
+    - [1) Requirements Gathering](#1-requirements-gathering)
+    - [2) Design](#2-design)
+    - [3) Implementation](#3-implementation)
+    - [4) Testing](#4-testing)
+    - [5) Deployment](#5-deployment)
+    - [6) Maintenance](#6-maintenance)
+
 ## Programming-Related Careers
 
 - Software Development

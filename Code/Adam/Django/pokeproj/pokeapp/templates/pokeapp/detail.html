@@ -5,12 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    ul {
+        list-style-type: none;
+    }
+</style>
 <body>
     <div>
-        {{pokemon.number}}) {{pokemon.name}}
-        <!-- {{pokemon.height}}{{pokemon.weight}} -->
-        <img src="{{pokemon.image_front}}">
-        <img src="{{pokemon.image_back}}">
+        <ul>
+            <li>
+                {{pokemon.number}}) {{pokemon.name}}
+            </li>
+            <li>
+                weight: {{pokemon.weight}} height: {{pokemon.height}}
+            </li>
+            <li>
+                <img src="{{pokemon.image_front}}">
+                <img src="{{pokemon.image_back}}">
+            </li>
+        </ul>
     </div>
 </body>
 </html>

@@ -11,3 +11,5 @@ def random_quote():
     author = (data['quote']['author'])
     return(f' "{quote}" - {author} ')
 print(random_quote())
+
+

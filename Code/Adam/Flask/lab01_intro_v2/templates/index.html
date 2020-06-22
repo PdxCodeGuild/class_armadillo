@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        <input id="num_select_uppers" type="number" name="num_select_uppers" placeholder="Number of uppercase letters:" required />
+        <input id="num_select_lowers" type="number" name="num_select_lowers" placeholder="Number of lowercase letters:" required />
+        <input id="num_select_chars" type="number" name="num_select_chars" placeholder="Number of special characters:" required />
+        <input id="num_select_nums" type="number" name="num_select_nums" placeholder="Number of integers:" required />
+        <button id="submit" type="submit">submit</button>
+    </form>
+    <div>
+        <span>
+            Your random password is: {{password}}
+        </span>
+    </div>
+</body>
+</html>

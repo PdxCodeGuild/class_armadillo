@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div id="weather"></div>
+    <div id="temperature"></div>
     <script>
 
         let weather = document.querySelector('#weather')
@@ -26,11 +26,14 @@
                 params:{
                     lat: position.coords.latitude,
                     lon: position.coords.longitude,
+                    exclude: 'hourly',
                     appid:api_address
                 }
                 
             }  ).then(response=>{
-               weather.innerText= response.data.current.weather[0].main
+                console.log(response.data.current)
+
+               temperature.innerText= response.data.current.weather[0].main
                 // let div_weather = response.data
                 // for (let i=0; i<div_weather)
 

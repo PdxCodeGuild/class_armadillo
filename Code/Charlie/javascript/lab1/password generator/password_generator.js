@@ -1,5 +1,7 @@
 let user_input = document.querySelector('#user_input')
 let btn_submit = document.querySelector('#btn_submit')
+let output = document.querySelector('#output')
+
 
 function passwordGenerator(letters){
     let random_pg = Math.floor(Math.random()* letters.length)
@@ -10,6 +12,7 @@ btn_submit.addEventListener('click', function(){
     let alpha = "abcdefghijklmnopqrstuvwxyz"
     let numbers = "0123456789"
     let spec_chars = "!@#$%^&*"
+    let result = ""
 
     let password = ""
     for (let i=0; i<user_input2; ++i){
@@ -17,5 +20,6 @@ btn_submit.addEventListener('click', function(){
         password += x
     }
     console.log(password)
-    alert(`Your password is: ${password}`)
+    result = (`Your password is: ${password}`)
+    output.innerText = `${(result)}`
 })

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Python labs in Vue</title>
+</head>
+
+<body class="bg-dark">
+    <div id="vue-container" class="container bg-info mt-5">
+        <!-- Vue app goes here -->
+        <div class="row">
+            <div class="col col-12 text-center">
+                <h3>Enter a number to see its phrase</h3>
+                <input type="number" id="user-number" value=0 v-model="userNumber" v-on:input="updateResult">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col-12 text-center">
+                {{ result }}
+            </div>
+        </div>
+    </div>
+
+    <script src="vue-app.js"></script>
+</body>
+
+</html>
