@@ -1,14 +1,18 @@
 from django.db import models
+from django.utils import timezone
+from phone_field import PhoneField
+import datetime
 
 
+# raw data
 class Contact(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     age = models.IntegerField()
-    birthday = models.DateField()
-    phone_number = models.CharField(unique=True, blank=True, max_length=10)
+    birthday = models.DateField(default="YYYY-MM-DD")
+    phone_number = PhoneField(blank=True, max_length=10)
     is_cell = models.BooleanField()
-    comments = models.TextField()
+    comments = models.TextField(blank=True)
 
     def __str__(self):
         # last_name will be unicode strings.
