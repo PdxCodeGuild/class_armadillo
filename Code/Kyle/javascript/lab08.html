@@ -27,10 +27,9 @@
             el: '#game',
             data: {
                 user_entry: '', // add user selector option
-                computer_entry: '',
                 output: '',
                 gameOptions: ['Rock', 'Paper', 'Scissors',],
-                computerGameOptions = Math.floor(Math.random() * gameOptions.length)
+                
             },
         }),
 
@@ -49,14 +48,35 @@
 //                            alert("Not a valid response. Please try again.")
 //                        }
 //                    }, // closes while loop
-                    
-                    if (userEntry === "rock" && computerEntry === "rock"){
-                        alert("You selected Rock and computer chose Rock.");
-                        alert("You tied!");
+
+                    let = computer_Entry = this.gameOptions[Math.floor(Math.random() * this.gameOptions.length)];
+
+                    if (this.user_entry === "rock" && this.computerEntry === "rock"){
+                        this.output = "You selected Rock and computer chose Rock. You tied!");
                     }
-                    else if (userEntry === "rock" && computerEntry === "scissors"){
-                        alert("You selected Rock and computer chose Scissors.");
-                        alert("You won!")
+                    else if (this.user_entry === "rock" && this.computerEntry === "paper"){
+                        this.output = "You selected Rock and computer chose Paper. You lost!");
+                    } 
+                    else if (this.user_entry === "rock" && this.computerEntry === "scissors"){
+                        this.output = "You selected Rock and computer chose Scissors. You won!");
+                    } 
+                    else if (this.user_entry === "paper" && this.computerEntry === "rock"){
+                        this.output = "You selected Paper and computer chose Rock. You won!");
+                    } 
+                    else if (this.user_entry === "paper" && this.computerEntry === "paper"){
+                        this.output = "You selected Paper and computer chose Paper. You tied!");
+                    } 
+                    else if (this.user_entry === "paper" && this.computerEntry === "scissors"){
+                        this.output = "You selected paper and computer chose Scissors. You lost!");
+                    }
+                    else if (this.user_entry === "scissors" && this.computerEntry === "rock"){
+                        this.output = "You selected Scissors and computer chose Rock. You lost!");
+                    } 
+                    else if (this.user_entry === "scissors" && this.computerEntry === "paper"){
+                        this.output = "You selected Scissors and computer chose Paper. You won!");
+                    } 
+                    else if (this.user_entry === "scissors" && this.computerEntry === "scissors"){
+                        this.output = "You selected Scissors and computer chose Scissors. You tied!");
                     } 
                 }, // closes rockPaperScissorsGame function
             }, // closes methods
