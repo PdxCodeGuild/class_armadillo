@@ -146,13 +146,12 @@
                     let rotateNum = this.inputNum
                     console.log(str)
 
-                    let lowerCaseStr = str.toLowerCase()
                     let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
                     let upperAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
                     let newStr = ''
 
-                    for(var i = 0; i <lowerCaseStr.length; i++){
-                        let currentLetter = lowerCaseStr[i]
+                    for(var i = 0; i <str.length; i++){
+                        let currentLetter = str[i]
                         if(currentLetter === ' ') {
                             newStr += currentLetter
                             continue
@@ -161,7 +160,13 @@
                             newStr += currentLetter
                             continue
                         }
-                        let currentIndex = alphabet.indexOf(currentLetter);
+                        let currentIndex = 0
+                        if(currentLetter === currentLetter.toUpperCase()){
+                            currentIndex = upperAlphabet.indexOf(currentLetter)
+                        }
+                        else{
+                            currentIndex = alphabet.indexOf(currentLetter);
+                        }
                         let newIndex = parseInt(currentIndex) + parseInt(rotateNum);
                         if (newIndex > 25){
                             newIndex = newIndex - 26
@@ -169,7 +174,8 @@
                         else if(newIndex < 0){
                             newIndex = newIndex + 26
                         }
-                        if(currentLetter == currentLetter.toUpperCase()){
+
+                        if(currentLetter === currentLetter.toUpperCase()){
                             newStr += upperAlphabet[newIndex]
                         }
                         else{
