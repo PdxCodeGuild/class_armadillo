@@ -7,17 +7,21 @@
     <script src="secrets.js"></script>
     <link rel="stylesheet" href="static/style.css">
     <title>Weather API</title>
-  </head>
-  <body>
-    <div>
+</head>
+<body>
+    <div class="noaa"><img src="noaa.png" width="400px"></div>
+    <div class="top">
+      
       <div>
         <span id="weather_location"></span>
         <span id="weather_date"></span>
+        <span id="weather"></span>
       </div>
     </div>
     <script>
       var weatherLocation = document.querySelector("#weather_location");
       var weatherDate = document.querySelector("#weather_date");
+      var weather = document.querySelector('#weathers')
       
       navigator.geolocation.getCurrentPosition((position) => {
           let user_lat = position.coords.latitude;
@@ -45,10 +49,10 @@
                 console.log(response.data.current.dt)
                 let current = new Date(date_now * 1000)
                 console.log(current)
-  
                 weatherDate.innerText = current;
 
-                //RESULT: Mon Jun 22 2020 14:05:00 GMT-0700 (Pacific Daylight Time)
+                
+
             });
         });
       function format_lat_long(latitude, longitude) {
