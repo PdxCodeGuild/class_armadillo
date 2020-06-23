@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>ROT 13 Cipher</title>
+</head>
+<style>
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #eeeeee;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        width: 500px;
+        height: auto;
+        position: absolute;
+        top: 10%;
+        left: 17%;
+        font-family: helvetica;
+    }
+
+    #input {
+        width: 500px;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -250px;
+        background-color: #eeeeee;
+    }
+
+    #input input {
+        position: relative;
+        width: 100%;
+        font-size: xx-large;
+        color: #555555;
+        border: none;
+        outline: none;
+        background: none;
+        padding: 12px 5px;
+        text-align: center; 
+    }
+
+    #input input:focus {
+        box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    #input .border-line {
+        width: 100%;
+        border: 3px solid #555555;
+        border-top: none;
+        height: 18%;
+        position: absolute;
+        bottom: 0px;
+        box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, .25);
+    }
+
+    button {
+        padding: 15px 40px;
+        background: #000;
+        border: 0;
+        color: #fff;
+        text-transform: uppercase;
+        font-family: helvetica;
+        font-size: 12px;
+        letter-spacing: 3px;
+        position: relative;
+        transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+        cursor: pointer;
+        display: block;
+        margin: 10px auto;
+    }
+
+    button::after,
+    button::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0px;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    button::after {
+        width: 30px;
+        height: 1px;
+        background: white;
+        transform: translateX(-3px);
+        margin-top: 0px;
+    }
+
+    button::before {
+        content: "";
+        transform: rotate(-135deg) translateX(50%);
+        width: 11px;
+        height: 11px;
+        background: transparent;
+        border-left: 1px solid white;
+        border-bottom: 1px solid white;
+        margin-top: -1px;
+    }
+
+    button:hover {
+        padding: 15px 60px 15px 20px;
+    }
+
+    button:hover::after,
+    button:hover::before {
+        opacity: 1;
+        right: 15px;
+    }
+</style>
+
+<body>
+
+    <div id="app">
+        <h1>CAESAR'S CIPHER</h1>
+        <div id="input">
+            <input type="text" v-model="inputStr" placeholder="Enter your message here" required>
+            <input type="number" v-model="inputNum" min="1" max="25" required>
+            <button v-on:click="rotate">Cipher</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app',
+            data: {
+                inputStr: '',
+                inputNum: 13,
+            },
+            methods: {
+                rotate: function(){
+                    let str = this.inputStr
+                    let rotateNum = this.inputNum
+                    console.log(str)
+
+                    let lowerCaseStr = str.toLowerCase()
+                    let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
+                    let upperAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+                    let newStr = ''
+
+                    for(var i = 0; i <lowerCaseStr.length; i++){
+                        let currentLetter = lowerCaseStr[i]
+                        if(currentLetter === ' ') {
+                            newStr += currentLetter
+                            continue
+                        }
+                        if(currentLetter == parseInt(currentLetter)){
+                            newStr += currentLetter
+                            continue
+                        }
+                        let currentIndex = alphabet.indexOf(currentLetter);
+                        let newIndex = parseInt(currentIndex) + parseInt(rotateNum);
+                        if (newIndex > 25){
+                            newIndex = newIndex - 26
+                        }
+                        else if(newIndex < 0){
+                            newIndex = newIndex + 26
+                        }
+                        if(currentLetter == currentLetter.toUpperCase()){
+                            newStr += upperAlphabet[newIndex]
+                        }
+                        else{
+                        newStr += alphabet[newIndex];
+                        }
+                    }
+                console.log(newStr)
+                this.inputStr = newStr;
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>
