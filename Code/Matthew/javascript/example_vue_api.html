@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>{{joke}}</div>
+        <button v-on:click="getJoke">get "joke"</button>
+    </div>
+    <script type="text/javascript">
+
+        
+        // function version 1: gets hoisted (moved to the top of the file when the page loads)
+        // console.log(add(5, 2))
+        // function add(a, b) {
+        //     return a + b
+        // }
+        
+        // function version 2: doesn't get hoisted
+        // console.log(add(5, 2)) // Uncaught ReferenceError: Cannot access 'add' before initialization
+        // let add = function(a, b) {
+        //     return a + b
+        // }
+        
+        // function version 3: preserves 'this'
+        // let add = (a, b) => {
+        //     return a + b
+        // }
+        // console.log(add(5, 2))
+        
+        // let math = {
+        //     add: (a, b) => {
+        //         return a + b
+        //     }
+        // }
+        // console.log(math.add(5, 2))
+
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                joke: ''
+            },
+            methods: {
+                getJoke: function() {
+                    //let app = this
+                    axios({
+                        method: 'get',
+                        url: 'https://api.icndb.com/jokes/random/'
+                    // }).then(function(response) {
+                    //     console.log(this)
+                    //     // this.joke won't work
+                    //     // app.joke will work
+                    // })
+                    }).then(response => {
+                        // alert('!!')
+                        // console.log(this)
+                        // console.log(response.data)
+                        this.joke = response.data.value.joke
+                    })
+                }
+            },
+            created: function() {
+                this.getJoke()
+            }
+        })
+        // app.getJoke()
+    </script>
+</body>
+</html>
