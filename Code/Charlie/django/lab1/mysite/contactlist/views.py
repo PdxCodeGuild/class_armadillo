@@ -25,7 +25,7 @@ def create_contact(request):
 
 def contacts(request):
     context = {"Contacts": Contact.objects.order_by('last_name')}
-    return render(request, 'contacts.html', context)
+    return render(request, 'contactlist/contacts.html', context)
 
 
 def details(request, id):
@@ -33,7 +33,7 @@ def details(request, id):
     context = {
         "contact_details": contact_details,
     }
-    return render(request, 'details.html', context)
+    return render(request, 'contactlist/details.html', context)
 
 
 def update(request, id):
@@ -42,7 +42,7 @@ def update(request, id):
         form = ContactForm(request.POST, instance=contact_details)
         if form.is_valid():
             form.save()
-            return redirect(reverse('contactlist:details', args=(contact_details.id,)))
+            return redirect(reverse('contactlist/details', args=(contact_details.id,)))
     else:
         form = ContactForm(initial={"first_name": contact_details.first_name,
                                     "last_name": contact_details.last_name,
@@ -58,7 +58,7 @@ def update(request, id):
         "contact_details": contact_details,
         "form": form,
     }
-    return render(request, 'update_contact.html', context)
+    return render(request, 'contactlist/update_contact.html', context)
 
 def delete(request, pk=None):
     contact = get_object_or_404(Contact, pk=pk)
@@ -72,4 +72,4 @@ def delete(request, pk=None):
     else:
         form - DeleteForm(instance= contact)
         
-    return render(request, 'contact/delete')
+    return render(request, 'contactlist/contact/delete')
