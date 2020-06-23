@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <input type="text" placeholder="enter a noun" v-model="input_noun"/>
+        <input type="text" placeholder="enter a verb" v-model="input_verb"/>
+        <button v-on:click="showMadlib">show madlib</button>
+        <div>{{output}}</div>
+    </div>
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app',
+            data: {
+                input_noun: '',
+                input_verb: '',
+                output: ''
+            },
+            methods: {
+                showMadlib: function() {
+                    this.output = 'they ' + this.input_verb + ' the ' + this.input_noun
+                }
+            }
+        })
+    </script>
+</body>
+</html>

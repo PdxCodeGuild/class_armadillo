@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="secrets.js"></script>
+    <link href="owfont-regular.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="static/style.css">
     <title>Weather API</title>
 </head>
@@ -16,12 +17,15 @@
         <span id="weather_location"></span>
         <span id="weather_date"></span>
         <span id="weather"></span>
+        <img src="" id="iconic">
+        <!-- <img class="icon" id="avatar" src=> -->
       </div>
     </div>
     <script>
       var weatherLocation = document.querySelector("#weather_location");
       var weatherDate = document.querySelector("#weather_date");
-      var weather = document.querySelector('#weathers')
+      var weather = document.querySelector('#weather')
+
       
       navigator.geolocation.getCurrentPosition((position) => {
           let user_lat = position.coords.latitude;
@@ -51,7 +55,18 @@
                 console.log(current)
                 weatherDate.innerText = current;
 
-                
+                let elements = response.data.current.weather[0].id
+                console.log(elements)
+                weather.innerText = elements
+
+                let icon_id = response.data.current.weather[0].icon
+
+                let icon_link = `http://openweathermap.org/img/wn/${icon_id}.png`
+                iconic.setAttribute('src', icon_link)
+                // let iconURL = 'http://openweathermap.org/img/wn/${icon}.png'
+                // console.log(iconURL)
+   
+                // avatar.setAttribute("src", iconURL)
 
             });
         });
