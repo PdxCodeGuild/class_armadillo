@@ -9,11 +9,11 @@ def index(request):
 
     context = {'pokemon': pokemon}
 
-    return render(request, 'index.html', context)
+    return render(request, 'pokedex/index.html', context)
 
 def detail(request, pokemon_id):
     pokemon = get_object_or_404(Pokemon, number=pokemon_id)
    
-    return render(request, 'detail.html', {'pokemon': pokemon })
+    return render(request, 'pokedex/detail.html', {'pokemon': pokemon })
  
     
