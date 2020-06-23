@@ -10,22 +10,42 @@
 </head>
 
 <body>
+    <div id="location"></div>
+    <div id="date"></div>
+    <div id="weather"></div>
     <script>
+        let wxLocation = document.querySelector("#weather");
+        let wxDate = document.querySelector("#date");
+        let wxWeather = document.querySelector("#weather")
+        
         navigator.geolocation.getCurrentPosition(position => {
-            console.log(position.coords.latitude)
-            console.log(position.coords.longitude)
-        })
-        axios({
-            method: 'get',
-            url: 'https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={ part } & appid=' + encodeURIComponent(api_key),
-            params: {
-                lat: position.coords.latitude,
-                lon: position.coords.longitude
+            let lat = position.coords.latitude
+            let lon = position.coords.longitude
+            let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${api_key}`
+            let unix_timestamp = 1592482891
+            let datetime = new Date(unix_timestamp * 1000)
+            console.log(datetime)
+
+            axios({
+                method: 'get',
+                url: url,
+                appid: api_key
+            }).then((response) => {
+                let current_date = response.data.current.dt
+                let present_date = new Date (current_date * 1000)
+                console.log(response.data)
+                wxDate.innerText = present_date;
+
+                let wxCond = response.data.current.weather[0].description
+                wxWeather.innerText = wxCond
             }
-            
-        }).then((response) => {
-            console.log(response.data)
-        })
+            )
+        }
+        )
+
+
+
+
     </script>
 </body>
 
