@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="messasge" />
+        <button v-on:click="sayHello">click</button>
+    </div>
+    <script>
+        function add(a, b) {
+            return a + b
+        }
+        console.log(add(5, 2))
+        let add = function (a, b) {
+            return a + b
+        }
+        console.log(add(5, 2))
+
+        // an object with a function as a property
+        let math = {
+            pi: 3.14,
+            add: function (a, b) {
+                return a + b
+            }
+        }
+        console.log(math.pi)
+        console.log(math.add(5, 2))
+
+        // console.log(Math)
+
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                // inside an object declaration
+                message: 'hello world!'
+            },
+            methods: {
+                sayHello: function () {
+                    // regular javascript here
+                    let message = 'hello world!'
+                    alert('hi')
+                    console.log('hi')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
