@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <title>ROT 13 Cipher</title>
+    <title>Caesar's Cipher</title>
 </head>
 <style>
     * {
@@ -15,11 +15,17 @@
     }
 
     body {
-        background-color: #eeeeee;
         margin: 0;
         padding: 0;
     }
-
+    #background{
+        background-image: url('Minimalist-Background.png'); 
+        background-repeat: no-repeat; 
+        background-size: cover;
+        background-position: center center;
+        height: 100vh;
+        width: 100vw;
+    }
     h1 {
         width: 500px;
         height: auto;
@@ -126,6 +132,7 @@
 
     <div id="app">
         <h1>CAESAR'S CIPHER</h1>
+        <div id="background"></div>
         <div id="input">
             <input type="text" v-model="inputStr" placeholder="Enter your message here" required>
             <input type="number" v-model="inputNum" min="1" max="25" required>
@@ -174,7 +181,6 @@
                         else if(newIndex < 0){
                             newIndex = newIndex + 26
                         }
-
                         if(currentLetter === currentLetter.toUpperCase()){
                             newStr += upperAlphabet[newIndex]
                         }
@@ -182,7 +188,6 @@
                         newStr += alphabet[newIndex];
                         }
                     }
-                console.log(newStr)
                 this.inputStr = newStr;
                 },
             }
