@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col col-12 text-center">
                 <h3>Enter a number to see its phrase</h3>
-                <input type="number" id="user-number" value=0 v-model="userNumber" v-on:input="updateResult">
+                <input type="number" id="user-number" min=0 max=999 value=0 v-model="userNumber" v-on:input="updateResult">
             </div>
         </div>
 
@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <script src="vue-app.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>

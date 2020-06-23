@@ -7,7 +7,7 @@
     <title>Detail Page</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -38,26 +38,28 @@
         </div>
         <div class="form-group">
             <label for="bday">Birthday:</label>
-            <input type="date" class="form-control" id="bday" value="{{ contact.birthday }}" name="birthday" required />
+            {% comment %} <input type="date" class="form-control" id="bday" value="{{ contact.birthday }}" placeholder="{{ contact.birthday }}"name="birthday" required /> {% endcomment %}
+            <div> {{ contact.birthday }}</div>
+            {% comment %} <input type="date" name="bday" required pattern="\d{4}-\d{2}-\d{2}"> {% endcomment %}
             <div class="valid-feedback">Valid.</div>
             <div class="invalid-feedback">Please fill out this field.</div>
         </div>
         <div class="form-group">
             <label for="pnum">Phone Number:</label>
-            <input type="number" class="form-control" id="pnum" value="{{ contact.phone_number }}" name="phone_number" required />
+            <input type="text" class="form-control" id="pnum" value="{{ contact.phone_number }}" name="phone_number" required />
             <div class="valid-feedback">Valid.</div>
             <div class="invalid-feedback">Please fill out this field.</div>
         </div>
         <div class="form-group form-check">
             <label class="form-check-label">
-				<input class="form-check-input" type="checkbox" name="is_cell" required /> Is a Cellphone number.
+				<input {% if contact.is_cell %}  checked {% endif %} class="form-check-input" type="checkbox"  name="is_cell" required /> Is a Cellphone number.
 
 				<div class="valid-feedback">Valid.</div>
 				<div class="invalid-feedback">Check this checkbox to continue.</div>
 			</label>
             <div class="form-group">
                 <label for="comments">Comments:</label>
-                <textarea class="form-control" id="comm" name="comments"></textarea>
+                <textarea class="form-control" id="comm"  name="comments"> {{contact.comments}}</textarea>
             </div>
         </div>
         <form action="{% url 'contacts:index' %}" method="post">
