@@ -15,13 +15,13 @@
     <div class="container text-center">
       <div id="app">
        <!-- <li v-for="(color, index) in colors">{{ index }}) {{ color }}</li> -->
-       <div v-model="userGuess">
+       <!-- <div v-model="userGuess"> -->
          <div v-for="num in buttonsDiv">
-           <button v-bind:value="num" v-on:click="compare">{{ num }}</button>
+           <div class="btn btn-dark" v-on:click="compare(num)">{{ num }}</div>
          </div>
-         <h1>{{num_to_guess}} {{ userGuess}}</h1>
-       </div>
-
+         <h1>{{num_to_guess}} {{userGuess}}</h1>
+       <!-- </div> -->
+       
       </div>
      
     </div>
@@ -41,10 +41,12 @@
           userGuess: null
         }, 
         methods: {
-          compare: function() {
-            let userGuess = this.userGuess
-            alert('hello')
-            
+          compare: function(num) {
+            this.userGuess = num
+            if(this.userguess === this.num_to_guess) {
+              
+            }
+
           }
         },
       })
