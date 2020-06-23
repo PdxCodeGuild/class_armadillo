@@ -7,7 +7,7 @@ def index(request):
     
     pokemon = Pokemon.objects.all()
     context = {
-        'title': 'Poke \'n Learn',
+        'title': 'Pokedex',
         'pokemon': pokemon
     }
     # return render(request, 'pokedex/index.html', {})
