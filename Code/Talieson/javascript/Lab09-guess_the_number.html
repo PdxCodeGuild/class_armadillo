@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button v-for="num in 10" v-on:click="checkNum(num)">{{num}}</button>
+        <div>{{numGuesses}}</div>
+        <div>{{randomNum}} This is the answer</div>
+        <div>{{output}}</div>
+    </div>
+
+    <script type="text/javascript">
+    let app = new Vue({
+        el: '#app',
+        data: {
+            randomNum: Math.floor((Math.random() * 10) + 1),
+            numGuesses: 10,
+            output: "",
+        },
+        methods: {
+            checkNum: function(num){
+                if (num == this.randomNum) {
+                    this.output = "You Win"
+                    this.resetGame()
+                    return
+                } else {
+                    this.numGuesses -= 1
+                }
+                if (this.numGuesses <= 0) {
+                    this.output = `You lose! The answer was ${this.randomNum}.`
+                    this.resetGame()
+                } else {
+                    this.output = "Try again."
+                }
+            },
+            resetGame: function(){
+                this.randomNum = Math.floor((Math.random() * 10) + 1)
+                this.numGuesses = 10
+            } 
+        },
+    })
+
+    </script>
+</body>
+</html>
