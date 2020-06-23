@@ -74,7 +74,7 @@ You can include Vue in your page like so:
       sayHello: function() {
         console.log(this.message)
       }
-    }
+    },
     // created - a lifecycle hook
     // called when the app is created
     // useful for setting up app data
