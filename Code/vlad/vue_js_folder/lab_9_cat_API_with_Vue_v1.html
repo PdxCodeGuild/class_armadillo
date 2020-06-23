@@ -13,17 +13,30 @@
     <title>lab_9_cat_API_with_Vue_Version 1</title>
 
     <style>
-
+    #btn_cat:hover {
+            background: yellow;
+            border: none;
+            color: rgb(1, 10, 15);
+            box-shadow: 7px 7px 12px rgb(6, 75, 235);
+            transition: 0.5s;
+        }
+           
+    #btn_cat {
+            margin: 6px 10px 30px 50px;
+            background-color: transparent;
+            border: 4px solid blue;
+            color: black;
+        }
     </style>
 </head>
 <div id="app">
     <div>
-        <button v-on:click="showCat">Cat picture</button>
+        <button id="btn_cat" v-on:click="showCat">Click to get Cat picture</button>
 
     </div>
 
     <div>
-        <img width="200" v-bind:src="cat_url" />
+        <img width="400" v-bind:src="cat_url" />
 
     </div>
 </div>
