@@ -27,7 +27,7 @@
 </div>
 <script>
     let app = new Vue({
-        el: '#app'
+        el: '#app',
         data: {
             message: 'hello world!'
         }
@@ -53,7 +53,7 @@
 </div>
 <script>
     let app = new Vue({
-        el: '#app'
+        el: '#app',
         data: {
             message: '<b>hello world!</b>'
         }
@@ -81,7 +81,7 @@
 </div>
 <script>
     let app = new Vue({
-        el: '#app'
+        el: '#app',
         methods: {
             sayHello: function() {
                 alert('hello world!')
@@ -114,10 +114,10 @@
 </div>
 <script>
     let app = new Vue({
-        el: '#app'
+        el: '#app',
         data: {
             message: 'hello world!'
-        }
+        },
         methods: {
             sayHello: function() {
                 alert(this.message)
