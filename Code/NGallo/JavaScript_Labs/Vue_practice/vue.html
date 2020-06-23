@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+        body{
+            background-color: aquamarine;
+            color: rgba(3, 4, 19, 0.651);
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue-vertor</title>
+</head>
+
+<body>
+    <div class="header" id="header_div">
+        <h2>VueUnit Convertor</h2>
+    </div>
+    <div class="main" id="main_div">
+        <input id="first_number_input" placeholder="Enter your starting digit" />
+        <select id="first_measurement">
+            <option value="feet">feet</option>
+            <option value="miles">miles</option>
+            <option value="meters">meters</option>
+            <option value="kilometers">kilometers</option>
+          </select>
+        <p>to</p>
+        <select id="second_measurement">
+            <option value="feet">feet</option>
+            <option value="miles">miles</option>
+            <option value="meters">meters</option>
+            <option value="kilometers">kilometers</option>
+          </select>
+          <br><br>
+        <button id="calculate_button">Measure!</button>
+    </div>
+    <div id="answer_div">
+    <span>{{answer}}</span>
+    </div>
+
+    <div id="footer" class="footer">
+        <h4> Nick Gallo | Class_Armadillo &copy2020
+        </h4>
+    </div>
+    <script>
+        let app = new Vue({
+    el: '#answer_div',
+    data: {
+      answer: 'hello world!'
+    }
+  })
+    </script>
+</body>
+
+</html>
