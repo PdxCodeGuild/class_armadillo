@@ -17,17 +17,21 @@
             <input type="text" v-model="number_input" placeholder="Enter number of units: " />
             <!-- select a starting unit -->
             <select v-model="start_unit">
+                <!-- binding the vue object start_unit to the users input-->
+                <!-- using v-for to bind an array of vue objects to an array of HTML element -->
                 <option v-for="unit in units" v-bind:value="unit">{{unit.name}}</option>
             </select>
             <!-- select an end unit -->
             <select v-model="end_unit">
+                <!-- bind the vue object end_unti to the users input -->
+                <!-- using v-for to bind an array of vue objects to an array of HTML element -->
                 <option v-for="unit in units" v-bind:value="unit">{{unit.name}}</option>
             </select>
             <!-- submit the inputs for conversion -->
-            <button v-on:click='start_unit_to_m'>convert</button>
+            <button v-on:click='conversion'>convert</button>
         </div>
-        <!-- if the inputs have been submitted -->
-        <div v-if="this.end_unit && this.submitted">
+        <!-- directive v-if only renders the block if submitted is true-->
+        <div v-if="this.submitted">
             <!-- display conversion here -->
             {{this.solution}} {{this.end_unit.name}}
         </div>
@@ -40,6 +44,7 @@
             el: '#app',
             // app data contains variables referenced in the html
             data: {
+                // 
                 submitted: false,
                 solution: null,
                 start_unit: null,
@@ -64,14 +69,16 @@
             },
             // app methods can be bound to events on html elements (v-on)
             methods: {
-                // convert start unit to meters
-                start_unit_to_m: function () {
+                // multiple number_input by start_unit conversion factor to convert to meters
+                // then divide distance in meters by the conversion factor of end_unit
+                conversion: function () {
                     let value = parseFloat(this.number_input)
                     console.log(value)
                     let value_in_m = value*this.start_unit.con_fact
                     console.log(value_in_m)
-                    this.solution = String(value_in_m/this.end_unit.con_fact)
                     // return String(this.solution)
+                    this.solution = String(value_in_m/this.end_unit.con_fact)
+                    // sets conditional submitted to true
                     this.submitted = true
 
                 }

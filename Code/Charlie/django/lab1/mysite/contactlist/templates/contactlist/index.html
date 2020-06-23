@@ -20,12 +20,12 @@
     {% block content %}
     {% for contact in contacts %}
     <div>
-        <a href="{% url 'contactsist:details' contact.id %}"> {{contact.last_name}}, {{contact.first_name}}</a>
+        <a href="{% url 'contactist:details' contact.id %}"> {{contact.last_name}}, {{contact.first_name}}</a>
     </div>
     {% endfor %}
     {% endblock %}
     <div>
-        <a href="{% url 'contactslist:contacts'%}"><button type="submit" class="btn btn-primary">Create Contact</button></a>
+        <a href="{% url 'contactlist:contacts'%}"><button type="submit" class="btn btn-primary">Create Contact</button></a>
     </div>
 </body>
 
