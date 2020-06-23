@@ -4,15 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <style type="text/css">
+        * {
+            font-family: 'Bangers', cursive;
+            
+        }
+
+        body {
+            margin:25px;
+            background-color: rgb(207, 205, 205);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 100px;
+        }
+
+        .flex {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .title {
+            text-transform: capitalize;
+            text-align: center;
+            margin-top: 5px;
+            font-size: 30px;
+        }
+
+        .boxy {
+            display: flex;
+            justify-content: center;
+        }
+
+        .boxy :focus {
+            outline: transparent;
+        }
+
+        .form {
+            text-align: center;
+        }
+
+        #search:focus {
+            outline: transparent;
+        }
+
+        .image-1 {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .card {
+            width: 20%;
+            background-color: grey;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin: 5px;
+            border-radius: 20px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: red;
+        }
+
+        .container {
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 20px;
+        }
+
+        a {
+            color: whitesmoke;
+        }
+    </style>
 </head>
 <body>
     <h1>{{title}}</h1>
-    {% for mon in pokemon %}
-    <div>
-        {{mon.number}} {{mon.name}}
-        <img src = "{{mon.image_front}}"/>
-        <img src = "{{mon.image_back}}"/>
+    <div="boxy">
+        <form class="form" action="{% url 'pokedex:index' %}" autocomplete="off" method="post">
+            {% csrf_token %}
+            <input id="search" size=60px type="text" placeholder="Look for your pokemon..." name="search_poke">
+            <button class="btn" type="submit">Search</button>
+        </form>
     </div>
-    {% endfor %}
+    <div class="flex">
+        {% for mon in pokemon %}
+        <div class="card">
+            <div class="title">{{mon.name}} <i>(#{{mon.number}})</i></div>
+            <div class="container">
+                <img class="image-1" src="{{mon.image_front}}" alt="avatar_front"/>
+                <!-- <div class="text">{{mon.name}} <i>#{{mon.number}}</i></div> -->
+                <!-- <img class="image-2" src="{{mon.image_back}}" alt="avatar_back"/> -->
+                <div class="text">Height: {{mon.height}}</div>
+                <div class="text">Weight: {{mon.weight}}</div>
+                <div class="text">Type: 
+                    {% for typ in mon.types.all %} 
+                        {{typ}}
+                    {% endfor %}
+                </div>
+                <div class="text"><a href='{{mon.url}}' target="blank">Wiki Page</a></div>
+                <img class="image-2" src="{{mon.image_back}}" alt="avatar_back"/>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </body>
 </html>

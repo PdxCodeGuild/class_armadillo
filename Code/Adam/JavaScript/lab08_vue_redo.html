@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit Converter</title>
     <!-- development version, includes helpful console warnings -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 </head>
+
 <body>
     <div id="app">
         <h1>Unit Converter</h1>
         <div>
             <!-- input the number of units -->
-            <input type="number" v-model="number_input" placeholder="Enter number of units: " />
+            <input type="text" v-model="number_input" placeholder="Enter number of units: " />
             <!-- select a starting unit -->
             <select v-model="start_unit">
-                <option v-for="unit in units" v-bind:value="unit">{{unit}}</option>
+                <option v-for="unit in units" v-bind:value="unit">{{unit.name}}</option>
             </select>
             <!-- select an end unit -->
             <select v-model="end_unit">
-                <option v-for="unit in units" v-bind:value="unit">{{unit}}</option>
+                <option v-for="unit in units" v-bind:value="unit">{{unit.name}}</option>
             </select>
             <!-- submit the inputs for conversion -->
-            <button v-on:click='convert'>convert</button>
+            <button v-on:click='start_unit_to_m'>convert</button>
         </div>
-        <div>
-            <!-- display the converted measurement for the user -->
+        <!-- if the inputs have been submitted -->
+        <div v-if="this.end_unit && this.submitted">
+            <!-- display conversion here -->
+            {{this.solution}} {{this.end_unit.name}}
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script type="text/javascript">
         // vue app
         let app = new Vue({
@@ -35,33 +40,47 @@
             el: '#app',
             // app data contains variables referenced in the html
             data: {
+                submitted: false,
+                solution: null,
+                start_unit: null,
+                end_unit: null,
+                // conv_factor: 1,
                 number_input: null,
-                start_unit: 'm',
-                end_unit: 'm',
-                // declare unite and assigh a list of dictionaries
-                // name is assigned a list of acceptable names for a unit
-                // con_fact is the conversion factor for the unit to or from meters
+                // value: null,
                 units: [{
-                    name: ['feet', 'ft'],
+                    name: 'ft',
                     con_fact: 0.3048
-                },{
-                    name: ['miles', 'mile', 'mi'],
+                }, {
+                    name: 'mi',
                     con_fact: 1609.34
-                },{
-                    name: ['meters', 'meter', 'm'],
+                }, {
+                    name: 'm',
                     con_fact: 1
-                },{
-                    name: ['kilometers', 'kilometer', 'km'],
+                }, {
+                    name: 'km',
                     con_fact: 1000
-                }]
+                }],
+
             },
             // app methods can be bound to events on html elements (v-on)
             methods: {
-                // 
+                // convert start unit to meters
+                start_unit_to_m: function () {
+                    let value = parseFloat(this.number_input)
+                    console.log(value)
+                    let value_in_m = value*this.start_unit.con_fact
+                    console.log(value_in_m)
+                    this.solution = String(value_in_m/this.end_unit.con_fact)
+                    // return String(this.solution)
+                    this.submitted = true
+
+                }
             }
         }
 
         )
     </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 </body>
+
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <span>{{message}}</span>
+
+
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: '',
+                seen: true
+            },
+            methods: {
+                reverse_msg: function(){
+                    this.message = 'hello'
+                }
+            }, 
+            mounted: function() {
+              this.reverse_msg()
+            }
+        })
+    </script>
+</body>
+</html>

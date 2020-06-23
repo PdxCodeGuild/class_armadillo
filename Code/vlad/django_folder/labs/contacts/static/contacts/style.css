@@ -3,7 +3,38 @@ li a {
     font-size: medium;
 }
 
+#list {
+    color: white;
+    font-size: large;
+    margin: 2px 180px 10px 100px;
+    font-size: medium;
+    /* font-weight: bold; */
+    color: black;
+    font-style: italic;
+    width: 40%;
+    border: 2px solid gray;
+    padding: 20px;
+    /* color: aliceblue; */
+    box-shadow: 7px 7px 12px rgb(235, 6, 6);
+    /* background-color: skyblue; */
+    /* quote_list.style.display='none'; */
+    /* quote_list.style.display='block'; */
+}
+
+#btn-primary {
+    margin: 10px 180px 40px 100px;
+    box-shadow: 7px 7px 12px rgb(235, 6, 6);
+}
+
 body {
     background: url("background_contact.jpg") no-repeat;
     padding-right: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#logo {
+    background-size: cover;
+    margin: 1px 180px 40px 100px;
+    margin-left: 1px;
 }
