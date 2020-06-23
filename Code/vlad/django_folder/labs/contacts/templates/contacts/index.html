@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'contacts/style.css' %}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -20,21 +20,25 @@
 </head>
 
 <body>
-    <div class="col-sm-6 banner-image">
-        <img src="background_contact.jpg" class="img-responsive">
+    <div id="logo" class="col-sm-6 banner-image">
+        <img src={% static "contacts/logo_contact_list.png" %} class="img-responsive">
     </div>
-    <h1>Contact List Welcome!</h1>
+
+    {% comment %} {% load static %}
+<img src="{% static "my_app/example.jpg" %}" alt="My image"> {% endcomment %}
+
+    {% comment %} <h1>Contact List Welcome!</h1> {% endcomment %}
 
     {% for contact in contacts %}
 
-    <div>
+    <div id="list">
         <a href="{% url 'contacts:detail' contact.id %}"> {{contact.last_name}}, {{contact.first_name}} </a>
     </div>
     {% endfor %}
 
     <div>
 
-        <a href="{% url 'contacts:new' %}"><button type="submit" class="btn btn-primary">Create Contact</button></a>
+        <a href="{% url 'contacts:new' %}"><button type="submit" id="btn-primary"class="btn btn-primary">Create Contact</button></a>
 
     </div>
 </body>
