@@ -115,7 +115,10 @@
         <!-- green info screen -->
         <div class="col col-10 offset-1" id="info-screen">
           <p>
-            {% if pokemon %}
+            {% if not pokemon and not pokemon_list and not query%}
+              Welcome to PokeDex!
+            {% endif %}
+            {% if pokemon or pokemon_list.object_list.count == 1 %}
           <h3 class="text-center">{{ pokemon.name }}</h3>
           <div class="row no-gutters">
             <div class="col col-6 d-flex-column align-items-end">
@@ -150,22 +153,28 @@
             </div>
           </div>
           <!-- If more than one pokemon returned in query -->
-          {% elif pokemon_list%}
-            <p></p>
-            {% for pokemon in pokemon_list %}
-              <a href="{% url 'pokedex' pokemon.number %}" class="poke-list-link">
-                <div class="row no-gutters poke-list-item">
-                  <div class="col col-3 offset-1">
-                    <p>{{ pokemon.number }}.</p>
-                  </div>
-                  <div class="col col-8">
-                    <p>{{ pokemon.name }}</p>
-                  </div>
-                </div>
-              </a>
-            {% endfor %}
+          
           {% else %}
-          Welcome to the PokeDex!
+
+            <p></p>
+            {% if pokemon_list.object_list.count == 0 %}
+              No Pokemon found with 
+              {% if query_type == 'poke_type' %} type {%else%} {{query_type}} {% endif %} "{{ query }}"
+
+            {% else %}
+              {% for pokemon in pokemon_list %}
+                <a href="{% url 'pokedex' pokemon.number %}" class="poke-list-link">
+                  <div class="row no-gutters poke-list-item">
+                    <div class="col col-3 offset-1">
+                      <p>{{ pokemon.number }}.</p>
+                    </div>
+                    <div class="col col-8">
+                      <p>{{ pokemon.name }}</p>
+                    </div>
+                  </div>
+                </a>
+              {% endfor %}
+            {% endif %}
           {% endif %}
           </p>
         </div>
@@ -189,7 +198,7 @@
                     <input type="radio" name="query_type" value="name" {% if query_type == 'name' %} checked {% endif %}>
                 </div> 
                 <div class="col col-3 text-center">
-                  <label>Type </label> <input type="radio" name="query_type" value="poke_type" {% if query_type == 'type' %} checked {% endif %}>
+                  <label>Type </label> <input type="radio" name="query_type" value="poke_type" {% if query_type == 'poke_type' %} checked {% endif %}>
                 </div>
                 <div class="col col-4 text-center">
                   <label>Number</label> <input type="radio" name="query_type" value="number" {% if query_type == 'number' %} checked {% endif %}>
@@ -232,13 +241,13 @@
           </div>
 
           <div class="col col-6 d-flex justify-content-around">
-            <a href="{% if pokemon_list.has_previous %} ?page={{ pokemon_list.previous_page_number }}&query={{ query }} {% else %} # {%endif%}">
+            <a href="{% if pokemon_list.has_previous %} ?page={{ pokemon_list.previous_page_number }}&query={{ query }}&query_type={{ query_type }} {% else %} # {% endif %}">
               <div class="yellow-button d-flex justify-content-center align-items-center">
                 <div class="double-arrow">&#11244;</div>
               </div>
             </a>
             
-            <a href="{% if pokemon_list.has_next %} ?page={{ pokemon_list.next_page_number }}&query={{ query }} {% else %} # {%endif%}">
+            <a href="{% if pokemon_list.has_next %} ?page={{ pokemon_list.next_page_number }}&query={{ query }}&query_type={{ query_type }} {% else %} # {% endif %}">
             
               <div class="yellow-button d-flex justify-content-center align-items-center">
                 <div class="double-arrow">&#11246;</div>

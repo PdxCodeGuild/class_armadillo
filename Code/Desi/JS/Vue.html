@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <span>{{message}}</span>
+        <span v-html='html'></span>
+
+        <span v-if='seen'>some text</span>
+        <ul>
+            <li v-for='fruit in fruits'>
+                <div><span>{{fruit}}</span></div>
+            </li>
+        </ul>
+    </div>
+    <script type='text/javascript'>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Moto!',
+                html: '<b>sup!</b>',
+                seen: true,
+                fruits: ['cherries', 'apples', 'pears']
+
+            }
+        })
+    </script>
+</body>
+
+</html>
