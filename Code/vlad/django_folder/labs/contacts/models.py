@@ -1,6 +1,12 @@
 from django.db import models
 from phone_field import PhoneField
 
+# to handle the phone number did the following:
+#  downloaded and installed the https://pypi.org/project/django-phone-field/
+# to be able to use the from phone_field import PhoneField
+# PyPIPyPI
+# django-phone-field Lightweight model and form field for phone numbers in Django(13 kB)
+
 # Create your models here.
 
 # add inside the class the following

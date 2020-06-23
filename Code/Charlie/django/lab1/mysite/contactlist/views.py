@@ -1,8 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
 from django.urls import reverse
 from .models import Contact
-from .forms import ContactForm
+from .forms import ContactForm, ContactDeleteForm
 
 def create_contact(request):
     template = "create_contact.html"
@@ -13,7 +13,7 @@ def create_contact(request):
         if form.is_valid():
             form.save()
             contact_details = Contact.objects.latest('id')
-            return HttpResponseRedirect(reverse('contactlist:details', args=(contact_details.id,)))
+            return redirect(reverse('contactlist:details', args=(contact_details.id,)))
 
     else:
         form = ContactForm()
@@ -42,7 +42,7 @@ def update(request, id):
         form = ContactForm(request.POST, instance=contact_details)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('contactlist:details', args=(contact_details.id,)))
+            return redirect(reverse('contactlist:details', args=(contact_details.id,)))
     else:
         form = ContactForm(initial={"first_name": contact_details.first_name,
                                     "last_name": contact_details.last_name,
@@ -59,3 +59,17 @@ def update(request, id):
         "form": form,
     }
     return render(request, 'update_contact.html', context)
+
+def delete(request, pk=None):
+    contact = get_object_or_404(Contact, pk=pk)
+    if request.method == "POST":
+        form = DeleteForm(request.POST, instance= contact)
+        
+        if form.is_valid():
+            contact.delete()
+            return redirect('create')
+
+    else:
+        form - DeleteForm(instance= contact)
+        
+    return render(request, 'contact/delete')
