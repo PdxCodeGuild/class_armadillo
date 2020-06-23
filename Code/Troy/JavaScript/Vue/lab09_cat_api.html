@@ -11,7 +11,7 @@
 
 <body>
     <div id="app">
-        <img v-bind:src="image_url">{{img_url}}</img>
+        <img v-bind:src="img_url" height="200px" width="200PX">
         <button v-on:click="getCatPic">Bag a Cat</button>
     </div>
     <script type="text/javascript">
@@ -19,7 +19,7 @@
         let app = new Vue({
             el: "#app",
             data: {
-                img_url: "https://api.thecatapi.comv1/images/search/100/100",
+                img_url: "https://placekitten.com/100/100",
             },
             methods: {
                 getCatPic: function () {
