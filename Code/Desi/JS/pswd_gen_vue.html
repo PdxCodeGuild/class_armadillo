@@ -9,13 +9,23 @@
 <body>
     <div id='app'>
         <span>{{message}}</span>
+
+
     </div>
     <script>
         let app = new Vue({
             el: '#app',
             data: {
-                message: 'Password Generator',
+                message: '',
                 seen: true
+            },
+            methods: {
+                reverse_msg: function(){
+                    this.message = 'hello'
+                }
+            }, 
+            mounted: function() {
+              this.reverse_msg()
             }
         })
     </script>

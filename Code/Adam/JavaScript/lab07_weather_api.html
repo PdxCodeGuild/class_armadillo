@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Current Weather</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="secrets.js"></script>
 </head>
@@ -11,7 +11,8 @@
     <button id="btn_get_weather">get weather</button>
     <br/>
     <div id="output_div1"></div>
-    <!-- <img id="img_weather"/> -->
+    <!-- <img src="http://openweathermap.org/img/wn/04d.png"/> -->
+    <img id="img_weather"/>
 
     <script>
         // declaring variables and assigning value from query
@@ -33,7 +34,7 @@
                 // combine the openweather url w/ lat, lon, and api key in a template literal
                 // assign it to the declared variable url
                 let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${open_weather_api}&units=imperial`
-    
+                
         
                 axios({
                     method: 'get',
@@ -44,7 +45,12 @@
                     console.log(current_data)
                     let current_temp = current_data.temp
                     console.log(current_temp)
-                    document.getElementById("output_div1").innerHTML = `The current temperature is ${current_temp} degrees fahrenheit`
+                    let weather_icon_id = current_data.weather[0].icon
+                    console.log(weather_icon_id)
+                    
+                    document.getElementById("output_div1").innerHTML = `The current temperature is ${current_temp} °F`
+                    img_weather.setAttribute("src", `http://openweathermap.org/img/wn/${weather_icon_id}.png`)
+
 
                 }).catch(error => {
                     console.log('something went wrong!')
