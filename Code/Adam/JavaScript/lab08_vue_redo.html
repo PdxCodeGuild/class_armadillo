@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <!-- development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body>
     <div id="app">
         <h1>Unit Converter</h1>
@@ -15,17 +17,17 @@
             <input type="number" v-model="number_input" placeholder="Enter number of units: " />
             <!-- select a starting unit -->
             <select v-model="start_unit">
-                <option v-for="unit in units" v-bind:value="unit">{{unit}}</option>
+                <option v-for="unit in units" v-bind:value="unit">{{unit.name}}</option>
             </select>
             <!-- select an end unit -->
             <select v-model="end_unit">
-                <option v-for="unit in units" v-bind:value="unit">{{unit}}</option>
+                <option v-for="unit in units" v-bind:value="unit">{{unit.name}}</option>
             </select>
             <!-- submit the inputs for conversion -->
             <button v-on:click='convert'>convert</button>
         </div>
         <div>
-            <!-- display the converted measurement for the user -->
+            <!-- display conversion here -->
         </div>
     </div>
     <script type="text/javascript">
@@ -35,33 +37,37 @@
             el: '#app',
             // app data contains variables referenced in the html
             data: {
-                number_input: null,
-                start_unit: 'm',
-                end_unit: 'm',
-                // declare unite and assigh a list of dictionaries
-                // name is assigned a list of acceptable names for a unit
-                // con_fact is the conversion factor for the unit to or from meters
+                // start_unit: 'm',
+                // end_unit: 'm',
+                // conv_factor: 1,
+                // number_input: 5,
+
                 units: [{
-                    name: ['feet', 'ft'],
+                    name: 'ft',
                     con_fact: 0.3048
-                },{
-                    name: ['miles', 'mile', 'mi'],
+                }, {
+                    name: 'mi',
                     con_fact: 1609.34
-                },{
-                    name: ['meters', 'meter', 'm'],
+                }, {
+                    name: 'm',
                     con_fact: 1
-                },{
-                    name: ['kilometers', 'kilometer', 'km'],
+                }, {
+                    name: 'km',
                     con_fact: 1000
-                }]
+                }],
+
             },
             // app methods can be bound to events on html elements (v-on)
-            methods: {
-                // 
-            }
+            // methods: {
+            //     // convert start unit to meters
+            //     unit_to_m: function () {
+            //         alert(conversion)
+            //     }
+            // }
         }
 
         )
     </script>
 </body>
+
 </html>
