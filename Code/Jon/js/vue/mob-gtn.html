@@ -15,13 +15,15 @@
     <div class="container text-center">
       <div id="app">
        <!-- <li v-for="(color, index) in colors">{{ index }}) {{ color }}</li> -->
-       <div v-model="userGuess">
+       <!-- <div v-model="userGuess"> -->
          <div v-for="num in buttonsDiv">
-           <button v-bind:value="num" v-on:click="compare">{{ num }}</button>
+           <div class="btn btn-dark" v-on:click="compare(num)">{{ num }}</div>
          </div>
-         <h1>{{num_to_guess}} {{ userGuess}}</h1>
-       </div>
-
+         <h1>{{output}}</h1>
+         <h1>Random Num: {{num_to_guess}} User Guess: {{userGuess}}</h1>
+         <h1>Counter: {{num_guesses}}</h1>
+       <!-- </div> -->
+       
       </div>
      
     </div>
@@ -32,19 +34,32 @@
     3. Add a v-on:click to each button which calls an app method guessNumber and passes the selected number as a parameter.
     4. In guessNumber detemine whether they've guessed the correct number. If it's incorrect, tell the user. If it's correct, tell the user and choose a new random number
 
+    Version 2
+  Keep track of the number of guesses using another app property num_guesses. If the user gets 10 wrong guesses, tell them they've lost and restart the game.
+
      <script type="text/JavaScript">
       let app = new Vue({
         el: '#app',
         data: {
           num_to_guess: (Math.floor(Math.random() * 10) + 1),
           buttonsDiv: [1,2,3,4,5,6,7,8,9,10],
-          userGuess: null
+          replies: ['You suck. Restart', 'You statistically stink. Restart', 'Try again loser. Restart', 'Quit. Restart'],
+          userGuess: null,
+          output: '',
+          num_guesses: 0
         }, 
         methods: {
-          compare: function() {
-            let userGuess = this.userGuess
-            alert('hello')
-            
+          compare: function(num) {
+            this.userGuess = num
+            if(this.userGuess === this.num_to_guess) {
+              this.output = `Your wizard Harry. The correct number was ${this.num_to_guess}`
+            } else {
+              this.output = `Try again.`
+              this.num_guesses += 1
+              if(this.num_guesses === 10) {
+                this.output = `${this.replies[Math.floor(Math.random() * this.replies.length)]}`
+              }
+            }
           }
         },
       })
