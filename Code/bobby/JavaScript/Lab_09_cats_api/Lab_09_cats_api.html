@@ -1,20 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Here Kitty, Kitty</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="secrets.js"></script>
+    <script type="text/javascript"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <style type = 'text/css'></style>
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style type='text/css'>
+        html {
+            background-color: greenyellow;
+        }
+        body {
+            text-align: center;
+            text-shadow: black;
+            font-size: 20px;
+            font-family: sans-serif;
+            font-style: italic;
+            background-color: #ccff00;
+        }
+
+    </style>
 </head>
+
 <body>
     <h1>Here Kitty, Kitty</h1>
 
     <script>
-        
+        let breed = document.querySelector('#breed')
+        let btn_img = document.querySelector('#btn_img')
+        let img_cats = document.querySelector('#img_cats')
+        let url ='https://api.thecatapi.com/v1/breeds?api_key= {cat_api}'
+
+        axios({
+            method: 'get',
+            url: url,
+        }).then(response => {
+            console.log(response.data)
+            let cats = response.data
+            for (let c=0; c<cats.length; ++c) {
+                let option = document.createElement('option')
+                option.value = cats[c].cats_id
+                option.innerText = cats[c].name
+                // breed.appendChild(option)
+            }
+        })
+
+        btn_img.addEventListener ('click',function() {
+            let breed_id = select_breed.value
+            axios({
+                method: 'get',
+                url: 'https://api.thecatapi.com/v1/images/search',
+                params:{
+                    breed_id: breed_id
+                }           
+             }).then(function(response) {
+                 let image_url = response.data[1].url
+                 img_cats.src = image_url
+             })
+        })
+
     </script>
-    
+
+    <!-- <select id = 'breed' ></select> -->
+    <button id = 'btn_img' class="btn btn-primary">Here Kitty, Kitty</button>
+    <br>
+    <img id = 'img_cats' width="500"/>
+
 </body>
+
 </html>

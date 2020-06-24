@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat API</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+</head>
+
+<body>
+    
+    <div id="app">
+        <select name="categories" v-model="input_category">
+            <option v-for="purrpatrator in categories" v-bind:value="purrpatrator.id">{{purrpatrator.name}}</option>
+          </select>
+        <button v-on:click="getCat">Get"Cat"</button>
+        <img v-bind:src="image_url"/>
+        <div>{{image_url}}</div>
+        
+    </div>
+
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app',
+            data: {
+                image_url: '',
+                categories: [],
+                input_category: '',
+
+
+                
+            },
+            created: function () {
+                axios({
+                    method: 'get',
+                    url: 'https://api.thecatapi.com/v1/categories',
+                    }).then(resonse => {
+                        this.categories = response.data
+                        console.log(this.categories)
+                    })
+            },
+            methods: {
+                getCat: function () {
+                    axios({
+                        method: 'get',
+                        url: 'https://api.thecatapi.com/v1/images/search/'
+                    }).then(response => {
+                        console.log(response.data[0].url)
+                        this.image_url = response.data[0].url
+                        
+                    })
+                }
+            },
+            
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>

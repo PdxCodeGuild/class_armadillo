@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>GUESS THE NUM</title>
+  </head>
+  <body>
+    <br>
+    <div class="container text-center">
+      <div id="app">
+       <!-- <li v-for="(color, index) in colors">{{ index }}) {{ color }}</li> -->
+       <!-- <div v-model="userGuess"> -->
+         <div v-for="num in buttonsDiv">
+           <div class="btn btn-dark" v-on:click="compare(num)">{{ num }}</div>
+         </div>
+         <h1>{{output}}</h1>
+         <h1>Random Num: {{num_to_guess}} User Guess: {{userGuess}}</h1>
+         <h1>Counter: {{num_guesses}}</h1>
+       <!-- </div> -->
+       
+      </div>
+     
+    </div>
+     <br><br><br><br>
+
+    (Jon scribe 6/23/20)
+    1. In your app's data, add a property num_to_guess to represent the number the user will guess, the initial value should be a random integer 1-10.
+    2. Use a v-for to generate 10 html buttons for the numbers 1-10.
+    3. Add a v-on:click to each button which calls an app method guessNumber and passes the selected number as a parameter.
+    4. In guessNumber detemine whether they've guessed the correct number. If it's incorrect, tell the user. If it's correct, tell the user and choose a new random number
+
+    Version 2
+  Keep track of the number of guesses using another app property num_guesses. If the user gets 10 wrong guesses, tell them they've lost and restart the game.
+
+     <script type="text/JavaScript">
+      let app = new Vue({
+        el: '#app',
+        data: {
+          num_to_guess: (Math.floor(Math.random() * 10) + 1),
+          buttonsDiv: [1,2,3,4,5,6,7,8,9,10],
+          replies: ['You suck. Restart', 'You statistically stink. Restart', 'Try again loser. Restart', 'Quit. Restart'],
+          userGuess: null,
+          output: '',
+          num_guesses: 0
+        }, 
+        methods: {
+          compare: function(num) {
+            this.userGuess = num
+            if(this.userGuess === this.num_to_guess) {
+              this.output = `Your wizard Harry. The correct number was ${this.num_to_guess}`
+            } else {
+              this.output = `Try again.`
+              this.num_guesses += 1
+              if(this.num_guesses === 10) {
+                this.output = `${this.replies[Math.floor(Math.random() * this.replies.length)]}`
+              }
+            }
+          }
+        },
+      })
+     </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
