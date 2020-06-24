@@ -13,12 +13,19 @@
     <title>Cats!</title>
 </head>
 <body>
+    <h1>
+        Cat Pictures!
+    </h1>
     <div id="app">
-        <select v-model="catagory_input">
-            <option v-for="cata in catagories" v-bind:value="cata">{{ cata }}</option>
-        </select>
-        <button v-on:click="getCat" id="btn_submit_info" class="btn btn-primary">Submit</button>
-        <img v-bind:src="cat_pic">
+        <div id="select">
+            <select v-model="catagory_input">
+                <option v-for="cata in catagories" v-bind:value="cata">{{ cata }}</option>
+            </select>
+            <button v-on:click="getCat" id="btn_submit_info" class="btn btn-primary">Submit</button>
+        </div>
+        <span id="catimg">
+            <img v-bind:src="cat_pic">
+        </span>
     </div>
     <script>
         let cataData = null

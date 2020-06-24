@@ -30,3 +30,16 @@ h1{
     display: block;
     margin-left: 45%
 }
+
+#select{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#catimg{
+    margin-top: 50px;
+    display: block;
+    text-align: center;
+}
