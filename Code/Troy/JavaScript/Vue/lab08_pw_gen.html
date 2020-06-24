@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Password Generator</title>
+</head>
+
+<body>
+    <div id="app">
+        <h3>{{title_message}}</h3>
+        <input type="text" v-model="how_many" placeholder="Enter PW Length Here...">
+        <button v-on:click="generatePassword">Generate PW</button>
+        <span type="text" v-model="response">{{response}}</span>
+    </div>
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app',
+            data: {
+                title_message: "Password Generator",
+                how_many: 0,
+                password: "",
+                characters: {
+                    lowercase: "abcdefghijklmnopqrstuvwxyz",
+                    uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                    numbers: "1234567890",
+                    special_chars: "!@#$%^&*=+",
+                },
+                response: "Your password is: ",
+            },
+            methods: {
+                generatePassword: function () {
+                    let characters = [
+                        lowercase = "abcdefghijklmnopqrstuvwxyz",
+                        uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                        numbers = "1234567890",
+                        special_chars = "!@#$%^&*=+",
+                    ];
+                    // let how_many = "";
+                    // let password = "";
+                    let random_pw = Math.floor(Math.random() * characters.length);
+                    for ( let p = 0; p < this.how_many; ++p) {
+                        this.password += this.generatePassword(this.characters.lowercase + this.characters.uppercase + this.characters.numbers + this.characters.special_chars);
+                    }
+                    this.response = `Your password is: ${password}.`
+                    console.log(response)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .numbered-button {
+            color: rgb(20, 119, 20);
+            list-style: none;
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <ul id="numbered-buttons">
+            <!-- for loop in range 10 -->
+            <li class="numbered-button" v-for="n in 10 ">
+                <button v-on:click="guessNumber(n);" type="button" class="btn btn-light">{{n}}</button>
+
+            </li>
+        </ul>
+        <h1>{{result}}</h1>
+        <div>{{guesses.length}}</div>
+        <button v-if="game_on==false" v-on:click="reset">reset</button>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                secret_number: Math.floor(Math.random() * 10) + 1,
+                guess: " ",
+                result: " ",
+                guesses: [],
+                game_on: true, 
+                
+            },
+            methods: {
+                guessNumber: function(guess) {
+                    if (this.game_on == true){
+                        if (guess == this.secret_number) {
+                            this.result = "you win!"
+                        } else if (guess != this.secret_number) {
+                            this.result = "wrong!"
+                            this.guesses.push(guess)
+                        }if (this.guesses.length == 10){
+                            this.game_on = false
+                            this.result = "you've run out of turns... play again!"
+                        
+                        }
+
+                    }
+                },
+                reset: function(){
+                    this.game_on = true
+                    this.guesses = []
+                    this.result = " "
+                    
+
+                }
+
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>
