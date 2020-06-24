@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock!</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <img src="static/rps.png" />
+    <div id="app">
+      {{ message }}
+      <button v-on:click="reverse">Reverse this! </button>
+      <!--v-bind === directive-->
+    <span v-bind:title="instruction">Hover your mouse over me for a few seconds to see my dynamically-bound title!</span>
+    <ol>
+        <li v-for="option in options">
+            {{ option.text }}
+        </li>
+    </ol>
+   <span v-if="seen">We are about to play a game...</span>
+      <button v-on:click="engage">play</button>
+    </div>
+
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          message: "Welcome to Rock-Paper-Scissors------",
+          instruction: 'You loaded this page on ' + new Date().toLocaleString(),
+            seen: true,
+            options: [
+                {text: 'scissors'},
+                {text: 'paper'},
+                {text: 'rock'},
+            ]
+        },
+          methods: {
+              engage: function(){
+                  alert('What\'s your choice?')
+              },
+              reverse:function(){
+                  this.message = this.message.split('').reverse().join('')
+
+              }
+          }
+      });
+      
+    </script>
+  </body>
+</html>
