@@ -1,29 +1,54 @@
 import requests
-import string
 
 
-def count_words():
-    url = 'http://www.gutenberg.org/cache/epub/16643/pg16643.txt'
-    book = requests.get(url)
-    book = response.text.lower().split
-    punctuation = '*,.;!&%$?"()[]0123456789#/'
-    for i in range(len(book)):
-        book[i] = book[i].strip(punct)
-        txt =  {}
 
-        for word in book:
-            if word not in txt:
-                txt[word]= 1
-            else:
-                text[word] += 1
-            words = list(txt.items())
+response = requests.get('http://www.gutenberg.org/cache/epub/4715/pg4715.txt')
 
-            words.sort(key=lambda tup:tup[1], reverse= True)
+text = response.text.lower()
+stars = text.find('***')
+stars = text.find('\n', stars)
+text = text[stars:]
 
-            for i in range(min(10, len(words))):
-                print(words[1])
-                return txt
-count_words()
+stars = text.rfind('*** END')
+text = text[:stars]
+text = text.replace(',', '-')
+
+for punctuation in ',.':
+    text = text.replace(punctuation, '-')
+
+words = text.split()
+print(len(words))
+
+def letters(word):
+    for char in word:
+        if char not in 'abcdefghijklmnopqrstuvwxyz':
+            return False
+    return True
+    
+def not_letter(word):
+    for char in word:
+        if char not in 'abcdefghijklmnopqrstuvwxyz':
+            return True
+    return False
+
+counter = {
+    'the': 20,
+    'a': 20,
+    'i': 20,
+    'don\'t': 15,
+}
+for word in words:
+    if word in counter:
+        counter[word] += 1
+    else:
+        counter[word] = 1
+
+words = list(counter.items())
+words.sort(key=lambda tup: tup[1], reverse=True)
+for i in range(min(10, len(words))):
+ 
+    print(words[i][0], words[i][1])
+
 
 
 
