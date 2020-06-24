@@ -30,12 +30,13 @@
           greet: "Where on earth does the red fern grow?",
           cat_img: "", // code does not work without this
           input: "",
+          categories: []
         },
         created: function () {
           this.get_img();
           axios({
             method: "get",
-            url:`https://api.thecatapi.com/images/search?category_ids=${this.input}`,
+            url:'https://api.thecatapi.com/v1/categories',
         }).then((response) => {
             this.categories = response.data;
             console.log(this.categories);
@@ -46,9 +47,9 @@
           get_img: function () {
             axios({
               method: "get",
-              url: "https://api.thecatapi.com/v1/images/search",
+              url: `https://api.thecatapi.com/v1/images/search?category_ids=${this.input}`,
             }).then((response) => {
-             
+             // url means image
             this.cat_img = response.data[0].url;
             });
           },
