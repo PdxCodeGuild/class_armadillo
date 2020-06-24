@@ -9,6 +9,8 @@ Let's build a quiz using the [Open Trivia DB](https://opentdb.com/) Using the co
 - (optional) Highlight the correct answer and the incorrect answer the user selected
 - (optional) Show controls for picking the quiz parameters (amount, category, difficulty)
 
+https://opentdb.com/api.php?amount=10&category=18&difficulty=easy
+
 ```javascript
 axios({
   method: 'get',
