@@ -1,0 +1,62 @@
+<!--mistakes: did not load axios cdn (only remembered the Vue cdn), forgot 'this' keyword, Jon informed me I need to make a separate axios call-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <title>Caterpie</title>
+</head>
+<body>
+    <img src="static/cat.png" width="200px">
+    <div id="app">
+        <div class="where_cats_go">
+            <select name="categories" v-model="user_input">
+                <option v-for="1 in categories" v-bind:value="1.id">{{1.name}}</option>
+                <button type="submit" v-on:click="getImg">Hit me!</button>
+            </select>
+            <div>
+                <img v-bind:src="cat_img"/>
+
+            </div>
+        
+        <span>{{message}}</span>
+    </div>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                cat_img: "",
+                message: 'welcome to our catacombs',
+                categories: [],
+            },
+        
+        // created: function(){
+        // axios({
+        //     method:'get',
+        //     url: 'https://api.thecatapi.com/v1/',
+            
+        // }).then((response) => {
+        //      this.categories = response.data
+        //     //  console.log(response.data[0])
+        //      console.log(this.categories)
+        //         })
+        //      },
+        getImg: function(){
+             axios({
+                 method: 'get',
+                 url: 'https://api.thecatapi.com/v1/images/search'
+             }).then((response)=>{
+                this.cat_img = response.data
+                console.log(cat_img
+             })
+            }
+             })
+            
+     
+    </script>
+</body>
+</html>

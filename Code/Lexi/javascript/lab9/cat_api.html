@@ -1,0 +1,59 @@
+<!--mistakes: forgot custom delimiters, sources: https://github.com/AdenForshaw/theCatApi-examples/blob/master/vue/basic-search.html, https://medium.com/js-dojo/error-exception-handling-in-vue-js-application-6c26eeb6b3e4-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caterpie</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="shortcut icon" href="static/cat_av.png" />
+  </head>
+  <body>
+    <div id="catnip">
+      <span>[[greet]]</span>
+      <select name="categories" v-model="input">
+        <option v-for="c in categories" v-bind:value="c.id">[[c.name]]</option>
+      </select>
+      <button type="submit" v-on:click="get_img">Go!</button>
+      <div>
+        <img v-bind:src="cat_img" />
+      </div>
+    </div>
+    <script type="text/javascript">
+      // Vue
+      let catnip = new Vue({
+        delimiters: ["[[", "]]"],
+        el: "#catnip",
+        data: {
+          greet: "Where on earth does the red fern grow?",
+          cat_img: "", // code does not work without this
+          input: "",
+        },
+        created: function () {
+          this.get_img();
+          axios({
+            method: "get",
+            url:`https://api.thecatapi.com/images/search?category_ids=${this.input}`,
+        }).then((response) => {
+            this.categories = response.data;
+            console.log(this.categories);
+          
+          });
+        },
+        methods: {
+          get_img: function () {
+            axios({
+              method: "get",
+              url: "https://api.thecatapi.com/v1/images/search",
+            }).then((response) => {
+             
+            this.cat_img = response.data[0].url;
+            });
+          },
+        }, // makes it easier to read
+      }); // Pete and Matthew suggest indentation to find out where curlies match up
+    </script>
+  </body>
+</html>
