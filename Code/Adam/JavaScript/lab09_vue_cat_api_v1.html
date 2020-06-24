@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat API</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Cat Pictures!</h1>
+        <div>
+            <img :src="cat_pic" id="cat_pic" style="width: 500px;" />
+            <br>
+            <!-- <p>{{cat_pic}}</p> -->
+            <button v-on:click="get_cat_pic">Get Cat Picture</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        let app =  new Vue({
+            el: '#app',
+            data: {
+                cat_pic: ''
+            },
+            methods: {
+                get_cat_pic: function() {
+                    axios({
+                        method: 'get',
+                        url: 'https://api.thecatapi.com/v1/images/search',
+                        // header: {
+
+                        // }
+                    }).then(response => {
+                        console.log(response.data[0].url)
+
+                        this.cat_pic = response.data[0].url
+
+                    })
+                }
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>

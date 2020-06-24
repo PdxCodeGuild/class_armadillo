@@ -1,0 +1,11 @@
+
+
+
+MVC
+    Model - data model, information stored in the database (models.py)
+    View - display, html + css + js (templates)
+    Controller - logic (views.py)
+        takes data from the model and puts it into the view
+        takes data from the view (form) and puts it into the model
+
+

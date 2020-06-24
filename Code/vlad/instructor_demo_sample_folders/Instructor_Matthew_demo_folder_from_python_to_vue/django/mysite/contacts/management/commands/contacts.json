@@ -1,0 +1,31 @@
+{
+    "contacts":[
+        {
+            "first_name": "Wendy",
+            "last_name": "Carson",
+            "birthday": "1980-05-04",
+            "email": "wendy@gmail.com",
+            "phone_number": "324-245-2728",
+            "is_cell": true,
+            "comments": "blah blah blah wendy is great"
+        },
+        {
+            "first_name": "Alyssa",
+            "last_name": "Lyons",
+            "birthday": "1985-01-01",
+            "email": "alyssa@gmail.com",
+            "phone_number": "234-261-1617",
+            "is_cell": false,
+            "comments": "nothing"
+        },
+        {
+            "first_name": "Brian",
+            "last_name": "Barber",
+            "birthday": "1995-12-25",
+            "email": "brain@gmail.com",
+            "phone_number": "252-161-1617",
+            "is_cell": false,
+            "comments": "brian is pretty great too"
+        }
+    ]
+}

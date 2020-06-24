@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- remove all the browser's built-in css -->
+    <link href="https://unpkg.com/browse/normalize.css@8.0.1/normalize.css" rel="stylesheet" type="text/css"/>
+
+    <!-- get a custom font -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- include an external css file -->
+    <link rel="stylesheet" type="text/css" href="css/mystyle.css" />
+    
+    <style type="text/css">
+        /* element selectors */
+        div {
+            color: rgb(10, 188, 233);
+            /* a beautiful color */
+            background-color: black;
+        }
+
+        span {
+            color: hsl(0, 71%, 41%)
+        }
+
+        /* class selectors */
+        .myclass {
+            color: chartreuse;
+        }
+        
+        .ilikepink {
+            color: hotpink;
+        }
+
+        /* id selector */
+        #title {
+            font-size: 200px;
+        }
+
+        /* universal selector */
+        * {
+            padding: 4px;
+        }
+
+        /* immediate children */
+        #fruits>span {
+            color: green;
+        }
+
+        /* width and height properties only work on block elements */
+        .background_image {
+            background-image: url('images/einstein.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            /* Do not repeat the image */
+            background-size: cover;
+
+            width: 100px;
+            height: 100px;
+        }
+
+        .p1 {
+            text-align: left;
+        }
+
+        .p2 {
+            text-align: right;
+        }
+
+        .p3 {
+            text-align: justify;
+        }
+
+        a {
+            display: block;
+            width: 50%;
+            background-color: magenta;
+            /* border: 4px dotted black; */
+            border: 15px double #1C6EA4;
+            border-radius: 40px;
+            padding: 60px;
+        }
+
+        p {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>hello world!</div>
+    <span>hi</span>
+    <!-- inline style = bad -->
+    <div style="color:blue;background-color:DarkOliveGreen">This is some ugly text</div>
+    <a href="http://www.google.com/" class="myclass">Google</a>
+    <!-- you can only have one element with a particular id in the page -->
+    <h1 id="title" class="ilikepink">My Pink Title</h1>
+    <div id="fruits">
+        <span>apples</span>
+        <span>bananas</span>
+        <span>pears</span>
+    </div>
+    <div class="background_image"></div>
+    <p class="p1">Concept of the number one star stuff harvesting star light cosmos emerged into consciousness ship of
+        the imagination bits of moving fluff? White dwarf cosmic ocean birth the only home we've ever known made in the
+        interiors of collapsing stars descended from astronomers? A very small stage in a vast cosmic arena with pretty
+        stories for which there's little good evidence vanquish the impossible a mote of dust suspended in a sunbeam a
+        very small stage in a vast cosmic arena vastness is bearable only through love.</p>
+    <p class="p2">Concept of the number one star stuff harvesting star light cosmos emerged into consciousness ship of
+        the imagination bits of moving fluff? White dwarf cosmic ocean birth the only home we've ever known made in the
+        interiors of collapsing stars descended from astronomers? A very small stage in a vast cosmic arena with pretty
+        stories for which there's little good evidence vanquish the impossible a mote of dust suspended in a sunbeam a
+        very small stage in a vast cosmic arena vastness is bearable only through love.</p>
+    <p class="p3">Concept of the number one star stuff harvesting star light cosmos emerged into consciousness ship of
+        the imagination bits of moving fluff? White dwarf cosmic ocean birth the only home we've ever known made in the
+        interiors of collapsing stars descended from astronomers? A very small stage in a vast cosmic arena with pretty
+        stories for which there's little good evidence vanquish the impossible a mote of dust suspended in a sunbeam a
+        very small stage in a vast cosmic arena vastness is bearable only through love.</p>
+    <a href="http://www.google.com/">this is a link</a>
+
+</body>
+
+</html>
