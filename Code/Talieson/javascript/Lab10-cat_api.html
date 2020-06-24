@@ -8,12 +8,82 @@
     <title>CATS</title>
 </head>
 <body>
+    <style>
+        *{
+            margin: 0; 
+            padding: 0;  
+        }
+        body{
+            background-color: #D7EEBA;
+        }
+        .inputs{
+            display: flex;
+            justify-content: center;
+            margin-top: 2vh;
+            margin-bottom: 2vh;
+            font-family: sans-serif;
+        }
+
+        .btnWrap{
+            vertical-align: middle;
+            line-height: 62px;
+	        width: 50%;
+	        max-width: 200px;
+        }
+        .inputs button {
+            background: transparent;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+	        padding: 20px 0px;
+	        font-size: 16px;
+	        line-height: 22px;
+	        letter-spacing: 3px;
+            border: none !important;
+            transition: all .3s ease!important;
+            color: white;
+        }
+        .inputs button:focus{
+            border: none !important;
+        }
+        .inputs button:hover {
+            color: darkblue;
+        }
+        .btnBorder {
+	        max-width: 50px;
+	        border-bottom: 6px solid;
+	        transition: all .3s ease;
+            color: darkblue;
+        }
+
+        .btnWrap:hover .btnBorder {
+	        max-width: 175px;
+        }
+
+        .kitter_box{
+            width: 80vw;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            margin-right: auto; 
+            margin-left: auto;
+        }
+        .kitter_box img{
+            width: inherit;
+            height: inherit;
+        }
+    </style>
     <div id="cat_app">
-        <select name="CATegories" v-model="input_CATegory">
-            <option v-for="purrpatrator in CATegories" v-bind:value="purrpatrator.id">{{purrpatrator.name}}</option>
-          </select>
-        <button type="submit" v-on:click="callCatApi">Meow Meow</button>
-        <img v-bind:src="pawtrait"/>
+        <div class="inputs">
+            <div class="btnWrap btnLeft">
+            <select name="CATegories" v-model="input_CATegory">
+                <option v-for="purrpatrator in CATegories" v-bind:value="purrpatrator.id">{{purrpatrator.name}}</option>
+            </select>
+            <button type="submit" v-on:click="callCatApi">PAWress here!</button>
+            <div class="btnBorder"></div>
+            </div>
+        </div>
+        <div class="kitter_box"><img v-bind:src="pawtrait" /></div>
     </div>
 
 <script type="text/javascript">
@@ -21,7 +91,7 @@
     let app = new Vue({
         el: '#cat_app',
         data: {
-            pawtrait: "",
+            pawtrait: "cat-minimalist-hd.jpg",
             CATegories: [],
             input_CATegory: "",
         },
