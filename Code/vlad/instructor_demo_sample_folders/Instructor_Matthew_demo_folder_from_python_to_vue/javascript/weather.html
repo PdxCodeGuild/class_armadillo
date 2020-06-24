@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
+</head>
+<body>
+    <script>
+        let api_key = '2d5ec3a53e9f829ac178a578b4353cbb'
+        axios({
+            method: 'get',
+            url: 'https://api.openweathermap.org/data/2.5/onecall',
+            params: {
+                lat: 33.441792,
+                lon: -94.037689,
+                exclude: 'hourly',
+                appid: api_key
+            }
+        }).then(response => {
+            console.log(response.data)
+        })
+
+        let access_key = 'ee7d050771c6963b86d3619939bfee17'
+        axios({
+            method: 'get',
+            url: 'http://api.ipstack.com/134.201.250.155',
+            params: {
+                access_key: access_key
+            }
+        }).then(response => {
+            console.log(response.data)
+        })
+    </script>
+</body>
+</html>

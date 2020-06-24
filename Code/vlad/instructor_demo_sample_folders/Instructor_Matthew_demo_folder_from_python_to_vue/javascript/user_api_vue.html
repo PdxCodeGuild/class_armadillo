@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User API</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <style type="text/javascript">
+        .user {
+            margin-bottom:20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <button v-on:click="previousPage" v-if="page > 1">&lt;</button>
+            <span>{{page}}</span>
+            <button v-on:click="nextPage">&gt;</button>
+        </div>
+        <div class="user" v-for="user in users">
+            <img v-bind:src="user.picture" />
+            <div>{{user.name}}</div>
+            <div>{{user.location}}</div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app',
+            data: {
+                users: [],
+                page: 1,
+            },
+            methods: {
+                previousPage: function () {
+                    this.page--
+                    this.getUsers()
+                },
+                nextPage: function () {
+                    this.page++
+                    this.getUsers()
+                },
+                getUsers: function () {
+                    axios({
+                        method: 'get',
+                        url: 'https://randomuser.me/api/',
+                        params: {
+                            page: this.page,
+                            results: 10,
+                            seed: 'abc'
+                        }
+                    }).then(response => {
+                        console.log(response.data)
+                        let api_users = response.data.results
+                        this.users = []
+                        for (let i = 0; i < api_users.length; ++i) {
+                            let name = api_users[i].name.title + ' '
+                                + api_users[i].name.first + ' '
+                                + api_users[i].name.last
+                            let picture = api_users[i].picture.large
+                            let location = api_users[i].location.street.number + ' '
+                                + api_users[i].location.street.name + ', '
+                                + api_users[i].location.city + ' '
+                                + api_users[i].location.country
+                            this.users.push({
+                                name: name,
+                                picture: picture,
+                                location: location
+                            })
+                        }
+                        console.log(this.users)
+
+                    })
+                }
+            },
+            created: function () {
+                this.getUsers()
+            }   
+        })
+
+    </script>
+</body>
+
+</html>
