@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <style>
-        body{
+        body {
             background-color: rgba(165, 42, 42, 0.445);
             text-align: center;
         }
@@ -11,13 +13,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cats API</title>
 </head>
+
 <body>
     <div class="header">
         <h2>Cat API Lab</h2>
     </div>
 
-    <div id="main">
-
+    <div class= "main" id="main_div">
+        <button v-on:click="displayCat">Cat me!</button>
     </div>
 
     <div class="footer">
@@ -25,6 +28,16 @@
     </div>
 
     <script>
+       
+        let urlApi = `https://api.thecatapi.com/v1/images/search`
+
+        axios({
+            method: 'get',
+            url: urlApi,
+        }).then((response) => {
+            console.log(response)
+        })
     </script>
 </body>
+
 </html>
