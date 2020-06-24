@@ -1,3 +1,4 @@
+<!--initial mistakes - kept putting multiple root elems, didn't use proper JS syntax, forgot 'this' keyword -used Kyle's as reference and https://vuejs.org/v2/guide/render-function.html-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,29 +21,55 @@
         </li>
     </ol>
    <span v-if="seen">We are about to play a game...</span>
+   
       <button v-on:click="engage">play</button>
+      <div>
+      <select v-model="userEntry">
+        <option value="rock">Rock</option>
+        <option value="scissors">scissors</option>
+        <option value="paper">paper</option>
+      </select>
+      <button v-on:click="rps">Start</button>
+      <span type="text" v-model="result">{{result}}</span>
+      </div>
     </div>
 
-    <script>
+    <script type="text/javascript">
       var app = new Vue({
         el: "#app",
         data: {
           message: "Welcome to Rock-Paper-Scissors------",
           instruction: 'You loaded this page on ' + new Date().toLocaleString(),
-            seen: true,
-            options: [
-                {text: 'scissors'},
-                {text: 'paper'},
-                {text: 'rock'},
-            ]
+          seen: true,
+          userEntry: '',
+          options: [
+              {text: 'scissors'},
+              {text: 'paper'},
+              {text: 'rock'},
+          ],
+          choices: ['rock', 'paper', 'scissors'],
+          result: '',
+          
         },
           methods: {
               engage: function(){
-                  alert('What\'s your choice?')
+                  alert('You\'re about to battle!')
               },
               reverse:function(){
                   this.message = this.message.split('').reverse().join('')
-
+              },
+              rps:function(){
+            
+                let computer_choice = this.choices[Math.floor(Math.random() * this.choices.length)]
+                console.log(computer_choice)
+                if (this.userEntry == computer_choice){
+                    this.result = ('tie')
+                }else if(this.userEntry == (computer_choice+1)%3){
+                    this.result = ('human wins')
+                }else{
+                    this.result = ('computer wins')
+              
+                }
               }
           }
       });
