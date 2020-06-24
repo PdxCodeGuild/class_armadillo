@@ -1,0 +1,43 @@
+
+{% extends 'contacts/base.html' %}
+
+{% block title %}New{% endblock %}
+
+{% block content %}
+<a href="{% url 'contacts:index' %}" class="btn btn-primary">back</a>
+<form action="{% url 'contacts:new_submit' %}" method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td><label for="input_first_name">First Name</label></td>
+            <td><input id="input_first_name" type="text" name="contact_first_name" required/></td>
+        </tr>
+        <tr>
+            <td><label for="input_last_name">Last Name</label></td>
+            <td><input id="input_last_name" type="text" name="contact_last_name" required/></td>
+        </tr>
+        <tr>
+            <td><label for="input_birthday">Birthday</label></td>
+            <td><input id="input_birthday" type="date" name="contact_birthday" required /></td>
+        </tr>
+        <tr>
+            <td><label for="input_email">Email</label></td>
+            <td><input id="input_email" type="text" name="contact_email" required/></td>
+        </tr>
+        <tr>
+            <td><label for="input_phone_number">Phone Number</label></td>
+            <!-- https://regex101.com/r/9xNLDG/1 -->
+            <td><input id="input_phone_number" type="text" name="contact_phone_number" pattern="\(?\d{3}[)\- ]*\d{3}[\- ]*\d{4}" title="enter 10 digits for the phone number" required/></td>
+        </tr>
+        <tr>
+            <td><label for="input_is_cell">Is Cellphone</label></td>
+            <td><input id="input_is_cell" type="checkbox" name="contact_is_cell"/></td>
+        </tr>
+        <tr>
+            <td><label for="input_comments">Comments</label></td>
+            <td><textarea id="input_comments" name="contact_comments"></textarea></td>
+        </tr>
+    </table>
+    <button type="submit" title="click to create a new contact" class="btn btn-primary">Create New Contact</button>
+</form>
+{% endblock %}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body {
+            margin: 0;
+            background-color: rgb(110, 109, 109);
+        }
+
+        .polaroid {
+            position: fixed;
+            border: 1px solid #e0dfd7;
+            margin-top: 1vh;
+            margin-left: calc(50% - 49vh);
+            width: 98vh;
+            height: 98vh;
+            background-color: #fcfcf7;
+            border-radius: 3px;
+            box-shadow: 0 4px 8px 15px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .image {
+            position: fixed;
+            width: 90vh;
+            height:67.5vh; 
+            object-fit: cover;
+            margin-left: calc(50% - 45vh);
+            margin-top: 7vh;
+            z-index: 0;
+            filter:sepia(10%) brightness(95%) saturate(2);
+            border: 2px solid grey;
+            border-radius: 3px;
+        }
+
+        .caption {
+            position: fixed;
+            width: 90vh;
+            height:67.5vh; 
+            object-fit: cover;
+            margin-left: calc(50% - 45vh);
+            margin-top: 77vh;
+        }
+
+        button {
+            font-family: 'Permanent Marker', cursive;
+            color: rgb(44, 43, 43);
+            font-size: 35px;
+            position: absolute;
+            left: 27%;
+            top: 5%;
+            padding: 14px 50px;
+            border-radius: 20px;
+            background-color:#fcfcf7;
+            cursor: pointer;
+            box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color:rgb(241, 239, 211);
+        }
+
+        button:focus {
+            outline: transparent;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="polaroid"></div>
+        <img class="image" v-bind:src="image_gato"/>
+        <div class="caption">
+            <button v-on:click="getGato">New Kitty—</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app',
+            data: {
+                image_gato: '',
+            },
+            methods: {
+                getGato: function() {
+                    //let app = this
+                    axios({
+                        method: 'get',
+                        url: 'https://api.thecatapi.com/v1/images/search'
+                    }).then(response => {
+                        this.image_gato = response.data[0].url
+                    })
+                }
+            },
+            created: function() {
+                this.getGato()
+            }
+        })
+    </script>
+</body>
+</html>
+
+
+<!-- Lab 9: Cat API w/ Vue
+Let's use Vue to build a page where users can look at pictures of cats.
+
+Axios
+Cat API
+Version 1
+Create a page with a button that, when pressed, goes and gets a random cat image and displays it. Copy and paste the url below into your browser and look at the response. You can take the url and set it as the src attribute of an img to display it.
+
+https://api.thecatapi.com/v1/images/search
+
+Version 2
+There is another part of the cat api which will give a list of categories. Use the response from this api endpoint to build a dropdown list of categories.
+
+https://api.thecatapi.com/v1/categories
+
+Now when the user presses the button to get a random cat image, use the selected category to filter the results.
+
+https://api.thecatapi.com/v1/images/search?category_ids=1 
+
+Citations:
+Polaroid effect CSS. "somewhat realistic polaroid effect (pure css)" by tusinfryd (https://codepen.io/tusindfryd/pen/LarwxY).
+-->
