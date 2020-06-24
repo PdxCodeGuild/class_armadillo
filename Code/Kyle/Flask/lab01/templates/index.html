@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 01 - Random Password Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}"/>
+</head>
+
+<body>
+    <h2>Flask Lab 01 - Random Password Generator</h2>
+    <div class="container">
+        <div>  
+            <form id="forms" action="" method="post">
+                <input type="text" placeholder="Length: " name="length" />
+                <button type="enter">Enter</button>
+            </form>
+        </div>
+    </div> 
+    {% if password %}
+    <div class="password">
+        <span> Password: {{password}} </span>
+    </div>
+    {% endif %}
+
+</body>
+</html>
