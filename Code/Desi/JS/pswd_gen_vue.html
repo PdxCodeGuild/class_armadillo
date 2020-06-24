@@ -8,7 +8,12 @@
 </head>
 <body>
     <div id='app'>
-        <span>{{message}}</span>
+        <span>{{result}}</span>
+                                                <!--  -->
+        <input type="number" v-model='number1' v-on:input='add'>
+        <input type="number" v-model='number2' v-on:input='add'> 
+        
+        
 
 
     </div>
@@ -16,16 +21,23 @@
         let app = new Vue({
             el: '#app',
             data: {
-                message: '',
+                number1: 0,
+                number2: 0,
+                result: "",
                 seen: true
             },
             methods: {
-                reverse_msg: function(){
-                    this.message = 'hello'
+                add: function(){
+                    this.result=this.number1+this.number2
                 }
+
+                // reverse_msg: function(){\\\\\
+                //     this.message = 'hello'
+                // }
             }, 
             mounted: function() {
               this.reverse_msg()
+              alert('mounted')
             }
         })
     </script>
