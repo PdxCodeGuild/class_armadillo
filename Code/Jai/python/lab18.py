@@ -2,40 +2,31 @@ import requests
 import string
 
 
+def count_words():
+    url = 'http://www.gutenberg.org/cache/epub/16643/pg16643.txt'
+    book = requests.get(url)
+    book = response.text.lower().split
+    punctuation = '*,.;!&%$?"()[]0123456789#/'
+    for i in range(len(book)):
+        book[i] = book[i].strip(punct)
+        txt =  {}
 
-url = 'http://www.gutenberg.org/cache/epub/16643/pg16643.txt'
-response = requests.get(url)
-#print(response)
-txt = response.text.lower()
+        for word in book:
+            if word not in txt:
+                txt[word]= 1
+            else:
+                text[word] += 1
+            words = list(txt.items())
 
-#print(txt)
+            words.sort(key=lambda tup:tup[1], reverse= True)
 
-list_of_words = txt.split()
-
-
-
-
-translator = str.maketrans('', '', string.punctuation)
-clean_text = txt.translate(translator) 
-
+            for i in range(min(10, len(words))):
+                print(words[1])
+                return txt
+count_words()
 
 
-clean_text = clean_text.split()
 
-
-count = {} 
-
-
-    if char not in count: 
-        count[char] = 1
-    elif char in count: 
-        count[char] += 1
-
-words = list(count.items())
-words.sort(key=lambda tup: tup[1], reverse=True)  
-
-for i in range(min(10, len(words)
-        print(words[i])
 
 
 
