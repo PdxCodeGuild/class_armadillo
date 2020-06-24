@@ -28,6 +28,10 @@
         <button v-on:click="test" id="new_questions">Get New Questions</button>
 
     </div>
+        <ul id="questions_list">
+            <li v-for="question in questions" :key="question.question">{{question}}</li>
+
+        </ul>
         
     <div>
 
@@ -40,7 +44,7 @@
             data: {
                 title: 'Mob Questions - Disciples of Keegan',
 
-                question: '',
+                questions: [],
                 correct_answer: '',
                 incorrect_answers: '',
                 result: '',
@@ -56,12 +60,9 @@
                             difficulty: 'easy'
                         }//close params
                     }).then(response => {
-                        let queries = response.data.results
-                        let question1 = queries[0].question
-                        console.log(question1)
-                        let question2 = queries[1].question
-                        console.log(question2)
-                        console.log(queries)
+                        this.questions = response.data.results
+
+                        //console.log(questions)
                     })//close .then
                 }, //close function
             }, //close methods
