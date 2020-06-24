@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats by Category</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Cats by Category</h1>
+        <!-- cat pics displayed here -->
+        <img :src="cat_pic" id="cat_pic" style="max-width: 500px;" />
+        <br>
+        <!-- select category -->
+        <select v-model="category">
+            <option v-for="category in categories"  v-bind:value="category.id">{{category.name}}</option>
+        </select>
+        <!-- button to get picture -->
+        <button v-on:click="get_cat_pic">Get Cat Picture</button>
+    </div>
+    <script type="text/javascript">
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                category: null,
+                // select_cat_egory: null,
+                cat_pic: '',
+                // need to find better way to access data
+                categories: [{
+                    id: 5, name: "boxes"
+                    }, {
+                    id: 15, name: "clothes"
+                    }, {
+                    id: 1, name: "hats"
+                    }, {
+                    id: 14, name: "sinks"
+                    }, {
+                    id: 2, name: "space"
+                    }, {
+                    id: 4, name: "sunglasses"
+                    }, {
+                    id: 7, name: "ties"
+                    }]
+            },
+            methods: {
+                get_cat_pic: function() {
+                    axios({
+                        method: 'get',
+                        // url: 'https://api.thecatapi.com/v1/images/search',
+                        // url: 'https://api.thecatapi.com/v1/categories',
+                        url: `https://api.thecatapi.com/v1/images/search?category_ids=${this.category}`
+                    }).then(response => {
+                        console.log(response.data)
+
+                        this.cat_pic = response.data[0].url
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>
