@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Web Page :)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <style type="text/css">
+
+        /* define variables in css */
+        /* :root {
+            --color1: #264653;
+            --color2: #2A9D8F;
+            --color3: #E9C46A;
+            --color4: #F4A261;
+            --color5: #E76F51;
+        }
+        body {
+            background-color: var(--color1);
+        } */
+
+        /* element selector */
+        body {
+            background-color: #264653;
+            color: #E9C46A;
+            margin: 0;
+            font-family: 'Bubblegum Sans', cursive;
+        }
+
+        /* class selector - more targeted about which elements these properties are being applied to */
+        .header {
+            background-color:#2A9D8F;
+
+            /* make the header a flexbox */
+            /* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+            display:flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            /* drop shadow */
+            /* offset-x, offset-y, color, extent */
+            box-shadow: 0 0 4px black;
+        }
+        h1 {
+            margin:0;
+            padding:20px;
+            
+        }
+        .article {
+            padding:10px;
+        }
+        q {
+            /* font-size:larger; */
+            font-weight: bold;
+        }
+
+        a {
+            font-family: 'Verdana';
+        }
+
+        /* psuedo-classes */
+        a:link {
+            color:#F4A261;
+        }
+        a:visited {
+            color:#E76F51;
+        }
+        a:hover {
+            color:goldenrod;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>My First Web Page :)</h1>
+        <img src="images/pbjtbg.gif" width="100px"/>
+    </div>
+
+    <div class="article">
+        <h2>Section 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <q>Maecenas ac velit vel erat dignissim volutpat.</q> Cras commodo felis eu augue mattis dapibus. Nullam viverra ligula eu leo dignissim, et mollis nisl porta. Curabitur iaculis eu lorem in condimentum. Curabitur laoreet hendrerit sollicitudin. Duis eget diam eget augue efficitur auctor a ac leo. Ut vitae eleifend ante. Suspendisse dictum consectetur dolor ac porttitor. Donec vel dictum felis, id laoreet lorem. Pellentesque convallis accumsan dolor, vel scelerisque odio dignissim eget. Praesent aliquet ligula cursus magna posuere commodo. Phasellus dui ipsum, rutrum non leo sit amet, accumsan laoreet nisi. Integer consequat felis sem. Nulla dignissim mi id tincidunt porta. Quisque consectetur ipsum ac risus malesuada rutrum. Integer sit amet quam ac eros tincidunt tristique.</p>
+        <p>Sed imperdiet in dui non bibendum. Etiam <a href="http://www.google.com/">efficitur</a> erat neque, id varius ex vulputate eget. Cras placerat sodales felis ut mattis. Donec consequat libero at enim pretium, id lacinia libero tincidunt. Cras odio magna, tincidunt vel cursus at, feugiat ac orci. Mauris mattis ligula id eleifend pharetra. Nullam et eleifend mi, maximus convallis nisi. Quisque vehicula ex lectus. Proin volutpat dolor nec vehicula interdum. Vivamus tincidunt, augue ut imperdiet pharetra, mauris dolor laoreet purus, a condimentum lectus nunc vel dui. Cras hendrerit malesuada porttitor. Aliquam porttitor, eros ut faucibus consectetur, mi nisi elementum dui, eu semper nulla libero vitae dui. Mauris faucibus lacus ac mollis pretium. Morbi tristique volutpat <a href="http://www.google.com/">libero</a>, ac ultricies arcu scelerisque et.</p>
+        <h2>Section 2</h2>
+        <p>Nunc pharetra nulla non enim maximus, vitae ultrices nibh sodales. Vestibulum vulputate lorem odio, ac dignissim lectus aliquam ac. Aenean nisl eros, fermentum nec ex nec, consectetur volutpat nisi. Aliquam facilisis dui augue, ut bibendum mi elementum eu. Vestibulum pharetra, orci eget congue posuere, quam lorem convallis diam, non interdum velit dui vel dolor. In a lorem eget diam porttitor venenatis at eget nunc. Nullam eu volutpat lorem. Integer volutpat a eros non tristique. Quisque fringilla euismod justo at interdum. Duis molestie nisi quam, vel convallis neque tincidunt sed. Fusce tortor massa, rutrum eget magna a, dignissim accumsan nunc. Morbi at dui quis ipsum pellentesque aliquet. Vivamus eu aliquet dolor. Morbi aliquet, erat non blandit suscipit, ex libero maximus sem, a laoreet felis ligula id nisi.</p>
+        <p>Nulla rutrum eros vitae tempus aliquet. Suspendisse <a href="http://www.google.com/">potenti</a>. Aliquam quis lectus vel odio pretium varius tristique non orci. Ut at risus condimentum, pharetra magna eget, porttitor nunc. Integer ultrices libero velit, id dictum magna finibus vitae. Morbi non ante id lacus blandit finibus. Donec porttitor nec lectus eget tempus. Nullam maximus, felis eget tristique consectetur, neque lacus tincidunt mi, id tincidunt ante ipsum id ex.</p>
+        <p>Donec ut neque convallis, auctor justo id, suscipit mi. Praesent eu dapibus tellus. Curabitur varius nulla lectus, sit amet eleifend nibh ullamcorper et. Integer auctor blandit ipsum, eget ultricies neque fermentum vitae. Praesent tincidunt quam quis vestibulum posuere. Donec euismod urna vel enim mollis, vitae elementum sem condimentum. Aenean sed enim in quam mollis facilisis vel nec lectus. Maecenas sit amet erat in mauris pellentesque ornare ac sit amet lectus. Integer efficitur pulvinar sem, sed laoreet lectus tincidunt eu. Vivamus suscipit congue <a href="http://www.google.com/">urna</a>, vel faucibus diam tincidunt id. Duis sit amet molestie orci. Suspendisse lacinia at erat non cursus. Vivamus gravida placerat enim et convallis. Morbi eget metus eget metus sodales rutrum in vitae risus. Fusce molestie orci eros, ac lobortis ex mollis eget.</p>
+    </div>
+</body>
+</html>

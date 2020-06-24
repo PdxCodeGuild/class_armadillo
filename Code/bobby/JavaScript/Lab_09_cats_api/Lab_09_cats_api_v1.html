@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Here Kitty, Kitty</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="secrets.js"></script>
+    <script type="text/javascript"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style type='text/css'>
+        html {
+            background-color: greenyellow;
+        }
+        body {
+            text-align: center;
+            text-shadow: black;
+            font-size: 20px;
+            font-family: sans-serif;
+            font-style: italic;
+            background-color: #ccff00;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Here Kitty, Kitty</h1>
+
+        <div id="app">
+            <div class="caption">
+                <button class="btn btn-primary" v-on:click="getMyKitty">Here Kitty, Kitty, Kitty</button>
+            </div>
+            <div class="img_cat"></div>
+            <img class="image" v-bind:src="img_kitty" width="500"/>        
+        </div>
+        <script type="text/javascript">
+            let app = new Vue({
+                el: '#app',
+                data: {
+                    img_kitty: '',
+                },
+                methods: {
+                    getMyKitty: function () {
+                        //let app = this
+                        axios({
+                            method: 'get',
+                            url: 'https://api.thecatapi.com/v1/images/search'
+                        }).then(response => {
+                            this.img_kitty = response.data[0].url
+                        })
+                    }
+                },
+                created: function () {
+                    this.getMyKitty()
+                }
+            })
+
+    </script>
+    
+       
+        
+    
+   
+
+</body>
+
+</html>

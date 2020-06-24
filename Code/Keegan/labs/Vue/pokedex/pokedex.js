@@ -2,16 +2,38 @@
 let pokedex = new Vue({
     el: '#pokedex-container',
     data: {
-        pokemonData: {},
+        pokemon: [],
         pokemonSet: [],
-        currentPokemon : null,
+        currentPokemon: null,
+        query: '',
+        queryType: 'name',
+        page: 0,
     },
     methods: {
-        
+        update: function () {
+            this.search()
+        },
+        search: function () {
+            this.pokemonSet = []
+            console.log('qType', this.queryType)
+            console.log('q', this.query)
+            for (let i = 0; i < this.pokemon.length; i++) {
+                // if(this.pokemon[i][this.queryType].contains(this.query)){
+                //     this.pokemonSet.push(this.pokemon[i])
+                // }
+            }
+            console.log(this.pokemonSet)
+        },
+        nextPage: function () {
+
+        },
+        prevPage: function () {
+
+        }
     },
-    created: function(){
-        this.pokemonData = {
-            "pokemon": [
+    created: function () {
+        // Yes, I know this is gross
+        this.pokemon = [
                 {
                     "number": 1,
                     "name": "bulbasaur",
@@ -1891,7 +1913,6 @@ let pokedex = new Vue({
                     ],
                     "url": "https://pokemon.fandom.com/wiki/mew"
                 }
-            ]
-        }
+        ]
     }
 });

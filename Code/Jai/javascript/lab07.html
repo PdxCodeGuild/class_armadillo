@@ -7,51 +7,46 @@
     <title>lab07</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="secrets.js"></script>
-    
+
 </head>
 
 <body>
+    <div id="location"></div>
     <div id="temperature"></div>
+    <div id="weather"></div>
+    <div id="date"></div>
     <script>
-
+        let location = document.querySelector('#location')
         let weather = document.querySelector('#weather')
+        let date = document.querySelector('#date')
+        let temp = document.querySelector('temperature')
 
         navigator.geolocation.getCurrentPosition(showPosition)
+
         function showPosition(position) {
-            console.log("Latitude: " + position.coords.latitude +"<br>Longitude:" + position.coords.longitude)
+            console.log("Latitude: " + position.coords.latitude + "<br>Longitude:" + position.coords.longitude)
 
             axios({
                 method: 'get',
-                url:'https://api.openweathermap.org/data/2.5/onecall',
-                params:{
+                url: 'https://api.openweathermap.org/data/2.5/onecall',
+                params: {
                     lat: position.coords.latitude,
                     lon: position.coords.longitude,
-                    exclude: 'hourly',
-                    appid:api_address
+                    appid: api_address
                 }
-                
-            }  ).then(response=>{
-                console.log(response.data.current)
 
-               temperature.innerText= response.data.current.weather[0].main
-                // let div_weather = response.data
-                // for (let i=0; i<div_weather)
+            }).then(response => {
+                console.log(response.data.current)
+                let date = repsonse.data.current.dt
+                let unix_timestamp = 1592482891
+                let todays_date = new Date(current_date * 1000)
+                date.innertext = todays_date
+
+                temperature.innerText = response.data.current.weather[0].main
+
 
 
 
             })
 
         }
-        
-                                                                                                                                                                        
-
-            
-    </script>
-
-
-
-
-
-</body>
-
-</html>

@@ -10,24 +10,129 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>lab_9_cat_API_with_Vue_Version 1</title>
+    <title>lab_9_cat_API_with_Vue_Version 2</title>
 
     <style>
-
+        input {
+            margin: 6px 10px 30px 50px;
+        }
+        
+        #title {
+            margin: 6px 10px 30px 50px;
+            font-style: italic;
+            color: aqua
+        }
+        
+        #title {
+            font-size: xxx-large;
+            text-align: center;
+            background-color: transparent;
+            box-shadow: 7px 7px 12px rgb(6, 75, 235);
+        }
+        
+        #btn_cat {
+            margin: 10px 80px 20px 200px;
+            /* height: 10%; */
+            width: 15%;
+            padding: 8px;
+            background-color: white;
+            font-size: x-large;
+            font-style: italic;
+        }
+        /* #inputLetters {
+            height: 25px;
+            width: 300px;
+            padding: 8px;
+            background-color: lightgreen;
+            font: bold;
+        } */
+        
+        #btn_cat:hover {
+            background: skyblue;
+            border: none;
+            color: rgb(1, 10, 15);
+            box-shadow: 7px 7px 12px rgb(6, 75, 235);
+            transition: 0.5s;
+        }
+        
+        #category:hover {
+            background: skyblue;
+            border: none;
+            color: rgb(1, 10, 15);
+            box-shadow: 7px 7px 12px rgb(6, 75, 235);
+            transition: 0.5s;
+            font-style: italic;
+        }
+        
+        #category {
+            margin: 10px 80px 20px 200px;
+            /* height: 50px; */
+            width: 27%;
+            padding: 8px;
+            background-color: white;
+            font-size: x-large;
+        }
+        
+        #pictures:hover {
+            background: skyblue;
+            border: none;
+            color: rgb(1, 10, 15);
+            box-shadow: 1px 2px 3px rgb(6, 75, 235);
+            transition: 0.5s;
+        }
+        /* #div_shadow:hover {
+            background: skyblue;
+            border: none;
+            color: rgb(1, 10, 15);
+            box-shadow: 1px 2px 3px rgb(6, 75, 235);
+            transition: 0.5s;
+        } */
+        /*         
+        #div_shadow {
+            background: skyblue;
+            border: none;
+            color: rgb(1, 10, 15);
+            box-shadow: 1px 2px 3px rgb(6, 75, 235);
+            transition: 0.5s;
+            height: 400px;
+            width: 400px;
+        } */
+        
+        #pictures {
+            margin: 10px 80px 20px 200px;
+            height: 400px;
+            width: 400px;
+            padding: 8px;
+            background-color: white;
+            font-size: x-large;
+        }
+        
+        body {
+            background-image: url('background_cat_api.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            /* height: 50%; */
+            /* margin: 0; */
+        }
     </style>
 </head>
+<div id="title">"Hey all you Cool Cats and Kittens!" - Carole Baskin</div>
 <div id="app">
-    <div>
-        <button v-on:click="showCat">Cat picture</button>
+    <div id="category">
+        <label for="category"> Select one of the categories</label>
+        <select v-model="selected_categories" name=" category " id=" ">
+            <option v-for="category in categories " :value="category.id "> {{category.name}}</option>
+        </select>
+    </div>
+    <div id="btn_cat">
+        <button v-on:click="showCat">Click to see your Favorite Cat Picture</button>
 
     </div>
-    <label for="category"> Select one of the categories</label>
-    <select v-model="selected_categories" name=" category " id=" ">
-        <option v-for="category in categories " :value="category.id "> {{category.name}}</option>
-    </select>
+
 
     <div>
-        <img width="200 " v-bind:src="cat_url " />
+        <img id="pictures" v-bind:src="cat_url " />
 
     </div>
 </div>

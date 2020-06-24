@@ -74,14 +74,12 @@
         
                       <div class="row">
                         <div class="col col-4 offset-2">
-                          <div class="med-red-circle">
-        
-                          </div>
+                          <div class="med-red-circle"></div>
                         </div>
                         <div class="col col-5">
                           <div class="speaker-line" v-for="n in 4"></div>
-
                         </div>
+
                       </div> <!-- end main-screen-inner -->
                     </div>
         
@@ -106,8 +104,8 @@
                     </div>
                   </div>
         
-                  <div class="col col-4 d-flex align-items-center">
-                    <div id="d-pad" class="">
+                  <div class="col col-4 offset-1 d-flex justify-content-center align-items-center">
+                    <div id="d-pad">
                       <div id="up-down-border"></div>
                       <div id="up-down"></div>
                       <div id="left-right-border"></div>
@@ -129,7 +127,7 @@
               <div class="row">
                 <!-- green info screen -->
                 <div class="col col-10 offset-1" id="info-screen">
-                  <p v-if="">
+                  <p v-if="pokemonSet.length == 0">
                     <!-- {% if not pokemon and not pokemon_list and not query%} -->
                       Welcome to PokeDex!
                     <!-- {% endif %} -->
@@ -203,22 +201,21 @@
                     <form class="d-flex-column align-items-center">
                       <div class="row">
                         <div class="col col-12 text-center">
-                          <input type="text" name="query" class="text-center" placeholder="Search..." value="">
+                          <input type="text" v-model="query" class="text-center" placeholder="Search..." value="" v-on:input="update">
                         </div>
                       </div>
                       <div class="row no-gutters">
                         <div class="col col-3 offset-1 text-center">
                           <label>Name</label> 
-                            <input type="radio" name="query_type" value="name" checked>
+                          <input type="radio" v-model="queryType" v-on:change="update" value="name">
                         </div> 
                         <div class="col col-3 text-center">
-                          <label>Type </label> <input type="radio" name="query_type" value="poke_type">
+                          <label>Type</label> 
+                          <input type="radio" v-model="queryType" v-on:change="update" value="types">
                         </div>
                         <div class="col col-4 text-center">
-                          <label>Number</label> <input type="radio" name="query_type" value="number">
-                        </div>
-                        <div class="col col-12 text-center">
-                          <input type="submit" class="blue-button" value="Submit">
+                          <label>Number</label> 
+                          <input type="radio" v-model="queryType" v-on:input="update" value="number">
                         </div>
                       </div>
                     </form>
@@ -228,7 +225,7 @@
               </div>
         
               <div class="container">
-                <div class="row">
+                <div class="row mt-3">
                   <div class="col col-6 d-flex" id="yellow-green-leds">
                     <div class="led" id="yellow-led"></div>
                     <div class="led" id="green-led"></div>
@@ -255,18 +252,13 @@
                   </div>
         
                   <div class="col col-6 d-flex justify-content-around">
-                    <a href="#">
                       <div class="yellow-button d-flex justify-content-center align-items-center">
                         <div class="double-arrow">&#11244;</div>
                       </div>
-                    </a>
-                    
-                    <a href="#">
                     
                       <div class="yellow-button d-flex justify-content-center align-items-center">
                         <div class="double-arrow">&#11246;</div>
                       </div>
-                    </a>
         
                   </div>
                 </div>
@@ -276,7 +268,7 @@
           </div>
     </div>
 
-    <script src="pokemonData.js"></script>
+
     <script src="pokedex.js"></script>
 </body>
 </html>
