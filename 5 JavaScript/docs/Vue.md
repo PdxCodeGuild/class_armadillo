@@ -7,6 +7,7 @@
 - [Vue.js](#vuejs)
   - [Overview](#overview)
   - [Including Vue](#including-vue)
+  - [Anatomy of a Vue App](#anatomy-of-a-vue-app)
   - [1 Rendering Values](#1-rendering-values)
   - [2 Setting Attributes](#2-setting-attributes)
   - [3 Conditionals](#3-conditionals)
@@ -37,6 +38,54 @@ You can include Vue in your page like so:
 <!-- production version, optimized for size and speed -->
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 ```
+
+
+
+## Anatomy of a Vue App
+
+
+```html
+<!-- html element represnting the app, referenced by 'el' -->
+<div id="app">
+  <!-- display 'message' from the 'data' part of the app in the page -->
+  <span>{{ message }}</span>
+  <!-- allow the user to set the value of the input -->
+  <input type="text" v-model="message"/>
+  <!-- handle a click event of a button - calls the method sayHello -->
+  <button v-on:click="sayHello">click</button>
+</div>
+<script>
+  let app = new Vue({
+    // query selector of the html element representing the app
+    el: '#app',
+    // app data
+    // data stored with the app
+    // for displaying in the page: {{message}}
+    // for getting input from the user: v-model="message"
+    // for modifying in methods: this.message
+    data: {
+      message: 'hello world!'
+    },
+    // app methods
+    // can be called from events in the page: v-on:click="method"
+    // can be called from other methods: this.method()
+    // can be called from outside the app: app.method()
+    methods: {
+      sayHello: function() {
+        console.log(this.message)
+      }
+    },
+    // created - a lifecycle hook
+    // called when the app is created
+    // useful for setting up app data
+    created: function() {
+      console.log(this.message)
+    }
+  })
+</script>
+```
+
+
 
 ## 1 Rendering Values
 
@@ -69,6 +118,23 @@ Set attribute values using `v-bind`. [more info](https://vuejs.org/v2/guide/synt
     el: '#app',
     data: {
       image_url: 'https://placekitten.com/200/200'
+    }
+  })
+</script>
+```
+
+If the value of the variable is falsey, the attribute won't be added to the element at all, which is useful for attributes like `disabled`, `checked`, etc.
+
+```html
+<div id="app">
+  <input type="checkbox" v-model="disable_button"> disable button<br/>
+  <button v-bind:disabled="disable_button">click</button>
+</div>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      disable_button: false
     }
   })
 </script>
@@ -144,7 +210,7 @@ You can bind app variables to input fields using `v-model`. If the user changes 
 
 ## 6 Event Listeners
 
-Bind events on elements to methods using `v-on`. [more info](https://vuejs.org/v2/guide/events.html)
+Bind events on elements to methods using `v-on`. [list of event types](12%20-%20Events.md#list-of-events) [more info](https://vuejs.org/v2/guide/events.html)
 
 ```html
 <div id="app">
@@ -166,7 +232,7 @@ Bind events on elements to methods using `v-on`. [more info](https://vuejs.org/v
 
 ## 7 Lifecycle Hooks
 
-Lifecycle hooks are special functions called throughout the lifecycle of a Vue app. [more info](https://vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks)
+Lifecycle hooks are special functions called throughout the lifecycle of a Vue app, `created` is called when an app is created, `mounted` is called when an app is mounted, etc. These are useful if you want to generate app data or load it from an api. [more info](https://vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks)
 
 ```html
 <div id="app">

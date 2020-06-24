@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id="span_output"></span>
+    <button id="btn_stop">stop</button>
+    <script>
+        let btn_stop = document.querySelector('#btn_stop')
+        let span_output = document.querySelector('#span_output')
+        btn_stop.addEventListener('click', function() {
+            clearInterval(interval)
+        })
+
+        let date = new Date()
+        console.log(date.getFullYear())
+
+        let x = 0
+        let interval = setInterval(function() {
+            // console.log('hi! ' + x)
+            span_output.innerText = x
+            x++
+        }, 1000)
+        console.log(interval)
+
+        // you might use this if you want millisecond precision on your clock
+        // function animation_step() {
+        //     console.log('!!!')
+        //     window.requestAnimationFrame(animation_step)
+        // }
+        // window.requestAnimationFrame(animation_step)
+
+        // this will lock up your browser
+        // while (true) {
+        //     console.log('!!!')
+        // }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <style type="text/css">
+        #app {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+        <div>
+            <select v-model="input_choice">
+                <option value="rock">Rock</option>
+                <option value="paper">Paper</option>
+                <option value="scissors">Scissors</option>
+            </select>
+            <button v-on:click="addChoice" id="btn_submit">Play</button>
+            <div>{{output}}</div>
+        </div>
+
+
+
+
+    </div>
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app',
+            data: {
+                title: 'Rock Paper Scissors',
+                input_choice: '',
+                choices: ['rock', 'paper', 'scissors'],
+                output: '',
+
+            },
+
+            methods: {
+
+
+                addChoice: function () {
+
+                    let computer_choice = this.choices[Math.floor(Math.random() * this.choices.length)]
+                    console.log(computer_choice)
+
+                    if (this.input_choice == computer_choice) {
+
+                        this.output = (`its a tie you chose ${this.user_input} and computer chose ${computer_choice}`)
+                    } else if (this.input_choice == 'rock' && computer_choice == 'paper') {
+
+                        this.output = `you lose: you chose ${this.input_choice} and computer chose ${computer_choice}`
+                    } else if (this.input_choice == 'rock' && computer_choice == 'scissors') {
+
+                        this.output = (`you win: you chose ${this.input_choice} and computer chose ${computer_choice}`)
+                    } else if (this.input_choice == 'paper' && computer_choice == 'scissors') {
+
+                        this.output = (`you lose: you chose ${this.input_choice} and computer chose ${computer_choice}`)
+                    } else if (this.input_choice == 'scissors' && computer_choice == 'rock') {
+
+                        this.output = (`you lose: you chose ${this.input_choice} and computer chose ${computer_choice}`)
+                    } else if (this.input_choice == 'scissors' && computer_choice == 'paper') {
+
+                        this.output = (`you win!: you chose ${this.input_choice} and computer chose ${computer_choice}`)
+                    }
+
+
+
+                }
+
+
+            }
+
+
+
+
+
+
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>

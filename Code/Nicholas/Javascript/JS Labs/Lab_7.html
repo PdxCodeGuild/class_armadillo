@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="secrets.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="location"></div>
+    <div id="date"></div>
+    <div id="weather"></div>
+    <script>
+        let wxLocation = document.querySelector("#weather");
+        let wxDate = document.querySelector("#date");
+        let wxWeather = document.querySelector("#weather")
+        
+        navigator.geolocation.getCurrentPosition(position => {
+            let lat = position.coords.latitude
+            let lon = position.coords.longitude
+            let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${api_key}`
+            let unix_timestamp = 1592482891
+            let datetime = new Date(unix_timestamp * 1000)
+            console.log(datetime)
+
+            axios({
+                method: 'get',
+                url: url,
+                appid: api_key
+            }).then((response) => {
+                let current_date = response.data.current.dt
+                let present_date = new Date (current_date * 1000)
+                console.log(response.data)
+                wxDate.innerText = present_date;
+
+                let wxCond = response.data.current.weather[0].description
+                wxWeather.innerText = wxCond
+            }
+            )
+        }
+        )
+
+
+
+
+    </script>
+</body>
+
+</html>

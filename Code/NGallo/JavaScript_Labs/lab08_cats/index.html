@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+        body {
+            background-color: rgba(165, 42, 42, 0.445);
+            text-align: center;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats API</title>
+</head>
+
+<body>
+    <div class="header">
+        <h2>Cat API Lab</h2>
+    </div>
+
+    <div class="main" id="main_div">
+        <!-- <button v-on:click="displayRandomCat">Random Cat!</button> -->
+
+        <!-- <button v-on:click="displaySearchCat">Search!</button> -->
+
+        <img class="cat_image" v-model="catImage">
+    </div>
+
+    <div class="footer">
+        <h4>Nick Gallo | Class_Armadillo &copy2020</h4>
+    </div>
+
+    <script>
+
+        let urlSearchApi = 'https://api.thecatapi.com/v1/images/search'
+
+        axios({
+            method: 'get',
+            url: urlSearchApi,
+        }).then((response) => {
+            console.log(response)
+
+            let randomCat = response.data[0].url
+            // console.log(randomCat)
+            let app = new Vue({
+                el: '#main_div',
+                data: {
+                    
+                },
+                methods: {
+                    displayAnswer: function () {
+                        alert(convert(this.number_input, this.start_unit, this.end_unit))
+                    }
+                }
+            })
+        })
+
+        let urlRandomApi = 'https://api.thecatapi.com/v1/categories'
+
+        axios({
+            method: 'get',
+            url: urlRandomApi,
+        }).then((response) => {
+            console.log("random", response)
+
+
+        })
+
+
+    </script>
+</body>
+
+</html>

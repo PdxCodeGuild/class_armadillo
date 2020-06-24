@@ -25,5 +25,6 @@ print(book)
 book = book.text.lower()
 string_list = book.split()
 
+print(book)
 def word_count():
 

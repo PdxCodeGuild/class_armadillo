@@ -31,17 +31,20 @@ def index(request):
     if request.method == "POST":
         query = request.POST['q']
         # print(type(query))
-        pokes = Pokemon.objects.filter(
-            Q(name__icontains=query)
-            # icontain will eliminate any capitalization types__number__icontains
-            | Q(number__icontains=query)
-            | Q(height__icontains=query)
-            | Q(weight__icontains=query)
-            | Q(image_front__icontains=query)
-            # icontain will eliminate any capitalization
-            | Q(image_back__icontains=query)
-            | Q(types__name__icontains=query))
-        context['query'] = pokes
+        # to void searching on empty field on the search bar do the following:
+        if query:
+
+            pokes = Pokemon.objects.filter(
+                Q(name__icontains=query)
+                # icontain will eliminate any capitalization types__number__icontains
+                | Q(number__icontains=query)
+                | Q(height__icontains=query)
+                | Q(weight__icontains=query)
+                | Q(image_front__icontains=query)
+                # icontain will eliminate any capitalization
+                | Q(image_back__icontains=query)
+                | Q(types__name__icontains=query))
+            context['query'] = pokes
 
     return render(request, 'pokedex/index.html', context)
 

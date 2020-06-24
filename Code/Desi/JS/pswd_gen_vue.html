@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <span>{{result}}</span>
+                                                <!--  -->
+        <input type="number" v-model='number1' v-on:input='add'>
+        <input type="number" v-model='number2' v-on:input='add'> 
+        
+        
+
+
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                number1: 0,
+                number2: 0,
+                result: "",
+                seen: true
+            },
+            methods: {
+                add: function(){
+                    this.result=this.number1+this.number2
+                }
+
+                // reverse_msg: function(){\\\\\
+                //     this.message = 'hello'
+                // }
+            }, 
+            mounted: function() {
+              this.reverse_msg()
+              alert('mounted')
+            }
+        })
+    </script>
+</body>
+</html>
