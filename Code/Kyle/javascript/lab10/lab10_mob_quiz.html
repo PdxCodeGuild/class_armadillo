@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <title>Lab 10 - Mob Quiz</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0; 
+            padding: 0;  
+        }
+
+        .body {
+
+        }
+
+        div {
+
+        }
+
+        button,
+        button:hover{
+
+        }
+
+        
+    </style>
+    <div id="app">
+        <div>{{title}}</div>
+        <button v-on:click="test" id="enter">Enter</button>
+        
+    </div>
+
+<script type="text/javascript">
+
+let app = new Vue({
+            el: '#app',
+            data: {
+                title: 'Mob Questions - Disciples of Keegan',
+                links: ['https://opentdb.com/api.php',''],
+                question: '',
+                correct_answer: '',
+                incorrect_answers: '',
+
+                //result: '',
+            },
+            methods: {
+            fruit: function() {
+                axios({
+                    method: 'get',
+                    url: links[0],
+                    //params: {
+                    //    amount: 10,
+                    //    category: 18,
+                    //    difficulty: 'easy'
+                    //}//close params
+                    }).then(response => {
+                    let questions = response.data.results
+                    console.log(questions)
+                    })//close .then
+            }, //close function
+            }, //close methods
+}), //close vue
+
+//blind leading the blind, mob code Billy, Kyle, Jai, Lawrence 6/24/20
+
+    </script>
+</body>
+</html>
