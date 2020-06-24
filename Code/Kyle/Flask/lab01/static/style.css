@@ -1,0 +1,26 @@
+body{ 
+    text-align: left;
+    text-decoration-color: black;
+} 
+
+h2{
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+div{
+    font-size: 18pt;
+}
+
+.container{
+    background-color: grey;
+}
+
+button{
+    font-size: 16pt;
+    background-color: white;
+    border: 1px solid black;
+    transition-duration: 0.5s;
+}
+
+button:hover{background-color: rgb(89, 106, 114)}

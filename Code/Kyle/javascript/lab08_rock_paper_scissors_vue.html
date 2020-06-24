@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors - A Game</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style type="text/css">
+
+    </style>
+
+</head>
+<body>
+    <div id="app">
+
+        <h2>{{title}}</h2>
+        <h3>Choose Your Weapon: </h3>
+        <div>
+            <select v-model="userEntry">
+                <option value="rock">Rock</option>
+                <option value="paper">Paper</option>
+                <option value="scissors">Scissors</option>
+            </select>
+            <button v-on:click="rpsGame" id="shoot">Shoot!</button>
+            <span type="text" v-model="result">{{result}}</span>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+    //alert("Shoot your shot. Rock, Paper, or Scissors: ");
+        let app = new Vue({
+            el: '#app',
+            data: {
+                title: 'Rock, Paper, Scissors - A Game',
+                userEntry: '',
+                gameOptions: ['rock', 'paper', 'scissors'],
+                result: '',
+            },
+            methods: {
+                rpsGame: function () {
+                    let computerEntry = this.gameOptions[Math.floor(Math.random() * this.gameOptions.length)]
+                    console.log(computerEntry)
+
+                    if (this.userEntry == "rock" && computerEntry == "rock"){
+                        this.result = ("You selected Rock and computer chose Rock. You tied! ")
+                    }
+                    else if (this.userEntry == "rock" && computerEntry == "scissors"){
+                        this.result = ("You selected Rock and computer chose Scissors. You won!")
+                    }
+                    else if (this.userEntry == "rock" && computerEntry == "paper"){
+                        this.result = ("You selected Rock and computer chose Paper. You lose! ")
+                    }
+                    else if (this.userEntry == "paper" && computerEntry == "rock"){
+                        this.result = ("You selected Paper and computer chose Rock. yOU WON! ")
+                    }
+                    else if (this.userEntry == "paper" && computerEntry == "paper"){
+                        this.result = ("You selected Paper and computer chose Paper. yOU TIED!")
+                    }
+                    else if (this.userEntry == "paper" && computerEntry == "scissors"){
+                        this.result = ("You selected Paper and computer chose Scissors. You Lose!")
+                    }
+                    else if (this.userEntry == "scissors" && computerEntry == "rock"){
+                        this.result = ("You selected Scissors and computer chose Rock. You Lose!")
+                    }
+                    else if (this.userEntry == "scissors" && computerEntry == "paper"){
+                        this.result = ("You selected Scissors and computer chose Paper. You win!")
+                    }
+                    else if (this.userEntry == "scissors" && computerEntry == "scissors"){
+                        this.result = ("You selected Scissors and computer chose Scissors. You tied! ")
+                    }
+
+                }//close function
+            }//close methods
+        }) //close Vue app
+    </script>
+</body>
+</html>

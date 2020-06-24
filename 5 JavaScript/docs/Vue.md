@@ -123,6 +123,23 @@ Set attribute values using `v-bind`. [more info](https://vuejs.org/v2/guide/synt
 </script>
 ```
 
+If the value of the variable is falsey, the attribute won't be added to the element at all, which is useful for attributes like `disabled`, `checked`, etc.
+
+```html
+<div id="app">
+  <input type="checkbox" v-model="disable_button"> disable button<br/>
+  <button v-bind:disabled="disable_button">click</button>
+</div>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data: {
+      disable_button: false
+    }
+  })
+</script>
+```
+
 ## 3 Conditionals
 
 
@@ -193,7 +210,7 @@ You can bind app variables to input fields using `v-model`. If the user changes 
 
 ## 6 Event Listeners
 
-Bind events on elements to methods using `v-on`. [more info](https://vuejs.org/v2/guide/events.html)
+Bind events on elements to methods using `v-on`. [list of event types](12%20-%20Events.md#list-of-events) [more info](https://vuejs.org/v2/guide/events.html)
 
 ```html
 <div id="app">
@@ -215,7 +232,7 @@ Bind events on elements to methods using `v-on`. [more info](https://vuejs.org/v
 
 ## 7 Lifecycle Hooks
 
-Lifecycle hooks are special functions called throughout the lifecycle of a Vue app. [more info](https://vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks)
+Lifecycle hooks are special functions called throughout the lifecycle of a Vue app, `created` is called when an app is created, `mounted` is called when an app is mounted, etc. These are useful if you want to generate app data or load it from an api. [more info](https://vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks)
 
 ```html
 <div id="app">

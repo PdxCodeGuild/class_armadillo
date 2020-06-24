@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <title>Lab 06 - Quotes API</title>
+
+</head>
+<body>
+    
+    <h2>Quotes API Lab - Javascript Version (Version 2)</h2>
+    <input id="keyword" type="text" placeholder="Keyword">
+    <button id="search" type="button">Search</button>
+    <ul id="list"></ul>
+
+    <div id="keywordQuotes">
+        <script type="text/javascript">
+                     
+            search.addEventListner('click', function() {
+                // let listQuotes = document.querySelector('#listQuotes')
+                keyword = document.querySelector('#keyword').value
+                let link = "https://favqs.com/api/quotes/?filter=" + keyword
+                let token = { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' }
+                
+                axios({
+                    method: 'get',
+                    url: link,
+                    headers: token,
+
+                }).then((response) => { 
+                    console.log(response.data)
+
+                    let quotes = response.data.quotes //.body
+                    // let author = response.data.quotes.author;
+                    // generate list
+                    for (let q = 0; q < quotes.length; q++) {
+                        let printout = document.createElement("li")
+                        printout.innerText = `${quotes[q].body} - ${quotes[q].author}`
+                        list.appendChild(printout)
+
+                    } //close for loop    
+                }) //close .then
+            }) //close EventListner
+
+        </script>
+    
+    </div>
+</body>
+</html>

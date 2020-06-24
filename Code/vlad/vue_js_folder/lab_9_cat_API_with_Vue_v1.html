@@ -56,7 +56,7 @@
 
                     axios({
                         method: 'get',
-                        url: 'https://api.thecatapi.com/v1/images/search?limit=10'
+                        url: 'https://api.thecatapi.com/v1/images/search'
 
                     }).then(response => {
                         console.log(response.data[0].url)

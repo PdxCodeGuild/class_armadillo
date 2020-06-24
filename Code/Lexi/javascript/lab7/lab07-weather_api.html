@@ -44,6 +44,7 @@
             
             
             var weather_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${user_loc[0]}&lon=${user_loc[1]}&exclude=hourly,daily&appid=${weather_api_key}`;
+            console.log(weather_url)
             axios({
                 method: "get",
                 url: weather_url,
