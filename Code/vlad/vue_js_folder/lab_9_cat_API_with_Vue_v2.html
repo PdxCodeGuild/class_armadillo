@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>lab_9_cat_API_with_Vue_Version 1</title>
+
+    <style>
+
+    </style>
+</head>
+<div id="app">
+    <div>
+        <button v-on:click="showCat">Cat picture</button>
+
+    </div>
+    <label for="category"> Select one of the categories</label>
+    <select v-model="selected_categories" name=" category " id=" ">
+        <option v-for="category in categories " :value="category.id "> {{category.name}}</option>
+    </select>
+
+    <div>
+        <img width="200 " v-bind:src="cat_url " />
+
+    </div>
+</div>
+
+<body>
+    <script type="text/javascript ">
+        let app = new Vue({
+            el: '#app',
+            data: {
+                cat_url: '',
+                categories: '',
+                selected_categories: '',
+
+
+            },
+            methods: {
+
+                showCat: function() {
+
+                    axios({
+                        method: 'get',
+                        url: `https://api.thecatapi.com/v1/images/search?category_ids=${this.selected_categories}`
+
+                    }).then(response => {
+                        console.log(response.data[0].url)
+                        this.cat_url = response.data[0].url
+                    })
+                },
+                getCategories: function() {
+                    axios({
+                        method: 'get',
+                        url: 'https://api.thecatapi.com/v1/categories'
+
+                    }).then(response => {
+                        console.log(response)
+
+                        this.categories = response.data
+
+                    })
+                }
+            },
+            created: function() {
+                this.showCat()
+                this.getCategories()
+            },
+
+        })
+    </script>
+
+</body>
+
+</html>
