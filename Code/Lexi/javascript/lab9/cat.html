@@ -1,3 +1,4 @@
+<!--mistakes: did not load axios cdn (only remembered the Vue cdn), forgot 'this' keyword-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <title>Caterpie</title>
 </head>
 <body>
@@ -25,7 +27,15 @@
             url: 'https://api.thecatapi.com/v1/images/search',
             
         }).then((response) => {
-            console.log(response.data)
+             console.log(response.data)
+             let api_users = response.data.results
+             this.users = []
+             for(let i=0; i<api_users.length; ++i){
+                 let name = api_users[i].name.title + ' ' + api_users[i].name.first + ' ' + api_users[i].name.last
+                this.users.push({
+                    name: name
+                })
+             }
          })
         }
         })
