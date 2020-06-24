@@ -74,14 +74,12 @@
         
                       <div class="row">
                         <div class="col col-4 offset-2">
-                          <div class="med-red-circle">
-        
-                          </div>
+                          <div class="med-red-circle"></div>
                         </div>
                         <div class="col col-5">
                           <div class="speaker-line" v-for="n in 4"></div>
-
                         </div>
+
                       </div> <!-- end main-screen-inner -->
                     </div>
         
@@ -129,7 +127,7 @@
               <div class="row">
                 <!-- green info screen -->
                 <div class="col col-10 offset-1" id="info-screen">
-                  <p v-if="">
+                  <p v-if="pokemonSet.length == 0">
                     <!-- {% if not pokemon and not pokemon_list and not query%} -->
                       Welcome to PokeDex!
                     <!-- {% endif %} -->
@@ -203,22 +201,19 @@
                     <form class="d-flex-column align-items-center">
                       <div class="row">
                         <div class="col col-12 text-center">
-                          <input type="text" name="query" class="text-center" placeholder="Search..." value="">
+                          <input type="text" name="query" class="text-center" placeholder="Search..." value="" v-on:input="update">
                         </div>
                       </div>
                       <div class="row no-gutters">
                         <div class="col col-3 offset-1 text-center">
                           <label>Name</label> 
-                            <input type="radio" name="query_type" value="name" checked>
+                            <input type="radio" name="query_type" value="name" v-model="queryType" value="name" checked>
                         </div> 
                         <div class="col col-3 text-center">
-                          <label>Type </label> <input type="radio" name="query_type" value="poke_type">
+                          <label>Type</label> <input type="radio" name="query_type"  v-model="queryType" value="types">
                         </div>
                         <div class="col col-4 text-center">
-                          <label>Number</label> <input type="radio" name="query_type" value="number">
-                        </div>
-                        <div class="col col-12 text-center">
-                          <input type="submit" class="blue-button" value="Submit">
+                          <label>Number</label> <input type="radio" name="query_type"  v-model="queryType" value="number">
                         </div>
                       </div>
                     </form>
@@ -276,7 +271,7 @@
           </div>
     </div>
 
-    <script src="pokemonData.js"></script>
+
     <script src="pokedex.js"></script>
 </body>
 </html>

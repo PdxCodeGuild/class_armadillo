@@ -5,11 +5,24 @@ let pokedex = new Vue({
         pokemonData: {},
         pokemonSet: [],
         currentPokemon : null,
+        queryType: 'name',
     },
     methods: {
-        
+        update: function(){
+            
+        },
+        search: function(){
+            
+        },
+        nextPage: function(){
+
+        },
+        prevPage: function(){
+
+        }
     },
     created: function(){
+        // Yes, I know this is gross
         this.pokemonData = {
             "pokemon": [
                 {
