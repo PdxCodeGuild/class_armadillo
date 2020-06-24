@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+    <button button='click'></button>
+    <img v-bind:src='url' src='{{url}}'/>
+    <script> type='text/javascript'
+        let app = new Vue ({
+            el:'#app',
+            data: {
+               image_url: 'https://api.thecatapi.com/v1/images/search',
+                seen: true, 
+            } ,
+            methods: {
+                dosomething: 
+            },
+        
+        
+        
+        
+        
+        
+        })
+    </script>
+       
+</body>
+</html>
+
+
+
+<!-- Lab 9: Cat API w/ Vue -->
+<!-- Let's use Vue to build a page where users can look at pictures of cats.
+
+APIs and AJAX
+Cat API
+Version 1
+Create a page with a button that, when pressed, goes and gets a random cat image and displays it. Copy and paste the url below into your browser and look at the response. You can take the url and set it as the src attribute of an img to display it. hint hint hint
+
+https://api.thecatapi.com/v1/images/search -->

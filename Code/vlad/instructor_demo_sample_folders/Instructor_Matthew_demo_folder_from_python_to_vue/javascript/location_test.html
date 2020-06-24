@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to get your coordinates.</p>
+
+<button>Try It</button>
+
+<p id="demo"></p>
+
+<script>
+
+
+navigator.geolocation.getCurrentPosition(position => {
+    console.log(position.coords.latitude)
+    console.log(position.coords.longitude)
+})
+</script>
+
+</body>
+</html>

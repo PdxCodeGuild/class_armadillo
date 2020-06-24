@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- setting innerText -->
+        <span>{{message}}</span>
+        <!-- setting innerHTML -->
+        <span v-html="some_html"></span>
+        <!-- setting the value of an attribute -->
+        <img v-bind:src="image_url"/>
+        <span v-if="seen">some text</span>
+        <ul>
+            <li v-for="fruit in fruits">
+                <div><span>{{fruit}}</span></div>
+            </li>
+        </ul>
+        <input type="text" v-model="message"/>
+        <button v-on:click="doSomething">click</button>
+    </div>
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello world!',
+                some_html: '<b>hello!</b>',
+                image_url: 'https://placekitten.com/100/100',
+                seen: true,
+                fruits: ['apples', 'bananas', 'pears', 'cherries', 'kumquat']
+            },
+            methods: {
+                doSomething: function() {
+                    alert(this.message)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
