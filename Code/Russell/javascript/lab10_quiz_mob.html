@@ -12,15 +12,22 @@
 <body>
 
     <div id="app">
+        <h1>QUIZ</h1>
 
-       
-        <span v-for="(answers, question) in quiz"> {{ question }} {{ answers }}
-            <input type='radio' v-for="answer in answers" value="answer">
-                <label for="answer">{{ answer }}</label>
-            </input>
-
-        </span>
-        <!-- need for loop in div for radio and label answers -->
+        <div v-if="start_screen">
+            <button v-on:click="startQuiz">Start</button>
+        </div>
+        <div v-else-if="end_screen"> You got {{ user_score }} out of 10 correct.</div>
+        <div v-else-if="counter >= 0">
+            <p v-html='current_question'>{{ current_question }}</p>
+            <p v-for="answer in current_choices">
+                <input v-model="current_answer" type='radio' name="choice" v-bind:value='answer' v-html=''>
+                <label v-html="answer"></label>
+                </input>
+            </p>
+            <button v-on:click="nextQuestion">Next</button>
+        </div>
+      
 
     </div>
 
@@ -36,6 +43,7 @@
         }).then(response => {
             let questions = response.data.results
             let quiz = {}
+            
             for (let i = 0; i < questions.length; i++) {
                 let answers = questions[i]['incorrect_answers']
                 let index = Math.floor(Math.random() * answers.length)
@@ -44,14 +52,54 @@
 
 
             }
-            console.log(quiz)
+            
             let app = new Vue({
                 el: '#app',
                 data: {
-                    quiz: quiz
+                    quiz: quiz,
+                    counter: -1,
+                    start_screen: true,
+                    end_screen: false,
+                    current_answer: "",
+                    answer_list: new Array(10),
+                    current_question:'',
+                    current_choices: [],
+                    user_score: 0,
+                    answer_key: questions
+                },
+                methods: {
+                    startQuiz: function () {
+                        this.counter = 0
+                        this.start_screen = false
+                        this.current_question = Object.keys(this.quiz)[0]//this.quiz.keys()[0]
+                        this.current_choices = this.quiz[this.current_question]
+                        
+                    }, 
+                    nextQuestion: function() {
+                        this.answer_list[this.counter] = this.current_answer
+                        this.counter += 1
+                        this.current_question = Object.keys(this.quiz)[this.counter]
+                        this.current_choices = this.quiz[this.current_question]
+                        
+                        if (this.counter > 9) {
+                            this.end_screen = true
+                            this.counter = -1
+                            this.calculateScore()
+                            
+                        } 
+                    
+                    },
+                    calculateScore: function() {
+                        for (let i=0; i<this.answer_key.length; ++i) {
+                            if (this.answer_list[i] == this.answer_key[i]['correct_answer']) {
+                                this.user_score += 1
+                            }
+                        }
+                    }
                 }
+
             })
-            console.log(questions)
+            
         })
     </script>
 </body>

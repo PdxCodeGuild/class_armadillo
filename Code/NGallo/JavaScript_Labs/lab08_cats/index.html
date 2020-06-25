@@ -9,6 +9,12 @@
             background-color: rgba(165, 42, 42, 0.445);
             text-align: center;
         }
+        .catimagerandomdiv{
+            width: 50%;
+        }
+        .imageDiv{
+            margin-top: 15px;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,12 +26,19 @@
         <h2>Cat API Lab</h2>
     </div>
 
-    <div class="main" id="main_div">
-        <!-- <button v-on:click="displayRandomCat">Random Cat!</button> -->
-
-        <!-- <button v-on:click="displaySearchCat">Search!</button> -->
-
-        <img class="cat_image" v-model="catImage">
+    <div class="main" id="app">
+        <button v-on:click="displayRandomCat">Random Cat!</button>
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+          </div>
+        <div class="imageDiv">
+        <img class="catimagerandomdiv" id="cat_image_random" src=>
+        </div>
     </div>
 
     <div class="footer">
@@ -34,27 +47,16 @@
 
     <script>
 
+        
         let urlSearchApi = 'https://api.thecatapi.com/v1/images/search'
 
         axios({
             method: 'get',
             url: urlSearchApi,
         }).then((response) => {
-            console.log(response)
-
-            let randomCat = response.data[0].url
-            // console.log(randomCat)
-            let app = new Vue({
-                el: '#main_div',
-                data: {
-                    
-                },
-                methods: {
-                    displayAnswer: function () {
-                        alert(convert(this.number_input, this.start_unit, this.end_unit))
-                    }
-                }
-            })
+                let catUrl = response.data[0].url
+                catImage = document.getElementById("cat_image_random")
+                cat_image_random.setAttribute("src", catUrl)
         })
 
         let urlRandomApi = 'https://api.thecatapi.com/v1/categories'
@@ -73,3 +75,22 @@
 </body>
 
 </html>
+
+<!-- Lab 9: Cat API w/ Vue
+Let's use Vue to build a page where users can look at pictures of cats.
+
+APIs and AJAX
+Cat API
+Version 1
+Create a page with a button that, when pressed, goes and gets a random cat image and displays it. Copy and paste the url below into your browser and look at the response. You can take the url and set it as the src attribute of an img to display it. hint hint hint
+
+https://api.thecatapi.com/v1/images/search
+
+Version 2
+There is another part of the cat api which will give a list of categories. Use the response from this api endpoint to build a dropdown list of categories. hint hint hint
+
+https://api.thecatapi.com/v1/categories
+
+Now when the user presses the button to get a random cat image, use the selected category to filter the results.
+
+https://api.thecatapi.com/v1/images/search?category_ids=1 -->
