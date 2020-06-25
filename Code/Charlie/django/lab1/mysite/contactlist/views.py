@@ -1,75 +1,68 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
-from django.urls import reverse
+from django.shortcuts import render, get_object_or_404, reverse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Contact
-from .forms import ContactForm, ContactDeleteForm
+from datetime import datetime
 
-def create_contact(request):
-    template = "create_contact.html"
-
-    if request.method == "POST":
-        form = ContactForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-            contact_details = Contact.objects.latest('id')
-            return redirect(reverse('contactlist:details', args=(contact_details.id,)))
-
-    else:
-        form = ContactForm()
-
-    context = {"form": form,}
-
-    return render(request, template, context)
-
-
-def contacts(request):
-    context = {"Contacts": Contact.objects.order_by('last_name')}
-    return render(request, 'contactlist/contacts.html', context)
-
-
-def details(request, id):
-    contact_details = Contact.objects.get(pk=id)
+def index(request):
+    cards = Contact.objects.order_by('last_name')
     context = {
-        "contact_details": contact_details,
+        'cards': cards
+    }
+    return render(request, 'contactlist/index.html', context)
+
+def detail(request, card_id):
+    card = get_object_or_404(Contact, pk=card_id)
+    context = {
+        'card': card
     }
     return render(request, 'contactlist/details.html', context)
 
+def entry_page(request):
+    return render(request, 'contactlist/create_contact.html')
 
-def update(request, id):
-    contact_details = Contact.objects.get(pk=id)
-    if request.method == "POST":
-        form = ContactForm(request.POST, instance=contact_details)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse('contactlist/details', args=(contact_details.id,)))
-    else:
-        form = ContactForm(initial={"first_name": contact_details.first_name,
-                                    "last_name": contact_details.last_name,
-                                    "age": contact_details.age,
-                                    "birthday": contact_details.birthday,
-                                    "email": contact_details.email,
-                                    "phone_number": contact_details.phone_number,
-                                    "is_cell": contact_details.is_cell,
-                                    "comments": contact_details.comments,
-        })
+def create_contact(request):
+    first_name = request.POST['first_name']
+    last_name = request.POST['last_name']
+    birthday = request.POST['birthday']
+    birthday = datetime.strptime(birthday, '%Y-%m-%d').date()
+    phone_number = request.POST['phone_number']
+    is_cell = 'is_cell' in request.POST
+    comments = request.POST['comments']
+    new_card = Contact(first_name=first_name, last_name=last_name, birthday=birthday, 
+        phone_number=phone_number, is_cell=is_cell, comments=comments)
+    new_card.save()
+    return HttpResponseRedirect(reverse('contactlist:detail', args=(new_card.id,)))
 
+def delete(request, card_id):
+    card = get_object_or_404(Contact, pk=card_id)
+    card.delete()
+    return HttpResponseRedirect(reverse('contactlist:contacts'))  
+
+def edit_page(request, card_id):
+    card = get_object_or_404(Contact, id=card_id)
     context = {
-        "contact_details": contact_details,
-        "form": form,
+        'card': card
     }
-    return render(request, 'contactlist/update_contact.html', context)
+    return render(request, 'contactlist/update_contact.html', context) 
 
-def delete(request, pk=None):
-    contact = get_object_or_404(Contact, pk=pk)
-    if request.method == "POST":
-        form = DeleteForm(request.POST, instance= contact)
-        
-        if form.is_valid():
-            contact.delete()
-            return redirect('create')
+def submit_update(request):
+    card_id = request.POST['card_id']
+    first_name = request.POST['first_name']
+    last_name = request.POST['last_name'] 
+    
+    birthday = request.POST['birthday']
+    birthday = datetime.strptime(birthday, '%Y-%m-%d').date()
+    phone_number = request.POST['phone_number']
+    is_cell = 'is_cell' in request.POST
+    comments = request.POST['comments']
 
-    else:
-        form - DeleteForm(instance= contact)
-        
-    return render(request, 'contactlist/contact/delete')
+    card = Contact.objects.get(id=card_id)
+    card.first_name = first_name
+    card.last_name = last_name
+    
+    card.birthday = birthday
+    card.phone_number = phone_number
+    card.is_cell = is_cell
+    card.comments = comments
+    card.save()
+    return HttpResponseRedirect(reverse('contactlist:detail', args=[card.id]))
