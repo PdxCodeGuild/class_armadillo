@@ -3,11 +3,18 @@ let pokedex = new Vue({
     el: '#pokedex-container',
     data: {
         pokemon: [],
+        allTypes: [
+            'normal', 'fire', 'water', 'grass', 'electric', 'ice', 'fighting', 'poison', 
+            'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dragon'
+        ],
         pokemonSet: [],
+        pokemonPage: [],
         currentPokemon: null,
+
         query: '',
         queryType: 'name',
-        page: 0,
+        pageNumber: 1,
+        perPage: 5,
     },
     methods: {
         update: function () {
@@ -15,14 +22,29 @@ let pokedex = new Vue({
         },
         search: function () {
             this.pokemonSet = []
-            console.log('qType', this.queryType)
-            console.log('q', this.query)
-            for (let i = 0; i < this.pokemon.length; i++) {
-                // if(this.pokemon[i][this.queryType].contains(this.query)){
-                //     this.pokemonSet.push(this.pokemon[i])
-                // }
+
+            if(this.query == ''){
+                return
             }
-            console.log(this.pokemonSet)
+
+            for (let i = 0; i < this.pokemon.length; i++) {
+                if(this.queryType == 'name' || this.queryType == 'types'){
+                    if(this.pokemon[i][this.queryType].includes(this.query)){
+                        this.pokemonSet.push(this.pokemon[i])
+                    }
+                } else if(this.queryType == 'number'){
+                    if(this.pokemon[i][this.queryType] == this.query){
+                        this.pokemonSet.push(this.pokemon[i])
+                    }
+                }
+            }
+            if(this.pokemonSet.length == 1){
+                this.currentPokemon = this.pokemonSet[0]
+            }
+        },
+        getPage: function(){
+            let start = this.page * this.perPage
+            this.pokemonPage = this.pokemonSet.slice(start, end)
         },
         nextPage: function () {
 
