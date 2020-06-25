@@ -187,6 +187,7 @@
                     })
                 }
             },
+            // the methods called inside created will run before the page renders, so this.categories and this.cat_url are ready
             created: function() {
                 this.showCat()
                 this.getCategories()
