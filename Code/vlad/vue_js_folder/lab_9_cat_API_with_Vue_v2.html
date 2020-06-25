@@ -122,16 +122,21 @@
     <div id="category">
         <label for="category"> Select one of the categories</label>
         <select v-model="selected_categories" name=" category " id=" ">
+            <!-- :value="value.id" means the value of the element will be value.id 
+            You can't say value="{{ value.id }}" in vue:value is shorthand for v-bind:value
+        binding the value to category.id-->
             <option v-for="category in categories " :value="category.id "> {{category.name}}</option>
         </select>
     </div>
     <div id="btn_cat">
+        <!-- setting the value of an attribute -->
         <button v-on:click="showCat">Click to see your Favorite Cat Picture</button>
 
     </div>
 
 
     <div>
+        <!-- setting the value of an attribute -->
         <img id="pictures" v-bind:src="cat_url " />
 
     </div>
@@ -141,14 +146,18 @@
     <script type="text/javascript ">
         let app = new Vue({
             el: '#app',
+            // app data - we can refer to these variables in our html
             data: {
+                // inside an object declaration
                 cat_url: '',
                 categories: '',
                 selected_categories: '',
 
 
             },
+            // app methods - we can bind these to events on html elements (v-on)
             methods: {
+                // regular javascript here
 
                 showCat: function() {
 
