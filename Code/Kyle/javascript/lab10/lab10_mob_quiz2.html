@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <title>Lab 10 - Mob Quiz</title>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <div id="app">
+        <div>{{title}}</div>
+        <button v-on:click="test" id="new_questions">Get New Questions</button>
+        <ul id="questions_list">
+            <li v-for="question in question_bank">
+                <div v-html="question.question"></div>
+            <div v-for="answer in question.answers">
+                <input type="radio" v-bind:name="question.id" v-bind:value="answer" v-model="question.picked_answer">
+                <label v-html="answer">
+                </label>
+            </div>
+            <!-- <div v-for="answer in question.incorrect_answers"> -->
+            <!-- <div v-for="answer in answer_bank">
+                    <input type="radio">
+                    <label v-html="answer">
+                    </label>
+                </div> -->
+            </li>
+        </ul>
+    </div>
+
+
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app',
+            data: {
+                title: 'Mob Questions - Disciples of Pete',
+
+                question_bank: [], //questions
+                answer_bank: [], //answers
+                //kyle_serious_eyes: [], //TBD
+                correct_answer: '',
+                incorrect_answers: '',
+                result: '',
+                current_question: '',
+                score: 0,
+            },
+            methods: {
+                test: function () {
+                    axios({
+                        method: 'get',
+                        url: 'https://opentdb.com/api.php',
+                        params: {
+                            amount: 10,
+                            category: 18,
+                            difficulty: 'easy'
+                        }//close params
+                    }).then(response => {
+                        let new_questions = response.data.results
+                        for (let i = 0; i < new_questions.length; ++i) {
+                            answers = []
+                            let question = new_questions[i].question
+                            // Push correct_answers into array of answers and shuffle them, Add property called answers to the question.
+                            let correct_answer = new_questions[i].correct_answer
+                            answers.push(correct_answer)
+                            let incorrect_answers = new_questions[i].incorrect_answers
+                            for (let j = 0; j < incorrect_answers.length; ++j) {
+                                answers.push(incorrect_answers[j])
+                            }
+                            // console.log(answers)
+                            this.question_bank.push({
+                                picked_answer: '',
+                                id: i,
+                                question: question,
+                                answers: answers,
+                                correct_answer: correct_answer
+                            })
+                            // this.answer_bank.push({
+                            //     correct_answer: correct_answer,
+                            //     incorrect_answers: incorrect_answers,
+                            // })
+                        }
+                        console.log(this.question_bank)
+                        //console.log(questions)
+                    })//close .then
+                }, //close function
+            }, //close methods
+        }) //close vue
+
+//blind leading the blind, mob code Billy, Kyle, Jai, Lawrence 6/24/20
+
+    </script>
+</body>
+
+</html>

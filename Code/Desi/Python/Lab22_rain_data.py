@@ -25,3 +25,5 @@ print(date.strftime('%d-%b-%Y'))  # 25-Mar-2016
 # gets data from website
 response = requests.get('https://or.water.usgs.gov/non-usgs/bes/metro_center.rain') # gets data from website
 text = response.text #turns into text format
+
+print(text)
