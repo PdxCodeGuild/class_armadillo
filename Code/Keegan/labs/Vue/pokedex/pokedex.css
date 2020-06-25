@@ -25,7 +25,7 @@ body {
     border: 2px solid;
     border-color: transparent transparent #000 #000;
     border-bottom-left-radius: 15px;
-    height: 85%;
+    height: 80vh;
   }
   
   #camera-panel {
@@ -106,16 +106,18 @@ body {
     background-color: #FF0000;
     border: 2px solid #000;
     border-radius: 50%;
-    height: 30px;
+    height: 5vh;
+    max-height: 5vw;
+    max-width: 5vh;
     margin: 5px 0;
-    width: 30px;
+    width: 5vw;
   }
   
   .speaker-line {
     background-color: #000;
     border-radius: 5px;
-    height: 3px;
-    margin: 6px;
+    height: .5vh;
+    margin: 1vh;
     width: 90%;
   }
   
@@ -125,7 +127,7 @@ body {
     border-radius: 15px;
     border-bottom-left-radius: 50px;
     border-top: 1px solid #000;
-    height: 60%;
+    height: 47vh;
     margin: 0 0 10px 0;
   }
   
@@ -134,7 +136,7 @@ body {
     border: 2px solid #000;
     border-radius: 15px;
     box-shadow: inset 0 0 5px #000;
-    height: 40vh;
+    height: 35vh;
   }
   
   #main-screen .pokemon-image {
@@ -180,7 +182,7 @@ body {
     background-color: #003500;
     border: 2px solid #000;
     border-radius: 15px;
-    height: 15px;
+    height: 3vh;
     position: relative;
     width: 50px;
   }
@@ -200,7 +202,7 @@ body {
     background-color: #a10000;
     border: 2px solid #000;
     border-radius: 15px;
-    height: 15px;
+    height: 3vh;
     position: relative;
     width: 50px;
   }
@@ -226,12 +228,12 @@ body {
   
   #d-pad {
     background-color: transparent;
-    height: 90px;
+    height: 12vh;
     margin: 5px;
-    max-height: 90px;
-    max-width: 90px;
+    max-height: 12vw;
+    max-width: 12vh;
     position: relative;
-    width: 90px;
+    width: 12vh;
   }
   
   #up-down-border {
@@ -278,11 +280,11 @@ body {
   .center-circle {
     background-color: #053533;
     border-radius: 50%;
-    height: 15px;
-    left: 42%;
+    height: 2vh;
+    left: 40%;
     position: absolute;
-    top: 42%;
-    width: 15px;
+    top: 40%;
+    width: 2vh;
     z-index: 2;
   }
   
@@ -312,7 +314,7 @@ body {
     color: #0a3600;
     margin-bottom: 10px;
     margin-top: 10px;
-    min-height: 40vh;
+    height: 50vh;
     padding: 15px;
   }
   
@@ -401,7 +403,7 @@ body {
     background-color: #686266;
     border: 2px solid black;
     border-radius: 15px;
-    min-height: 30px;
+    height: 7vh;
   }
   
   .grey-button {
@@ -411,10 +413,15 @@ body {
     margin: 2px;
     width: 40%;
   }
+
+  .grey-button:hover {
+    cursor: pointer;
+  }
   
   .grey-button .arrow {
     color: #FF0000;
-    font-size: 1.75rem;
+    font-size: 1.5em;
+    text-shadow: 0 0 10px #ff0303;
   }
   
   .yellow-button {
