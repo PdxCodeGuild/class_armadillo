@@ -67,7 +67,7 @@
         #category {
             margin: 10px 80px 20px 200px;
             /* height: 50px; */
-            width: 27%;
+            width: 30%;
             padding: 8px;
             background-color: white;
             font-size: x-large;
@@ -169,7 +169,7 @@
 
                     }).then(response => {
                         console.log(response.data[0].url)
-                        // response.data is an array of cat photos, we get the url from the first item in that array
+                            // response.data is an array of cat photos, we get the url from the first item in that array
                         this.cat_url = response.data[0].url
                     })
                 },
@@ -180,8 +180,8 @@
 
                     }).then(response => {
                         console.log(response)
-                        // response.data is an array of categories
-                        // this.categories is from the data object
+                            // response.data is an array of categories
+                            // this.categories is from the data object
                         this.categories = response.data
 
                     })
