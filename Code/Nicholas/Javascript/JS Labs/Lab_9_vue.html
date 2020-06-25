@@ -12,7 +12,7 @@
 <body>
     <div id="kittyApp">
         <h2>Random Cat Image Generator</h2>
-        <img v-bind:src="image_url"/>
+        <img v-bind:src="image_url" style="max-width: 800px"/>
         <br><br>
         <button v-on:click="generateImage" type="button">Random Cat</button>
     </div>

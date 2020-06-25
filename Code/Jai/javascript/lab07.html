@@ -11,15 +11,16 @@
 </head>
 
 <body>
-    <div id="location"></div>
-    <div id="temperature"></div>
+    <div id="temp"></div>
     <div id="weather"></div>
     <div id="date"></div>
+    <div id="conditions"></div>
     <script>
-        let location = document.querySelector('#location')
+        //let location = document.querySelector('#location')
         let weather = document.querySelector('#weather')
         let date = document.querySelector('#date')
-        let temp = document.querySelector('temperature')
+        let temp = document.querySelector('#temp')
+        let conditions = document.querySelector('#conditions')
 
         navigator.geolocation.getCurrentPosition(showPosition)
 
@@ -37,16 +38,21 @@
 
             }).then(response => {
                 console.log(response.data.current)
-                let date = repsonse.data.current.dt
-                let unix_timestamp = 1592482891
+                let current_date = response.data.current.dt
                 let todays_date = new Date(current_date * 1000)
-                date.innertext = todays_date
-
-                temperature.innerText = response.data.current.weather[0].main
-
-
-
-
+                console.log(todays_date)
+                let temperature = Math.floor(response.data.current.temp * 9 / 5 - 459.67)
+                console.log(date)
+                let current_conditions = response.data.current.weather[0].main
+                console.log(current_conditions)
+                temp.innerText = temperature
+                conditions.innerText = current_conditions
+                date.innerText = todays_date
             })
 
+
         }
+    </script>
+</body>
+
+</html>

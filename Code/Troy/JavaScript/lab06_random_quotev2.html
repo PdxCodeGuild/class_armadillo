@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+    <title>Random Quote</title>
+</head>
+
+<style>
+    body {
+        background-color: khaki;
+    }
+
+    h3 {
+        text-align: center;
+        margin: 10px;
+        font-weight: 600;
+    }
+
+    #random_quote {
+        text-align: center;
+        margin: 10px;
+        border: 1px solid;
+        padding: 10px;
+        box-shadow: 5px 10px #888888;
+    }
+
+    #search {
+        margin: 20px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    #get_quote {
+        font-variant: petite-caps;
+    }
+
+    #get_author {
+        font-weight: bold;
+        color: #D00000;
+    }
+
+    #multiple_quotes {
+        margin: 10px;
+        padding: 10 px;
+
+    }
+</style>
+
+<body>
+    <h3>Get Your Quote Here!</h3>
+
+    <div id="random_quote">
+        <div id="get_quote"></div>
+        <div id="get_author"></div>
+    </div>
+
+    <div id="search">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <input type="text" id="search_text" placeholder="Type here...">
+            <button id="btn_single" type="button" class="btn btn-secondary">Single Quote</button>
+            <button id="btn_search" type="button" class="btn btn-secondary">List of Quotes</button>
+        </div>
+    </div>
+
+
+    <ul id="multiple_quotes"></ul>
+
+    <nav aria-label="pagination">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        let get_quote = document.querySelector("#get_quote");
+        let get_author = document.querySelector("#get_author");
+        let search = document.querySelector("#search");
+        let btn_single = document.querySelector("#btn_single");
+        let btn_search = document.querySelector("#btn_search");
+        let multiple_quotes = document.querySelector("#multiple_quotes");
+
+        btn_single.addEventListener('click', function () {
+            axios({
+                method: 'get',
+                url: "https://favqs.com/api/qotd",
+
+            }).then(response => {
+                // let text = response.data.text[""];
+                let quote = response.data.quote.body;
+                let author = response.data.quote.author;
+
+                get_quote.innerText = quote
+                get_author.innerText = author
+            }
+            )
+        })
+
+        btn_search.addEventListener('click', function () {
+            // alert("!!!")
+            axios({
+                method: "get",
+                url: "https://favqs.com/api/quotes",
+                params: { filter: search.value },
+                headers: { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' }
+
+            }).then(response => {
+                // console.log(response.data.quotes[0].body)
+                // console.log(response.data.quotes[0].author)
+
+                let quotes = response.data.quotes
+
+                for (let i = 0; i < quotes.length; ++i) {
+                    let quote = quotes[i]
+                    let quote_list = document.createElement('li')
+                    quote_list.innerText = quote.body + " - " + quote.author
+
+                    multiple_quotes.appendChild(quote_list)
+
+                }
+            })
+        })
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
