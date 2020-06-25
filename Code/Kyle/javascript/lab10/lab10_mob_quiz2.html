@@ -34,6 +34,8 @@
                 </div> -->
             </li>
         </ul>
+    <button v-on:click="grade_me">Submit answers</button>
+    <div>{{score}}</div>
     </div>
 
 
@@ -53,6 +55,14 @@
                 score: 0,
             },
             methods: {
+                grade_me: function () {
+                    this.score = 0
+                    for (let q = 0; q < this.question_bank.length; ++q) {
+                        if (this.question_bank[q].picked_answer == this.question_bank[q].correct_answer) {
+                            this.score += 1 
+                        }
+                    }
+                },
                 test: function () {
                     axios({
                         method: 'get',
