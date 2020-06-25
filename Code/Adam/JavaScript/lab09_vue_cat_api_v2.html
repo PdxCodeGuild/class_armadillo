@@ -18,35 +18,39 @@
         <select v-model="category" name="category.id" id="category">
             <option v-for="category in categories" v-bind:value="category.id">{{category.name}}</option>
         </select>
-        <!-- button to get picture -->
+        <!-- call get_cat_pict() on click -->
         <button v-on:click="get_cat_pic(category.id)">Get Cat Picture</button>
     </div>
     <script type="text/javascript">
         let app = new Vue({
             el: '#app',
             data: {
+                // set a default category
                 category: 1,
                 cat_pic: '',
                 categories: [],
             },
             methods: {
-                // 
+                // request cat picture by category
                 get_cat_pic: function () {
                     axios({
                         method: 'get',
                         url: `https://api.thecatapi.com/v1/images/search?category_ids=${this.category}`,
                     }).then((response) => {
                         console.log(response.data)
+                        // assign cat_pic the url contained in response 
                         this.cat_pic = response.data[0].url
                     })
                 }
             },
+            // request categories 
             created: function () {
                 axios({
                     method: 'get',
                     url: 'https://api.thecatapi.com/v1/categories',
                 }).then(response => {
                     console.log(response.data)
+                    // assign the response to this instance of categoires
                     this.categories = response.data
                 })
             }
