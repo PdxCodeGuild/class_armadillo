@@ -35,7 +35,7 @@
             /* height: 10%; */
             width: 15%;
             padding: 8px;
-            background-color: white;
+            background-color: transparent;
             font-size: x-large;
             font-style: italic;
         }
@@ -50,7 +50,7 @@
         #btn_cat:hover {
             background: skyblue;
             border: none;
-            color: rgb(1, 10, 15);
+            color: white;
             box-shadow: 7px 7px 12px rgb(6, 75, 235);
             transition: 0.5s;
         }
@@ -58,7 +58,7 @@
         #category:hover {
             background: skyblue;
             border: none;
-            color: rgb(1, 10, 15);
+            color: white;
             box-shadow: 7px 7px 12px rgb(6, 75, 235);
             transition: 0.5s;
             font-style: italic;
@@ -67,16 +67,17 @@
         #category {
             margin: 10px 80px 20px 200px;
             /* height: 50px; */
-            width: 27%;
+            width: 30%;
             padding: 8px;
-            background-color: white;
+            background-color: transparent;
             font-size: x-large;
+            color: white;
         }
         
         #pictures:hover {
             background: skyblue;
             border: none;
-            color: rgb(1, 10, 15);
+            color: white;
             box-shadow: 1px 2px 3px rgb(6, 75, 235);
             transition: 0.5s;
         }
@@ -122,16 +123,22 @@
     <div id="category">
         <label for="category"> Select one of the categories</label>
         <select v-model="selected_categories" name=" category " id=" ">
+            <!-- :value="category.id" means the value of the element will be category.id 
+            You can't say value="{{ category.id }}" in vue:value is shorthand for v-bind:value
+        binding the value to category.id-->
             <option v-for="category in categories " :value="category.id "> {{category.name}}</option>
+            <!-- category.name is the name of the category, but category.id is what we use to search for that category w/ axios -->
         </select>
     </div>
     <div id="btn_cat">
+        <!-- setting the value of an attribute -->
         <button v-on:click="showCat">Click to see your Favorite Cat Picture</button>
 
     </div>
 
 
     <div>
+        <!-- setting the value of an attribute -->
         <img id="pictures" v-bind:src="cat_url " />
 
     </div>
@@ -141,23 +148,29 @@
     <script type="text/javascript ">
         let app = new Vue({
             el: '#app',
+            // app data - we can refer to these variables in our html
             data: {
+                // inside an object declaration
                 cat_url: '',
                 categories: '',
                 selected_categories: '',
 
 
             },
+            // app methods - we can bind these to events on html elements (v-on)
             methods: {
+                // regular javascript here
 
                 showCat: function() {
 
                     axios({
                         method: 'get',
+                        // api call for the selected category
                         url: `https://api.thecatapi.com/v1/images/search?category_ids=${this.selected_categories}`
 
                     }).then(response => {
                         console.log(response.data[0].url)
+                            // response.data is an array of cat photos, we get the url from the first item in that array
                         this.cat_url = response.data[0].url
                     })
                 },
@@ -168,12 +181,14 @@
 
                     }).then(response => {
                         console.log(response)
-
+                            // response.data is an array of categories
+                            // this.categories is from the data object
                         this.categories = response.data
 
                     })
                 }
             },
+            // the methods called inside created will run before the page renders, so this.categories and this.cat_url are ready
             created: function() {
                 this.showCat()
                 this.getCategories()

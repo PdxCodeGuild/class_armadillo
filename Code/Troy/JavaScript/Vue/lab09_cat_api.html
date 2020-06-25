@@ -6,40 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://images.cooltext.com/5435413.png">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <title>Cat API</title>
 </head>
+<style>
+    body {
+        background-color: bisque;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    .cat_img {
+        text-align: center;
+        border-radius: 25px;
+    }
+
+    .avatar {
+       text-align: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin: 10px;
+    }
+
+    .button {
+        text-align: center;
+        margin: 10px;
+    }
+
+    .dropdown {
+        text-align: center;
+    }
+</style>
 
 <body>
+    <h3>Here Kitty, Kitty!</h3>
     <div id="app">
-        <div>
-            <img v-bind:src="img_url" height="200px" width="200PX">
+        <div class="cat_img">
+            <img v-bind:src="img_url" height="200px" width="200PX" class="cat_img">
         </div>
-        <button dropdown: on-click="lookFor">Choose a CATegory</button>
-        <button v-on:click="getCatPic" class="btn btn-outline-dark">Bag a Cat</button>
+        <div class="button">
+            <button v-on:click="getCatPic" class="btn btn-outline-dark">Here Kitty</button>
+        </div>
+
+        <div class="dropdown">
+            <select v-model="input_category" name="category" id="">                
+                <option v-for="category in categories" :value="category.id">{{category.name}}</option>
+            </select>
+        </div>
+
+        <div class="avatar">
+            <img v-bind:src="img_url" class="avatar" >
+        </div>
     </div>
     <script type="text/javascript">
         let app = new Vue({
             el: "#app",
             data: {
-                img_url: "https://placekitten.com/100/100",
-                categories: [
-                    'Hats',
-                    'Boxes',
-                    'Clothes',
-                    'Sinks',
-                    'Space',
-                ],
-
+                img_url: "",
+                categories: [],
+                get_categories: "",
+                input_category: "",
             },
             methods: {
                 getCatPic: function () {
                     axios({
                         method: "get",
-                        url: "https://api.thecatapi.com/v1/images/search",
+                        url: `https://api.thecatapi.com/v1/images/search?category_ids=${this.input_category}`,
                     }).then(response => {
-                        // console.log(response.data[0])
+
                         this.img_url = response.data[0].url
                     })
                 },
@@ -48,10 +87,15 @@
                         method: "get",
                         url: "https://api.thecatapi.com/v1/categories",
                     }).then(response => {
-                        this.categories = response.data[0].url
+                        console.log(response.data)
+                        this.categories = response.data
                     })
                 }
-            }
+            },
+            created: function () {
+                this.getCatPic()
+                this.lookFor()
+            },
         })
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
