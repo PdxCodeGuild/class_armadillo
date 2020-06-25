@@ -16,18 +16,15 @@
             padding: 0;
         }
 
-        body {}
-
-        div {}
-
-        button,
-        button:hover {}
     </style>
     <div id="app">
         <div>{{title}}</div>
         <button v-on:click="test" id="new_questions">Get New Questions</button>
         <ul id="questions_list">
-            <li v-for="question in jai_bank" :key="question.question">{{question}}</li>
+            <li v-for="question in question_bank" :key="question.question">{{question}}
+                <div>{{question.question}}</div>
+                <div>{{question.incorrect_answers}}</div>
+            </li>
         </ul>
     </div>
 
@@ -37,7 +34,9 @@
             data: {
                 title: 'Mob Questions - Disciples of Pete',
 
-                jai_bank: [],
+                question_bank: [], //questions
+                answer_bank: [], //answers
+                //kyle_serious_eyes: [], //TBD
                 correct_answer: '',
                 incorrect_answers: '',
                 result: '',
@@ -53,13 +52,17 @@
                             difficulty: 'easy'
                         }//close params
                     }).then(response => {
-                        let lawrence_pet_moose = response.data.results
-                        for (let i = 0; i < lawrence_pet_moose.length; ++i){
-                            let question = lawrence_pet_moose[i].question
-                            this.jai_bank.push ({
-                                question:question
+                        let new_questions = response.data.results
+                        for (let i = 0; i < new_questions.length; ++i){
+                            let question = new_questions[i].question
+                            let correct_answer = new_questions[i].correct_answer
+                            let incorrect_answers = new_questions[i].incorrect_answers
+                            this.question_bank.push ({
+                                question:question,
+                                correct_answer:correct_answer,
+                                incorrect_answers:incorrect_answers,
                                 })
-                            console.log(this.jai_bank)
+                            console.log(this.question_bank)
                         }
                         //console.log(questions)
                     })//close .then
