@@ -20,41 +20,66 @@
             list-style-type: none;
             font-family: 'Open Sans', sans-serif;
         }
+
         li {
             padding: 20px;
-            margin:20px;
-            font-size:16px;
+            margin: 20px;
+            font-size: 16px;
         }
-        img{max-width:100px;
+
+        img {
+            max-width: 100px;
         }
-        button{color:black;
-            font-size:24px;
+
+        button {
+            color: black;
+            font-size: 24px;
             background-color: chartreuse;
-            border-radius:5%;
-            }
-        button:hover{background-color: white;
+            border-radius: 5%;
         }
-        input{font-size:24px;
-        border-radius:5%;
-        }    
-        h1, h2, button, footer{font-family: 'Balsamiq Sans', cursive;
+
+        button:hover {
+            background-color: white;
         }
-        h1{font-size: 48px;}
+
+        input {
+            font-size: 24px;
+            border-radius: 5%;
+        }
+
+        h1,
+        h2,
+        button,
+        footer {
+            font-family: 'Balsamiq Sans', cursive;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
     </style>
 </head>
 
 <body>
     <main id="header_stuff">
         <h1>QUOTR</h1>
-        <img src="https://www.freelogodesign.org/file/app/client/thumb/dcb2eebf-ae3a-4eaf-9d0b-c1689643b2a6_200x200.png?1592427475927" alt=smiley_logo>
+        <img src="https://www.freelogodesign.org/file/app/client/thumb/dcb2eebf-ae3a-4eaf-9d0b-c1689643b2a6_200x200.png?1592427475927"
+            alt=smiley_logo>
         <h2>Enter a keyword to search for relevant quotes:</h2>
         <input id="quote_keyword" type="text" placeholder="Enter Keyword">
         <button id="search_quotes" type="button">Search Quotes</button>
+        <button type="button" onclick="ClearFields();">Clear</button>
         <ul id="quotes_list"></ul>
         <footer>Quotes API by <a href=https://favqs.com/api>FavQs</footer>
     </main>
     <div id="generate_quotes"></div>
     <script>
+        function ClearFields() {
+
+            document.querySelector("#quotes_list").value = "";
+            document.querySelector("#quote_keyword").value = "";
+            
+        }
         search_quotes.addEventListener('click', function () {
             let quotesList = document.querySelector("#quotes_list")
             let quoteKeyword = document.querySelector("#quote_keyword").value
