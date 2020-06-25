@@ -4,38 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Contact Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <style>
-        body{
+        .icon {
             text-align: center;
-            align-content: center;
         }
     </style>
 </head>
 
 <body>
-    <span>
-        <h1>Contact Details for {{contact_details.first_name}} {{contact_details.last_name}}</h1>
-        <a href="{% url 'contactlist:details' contact_details.id %}"></a>
-    </span>
-    <div class="contact content">
-        <p>First Name: {{contact_details.first_name}}</p>
-        <p>Last Name: {{contact_details.last_name}}</p>
-        <p>Age: {{contact_details.age}}</p>
-        <p>Birthday: {{contact_details.birthday}}</p>
-        <p>Email: {{contact_details.email}}</p>
-        {% if contact_details.is_cell %}
-        <p>Cell Phone Number: {{contact_details.phone_number}}</p>
-        {% else %}
-        <p>Phone Number: {{contact_details.phone_number}}</p>
-        {% endif %}
-        <p>Comments: {{contact_details.comments}}</p>
-        
-        <button class="button" type= "submit">update</button>
-    
+    <h1>Contact Details</h1>
+    <table class="table">
+        <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Age</th>
+            <th>Birthday</th>
+            <th>Phone Number</th>
+            <th>Comments</th>
+        </tr>
+        <tr>
+            <td>{{card.last_name}}</td>
+            <td>{{card.first_name}}</td>
+            <td>{{card.age}}</td>
+            <td>{{card.birthday}}</td>
+            <td>{{card.format_phone}}</td>
+            <td>{{card.comments}}</td>
+        </tr>
+    </table>
+    <div class="icons">
+        <a href="{% url 'contactlist:edit_page' card.id %}" title="edit" class="btn btn-info btn-lg">⚒️</a>&ensp;
+        <a href="{% url 'contactlist:entry_page' %}" title="new" class="btn btn-success btn-lg">✅</a>&ensp;
+        <a href="{% url 'contactlist:delete' card.id %}" title="delete" class="btn btn-danger btn-lg">⛔</a>&ensp;
+        <a href="{% url 'contactlist:contacts' %}" title="home" class="btn btn-secondary btn-lg">&#x1F3E0;</a>
     </div>
-    
 </body>
 
 </html>

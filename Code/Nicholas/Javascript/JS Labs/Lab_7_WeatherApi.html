@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="secrets.js"></script>
+    <title>Weather</title>
+</head>
+
+<body>
+    <h1>Current Weather: </h1>
+    <div id="location"></div>
+    <div id="date"></div>
+    <div id="weather"></div>
+    <span><img id="current_icon"/></span>
+    <div id="temp"></div>
+    <div id="weather_tmo"></div>
+    <span><img id="tomorrow_icon"/></span>
+    <div id="temp_tmo"></div>
+    <script>
+        let wxLocation = document.querySelector("#location");
+        let wxDate = document.querySelector("#date");
+        let wxWeather = document.querySelector("#weather");
+        let wxTemp = document.querySelector("#temp");
+        let wxTmo = document.querySelector("#weather_tmo");
+        let wxTempTmo = document.querySelector("#temp_tmo")
+        let currIcon = document.querySelector("#current_icon")
+        let tmoIcon = document.querySelector("#tomorrow_icon")
+        
+        navigator.geolocation.getCurrentPosition(position => {
+            let lat = position.coords.latitude
+            let lon = position.coords.longitude
+            let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${api_key}`
+            let unix_timestamp = 1592482891
+            let datetime = new Date(unix_timestamp * 1000)
+            console.log(datetime)
+
+            axios({
+                method: 'get',
+                url: url,
+                appid: api_key
+            }).then((response) => {
+                wxLocation.innerText = `Weather for ${lat}, ${lon}:`
+                let current_date = response.data.current.dt
+                let present_date = new Date (current_date * 1000)
+                let current_temp = response.data.current.temp
+                let fahrenheit_temp = ((current_temp-273.15)*9/5 + 32).toFixed()
+                wxTemp.innerText = `Current temperature: ${fahrenheit_temp} F`
+                console.log(response.data)
+                wxDate.innerText = present_date;
+                let wxCond = response.data.current.weather[0].description
+                wxWeather.innerText = `Current conditions: ${wxCond}`
+                let current_icon = response.data.current.weather[0].icon
+                currIcon.setAttribute("src", `http://openweathermap.org/img/wn/${current_icon}.png`)
+                let tmo_icon = response.data.daily[1].weather[0].icon
+                tmoIcon.setAttribute("src", `http://openweathermap.org/img/wn/${tmo_icon}.png`)
+                let weather_tmo = response.data.daily[1].weather[0].description
+                wxTmo.innerText = `Tomorrow's weather: ${weather_tmo}`
+                let temp_tmo = response.data.daily[1].temp.max
+                let temp_tmo_f = ((temp_tmo-273.15)*9/5 +32).toFixed()
+                wxTempTmo.innerText = `Tomorrow's high: ${temp_tmo_f} F`
+            }
+            )
+        }
+        )
+
+
+
+
+    </script>
+</body>
+
+</html>
