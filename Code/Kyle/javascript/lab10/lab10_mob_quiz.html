@@ -16,7 +16,7 @@
             padding: 0;
         }
 
-        .body {}
+        body {}
 
         div {}
 
@@ -26,25 +26,18 @@
     <div id="app">
         <div>{{title}}</div>
         <button v-on:click="test" id="new_questions">Get New Questions</button>
-
-    </div>
         <ul id="questions_list">
-            <li v-for="question in questions" :key="question.question">{{question}}</li>
-
+            <li v-for="question in jai_bank" :key="question.question">{{question}}</li>
         </ul>
-        
-    <div>
-
     </div>
 
     <script type="text/javascript">
-
         let app = new Vue({
             el: '#app',
             data: {
-                title: 'Mob Questions - Disciples of Keegan',
+                title: 'Mob Questions - Disciples of Pete',
 
-                questions: [],
+                jai_bank: [],
                 correct_answer: '',
                 incorrect_answers: '',
                 result: '',
@@ -60,8 +53,14 @@
                             difficulty: 'easy'
                         }//close params
                     }).then(response => {
-                        this.questions = response.data.results
-
+                        let lawrence_pet_moose = response.data.results
+                        for (let i = 0; i < lawrence_pet_moose.length; ++i){
+                            let question = lawrence_pet_moose[i].question
+                            this.jai_bank.push ({
+                                question:question
+                                })
+                            console.log(this.jai_bank)
+                        }
                         //console.log(questions)
                     })//close .then
                 }, //close function
