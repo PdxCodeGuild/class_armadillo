@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Lab10_mob_guess_the_number</title>
+    <style>
+        #output, #guess_count{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button v-for="num_obj in nums" v-on:click="checkNum(num_obj)" v-bind:disabled="num_obj.disabled">{{num_obj.num}}</button>
+        <div id="guess_count">You have {{numGuesses}} guesses remaining.</div>
+        <!-- <div>{{randomNum}} This is the answer</div> -->
+        <div id="output">{{output}}</div>
+        <!-- <div>{{nums}}</div> -->
+    </div>
+
+    <script type="text/javascript">
+
+    let app = new Vue({
+        el: '#app',
+        created: function() {
+            for(let i=1; i < 11; i++){
+                this.nums.push({
+                    num: i,
+                    disabled: false
+                })
+            }
+        },
+        data: {
+            randomNum: Math.floor((Math.random() * 10) + 1),
+            numGuesses: 10,
+            output: "",
+            nums: [],
+        },
+        methods: {
+            checkNum: function(num_obj){
+                if (num_obj.num == this.randomNum) {
+                    this.output = "You Win"
+                    this.resetGame()
+                    return
+                } else {
+                    this.numGuesses -= 1
+                }
+                if (this.numGuesses <= 0) {
+                    this.output = `You lose! The answer was ${this.randomNum}.`
+                    this.resetGame()
+                } else {
+                    this.output = "Try again."
+                    num_obj.disabled = true
+                }
+            },
+            resetGame: function(){
+                this.randomNum = Math.floor((Math.random() * 10) + 1)
+                this.numGuesses = 10
+                for(let i=0; i<this.nums.length; i++){
+                    this.nums[i].disabled = false
+                }
+            } 
+        },
+    })
+
+    </script>
+</body>
+</html>

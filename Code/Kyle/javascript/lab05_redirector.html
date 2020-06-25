@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 05 Redirector</title>
+
+</head>
+<body>
+    <h2>Error 404: Page Not Found</h2>
+    <div id="pageBomb">
+        <script type="text/javascript">
+        
+        let links = [
+            "https://www.google.com/",
+            'https://www.duckduckgo.com',
+            "https://www.bbc.com/news",
+            "https://www.cbc.ca/news/canada",
+        ]
+
+        function selfDestruct() {
+            let time = 11; // set time
+            let pageBomb = document.querySelector('#pageBomb');
+            setInterval (function(){
+                if (time > 0){
+                    time -= 1; //decrement by 1 each 1000 miliseconds
+                    pageBomb.innerHTML = "WARNING: Your browser will self-destruct in: " + time;
+                }
+                else {
+                    let newSite = links[Math.floor(Math.random() * links.length)] // declare variable for random links
+                    window.location.assign(newSite)
+                }
+                
+            }, 1000) //closes setInterval       
+            
+        } //closes function
+        
+        selfDestruct()
+        
+        </script>
+    </div>
+
+</body>
+</html>

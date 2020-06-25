@@ -12,14 +12,14 @@
 
 <body>
     <h3>Get Your Quote Here!</h3>
-
+    
     <div id="random_quote">
         <div id="get_quote"></div>
         <div id="get_author"></div>
     </div>
 
     <div id="search">
-        <input type="text" id="search_text" palceholder="Type here...">
+        <input type="text" id="search_text" placeholder="Type here...">
         <button id="btn_search" class="btn btn-primary">Search</button>
     </div>
 
@@ -36,8 +36,7 @@
         axios({
             method: 'get',
             url: quote_url,
-            params: {filter: search.value},
-            headers: { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' }
+
         }).then(response => {
             // let text = response.data.text[""];
             let quote = response.data.quote.body;
@@ -48,18 +47,20 @@
         }
         )
         btn_search.addEventListener('click', function () {
+            // alert("!!!")
             axios({
                 method: "get",
-                url: quote_url,
-                param: search_text.value,
+                url: "https://favqs.com/api/quotes",
+                params: { filter: search.value },
                 headers: { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' }
 
             }).then(response => {
-                let quote = response.data.quote.body;
-                let author = response.data.quote.author;
-                get_quote.innerText = quote
-                get_author.innerText = author
-                let quotes = response.data.quote.b
+                console.log(response.data)
+                // let quote = response.data.quote.body;
+                // let author = response.data.quote.author;
+                // get_quote.innerText = quote
+                // get_author.innerText = author
+                // let quotes = response.data.quote.b
             })
         })
     </script>

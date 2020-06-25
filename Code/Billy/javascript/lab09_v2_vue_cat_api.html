@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitty Pics</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body {
+            margin: 0;
+            background-color: rgb(110, 109, 109);
+        }
+
+        .polaroid {
+            position: fixed;
+            border: 1px solid #e0dfd7;
+            margin-top: 1vh;
+            margin-left: calc(50% - 60vh);
+            width: 98vh;
+            height: 98vh;
+            background-color: #fcfcf7;
+            border-radius: 3px;
+            box-shadow: 0 4px 8px 15px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .image {
+            position: fixed;
+            width: 90vh;
+            height:67.5vh; 
+            object-fit: cover;
+            margin-left: calc(50% - 56vh);
+            margin-top: 7vh;
+            z-index: 0;
+            filter:sepia(10%) brightness(95%) saturate(2);
+            border: 2px solid grey;
+            border-radius: 3px;
+        }
+
+        .caption {
+            position: fixed;
+            width: 90vh;
+            height:67.5vh; 
+            object-fit: cover;
+            margin-left: calc(50% - 55vh);
+            margin-top: 75vh;
+            font-family: 'Permanent Marker', cursive;
+            color: rgb(44, 43, 43);
+            font-size: 50px;
+            text-align: center;
+        }
+
+        .new-kitty {
+            font-family: 'Permanent Marker', cursive;
+            color: rgb(44, 43, 43);
+            font-size: 30px;
+            position: absolute;
+            left: 40%;
+            top: 18%;
+            padding: 2px 30px;
+            border-radius: 20px;
+            background-color:#fcfcf7;
+            cursor: pointer;
+            box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .new-kitty:hover {
+            background-color:rgb(241, 239, 211);
+        }
+
+        .new-kitty:focus {
+            outline: transparent;
+        }
+
+        .category {
+            text-align: center;
+        }
+
+        select {
+            text-transform:capitalize;
+        }
+
+        select:focus {
+            outline: transparent;
+        }
+
+        .go-button {
+            background-color: #818181;
+        }
+
+        .go-button:hover {
+            background-color: whitesmoke;
+            border-color: whitesmoke;
+        }
+
+        .go-button:focus {
+            outline: transparent;
+        }
+
+        .title {
+            font-family: 'Permanent Marker', cursive;
+            color: whitesmoke;
+            font-size: 35px;
+            padding: 10px;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 220px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0px;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .links {
+            padding-top: 30px;
+        }
+
+        .sidenav a {
+            padding: 6px 8px 6px 25px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            text-align: left;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .main {
+            margin-left: 160px; 
+            padding: 0px 10px;
+        }
+
+        h1 {
+            position: absolute;
+            left: 15%;
+            top: 5%; 
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="sidenav">
+            <div class="title">Kitty Pics—</div>
+            <div class="category">
+                <select v-model="input_category">
+                    <optgroup label="Pick category...">
+                        <option class="placeholder" value="" disabled hidden>Pick category...</option>
+                        <option value="random">Random</option>
+                        <option v-for="category in categories" v-bind:value="category">{{category.name}}</option>
+                    </optgroup>
+                </select>
+                <button class="go-button" v-on:click="goButton">Go</button>
+            </div>
+            <div class="links">
+                <a href="https://en.wikipedia.org/wiki/Cat" target="blank">Wikipedia</a>
+                <a href="https://www.youtube.com/results?search_query=cat" target="blank">Videos</a>
+                <a href="https://www.petsmart.com/cat/" target="blank">Shop</a>
+                <a href="https://www.oregonhumane.org/" target="blank">Adopt</a>
+            </div>
+        </div>
+        <div class="main">
+            <div class="polaroid"></div>
+            <img class="image" v-bind:src="image_gato"/>
+            <div class="caption">
+                <div>Meow...</div>
+                <button class="new-kitty" v-on:click="newKittyButton">→</button>
+            </div>         
+        </div>
+    </div>
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app',
+            data: {
+                input_category: 'random',
+                categories: [],
+                image_gato: '',
+            },
+            methods: {
+                getCategory: function() {
+                    axios({
+                        method: 'get',
+                        url: 'https://api.thecatapi.com/v1/categories'
+                    }).then(response => {
+                        api_categories = response.data
+                        for (let i = 0; i < api_categories.length; ++i) {
+                            let id = api_categories[i].id
+                            let name = api_categories[i].name
+                            this.categories.push ({
+                                id: id,
+                                name: name,
+                            })
+                        }
+                        // console.log(this.categories)
+                    })
+                },
+                goButton: function() {
+                    if (this.input_category === 'random') {
+                        this.getGato()
+                    } else {
+                        this.getGatoInCat()
+                    }
+                },
+                newKittyButton: function() {
+                    if (this.input_category === 'random') {
+                        this.getGato()
+                    } else {
+                        this.getGatoInCat()
+                    }
+                },
+                getGato: function() {
+                    axios({
+                        method: 'get',
+                        url: 'https://api.thecatapi.com/v1/images/search'
+                    }).then(response => {
+                        this.image_gato = response.data[0].url
+                    })
+                },
+                getGatoInCat: function() {
+                    axios({
+                        method: 'get',
+                        url: 'https://api.thecatapi.com/v1/images/search?',
+                        params: {
+                            category_ids: this.categories[this.categories.indexOf(this.input_category)].id
+                        }
+                    }).then(response => {
+                        this.image_gato = response.data[0].url
+                    })
+                }
+            },
+            created: function() {
+                this.getCategory()
+                this.getGato()
+            },
+        })
+    </script>
+</body>
+</html>
+
+
+<!-- Lab 9: Cat API w/ Vue
+Let's use Vue to build a page where users can look at pictures of cats.
+
+Axios
+Cat API
+Version 1
+Create a page with a button that, when pressed, goes and gets a random cat image and displays it. Copy and paste the url below into your browser and look at the response. You can take the url and set it as the src attribute of an img to display it.
+
+https://api.thecatapi.com/v1/images/search
+
+Version 2
+There is another part of the cat api which will give a list of categories. Use the response from this api endpoint to build a dropdown list of categories.
+
+https://api.thecatapi.com/v1/categories
+
+Now when the user presses the button to get a random cat image, use the selected category to filter the results.
+
+https://api.thecatapi.com/v1/images/search?category_ids=1 
+
+Citations:
+Fixed Sidebar (https://www.w3schools.com/howto/howto_css_fixed_sidebar.asp).
+Polaroid effect CSS. "somewhat realistic polaroid effect (pure css)" by tusinfryd (https://codepen.io/tusindfryd/pen/LarwxY).
+-->
