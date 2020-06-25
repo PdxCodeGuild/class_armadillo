@@ -9,10 +9,11 @@
   </head>
   <body>
     <div id="app">
-        <span v-html="some_html"></span>
+        
       <button type="submit" v-on:click="generateQuestions">Start Quiz!</button>
       <div v-for="question in quizQuestions" :value="question.question">
-        <h3>{{question.question}}</h3>
+
+        <h3 v-html="question.question"></h3>
         <div v-for="answer in question.questionAnswers">
           <input
             :name="answer.questionId"
@@ -25,6 +26,7 @@
         </div>
       </div>
       <div>{{score }}</div>
+     
       <div>{{quizQuestions}}</div>
       <button type="submit" v-on:click="submit_answer">submit</button>
     </div>
@@ -54,16 +56,16 @@
                 let question = {};
                 let answers = [];
 
-                rain_data = re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text)
-                for (character in questions) {
-                  if (
-                    character in
-                    (";", ".", "!", "?", "!", ",", ":", "'", "-", "â", "(", ")")
-                  ) {
-                    text = text.replace(character, "");
-                  }
-                }
-                console.log(questions);
+                // rain_data = re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text)
+                // for (character in questions) {
+                //   if (
+                //     character in
+                //     (";", ".", "!", "?", "!", ",", ":", "'", "-", "â", "(", ")")
+                //   ) {
+                //     text = text.replace(character, "");
+                //   }
+                // }
+                // console.log(questions);
 
                 for (i = 0; i < questions.length; i++) {
                   // adding correct answ
@@ -128,13 +130,5 @@
     </script>
   </body>
 </html>
-<!--count up total number of checked radiobuttons-->
+<!--sources: https://github.com/PdxCodeGuild/class_armadillo/blob/master/Code/Matthew/javascript/leetspeak.html-->
 
-<!--def text_clean(text):
-    for character in text:
-        if character in (";", ".", "!", "?", "!", ",",
-                         ":", "'", "-", "â", "(", ")"):
-            text = text.replace(character, "")
-    return text
-print(text)-->
-<!---->
