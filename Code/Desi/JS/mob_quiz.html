@@ -15,26 +15,34 @@
 <body>
     <div id='app'>
         <ol>
-            <li v-for='result in results':value='result.id'>
+            <li v-for='result in results' :value='result.id'>
                 <h4>{{result.question}}</h4>
                 <div v-for="answer in result.incorrect_answers">
+                    <input :value="answer" v-bind:name='result.question' type="radio">
+
                     <span>{{answer}}</span>
-                    <input type="radio">
                 </div>
-                
+
             </li>
         </ol>
         <ol>
-            <li v-for='result in results':value='result.id'>{{result.correct_answer}}</li>
+            <li v-for='result in results' :value='result.id'>{{result.correct_answer}}</li>
         </ol>
     </div>
     <script type="text/javascript">
         let app = new Vue({
             el: "#app",
             data: {
+                questions: [],
                 results: [],
 
             },
+            methods: {
+                score: function() {
+                
+                }
+            },
+
             created: function () {
                 axios({
                     method: 'get',
@@ -48,10 +56,35 @@
                     let questions = response.data.results
                     console.log(questions)
                     this.results = questions
+                    let answers = []
+                    for (i = 0; i < this.results.length; ++i) {
+                        let result = this.results[i]
+                        result.answers = result.incorrect_answers.push(result.correct_answer)
+                        // result.new_attribute = 'NEW ATTRIBUTE!'
+                        //answers = []
+                        //answers.push('correct_answer' + 'incorrect_answers')
+
+
+                    }
                 })
 
             }
         })
+
+        // let results = [
+        //     {
+        //         correct_answer: 2,
+        //         incorrect_answers: [1, 3, 4],
+        //         all_answers: [1, 2, 3, 4],
+        //     },
+        //     {
+
+        //     }
+        // ]
+        // for (let i = 0; i < results.length; i++) {
+        //     let result = results[i];
+        //     result.incorrect_answers.push(result.correct_answer);
+        // }
     </script>
 
 </body>
