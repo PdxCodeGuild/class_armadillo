@@ -15,15 +15,19 @@
             margin: 0;
             padding: 0;
         }
-
     </style>
     <div id="app">
         <div>{{title}}</div>
         <button v-on:click="test" id="new_questions">Get New Questions</button>
         <ul id="questions_list">
-            <li v-for="question in question_bank" :key="question.question">{{question}}
-                <div>{{question.question}}</div>
-                <div>{{question.incorrect_answers}}</div>
+            <li v-for="question in question_bank" :key="question.question">
+                <div v-html="question.question"></div>
+                <!-- <div v-for="answer in question.incorrect_answers"> -->
+                <div v-for="answer in answer_bank">
+                    <input type="radio">
+                    <label v-html="answer">
+                    </label>
+                </div>
             </li>
         </ul>
     </div>
@@ -53,16 +57,21 @@
                         }//close params
                     }).then(response => {
                         let new_questions = response.data.results
-                        for (let i = 0; i < new_questions.length; ++i){
+                        for (let i = 0; i < new_questions.length; ++i) {
                             let question = new_questions[i].question
+                            // Push correct_answers into array of answers and shuffle them, Add property called answers to the question.
                             let correct_answer = new_questions[i].correct_answer
                             let incorrect_answers = new_questions[i].incorrect_answers
-                            this.question_bank.push ({
-                                question:question,
-                                correct_answer:correct_answer,
-                                incorrect_answers:incorrect_answers,
-                                })
-                            console.log(this.question_bank)
+                            this.question_bank.push({
+                                question: question,
+                                correct_answer: correct_answer,
+                                incorrect_answers: incorrect_answers,
+                            })
+                            this.answer_bank.push({
+                                correct_answer: correct_answer,
+                                incorrect_answers: incorrect_answers,
+                            })
+                            // console.log(this.question_bank)
                         }
                         //console.log(questions)
                     })//close .then
