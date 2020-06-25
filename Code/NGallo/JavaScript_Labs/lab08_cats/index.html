@@ -9,10 +9,17 @@
             background-color: rgba(165, 42, 42, 0.445);
             text-align: center;
         }
-        .catimagerandomdiv{
+
+        .catimagerandomdiv {
             width: 50%;
         }
-        .imageDiv{
+
+        .randomButton:hover,
+        .randomButton:focus {
+            background-color: #70070780;
+        }
+
+        .imageDiv {
             margin-top: 15px;
         }
     </style>
@@ -27,50 +34,77 @@
     </div>
 
     <div class="main" id="app">
-        <button v-on:click="displayRandomCat">Random Cat!</button>
-        <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-            <div id="myDropdown" class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-          </div>
-        <div class="imageDiv">
+
+        <button class="randomButton" v-on:click="displayRandomCat">Random Cat!</button>
+
+        <select v-model="selected">
+            <option selected hidden disabled value="">Lookin' for something special?</option>
+            <option v-for="option in options" v-bind:value="option.value">
+                {{ option.text }}
+            </option>
+        </select>
+
+        <button class="randomButton" v-on:click="searchCat">Search for special cats</button>
+
+    </div>
+
+    <div class="imageDiv">
         <img class="catimagerandomdiv" id="cat_image_random" src=>
-        </div>
     </div>
 
     <div class="footer">
         <h4>Nick Gallo | Class_Armadillo &copy2020</h4>
+        <p>Built using <a href="https://thecatapi.com/">the Cat API</a></p>
     </div>
 
     <script>
 
-        
-        let urlSearchApi = 'https://api.thecatapi.com/v1/images/search'
+        let app = new Vue({
+            el: '#app',
+            data: {
+                options: [
+                    { text: 'cats in boxes', value: 'boxes' },
+                    { text: 'cats in clothes', value: 'clothes' },
+                    { text: 'cats in hats', value: 'hats' },
+                    { text: 'cats in space', value: 'space' },
+                    { text: 'cats in sinks', value: 'sinks' },
+                    { text: 'cats in sunglasses', value: 'sunglasses' },
+                    { text: 'cats in ties', value: 'ties' },
+                ],
+                selected: ''
+            },
+            methods: {
+                clickOption: function () {
+                    console.log(this.selected)
+                },
+                displayRandomCat: function () {
+                    let urlRandom = 'https://api.thecatapi.com/v1/images/search'
 
-        axios({
-            method: 'get',
-            url: urlSearchApi,
-        }).then((response) => {
-                let catUrl = response.data[0].url
-                catImage = document.getElementById("cat_image_random")
-                cat_image_random.setAttribute("src", catUrl)
+
+                    axios({
+                        method: 'get',
+                        url: urlRandom,
+                    }).then((response) => {
+                        let catUrl = response.data[0].url
+                        catImage = document.getElementById("cat_image_random")
+                        cat_image_random.setAttribute("src", catUrl)
+                    })
+                },
+                searchCat: function () {
+                    let urlSearch = 'https://api.thecatapi.com/v1/categories'
+                    let searchUrl = 'https://api.thecatapi.com/images/search?category_ids='
+
+                    axios({
+                        method: 'get',
+                        url: urlSearch,
+                    }).then((response) => {
+                        console.log('search', response)
+                        let catBoxes = response.data[0]
+
+                    })
+                },
+            }
         })
-
-        let urlRandomApi = 'https://api.thecatapi.com/v1/categories'
-
-        axios({
-            method: 'get',
-            url: urlRandomApi,
-        }).then((response) => {
-            console.log("random", response)
-
-
-        })
-
-
     </script>
 </body>
 
