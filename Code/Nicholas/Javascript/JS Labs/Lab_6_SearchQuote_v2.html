@@ -75,10 +75,8 @@
     <div id="generate_quotes"></div>
     <script>
         function ClearFields() {
-
-            document.querySelector("#quotes_list").value = "";
+            document.querySelector("#quotes_list").innerHTML = "";
             document.querySelector("#quote_keyword").value = "";
-            
         }
         search_quotes.addEventListener('click', function () {
             let quotesList = document.querySelector("#quotes_list")

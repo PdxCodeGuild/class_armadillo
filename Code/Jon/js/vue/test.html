@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="name"/>
+        {{name}}
+        <table>
+            <tr v-for="(contact, index) in contacts" v-bind:id="'tr_' + index">
+                <td><input v-bind:id="'td_' + index" type="text" v-model="contact.name"/></td>
+                <td><input type="number" v-model="contact.age"/></td>
+            </tr>
+        </table>
+        {{contacts}}
+
+        <hr>
+        <div>
+            <input type="radio" name="input_radio" value='One' v-model="picked"><label for="input_radio">Option 1</label>
+            <input type="radio" name="input_radio" value='Two' v-model="picked"><label for="input_radio">Option 2</label>
+            <input type="radio" name="input_radio" value='Three' v-model="picked"><label for="input_radio">Option 3</label>
+            <span>Picked: {{picked}}</span>
+        </div>
+
+        <hr>
+        <div v-for="fruit in fruits">
+            <input type="radio" v-bind:value="fruit" v-model="picked_fruit"><label for="">{{fruit}}</label>
+        </div>
+        <div>{{picked_fruit}}</div>
+
+        <hr>
+        <div v-for="(answer, index) in question.answers">
+            <input v-bind:id="'answer ' + index" type="radio" v-bind:value="answer" v-model="question.picked_answer"><label v-bind:for="'answer ' + index">{{answer}}</label>
+        </div>
+        <div>Correct: {{question.picked_answer == question.correct_answer}}</div>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'joe',
+                contacts: [{
+                    name: 'joe',
+                    age: 34
+                },{
+                    name: 'jane',
+                    age: 23
+                },{
+                    name: 'janice',
+                    age: 12
+                }],
+                picked: '',
+                fruits: ['apples', 'oranges', 'pears'],
+                picked_fruit: '',
+                question: {
+                    correct_answer: 'a',
+                    picked_answer: '',
+                    answers: ['a', 'b', 'c']
+                }
+            }
+        })
+    </script>
+</body>
+</html>
