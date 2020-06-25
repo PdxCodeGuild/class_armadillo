@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+        <span v-html="some_html"></span>
+      <button type="submit" v-on:click="generateQuestions">Start Quiz!</button>
+      <div v-for="question in quizQuestions" :value="question.question">
+        <h3>{{question.question}}</h3>
+        <div v-for="answer in question.questionAnswers">
+          <input
+            :name="answer.questionId"
+            v-model="question.correct"
+            :value="answer.correct"
+            type="radio"
+          />
+
+          <label for="answer.answer">{{answer.answer}}</label><br />
+        </div>
+      </div>
+      <div>{{score }}</div>
+      <div>{{quizQuestions}}</div>
+      <button type="submit" v-on:click="submit_answer">submit</button>
+    </div>
+    <script type="text/javascript">
+      let app = new Vue({
+        el: "#app",
+        data: {
+          picked: "",
+          score: 0,
+          quizQuestions: [],
+          quizAnswers: [],
+        },
+        methods: {
+          generateQuestions: function () {
+            (this.score = 0),
+              axios({
+                method: "get",
+                url: "https://opentdb.com/api.php",
+                params: {
+                  amount: 10,
+                  category: 18,
+                  difficulty: "easy",
+                },
+              }).then((response) => {
+                let questions = response.data.results;
+                console.log(questions);
+                let question = {};
+                let answers = [];
+
+                rain_data = re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text)
+                for (character in questions) {
+                  if (
+                    character in
+                    (";", ".", "!", "?", "!", ",", ":", "'", "-", "â", "(", ")")
+                  ) {
+                    text = text.replace(character, "");
+                  }
+                }
+                console.log(questions);
+
+                for (i = 0; i < questions.length; i++) {
+                  // adding correct answ
+                  question = {};
+                  answers = [];
+                  answers.push({
+                    questionId: i,
+                    answer: questions[i].correct_answer,
+                    correct: 1,
+                  });
+                  for (j = 0; j < questions[i].incorrect_answers.length; j++) {
+                    //adding incorrect answ
+                    answers.push({
+                      questionId: i,
+                      answer: questions[i].incorrect_answers[j],
+                      correct: 0, //this is the 'value' of the radiobutton
+                    });
+                  }
+                  answers = this.shuffle(answers); // mix up answers
+                  question = {
+                    questionId: i, //numbers Qs
+                    correct: null, //we can set v-model of radiobutton to this prop
+                    question: questions[i].question,
+                    questionAnswers: answers,
+                  };
+                  this.quizQuestions.push(question);
+                }
+                console.log(this.quizQuestions); //array of objs
+              });
+          },
+          shuffle: function (array) {
+            var currentIndex = array.length,
+              temporaryValue,
+              randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+              // Pick a remaining element...
+              randomIndex = Math.floor(Math.random() * currentIndex);
+              currentIndex -= 1;
+
+              // And swap it with the current element.
+              temporaryValue = array[currentIndex];
+              array[currentIndex] = array[randomIndex];
+              array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+          },
+          submit_answer: function () {
+            for (i = 0; i < this.quizQuestions.length; i++) {
+              if (this.quizQuestions[i].correct == 1) {
+                //check demo.html
+                this.score += 1;
+              }
+            }
+            this.quizQuestions = []; //cannot be above b/c this resets it
+          },
+        
+        },
+      });
+    </script>
+  </body>
+</html>
+<!--count up total number of checked radiobuttons-->
+
+<!--def text_clean(text):
+    for character in text:
+        if character in (";", ".", "!", "?", "!", ",",
+                         ":", "'", "-", "â", "(", ")"):
+            text = text.replace(character, "")
+    return text
+print(text)-->
+<!---->

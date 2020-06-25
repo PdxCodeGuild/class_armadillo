@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Demo</title>
+  </head>
+  <body>
+    <div id="app">
+        <h2>Example 1</h2>
+      <input type="radio" id="one" value="One" v-model="picked" />
+      <label for="one">One</label>
+      <br />
+      <input type="radio" id="two" value="Two" v-model="picked" />
+      <label for="two">Two</label>
+      <br />
+      <span>Picked: {{ picked }}</span>
+      <h2>Example 2</h2>
+        <div>{{question.text}}</div>
+        <div v-for="answer in question.answers">
+            <input type="radio" :value="answer.correct" v-model="question.correct"/>
+            <span>{{answer.text}}</span>
+        </div>
+        <div>Correct: {{question.correct}}</div>
+    </div>
+    <script type="text/javascript">
+      let app = new Vue({
+        el: "#app",
+        data: {
+          picked: '',
+          question: {
+              text: 'what\'s up?',
+              correct: null,
+              answers: [{
+                  text: 'the sky',
+                  correct: true
+              },{
+                  text: 'nothing much',
+                  correct: false
+              }]
+          }
+        },
+        methods: {},
+      });
+    </script>
+  </body>
+</html>
