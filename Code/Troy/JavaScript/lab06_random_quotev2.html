@@ -10,6 +10,47 @@
     <title>Random Quote</title>
 </head>
 
+<style>
+    body {
+        background-color: khaki;
+    }
+
+    h3 {
+        text-align: center;
+        margin: 10px;
+        font-weight: 600;
+    }
+
+    #random_quote {
+        text-align: center;
+        margin: 10px;
+        border: 1px solid;
+        padding: 10px;
+        box-shadow: 5px 10px #888888;
+    }
+
+    #search {
+        margin: 20px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    #get_quote {
+        font-variant: petite-caps;
+    }
+
+    #get_author {
+        font-weight: bold;
+        color: #D00000;
+    }
+
+    #multiple_quotes {
+        margin: 10px;
+        padding: 10 px;
+
+    }
+</style>
+
 <body>
     <h3>Get Your Quote Here!</h3>
 
@@ -28,6 +69,20 @@
 
 
     <ul id="multiple_quotes"></ul>
+
+    <nav aria-label="pagination">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
 
     <script>
         let get_quote = document.querySelector("#get_quote");
@@ -62,8 +117,8 @@
                 headers: { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' }
 
             }).then(response => {
-                console.log(response.data.quotes[0].body)
-                console.log(response.data.quotes[0].author)
+                // console.log(response.data.quotes[0].body)
+                // console.log(response.data.quotes[0].author)
 
                 let quotes = response.data.quotes
 
