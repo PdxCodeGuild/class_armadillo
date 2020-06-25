@@ -12,16 +12,20 @@
 
 <body>
     <h3>Get Your Quote Here!</h3>
-    
+
     <div id="random_quote">
         <div id="get_quote"></div>
         <div id="get_author"></div>
     </div>
 
     <div id="search">
-        <input type="text" id="search_text" placeholder="Type here...">
-        <button id="btn_search" class="btn btn-primary">Search</button>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <input type="text" id="search_text" placeholder="Type here...">
+            <button id="btn_single" type="button" class="btn btn-secondary">Single Quote</button>
+            <button id="btn_search" type="button" class="btn btn-secondary">List of Quotes</button>
+        </div>
     </div>
+
 
     <ul id="multiple_quotes"></ul>
 
@@ -29,23 +33,26 @@
         let get_quote = document.querySelector("#get_quote");
         let get_author = document.querySelector("#get_author");
         let search = document.querySelector("#search");
+        let btn_single = document.querySelector("#btn_single");
         let btn_search = document.querySelector("#btn_search");
         let multiple_quotes = document.querySelector("#multiple_quotes");
 
-        let quote_url = "https://favqs.com/api/qotd"
-        axios({
-            method: 'get',
-            url: quote_url,
+        btn_single.addEventListener('click', function () {
+            axios({
+                method: 'get',
+                url: "https://favqs.com/api/qotd",
 
-        }).then(response => {
-            // let text = response.data.text[""];
-            let quote = response.data.quote.body;
-            let author = response.data.quote.author;
+            }).then(response => {
+                // let text = response.data.text[""];
+                let quote = response.data.quote.body;
+                let author = response.data.quote.author;
 
-            get_quote.innerText = quote
-            get_author.innerText = author
-        }
-        )
+                get_quote.innerText = quote
+                get_author.innerText = author
+            }
+            )
+        })
+
         btn_search.addEventListener('click', function () {
             // alert("!!!")
             axios({
@@ -55,12 +62,19 @@
                 headers: { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' }
 
             }).then(response => {
-                console.log(response.data)
-                // let quote = response.data.quote.body;
-                // let author = response.data.quote.author;
-                // get_quote.innerText = quote
-                // get_author.innerText = author
-                // let quotes = response.data.quote.b
+                console.log(response.data.quotes[0].body)
+                console.log(response.data.quotes[0].author)
+
+                let quotes = response.data.quotes
+
+                for (let i = 0; i < quotes.length; ++i) {
+                    let quote = quotes[i]
+                    let quote_list = document.createElement('li')
+                    quote_list.innerText = quote.body + " - " + quote.author
+
+                    multiple_quotes.appendChild(quote_list)
+
+                }
             })
         })
     </script>
