@@ -39,7 +39,7 @@
     }
 
     .dropdown {
-        text-align: center;
+        text-align: center;        
     }
 </style>
 
@@ -52,6 +52,17 @@
         <div class="button">
             <button v-on:click="getCatPic" class="btn btn-outline-dark">Here Kitty</button>
         </div>
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
 
         <div class="dropdown">
             <select v-model="input_category" name="category" id="">                
