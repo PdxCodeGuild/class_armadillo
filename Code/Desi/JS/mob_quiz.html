@@ -16,11 +16,11 @@
     <div id='app'>
         <ol>
             <li v-for='result in results' :value='result.id'>
-                <h4>{{result.question}}</h4>
+                <h4 v-html='result.question'></h4>
                 <div v-for="answer in result.incorrect_answers">
-                    <input :value="answer" v-bind:name='result.question' type="radio">
+                    <input :value="answer" v-bind:name='result.question' type="radio" v-model='result.picked_answer'>
 
-                    <span>{{answer}}</span>
+                    <span v-html='answer'></span>
                 </div>
 
             </li>
@@ -28,6 +28,11 @@
         <ol>
             <li v-for='result in results' :value='result.id'>{{result.correct_answer}}</li>
         </ol>
+        <button v-on:click='score'>Get Results</button>
+        <div>
+            <span>Your score is: {{counter}}/{{results.length}}</span>
+
+        </div>
     </div>
     <script type="text/javascript">
         let app = new Vue({
@@ -35,11 +40,29 @@
             data: {
                 questions: [],
                 results: [],
+                user_choice: [],
+                counter: 0,
 
             },
             methods: {
-                score: function() {
-                
+                score: function () {
+                    console.log(this.results)
+                    console.log(this.user_choice)
+                    // for (let result of results) {
+                    //     result.correct_answer
+                    //     if 
+                    // }
+                    for (let i = 0; i < this.results.length; i++) {
+                        let result = this.results[i];
+                        console.log(result.picked_answer)
+                        console.log(result.correct_answer)
+                        if (result.picked_answer === result.correct_answer) {
+                            this.counter += 1
+
+                        }
+                    }
+                    console.log(this.counter)
+                    //for result in results:
                 }
             },
 
@@ -60,6 +83,8 @@
                     for (i = 0; i < this.results.length; ++i) {
                         let result = this.results[i]
                         result.answers = result.incorrect_answers.push(result.correct_answer)
+                        result.picked_answer = ""
+                        this.user_choice.push(result.picked_answer)
                         // result.new_attribute = 'NEW ATTRIBUTE!'
                         //answers = []
                         //answers.push('correct_answer' + 'incorrect_answers')
