@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="app">
- 
+        <span v-html="some_html"></span>
       <button type="submit" v-on:click="generateQuestions">Start Quiz!</button>
       <div v-for="question in quizQuestions" :value="question.question">
         <h3>{{question.question}}</h3>
@@ -54,6 +54,16 @@
                 let question = {};
                 let answers = [];
 
+                rain_data = re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text)
+                for (character in questions) {
+                  if (
+                    character in
+                    (";", ".", "!", "?", "!", ",", ":", "'", "-", "â", "(", ")")
+                  ) {
+                    text = text.replace(character, "");
+                  }
+                }
+                console.log(questions);
 
                 for (i = 0; i < questions.length; i++) {
                   // adding correct answ
