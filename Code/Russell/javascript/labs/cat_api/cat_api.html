@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="cat_api_secrets.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <select name="categories" v-model="selected_category">
+            <option v-for="cat in categories" v-bind:value="cat.id">{{cat.name}}</option>
+        </select>
+
+        <button type="submit" v-on:click="getImages">Get Pictures</button>
+
+        <div><img v-bind:src="cat_image" style="max-width: 300px;"/></div>
+    </div>
+
+    <script type="text/javascript">
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                cat_image: null,
+                categories: [],
+                selected_category: "",
+            },
+            created: function () {
+                axios({
+                    method: 'get',
+                    url: 'https://api.thecatapi.com/v1/categories',
+                }).then(response => {
+                    this.categories = response.data
+                    
+                    
+                })
+            },
+            methods: {
+                getImages: function () {
+                    axios({
+                        method: 'get',
+                        url: `https://api.thecatapi.com/v1/images/search?category_ids=${this.selected_category}`,
+                    }).then(response => {
+                        this.cat_image = response.data[0].url
+                    }
+                    )
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>
