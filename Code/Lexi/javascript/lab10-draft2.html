@@ -6,6 +6,14 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <title>Document</title>
+    <style>
+      .correct{
+        color:green;
+      }
+      .incorrect{
+        color:red;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
@@ -20,9 +28,10 @@
             v-model="question.correct"
             :value="answer.correct"
             type="radio"
+      
           />
-
-          <label for="answer.answer">{{answer.answer}}</label><br />
+        
+          <label v-bind:class= "finished ? answer.correct ? 'correct' : 'incorrect' : '' " for="answer.text">{{answer.text}}</label><br />
         </div>
       </div>
       <div>{{score }}</div>
@@ -34,6 +43,7 @@
       let app = new Vue({
         el: "#app",
         data: {
+          finished: true,
           picked: "",
           score: 0,
           quizQuestions: [],
@@ -56,31 +66,20 @@
                 let question = {};
                 let answers = [];
 
-                // rain_data = re.findall(r'(\d+-\w+-\d+)\s+(\d+)', text)
-                // for (character in questions) {
-                //   if (
-                //     character in
-                //     (";", ".", "!", "?", "!", ",", ":", "'", "-", "â", "(", ")")
-                //   ) {
-                //     text = text.replace(character, "");
-                //   }
-                // }
-                // console.log(questions);
-
                 for (i = 0; i < questions.length; i++) {
                   // adding correct answ
                   question = {};
                   answers = [];
                   answers.push({
                     questionId: i,
-                    answer: questions[i].correct_answer,
+                    text: questions[i].correct_answer,
                     correct: 1,
                   });
                   for (j = 0; j < questions[i].incorrect_answers.length; j++) {
                     //adding incorrect answ
                     answers.push({
                       questionId: i,
-                      answer: questions[i].incorrect_answers[j],
+                      text: questions[i].incorrect_answers[j],
                       correct: 0, //this is the 'value' of the radiobutton
                     });
                   }
@@ -122,6 +121,7 @@
                 this.score += 1;
               }
             }
+            this.finished = true
             this.quizQuestions = []; //cannot be above b/c this resets it
           },
         
