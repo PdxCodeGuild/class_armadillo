@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +7,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
     <title>Mob Quiz</title>
 </head>
-
 <body>
     <div id='app'>
         <ol>
@@ -19,10 +16,8 @@
                 <h4 v-html='result.question'></h4>
                 <div v-for="answer in result.incorrect_answers">
                     <input :value="answer" v-bind:name='result.question' type="radio" v-model='result.picked_answer'>
-
                     <span v-html='answer'></span>
                 </div>
-
             </li>
         </ol>
         <ol>
@@ -31,7 +26,6 @@
         <button v-on:click='score'>Get Results</button>
         <div>
             <span>Your score is: {{counter}}/{{results.length}}</span>
-
         </div>
     </div>
     <script type="text/javascript">
@@ -42,7 +36,6 @@
                 results: [],
                 user_choice: [],
                 counter: 0,
-
             },
             methods: {
                 score: function () {
@@ -58,14 +51,12 @@
                         console.log(result.correct_answer)
                         if (result.picked_answer === result.correct_answer) {
                             this.counter += 1
-
                         }
                     }
                     console.log(this.counter)
                     //for result in results:
                 }
             },
-
             created: function () {
                 axios({
                     method: 'get',
@@ -88,14 +79,10 @@
                         // result.new_attribute = 'NEW ATTRIBUTE!'
                         //answers = []
                         //answers.push('correct_answer' + 'incorrect_answers')
-
-
                     }
                 })
-
             }
         })
-
         // let results = [
         //     {
         //         correct_answer: 2,
@@ -103,7 +90,6 @@
         //         all_answers: [1, 2, 3, 4],
         //     },
         //     {
-
         //     }
         // ]
         // for (let i = 0; i < results.length; i++) {
@@ -111,7 +97,5 @@
         //     result.incorrect_answers.push(result.correct_answer);
         // }
     </script>
-
 </body>
-
 </html>

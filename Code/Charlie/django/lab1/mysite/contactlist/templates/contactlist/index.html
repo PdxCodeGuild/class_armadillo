@@ -14,19 +14,24 @@
 </head>
 
 <body>
-    <h2>Contact List</h2>
-    
-
-    {% block content %}
-    {% for contact in contacts %}
-    <div>
-        <a href="{% url 'contactist:details' contact.id %}"> {{contact.last_name}}, {{contact.first_name}}</a>
-    </div>
-    {% endfor %}
-    {% endblock %}
-    <div>
-        <a href="{% url 'contactlist:contacts'%}"><button type="submit" class="btn btn-primary">Create Contact</button></a>
-    </div>
+    <h1>Contacts</h1>
+    <table class="table">
+      <tr>
+          <th><a href="{% url 'contactlist:entry_page' %}" title="new" class="btn btn-success btn-lg">✅</a></th>
+          <th></th>
+          <th></th>
+      </tr>
+      {% for card in cards %}
+      <tr>
+          <td><a href="{% url 'contactlist:detail' card.id %}" title="details" class="btn btn-secondary btn-sm">🔎</a>&ensp;
+            <a href="{% url 'contactlist:edit_page' card.id %}" title="edit" class="btn btn-info btn-sm">⚒️</a>&ensp;
+            <a href="{% url 'contactlist:delete' card.id %}" title="delete" class="btn btn-danger btn-sm">⛔</a>&ensp;
+            {{card.last_name}}, {{card.first_name}}</td>
+          <td></td>
+          <td></td>
+      </tr>
+      {% endfor %}
+  </table>
 </body>
 
 </html>

@@ -342,7 +342,7 @@ body {
   
   #info-screen .poke-list-item p, #info-screen .poke-list-item span {
     margin: 0;
-    padding: 10px 0;
+    padding: 15px 0;
   }
   
   #info-screen .poke-list-item:hover {
