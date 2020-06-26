@@ -65,10 +65,11 @@
                       <div class="row">
                         <div class="col col-10 offset-1" id="main-screen">
                           <!-- {% if pokemon %} -->
-                          <div class="pokemon-image d-flex align-items-center justify-content-center">
-                            <img src="" alt="">
+                          
+                         
+                          <div v-if="pokemonSet.length == 1" class="pokemon-image d-flex align-items-center justify-content-center">
+                            <img v-bind:src="currentPokemon.image_front" alt="currentPokemon.name">
                           </div>
-                          <!-- {% endif %} -->
                         </div>
                       </div>
         
@@ -127,69 +128,82 @@
               <div class="row">
                 <!-- green info screen -->
                 <div class="col col-10 offset-1" id="info-screen">
-                  <p v-if="pokemonSet.length == 0">
-                    <!-- {% if not pokemon and not pokemon_list and not query%} -->
-                      Welcome to PokeDex!
-                    <!-- {% endif %} -->
-                    <!-- {% if pokemon or pokemon_list.object_list.count == 1 %} -->
-                  <!-- <h3 class="text-center">pokemon.name</h3>
-                  <div class="row no-gutters">
-                    <div class="col col-6 d-flex-column align-items-end">
-                      <p class="text-right">Number</p>
-                    </div>
-                    <div class="col col-6">
-                      <p>pokemon.number</p>
-                    </div>
-                  </div>
-                  <div class="row no-gutters">
-                    <div class="col col-6 d-flex-column align-items-end">
-                      <p class="text-right">Type(s)</p>
-                    </div>
-                    <div class="col col-6">
-                      <p>types</p>
-                    </div>
-                  </div>
-                  <div class="row no-gutters">
-                    <div class="col col-6 d-flex-column align-items-end">
-                      <p class="text-right">Height</p>
-                    </div>
-                    <div class="col col-6">
-                      <p>pokemon.height</p>
-                    </div>
-                  </div>
-                  <div class="row no-gutters">
-                    <div class="col col-6 d-flex-column align-items-end">
-                      <p class="text-right">Weight</p>
-                    </div>
-                    <div class="col col-6">
-                      <p>pokemon.weight</p>
-                    </div>
-                  </div> -->
-                  <!-- If more than one pokemon returned in query -->
-                  
-                  <!-- {% else %} -->
-        
-                    <!-- <p></p> -->
-                    <!-- {% if pokemon_list.object_list.count == 0 %} -->
-                      <!-- No Pokemon found with  -->
-                      <!-- {% if query_type == 'poke_type' %} type {%else%} {{query_type}} {% endif %} "{{ query }}" -->
-        
-                    <!-- else -->
-                      <!-- for pokemon in pokemon_list -->
-                        <!-- <a href="{% url 'pokedex' pokemon.number %}" class="poke-list-link">
-                          <div class="row no-gutters poke-list-item">
-                            <div class="col col-3 offset-1">
-                              <p>{{ pokemon.number }}.</p>
-                            </div>
-                            <div class="col col-8">
-                              <p>{{ pokemon.name }}</p>
+
+                  <!-- NO POKEMON -->
+                  <div v-if="pokemonSet.length == 0">
+                      <div v-if="query==''">
+                        <div v-if="queryType=='types'">
+                          <div class="row no-gutters">
+                            <div v-for="type in allTypes">
+                              <div class="col col-lg-6 poke-list-link poke-list-item">{{type}}</div>
                             </div>
                           </div>
-                        </a> -->
-                      <!-- endfor -->
-                    <!-- endif -->
-                  <!-- endif -->
-                  </p>
+                        </div>
+
+                        <div v-else>
+                          Welcome to PokeDex!
+                        </div>
+                      </div>
+                      <div v-else-if="query != ''">
+                        No pokemon found.
+                      </div>
+                  </div> 
+
+                  <!-- SINGLE POKEMON -->
+                  <div v-else-if="pokemonSet.length == 1">
+                    
+                    <h3 class="text-center">{{ currentPokemon.name }}</h3>
+                    <div class="row no-gutters">
+                      <div class="col col-6 d-flex-column align-items-end">
+                        <p class="text-right">Number</p>
+                      </div>
+                      <div class="col col-6">
+                        <p>{{currentPokemon.number}}</p>
+                      </div>
+                    </div>
+                    <div class="row no-gutters">
+                      <div class="col col-6 d-flex-column align-items-end">
+                        <p class="text-right">Type(s)</p>
+                      </div>
+                      <div class="col col-6">
+                        <p v-for="type in currentPokemon.types">
+                          {{ type }}
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row no-gutters">
+                      <div class="col col-6 d-flex-column align-items-end">
+                        <p class="text-right">Height</p>
+                      </div>
+                      <div class="col col-6">
+                        <p>{{ currentPokemon.height }}</p>
+                      </div>
+                    </div>
+                    <div class="row no-gutters">
+                      <div class="col col-6 d-flex-column align-items-end">
+                        <p class="text-right">Weight</p>
+                      </div>
+                      <div class="col col-6">
+                        <p>{{ currentPokemon.weight }}</p>
+                      </div>
+                    </div>
+                  </div> 
+                  
+                  
+                  <!-- POKEMON SET WITH MORE THAN ONE POKEMON -->
+                  <div v-else-if="pokemonSet.length > 1">
+                    <div v-for="pokemon in pokemonPage" class="row no-gutters poke-list-link poke-list-item">
+                      <div class="col col-3 offset-1 ">
+                        <p>{{ pokemon.number }}.</p>
+                      </div>
+                      <div class="col col-8">
+                        <p>{{ pokemon.name }}</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
+
                 </div>
               </div>
         
@@ -238,12 +252,12 @@
                 <div class="row">
                   <div class="col col-6">
                     <div class="d-flex justify-content-around" id="grey-arrow-buttons">
-                      <div class="grey-button d-flex justify-content-center align-items-center">
+                      <div class="grey-button d-flex justify-content-center align-items-center pb-2">
                         <div class="arrow">
                           &#129088;
                         </div>
                       </div>
-                      <div class="grey-button d-flex justify-content-center align-items-center">
+                      <div class="grey-button d-flex justify-content-center align-items-center pb-2">
                         <div class="arrow">
                           &#129090;
                         </div>

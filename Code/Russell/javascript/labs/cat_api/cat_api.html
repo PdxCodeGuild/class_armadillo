@@ -4,63 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat API</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="cat_api_secrets.js"></script>
+    <title>Document</title>
 </head>
 
 <body>
-
     <div id="app">
-        <select name="categories" v-model="input_category">
+
+        <select name="categories" v-model="selected_category">
             <option v-for="cat in categories" v-bind:value="cat.id">{{cat.name}}</option>
         </select>
-        <button type="submit" v-on:click="getCat">Get Cat</button>
-        <img v-bind:src="image_url" />
-        <div>{{image_url}}</div>
 
+        <button type="submit" v-on:click="getImages">Get Pictures</button>
+
+        <div><img v-bind:src="cat_image" style="max-width: 300px;"/></div>
     </div>
 
     <script type="text/javascript">
+
         let app = new Vue({
             el: '#app',
             data: {
-                image_url: '',
+                cat_image: null,
                 categories: [],
-                input_category: "",
-
-
-
+                selected_category: "",
             },
-            
             created: function () {
                 axios({
                     method: 'get',
                     url: 'https://api.thecatapi.com/v1/categories',
-                }).then(resonse => {
+                }).then(response => {
                     this.categories = response.data
-                    console.log(this.categories)
+                    
+                    
                 })
             },
             methods: {
-                getCat: function () {
+                getImages: function () {
                     axios({
                         method: 'get',
-                        url: `https://api.thecatapi.com/v1/images/search?category_ids=${this.input_category}`,
+                        url: `https://api.thecatapi.com/v1/images/search?category_ids=${this.selected_category}`,
                     }).then(response => {
-                        this.image_url = response.data[0].url
-
+                        this.cat_image = response.data[0].url
                     }
-
                     )
                 },
             }
-
         })
-
-
-
-
     </script>
 </body>
 

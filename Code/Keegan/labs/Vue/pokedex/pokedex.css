@@ -314,7 +314,7 @@ body {
     color: #0a3600;
     margin-bottom: 10px;
     margin-top: 10px;
-    min-height: 40vh;
+    height: 50vh;
     padding: 15px;
   }
   
@@ -342,7 +342,7 @@ body {
   
   #info-screen .poke-list-item p, #info-screen .poke-list-item span {
     margin: 0;
-    padding: 10px 0;
+    padding: 15px 0;
   }
   
   #info-screen .poke-list-item:hover {
@@ -403,7 +403,7 @@ body {
     background-color: #686266;
     border: 2px solid black;
     border-radius: 15px;
-    height: 10vh;
+    height: 7vh;
   }
   
   .grey-button {
@@ -413,10 +413,15 @@ body {
     margin: 2px;
     width: 40%;
   }
+
+  .grey-button:hover {
+    cursor: pointer;
+  }
   
   .grey-button .arrow {
     color: #FF0000;
-    font-size: 1.75rem;
+    font-size: 1.5em;
+    text-shadow: 0 0 10px #ff0303;
   }
   
   .yellow-button {
