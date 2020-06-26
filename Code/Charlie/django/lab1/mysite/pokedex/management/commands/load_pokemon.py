@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
-import json
 from pokedex.models import Pokemon, PokemonType
+import json
 
 
 class Command(BaseCommand):
@@ -13,6 +13,10 @@ class Command(BaseCommand):
         with open('./pokedex/management/commands/pokemon.json', 'r') as file:
             text = file.read()
         data = json.loads(text)
+        print(data)
+        pokemon = data['pokemon']
+        print(pokemon)
+        
         for pokemon_data in data['pokemon']:
             pokemon = Pokemon(number = pokemon_data['number'],
                                 name = pokemon_data['name'],
