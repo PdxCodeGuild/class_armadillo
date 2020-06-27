@@ -22,15 +22,25 @@ let pokedex = new Vue({
         },
         search: function () {
             this.pokemonSet = []
+            this.pokemonPage = []
+            this.currentPokemon = {}
 
             if(this.query == ''){
                 return
             }
 
             for (let i = 0; i < this.pokemon.length; i++) {
-                if(this.queryType == 'name' || this.queryType == 'types'){
+                if(this.queryType == 'name'){
                     if(this.pokemon[i][this.queryType].includes(this.query)){
                         this.pokemonSet.push(this.pokemon[i])
+                    }
+                } else if(this.queryType == 'types'){
+
+                    console.log(this.pokemon[i]['types'])
+                    for(let type of this.pokemon[i]['types']){
+                        if(type.includes(this.query)){
+                            this.pokemonSet.push(this.pokemon[i])
+                        }
                     }
                 } else if(this.queryType == 'number'){
                     if(this.pokemon[i][this.queryType] == this.query){
@@ -40,11 +50,17 @@ let pokedex = new Vue({
             }
             if(this.pokemonSet.length == 1){
                 this.currentPokemon = this.pokemonSet[0]
+            } else if(this.pokemonSet.length < this.perPage){
+                this.pokemonPage = this.pokemonSet
+            } else {
+                this.getPage()
             }
         },
         getPage: function(){
-            let start = this.page * this.perPage
+            let start = (this.pageNumber - 1) * this.perPage
+            let end = start + this.perPage
             this.pokemonPage = this.pokemonSet.slice(start, end)
+            console.log(this.pokemonPage)
         },
         nextPage: function () {
 
