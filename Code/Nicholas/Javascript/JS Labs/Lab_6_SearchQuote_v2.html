@@ -68,12 +68,14 @@
         <h2>Enter a keyword to search for relevant quotes:</h2>
         <input id="quote_keyword" type="text" placeholder="Enter Keyword">
         <button id="search_quotes" type="button">Search Quotes</button>
+        <!-- button clears both search field and search results -->
         <button type="button" onclick="ClearFields();">Clear</button>
         <ul id="quotes_list"></ul>
         <footer>Quotes API by <a href=https://favqs.com/api>FavQs</footer>
     </main>
     <div id="generate_quotes"></div>
     <script>
+        // This function clears the keyword search and the quotes list in HTML
         function ClearFields() {
             document.querySelector("#quotes_list").innerHTML = "";
             document.querySelector("#quote_keyword").value = "";
@@ -82,7 +84,7 @@
             let quotesList = document.querySelector("#quotes_list")
             let quoteKeyword = document.querySelector("#quote_keyword").value
             let headers = { 'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"' }
-            let url = "https://favqs.com/api/quotes/?filter=" + quoteKeyword
+            let url = "https://favqs.com/api/quotes/?filter=" + quoteKeyword 
             axios({
                 method: 'get',
                 url: url,
@@ -90,8 +92,11 @@
             }).then((response) => {
                 console.log(response.data)
                 let quotes = response.data.quotes
+                // Loop over quotes
                 for (let i = 0; i < quotes.length; i++) {
+                    // creates specified element(li)
                     let li = document.createElement("li")
+                    // adds element to list
                     quotesList.appendChild(li)
                     li.innerText = (`"${quotes[i].body}" 
                                     -${quotes[i].author}`)
