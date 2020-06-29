@@ -13,21 +13,16 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Contactsapp',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200)),
-            ],
-        ),
-        migrations.CreateModel(
             name='Contacts',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('author', models.CharField(max_length=200)),
-                ('body', models.TextField()),
-                ('date_published', models.DateTimeField(auto_now_add=True)),
-                ('type', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='post', to='contacts.Contactsapp')),
+               ('first_name', models.CharField(max_length=50)),
+                ('last_name', models.CharField(max_length=50)),
+                ('age', models.IntegerField()),
+                ('birthday', models.DateField()),
+                ('phone_number', models.CharField(max_length=14)),
+                ('is_cell', models.BooleanField(default=True)),
+                ('comments', models.TextField(max_length=200))
             ],
         ),
     ]
