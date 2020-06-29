@@ -9,26 +9,39 @@ let pokedex = new Vue({
         ],
         pokemonSet: [],
         pokemonPage: [],
-        currentPokemon: null,
+        currentPokemon: {},
 
         query: '',
         queryType: 'name',
         pageNumber: 1,
-        perPage: 5,
+        perPage: 6,
     },
     methods: {
+        show: function(pokemon){
+            this.currentPokemon = pokemon
+            this.pokemonSet = [pokemon]
+        },
         update: function () {
             this.search()
         },
-        search: function () {
+        search: function (newQuery='') {
+            // this.pageNumber = 1
             this.pokemonSet = []
             this.pokemonPage = []
             this.currentPokemon = {}
 
+            // if a query is passed to search, load it as the query
+            if(newQuery != ''){
+                this.query = newQuery
+            }
+            
+            // if the query is empty, return
             if(this.query == ''){
                 return
             }
 
+            // search in the appropriate queryType
+            // add all matching pokemon to pokemonSet
             for (let i = 0; i < this.pokemon.length; i++) {
                 if(this.queryType == 'name'){
                     if(this.pokemon[i][this.queryType].includes(this.query)){
@@ -36,7 +49,6 @@ let pokedex = new Vue({
                     }
                 } else if(this.queryType == 'types'){
 
-                    console.log(this.pokemon[i]['types'])
                     for(let type of this.pokemon[i]['types']){
                         if(type.includes(this.query)){
                             this.pokemonSet.push(this.pokemon[i])
@@ -55,22 +67,39 @@ let pokedex = new Vue({
             } else {
                 this.getPage()
             }
+
+            console.log(this.pokemonSet)
         },
         getPage: function(){
             let start = (this.pageNumber - 1) * this.perPage
             let end = start + this.perPage
             this.pokemonPage = this.pokemonSet.slice(start, end)
-            console.log(this.pokemonPage)
         },
         nextPage: function () {
-
+            if(this.hasNextPage()){
+                this.pageNumber++
+                this.getPage()
+            }
         },
         prevPage: function () {
-
+            if(this.hasPrevPage()){
+                this.pageNumber--
+                this.getPage()
+            }
+        },
+        hasNextPage: function(){
+            return this.pageNumber <= Math.floor(this.pokemonSet.length / this.perPage)
+        },
+        hasPrevPage: function(){
+            return this.pageNumber > 1
+        },
+        titlize: function(word) {
+            return word[0].toUpperCase() + word.substr(1)
         }
     },
     created: function () {
         // Yes, I know this is gross
+
         this.pokemon = [
                 {
                     "number": 1,
@@ -1952,5 +1981,6 @@ let pokedex = new Vue({
                     "url": "https://pokemon.fandom.com/wiki/mew"
                 }
         ]
+
     }
 });

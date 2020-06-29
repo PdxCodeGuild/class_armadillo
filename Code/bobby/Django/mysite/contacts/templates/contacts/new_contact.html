@@ -1,0 +1,17 @@
+{% extends 'contact_list/index.html' %}
+
+{% block content %}
+    <h3>Create a new contact:</h3>
+    <form class="" action="{% url 'contact_list:submit' %}" method="post">
+        {% csrf_token %}
+        <input type = "text" name="first_name" placeholder="first name"/>
+        <input type = "text" name="last_name" placeholder="last name"/></br>    
+        <input type="number" name="age" placeholder="age"/></br>
+        <input type="date" name="birthday" placeholder="birthday">birthday</input></br>
+        <input type="text" name="phone_number" placeholder="phone number:"/>
+        <input type="checkbox" name="is_cell">cell phone?</input></br>
+        <textarea name="comments" placeholder="comments">Enter comments here.</textarea>
+        <button type="submit">submit</button>
+    </form>
+    <div><a href="{% url 'contact_list:index' %}">back</a></div>
+{% endblock %}  

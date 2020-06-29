@@ -42,5 +42,6 @@ def save_submit(request):
     )
     contact.save()
 
-    # return HttpResponse('Contact saved')
+   
+    return HttpResponseRedirect(reverse('contacts:details', args=[contact.id]))
     
