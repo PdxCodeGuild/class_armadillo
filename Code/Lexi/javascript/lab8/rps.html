@@ -9,7 +9,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
+    <div id="center_me">
     <img src="static/rps.png" />
+    </div>
     <div id="app">
       {{ message }}
       <button v-on:click="reverse">Reverse this! </button>
@@ -33,6 +35,8 @@
       <span type="text" v-model="result">{{result}}</span>
       </div>
     </div>
+    </div>
+
 
     <script type="text/javascript">
       var app = new Vue({
