@@ -4,10 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- development version, includes helpful console warnings -->
+    <!-- development version, includes helpful console warnings 
+    when running on the development version it allows to show erros this is why is better using it while developing because 
+the production version does not show any errors -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- axio cdn is used to unpack the axios so we can import all the axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <!-- bootstrap to add style -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <title>lab_9_cat_API_with_Vue_Version 2</title>
@@ -119,6 +123,9 @@
     </style>
 </head>
 <div id="title">"Hey all you Cool Cats and Kittens!" - Carole Baskin</div>
+
+<!-- what is id="app" 
+ -->
 <div id="app">
     <div id="category">
         <label for="category"> Select one of the categories</label>
@@ -146,9 +153,11 @@
 
 <body>
     <script type="text/javascript ">
+        // this is making a new view app
         let app = new Vue({
+            //what is el: is the html element that the vue will assign to which is connected to the div id="app"
             el: '#app',
-            // app data - we can refer to these variables in our html
+            // app data holding state - we can refer to these variables in our html 
             data: {
                 // inside an object declaration
                 cat_url: '',
@@ -159,7 +168,7 @@
             },
             // app methods - we can bind these to events on html elements (v-on)
             methods: {
-                // regular javascript here
+                // regular javascript here here we make our axios call methods hold functions
 
                 showCat: function() {
 
@@ -188,7 +197,7 @@
                     })
                 }
             },
-            // the methods called inside created will run before the page renders, so this.categories and this.cat_url are ready
+            // created is a life cycle hock the methods called inside created will run before the page renders, so this.categories and this.cat_url are ready
             created: function() {
                 this.showCat()
                 this.getCategories()

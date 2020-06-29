@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>Example 1 - setting the model of an input type="text"</h2>
+        <input type="text" v-model="name"/>
+        {{name}}
+        <h2>Example 2 - setting the model of an input type="text" to a property of an object</h2>
+        <table>
+            <tr v-for="(contact, index) in contacts" v-bind:id="'tr_' + index">
+                <td>{{index}}</td>
+                <td><input type="text" v-model="contact.name"/></td>
+                <td><input type="number" v-model="contact.age"/></td>
+            </tr>
+        </table>
+        {{contacts}}
+        <hr/>
+        <h2>Example 3 - setting the model a radio button</h2>
+        <div>
+            <input type="radio" id="one" value="One" v-model="picked">
+            <label for="one">One</label>
+            <br>
+            <input type="radio" id="two" value="Two" v-model="picked">
+            <label for="two">Two</label>
+            <br>
+            <span>Picked: {{ picked }}</span>
+        </div>
+        <hr/>
+        <h2>Example 4 - generating radio buttons</h2>
+        <div>
+            <div v-for="fruit in fruits">
+                <input type="radio" v-bind:value="fruit" v-model="picked_fruit">
+                <label>{{fruit}}</label>
+            </div>
+            <div>Picked fruit: {{picked_fruit}}</div>
+        </div>
+        <hr/>
+        <h2>Example 5 - setting the model of a radio button and setting unique ids</h2>
+        <div>
+            <div v-for="(answer, index) in question.answers">
+                <input v-bind:id="'answer'+index" type="radio" v-bind:value="answer" v-model="question.picked_answer">
+                <label v-bind:for="'answer'+index">{{answer}}</label>
+            </div>
+            <div>Correct: {{question.picked_answer == question.correct_answer}}</div>
+        </div>
+        <h2>Example 6 - handling special characters</h2>
+        <div>&lt;div&gt;look it's a div&lt;/div&gt;</div>
+        <div>{{text}}</div>
+        <div v-html="text"></div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'joe',
+                contacts: [{
+                    name: 'joe',
+                    age: 34
+                },{
+                    name: 'jane',
+                    age: 23
+                },{
+                    name: 'janice',
+                    age: 12
+                }],
+                picked: '',
+                fruits: ['apples', 'bananas', 'pears'],
+                picked_fruit: '',
+                question: {
+                    correct_answer: 'a',
+                    picked_answer: '',
+                    answers: ['a', 'b', 'c']
+                },
+                text: '&#147;hello world!&#148;'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -88,6 +88,8 @@ sum_of_dtotals = sum(daily_totals)
 # calculate the mean by dividing the the sum of daily totals by the number of daily totals
 # mean = sum_of_dtotals / num_of_dtotals
 # print(mean)
+
+# using the fmean function from the statistics module to calculate the mean
 f_mean = statistics.fmean(daily_totals)
 print(f'The mean of daily totals is: {round(f_mean, 2)}')
 
