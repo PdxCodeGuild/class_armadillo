@@ -16,7 +16,7 @@ class Command(BaseCommand):
         data = json.loads(text)
         # how to get these things per pokemon
         for pokemon_data in data['pokemon']:
-            pokemon = Pokemon(
+            pokemon = Pokemon( # this is an instance of a class
                 name = pokemon_data['name'],
                 number = pokemon_data['number'],
                 height = pokemon_data['height'],
