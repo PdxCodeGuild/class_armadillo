@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
+</head>
+
+<body>
+    <div id="div_joke"></div>
+    <div id="div_punchline"></div>
+    <script>
+        // axios({
+        //     method: 'get',
+        //     url: 'https://sv443.net/jokeapi/v2/joke/Programming'
+        // }).then(response => {
+        //     console.log(response.data)
+        // })
+
+
+        let library = {
+            meta: {
+                name: 'A Little Library',
+                description: 'practice for working with complex data'
+            },
+            users: [{
+                first_name: 'Jane',
+                last_name: 'Smith',
+                age: 24,
+                favorite_books: [0, 2, 3]
+            }, {
+                first_name: 'Wendy',
+                last_name: 'Carson',
+                age: 56,
+                favorite_books: [0, 1]
+            }, {
+                first_name: 'Brian',
+                last_name: 'Barber',
+                age: 12,
+                favorite_books: [1]
+            }, {
+                first_name: 'Alyssa',
+                last_name: 'Lyons',
+                age: 34,
+                favorite_books: [1, 2]
+            }],
+            books: [{
+                title: 'A Wrinkle in Time',
+                author: 'Madeleine L\'Engle',
+                published: 1962
+            }, {
+                title: 'The Giving Tree',
+                author: 'Shel Silverstein',
+                published: 1964
+            }, {
+                title: 'The Odyssey',
+                author: 'Homer',
+                published: -800
+            }, {
+                title: 'The Divine Comedy',
+                author: 'Dante Alighieri',
+                published: 1320
+            }]
+        }
+
+        // let counts = [2, 3, 2, 1]
+        // let counts = {
+        //     0: 2,
+        //     1: 3,
+        //     2: 2,
+        //     3: 1
+        // }
+
+
+
+        axios({
+  method: 'get',
+  url: 'https://opentdb.com/api.php',
+  params: {
+    amount: 10,
+    category: 18,
+    difficulty: 'easy'
+  }
+}).then(response => {
+  console.log(response.data)
+})
+
+
+
+
+    </script>
+</body>
+
+</html>

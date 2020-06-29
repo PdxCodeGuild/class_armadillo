@@ -1,0 +1,11 @@
+{% extends 'contact_list/index.html' %}
+
+{% block content %}
+    <h2>{{contact.first_name}} {{contact.last_name}}</h2>
+    <p>Age: {{contact.age}}</p>
+    <p>Birthday: {{contact.birthday}}</p>
+    <p>Phone Number: {{contact.phone_number}}</p>
+    <p>Cell Phone? {{contact.is_cell}}</p>
+    <p>Comments: {{contact.comments}}</p>
+    <div><a href="{% url 'contact_list:index' %}">back</a></div>
+{% endblock %}
