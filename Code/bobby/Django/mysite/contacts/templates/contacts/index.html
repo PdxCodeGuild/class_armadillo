@@ -8,42 +8,17 @@
     <style type=text/css></style>
 </head>
 <body>
-    <h1>
-        {{ message }} 
-    </h1>
-    <table class= table>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Age</th>
-            <th>Birthday</th>
-            <th>Phone Number</th>
-            <th>Cell</th>
-            <th>Comments</th>
-        </tr>
-        {% for contacts in Contacts %}
-        <tr>
-            <td>
-                <form action="{% url 'contacts:delete' %}" methods="post">
-                    {% csrf_token %}
-                    <input type= ' ' name= 'contact.id' value='{{contact.id}}'/>
-                   
-                </form>
-            </td>
-            <td>{{contacts.first_name}}</td>
-            <td>{{contacts.last_name}}</td>
-            <td>{{contacts.age}}</td>
-            <td>{{contacts.birthday}}</td>
-            <td>{{contacts.phone_number}}</td>
-            <td>{{contacts.cell}}</td>
-            <td>{{contact.comments}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-
-<div style='text-align: left;'>
-    <a href='{% url "Contacts:add" %}' class = 'btn btn-primary'>Add Contact</a>
-</div>
+    <h1>Contact List</h1>
+    {% block content %}
+        {% for contact in contact_lists %}
+            <ul>
+                <li><a href="/contact_list/{{contact.id}}">{{contact.first_name}} {{contact.last_name}}</a></li>
+            </ul>
+        {% endfor %}    
+            <div>
+                <a href="{% url 'contact_list:new_contact' %}">new contact</a>
+            </div>
+    {% endblock %}
 </body>
 <footer>Copyright 2020</footer>
 </html>
