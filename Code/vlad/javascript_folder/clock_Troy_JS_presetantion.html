@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <title>Simple Clock</title>
+</head>
+<style>
+    body {
+        background-color: black;
+    }
+
+    #title {
+        text-align: center;
+        font-size: 60px;
+        font-family: 'Orbitron', sans-serif;
+        ;
+        color: red;
+    }
+
+    #clock {
+        text-align: center;
+        font-size: 60px;
+        font-family: 'Orbitron', sans-serif;
+        ;
+        color: #00B4D8;
+    }
+
+    #footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <h3 id="title">Just a Simple Clock</h3>
+
+    <div id="clock"></div>
+
+    <script>
+        function clockDisplay() {
+            let date = new Date();
+            // console.log(date)
+            let hour = date.getHours();
+            hour = updatingTime(hour);
+            let min = date.getMinutes();
+            min = updatingTime(min);
+            let sec = date.getSeconds();
+            sec = updatingTime(sec);
+
+            let time = document.querySelector("#clock");
+            time.innerText = hour + ":" + min + ":" + sec
+            console.log(time)
+        }
+        let x = setInterval(function () {
+            clockDisplay()
+        }, 1000);
+        function updatingTime(x) {
+            if (x < 10)
+                return "0" + x;
+            else {
+                return x;
+            }
+        }
+    </script>
+    <div id="footer">
+        <p>Created by: Troy Fitzgerald 15 Jun 2020</p>
+    </div>
+
+</body>
+
+</html>

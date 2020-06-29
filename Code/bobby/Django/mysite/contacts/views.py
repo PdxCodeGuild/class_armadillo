@@ -1,37 +1,47 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render, get_object_or_404, reverse
 from django.http import HttpResponse, HttpResponseRedirect
-
-from .models import Contacts
+from .models import Contact
+from django.template import loader
 # Create your views here.
 
-
 def index(request):
-    contacts = Contacts.objects.all()
-    return render(request, 'contacts/index.html', {'contacts': contacts})
+    contact_lists = Contact.objects.order_by('last_name')
+    template = loader.get_template('contact_list/index.html')
+    context = {
+        'contact_lists': contact_lists,
+    }
+    return HttpResponse(template.render(context, request))
 
-def add(request):
-    return render(request, 'contacts/add.html')
+def detail(request, contact_id):  
+    contact = get_object_or_404(Contact, pk=contact_id)  
+    return render(request, 'contact_list/detail.html', {'contact': contact})
 
-def save(request):
-    first_name = request.POST['First Name']
-    last_name = request.POST['Last Name']
-    age = request.POST['Age']
-    birthday = request.POST['Birthday']
-    phone_number = request.POST['Phone Number']
-    is_cell = request.POST['Cell']
-    comments = request.POST['Comments']
-    
-    contacts = Contacts(
-        First_Name = first_name,
-        Last_Name = last_name,
-        Age= age,
-        Birthday = birthday,
-        Phone_Number = phone_number,
-        Cell = is_cell,
-        Comments = comments
+def new_contact(request):
+    new_contact = Contact()
+    context = {
+        'new_contact': new_contact,
+    }
+    return render(request, 'contact_list/new_contact.html', context)
 
-    )
-    contacts.save()
+def submit(request):
+    first_name = request.POST['first_name']
+    last_name = request.POST['last_name']
+    age = request.POST['age']
+    birthday = request.POST['birthday']
+    phone_number = request.POST['phone_number']
+    if 'is_cell' in request.POST:
+        is_cell = True
+    else:
+        is_cell = False    
+    comments = request.POST['comments']
 
-    return HttpResponseRedirect(reverse('Contacts:index'))
+    new_contact = Contact(first_name=first_name,
+                          last_name=last_name,
+                          age=age,
+                          birthday=birthday,
+                          phone_number=phone_number,
+                          is_cell=is_cell,
+                          comments=comments,)
+    new_contact.save()
 
+    return HttpResponseRedirect(reverse('contact_list:index'))
