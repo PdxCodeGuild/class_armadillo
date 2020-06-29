@@ -3,19 +3,29 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- Using the viewport meta tag to control layout on mobile browsers -->
+    <!-- The width property controls the size of the viewport. -->
+    <!-- currently set to device-width, which is the width of the screen in CSS pixels at a scale of 100%. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title specifies the title of a web page. Title tags are displayed on -->
+    <!-- search engine results pages as the clickable headline for a given result -->
     <title>Unit Converter</title>
-    <!-- development version, includes helpful console warnings -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <!-- Vue content delivery network; development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
-
+<style>
+    body {
+        background-color: cadetblue;
+    }
+</style>
 <body>
+    <!-- html element representing the app, referenced by 'el' -->
     <div id="app">
         <h1>Unit Converter</h1>
         <div>
-            <!-- input the number of units -->
+            <!-- allow the user input the number of units -->
             <input type="text" v-model="number_input" placeholder="Enter number of units: " />
-            <!-- select a starting unit -->
+            <!-- allow user to select a starting unit from a drop down menu -->
             <select v-model="start_unit">
                 <!-- binding the vue object start_unit to the users input-->
                 <!-- using v-for to bind an array of vue objects to an array of HTML element -->
@@ -28,30 +38,36 @@
                 <option v-for="unit in units" v-bind:value="unit">{{unit.name}}</option>
             </select>
             <!-- submit the inputs for conversion -->
+            <!-- handle a click event of a button - calls the method 'conversion' -->
             <button v-on:click='conversion'>convert</button>
         </div>
         <!-- directive v-if only renders the block if submitted is true-->
         <div v-if="this.submitted">
-            <!-- display conversion here -->
+            <!-- display this instance of solution and end_unit name from the data part of the app -->
             {{this.solution}} {{this.end_unit.name}}
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- The type attribute specifies the scripting language of the element's  -->
+    <!-- contents and overrides the default scripting language. -->
     <script type="text/javascript">
-        // vue app
+        // query selector of the html element representing the app
         let app = new Vue({
 
             el: '#app',
             // app data contains variables referenced in the html
             data: {
-                // 
+                // set submitteds default setting to false
                 submitted: false,
+                // for displaying solution to the user
                 solution: null,
+                // for getting the input from the user in v-model="start_unit"
                 start_unit: null,
+                // for getting the input from the user in v-model="end_unit"
                 end_unit: null,
-                // conv_factor: 1,
+                // for getting the input from the user in v-model="number_input"
                 number_input: null,
-                // value: null,
+                // list of dictionaries containg the name of units and their conversion factors
+                // for converting to and from meters
                 units: [{
                     name: 'ft',
                     con_fact: 0.3048
@@ -69,15 +85,16 @@
             },
             // app methods can be bound to events on html elements (v-on)
             methods: {
-                // multiple number_input by start_unit conversion factor to convert to meters
-                // then divide distance in meters by the conversion factor of end_unit
+                // method for converting to and from meters called by the button v-on:click='conversion'
                 conversion: function () {
                     let value = parseFloat(this.number_input)
                     console.log(value)
+                    // multiple number_input by start_unit conversion factor to convert to meters  
                     let value_in_m = value*this.start_unit.con_fact
                     console.log(value_in_m)
-                    // return String(this.solution)
+                    // then divide distance in meters by the conversion factor of end_unit
                     this.solution = String(value_in_m/this.end_unit.con_fact)
+                    console.log(this.solution)
                     // sets conditional submitted to true
                     this.submitted = true
 
@@ -87,7 +104,6 @@
 
         )
     </script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 </body>
 
 </html>
