@@ -16,7 +16,7 @@
       {{ message }}
       <button v-on:click="reverse">Reverse this! </button>
       <!--v-bind === directive-->
-    <span v-bind:title="instruction">Hover your mouse over me for a few seconds to see my dynamically-bound title!</span>
+    <span v-bind:title="instruction">Hover your mouse over me for a few seconds</span>
     <ol>
         <li v-for="option in options">
             {{ option.text }}
@@ -67,11 +67,11 @@
                 let computer_choice = this.choices[Math.floor(Math.random() * this.choices.length)]
                 console.log(computer_choice)
                 if (this.userEntry == computer_choice){
-                    this.result = ('tie')
-                }else if(this.userEntry == (computer_choice+1)%3){
-                    this.result = ('human wins')
+                    this.result = 'tie'
+                }else if(this.choices.indexOf(this.userEntry) == (this.choices.indexOf(computer_choice)+1)%3){
+                    this.result = 'human wins'
                 }else{
-                    this.result = ('computer wins')
+                    this.result = 'computer wins'
               
                 }
               }
@@ -81,3 +81,5 @@
     </script>
   </body>
 </html>
+
+<!--mistake:  line71:  }else if(this.userEntry == (computer_choice+1)%3){-->
