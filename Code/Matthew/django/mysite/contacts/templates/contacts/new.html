@@ -5,7 +5,7 @@
 
 {% block content %}
 <a href="{% url 'contacts:index' %}" class="btn btn-primary">back</a>
-<form action="{% url 'contacts:new_submit' %}" method="post">
+<form action="{% url 'contacts:new_submit' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
         <tr>
@@ -15,6 +15,10 @@
         <tr>
             <td><label for="input_last_name">Last Name</label></td>
             <td><input id="input_last_name" type="text" name="contact_last_name" required/></td>
+        </tr>
+        <tr>
+            <td><label for="input_profile_image">Profile Image</label></td>
+            <td><input id="input_profile_image" type="file" name="contact_profile_image" accept="image/*"/></td>
         </tr>
         <tr>
             <td><label for="input_birthday">Birthday</label></td>

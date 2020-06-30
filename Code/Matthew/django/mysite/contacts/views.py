@@ -50,9 +50,9 @@ def new(request):
 def new_submit(request):
     print(request.POST) # dictionary containing our form data
 
-    contact_first_name = request.POST['contact_first_name']
     contact_last_name = request.POST['contact_last_name']
     contact_first_name = request.POST['contact_first_name']
+    contact_profile_image = request.FILES.get('contact_profile_image', None)
 
     contact_birthday = request.POST['contact_birthday']
     # parse the birthday from a string into a datetime object - optional
@@ -73,6 +73,7 @@ def new_submit(request):
 
     contact = Contact(first_name = contact_first_name,
                         last_name = contact_last_name,
+                        profile_image = contact_profile_image,
                         birthday = contact_birthday,
                         email = contact_email,
                         phone_number = contact_phone_number,
