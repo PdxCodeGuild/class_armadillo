@@ -40,41 +40,29 @@
 </style>
 
 <body>
-    <!-- id's the header title for the page -->
     <h3 id="title">Just a Simple Clock</h3>
-    <!-- assigns the div to display the clock and names the element to be called later -->
+
     <div id="clock"></div>
 
     <script>
-        // defines the function to run the clock and places the functions in an array
         function clockDisplay() {
-            // assigns the variable to the current date 
             let date = new Date();
             // console.log(date)
-            // assigns the variable for the hour and derives the information from the current day 
             let hour = date.getHours();
-            // takes the variable and updates using the function for updating
             hour = updatingTime(hour);
-            // assigns the variable for the minute and derives the information from the current day 
             let min = date.getMinutes();
-            // takes the variable and updates using the function for updating
             min = updatingTime(min);
-            // assigns the variable for the seconds and derives the information from the current day 
             let sec = date.getSeconds();
-            // takes the variable and updates using the function for updating
             sec = updatingTime(sec);
-            // assigns the variable for time and gets the element from the css
+
             let time = document.querySelector("#clock");
             time.innerText = hour + ":" + min + ":" + sec
             console.log(time)
         }
-        // assigns the variable and then calls the function after the given interval (milliseconds) 
         let x = setInterval(function () {
             clockDisplay()
         }, 1000);
-        // creates the function for updating the time using an if statement
         function updatingTime(x) {
-            // if the number is less than 10 will place a zero in front of the number (e.g. 07)
             if (x < 10)
                 return "0" + x;
             else {
@@ -82,7 +70,6 @@
             }
         }
     </script>
-    <!-- sets the id for the footer and displays the footer on the page -->
     <div id="footer">
         <p>Created by: Troy Fitzgerald 15 Jun 2020</p>
     </div>

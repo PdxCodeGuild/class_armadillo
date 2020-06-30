@@ -64,13 +64,13 @@ PdxCodeGuild/class_armadillo | Added by GitHub -->
         }
         /* margin: 6px 10px 30px 50px; */
         
-        #input_quote {
+        #icons {
             margin: 60px 180px 40px 100px;
             font-size: x-large;
             font-weight: bold;
             color: black;
             font-style: italic;
-            width: 45%;
+            width: 8%;
             border: 2px solid gray;
             padding: 8px;
             /* color: aliceblue; */
@@ -78,20 +78,29 @@ PdxCodeGuild/class_armadillo | Added by GitHub -->
             /* background-color: skyblue; */
         }
         
-        #quote_list {
+        #weather_result {
             margin: 10px 180px 40px 100px;
-            font-size: large;
+            font-size: xx-large;
             /* font-weight: bold; */
-            color: black;
+            color: white;
             font-style: italic;
-            width: 60%;
+            width: 20%;
             border: 2px solid gray;
             padding: 20px;
             /* color: aliceblue; */
-            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            box-shadow: 7px 7px 12px rgb(6, 44, 235);
             /* background-color: skyblue; */
             /* quote_list.style.display='none'; */
             /* quote_list.style.display='block'; */
+        }
+        
+        #weather_result:hover {
+            background: transparent;
+            border: none;
+            color: white;
+            box-shadow: 7px 7px 12px rgb(235, 6, 6);
+            transition: 0.5s;
+            /* #simple_clock {} */
         }
         
         #btn_weather {
@@ -108,7 +117,7 @@ PdxCodeGuild/class_armadillo | Added by GitHub -->
             /* background-color: skyblue; */
         }
         
-        #input_quote:hover {
+        #icons:hover {
             background: transparent;
             border: none;
             color: black;
@@ -125,11 +134,13 @@ PdxCodeGuild/class_armadillo | Added by GitHub -->
             transition: 0.5s;
             /* #simple_clock {} */
         }
-        /* body {
-            background-image: url('background_search_v2.jpeg');
+        
+        body {
+            background-image: url('background_weather.jpeg');
             background-repeat: no-repeat;
             background-size: cover;
-        } */
+            background-position: center;
+        }
     </style>
 
 </head>
