@@ -2,8 +2,10 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseRedirect
 import string
+from . import secrets
 from django.db.models import Q
 from datetime import datetime
+import requests
 
 from .models import Contact
 
@@ -45,11 +47,23 @@ def detail(request, contact_id):
     return render(request, 'contacts/detail.html', context)
 
 def new(request):
-    return render(request, 'contacts/new.html')
+    message = request.GET.get('message', '')
+    return render(request, 'contacts/new.html', {'message': message})
 
 def new_submit(request):
     print(request.POST) # dictionary containing our form data
 
+    # recaptcha bit
+    recaptcha_response = request.POST['g-recaptcha-response']
+    response = requests.post('https://www.google.com/recaptcha/api/siteverify', data={
+        'secret': secrets.recaptcha_secret_key,
+        'response': recaptcha_response
+    })
+    recaptcha_response_data = response.json()
+    if not recaptcha_response_data['success']:
+        return HttpResponseRedirect(reverse('contacts:new')+'?message=invalid_recaptcha')
+
+    # create a contact
     contact_last_name = request.POST['contact_last_name']
     contact_first_name = request.POST['contact_first_name']
     contact_profile_image = request.FILES.get('contact_profile_image', None)

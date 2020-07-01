@@ -4,7 +4,11 @@
 {% block title %}New{% endblock %}
 
 {% block content %}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <a href="{% url 'contacts:index' %}" class="btn btn-primary">back</a>
+{% if message == 'invalid_recaptcha' %}
+<div style="color:red">Invalid Recaptcha</div>
+{% endif %}
 <form action="{% url 'contacts:new_submit' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
@@ -42,6 +46,7 @@
             <td><textarea id="input_comments" name="contact_comments"></textarea></td>
         </tr>
     </table>
+    <div class="g-recaptcha" data-sitekey="6LdkGqwZAAAAAIqpizwPB2RbWsPEny9-g9P2kvoJ"></div>
     <button type="submit" title="click to create a new contact" class="btn btn-primary">Create New Contact</button>
 </form>
 {% endblock %}
