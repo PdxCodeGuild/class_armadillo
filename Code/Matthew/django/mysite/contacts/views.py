@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.core.paginator import Paginator
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 import string
 from . import secrets
 from django.db.models import Q
@@ -149,3 +149,28 @@ def edit_submit(request):
 
     # redirect to the detail page for the contact
     return HttpResponseRedirect(reverse('contacts:detail', args=[contact.id]))
+
+
+def map(request):
+    contacts = Contact.objects.all()
+    context = {
+        'contacts': contacts,
+        'google_api_key': secrets.google_api_key
+    }
+    return render(request, 'contacts/map.html', context)
+
+def locations(request):
+    locations = []
+    for contact in Contact.objects.all():
+        location = {
+            'label': contact.first_name + ' ' + contact.last_name,
+            'lat': contact.latitude,
+            'lng': contact.longitude,
+        }
+        if contact.profile_image:
+            location['image'] = contact.profile_image.url
+        else:
+            location['image'] = None
+        locations.append(location)
+    return JsonResponse({'locations': locations})
+
