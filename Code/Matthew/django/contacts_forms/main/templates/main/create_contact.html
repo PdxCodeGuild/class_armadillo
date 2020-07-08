@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .errorlist {
+            background-color:red;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Contact</h1>
+    <a href="{% url 'main:index' %}">view contact list</a>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        {{form}}
+        
+        {% comment %}
+        {% for field in form %}
+        {{field.label}}
+        {{field}}
+        <br/>
+        {% endfor %}
+        {% endcomment %}
+
+        <button type="submit">Save New Contact</button>
+    </form>
+    
+</body>
+</html>
