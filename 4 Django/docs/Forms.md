@@ -10,7 +10,7 @@
 
 ## Overview
 
-Let's take a look back at [HTML forms](../..../2%20HTML+CSS/docs/03%20-%20HTML%20Forms.md). You don't have to do anything special to use forms in Django. The `input` elements need `name` attributes, the `action` attribute of the form needs to point to a view. When you submit the data, the form will gather all the `name` attributes from the `input` fields and associate them with each `input`'s `value`.
+Let's take a look back at [HTML forms](../../2%20HTML+CSS/docs/03%20-%20HTML%20Forms.md). You don't have to do anything special to use forms in Django. The `input` elements need `name` attributes, the `action` attribute of the form needs to point to a view. When you submit the data, the form will gather all the `name` attributes from the `input` fields and associate them with each `input`'s `value`.
 
 ```html
 <form action="{% url 'todoapp:newtodo' %}" method="post">
