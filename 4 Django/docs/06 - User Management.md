@@ -147,7 +147,52 @@ def my_view(request):
 
 ## Extending the User Model
 
-If you want to have a custom user model, you should create one **when you start a project**. It's much more difficult to change once you already have users in your database. You can read more [here](https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#auth-custom-user).
+The built-in user model may not have all the fields you need (e.g. phone number, location, profile image). One option is to have another model with a one-to-one field connected to the built-in user model. 
+
+```python
+from django.contrib.auth.models import User
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.PROTECT, related_name='user_profile')
+    phone_number = models.CharField(max_length=20)
+    ...
+```
+
+The caveat of this approach is that accessing that information via the ORM takes an extra step, which is a little messy.
+
+```python
+
+def index(request):
+    print(request.user.user_profile.phone_number)
+```
+
+
+A better approach is to extend the User model by inheriting from AbstractUser. You should create one **when you start a project**. It's much more difficult to change once you already have users in your database. You can read more [here](https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#auth-custom-user).
+
+
+**settings.py**
+```python
+AUTH_USER_MODEL = 'myapp.User'
+```
+
+**models.py**
+```python
+from django.contrib.auth.models import AbstractUser
+
+class User(AbstractUser):
+    phone_number = models.CharField(max_length=20)
+    ...
+```
+
+**admin.py**
+```python
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from .models import User
+
+admin.site.register(User, UserAdmin)
+```
+
 
 
 ## Managing Groups and Permissions

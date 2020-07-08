@@ -2,13 +2,21 @@
 
 # Forms
 
+- [Forms](#forms)
+  - [Overview](#overview)
+  - [The Form Class](#the-form-class)
+  - [The ModelForm Class](#the-modelform-class)
+
+
+## Overview
+
 Let's take a look back at [HTML forms](../../2%20HTML%20+%20CSS/docs/12%20-%20HTML%20Forms.md). You don't have to do anything special to use forms in Django. The `input` elements need `name` attributes, the `action` attribute of the form needs to point to a view. When you submit the data, the form will gather all the `name` attributes from the `input` fields and associate them with each `input`'s `value`.
 
 ```html
 <form action="{% url 'todoapp:newtodo' %}" method="post">
     {% csrf_token %}
-    <input type="text" name="todo_text" value="mytext"/>
-    <input type=""
+    <input type="text" name="contact_name"/>
+    <input type="number" name="contact_age"/>
     <button type="submit">add todo</button>
 </form>
 ```
@@ -28,14 +36,14 @@ def newtodo(request):
 Django has a special Form class to make the creation of forms easier. You can read in the official docs: [Working with Forms](https://docs.djangoproject.com/en/3.0/topics/forms/), [Forms API](https://docs.djangoproject.com/en/3.0/ref/forms/api/#django.forms.Form). You can put your forms in `forms.py` inside your app.
 
 
-##### forms.py
+**forms.py**
 ```python
 from django import forms
 class TodoForm(forms.Form):
     todo_text = forms.CharField(label='Todo Text', max_length=100)
 ```
 
-##### views.py
+**views.py**
 ```python
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
@@ -54,7 +62,7 @@ def index(request):
     return render(request, 'name.html', {'form': form})
 ```
 
-##### index.html
+**index.html**
 ```html
 <form action="{% url 'todoapp:index' %}" method="post">
     {% csrf_token %}
@@ -68,7 +76,7 @@ def index(request):
 
 ModelForms allow us to generate a form directly from a model. You can read more about ModelForms in the [official docs](https://docs.djangoproject.com/en/3.0/topics/forms/modelforms/).
 
-##### forms.py
+**forms.py**
 ```python
 from django.forms import ModelForm
 from .models import Todo
@@ -78,4 +86,9 @@ class TodoForm(ModelForm):
         model = Todo
         # a list of all the models' fields you want in the form
         fields = ['text']
+```
+
+**views.py**
+```python
+
 ```

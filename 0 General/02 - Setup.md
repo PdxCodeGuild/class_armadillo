@@ -84,6 +84,7 @@ GitHub is a hosting service for Git repositories. Our class will have a reposito
 - [editing guide](https://code.visualstudio.com/docs/editor/codebasics)
 - [shortcut cheat sheet](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf), and [this list](https://medium.com/better-programming/20-vs-code-shortcuts-for-fast-coding-cheatsheet-10b0e72fd5d)
 - [Guide to Python](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Guide to Flask](https://code.visualstudio.com/docs/python/tutorial-flask)
 - [Guide to Django](https://code.visualstudio.com/docs/python/tutorial-django).
 
 #### Shortcuts

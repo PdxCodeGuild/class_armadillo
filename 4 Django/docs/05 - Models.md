@@ -3,7 +3,7 @@
 # Models
 
 - [Models](#models)
-  - [Class-Table Representation](#class-table-representation)
+  - [Overview](#overview)
   - [Field Types](#field-types)
     - [Nullable Fields](#nullable-fields)
     - [Default Values](#default-values)
@@ -27,10 +27,12 @@
     - [Specify the Number of Rows to Return](#specify-the-number-of-rows-to-return)
     - [Get the Number of Rows](#get-the-number-of-rows)
 
+
+## Overview
+
 Models are Python classes that parallel tables in the database. The ORM manages this dual representation, translating statements in Python to queries on the database. You can read more about models [here](https://docs.djangoproject.com/en/2.2/topics/db/models/), and more about the ORM [here](https://docs.djangoproject.com/en/2.2/ref/models/querysets/).
 
-
-## Class-Table Representation
+- [Polls Tutorial - Part 2](https://docs.djangoproject.com/en/3.0/intro/tutorial02/)
 
 Database tables are like excel spreadsheets: they have headers and rows. Tables can also be thought of as Python classes, where the headers are class attributes, and the rows are instances. All models are automatically given an `id` field as a primary key, which uniquely identifies a row.
 
