@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Login</h1>
+    {% if warning %}
+    <div class="alert alert-warning" role="alert">
+        {{warning}}
+    </div>
+    {% endif %}
+    <form action="{% url 'users:login' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="input_username">Username</label>
+            <input type="text" class="form-control" id="input_username" name="username" required autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="input_password">Password</label>
+            <input type="password" class="form-control" id="input_password" name="password" required autocomplete="off">
+        </div>
+        <button id="btn_submit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div>Don't have an account? <a href="{% url 'users:register' %}">Register</a></div>
+</div>
+{% endblock %}

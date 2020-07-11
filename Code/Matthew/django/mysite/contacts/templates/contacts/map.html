@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{google_api_key}}&callback=initMap&libraries=&v=weekly"
+        defer></script>
+    <script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 45.5419699, lng: -122.64861 },
+                zoom: 7
+            });
+
+            axios({
+                url: "{% url 'contacts:locations' %}",
+                method: 'get'
+            }).then(response => {
+                let locations = response.data.locations
+                let i=0
+                let interval = setInterval(() => {
+                    if (locations[i].image == null) {
+                        locations[i].image = "{% static 'contact/default_profile_picture.jpg' %}"
+                    }
+                    let marker = new google.maps.Marker({
+                        position: {lat: locations[i].lat, lng: locations[i].lng},
+                        animation: google.maps.Animation.DROP,
+                        label: locations[i].label,
+                        map: map,
+                        icon: {
+                            url: locations[i].image,
+                            scaledSize: new google.maps.Size(40, 40),
+                        }
+                    });
+                    i++
+                    if (i == locations.length) {
+                        clearInterval(interval)
+                    }
+                }, 100)
+                // for (let i=0; i<locations.length; ++i) {
+                //     let marker = new google.maps.Marker({
+                //         position: {lat: locations[i].lat, lng: locations[i].lng},
+                //         animation: google.maps.Animation.DROP,
+                //         map: map
+                //     });
+                // }
+
+            })
+            
+            // {% comment %}
+            // {% for contact in contacts %}
+            // var marker{{forloop.counter}} = new google.maps.Marker({position: {lat: {{contact.latitude}}, lng: {{contact.longitude}}}, map: map});
+            // {% endfor %}
+            // {% endcomment %}
+        }
+    </script>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+
+        /* #map img {
+            width:10px;
+            border-radius:50%;
+        } */
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+</body>
+
+</html>

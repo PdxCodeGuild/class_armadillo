@@ -12,7 +12,7 @@
 
 Django is a back-end framework written in Python. Django is a **high-level framework** meaning that it provides a great deal of functionality for you, but you have to connect the pieces together. You have to learn things the 'django way'. This also means that isn't necessarily any deeper intuition behind things, the only answer may be "that's just how Django does things".
 
-For comparison, [Flask](http://flask.pocoo.org/) is also a Python-based back-end framework, but whereas Django is high-level, Flask is low-level, meaning you're only given the most barebones functionality and have to do everything else yourself. Again, it's a balance of convenience and control. You can read more about Django [here](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django), [here](https://en.wikipedia.org/wiki/Django_(web_framework)), and [here](https://tutorial.djangogirls.org/en/django/).
+For comparison, [Flask](http://flask.pocoo.org/) is also a Python-based back-end framework, but whereas Django is high-level, Flask is low-level, meaning you're only given the most barebones functionality and have to do everything else yourself. Again, it's a balance of convenience and control.
 
 The core of Django is the [request-response cycle](django_diagram.png). A request is received by the server, it follows a **route**, actives a **view**, which then uses **models** and a **template** to generate a **response**, which is then rendered in the user's browser. The following docs will cover each of these topics in turn, but bear in mind that they're all interdependent.
 
@@ -22,6 +22,12 @@ The core of Django is the [request-response cycle](django_diagram.png). A reques
 - Model: a Python class that parallels a database table
 
 Django applications are contained in a **project** which can have multiple **apps**. Each app has its own routes, views, templates, and models. How you divide up the functionality of the application is up to your discretion, what's important is that it makes sense to you.
+
+- [MDN](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django)
+- [Wikipedia](https://en.wikipedia.org/wiki/Django_(web_framework))
+- [Official Docs](https://docs.djangoproject.com/en/3.0/)
+  - [Table of Contents](https://docs.djangoproject.com/en/3.0/contents/)
+- [Django Girls Tutorial](https://tutorial.djangogirls.org/en/django/)
 
 ## Management Commands
 

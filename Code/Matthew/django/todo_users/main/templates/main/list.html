@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1>Todos</h1>
+<table class="table">
+    <tr>
+        <th>Todo</th>
+        <th>Priority</th>
+        <th>Created Date</th>
+        <th>Completed Date</th>
+        <th></th>
+    </tr>
+    {% for todo in todos %}
+    <tr>
+        <td>{{todo.text}}</td>
+        <td>{{todo.priority.name}}</td>
+        <td>{{todo.created_date}}</td>
+        <td>{% if todo.completed_date %}{{todo.completed_date}}{% endif %}</td>
+        <td><a href="{% url 'main:detail' todo.id %}">👁</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

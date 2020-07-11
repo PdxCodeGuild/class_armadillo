@@ -4,14 +4,16 @@
 - [User Management](#user-management)
   - [Users, Groups, and Permissions](#users-groups-and-permissions)
   - [Creating & Editing Users](#creating--editing-users)
-    - [Accessing Groups and Permissions](#accessing-groups-and-permissions)
-    - [Changing Passwords](#changing-passwords)
+  - [Changing Passwords](#changing-passwords)
   - [Authentication, Login, & Logout](#authentication-login--logout)
   - [Authorization](#authorization)
-    - [@login_required](#loginrequired)
-    - [@permission_required](#permissionrequired)
-    - [@user_passes_test(f)](#userpassestestf)
+    - [is_authenticated](#is_authenticated)
+    - [has_perm](#has_perm)
+    - [@login_required](#login_required)
+    - [@permission_required](#permission_required)
+    - [@user_passes_test(f)](#user_passes_testf)
   - [Extending the User Model](#extending-the-user-model)
+  - [Managing Groups and Permissions](#managing-groups-and-permissions)
 
 Many web applications have the ability for a user to 1) create an account, 2) log into and out of that account, and 3) view pages that are only accessible to logged-in users. For more info, read [here](https://docs.djangoproject.com/en/3.0/topics/auth/) and [here](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication).
 
@@ -32,44 +34,7 @@ user = User.objects.create_user('jane', 'jane@gmail.com', 'janespassword')
 You can also create users from within the admin panel, by clicking 'add' next to 'Users' under 'AUTHENTICATION AND AUTHORIZATION'.
 
 
-### Accessing Groups and Permissions
-
-The `User` model has two many-to-many fields: groups and permissions. You can access these on the User object using the ORM. Note that `user_permissions` only include permissions assigned to that individual user, and not permissions that user has as part of a group. However, `has_perm` will check if the given permission is amony the group.
-
-- `user.groups.set([group_list])` set the groups
-- `user.groups.add(group, group, ...)` add to a group
-- `user.groups.remove(group, group, ...)` remove from group
-- `user.groups.clear()` remove from all groups
-- `user.user_permissions.set([permission_list])` set permissions
-- `user.user_permissions.add(permission, permission, ...)` add permissions
-- `user.user_permissions.remove(permission, permission, ...)` remove permissions
-- `user.user_permissions.clear()` clear all user permissions
-- `user.has_perm(permission_code)` check if a user has a permission, either in user_permissions or in one of their groups
-
-```python
-from django.contrib.auth.models import User, Group, Permission
-
-# add a user to a group
-group = Group.objects.get(name='commenters')
-user.groups.add(group)
-user.save()
-
-# add a permission to a group
-permission = Permission.objects.get(codename='change_comment')
-group.permissions.add(permission)
-group.save()
-
-# check if a user has a permission
-if user.has_perm('blog.add_comment'):
-    # ...
-
-
-# check if a user is in a group
-if user.groups.filter(name='commenters').exists():
-    # ...
-```
-
-### Changing Passwords
+## Changing Passwords
 
 You can change a user's password using `set_password` in Python or `changepassword` in the terminal. You can also change a user's password in the admin panel.
 
@@ -115,6 +80,8 @@ def logout_view(request):
 
 ## Authorization
 
+### is_authenticated
+
 In other views, we can check if a user is logged in by checking the `is_authenticated` field.
 
 ```python
@@ -124,6 +91,7 @@ def otherview(request):
     else:
         # do something else for anonymous users.
 ```
+### has_perm
 
 If you want to restrict access to users with particular permissions, use `has_perm`.
 
@@ -179,5 +147,87 @@ def my_view(request):
 
 ## Extending the User Model
 
-If you want to have a custom user model, you should create one **when you start a project**. It's much more difficult to change once you already have users in your database. You can read more [here](https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#auth-custom-user).
+The built-in user model may not have all the fields you need (e.g. phone number, location, profile image). One option is to have another model with a one-to-one field connected to the built-in user model. 
 
+```python
+from django.contrib.auth.models import User
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.PROTECT, related_name='user_profile')
+    phone_number = models.CharField(max_length=20)
+    ...
+```
+
+The caveat of this approach is that accessing that information via the ORM takes an extra step, which is a little messy.
+
+```python
+
+def index(request):
+    print(request.user.user_profile.phone_number)
+```
+
+
+A better approach is to extend the User model by inheriting from AbstractUser. You should create one **when you start a project**. It's much more difficult to change once you already have users in your database. You can read more [here](https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#auth-custom-user).
+
+
+**settings.py**
+```python
+AUTH_USER_MODEL = 'myapp.User'
+```
+
+**models.py**
+```python
+from django.contrib.auth.models import AbstractUser
+
+class User(AbstractUser):
+    phone_number = models.CharField(max_length=20)
+    ...
+```
+
+**admin.py**
+```python
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from .models import User
+
+admin.site.register(User, UserAdmin)
+```
+
+
+
+## Managing Groups and Permissions
+
+The `User` model has two many-to-many fields: groups and permissions. You can access these on the User object using the ORM. Note that `user_permissions` only include permissions assigned to that individual user, and not permissions that user has as part of a group. However, `has_perm` will check if the given permission is amony the group.
+
+- `user.groups.set([group_list])` set the groups
+- `user.groups.add(group, group, ...)` add to a group
+- `user.groups.remove(group, group, ...)` remove from group
+- `user.groups.clear()` remove from all groups
+- `user.user_permissions.set([permission_list])` set permissions
+- `user.user_permissions.add(permission, permission, ...)` add permissions
+- `user.user_permissions.remove(permission, permission, ...)` remove permissions
+- `user.user_permissions.clear()` clear all user permissions
+- `user.has_perm(permission_code)` check if a user has a permission, either in user_permissions or in one of their groups
+
+```python
+from django.contrib.auth.models import User, Group, Permission
+
+# add a user to a group
+group = Group.objects.get(name='commenters')
+user.groups.add(group)
+user.save()
+
+# add a permission to a group
+permission = Permission.objects.get(codename='change_comment')
+group.permissions.add(permission)
+group.save()
+
+# check if a user has a permission
+if user.has_perm('blog.add_comment'):
+    # ...
+
+
+# check if a user is in a group
+if user.groups.filter(name='commenters').exists():
+    # ...
+```

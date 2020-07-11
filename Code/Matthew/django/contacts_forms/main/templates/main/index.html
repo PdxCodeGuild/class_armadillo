@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{% url 'main:create_contact' %}">create contact</a>
+    <a href="{% url 'main:create_contact_bootstrap' %}">create contact bootstrap</a>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Student ID</th>
+            <th>Birthday</th>
+            <th>Over 21</th>
+            <th>City</th>
+            <th></th>
+        </tr>
+        {% for contact in contacts %}
+        <tr>
+            <td>{{contact.name}}</td>
+            <td>{{contact.student_id}}</td>
+            <td>{{contact.birthday}}</td>
+            <td>{{contact.over_21}}</td>
+            <td>{{contact.city.name}}</td>
+            <td><a href="{% url 'main:edit_contact' contact.id %}">edit</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>

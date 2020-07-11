@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Todo Detail{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1>Todo Detail</h1>
+<table class="table">
+    <tr>
+        <th>Todo</th>
+        <th>Priority</th>
+        <th>Created Date</th>
+        <th>Completed Date</th>
+    </tr>
+    <tr>
+        <td>{{todo.text}}</td>
+        <td>{{todo.priority.name}}</td>
+        <td>{{todo.created_date}}</td>
+        <td>{% if todo.completed_date %}{{todo.completed_date}}{% endif %}</td>
+    </tr>
+</table>
+</div>
+{% endblock %}
