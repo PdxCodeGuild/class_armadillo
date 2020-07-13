@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+</head>
+
+<body>
+    <select id="select_state">
+        <option value="">Select a State</option>
+        {% for state in states %}
+        <option value="{{state.id}}">{{state.name}}</option>
+        {% endfor %}
+    </select>
+    <select id="select_city">
+        <option value="">Select a City</option>
+    </select>
+    <script>
+        let select_state = document.querySelector('#select_state')
+        let select_city = document.querySelector('#select_city')
+        select_state.addEventListener('change', function () {
+            select_state.setAttribute('disabled', 'disabled')
+            axios({
+                method: 'get',
+                url: "{% url 'main:cities' %}",
+                params: {
+                    state_id: select_state.value
+                }
+            }).then(response => {
+                // console.log(response.data)
+                let cities = response.data.cities
+                // select_cities.innerHTML = ''
+                while (select_city.firstChild) {
+                    select_city.removeChild(select_city.firstChild)
+                }
+
+                let default_option = document.createElement('option')
+                default_option.innerText = 'Select a City'
+                default_option.value = ''
+                select_city.appendChild(default_option)
+
+                for (let i=0; i<cities.length; ++i) {
+                    let option = document.createElement('option')
+                    // option.value = cities[i].id
+                    option.setAttribute('value', cities[i].id)
+                    option.innerText = cities[i].name
+                    select_city.appendChild(option)
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
