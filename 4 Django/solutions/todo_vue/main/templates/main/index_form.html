@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Todo List</title>
+</head>
+<body>
+    <h1>The Ultimate Todo List</h1>
+    <form action="{% url 'main:create_todo_form' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="todo_text"/>
+        <select name="todo_priority_id">
+            {% for priority in priorities %}
+            <option value="{{priority.id}}">{{priority.name}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">submit</button>
+    </form>
+    <ul>
+        {% for todo_item in todo_items %}
+        <li>
+            <span>{{todo_item.priority.name}}</span>
+            <span>{{todo_item.text}}</span>
+            <a href="{% url 'main:delete_todo_form' todo_item.id %}">✗</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

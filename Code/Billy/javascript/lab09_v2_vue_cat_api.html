@@ -13,7 +13,7 @@
             background-color: rgb(110, 109, 109);
         }
 
-        .polaroid {
+        .film {
             position: fixed;
             border: 1px solid #e0dfd7;
             margin-top: 1vh;
@@ -22,7 +22,7 @@
             height: 98vh;
             background-color: #fcfcf7;
             border-radius: 3px;
-            box-shadow: 0 4px 8px 15px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            box-shadow: 0 4px 8px 15px rgba(0, 0, 0, 0.3);
         }
 
         .image {
@@ -32,13 +32,11 @@
             object-fit: cover;
             margin-left: calc(50% - 56vh);
             margin-top: 7vh;
-            z-index: 0;
-            filter:sepia(10%) brightness(95%) saturate(2);
             border: 2px solid grey;
             border-radius: 3px;
         }
 
-        .caption {
+        .writing {
             position: fixed;
             width: 90vh;
             height:67.5vh; 
@@ -62,7 +60,7 @@
             border-radius: 20px;
             background-color:#fcfcf7;
             cursor: pointer;
-            box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.3);
         }
 
         .new-kitty:hover {
@@ -92,6 +90,7 @@
         .go-button:hover {
             background-color: whitesmoke;
             border-color: whitesmoke;
+            cursor: pointer;
         }
 
         .go-button:focus {
@@ -135,7 +134,7 @@
             color: #f1f1f1;
         }
 
-        .main {
+        .content {
             margin-left: 160px; 
             padding: 0px 10px;
         }
@@ -154,7 +153,7 @@
             <div class="category">
                 <select v-model="input_category">
                     <optgroup label="Pick category...">
-                        <option class="placeholder" value="" disabled hidden>Pick category...</option>
+                        <!-- <option class="placeholder" value="" disabled hidden>Pick category...</option> -->
                         <option value="random">Random</option>
                         <option v-for="category in categories" v-bind:value="category">{{category.name}}</option>
                     </optgroup>
@@ -168,10 +167,10 @@
                 <a href="https://www.oregonhumane.org/" target="blank">Adopt</a>
             </div>
         </div>
-        <div class="main">
-            <div class="polaroid"></div>
+        <div class="content">
+            <div class="film"></div>
             <img class="image" v-bind:src="image_gato"/>
-            <div class="caption">
+            <div class="writing">
                 <div>Meow...</div>
                 <button class="new-kitty" v-on:click="newKittyButton">→</button>
             </div>         

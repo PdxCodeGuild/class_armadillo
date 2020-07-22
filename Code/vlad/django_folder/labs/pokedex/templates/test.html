@@ -1,0 +1,71 @@
+<form action="{% url 'CountITapp:add_equipment_post' %}" method="POST">
+    {% csrf_token %}
+    {% comment %} just by taking the word container out of the div <div class="container"> it helped to allign the form
+        correctly {% endcomment %}
+        <div class="">
+
+            <div class="form-group">
+                <label for="equiname"> Equipment Name:</label>
+                <input type="text" class="form-control" id="equipment_name" value="{{ item.equipment_name }}"
+                    name="equipment_name" required />
+                <!-- We do not need a placeholder here because the form is already created and this is -->
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group">
+                <label for="equimodel">Equipment Model:</label>
+                <input type="text" class="form-control" id="equimodel" value="{{ item.equipment_model }}"
+                    name="equipment_model" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group">
+                <label for="atag">Asset Tag</label>
+                <input type="text" class="form-control" id="atag" value="{{ item.asset_tag }}" name="asset_tag"
+                    required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group">
+                <label for="stag">Service Tag</label>
+                <input type="text" class="form-control" id="stag" value="{{ item.service_tag }}" name="service_tag"
+                    required />
+                <!-- <div> {{ item.service_tag }}</div> -->
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group">
+                <label for="pdate">Purchase Date</label>
+                <input type="date" class="form-control" id="pdate" value="{{ item.purchase_date|date:'Y-m-d'}}"
+                    name="purchase_date" required />
+                <!-- <div> {{ item.purchase_date}}</div> -->
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group">
+                <label for="edate">Expiration Date</label>
+                <input type="date" class="form-control" id="edate" value="{{ item.expiration_date|date:'Y-m-d'}}"
+                    name="expiration_date" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group">
+                <label for="qty">Quantity</label>
+                <input type="text" class="form-control" id="qty" value="{{ item.quantity}}" name="quantity" required />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Comments:</label>
+                <textarea class="form-control" id="comm" name="comments"> {{item.comments}}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input id="btn_add" class="btn btn-primary" type="submit" value="Save">
+        </div>
+        <a id="btn_add" href="{% url 'CountITapp:index' %}" class="btn btn-primary bottom">Go Back to the Home
+            Page</a>
+</form>
+</div>

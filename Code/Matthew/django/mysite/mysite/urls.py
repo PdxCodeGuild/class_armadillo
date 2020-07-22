@@ -1,5 +1,7 @@
 
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path, include
 
 urlpatterns = [
@@ -12,4 +14,4 @@ urlpatterns = [
     path('pokedex/', include('pokedex.urls')),
     path('users/', include('users.urls')),
     path('', include('main.urls')), # the request will go to this one if it doesn't match any others
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

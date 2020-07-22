@@ -5,6 +5,7 @@
 {% block title %}List{% endblock %}
 
 {% block content %}
+    {% load static %}
     <div>
         <form action="{% url 'contacts:index' %}" method="post">
             {% csrf_token %}
@@ -16,6 +17,7 @@
     <div>{{contacts.object_list.count}}/{{contacts.paginator.count}} contacts shown{% if search %} for search text "{{search}}"{% endif %}</div>
     <table class="table">
         <tr>
+            <th></th>
             <th>Name</th>
             <th>Email</th>
             <th>Phone Number</th>
@@ -25,6 +27,13 @@
         </tr>
         {% for contact in contacts %}
         <tr>
+            <td>
+                {% if contact.profile_image %}
+                    <img src="{{contact.profile_image.url}}" width="50"/>
+                {% else %}
+                    <img src="{% static 'contacts/default_profile_picture.jpg' %}" width="50"/>
+                {% endif %}
+            </td>
             <td><a href="{% url 'contacts:detail' contact.id %}">{{contact.last_name}}, {{contact.first_name}}</a></td>
             <td><a href="mailto:{{contact.email}}">{{contact.email}}</a></td>
             <td><a href="tel:{{contact.phone_number}}">{{contact.formatted_phone_number}}</a></td>
@@ -34,6 +43,7 @@
         </tr>
         {% endfor %}
     </table>
+    {% if contacts.num_pages > 1 %}
     <div>
         {% if contacts.has_previous %}
             <a href="?page={{contacts.previous_page_number}}">&lt;</a>
@@ -43,6 +53,7 @@
             <a href="?page={{contacts.next_page_number}}">&gt;</a>
         {% endif %}
     </div>
+    {% endif %}
 
     {% comment %}
     <ul>

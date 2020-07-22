@@ -25,6 +25,8 @@ Front-end frameworks like **Vue**, **React** (Facebook), and **Angular** (Google
 - [Intro to Vue](https://vuejs.org/v2/guide/index.html)
 - [Cheat Sheet](https://www.vuemastery.com/pdf/Vue-Essentials-Cheat-Sheet.pdf)
 
+You may also want to install the [Vue.js devtools](https://github.com/vuejs/vue-devtools) for [chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en) and [firefox](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/).
+
 ## Including Vue
 
 You can include Vue in your page like so:
