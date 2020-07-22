@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast</title>
     <script src='secrets.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <style>
-        #Get_Weather_Forecast {
-
-        }
+        #Get_Weather_Forecast {}
     </style>
 </head>
 <body>
     <button type="button">Get Weather Forecast</button>
+    <h2>Weather Forecast for <span class="loc"></span></h2>
+    <div id="forecast">
+        <img id="current_pic" style="border-image-width: 500px;">
+
+    </div>
     <script>
 
-    let btn_get_weather = document.querySelector('#Get_Weather_Forecast')
-    
+        let btn_get_weather = document.querySelector('#Get_Weather_Forecast')
 
-    
-    navigator.geolocation.getCurrentPosition(position => {
-        let lat = position.coords.latitude
-        let long = position.coords.longitude
-    
+        navigator.geolocation.getCurrentPosition(position => {
+            let lat = position.coords.latitude
+            let long = position.coords.longitude
 
-        axios({
-        method: 'get',
-        url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude={part}&appid=${weather_api_key}`,
-        }).then((response) => {
-            let anchorage = response.data
-            console.log(anchorage)
-            let pic = anchorage.current.weather[0]
-            let temp = anchorage.current.temp
-            let dew = anchorage.current.dew_point
-            let wind = anchorage.current.wind_speed
+            axios({
+                method: 'get',
+                url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude={part}&appid=${weather_api_key}`,
+            }).then((response) => {
+                let anchorage = response.data
+                console.log(anchorage)
+                let unix_timestamp = 1592482891
+                let datetime = new Date(unix_timestamp*1000)
+                console.log(datetime)
+                let pic = anchorage.current.weather[0].icon
+                let location = anchorage.timezone
+                let temp = anchorage.current.temp
+                let dew = anchorage.current.dew_point
+                let wind = anchorage.current.wind_speed
+                let current_pic = document.querySelector("#current_pic")
+                current_pic.src = "http://openweathermap.org/img/wn/" + pic + ".png"
+                document.querySelector('.loc').innerHTML = location
+            })
         })
-    })
     </script>
 </body>
 </html>
