@@ -7,21 +7,32 @@
     <title>Weather Forecast</title>
     <script src='secrets.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <style>
-        #Get_Weather_Forecast {}
+        #forecast {
+            text-align: center;
+        }
     </style>
 </head>
-<body>
-    <button type="button">Get Weather Forecast</button>
-    <h2>Weather Forecast for <span class="loc"></span></h2>
-    <div id="forecast">
-        <img id="current_pic" style="border-image-width: 500px;">
 
+<body>
+    <div id="forecast">
+        <h2>Current Weather Forecast for <span class="loc"></span> as of <div class="current_t"></div></h2>
+        <img id="current_pic" style="border-image-width: 500px;">
+        <b>
+            <div class="wx" id="description"></div>
+        </b>
+        <div class="wx" id="temp"></div>
+        <div class="wx" id="dewpoint"></div>
+        <div class="wx" id="humidity"></div>
     </div>
     <script>
-
-        let btn_get_weather = document.querySelector('#Get_Weather_Forecast')
+        let current_pic = document.querySelector("#current_pic")
+        let description = document.querySelector('#description')
+        let temp = document.querySelector('#temp')
+        let dewpoint = document.querySelector('#dewpoint')
+        let humidity = document.querySelector('#humidity')
 
         navigator.geolocation.getCurrentPosition(position => {
             let lat = position.coords.latitude
@@ -29,23 +40,30 @@
 
             axios({
                 method: 'get',
-                url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude={part}&appid=${weather_api_key}`,
+                url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly,daily&appid=${weather_api_key}`,
             }).then((response) => {
                 let anchorage = response.data
                 console.log(anchorage)
-                let unix_timestamp = 1592482891
-                let datetime = new Date(unix_timestamp*1000)
-                console.log(datetime)
+                let current_unix = anchorage.current.dt
+                let current_time = new Date(current_unix * 1000)
+                console.log(current_time)
                 let pic = anchorage.current.weather[0].icon
                 let location = anchorage.timezone
-                let temp = anchorage.current.temp
+                let temps = anchorage.current.temp
                 let dew = anchorage.current.dew_point
                 let wind = anchorage.current.wind_speed
-                let current_pic = document.querySelector("#current_pic")
+                let TP = ((temps - 273.15) * 9 / 5 + 32).toFixed()
+                let DP = ((dew - 273.15) * 9 / 5 + 32).toFixed()
+                description.innerText = anchorage.current.weather[0].description
+                temp.innerText = `Temperature: ${TP}°F`
+                dewpoint.innerText = `Dewpoint: ${DP}°F`
+                humidity.innerText = `Humidity: ${anchorage.current.humidity}%`
                 current_pic.src = "http://openweathermap.org/img/wn/" + pic + ".png"
                 document.querySelector('.loc').innerHTML = location
+                document.querySelector('.current_t').innerHTML = current_time
             })
         })
     </script>
 </body>
+
 </html>
