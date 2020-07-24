@@ -8,4 +8,5 @@ def base(request):
 
 
 def index(request):
-    return render(request, 'contacts/index.html')
+    context = {}
+    return render(request, 'contacts/index.html', context)
