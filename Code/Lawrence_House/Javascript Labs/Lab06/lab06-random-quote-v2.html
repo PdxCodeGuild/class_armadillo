@@ -13,31 +13,39 @@
         #quote_author {
             text-align:right;
         }
+        #searchbox {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <div id="quote_body">
+    <h1>Wise quotes of the world</h1>
+    <div id="searchbox">
+        <input type="text" id="quote_type" placeholder="Enter the quote type you want">
+        <button name="search" type="button" id="search">Search for Quotes</button>
     </div>
-    <div id="quote_author">
+    <div class="quote_list">
+        <ol id="quotes"></ol>
     </div>
-<input type="text" name="quote_type">Enter the quote type you want
-</input>
-<button name="search">
     <script>
-        let url = 'https://favqs.com/api/qotd'
-        axios({
-            method: 'get',
-            url: url,
-            headers: {
-                'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'
-            },
-        }).then((response) => {
-            console.log(response.data)
-            let q = response.data
-            console.log(q['quote']['body'])
-            document.getElementById('quote_body').innerHTML = q['quote']['body']
-            document.getElementById('quote_author').innerHTML = q['quote']['author']
-        })
+        search.addEventListener('click', function () {
+            let search = document.querySelector('#quote_type').value
+            let url = `https://favqs.com/api/quotes/?filter=${search}`
+            let quotes = document.querySelector('#quotes')
+            axios({
+                method: 'get',
+                url: url,
+                headers: {
+                    'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'
+                },
+            }).then((response) => {
+                let q = response.data.quotes
+                quotes.innerHTML = ""
+                for (let i = 0; i < q.length; i++) {
+                    quotes.innerHTML = quotes.innerHTML + (`<li>"${q[i].body}" - <u>${q[i].author}</u></li>` + '<br />')
+                }
+            })
+        })  
     </script>
 </body>
 </html>
