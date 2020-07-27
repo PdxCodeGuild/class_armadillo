@@ -18,9 +18,6 @@
     <h2>Enter your number to be validated</h2>
     <input type="text" id="cc_digit" placeholder="Card Number" />
     <button id="check">click</button>
-    <div id="result">
-        <p>{{cc_digits}}</p>
-    </div>
     <script>
 
         let submit = document.querySelector('#check');
@@ -34,11 +31,11 @@
             // Reverse the digits
             cc_digits.reverse()
 
-            for (let i = 0; i < cc_digits; i += 2) {
+            for (let i = 0; i < cc_digits.length; i += 2) {
                 cc_digits[i] *= 2
             }
 
-            for (let i = 0; i < cc_digits; ++i) {
+            for (let i = 0; i < cc_digits.length; ++i) {
                 if (cc_digits[i] > 9) {
                     cc_digits[i] -= 9
                 }
