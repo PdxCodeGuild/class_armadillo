@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        div.poke_container {
+            margin-bottom: 20px;
+            margin-top: 20px;
+
+        }
+
+        body {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Pokedex</h1>
+
+    <form class="form" action="{% url 'pokedex:index' %}" method="post">
+        {% csrf_token %}
+        <input id="search" size=50px type="text" placeholder="Search For Pokemon" name="search_pokemon">
+        <button class="btn" type="submit">Search</button>
+    </form>
+
+
+    {% for p in pokemon %}
+    <div class="poke_container">
+        <div>{{p.name}} <i>(#{{p.number}})</i></div>
+        <div>
+            <img src="{{p.image_front}}" /><img src="{{p.image_back}}" />
+            <div>Height: {{p.height}}</div>
+            <div>Weight: {{p.weight}}</div>
+            <div>Type:
+                {% for item in p.types.all %}
+                {{item}}
+                {% endfor %}
+            </div>
+            <div class="text"><a href='{{p.url}}'>Wikipedia</a></div>
+        <hr>
+        </div>
+    </div>
+
+
+    {% endfor %}
+
+
+
+</body>
+
+</html>
