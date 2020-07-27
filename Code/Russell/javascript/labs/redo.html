@@ -13,7 +13,7 @@
 
     <div id="app">
         <h1>Unit Converter</h1> 
-        <p>Enter ft, km, m, km, in, m</p>
+        <p>Enter ft, km, mi, km, in, m</p>
         <input type="text" v-model="input_distance" placeholder="distance">
         <input type="text" v-model="input_from" placeholder="convert from">
         <input type="text" v-model="input_to" placeholder="convert to">
@@ -21,6 +21,7 @@
 
         <div>
           {{converted_num[0]}} 
+         
         
         </div>
         
@@ -51,6 +52,7 @@
                     let output = this.input_distance * this.conv_dict[this.input_from] / this.conv_dict[this.input_to]
                     console.log(output)
                     this.converted_num.push(output)
+                    
                 }
 
             }  
