@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Validation</title>
+    <style>
+        body {
+            background-color: rgb(58, 58, 99);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CCV App -NOT A SCAM-</h1>
+
+    <h2>Enter your number to be validated</h2>
+    <input type="text" id="cc_digit" placeholder="Card Number" />
+    <button id="check">click</button>
+    <div id="result">
+        <p>{{cc_digits}}</p>
+    </div>
+    <script>
+
+        let submit = document.querySelector('#check');
+        submit.addEventListener('click', function () {
+            // Slice off the last digit. that is the check digit
+            let cc_digits = document.getElementById('cc_digit').value.split('').map(function (item) {
+                return parseInt(item, 10);
+            });
+            let check_digit = cc_digits.pop(-1);
+
+            // Reverse the digits
+            cc_digits.reverse()
+
+            for (let i = 0; i < cc_digits; i += 2) {
+                cc_digits[i] *= 2
+            }
+
+            for (let i = 0; i < cc_digits; ++i) {
+                if (cc_digits[i] > 9) {
+                    cc_digits[i] -= 9
+                }
+            }
+
+            var sum = 0
+            for (var i = 0; i < cc_digits.length; i++) {
+                sum += cc_digits[i]
+            }
+
+            cc_digits = sum
+
+            let last_check = cc_digits % 10
+
+
+            if (check_digit == last_check) {
+                alert('valid')
+            } else {
+                alert('invalid')
+            }
+
+        })
+
+
+    </script>
+</body>
+
+</html>

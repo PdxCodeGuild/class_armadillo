@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let user_distance = Math.floor(prompt("What is the distance? "))
+        let user_unit = prompt("What are the input units? ")
+        let user_output = prompt("What are the output units? ")
+
+
+        if (user_unit == 'mi' || user_unit == 'mile') {
+            meter_output = (user_distance * 1609.34);
+        } else if (user_unit == 'ft' || user_unit == 'feet') {
+            meter_output = (user_distance * 0.3048);
+        } else if (user_unit == 'km' || user_unit == 'kilometer') {
+            meter_output = (user_distance * 1000);
+        } else if (user_unit == 'm' || user_unit == 'meter') {
+            meter_output = (user_distance * 1);
+        } else if (user_unit == 'yd' || user_unit == 'yard') {
+            meter_output = (user_distance * 0.9144);
+        } else if (user_unit == 'in' || user_unit == 'inch') {
+            meter_output = (user_distance * 0.0254);
+        } else {
+            alert("Enter a unit type!")
+        }
+
+        alert(meter_output)
+
+        if (user_output == 'mi' || user_output == 'mile') {
+            distance_output = (meter_output / 1609.34);
+        } else if (user_output == 'ft' || user_output == 'feet') {
+            distance_output = (meter_output / 0.3048);
+        } else if (user_output == 'km' || user_output == 'kilometer') {
+            distance_output = (meter_output / 1000);
+        } else if (user_output == 'm' || user_output == 'meter') {
+            distance_output = (meter_output / 1);
+        } else if (user_output == 'yd' || user_output == 'yard') {
+            distance_output = (meter_output / 0.9144);
+        } else if (user_output == 'in' || user_output == 'inch') {
+            distance_output = (meter_output / 0.0254);
+        } else {
+            alert("Enter an output unit!")
+        }
+
+        alert(user_distance + user_unit + " is " + distance_output + user_output)
+    </script>
+</body>
+
+</html>
