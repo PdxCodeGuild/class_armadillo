@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
 </head>
+
 <body>
     <div class="row">
         <div class="col-6">
             <div>
                 <h1>{{title}}</h1>
+                <h2>Enter the pokemon you wish to find</h2>
+                <form class="form" action="{% url 'pokedex:index' %}" autocomplete="off" method="POST">
+                    {% csrf_token %}
+                    <input id="search" type="text" placeholder="Pokemon Name" name="poke_search" />
+                    <button class="btn" type="submit">Search</button>
+                </form>
+            </div>
+            <div>
                 <ol>
-                    {% for pokemon in pokemons %}
-                    <img src="{{pokemon.image_front}}"><img src="{{pokemon.image_back}}"><li><h2>{{pokemon.name}}</h2></li>
+                    {% for toon in pokemon %}
+                    <img src="{{toon.image_front}}"><img src="{{toon.image_back}}">
+                    <li>
+                        {{toon.name}}
+                    </li>
                     {% endfor %}
                 </ol>
             </div>
+        </div>
+    </div>
 </body>
+
 </html>

@@ -43,10 +43,8 @@
                 url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly,daily&appid=${weather_api_key}`,
             }).then((response) => {
                 let anchorage = response.data
-                console.log(anchorage)
                 let current_unix = anchorage.current.dt
                 let current_time = new Date(current_unix * 1000)
-                console.log(current_time)
                 let pic = anchorage.current.weather[0].icon
                 let location = anchorage.timezone
                 let temps = anchorage.current.temp
