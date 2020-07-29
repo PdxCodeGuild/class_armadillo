@@ -1,16 +1,21 @@
-from django.shortcuts import render, get_object_or_404, reverse
-from .models import Pokemon
-from django.http import Http404, HttpResponse, HttpResponseRedirect
+from django.shortcuts import render
+from .models import Pokemon, PokemonType
+from django.http import HttpResponse, HttpResponseRedirect
+from django.db.models import Q
 
-# Create your views here.
 
 def index(request):
-    pokemans = Pokemon.objects.all()
+    pokemon = Pokemon.objects.all()
+    search = ''
+
+    if request.method == 'POST':
+        search = request.POST['poke_search']
+        pokemon = pokemon.filter(Q(name__icontains=search)
+        | Q(number__icontains=search)
+        | Q(types__name__icontains=search))
+
     context = {
         'title': 'Pokedex!',
-        'pokemons': pokemans,
+        'pokemon': pokemon,
     }
     return render(request, 'pokedex/index.html', context)
-
-# def detail(request):
-#     pass
