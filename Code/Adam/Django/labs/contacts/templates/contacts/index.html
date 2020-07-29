@@ -1,9 +1,24 @@
 {% extends 'contacts/base.html' %}
 
-{% block title %}Index{% endblock %}
+{% block title %}Contacts{% endblock %}
 
 {% block content %}
 
-<p><b>This will be the index page</b></p>
+<table>
+    <tr>
+        <th><b>Name</b></th>
+        <th><b>Birthday</b></th>
+        <th><b>Age</b></th>
+        <th><b>Phone Number</b></th>
+    </tr>
+    {% for contact in contacts %}
+    <tr>
+        <td>{{contact.last_name}}, {{contact.first_name}}</td>
+        <td>{{contact.birthday}}</td>
+        <td>{{contact.age}}</td>
+        <td><a href="tel:{{contact.phone_number}}">{{contact.phone_number}}</a></td>
+    </tr>
+    {% endfor %}
+</table>
 
 {% endblock %}
