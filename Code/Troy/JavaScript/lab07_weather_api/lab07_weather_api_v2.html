@@ -4,22 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="owfont-regular.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <script src="Secrets.js"></script>
+    <script src="Secrets.js"></script>   
     <title>Weather API</title>
 </head>
 
 <body>
+    <div>
+        <span id="weather_location"></span>
+        <span id="weather_date"></span>
+        <span id="weather"></span>
+    </div>
     <button id="btn_getLocation">Submit</button>
 
     <script>
 
+        let weather_location = document.querySelector("#weather_location");
+        let weather_date = document.querySelector("#weather_date");
+        let weather = document.querySelector("#weather");
         let btn_getLocation = document.querySelector("#btn_getLocation");
 
 
         navigator.geolocation.getCurrentPosition(position => {
-            let user_latitude = (position.coords.latitude)
-            let user_longitude = (position.coords.longitude)
+            let user_latitude = (position.coords.latitude);
+            let user_longitude = (position.coords.longitude);
+            let user_location = [user_latitude, user_longitude];
         })
 
         let url = `https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&
@@ -27,13 +37,7 @@ exclude=hourly,daily&appid=${Weather_API_Key}`
 
         axios({
             method: "get",
-            url: url,
-            headers: {
-                Weather_API_Key
-            }
-            params: {
-                
-            }
+            url: url,            
         }).then(response => {
             console.log(response.data)
         })
