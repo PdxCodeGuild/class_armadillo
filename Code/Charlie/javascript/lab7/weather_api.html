@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="secrets.js"></script>
     <style>
-        body{
+        body {
             text-align: center;
             align-content: center;
         }
@@ -16,32 +16,43 @@
 </head>
 
 <body>
-    
+
     <div class="outer">
         <div class="inner">
-            <i class= " " id="image"/></i>
-            <div class="weather" id="description" ></div></b>
-            <div class="weather" id="temp" ></div>
-            <div class="weather" id="humidity" ></div>   
+            <div class="weather" id="description"></div>
+            <div class="weather" id="temp"></div>
+            <div class="weather" id="humidity"></div>
         </div>
     </div>
     <script>
+
         let description = document.querySelector('#description')
-        let image = document.querySelector('#image')
         let temp = document.querySelector('#temp')
         let humidity = document.querySelector('#humidity')
+        
+        navigator.geolocation.getCurrentPosition(position => {
+            console.log('hi')
+            console.log(position.coords.latitude)
+            console.log(position.coords.longitude)
+            let userLatitude = position.coords.latitude
+            let userLongitude = position.coords.longitude
 
-        axios({
-            method: 'get',
-            url: `https://api.openweathermap.org/data/2.5/onecall?lat=45.1983794&lon=-122.3906347&exclude=hourly,daily&appid=${api_key}`,
-        }).then(response => {
-                      
-            description.innerText = response.data.current.weather[0].description
-            let temps = response.data.current.temp
-            let acutal_temp = ((temps - 273.15) * 9/5 + 32).toFixed()
-            temp.innerText = `${acutal_temp}°F  🌡️`
-            humidity.innerText = `${response.data.current.humidity}%  💦`
-        })    
+
+            console.log(userLatitude)
+            axios({
+                method: 'get',
+                url: `https://api.openweathermap.org/data/2.5/onecall?lat=${userLatitude}&lon=${userLongitude}&exclude=hourly,daily&appid=${weather_api}`,
+            }).then(response => {
+
+
+
+                description.innerText = response.data.current.weather[0].description
+                let temps = response.data.current.temp
+                let acutal_temp = ((temps - 273.15) * 9 / 5 + 32).toFixed()
+                temp.innerText = `${acutal_temp}°F  🌡️`
+                humidity.innerText = `${response.data.current.humidity}%  💦`
+            })
+        })  
     </script>
 </body>
 

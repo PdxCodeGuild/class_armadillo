@@ -1,0 +1,64 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<div class="container">
+    <h1>Register</h1>
+    <div class="alert alert-warning" role="alert" style="display:none" id="password_match_alert">
+        Your passwords don't match!
+    </div>
+    {% if warning %}
+    <div class="alert alert-warning" role="alert">
+        {{warning}}
+    </div>
+    {% endif %}
+    <form action="{% url 'users:register' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="input_username">Username</label>
+            <input type="text" class="form-control" id="input_username" name="username" required autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="input_email">Email Address</label>
+            <input type="email" class="form-control" id="input_email" name="email" required autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="input_phone_number">Phone Number</label>
+            <input type="text" class="form-control" id="input_phone_number" name="phone_number" required autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="input_password">Password</label>
+            <input type="password" class="form-control" id="input_password" name="password" required autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="input_retype_password">Retype Password</label>
+            <input type="password" class="form-control" id="input_retype_password" name="retype_password" required autocomplete="off">
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="cb_agree" required>
+            <label class="form-check-label" for="cb_agree">I agree to the terms and conditions</label>
+        </div>
+        <div class="g-recaptcha" data-sitekey="6LdkGqwZAAAAAIqpizwPB2RbWsPEny9-g9P2kvoJ"></div>
+        <button id="btn_submit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div>Already have an account? <a href="{% url 'users:login' %}">Login</a></div>
+
+</div>
+<script type="text/javascript">
+    let btn_submit = document.querySelector('#btn_submit')
+    let input_password = document.querySelector('#input_password')
+    let input_retype_password = document.querySelector('#input_retype_password')
+    let password_match_alert = document.querySelector('#password_match_alert')
+    btn_submit.addEventListener('click', function(event) {
+
+        if (input_password.value != input_retype_password.value) { // if the passwords entered aren't equal
+            event.preventDefault() // prevent the form submission
+            password_match_alert.style.display = ''
+            window.scrollTo(0, 0)
+        }
+    })
+</script>
+{% endblock %}

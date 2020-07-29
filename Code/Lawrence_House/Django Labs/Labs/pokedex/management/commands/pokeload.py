@@ -8,6 +8,9 @@ import requests
 class Command(BaseCommand):
     def handle(self, *args, **options):
 
+        Pokemon.objects.all().delete()
+        PokemonType.objects.all().delete()
+
         with open('pokemon.json', 'r') as file:
             text = file.read()
             data = json.loads(text)

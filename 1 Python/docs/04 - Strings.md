@@ -1,6 +1,31 @@
 
 # Strings
 
+- [Strings](#strings)
+  - [String Literals](#string-literals)
+  - [Escape Sequences](#escape-sequences)
+  - [Raw Strings](#raw-strings)
+  - [Ascii Codes](#ascii-codes)
+  - [String Operations](#string-operations)
+    - [Concatenation: `a + b`, `a += b`](#concatenation-a--b-a--b)
+    - [Multiplication: `a * b`, `a *= b`](#multiplication-a--b-a--b)
+    - [Length: len(a)](#length-lena)
+    - [Access: `a[i]`](#access-ai)
+    - [Slicing: `a[i:j]`, `a[i:j:k]`](#slicing-aij-aijk)
+    - [Find: `a.find(b)`](#find-afindb)
+    - [Converting Case: `a.upper()`, `a.lower()`](#converting-case-aupper-alower)
+    - [Starts-with and Ends-with: `startswith`, `endswith`](#starts-with-and-ends-with-startswith-endswith)
+    - [Replace `a.replace(b, c)`](#replace-areplaceb-c)
+    - [Strip `a.strip()`](#strip-astrip)
+    - [Split: `a.split(b)`](#split-asplitb)
+    - [Delimeter: `a.join(b)`](#delimeter-ajoinb)
+    - [Count: `a.count(b)`](#count-acountb)
+  - [f-strings](#f-strings)
+  - [`in`](#in)
+  - [`for char in text:`](#for-char-in-text)
+  - [Docstrings](#docstrings)
+
+
 Strings represent text in Python. Strings in Python are encoded in Unicode, which means their reach extends far beyond ASCII. You can use Chinese characters, Arabic characters, and more.
 
 ## String Literals
@@ -64,6 +89,7 @@ Prefixing a string with 'r' will ignore any escape sequences and interpret the s
 r'this is a raw string \n\t\\'
 ```
 > this is a raw string \n\t\\\\
+
 
 ## Ascii Codes
 

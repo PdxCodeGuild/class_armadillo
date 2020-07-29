@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    <div id="date">Today</div>
+    <h2><div id="date">Today</div></h2>
     <div id="clock_container">00:00:00</div>
     <script>
 
@@ -26,7 +26,7 @@
         var sec = time.getSeconds();
         var meri = "AM"
 
-        if (hrs > 12) {
+        if (hrs >= 12) {
             meri = "PM"
         }
 

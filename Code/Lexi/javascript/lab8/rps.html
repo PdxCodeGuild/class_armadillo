@@ -46,11 +46,7 @@
           instruction: 'You loaded this page on ' + new Date().toLocaleString(),
           seen: true,
           userEntry: '',
-          options: [
-              {text: 'scissors'},
-              {text: 'paper'},
-              {text: 'rock'},
-          ],
+   
           choices: ['rock', 'paper', 'scissors'],
           result: '',
           
@@ -77,9 +73,12 @@
               }
           }
       });
-      
+    console.log(this.choices)  // doesn't have same meaning outside 'app'
+    console.log(app.choices)
     </script>
   </body>
 </html>
 
-<!--mistake:  line71:  }else if(this.userEntry == (computer_choice+1)%3){-->
+<!--mistake:  line71:  }else if(this.userEntry == (computer_choice+1)%3){
+                        comparing integer to string-->
+                        <!--this means the data-->

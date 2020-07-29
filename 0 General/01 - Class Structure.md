@@ -16,6 +16,7 @@
     - [Labs](#labs)
     - [Pair, Group, & Mob Programming](#pair-group--mob-programming)
     - [Student Presentations](#student-presentations)
+      - [Capstone Presentation](#capstone-presentation)
   - [Rough Timeline](#rough-timeline)
   - [Code of Conduct](#code-of-conduct)
   - [Academic Honesty](#academic-honesty)
@@ -122,7 +123,10 @@ At the end of the Python and JavaScript sections, you'll give a presentation on 
 
 These presentations help you practice communicating technical topics in English. Being able to speak intelligently about programming is almost as important as programming itself. This skill will allow you to better talk to interviewers, managers, clients, coworkers, and more.
 
-In all three presentations, you should first explain the development process and the different parts of your code. Then run the application and show its features and interaction (entering data, seeing results, etc). Here are some questions to contemplate while planning out your presentation:
+
+#### Capstone Presentation
+
+For your capstone presentation, you should plan out what features of your project you'll want to present. The recommended order is to first talk about your inspiration, then walk them through the features of application, then talk about the development process and show some code. Here are some questions to contemplate while planning out your presentation:
 
 - What was your inspiration? What was your vision? What problem does your application solve? what is the core function it performs?
 - how did you go about planning? what major issues did you encounter during the course of development? how did you go about overcoming them?

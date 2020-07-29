@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Todo List</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        .delete_todo_button {
+            cursor:pointer;
+            color:red;
+        }
+        .delete_todo_button:hover {
+            color:orange;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>The Ultimate Todo List</h1>
+    <div id="app">
+        <div>
+            <input type="text" v-model="input_todo_text" placeholder="todo text"/>
+            <select v-model="input_todo_priority_id">
+                <option v-for="priority in priorities" v-bind:value="priority.id">[[priority.name]]</option>
+            </select>
+            <button v-on:click="addTodo">add todo</button>
+        </div>
+        <ul>
+            <li v-for="todo in todos">
+                <span>[[todo.priority]]</span>
+                <span>[[todo.text]]</span>
+                <span class="delete_todo_button" v-on:click="deleteTodo(todo.id)">✗</span>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app',
+            delimiters: ['[[', ']]'],
+            // delimiters: ['<%', '%>'],
+            data: {
+                todos: [],
+                priorities: [],
+                input_todo_text: '',
+                input_todo_priority_id: '1'
+            },
+            methods: {
+                getTodos: function() {
+                    axios({
+                        method: 'get',
+                        url: "{% url 'main:get_todos' %}"
+                    }).then(response => {
+                        // console.log(response.data)
+                        this.todos = response.data.todo_items
+                    })
+                },
+                addTodo: function() {
+                    // console.log(this.input_todo_text)
+                    // console.log(this.input_todo_priority_id)
+                    axios({
+                        method: 'post',
+                        url: '{% url "main:add_todo" %}',
+                        data: {
+                            todo_text: this.input_todo_text,
+                            todo_priority_id: this.input_todo_priority_id
+                        },
+                        headers: {
+                            'X-CSRFToken': '{{csrf_token}}'
+                        }
+                    }).then(response => {
+                        console.log(response)
+                        this.getTodos()
+                        this.input_todo_text = ''
+                    })
+                },
+                deleteTodo: function(todo_item_id) {
+                    axios({
+                        method: 'post',
+                        url: '{% url "main:delete_todo" %}',
+                        data: {
+                            todo_item_id: todo_item_id
+                        },
+                        headers: {
+                            'X-CSRFToken': '{{csrf_token}}'
+                        }
+                    }).then(response => {
+                        this.getTodos()
+                    })
+                }
+            },
+            created: function() {
+
+                this.getTodos()
+                axios({
+                    method: 'get',
+                    url: "{% url 'main:get_priorities' %}"
+                }).then(response => {
+                    // console.log(response.data)
+                    this.priorities = response.data.priorities
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

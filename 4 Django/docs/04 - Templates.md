@@ -129,6 +129,9 @@ Django also requires a CSRF token to be submitted as part of the form. CSRF stan
 
 To load static files into a page, create a folder in your app called `static`. Inside that folder, create a folder with the same name as your app (just as you did with templates). In your template, you then must add `{% load static %}` before you load your static file.
 
+- [Managing Static Files](https://docs.djangoproject.com/en/3.0/howto/static-files/)
+- [Polls Tutorial: Part 6](https://docs.djangoproject.com/en/3.0/intro/tutorial06/)
+
 ```html
 {% load static %}
 <img src="{% static 'todos/example.jpg' %}" alt="My image"/>
