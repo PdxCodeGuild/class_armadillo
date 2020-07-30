@@ -13,7 +13,7 @@
     </tr>
     {% for contact in contacts %}
     <tr>
-        <td>{{contact.last_name}}, {{contact.first_name}}</td>
+        <td><a href="{% url 'contacts:detail' contact.id %}">{{contact.last_name}}, {{contact.first_name}}</a></td>
         <td>{{contact.birthday}}</td>
         <td>{{contact.age}}</td>
         <td><a href="tel:{{contact.phone_number}}">{{contact.phone_number}}</a></td>

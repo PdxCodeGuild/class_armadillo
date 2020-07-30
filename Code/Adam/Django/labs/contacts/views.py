@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
 from .models import Contact
@@ -18,11 +18,15 @@ def index(request):
 
 
 def detail(request, contact_id):
-    return HttpResponse('detail page for contact with id ' + str(contact_id))
+    contact = get_object_or_404(Contact, id=contact_id)
+    context = {
+        'contact': contact
+    }
+    return render(request, 'contacts/detail.html', context)
 
 
 def new(request):
-    return HttpResponse('new contact page')
+    return render(request, 'contacts/new.html')
 
 
 def new_save(request):
