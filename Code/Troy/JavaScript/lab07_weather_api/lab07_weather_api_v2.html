@@ -35,8 +35,11 @@
 </head>
 
 <body>
+    <!--header of page  -->
     <h2>Today's Weather Info</h2>
+    <!-- thermometer pic -->
     <img class="thermometers" src="css/thermometers.jpg">
+    <!-- div for data being displayed with labels -->
     <div class="weather_display">
         <label for="current_temp">Current Temperature: </label>
         <span class="weather" id="current_temp"></span></br>
@@ -46,17 +49,22 @@
         <span class="weather" id="wind_speed"></span></br>
         <label for="description">Currently: </label>
         <span class="weather" id="description"></span></br>
+        <!-- <img class="icon" id="display_icon"/> -->
+        <div id="icon"></div>
     </div>
-    <img class="current_skies" src="http://openweathermap.org/img/wn/01d.png" />
+    <!-- image  -->
+    <!-- <img class="current_skies" src="http://openweathermap.org/img/wn/01d.png" /> -->
     <script>
 
         let current_temp = document.querySelector("#current_temp");
         let feels_like_temp = document.querySelector("#feels_like");
         let wind_speed = document.querySelector("#wind_speed");
         let description = document.querySelector("#description");
+        let icon = document.querySelector("#icon")
+        
 
         let latitude
-        let longitude
+        let longitude        
 
         navigator.geolocation.getCurrentPosition(position => {
             latitude = position.coords.latitude;
@@ -65,23 +73,25 @@
             let weather_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&
             exclude=hourly,daily&units=imperial&appid=${Weather_API_Key}`
 
+            
             let unix_timestamp = 1596062506
             let datetime = new Date(unix_timestamp * 1000)
             console.log(datetime)
-
+            
             axios({
                 method: "get",
                 url: weather_url,
             }).then(response => {
                 console.log(response.data)
                 current_data = response.data.current.weather[0].id
-                // console.log(current_data)
-                // document.getElementById("temp").className = `owf owf-${current_data}-d owf-5x owf-pull-left`
                 description.innerText = response.data.current.weather[0].description
                 current_temp.innerText = response.data.current.temp
                 feels_like_temp.innerText = response.data.current.feels_like
                 wind_speed.innerText = response.data.current.wind_speed
-
+                src = `http://openweathermap.org/img/wn/${response.data.current.weather[0].icon}.png` 
+                picture = document.createElement("img")
+                picture.src = src
+                icon.appendChild(picture)
             })
         })
 
