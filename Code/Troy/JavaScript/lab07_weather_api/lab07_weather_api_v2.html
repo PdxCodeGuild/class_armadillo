@@ -49,13 +49,12 @@
         <span class="weather" id="wind_speed"></span></br>
         <label for="description">Currently: </label>
         <span class="weather" id="description"></span></br>
-        <!-- <img class="icon" id="display_icon"/> -->
+        <!-- div to display icon from API -->
         <div id="icon"></div>
     </div>
-    <!-- image  -->
-    <!-- <img class="current_skies" src="http://openweathermap.org/img/wn/01d.png" /> -->
+    
     <script>
-
+        // script for HTML elements
         let current_temp = document.querySelector("#current_temp");
         let feels_like_temp = document.querySelector("#feels_like");
         let wind_speed = document.querySelector("#wind_speed");
@@ -65,19 +64,19 @@
 
         let latitude
         let longitude        
-
+        // function to get current location
         navigator.geolocation.getCurrentPosition(position => {
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;
-
+            // weather API call as a template literal
             let weather_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&
             exclude=hourly,daily&units=imperial&appid=${Weather_API_Key}`
 
-            
+            // date-time conversion
             let unix_timestamp = 1596062506
             let datetime = new Date(unix_timestamp * 1000)
             console.log(datetime)
-            
+            // axios call for weather API and data results 
             axios({
                 method: "get",
                 url: weather_url,
@@ -94,8 +93,6 @@
                 icon.appendChild(picture)
             })
         })
-
-
     </script>
 </body>
 
