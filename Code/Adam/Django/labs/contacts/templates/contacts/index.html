@@ -2,8 +2,10 @@
 
 {% block title %}Contacts{% endblock %}
 
-{% block content %}
+{% block navbar %} - Index{% endblock %}
 
+{% block content %}
+<a href="{% url 'contacts:new' %}">Add Contact</a>
 <table>
     <tr>
         <th><b>Name</b></th>
