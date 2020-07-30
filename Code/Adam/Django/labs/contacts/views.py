@@ -44,7 +44,7 @@ def new_save(request):
                       birthday=contact_birthday,
                       phone_number=contact_phone_number,
                       is_cell=contact_is_cell,
-                      comment=contact_comments)
+                      comments=contact_comments)
 
     contact.save()
 
