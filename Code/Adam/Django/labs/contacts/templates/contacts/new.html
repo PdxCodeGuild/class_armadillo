@@ -5,7 +5,7 @@
 {% block navbar %} - New Contact{% endblock %}
 
 {% block content %}
-<a href="{% url 'contacts:index' %}">previous</a>
+
 <form action="{% url 'contacts:new_save' %}" method="post">
     <ul>
         {% csrf_token %}
