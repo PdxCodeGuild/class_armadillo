@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact Index</title>
 </head>
 <body>
     <h1>{{title}}</h1>
     <ul>
         {% for contacts in contact %}
-        <li>{{contact.first_name}}</li>
+        <li>
+            <b>{{contacts.first_name}} {{contacts.last_name}}</b><a href="{% url 'contactsapp:detail' contacts.id %}"> <button type="submit">View Contact</button></a>
+        </li>
         {%endfor%}
     </ul>
+    <div>
+        <a href="{% url 'contactsapp:contactsnew' %}">  <button type="submit">New Contact</button></a>
+    </div>
 </body>
 </html>
