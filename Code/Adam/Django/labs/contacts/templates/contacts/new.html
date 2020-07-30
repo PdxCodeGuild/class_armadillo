@@ -5,7 +5,7 @@
 {% block navbar %} - New Contact{% endblock %}
 
 {% block content %}
-
+<a href="{% url 'contacts:index' %}">previous</a>
 <form action="{% url 'contacts:new_save' %}" method="post">
     <ul>
         {% csrf_token %}
@@ -21,8 +21,7 @@
         <li><label for="input_phone_number">Phone Number: </label></li>
         <li><input id="input_phone_number" type="text" name="contact_phone_number" /></li>
 
-        <li><label for="input_is_cell">Cellphone? </label></li>
-        <li><input id="input_is_cell" type="checkbox" name="contact_is_cell" /></li>
+        <li><label for="input_is_cell">Cellphone? </label>  <input id="input_is_cell" type="checkbox" name="contact_is_cell" /></li>
 
         <li><label for="input_comments">Comments: </label></li>
         <li><textarea id="input_comments" name="contact_comments"></textarea></li>
