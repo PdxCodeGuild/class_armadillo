@@ -15,8 +15,52 @@
         background-color: black;
         color: #34ff56de;
         margin: 0px;
-        width: 100%; 
+        width: 100%;
         padding: 0;
+    }
+
+    table {
+        /* background-color: rgba(0, 0, 0, 0.425); */
+        margin: auto;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table,
+    td,
+    th {
+        border: 1px solid #34ff56de;
+        text-align: -webkit-center;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    input {
+        border: 2px solid #34ff56de;
+        border-radius: 4px;
+        background-color: black;
+        color: #34ff56de;
+    }
+
+    textarea {
+        border: 2px solid #34ff56de;
+        border-radius: 4px;
+        background-color: black;
+        color: #34ff56de;
+    }
+
+    button {
+        border: 2px solid #34ff56de;
+        border-radius: 4px;
+        background-color: black;
+        color: #34ff56de;
+    }
+    button:hover {
+        background-color: #4CAF50;
+        color: black;
     }
 </style>
 
@@ -24,7 +68,7 @@
     <div class="container-fluid">
         <!-- <nav class="navbar navbar-dark bg-dark"> -->
         <nav class="navbar navbar-light" style="background-color: #34ff56de;">
-            <span class="navbar-brand mb-0 h1"><b>Contacts</b></span>
+            <span class="navbar-brand mb-0 h1"><b>Contacts{% block navbar %}{% endblock %}</b></span>
         </nav>
         <main>
             {% block content %}
