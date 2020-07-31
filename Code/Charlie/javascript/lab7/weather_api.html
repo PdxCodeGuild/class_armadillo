@@ -7,8 +7,9 @@
     <title>Weather API</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="secrets.js"></script>
-    <style>
+    <style type="text/css">
         body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
             text-align: center;
             align-content: center;
         }
@@ -17,40 +18,46 @@
 
 <body>
 
-    <div class="outer">
-        <div class="inner">
-            <div class="weather" id="description"></div>
-            <div class="weather" id="temp"></div>
-            <div class="weather" id="humidity"></div>
-        </div>
+
+    <div class="inner">
+        <label for="description">Currently: </label>
+        <span class="weather" id="description"></span></br>
+        <label for="temp">Temperature: </label>
+        <span class="weather" id="temp"></span></br>
+        <label for="humidity">Humidity: </label>
+        <span class="weather" id="humidity"></span></br>
     </div>
+
     <script>
 
-        let description = document.querySelector('#description')
-        let temp = document.querySelector('#temp')
-        let humidity = document.querySelector('#humidity')
+        let description = document.querySelector('#description');
+        let temp = document.querySelector('#temp');
+        let humidity = document.querySelector('#humidity');
         
         navigator.geolocation.getCurrentPosition(position => {
-            console.log('hi')
-            console.log(position.coords.latitude)
-            console.log(position.coords.longitude)
+            
             let userLatitude = position.coords.latitude
             let userLongitude = position.coords.longitude
+            let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${userLatitude}&lon=${userLongitude}&exclude=hourly,daily&appid=${weather_api}` 
 
 
-            console.log(userLatitude)
+            
             axios({
                 method: 'get',
-                url: `https://api.openweathermap.org/data/2.5/onecall?lat=${userLatitude}&lon=${userLongitude}&exclude=hourly,daily&appid=${weather_api}`,
+                url: url,
             }).then(response => {
+                console.log(response.data)
 
 
-
+                current_data = response.data.current.weather[0].id
+                console.log(current_data)
+                let tempeture = response.data.current.temp
+                let temp_F = ((tempeture - 273.15) * 9/5 + 32).toFixed()
+                let humidity1 = response.data.current.humidity   
+                
                 description.innerText = response.data.current.weather[0].description
-                let temps = response.data.current.temp
-                let acutal_temp = ((temps - 273.15) * 9 / 5 + 32).toFixed()
-                temp.innerText = `${acutal_temp}°F  🌡️`
-                humidity.innerText = `${response.data.current.humidity}%  💦`
+                temp.innerText = `${temp_F}% 🌡️`
+                humidity.innerText = `${humidity1}%  💦`
             })
         })  
     </script>
