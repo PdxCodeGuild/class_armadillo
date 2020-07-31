@@ -1,6 +1,53 @@
-import requests
-import re 
 import string
+import requests
+import re
+import math
+
+
+response = requests.get('http://www.gutenberg.org/cache/epub/28437/pg28437.txt')
+txt = response.text
+
+
+def word(text):
+    
+    txt = text.lower()
+    split_words = ("([\w][\w']*\w)")
+    words = re.findall(split_words, text)
+  
+    num_of_words = len(words)
+    return num_of_words
+
+
+
+num_of_words = word(txt)
+
+
+
+
+def characters(chars):
+    return len([char for char in chars if char in string.ascii_letters])  
+
+num_of_chars = characters(txt)
+
+
+
+
+def sentences(text):
+    sentence_count = 0
+
+    for character in txt:
+       
+        if character == '.' or character == '!' or character == '?':
+            sentence_count += 1
+           
+    return sentence_count
+
+num_of_sentences = sentences(txt)
+
+
+ari = 4.71*(num_of_chars/num_of_words)+0.5*(num_of_words/num_of_sentences)-21.43
+
+ari = math.ceil(ari)
 
 
 ari_scale = {
@@ -20,11 +67,6 @@ ari_scale = {
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
 
-book = requests.get('http://www.gutenberg.org/files/46/46-0.txt')
-print(book)
-book = book.text.lower()
-string_list = book.split()
-
-print(book)
-def word_count():
-
+print(f'''The ARI for gettysburg-address.txt is {ari} 
+This corresponds to a {ari_scale[ari]['grade_level']} level of difficulty 
+that is suitable for an average person {ari_scale[ari]['ages']} years old.''')
