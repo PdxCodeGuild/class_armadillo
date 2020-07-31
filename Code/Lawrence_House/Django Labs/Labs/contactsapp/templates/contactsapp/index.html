@@ -7,15 +7,23 @@
 </head>
 <body>
     <h1>{{title}}</h1>
-    <ul>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+        </tr>
         {% for contacts in contact %}
-        <li>
-            <b>{{contacts.first_name}} {{contacts.last_name}}</b><a href="{% url 'contactsapp:detail' contacts.id %}"> <button type="submit">View Contact</button></a>
-        </li>
+        <tr>
+            <td><a href="{% url 'contactsapp:detail' contacts.id %}">{{contacts.first_name}} {{contacts.last_name}}</a></td>
+            <td><a href="tel:{{contacts.phone_number}}">{{contacts.phone_number}}</a></td>
+        </tr>
+        <span>
+        </a>
+        </span>
         {%endfor%}
-    </ul>
+    </table>
     <div>
-        <a href="{% url 'contactsapp:contactsnew' %}">  <button type="submit">New Contact</button></a>
+        <a href="{% url 'contactsapp:contactsnew' %}">  <button type="submit">New Contact</button>
     </div>
 </body>
 </html>

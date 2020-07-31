@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from .models import Contact
 from django.http import Http404, HttpResponse, HttpResponseRedirect
+from datetime import datetime
 
 # Create your views here.
 
@@ -24,11 +25,25 @@ def contactsnew(request):
 
     return render(request, 'contactsapp/newcontact.html', context)
 
-# def contactsnewsubmit():
-#     print(request.POST) #form data in dict
-#     contact_first_name = request.POST['contact_first_name']
-#     contact_last_name = request.POST['contact_last_name']
-#     contact_birthday = request.POST['contact_birthday']
-#     contact_email = request.POST['contact_email']
-#     contact_phone_number = request.POST['contact_phone_number']
-#     return HttpResponse('save contact')
+def new_submit(request):
+    print(request.POST)
+
+    contact_first_name = request.POST['contact_first_name']
+    contact_last_name = request.POST['contact_last_name']
+    contact_age = request.POST['contact_age']
+    contact_birthday = request.POST['contact_birthday']
+    # contact_birthday = datetime.strptime(cont)
+    contact_phone_number = request.POST['contact_phone_number']
+    contact_is_cell = 'contact_is_cell' in request.POST
+    contact_comments = request.POST['contact_comments']
+
+    contact = Contact(  first_name = contact_first_name,
+                        last_name = contact_last_name,
+                        age = contact_age,
+                        birthday = contact_birthday,                    
+                        phone_number = contact_phone_number,
+                        is_cell = contact_is_cell,
+                        comments = contact_comments)
+    contact.save()
+
+    return HttpResponseRedirect(reverse('contactsapp:detail', args=[contact.id]))

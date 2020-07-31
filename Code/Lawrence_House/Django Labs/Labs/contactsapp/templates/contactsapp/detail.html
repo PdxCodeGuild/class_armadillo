@@ -7,8 +7,14 @@
 </head>
 <body>
     <h1>List of Contacts</h1>
+    <a href="{% url 'contactsapp:index' %}">back</a>
     <div>
-        {{person}}
+    <table>
+        <tr>
+            <td>First Name</td>
+            <td>{{contact.first_name}}</td>
+        </tr>
+    </table>
     </div>
 </body>
 </html>
