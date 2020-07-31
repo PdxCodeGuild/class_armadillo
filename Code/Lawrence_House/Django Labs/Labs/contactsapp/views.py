@@ -21,9 +21,7 @@ def detail(request, id):
     return render(request, 'contactsapp/detail.html', context)
 
 def contactsnew(request):
-    context = {}
-
-    return render(request, 'contactsapp/newcontact.html', context)
+    return render(request, 'contactsapp/newcontact.html')
 
 def new_submit(request):
     print(request.POST)
@@ -32,7 +30,6 @@ def new_submit(request):
     contact_last_name = request.POST['contact_last_name']
     contact_age = request.POST['contact_age']
     contact_birthday = request.POST['contact_birthday']
-    # contact_birthday = datetime.strptime(cont)
     contact_phone_number = request.POST['contact_phone_number']
     contact_is_cell = 'contact_is_cell' in request.POST
     contact_comments = request.POST['contact_comments']

@@ -8,18 +8,19 @@
 <body>
     <h1>{{title}}</h1>
     <table>
-        <tr>
-            <th>Name</th>
-            <th>Phone Number</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+            </tr>
+        <thead>
         {% for contacts in contact %}
-        <tr>
-            <td><a href="{% url 'contactsapp:detail' contacts.id %}">{{contacts.first_name}} {{contacts.last_name}}</a></td>
-            <td><a href="tel:{{contacts.phone_number}}">{{contacts.phone_number}}</a></td>
-        </tr>
-        <span>
-        </a>
-        </span>
+            <tbody>
+                <tr>
+                    <td><a href="{% url 'contactsapp:detail' contacts.id %}">{{contacts.first_name}} {{contacts.last_name}}</a></td>
+                    <td><a href="tel:{{contacts.phone_number}}">{{contacts.phone_number}}</a></td>
+                </tr>
+            </tbody>
         {%endfor%}
     </table>
     <div>

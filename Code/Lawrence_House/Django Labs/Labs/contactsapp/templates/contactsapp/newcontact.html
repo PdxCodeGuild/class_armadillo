@@ -12,32 +12,33 @@
         <h1>
             New Contact Form
         </h1>
+        <a href="{% url 'contactsapp:index' %}">back</a>
         <form action="{% url 'contactsapp:newsubmit' %}" method="post">
             <table>
                 {% csrf_token %}
                 <tr>
                     <td><label for="input_first_name">First Name</label></td>
-                    <td><input type="text" id="input_first_name" name="contact_first_name"/></td>
+                    <td><input type="text" id="input_first_name" name="contact_first_name" /></td>
                 </tr>
                 <tr>
                     <td><label for="input_last_name">Last Name</label></td>
-                    <td><input type="text" id="input_last_name" name="contact_last_name"/></td>
+                    <td><input type="text" id="input_last_name" name="contact_last_name" /></td>
                 </tr>
                 <tr>
                     <td><label for="input_age">Age</label></td>
-                    <td><input type="number" id="input_age" name="contact_age"/></td>
+                    <td><input type="number" id="input_age" name="contact_age" /></td>
                 </tr>
                 <tr>
                     <td><label for="input_birthday">Birthday</label></td>
-                    <td><input type="date" id="input_birthday" name="contact_birthday"/></td>
+                    <td><input type="date" id="input_birthday" name="contact_birthday" /></td>
                 </tr>
                 <tr>
                     <td><label for="input_phone_number">Phone Number</label></td>
-                    <td><input type="text" id="input_phone_number" name="contact_phone_number"/></td>
+                    <td><input type="text" id="input_phone_number" name="contact_phone_number" /></td>
                 </tr>
                 <tr>
                     <td><label for="input_is_cell">Is Cell</label></td>
-                    <td><input type="checkbox" id="input_is_cell" name="contact_is_cell"/></td>
+                    <td><input type="checkbox" id="input_is_cell" name="contact_is_cell" /></td>
                 </tr>
                 <tr>
                     <td><label for="input_comments">Comments</label></td>
