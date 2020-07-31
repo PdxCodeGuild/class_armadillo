@@ -31,15 +31,21 @@
             // Reverse the digits
             cc_digits.reverse()
 
+            // Double every other element in the reversed list.
+
             for (let i = 0; i < cc_digits.length; i += 2) {
                 cc_digits[i] *= 2
             }
+
+            // Subtract nine from numbers over 9
 
             for (let i = 0; i < cc_digits.length; ++i) {
                 if (cc_digits[i] > 9) {
                     cc_digits[i] -= 9
                 }
             }
+
+            // Sum all values
 
             var sum = 0
             for (var i = 0; i < cc_digits.length; i++) {
@@ -48,8 +54,11 @@
 
             cc_digits = sum
 
+            // Take the second digit of that sum.
+
             let last_check = cc_digits % 10
 
+            // if that matches the check digit, the whole card number is valid
 
             if (check_digit == last_check) {
                 alert('valid')

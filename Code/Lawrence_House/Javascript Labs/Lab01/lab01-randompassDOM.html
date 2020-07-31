@@ -5,6 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Pass Gen</title>
+    <style>
+        body {
+            background-color: cornflowerblue;
+        }
+        h1 {
+            text-align: center;
+        }
+        #result {
+            font-size: x-large;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,15 +29,26 @@
     </div>
     <script>
 
+        // Event listener for getpassword button
+
         let submit = document.querySelector('#getpass');
         submit.addEventListener('click', function () {
+
+            // characters for password creation
+
             let lowercase_alphabet = "abcdefghijklmnopqrstuvwxyz"
             let uppercase_alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             let numbers = "0123456789"
             let punc = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+
+            // concatenation of characters and user chosen length
+
             let passchars = lowercase_alphabet + uppercase_alphabet + numbers + punc
             let user_choice = document.getElementById('userchoice').value
             alert("Alright! Here you go!")
+
+            // Funtion for iterating over characters at random multiplied by user chosen length
+
             function randpassword(choice) {
                 var result = "";
                 for (let i = 0; i < choice; i++) {
@@ -34,7 +56,9 @@
                 }
                 return result;
             }
-            // alert(randpassword(user_choice))
+            
+            // Result displayed by innerText
+
             let result = document.querySelector('#result')
             result.innerText = randpassword(user_choice)
         })

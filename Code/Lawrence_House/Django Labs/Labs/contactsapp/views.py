@@ -26,6 +26,8 @@ def contactsnew(request):
 def new_submit(request):
     print(request.POST)
 
+    # Assigning POST data to variables
+
     contact_first_name = request.POST['contact_first_name']
     contact_last_name = request.POST['contact_last_name']
     contact_age = request.POST['contact_age']
@@ -33,6 +35,8 @@ def new_submit(request):
     contact_phone_number = request.POST['contact_phone_number']
     contact_is_cell = 'contact_is_cell' in request.POST
     contact_comments = request.POST['contact_comments']
+
+    # Assigning variables to model fields and saving to database
 
     contact = Contact(  first_name = contact_first_name,
                         last_name = contact_last_name,
