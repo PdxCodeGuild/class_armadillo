@@ -23,9 +23,15 @@
             margin: 30px;
             padding: 10px;
         }
+
         .response {
             margin: 30px;
             font-size: 20px;
+        }
+
+        .img {
+            -ms-transform: scaleY(1.5);            
+            transform: scaleY(1.5);
         }
     </style>
 </head>
@@ -37,6 +43,9 @@
         <input id="pw_len" type="text" v-model="how_many" placeholder="Enter PW Length Here...">
         <button id="btn" v-on:click="generatePassword">Generate PW</button></br>
         <div type="text" class="response" id="password">Your password is: {{response}}</div>
+    </div>
+    <div class="img">
+        <img src="css/pw_gen.jpg">
     </div>
     <script type="text/javascript">
         // vue app with data
