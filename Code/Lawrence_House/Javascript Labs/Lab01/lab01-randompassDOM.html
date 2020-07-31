@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Pass Gen</title>
+    <style>
+        body {
+            background-color: cornflowerblue;
+        }
+        h1 {
+            text-align: center;
+        }
+        #result {
+            font-size: x-large;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ZI-LH Industries Password Generator!</h1>
+    <h2>Welcome to the most down to earth password generator you've ever seen, start by entering how many characters you
+        want</h2>
+    <input type="number" id="userchoice" placeholder="Character amount" />
+    <button id="getpass">Get my Password</button>
+    <div id="result">
+
+    </div>
+    <script>
+
+        // Event listener for getpassword button
+
+        let submit = document.querySelector('#getpass');
+        submit.addEventListener('click', function () {
+
+            // characters for password creation
+
+            let lowercase_alphabet = "abcdefghijklmnopqrstuvwxyz"
+            let uppercase_alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            let numbers = "0123456789"
+            let punc = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+
+            // concatenation of characters and user chosen length
+
+            let passchars = lowercase_alphabet + uppercase_alphabet + numbers + punc
+            let user_choice = document.getElementById('userchoice').value
+            alert("Alright! Here you go!")
+
+            // Funtion for iterating over characters at random multiplied by user chosen length
+
+            function randpassword(choice) {
+                var result = "";
+                for (let i = 0; i < choice; i++) {
+                    result += passchars.charAt(Math.floor(Math.random() * passchars.length));
+                }
+                return result;
+            }
+            
+            // Result displayed by innerText
+
+            let result = document.querySelector('#result')
+            result.innerText = randpassword(user_choice)
+        })
+    </script>
+</body>
+
+</html>

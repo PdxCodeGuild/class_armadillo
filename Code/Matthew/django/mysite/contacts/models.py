@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 
+
+
 class Contact(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -11,6 +13,10 @@ class Contact(models.Model):
     phone_number = models.CharField(max_length=50)
     is_cell = models.BooleanField()
     comments = models.TextField(blank=True)
+    location = models.CharField(max_length=500)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+
 
     # used in the admin panel, so you don't just see "Contact object (1)"
     # used in the template if you do {{contact}} - not such a great idea

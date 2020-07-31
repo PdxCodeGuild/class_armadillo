@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Contacts - {% block title %}{% endblock %}</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<style>
+    body {
+        font-family: consolas;
+        background-color: black;
+        color: #34ff56de;
+        margin: 0px;
+        width: 100%;
+        padding: 0;
+    }
+
+    table {
+        /* background-color: rgba(0, 0, 0, 0.425); */
+        margin: auto;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table,
+    td,
+    th {
+        border: 1px solid #34ff56de;
+        text-align: -webkit-center;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    input {
+        border: 2px solid #34ff56de;
+        border-radius: 4px;
+        background-color: black;
+        color: #34ff56de;
+    }
+
+    textarea {
+        border: 2px solid #34ff56de;
+        border-radius: 4px;
+        background-color: black;
+        color: #34ff56de;
+    }
+
+    button {
+        border: 2px solid #34ff56de;
+        border-radius: 4px;
+        background-color: black;
+        color: #34ff56de;
+    }
+    button:hover {
+        background-color: #4CAF50;
+        color: black;
+    }
+</style>
+
+<body>
+    <div class="container-fluid">
+        <!-- <nav class="navbar navbar-dark bg-dark"> -->
+        <nav class="navbar navbar-light" style="background-color: #34ff56de;">
+            <span class="navbar-brand mb-0 h1"><b>Contacts{% block navbar %}{% endblock %}</b></span>
+        </nav>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer>
+            <div class="footer">
+                <span class="text-muted">&copy; Class Armadillo 2020</span>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

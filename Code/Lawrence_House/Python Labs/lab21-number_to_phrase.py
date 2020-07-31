@@ -6,20 +6,14 @@ x = int(input('Enter a Number from 0-999: '))
 
 # Determine number at each place
 
-# x = 67
 hundreds_digit = x//100
-tens_digit = x//10
+tens_digit = (x - hundreds_digit*100)//10
 ones_digit = x%10
-
-# print(tens_digit)
-# print(ones_digit)
-
-# print(seed_number)
 
 # Dictionaries containing English phrase
 
 ones = {
-    0: 'zero',
+    0: '',
     1: 'one',
     2: 'two',
     3: 'three',
@@ -70,11 +64,23 @@ hundreds = {
 # Function for number conversion
 
 def english(seed_number):
+    if x == 0:
+        return "zero"
+    elif hundreds_digit > 0 and tens_digit == 1:
+        return hundreds[hundreds_digit]+' '+tens[1][ones_digit]
+
     if x < 10:
         return ones[x]
     elif x >= 10 and x < 20:
         return tens[1][ones_digit]
     elif x >= 20 and x < 100:
-        return tens[tens_digit]+'-'+ones[ones_digit]
+        return tens[tens_digit]+' '+ones[ones_digit]
+    elif hundreds_digit > 0 and tens_digit == 0 and ones_digit == 0:
+        return hundreds[hundreds_digit]
+    elif x >= 100 and x <= 999:
+        return hundreds[hundreds_digit]+' '+tens[tens_digit]+' '+ones[ones_digit]
+
+    
+    
 
 print(english(x))

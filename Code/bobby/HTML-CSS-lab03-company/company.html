@@ -7,26 +7,31 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Compiled and minified JavaScript
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
 
 
     <title>My Company</title>
 
     <style type="text/css">
+        html {
+            background-color: #ccff00;
+        }
         nav {
             background-color: grey;
             font-family: 'Trade Winds', cursive;
+            font-size: 50px;
 
         }
-        header{
+
+        header {
             background-color: grey;
             font-family: 'Trade Winds', cursive;
             font-size: 100px;
             font-weight: bolder;
             text-align: center;
             color: #ccff00;
-            
+
         }
 
         h1 {
@@ -42,17 +47,22 @@
 
         body {
             background-color: #ccff00;
-            font-family: 'Trade Winds', cursive;
+            font-family: 'Trade Winds', Cursive;
             font-size: 20px;
             font-weight: bold;
-            margin: 1%;
         }
 
-        text {
-            margin-top: 1%;
-            margin-left: 1%;
-            margin-right: 95%;
+        .nav {
+            background-color: #ccff00;
+            font-family: 'Trade Winds', 'Cursive';
+            font-size: 20px;
+            font-weight: normal;
+            padding: 30px;
+            margin: 30px;
+        }
 
+        .card {
+            background-color: #ccff00;
         }
 
         main {
@@ -71,37 +81,57 @@
 
 
 </head>
-
+<header>
+    <img src="/Code/bobby/HTML-CSS-lab03-company/img/db.png" style="width: 100px; padding-top: 30px;">
+    RIDE! RACE! WIN! 
+</header>
 <body>
-    <nav>
-        <div>
-            <ul id="dropdown2" class="dropdown-content">
-                <li><a href="#!">Shop<span class="badge">1</span></a></li>
-                <li><a href="#!">About<span class="new badge">1</span></a></li>
-                <li><a href="#!">Media</a></li>
-            </ul>
-                <a class="btn dropdown-trigger" href="#!" data-target="dropdown2">menu<i class="material-icons right"></i></a>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+        <div class="container">
+            
+            <a class="navbar-brand">BRW263</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link">Contact</a>
+                    </li>
+                        
+                    <li class="nav-item active">
+                        <a class="nav-link">Customise</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link">Account</a>
+                    </li>
+                </ul>             
+            </button>
+            
         </div>
+        
     </nav>
-    <header>
-         <div>
-            Race, Win, Get the Deals
-         </div>
-    </header>
-    <h1>
-        <div style=>
-            <img src="/Code/bobby/HTML-CSS-lab03-company/img/db.png" alt="BrW263" width="100px"> <br>
-             BrW263
-        </div>
+    <div class="container px-50">
+        If you are serious about riding, racing, and winning.
+        You should be serious about you Racer's Resume.
+        If you want to land the best deals with companies all across the industry you have to stick out
+        above the crowd. 
+        If you are you have come to the right place for your custome full color Racer's Resume.
+    </div>
 
-    </h1>
-    <text> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </text>
+    <div class="col-12 col-sm-6 col-md-4 px-2 mb-3">
+        <div class="card">
+            <img src="/Code\bobby\HTML-CSS-lab03-company\img\MX_resume 1.jpg"class="img-fluid" width="500px" style="padding: 30px"/>
+            <img src="/Code\bobby\HTML-CSS-lab03-company\img\MX_resume 2.jpg"class="img-fluid" width="500px"style="padding: 30px"/>
+            <img src="/Code\bobby\HTML-CSS-lab03-company\img\MX_resume 3.jpg"class="img-fluid" width="500px" style="padding: 30px"/>
+                
+        </div>
+    </div>
 </body>
 
 </html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+        <select v-model="selected_state_id" v-on:change="getCities" :disabled="selected_state_id != ''">
+            <option value="">Select a State</option>
+            {% for state in states %}
+            <option value="{{state.id}}">{{state.name}}</option>
+            {% endfor %}
+        </select>
+        <select v-model="selected_city_id">
+            <option value="">Select a City</option>
+            <option v-for="city in cities" v-bind:value="city.id">[[city.name]]</option>
+        </select>
+        <table>
+            <tr>
+                <th>Selected State ID</th>
+                <th>Selected City ID</th>
+            </tr>
+            <tr>
+                <td>[[selected_state_id]]</td>
+                <td>[[selected_city_id]]</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            delimiters: ['[[', ']]'],
+            data: {
+                selected_state_id: '',
+                selected_city_id: '',
+                cities: [],
+            },
+            methods: {
+                getCities: function() {
+                    axios({
+                        method: 'get',
+                        url: "{% url 'main:cities' %}",
+                        params: {
+                            state_id: this.selected_state_id
+                        }
+                    }).then(response => {
+                        this.selected_city_id = ''
+                        this.cities = response.data.cities
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

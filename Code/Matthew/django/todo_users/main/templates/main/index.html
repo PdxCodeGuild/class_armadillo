@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<h1>Welcome to my todo list!</h1>
+<ul>
+    <li><a href="{% url 'main:list' %}">view todos</a></li>
+    <li><a href="{% url 'users:login' %}">login</a></li>
+    <li><a href="{% url 'users:register' %}">register</a></li>
+</ul>
+{% endblock %}

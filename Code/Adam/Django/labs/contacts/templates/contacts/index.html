@@ -1,0 +1,26 @@
+{% extends 'contacts/base.html' %}
+
+{% block title %}Contacts{% endblock %}
+
+{% block navbar %} - Index{% endblock %}
+
+{% block content %}
+<a href="{% url 'contacts:new' %}">Add Contact</a>
+<table>
+    <tr>
+        <th><b>Name</b></th>
+        <th><b>Birthday</b></th>
+        <th><b>Age</b></th>
+        <th><b>Phone Number</b></th>
+    </tr>
+    {% for contact in contacts %}
+    <tr>
+        <td><a href="{% url 'contacts:detail' contact.id %}">{{contact.last_name}}, {{contact.first_name}}</a></td>
+        <td>{{contact.birthday}}</td>
+        <td>{{contact.age}}</td>
+        <td><a href="tel:{{contact.phone_number}}">{{contact.phone_number}}</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

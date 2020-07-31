@@ -1,0 +1,27 @@
+{% extends 'contacts/base.html' %}
+
+{% block title %}Detail{% endblock %}
+
+{% block navbar %} - Details{% endblock %}
+
+{% block content %}
+<a href="{% url 'contacts:index' %}">previous</a>
+<table>
+    <tr>
+        <td><b>Name</b></td>
+        <td>{{contact.last_name}}, {{contact.first_name}}</td>
+    </tr>
+    <tr>
+        <td><b>Birthday</b></td>
+        <td>{{contact.birthday}} ({{contact.age}})</td>
+    </tr>
+    <tr>
+        <td><b>Phone Number</b></td>
+        <td>{{contact.phone_number}}</td>
+    </tr>
+    <tr>
+        <td><b>Comments</b></td>
+        <td>{{contact.comments}}</td>
+    </tr>
+</table>
+{% endblock %}

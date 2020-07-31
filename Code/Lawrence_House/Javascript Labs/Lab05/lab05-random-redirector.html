@@ -11,23 +11,26 @@
     </style>
 </head>
 <body>
-    <div id="counter">5</div>
+    <button id="lets_spin">Ready to go?</button>
+    <div id="counter"></div>
     <script>
-        let random_urls = ['https://www.capcom.com/','https://www.ubisoft.com/en-us/','https://www.nintendo.com/']
 
-        let lucky_url = random_urls[Math.floor(Math.random() * random_urls.length)]
-        console.log(lucky_url)
+        lets_spin.addEventListener('click', function () {
+            let random_urls = ['https://www.capcom.com/','https://www.ubisoft.com/en-us/','https://www.nintendo.com/']
+            let lucky_url = random_urls[Math.floor(Math.random() * random_urls.length)]
+            console.log(lucky_url)
+            let counter = 6
+            setInterval(function() {
+                counter -= 1;
+                document.getElementById('counter').innerText = counter;
+            }, 1000);
 
-        let counter = 0;
-        let interval = setInterval(function() {
-            counter += 1;
-        }, 1000);
+            
 
-        document.getElementById('counter').innerHTML = counter;
-
-        setTimeout(function() {
-            location.assign(lucky_url);                   
-        }, 5000);
+            setTimeout(function() {
+                location.assign(lucky_url);                   
+            }, 6000);
+        })
     </script>
 </body>
 </html>

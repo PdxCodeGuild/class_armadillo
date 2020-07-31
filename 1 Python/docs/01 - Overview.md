@@ -1,99 +1,14 @@
 
 # Overview
+- [Overview](#overview)
+  - [Running Python](#running-python)
+  - [Installing Packages with `pip`](#installing-packages-with-pip)
+  - [Common Built-in Modules](#common-built-in-modules)
+  - [Other Popular Modules](#other-popular-modules)
+  - [Terms](#terms)
+  - [Keywords](#keywords)
 
 Python is a popular general-purpose multi-paradigm programming language. General purpose means it can be used for a variety of purposes: desktop applications, [games](https://wiki.python.org/moin/GameProgramming), [embedded systems](https://micropython.org/), web development (Flask and Django), [data science](https://www.upwork.com/hiring/data/15-python-libraries-data-science/), [artificial intelligence](https://wiki.python.org/moin/PythonForArtificialIntelligence) and more. It also means that its core principles carry over to other languages, so you'll be able to more easily broaden your horizon. Python always has an active community with plenty of learning resources, conferences, and libraries. For more information, check out the [Python Language Reference](https://docs.python.org/3/reference/index.html#reference-index) and [Python Standard Library](https://docs.python.org/3/library/index.html). The [wikipedia article](https://en.wikipedia.org/wiki/Python_(programming_language)) offers a decent overview.
-
-
-## Keywords
-
-```python
-import keyword
-keyword.kwlist
-```
-
-- **and** boolean operator
-- **as** used with imports
-- **assert** used for debugging
-- **async** 
-- **await** 
-- **break** used with loops, exit the current loop
-- **class** blueprints of an object, including data and methods
-- **continue** used for loops, skip the rest of the current iteration and go to the next
-- **def** define a function
-- **del** delete, used with lists and dicts
-- **elif** else-if, part of a conditional
-- **else** part of a conditional
-- **except** part of exception handling
-- **False** boolean literal
-- **finally* part of exception handling
-- **for** define a for-loop
-- **from** used with imports
-- **global** define a global variable
-- **if** part of conditionals
-- **import** used with imports
-- **in** a boolean operator, also part of for-loops
-- **is** a boolean operator, tests for equality
-- **lambda** a short-hand function
-- **None** a boolean literal
-- **nonlocal** ???
-- **not** a boolean operator
-- **or** a boolean operator
-- **pass** 
-- **raise**
-- **return**
-- **True**
-- **try**
-- **while**
-- **with**
-- **yield**
-
-
-## Common Built-in Types
-
-For all the built-in types, check the [official docs](https://docs.python.org/3.2/library/stdtypes.html). To check an object's type, use the `type` function.
-
-- `None` the absence of a value, [null](https://en.wikipedia.org/wiki/Null_pointer)
-- `int` integer number
-- `float` floating-point number
-- `string` text
-- `bool` `True` or `False`
-- `list` an ordered list of objects
-- `set` an unordered collection of unique objects
-- `dict` a collection of key-value pairs
-- `range` represents a range of numbers
-
-
-
-## Common Built-in Functions
-
-For all the built-in functions, check the [official docs](https://docs.python.org/3/library/functions.html)
-
-
-- I/O
-    - input() prompts the user for input on the terminal
-    - print() displays text to the user on the terminal
-- Arithmetic
-    - abs() returns the absolute value of a number
-    - round() rounds a number, an optional second argument can specify how many decimal places the output should have
-    - min() returns the minimum of the values passed to it
-    - max() returns the maximum of the values passed to it
-    - sum() returns the sum of the values passed to it
-- Type Conversion
-    - int() converts a value to an int
-    - float() converts a value to a float
-    - str() converts a value to a string
-    - chr() converts an int to a string containing the character with that unicode value, for example `chr(97)` returns the string 'a'
-    - ord() converts a character into an int representing the unicode value, for example `ord('a')` returns `97`
-    - bool() converts a value to a boolean
-    - list() converts a value to a list
-    - tuple() converts a value to a tuple
-    - set() converts a value to a set
-    - dict() converts a value to a dict
-- Iterables
-    - len() returns the length of a list
-    - sorted() sorts a list
-    - reversed() reverses a list
-
 
 
 ## Running Python
@@ -216,3 +131,48 @@ These can be installed using `pip install <module>`. You can find more libraries
 - variable
 	- e.g. algebra, a name that stands for a value 
     - the name can be made with letters, numbers, and underscores, it just can't start with a number
+
+
+
+## Keywords
+
+```python
+import keyword
+keyword.kwlist
+```
+
+- **and** boolean operator
+- **as** used with imports
+- **assert** used for debugging
+- **async** 
+- **await** 
+- **break** used with loops, exit the current loop
+- **class** blueprints of an object, including data and methods
+- **continue** used for loops, skip the rest of the current iteration and go to the next
+- **def** define a function
+- **del** delete, used with lists and dicts
+- **elif** else-if, part of a conditional
+- **else** part of a conditional
+- **except** part of exception handling
+- **False** boolean literal
+- **finally* part of exception handling
+- **for** define a for-loop
+- **from** used with imports
+- **global** define a global variable
+- **if** part of conditionals
+- **import** used with imports
+- **in** a boolean operator, also part of for-loops
+- **is** a boolean operator, tests for equality
+- **lambda** a short-hand function
+- **None** a boolean literal
+- **nonlocal** ???
+- **not** a boolean operator
+- **or** a boolean operator
+- **pass** 
+- **raise**
+- **return**
+- **True**
+- **try**
+- **while**
+- **with**
+- **yield**

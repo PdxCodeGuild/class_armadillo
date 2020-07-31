@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="Secrets.js"></script>
+    <link href="css/owfont-regular.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Weather API</title>
+
+    <style type="text/css">
+        body {
+            font-family: 'Permanent Marker', cursive;
+            text-align: center; 
+            background-color: #f2cc8f;
+        }
+        .weather_display {
+            font-family: 'Permanent Marker', cursive;
+        }
+
+        .thermometers {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 150px;
+        }
+
+        .current_skies {
+            border-radius: 4px;
+            padding: 5px;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--header of page  -->
+    <h2>Today's Weather Info</h2>
+    <!-- thermometer pic -->
+    <img class="thermometers" src="css/thermometers.jpg">
+    <!-- div for data being displayed with labels -->
+    <div class="weather_display">
+        <label for="current_temp">Current Temperature: </label>
+        <span class="weather" id="current_temp"></span></br>
+        <label for="feels_like">Feels Like Temperature: </label>
+        <span class="weather" id="feels_like"></span></br>
+        <label for="wind_speed">Wind Speed: </label>
+        <span class="weather" id="wind_speed"></span></br>
+        <label for="description">Currently: </label>
+        <span class="weather" id="description"></span></br>
+        <!-- div to display icon from API -->
+        <div id="icon"></div>
+    </div>
+    
+    <script>
+        // script for HTML elements
+        let current_temp = document.querySelector("#current_temp");
+        let feels_like_temp = document.querySelector("#feels_like");
+        let wind_speed = document.querySelector("#wind_speed");
+        let description = document.querySelector("#description");
+        let icon = document.querySelector("#icon")
+        
+
+        let latitude
+        let longitude        
+        // function to get current location
+        navigator.geolocation.getCurrentPosition(position => {
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+            // weather API call as a template literal
+            let weather_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&
+            exclude=hourly,daily&units=imperial&appid=${Weather_API_Key}`
+
+            // date-time conversion
+            let unix_timestamp = 1596062506
+            let datetime = new Date(unix_timestamp * 1000)
+            console.log(datetime)
+            // axios call for weather API and data results 
+            axios({
+                method: "get",
+                url: weather_url,
+            }).then(response => {
+                console.log(response.data)
+                current_data = response.data.current.weather[0].id
+                description.innerText = response.data.current.weather[0].description
+                current_temp.innerText = response.data.current.temp
+                feels_like_temp.innerText = response.data.current.feels_like
+                wind_speed.innerText = response.data.current.wind_speed
+                src = `http://openweathermap.org/img/wn/${response.data.current.weather[0].icon}.png` 
+                picture = document.createElement("img")
+                picture.src = src
+                icon.appendChild(picture)
+            })
+        })
+    </script>
+</body>
+
+</html>

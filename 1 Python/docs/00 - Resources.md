@@ -3,6 +3,15 @@
 
 # Resources
 
+- [Resources](#resources)
+  - [Practice Problems](#practice-problems)
+  - [Courses / Online Books](#courses--online-books)
+  - [Lists of Resources](#lists-of-resources)
+  - [Online Courses](#online-courses)
+  - [Books](#books)
+  - [Reference Documents and Tutorials](#reference-documents-and-tutorials)
+  - [Practice Problems](#practice-problems-1)
+
 ## Practice Problems
 
 - [Codecademy - Python](https://www.codecademy.com/learn/learn-python-3)
