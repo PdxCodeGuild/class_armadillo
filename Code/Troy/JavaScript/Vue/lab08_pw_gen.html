@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <!-- div for app with title, input field, submit button, and output -->
     <div id="app">
         <h3>{{title_message}}</h3>
         <input id="pw_len" type="text" v-model="how_many" placeholder="Enter PW Length Here...">
@@ -16,8 +17,7 @@
         <span type="text" id="password">Your password is: {{response}}</span>
     </div>
     <script type="text/javascript">
-
-
+        // vue app with data
         let app = new Vue({
             el: '#app',
             data: {
@@ -29,11 +29,13 @@
                 special_chars: "!@#$%^&*=+",
                 response: "",
             },
+            // method calling the function to generate the password
             methods: {
                 generatePassword: function () {
+                    // assign variable and concatenation using above data
                     let characters = this.lowercase + this.uppercase + this.numbers + this.special_chars
                     this.response = ""
-
+                    // for loop looping over characters choosing random indices for output
                     for (let i = 0; i < this.how_many; ++i) {
                         this.response += characters.charAt(Math.floor(Math.random() * characters.length));
                     }
