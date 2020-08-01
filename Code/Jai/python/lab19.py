@@ -1,54 +1,6 @@
 import string
 import requests
-import re
 import math
-
-
-response = requests.get('http://www.gutenberg.org/cache/epub/28437/pg28437.txt')
-txt = response.text
-
-
-def word(text):
-    
-    txt = text.lower()
-    split_words = ("([\w][\w']*\w)")
-    words = re.findall(split_words, text)
-  
-    num_of_words = len(words)
-    return num_of_words
-
-
-
-num_of_words = word(txt)
-
-
-
-
-def characters(chars):
-    return len([char for char in chars if char in string.ascii_letters])  
-
-num_of_chars = characters(txt)
-
-
-
-
-def sentences(text):
-    sentence_count = 0
-
-    for character in txt:
-       
-        if character == '.' or character == '!' or character == '?':
-            sentence_count += 1
-           
-    return sentence_count
-
-num_of_sentences = sentences(txt)
-
-
-ari = 4.71*(num_of_chars/num_of_words)+0.5*(num_of_words/num_of_sentences)-21.43
-
-ari = math.ceil(ari)
-
 
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
@@ -66,7 +18,52 @@ ari_scale = {
     13: {'ages': '17-18', 'grade_level':   '12th Grade'},
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
+response = requests.get('http://www.gutenberg.org/cache/epub/28437/pg28437.txt')
+text = response.text
+text = text.lower()
+text_strings = text.split()
+#print(text_strings)
+#print(text)
 
-print(f'''The ARI for gettysburg-address.txt is {ari} 
-This corresponds to a {ari_scale[ari]['grade_level']} level of difficulty 
-that is suitable for an average person {ari_scale[ari]['ages']} years old.''')
+#clean_text = text.split(punctuation)
+#print(clean_text)
+def word_count():
+    punctuation = '0123456789.,;!&%$?"()[]#*\/'
+    for i in range (len(text_strings)):
+        text_strings[i] = text_strings[i].strip(punctuation)
+        words_num = len(text_strings)
+        return words_num
+
+def num_of_sentences():
+    sentence_list = text.split('.')
+    num_of_sentences = len(sentence_list)
+    return num_of_sentences
+
+def char_count():
+    string_list = ''.join([str(i) for i in text_strings ])
+    char_num = len(string_list)
+    return char_num
+
+
+    
+  
+  
+
+words = word_count()
+characters = char_count()
+sentences = num_of_sentences()
+
+
+score = 4.71*(characters/words) + 0.5*(words/sentences) - 21.43
+print(score)
+score = math.ceil(score) 
+if score < 1:
+    score = 1
+elif score > 14:
+    score = 14
+
+
+
+print(f'The Ari for the gettysburg adress is {score}')
+print(f'this corresponds to ages {ari_scale[score]["ages"]}')
+print(f'this corresponds to {ari_scale[score]["grade_level"]}')
