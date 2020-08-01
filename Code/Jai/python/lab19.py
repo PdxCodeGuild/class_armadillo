@@ -52,8 +52,6 @@ def char_count():
 words = word_count()
 characters = char_count()
 sentences = num_of_sentences()
-
-
 score = 4.71*(characters/words) + 0.5*(words/sentences) - 21.43
 print(score)
 score = math.ceil(score) 
@@ -66,4 +64,4 @@ elif score > 14:
 
 print(f'The Ari for the gettysburg adress is {score}')
 print(f'this corresponds to ages {ari_scale[score]["ages"]}')
-print(f'this corresponds to {ari_scale[score]["grade_level"]}')
+print(f'this corresponds to {ari_scale[score]["grade_level"]} level')
